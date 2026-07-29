@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.Python
+.venv/
+venv/
+dist/
+build/
+
+# Tests and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Generated experiment data
+data/
+results/
+outputs/
+*.pt
+*.pth
+*.ckpt
+*.log
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local environment
+.env
+.env.*
+!.env.example

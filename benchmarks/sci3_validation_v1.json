@@ -1,0 +1,745 @@
+{
+  "suite_id": "sci3_validation_v1",
+  "seed": 20260712,
+  "purpose": "hyperparameter selection only; never report as final test",
+  "frozen_before_formal_training": true,
+  "point_count": 64,
+  "points": [
+    {
+      "id": "harmonic_honeycomb-validation-0000",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.359651276287,
+        0.318653785389,
+        0.232400449074,
+        0.036535032467
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0001",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.370265063086,
+        0.295063221362,
+        0.610332569879,
+        0.067324961996
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0002",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.33569250222,
+        0.292133632028,
+        0.674073681642,
+        0.015383800506
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0003",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.294606226671,
+        0.347762570794,
+        0.454158145469,
+        -0.012302817758
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0004",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.346652718214,
+        0.297680916456,
+        0.614409590243,
+        0.007542128626
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0005",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.284315761807,
+        0.366770780297,
+        0.245821050121,
+        -0.078902691776
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0006",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.323306631081,
+        0.283755352128,
+        0.274670495939,
+        -0.062335894019
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0007",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.371029843132,
+        0.336968272925,
+        0.5496112954,
+        -0.030744256809
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0008",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.338115113298,
+        0.327156670827,
+        0.779024647517,
+        -0.059354007843
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0009",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.297107492241,
+        0.335101345093,
+        0.502948912747,
+        0.02877155507
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0010",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.379610884871,
+        0.321633772189,
+        0.753317062542,
+        -0.028346369494
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0011",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.362975930339,
+        0.378121102947,
+        0.520012516837,
+        -0.072430730522
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0012",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.306026293698,
+        0.282857005002,
+        0.690980518576,
+        0.064588424246
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0013",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.342483281409,
+        0.302636827045,
+        0.418436696362,
+        0.045628354133
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0014",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.304499148133,
+        0.289256617164,
+        0.331611920578,
+        0.055649117497
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0015",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.28707232954,
+        0.325848842742,
+        0.278971947783,
+        0.070474900463
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0016",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.366330250284,
+        0.345610267202,
+        0.785834472193,
+        0.011322592121
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0017",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.356297879411,
+        0.36234372869,
+        0.35695953952,
+        -0.022546150493
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0018",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.37609184913,
+        0.330322594195,
+        0.588138162134,
+        -0.054607387273
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0019",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.291710180412,
+        0.317469836604,
+        0.380670927478,
+        0.033859980979
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0020",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.343718219041,
+        0.340865679029,
+        0.483186899474,
+        -0.00407899363
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0021",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.280409856887,
+        0.357092261731,
+        0.205981751773,
+        0.052980623715
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0022",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.300229880384,
+        0.30806593335,
+        0.556576460969,
+        0.020190529495
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0023",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.352703103659,
+        0.313706931491,
+        0.730538666644,
+        0.04019607435
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0024",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.331365224392,
+        0.371517346698,
+        0.325048184625,
+        -0.045873450139
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0025",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.32471719528,
+        0.37549808342,
+        0.299694364579,
+        -0.041305952718
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0026",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.319054529961,
+        0.301769936649,
+        0.404645837297,
+        -0.037437671881
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0027",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.351753857308,
+        0.354170838544,
+        0.442760971511,
+        -0.067045968636
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0028",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.309364384755,
+        0.308851470869,
+        0.714729258544,
+        -0.009021297529
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0029",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.329827678673,
+        0.349735720134,
+        0.663174641941,
+        -0.015854192607
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0030",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.311451624262,
+        0.36924173203,
+        0.47569139945,
+        0.002210941319
+      ]
+    },
+    {
+      "id": "harmonic_honeycomb-validation-0031",
+      "family": "harmonic_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.315007946189,
+        0.359929855866,
+        0.632825375156,
+        0.07918504008
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0000",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.378875304661,
+        0.338952257026,
+        1.480743589846,
+        0.292627969119,
+        -0.003289329089
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0001",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.30546937147,
+        0.284613660188,
+        2.018556315019,
+        0.196719456659,
+        -0.014321810612
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0002",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.347690387481,
+        0.368065969122,
+        1.238970715837,
+        0.231000551017,
+        0.020264418763
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0003",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.329862160848,
+        0.316986103343,
+        3.220724455752,
+        0.348126332698,
+        0.033006514274
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0004",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.357338511346,
+        0.322693126736,
+        2.040986652887,
+        0.285683604824,
+        -0.072681088702
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0005",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.330509724475,
+        0.331819418879,
+        2.544625788326,
+        0.287138698495,
+        0.008897926952
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0006",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.374967571561,
+        0.376076470885,
+        1.13789202042,
+        0.23627351802,
+        0.07895561848
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0007",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.338012338005,
+        0.348308928466,
+        3.307304065622,
+        0.312686371946,
+        0.045500202356
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0008",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.286552528257,
+        0.353167452324,
+        1.385757794107,
+        0.216114790053,
+        0.069339717196
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0009",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.371585966766,
+        0.297623815789,
+        1.63674248227,
+        0.203156314415,
+        0.054065168672
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0010",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.295813897403,
+        0.357805974837,
+        3.013953377366,
+        0.324325802427,
+        -0.041153268456
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0011",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.35411719681,
+        0.341784286002,
+        3.922941359426,
+        0.279270149183,
+        0.071918131572
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0012",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.312484132924,
+        0.309188459965,
+        2.94353707149,
+        0.343006986668,
+        -0.027238641567
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0013",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.308924735333,
+        0.349569498161,
+        1.723606981351,
+        0.189159273086,
+        -0.068489323555
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0014",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.3622583872,
+        0.312349931452,
+        3.427362434812,
+        0.314988399358,
+        -0.00701960338
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0015",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.303128311321,
+        0.317623773879,
+        3.076545737205,
+        0.298479807531,
+        -0.024143456801
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0016",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.333797056734,
+        0.344022244172,
+        3.868965631103,
+        0.224187695635,
+        -0.076655549619
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0017",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.280459611912,
+        0.291974985089,
+        1.790009549492,
+        0.269587629191,
+        0.038449745696
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0018",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.34994080329,
+        0.372090668326,
+        2.125194343378,
+        0.274668372819,
+        0.027663656277
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0019",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.326796137104,
+        0.300327915497,
+        1.292569384005,
+        0.3196487999,
+        0.015131884653
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0020",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.321251756112,
+        0.329454726403,
+        2.319551679235,
+        0.259747194606,
+        0.001925384023
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0021",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.31840374966,
+        0.306559883945,
+        2.752424019302,
+        0.253953051802,
+        -0.030798394391
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0022",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.364488208964,
+        0.287667095242,
+        2.624146398709,
+        0.180300214129,
+        0.010248815914
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0023",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.358739384864,
+        0.359559703272,
+        2.301247705054,
+        0.257620575384,
+        -0.049205610777
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0024",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.2996134501,
+        0.304505904065,
+        3.52881999587,
+        0.338869910739,
+        -0.060410330144
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0025",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.370139679384,
+        0.33485321628,
+        1.911740283163,
+        0.209948583123,
+        -0.050463290311
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0026",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.290398462447,
+        0.366613795353,
+        3.624867168375,
+        0.195713784206,
+        0.059608759833
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0027",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.283990012806,
+        0.281320086185,
+        1.022281863602,
+        0.303773511989,
+        0.063424604262
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0028",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.293454403121,
+        0.36323751855,
+        3.692866397098,
+        0.22045946698,
+        -0.019825320792
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0029",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.31705463691,
+        0.378855677469,
+        2.847948238534,
+        0.245076559914,
+        -0.057687544788
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0030",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.342182948964,
+        0.294338346598,
+        3.796121719815,
+        0.24312742472,
+        -0.039235986259
+      ]
+    },
+    {
+      "id": "gaussian_honeycomb-validation-0031",
+      "family": "gaussian_honeycomb",
+      "split": "validation",
+      "parameters": [
+        0.342609534076,
+        0.326069420997,
+        2.437913712685,
+        0.331738718724,
+        0.043845229471
+      ]
+    }
+  ]
+}

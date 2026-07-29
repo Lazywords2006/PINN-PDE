@@ -1,0 +1,22 @@
+{
+  "name": "smoke_mgs_dual_path_20260729",
+  "method": "block_kyfan",
+  "device": "mps",
+  "seeds": [701, 702, 703],
+  "steps": 300,
+  "points": 256,
+  "parameter_batch": 4,
+  "width": 48,
+  "hidden_layers": 3,
+  "learning_rate": 0.001,
+  "anchor_kind": "correct",
+  "anchor_scale": 0.4,
+  "residual_weight": 0.0,
+  "eval_grid_side": 13,
+  "reference_cutoff": 6,
+  "checkpoint_every": 0,
+  "resume": false,
+  "output_dir": "results/mgs_ab_20260729/dual_path",
+  "orthogonalization": "dual_path",
+  "sampling_stream": "legacy_global_v1"
+}

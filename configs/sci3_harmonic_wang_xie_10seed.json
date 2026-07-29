@@ -1,0 +1,45 @@
+{
+  "name": "sci3_harmonic_wang_xie_10seed",
+  "method": "wang_xie_trace",
+  "device": "cuda",
+  "seeds": [
+    11,
+    22,
+    33,
+    44,
+    55,
+    66,
+    77,
+    88,
+    99,
+    111
+  ],
+  "steps": 5000,
+  "points": 1024,
+  "parameter_batch": 8,
+  "width": 96,
+  "hidden_layers": 4,
+  "learning_rate": 0.001,
+  "anchor_kind": "none",
+  "anchor_scale": 0,
+  "residual_weight": 0,
+  "residual_start_fraction": 0.8,
+  "eval_grid_side": 33,
+  "reference_cutoff": 8,
+  "checkpoint_every": 500,
+  "resume": true,
+  "output_dir": "results/sci3/harmonic/wang_xie",
+  "potential_family": "harmonic_honeycomb",
+  "parameter_lower": [
+    0.28,
+    0.28,
+    0.2,
+    -0.08
+  ],
+  "parameter_upper": [
+    0.38,
+    0.38,
+    0.8,
+    0.08
+  ]
+}

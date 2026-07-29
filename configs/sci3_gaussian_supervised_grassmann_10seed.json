@@ -1,0 +1,49 @@
+{
+  "name": "sci3_gaussian_supervised_grassmann_10seed",
+  "method": "supervised_grassmann",
+  "device": "cuda",
+  "seeds": [
+    11,
+    22,
+    33,
+    44,
+    55,
+    66,
+    77,
+    88,
+    99,
+    111
+  ],
+  "steps": 3000,
+  "points": 1089,
+  "parameter_batch": 8,
+  "width": 96,
+  "hidden_layers": 4,
+  "learning_rate": 0.001,
+  "anchor_kind": "none",
+  "anchor_scale": 0,
+  "residual_weight": 0,
+  "residual_start_fraction": 0.8,
+  "eval_grid_side": 33,
+  "reference_cutoff": 8,
+  "checkpoint_every": 500,
+  "resume": false,
+  "output_dir": "results/sci3/gaussian/supervised_grassmann",
+  "potential_family": "gaussian_honeycomb",
+  "parameter_lower": [
+    0.28,
+    0.28,
+    1,
+    0.18,
+    -0.08
+  ],
+  "parameter_upper": [
+    0.38,
+    0.38,
+    4,
+    0.35,
+    0.08
+  ],
+  "dtype": "float32",
+  "subspace_rank": 4
+}

@@ -1,0 +1,23 @@
+{
+  "name": "sci3_gaussian_smoke_cpu",
+  "method": "block_kyfan",
+  "device": "cpu",
+  "seeds": [101],
+  "steps": 2,
+  "points": 36,
+  "parameter_batch": 1,
+  "width": 16,
+  "hidden_layers": 1,
+  "learning_rate": 0.001,
+  "anchor_kind": "correct",
+  "anchor_scale": 0.4,
+  "residual_weight": 0.0,
+  "eval_grid_side": 7,
+  "reference_cutoff": 3,
+  "checkpoint_every": 1,
+  "resume": false,
+  "output_dir": "results/sci3_smoke/gaussian",
+  "potential_family": "gaussian_honeycomb",
+  "parameter_lower": [0.28, 0.28, 1.0, 0.18, -0.08],
+  "parameter_upper": [0.38, 0.38, 4.0, 0.35, 0.08]
+}

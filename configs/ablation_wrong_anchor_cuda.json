@@ -1,0 +1,20 @@
+{
+  "name": "ablation_wrong_anchor",
+  "method": "block_kyfan",
+  "device": "cuda",
+  "seeds": [11, 22, 33],
+  "steps": 5000,
+  "points": 1024,
+  "parameter_batch": 8,
+  "width": 96,
+  "hidden_layers": 4,
+  "learning_rate": 0.001,
+  "anchor_kind": "wrong",
+  "residual_weight": 0.01,
+  "residual_start_fraction": 0.8,
+  "eval_grid_side": 33,
+  "reference_cutoff": 8,
+  "checkpoint_every": 500,
+  "resume": true,
+  "output_dir": "results/formal_cuda/ablation_wrong_anchor"
+}

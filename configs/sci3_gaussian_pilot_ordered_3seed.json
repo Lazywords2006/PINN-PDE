@@ -1,0 +1,40 @@
+{
+  "name": "sci3_gaussian_pilot_ordered_3seed",
+  "method": "ordered_residual",
+  "device": "cuda",
+  "seeds": [
+    101,
+    102,
+    103
+  ],
+  "steps": 5000,
+  "points": 1024,
+  "parameter_batch": 8,
+  "width": 96,
+  "hidden_layers": 4,
+  "learning_rate": 0.001,
+  "anchor_kind": "none",
+  "anchor_scale": 0,
+  "residual_weight": 0,
+  "residual_start_fraction": 0.8,
+  "eval_grid_side": 33,
+  "reference_cutoff": 8,
+  "checkpoint_every": 500,
+  "resume": true,
+  "output_dir": "results/sci3/gaussian/pilot_ordered",
+  "potential_family": "gaussian_honeycomb",
+  "parameter_lower": [
+    0.28,
+    0.28,
+    1,
+    0.18,
+    -0.08
+  ],
+  "parameter_upper": [
+    0.38,
+    0.38,
+    4,
+    0.35,
+    0.08
+  ]
+}
