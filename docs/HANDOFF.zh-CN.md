@@ -2,7 +2,10 @@
 
 > P3 的 AMD pilot 已被报告为 STOP，且原始结果包尚未在仓库中独立复核。本文档中的
 > P3 命令现在只用于证据重现，不得继续到 frozen final。重新设计的判断依据和下一步
-> 实验矩阵见 [P3 后验审计与 P4 决策](POST-PILOT-DECISION.zh-CN.md)。
+> 实验矩阵见 [当前结果、A-GTNet 方案与投稿决策](POST-PILOT-DECISION.zh-CN.md)。
+
+当前新的正式交接入口是 [A-GTNet 执行机指令](P4-EXECUTOR.zh-CN.md)。下面的 P3 内容仅为
+历史复现说明。
 
 交接日期：2026-07-30。
 

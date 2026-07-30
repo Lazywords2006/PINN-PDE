@@ -196,6 +196,25 @@ class P3BlockKyFanPINN(nn.Module):
             )
         return provisional, normalization_provisional
 
+    def raw_trial_basis(self, coordinates: Tensor, parameters: Tensor) -> Tensor:
+        """Return the unretracted rank-two trial basis.
+
+        This public path is used only by post-P3 objective diagnostics.  The
+        historical :meth:`forward` contract remains the L2-orthonormal basis
+        used by P3 checkpoints and the frozen P3 protocol.
+        """
+
+        if coordinates.ndim != 3 or coordinates.shape[-1] != 2:
+            raise ValueError("coordinates must have shape [batch, points, 2]")
+        if parameters.shape != (coordinates.shape[0], self.parameter_dim):
+            raise ValueError(f"parameters must have shape [batch, {self.parameter_dim}]")
+        if self.m_weighted:
+            raw, _ = self._raw_pair(coordinates, parameters)
+            return raw
+        fixed = self._fixed_anchor(coordinates)
+        correction = self._combined_correction(coordinates, parameters)
+        return fixed + self.anchor_scale * correction
+
     def forward(self, coordinates: Tensor, parameters: Tensor) -> Tensor:
         if coordinates.ndim != 3 or coordinates.shape[-1] != 2:
             raise ValueError("coordinates must have shape [batch, points, 2]")
@@ -242,7 +261,9 @@ class P3BlockKyFanPINN(nn.Module):
             disagreement = torch.zeros_like(residual_risk)
         else:
             pairwise = [
-                chart_disagreement_risk(chart_bases[left], chart_bases[right]).to(residual.device)
+                chart_disagreement_risk(chart_bases[left], chart_bases[right]).to(
+                    device=residual.device, dtype=residual.dtype
+                )
                 for left in range(len(chart_bases))
                 for right in range(left + 1, len(chart_bases))
             ]

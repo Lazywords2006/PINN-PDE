@@ -380,6 +380,11 @@ def main() -> int:
     parser.add_argument("--audit-only", action="store_true")
     parser.add_argument("--suites-only", action="store_true")
     parser.add_argument(
+        "--cache-only",
+        action="store_true",
+        help="use committed suites to build reference caches without rewriting benchmarks",
+    )
+    parser.add_argument(
         "--reference-scope",
         choices=("none", "validation", "all"),
         default="validation",
@@ -387,8 +392,11 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    if args.audit_only and args.suites_only:
-        parser.error("--audit-only and --suites-only are mutually exclusive")
+    modes = (args.audit_only, args.suites_only, args.cache_only)
+    if sum(bool(mode) for mode in modes) > 1:
+        parser.error("--audit-only, --suites-only, and --cache-only are mutually exclusive")
+    if args.cache_only and args.reference_scope == "none":
+        parser.error("--cache-only requires --reference-scope validation or all")
 
     device = select_device(args.device)
     print(f"Device: {device}")
@@ -398,7 +406,7 @@ def main() -> int:
     output_dir.mkdir(parents=True, exist_ok=True)
     data_dir.mkdir(parents=True, exist_ok=True)
 
-    if not args.audit_only:
+    if not args.audit_only and not args.cache_only:
         # ── Generate V2 test suite ──
         print("Generating V2 frozen test suite (640 points)...")
         t0 = time.perf_counter()
@@ -436,7 +444,21 @@ def main() -> int:
             return 0
 
     # ── Reference convergence audit ──
-    print("Running cutoff convergence audit...")
+    if args.cache_only:
+        convergence_path = output_dir / "v2_reference_convergence.json"
+        convergence_hash_path = output_dir / "v2_reference_convergence.sha256"
+        if not convergence_path.is_file() or not convergence_hash_path.is_file():
+            raise FileNotFoundError("committed convergence audit or SHA-256 is missing")
+        expected_hash = convergence_hash_path.read_text().split()[0]
+        if file_sha256(convergence_path) != expected_hash:
+            raise ValueError("committed convergence audit SHA-256 is invalid")
+        convergence = json.loads(convergence_path.read_text())
+        if convergence.get("all_passed") is not True:
+            raise ValueError("committed reference convergence audit did not pass")
+        all_passed = True
+        print("Using committed, SHA-verified cutoff convergence audit.")
+    else:
+        print("Running cutoff convergence audit...")
     test_params = [
         ([0.31, 0.35, 0.35, 0.05], "harmonic_honeycomb"),
         ([1.0/3.0, 1.0/3.0, 0.60, 0.0], "harmonic_honeycomb"),
@@ -446,36 +468,37 @@ def main() -> int:
         ([0.42, 0.24, 4.4, 0.37, 0.10], "gaussian_honeycomb"),
     ]
 
-    all_passed = True
-    audit_results = []
-    for params, family in test_params:
-        audit = cutoff_convergence_audit(params, potential_family=family)
-        audit_results.append({"parameters": params, "family": family, "audit": audit})
-        check = audit[-1].get("convergence_check", {})
-        passed = check.get("passed", False)
-        projector_error = check.get("rank2_projector_sine_error", float("inf"))
-        eigenvalue_error = check.get("max_low_eigenvalue_difference", float("inf"))
-        status = "✅" if passed else "❌"
-        all_passed = all_passed and passed
-        print(
-            f"  {family} {params[:2]}: projector={projector_error:.2e} "
-            f"eigenvalue={eigenvalue_error:.2e} {status}"
-        )
+    if not args.cache_only:
+        all_passed = True
+        audit_results = []
+        for params, family in test_params:
+            audit = cutoff_convergence_audit(params, potential_family=family)
+            audit_results.append({"parameters": params, "family": family, "audit": audit})
+            check = audit[-1].get("convergence_check", {})
+            passed = check.get("passed", False)
+            projector_error = check.get("rank2_projector_sine_error", float("inf"))
+            eigenvalue_error = check.get("max_low_eigenvalue_difference", float("inf"))
+            status = "✅" if passed else "❌"
+            all_passed = all_passed and passed
+            print(
+                f"  {family} {params[:2]}: projector={projector_error:.2e} "
+                f"eigenvalue={eigenvalue_error:.2e} {status}"
+            )
 
-    audit_path = output_dir / "v2_reference_convergence.json"
-    audit_path.write_text(json.dumps({
-        "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-        "all_passed": all_passed,
-        "results": audit_results,
-    }, ensure_ascii=False, indent=2))
-    audit_hash = file_sha256(audit_path)
-    (output_dir / "v2_reference_convergence.sha256").write_text(
-        f"{audit_hash}  v2_reference_convergence.json\n")
+        audit_path = output_dir / "v2_reference_convergence.json"
+        audit_path.write_text(json.dumps({
+            "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "all_passed": all_passed,
+            "results": audit_results,
+        }, ensure_ascii=False, indent=2))
+        audit_hash = file_sha256(audit_path)
+        (output_dir / "v2_reference_convergence.sha256").write_text(
+            f"{audit_hash}  v2_reference_convergence.json\n")
 
-    print(f"\nConvergence audit: {'ALL PASSED' if all_passed else 'SOME FAILED'}")
-    if not all_passed:
-        print("WARNING: Cutoff convergence check failed — reference may be unreliable.")
-        return 1
+        print(f"\nConvergence audit: {'ALL PASSED' if all_passed else 'SOME FAILED'}")
+        if not all_passed:
+            print("WARNING: Cutoff convergence check failed — reference may be unreliable.")
+            return 1
 
     # ── Pre-compute reference solutions for the test suite ──
     if not args.audit_only and all_passed and args.reference_scope != "none":
@@ -571,7 +594,7 @@ def main() -> int:
             ref_path.with_suffix(".sha256").write_text(f"{ref_hash}  {ref_path.name}\n")
             print(f"  {len(references)} references saved in {time.perf_counter() - t0:.1f}s")
 
-        if args.reference_scope == "validation":
+        if args.reference_scope == "validation" and not args.cache_only:
             print(
                 "NOTE: the frozen-final spectral labels have not yet been reference-validated; "
                 "use --reference-scope all before a formal promotion run."

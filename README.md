@@ -1,4 +1,4 @@
-# P3 Block KyFan-PINN
+# A-GTNet：二维 Bloch–Schrödinger PDE 神经谱簇求解器
 
 一个用神经网络求解**二维参数化 Bloch–Schrödinger 本征偏微分方程**的研究原型。
 
@@ -12,6 +12,8 @@ SHA-256、真实 checkpoint、断点续训、参考解收敛审计、24-run prom
 相对最佳 `wang_xie_trace` 基线的 near-cluster 投影误差改善为 **-208.1%**，因此 gate
 为 **STOP**，冻结 final 没有运行。原始 results 压缩包未进入仓库且本地未找回，所以
 这些数值目前是“已报告、尚未独立复核”的外部实验记录，不能直接作为论文实证。
+当前主候选已经收缩为 **A-GTNet**：在 retraction-free generalized-trace 网络上加入
+不增加可训练参数的低能 Bloch 子空间锚点；ROM 仅保留为消融，不再包装为主创新。
 
 ## 解什么方程、用什么网络
 
@@ -77,7 +79,18 @@ bash scripts/setup_rocm.sh
 
 > 当前 P3 gate 已被报告为 STOP。以下命令保留用于复现和证据审计；不要绕过 gate 打开
 > frozen final。下一阶段的算法诊断与停止条件见
-> [P3 后验审计与 P4 决策](docs/POST-PILOT-DECISION.zh-CN.md)。
+> [当前结果、A-GTNet 方案与投稿决策](docs/POST-PILOT-DECISION.zh-CN.md)。
+
+A-GTNet 的五方法因子诊断、自动 gate、断点续训和证据打包已提供独立入口。目标
+机器不负责选择方案，只执行：
+
+```bash
+python scripts/run_p4_executor.py --device auto
+```
+
+该命令先做工程 smoke，通过后自动运行冻结的 30-run validation promotion；无论 GO
+或 STOP 都会生成带 SHA-256 manifest 的结果包。详细机器操作见
+[A-GTNet 执行机指令](docs/P4-EXECUTOR.zh-CN.md)。
 
 正式 promotion 前生成/核验套件、收敛证据和两套参考缓存。生成 final 缓存只验证物理
 协议，不会用模型查看 final 表现：
@@ -111,8 +124,9 @@ python scripts/evaluate_v2_final.py --device auto
   `wang_xie_trace`。仓库缺少该次运行的 CSV、JSON、checkpoint 和结果包。
 - 尚未证明：P3 或后继方法稳定优于基线、论文主张有统计显著性、达到 SCI 三区或
   四区标准。
-- 当前决定：停止把 P3 当作可投稿主方法，保持 frozen final 未打开；先用同一个
-  generalized-trace 目标隔离检验 anchor、单图 ROM 和多图 ROM 的独立作用。
+- 当前决定：停止把 P3 当作可投稿主方法，保持 frozen final 未打开；以同参数量的
+  generalized-trace 无锚网络 G0 为公平基线，验证 A-GTNet/G1 的物理 anchor 是否在
+  两个势族和全部 seed 上稳定有效；静态/退火 ROM 仅作为消融。
 
 仍需补齐的论文内容见 [已知缺口](docs/KNOWN_GAPS.zh-CN.md)。第三方基线的官方仓库、
 许可证和固定提交见 [外部基线索引](baselines/external/README.md)。

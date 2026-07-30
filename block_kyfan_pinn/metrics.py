@@ -8,8 +8,14 @@ from torch import Tensor
 
 def _complex_overlap(left: Tensor, right: Tensor) -> Tensor:
     target_device = left.device if left.device.type == "cuda" else torch.device("cpu")
-    left = left.detach().to(device=target_device, dtype=torch.float64)
-    right = right.detach().to(device=target_device, dtype=torch.float64)
+    if left.device.type == "mps":
+        # A combined device+dtype conversion can attempt float64 casting on
+        # MPS before the transfer.  Move first because MPS has no float64.
+        left = left.detach().cpu().to(dtype=torch.float64)
+        right = right.detach().cpu().to(dtype=torch.float64)
+    else:
+        left = left.detach().to(device=target_device, dtype=torch.float64)
+        right = right.detach().to(device=target_device, dtype=torch.float64)
     left_real, left_imag = left[..., 0], left[..., 1]
     right_real, right_imag = right[..., 0], right[..., 1]
     real = torch.einsum("bni,bnj->bij", left_real, right_real) + torch.einsum(
