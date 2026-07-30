@@ -8,8 +8,10 @@
 
 截至 2026-07-30，P3 multi-chart ROM 原型、V2 validation/final 套件、原始字节
 SHA-256、真实 checkpoint、断点续训、参考解收敛审计、24-run promotion gate 和冻结
-测试入口均已实现并有自动测试。**GPU 正式结果尚未运行，因此当前不能声称论文方法
-已经优于基线，也不能据此直接投稿。**
+测试入口均已实现并有自动测试。一份 AMD MI300X 交接报告称 24-run pilot 已完成，P3
+相对最佳 `wang_xie_trace` 基线的 near-cluster 投影误差改善为 **-208.1%**，因此 gate
+为 **STOP**，冻结 final 没有运行。原始 results 压缩包未进入仓库且本地未找回，所以
+这些数值目前是“已报告、尚未独立复核”的外部实验记录，不能直接作为论文实证。
 
 ## 解什么方程、用什么网络
 
@@ -73,6 +75,10 @@ bash scripts/setup_rocm.sh
 
 ## V2 实验入口
 
+> 当前 P3 gate 已被报告为 STOP。以下命令保留用于复现和证据审计；不要绕过 gate 打开
+> frozen final。下一阶段的算法诊断与停止条件见
+> [P3 后验审计与 P4 决策](docs/POST-PILOT-DECISION.zh-CN.md)。
+
 正式 promotion 前生成/核验套件、收敛证据和两套参考缓存。生成 final 缓存只验证物理
 协议，不会用模型查看 final 表现：
 
@@ -101,10 +107,12 @@ python scripts/evaluate_v2_final.py --device auto
 
 - 已证明：代码路径可运行；P3 各机制不是空开关；V2 文件可验证；cutoff=24 的代表点
   收敛审计通过；真实 checkpoint 与代码/配置/数据哈希绑定。
-- 尚未证明：P3 在目标 GPU 上稳定优于基线、论文主张有统计显著性、达到 SCI 三区或
+- 已报告但未独立复核：AMD MI300X 上 24/24 pilot 完成、P3 gate STOP、最佳方法为
+  `wang_xie_trace`。仓库缺少该次运行的 CSV、JSON、checkpoint 和结果包。
+- 尚未证明：P3 或后继方法稳定优于基线、论文主张有统计显著性、达到 SCI 三区或
   四区标准。
-- 必须先看 24-run pilot。若 P3 相对最佳基线的 validation 投影误差改善不足 15%，
-  gate 会 STOP，禁止用 final test 包装结果。
+- 当前决定：停止把 P3 当作可投稿主方法，保持 frozen final 未打开；先用同一个
+  generalized-trace 目标隔离检验 anchor、单图 ROM 和多图 ROM 的独立作用。
 
 仍需补齐的论文内容见 [已知缺口](docs/KNOWN_GAPS.zh-CN.md)。第三方基线的官方仓库、
 许可证和固定提交见 [外部基线索引](baselines/external/README.md)。
