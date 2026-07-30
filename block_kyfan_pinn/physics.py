@@ -289,6 +289,9 @@ def generalized_trace_energy(
     a_real, a_imag = ritz_matrix(raw_basis, h_basis)
     b_matrix = torch.complex(b_real, b_imag)
     a_matrix = torch.complex(a_real, a_imag)
+    if torch.cuda.is_available() and not b_matrix.is_cuda:
+        b_matrix = b_matrix.to("cuda")
+        a_matrix = a_matrix.to("cuda")
     identity = torch.eye(b_matrix.shape[-1], dtype=b_matrix.dtype, device=b_matrix.device)
     solution = torch.linalg.solve(b_matrix + regularization * identity, a_matrix)
     return solution.diagonal(dim1=-2, dim2=-1).real.sum(-1).mean()
@@ -300,7 +303,10 @@ def galerkin_low_energy(
 ) -> Tensor:
     h_basis = apply_hamiltonian(trial_basis, coordinates, parameters, potential_family)
     matrix_real, matrix_imag = ritz_matrix(trial_basis, h_basis)
-    eigenvalues = torch.linalg.eigvalsh(torch.complex(matrix_real, matrix_imag)).real
+    matrix = torch.complex(matrix_real, matrix_imag)
+    if torch.cuda.is_available() and not matrix.is_cuda:
+        matrix = matrix.to("cuda")
+    eigenvalues = torch.linalg.eigvalsh(matrix).cpu().real
     return eigenvalues[..., :target_rank].sum(-1).mean()
 
 
@@ -312,7 +318,12 @@ def galerkin_rank_basis(
 
     h_basis = apply_hamiltonian(trial_basis, coordinates, parameters, potential_family)
     matrix_real, matrix_imag = ritz_matrix(trial_basis, h_basis)
-    _, eigenvectors = torch.linalg.eigh(torch.complex(matrix_real, matrix_imag))
+    matrix = torch.complex(matrix_real, matrix_imag)
+    if torch.cuda.is_available() and not matrix.is_cuda:
+        matrix = matrix.to("cuda")
+    _, eigenvectors = torch.linalg.eigh(matrix)
+    if eigenvectors.is_cuda:
+        eigenvectors = eigenvectors.cpu()
     # Ritz coefficients are constants when differentiating the selected functions in space.
     coefficients = eigenvectors[..., :target_rank].detach()
     complex_basis = torch.complex(trial_basis[..., 0], trial_basis[..., 1])

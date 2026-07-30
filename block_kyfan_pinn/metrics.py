@@ -7,8 +7,9 @@ from torch import Tensor
 
 
 def _complex_overlap(left: Tensor, right: Tensor) -> Tensor:
-    left = left.detach().cpu().to(torch.float64)
-    right = right.detach().cpu().to(torch.float64)
+    target_device = left.device if left.is_cuda else right.device
+    left = left.detach().to(device=target_device, dtype=torch.float64)
+    right = right.detach().to(device=target_device, dtype=torch.float64)
     left_real, left_imag = left[..., 0], left[..., 1]
     right_real, right_imag = right[..., 0], right[..., 1]
     real = torch.einsum("bni,bnj->bij", left_real, right_real) + torch.einsum(
@@ -35,7 +36,10 @@ def principal_angle_degrees(predicted: Tensor, reference: Tensor) -> tuple[float
 
     if predicted.shape != reference.shape:
         raise ValueError("predicted and reference bases must have equal shape")
-    singular_values = torch.linalg.svdvals(_complex_overlap(predicted, reference)).clamp(0.0, 1.0)
+    overlap = _complex_overlap(predicted, reference)
+    if torch.cuda.is_available() and not overlap.is_cuda:
+        overlap = overlap.to("cuda")
+    singular_values = torch.linalg.svdvals(overlap).cpu().clamp(0.0, 1.0)
     singular_values = torch.where(singular_values > 1.0 - 1e-7, torch.ones_like(singular_values), singular_values)
     angles = torch.acos(singular_values) * (180.0 / math.pi)
     return float(angles.mean()), float(angles.max())

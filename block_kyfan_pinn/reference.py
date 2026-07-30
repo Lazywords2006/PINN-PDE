@@ -73,7 +73,14 @@ def solve_reference(
     parameters: Tensor, cutoff: int = 3, rank: int = 2, potential_family: str = "harmonic_honeycomb"
 ) -> ReferenceSolution:
     matrix, modes = plane_wave_hamiltonian(parameters, cutoff, potential_family)
-    eigenvalues, eigenvectors = torch.linalg.eigh(matrix)
+    if torch.cuda.is_available():
+        device = torch.device("cuda")
+        matrix_gpu = matrix.to(device)
+        eigenvalues, eigenvectors = torch.linalg.eigh(matrix_gpu)
+        eigenvalues = eigenvalues.cpu()
+        eigenvectors = eigenvectors.cpu()
+    else:
+        eigenvalues, eigenvectors = torch.linalg.eigh(matrix)
     if not 1 <= rank <= len(eigenvalues):
         raise ValueError("rank is outside the plane-wave basis")
     return ReferenceSolution(eigenvalues[:rank].real, eigenvectors[:, :rank], modes)
@@ -89,8 +96,10 @@ def uniform_grid(side: int, *, dtype: torch.dtype = torch.float32) -> Tensor:
 def evaluate_reference_basis(solution: ReferenceSolution, coordinates: Tensor) -> Tensor:
     """Evaluate plane-wave eigenvectors as real-block periodic functions."""
 
-    coordinates_cpu = coordinates.detach().cpu().to(torch.float64)
-    phases = torch.einsum("bnd,md->bnm", coordinates_cpu, solution.modes)
+    coordinates_f64 = coordinates.detach().to(torch.float64)
+    modes = solution.modes.to(coordinates_f64.device)
+    eigenvectors = solution.eigenvectors.to(torch.complex128).to(coordinates_f64.device)
+    phases = torch.einsum("bnd,md->bnm", coordinates_f64, modes)
     waves = torch.complex(torch.cos(phases), torch.sin(phases))
-    values = torch.einsum("bnm,mr->bnr", waves, solution.eigenvectors)
+    values = torch.einsum("bnm,mr->bnr", waves, eigenvectors)
     return torch.stack((values.real, values.imag), -1)
