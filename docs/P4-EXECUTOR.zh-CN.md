@@ -2,6 +2,9 @@
 
 这台机器只负责计算。不要在远端设计方法、改代码、改超参数或解释结果。
 
+如果需要把任务交给另一名操作员或另一个 AI，直接复制
+[执行机交接提示词](EXECUTOR-PROMPT.zh-CN.md)。
+
 ## 1. 获取冻结代码
 
 ```bash
@@ -73,7 +76,11 @@ EVIDENCE_MANIFEST=.../results/evidence-manifest.json
 本地核验：
 
 ```bash
-shasum -a 256 -c p4-evidence-*.tar.gz.sha256
+if command -v sha256sum >/dev/null 2>&1; then
+  sha256sum -c p4-evidence-*.tar.gz.sha256
+else
+  shasum -a 256 -c p4-evidence-*.tar.gz.sha256
+fi
 ```
 
 ## 5. 状态含义
@@ -90,3 +97,13 @@ shasum -a 256 -c p4-evidence-*.tar.gz.sha256
 - 不删 STOP、不挑最好 seed、不把 smoke 当论文结果；
 - 不自行继续更多实验；
 - 不只发截图，必须回传原始证据包、SHA-256 和日志。
+
+## 与旧远端结果的关系
+
+旧 P3 的核心精度失败仍然有效，不能因新代码 smoke 通过而宣布解决。新 A-GTNet 只是
+针对 generalized trace、hard MGS、参数量公平性和证据链进行了重新设计；它的本地
+单 seed 探针改善约 14.2%，仍低于 15% promotion 门槛。只有本次 30-run 返回并通过
+全部 gate 后，才能说新方向获得了正式 validation 支持。
+
+此外，旧 P3 的正交门槛为 `1e-4`，新 gate 为 `2e-4`。回传后本地必须比较实际最大
+正交误差，而不能只比较 PASS/FAIL 状态。
