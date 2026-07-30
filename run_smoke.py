@@ -11,7 +11,9 @@ from block_kyfan_pinn.smoke import SmokeConfig, run_smoke
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--device", default="auto", choices=("auto", "cpu", "mps", "cuda"))
+    parser.add_argument(
+        "--device", default="auto", choices=("auto", "cpu", "mps", "cuda", "rocm")
+    )
     parser.add_argument("--steps", type=int, default=30)
     parser.add_argument("--points", type=int, default=96)
     parser.add_argument("--output", type=Path, default=Path("results/smoke/smoke_result.json"))
