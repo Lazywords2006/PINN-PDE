@@ -253,7 +253,8 @@ def _evaluate_suite(
         output = model(coordinates, parameters)
         basis = _evaluation_basis(config.method, output)
         reference_basis = references[str(point["id"])]["basis"]
-        reference_basis = reference_basis.unsqueeze(0).to(
+        # Reference stores all 6 eigenvectors; compare only against lowest rank-2 block
+        reference_basis = reference_basis[..., :2, :].unsqueeze(0).to(
             device=device, dtype=basis.dtype
         )
         h_basis = apply_hamiltonian(
