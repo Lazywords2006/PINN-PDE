@@ -1,0 +1,738 @@
+[
+  {
+    "id": "val-harmonic_honeycomb-000",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.3599355477621092,
+      0.32020404242740724,
+      0.2505409035751487,
+      0.06358235996561966
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-001",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.3729580999657072,
+      0.29254126651377554,
+      0.47577126914445494,
+      0.058295861168408694
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-002",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.30166810547490214,
+      0.3423910980339598,
+      0.5446682696053049,
+      -0.07505315918069354
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-003",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.31850322819731747,
+      0.3077291428549423,
+      0.4130296656233583,
+      0.026386432020209044
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-004",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.32284203953363927,
+      0.30138748467319176,
+      0.38650416401520293,
+      0.03866629159285477
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-005",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.3791767336317692,
+      0.315843910385742,
+      0.5876285015411031,
+      0.06593753730210165
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-006",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.3438065299233613,
+      0.32100570142036383,
+      0.3890227335219418,
+      -0.05050681640927729
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-007",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.3333150810182301,
+      0.351722303763566,
+      0.7506475627801967,
+      -0.0026411899341284434
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-008",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.3289643598882285,
+      0.3524667844500712,
+      0.23315243067496882,
+      0.04072803110949537
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-009",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.32682188655687744,
+      0.3585021317964019,
+      0.3664737527057398,
+      -0.019847346952921556
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-010",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.30192501485491363,
+      0.2894589983896659,
+      0.7779419756575487,
+      0.012964358845038049
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-011",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.2897242419484827,
+      0.3239513878166929,
+      0.43265848267871576,
+      0.07553093991952704
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-012",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.33078976886449635,
+      0.3628728302267769,
+      0.6544351242415456,
+      0.018605920131674156
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-013",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.36311412772694246,
+      0.3048787334690317,
+      0.7905060491515534,
+      -0.045126685969313414
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-014",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.34225154700848537,
+      0.2968354645341766,
+      0.2863705484857073,
+      -0.041097231441035297
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-015",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.3061862609658236,
+      0.3328186381060115,
+      0.31782475455039844,
+      -0.03434712128477758
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-016",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.2800774493273401,
+      0.3473951578768788,
+      0.6277236733937033,
+      -0.05895273577052696
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-017",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.36473264669116734,
+      0.37839257735534393,
+      0.602040992672626,
+      0.04833533218538806
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-018",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.29673183782333334,
+      0.33718289496719284,
+      0.7084261385396984,
+      -0.06530316956238744
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-019",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.35668811655456706,
+      0.3579043487820429,
+      0.2746508626806227,
+      -0.023630584228539225
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-020",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.3146546131346481,
+      0.31099280914292843,
+      0.21350489925710575,
+      -0.01442556373870775
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-021",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.285286514927583,
+      0.34264885177169097,
+      0.5230214728068892,
+      0.009639932844132434
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-022",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.37461832707122233,
+      0.37003367188260483,
+      0.44601480100615926,
+      0.03466123209782593
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-023",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.35229668445999,
+      0.31182758990118786,
+      0.7290866057045267,
+      -0.0368696311433181
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-024",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.31314108169115745,
+      0.28845648241278027,
+      0.5576623361343986,
+      0.07265132294282599
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-025",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.31044986089792165,
+      0.37226837361368625,
+      0.33278733597706667,
+      -0.026564144532209726
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-026",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.35126820732996367,
+      0.37377697470151816,
+      0.6738339246501961,
+      -0.07077446906614805
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-027",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.28801162568958877,
+      0.3270904438950541,
+      0.4919680204235632,
+      -0.0064945569813972676
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-028",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.3456986024911468,
+      0.2811596626813839,
+      0.5055006206159974,
+      -0.0629171420279015
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-029",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.367642189286522,
+      0.3654861102362994,
+      0.6462590207834676,
+      0.021920135125780296
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-030",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.2952493194480019,
+      0.28504115628179355,
+      0.3036253515350345,
+      0.0017484993861596188
+    ]
+  },
+  {
+    "id": "val-harmonic_honeycomb-031",
+    "family": "harmonic_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.3386724677397543,
+      0.333705482650919,
+      0.6955526037460904,
+      0.05451486059396672
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-000",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.3573238547457394,
+      0.3416311494451584,
+      1.6078769278767155,
+      0.3239702813767442,
+      -0.07883412797100905
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-001",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.3248375056938512,
+      0.34814821354073205,
+      3.792300848070947,
+      0.3087165694658966,
+      0.01851951421271704
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-002",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.33909597482775244,
+      0.3152216841226925,
+      1.4477039083768632,
+      0.2086948906572603,
+      -0.013169955732816443
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-003",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.3631595814169032,
+      0.34456375338526657,
+      2.8836250399065895,
+      0.2208141015728906,
+      0.06377888935308236
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-004",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.3037362587775786,
+      0.36719359899138987,
+      2.306605972132946,
+      0.301297408965017,
+      -0.04280295810830519
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-005",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.29577549394886665,
+      0.3493679015126467,
+      2.8449951761051504,
+      0.23222433460496117,
+      0.002030743447749825
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-006",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.3606129169360786,
+      0.3621004635296287,
+      1.2428688399279937,
+      0.26661899267771233,
+      0.07391818280212416
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-007",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.32718501945018413,
+      0.3258159983523426,
+      2.067518130354541,
+      0.25134071239629213,
+      0.03414133448818876
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-008",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.37463912238226166,
+      0.37795698885894374,
+      3.25578611515107,
+      0.18790204698518745,
+      -0.04981917033624244
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-009",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.35471509860193867,
+      0.30884865381476273,
+      1.8754742061056557,
+      0.343343817703856,
+      -0.03720000757947438
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-010",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.3218408539406501,
+      0.32089177751622416,
+      1.3350594756852372,
+      0.21554970754255912,
+      -0.02196952682119882
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-011",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.35019039391976026,
+      0.305065245323231,
+      1.0900810239753682,
+      0.32084208704037154,
+      0.01417738843175581
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-012",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.3050858208817397,
+      0.37304468485849396,
+      3.6413868900602435,
+      0.23994575166724147,
+      -0.055303232564555146
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-013",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.3155415985900882,
+      0.3558591502006967,
+      2.343401558769756,
+      0.3470927973913757,
+      -0.03256709410133204
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-014",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.2881527902689614,
+      0.2899193754568005,
+      3.4053970303737158,
+      0.2845876009568453,
+      0.028110780172301855
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-015",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.33481977021142734,
+      0.3750920074524722,
+      3.868130760766285,
+      0.19301392129375183,
+      0.023037759942377972
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-016",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.291230797646526,
+      0.3035529982849918,
+      1.9426852635849996,
+      0.2745400149758499,
+      -0.005996786097846568
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-017",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.34293236156290074,
+      0.3686270355261604,
+      2.7318608026583733,
+      0.22721264015621404,
+      -0.02645105613895367
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-018",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.29303296424406644,
+      0.3393459725953089,
+      3.1246467229501333,
+      0.19660383555251623,
+      -0.07342785911303036
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-019",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.32023723812319826,
+      0.30174520124950804,
+      1.8297436472250204,
+      0.25967007271108744,
+      -0.06621028731412432
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-020",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.3690937915520215,
+      0.2950999533008007,
+      2.59061024329155,
+      0.23454170897503893,
+      0.008689290703881691
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-021",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.37989629960129306,
+      0.3331601686878168,
+      3.2249267164791755,
+      0.2925776949635303,
+      0.07529025477063404
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-022",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.34636043708911896,
+      0.3301164039774423,
+      3.526163958573302,
+      0.33252412389956143,
+      0.06810051294340867
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-023",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.31363680137327327,
+      0.31909819418086377,
+      2.9797996345058166,
+      0.18518771719366695,
+      0.04084401669764086
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-024",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.31106274670619977,
+      0.36109060178451785,
+      2.4638132872509377,
+      0.3353727487175958,
+      -0.06058804703099084
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-025",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.33074489450031097,
+      0.298433879156886,
+      1.54602808722972,
+      0.26136952112977485,
+      -0.019116187499087396
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-026",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.37089074756232693,
+      0.35203049792860663,
+      2.6240934375278884,
+      0.303590781049478,
+      0.0547317709591829
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-027",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.2851573549831006,
+      0.2860083862703782,
+      1.6649756045146913,
+      0.24636467963880548,
+      0.04933440058103013
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-028",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.2806615819639875,
+      0.32794433808533063,
+      3.6060441702049855,
+      0.28882553759162605,
+      -0.050178547162006495
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-029",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.30171804834138594,
+      0.313525212852687,
+      1.1176210895964622,
+      0.31466360842693514,
+      0.056904242862927515
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-030",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.3655831844976096,
+      0.28873000747554645,
+      3.9368792874243956,
+      0.27819422179660785,
+      -0.0009981589447749517
+    ]
+  },
+  {
+    "id": "val-gaussian_honeycomb-031",
+    "family": "gaussian_honeycomb",
+    "split": "validation",
+    "parameters": [
+      0.3398871745694493,
+      0.2811217742370313,
+      2.2012622303592684,
+      0.20204843416194418,
+      0.037492444004435174
+    ]
+  }
+]

@@ -76,9 +76,23 @@ def solve_reference(
     if torch.cuda.is_available():
         device = torch.device("cuda")
         matrix_gpu = matrix.to(device)
+        # Some ROCm hipSOLVER versions produce NaN eigenvectors for exactly
+        # degenerate matrices.  Try with a small perturbation first; fall
+        # back to scipy if GPU eigh still fails.
+        eps_perturb = 1e-10 * torch.randn(matrix_gpu.shape[0], device=device, dtype=torch.float64)
+        matrix_gpu = matrix_gpu + torch.diag(eps_perturb)
         eigenvalues, eigenvectors = torch.linalg.eigh(matrix_gpu)
-        eigenvalues = eigenvalues.cpu()
-        eigenvectors = eigenvectors.cpu()
+        if not torch.isfinite(eigenvectors).all():
+            # GPU eigh failed — use scipy on CPU
+            import numpy as np
+            import scipy.linalg  # type: ignore[import-untyped]
+            matrix_np = (matrix + torch.diag(eps_perturb.cpu())).numpy()
+            evals_np, evecs_np = scipy.linalg.eigh(matrix_np)
+            eigenvalues = torch.from_numpy(evals_np)
+            eigenvectors = torch.from_numpy(evecs_np)
+        else:
+            eigenvalues = eigenvalues.cpu()
+            eigenvectors = eigenvectors.cpu()
     else:
         eigenvalues, eigenvectors = torch.linalg.eigh(matrix)
     if not 1 <= rank <= len(eigenvalues):

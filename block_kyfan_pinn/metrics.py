@@ -49,5 +49,5 @@ def orthogonality_error(basis: Tensor) -> float:
     """Maximum absolute entry of Q*Q-I under cell-average quadrature."""
 
     overlap = _complex_overlap(basis, basis)
-    identity = torch.eye(overlap.shape[-1], dtype=overlap.dtype).expand_as(overlap)
+    identity = torch.eye(overlap.shape[-1], dtype=overlap.dtype, device=overlap.device).expand_as(overlap)
     return float((overlap - identity).abs().max())
