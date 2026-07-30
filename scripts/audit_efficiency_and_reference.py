@@ -67,18 +67,22 @@ def main() -> int:
     convergence = []
     for name, values in CASES.items():
         parameter = torch.tensor(values)
-        reference_high = solve_reference(parameter, cutoff=12, rank=2)
+        reference_high = solve_reference(
+            parameter, cutoff=24, rank=2, mode_shape="hexagonal"
+        )
         basis_high = periodic_mgs(evaluate_reference_basis(reference_high, coordinates))
-        for cutoff in (4, 6, 8, 10):
+        for cutoff in (8, 12, 16, 20):
             start = time.perf_counter()
-            reference = solve_reference(parameter, cutoff=cutoff, rank=2)
+            reference = solve_reference(
+                parameter, cutoff=cutoff, rank=2, mode_shape="hexagonal"
+            )
             elapsed = time.perf_counter() - start
             basis = periodic_mgs(evaluate_reference_basis(reference, coordinates))
             convergence.append(
                 {
                     "case": name,
                     "cutoff": cutoff,
-                    "projector_error_vs_cutoff12": projector_sine_error(basis, basis_high),
+                    "projector_error_vs_cutoff24": projector_sine_error(basis, basis_high),
                     "eigenvalue_1_abs_error": abs(float(reference.eigenvalues[0] - reference_high.eigenvalues[0])),
                     "eigenvalue_2_abs_error": abs(float(reference.eigenvalues[1] - reference_high.eigenvalues[1])),
                     "solve_seconds": elapsed,

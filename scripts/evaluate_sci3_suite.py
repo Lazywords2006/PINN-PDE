@@ -24,6 +24,7 @@ from block_kyfan_pinn.model import (BlockKyFanPINN, CausalSortPINN, GalerkinSubs
 from block_kyfan_pinn.physics import (apply_hamiltonian, causal_sorted_basis, galerkin_rank_basis, periodic_mgs,
                                      projected_residual_rms, ritz_matrix)
 from block_kyfan_pinn.reference import ReferenceSolution, evaluate_reference_basis, solve_reference, uniform_grid
+from block_kyfan_pinn.suites import validate_suite_payload
 
 
 _CHECKPOINT_CONFIG_DEFAULTS = {
@@ -101,29 +102,7 @@ def _summary(rows: list[dict[str, object]]) -> list[dict[str, object]]:
 def _validate_suite_payload(suite: dict[str, object]) -> list[dict[str, object]]:
     """Validate identity and numeric integrity before selecting a family."""
 
-    raw_points = suite.get("points")
-    if not isinstance(raw_points, list) or not raw_points:
-        raise ValueError("suite points must be a non-empty list")
-    if int(suite.get("point_count", -1)) != len(raw_points):
-        raise ValueError("suite point_count does not match points")
-    points: list[dict[str, object]] = []
-    seen: set[str] = set()
-    for raw in raw_points:
-        if not isinstance(raw, dict):
-            raise ValueError("each suite point must be an object")
-        identity = str(raw.get("id", ""))
-        if not identity or identity in seen:
-            raise ValueError(f"suite point id is empty or duplicated: {identity!r}")
-        seen.add(identity)
-        if not str(raw.get("family", "")) or not str(raw.get("split", "")):
-            raise ValueError(f"suite point {identity} is missing family or split")
-        parameters = raw.get("parameters")
-        if not isinstance(parameters, list) or not parameters:
-            raise ValueError(f"suite point {identity} has invalid parameters")
-        if not all(math.isfinite(float(value)) for value in parameters):
-            raise ValueError(f"suite point {identity} has non-finite parameters")
-        points.append(raw)
-    return points
+    return validate_suite_payload(suite, protocol_version=None)
 
 
 def _validate_reference_cache(
