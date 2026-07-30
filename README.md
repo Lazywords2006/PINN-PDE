@@ -91,6 +91,8 @@ python scripts/run_p4_executor.py --device auto
 该命令先做工程 smoke，通过后自动运行冻结的 30-run validation promotion；无论 GO
 或 STOP 都会生成带 SHA-256 manifest 的结果包。详细机器操作见
 [A-GTNet 执行机指令](docs/P4-EXECUTOR.zh-CN.md)。
+需要交给另一台机器或另一个 AI 时，使用可直接复制的
+[执行机交接提示词](docs/EXECUTOR-PROMPT.zh-CN.md)。
 
 正式 promotion 前生成/核验套件、收敛证据和两套参考缓存。生成 final 缓存只验证物理
 协议，不会用模型查看 final 表现：
