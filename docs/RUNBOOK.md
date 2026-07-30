@@ -1,5 +1,9 @@
 # V2 运行手册
 
+> **历史协议状态**：2026-07-30 的 AMD 交接报告给出 P3 gate STOP。原始结果尚未在
+> 仓库中独立复核，但这不构成绕过 gate 的理由。本手册保留用于复现 P3 与审计证据；
+> 任何后继方法必须使用新的输出目录和独立 promotion 协议，不能覆盖本协议结果。
+
 ## 1. 工程门禁
 
 在仓库根目录执行与设备对应的脚本：
@@ -72,6 +76,8 @@ checkpoint、源码、validation suite 和缓存绑定。若不是 GO，它会�
 
 - `results/p3_v2_final/per_parameter.csv`
 - `results/p3_v2_final/summary.json`
+
+当前报告状态为 STOP，因此不要运行这一节命令。
 
 ## 5. 常见故障
 
