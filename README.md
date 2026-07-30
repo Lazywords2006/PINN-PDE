@@ -2,7 +2,7 @@
 
 一个面向二维参数化 Bloch–Schrödinger 本征 PDE 的无标签坐标神经变分求解器。模型不在能带交叉处强行追踪两条带的编号，而是学习最低两个本征态共同张成的 rank-2 谱簇。
 
-当前仓库是可运行的研究原型：`45/45` 自动测试通过；dual-path 复 MGS、true Ky Fan trace、checkpoint/RNG/provenance 绑定和 V2 可证伪烟测已实现。现有结果只授权新的小规模 CUDA pilot，不代表论文正式实验已经完成。
+当前仓库是可运行的研究原型：`50/50` 自动测试通过；dual-path 复 MGS、true Ky Fan trace、checkpoint/RNG/provenance 绑定和 V2 可证伪烟测已实现。现有结果只授权新的小规模 GPU pilot，不代表论文正式实验已经完成。
 
 ## 目录
 
@@ -32,10 +32,33 @@ python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
 
-RTX 5090 + CUDA 12.8 可使用：
+上面这组通用命令只用于 CPU 或 Apple MPS。GPU 服务器请使用下面与后端对应的脚本。
+
+通用 NVIDIA CUDA 环境可使用：
+
+```bash
+bash scripts/setup_cuda.sh
+```
+
+RTX 5090 + CUDA 12.8 可使用带显卡名称和显存门禁的包装脚本：
 
 ```bash
 bash scripts/setup_rtx5090.sh
+```
+
+AMD ROCm 镜像必须保留镜像预装的 ROCm PyTorch，不能直接安装
+`requirements.txt` 覆盖它：
+
+```bash
+bash scripts/setup_rocm.sh
+```
+
+两个脚本都会依次执行设备数值预检、50 项测试和最小 smoke，并把证据写到
+`results/`。它们不会自动启动尚未具备科学有效性的正式 V2 长实验。手动检查设备可用：
+
+```bash
+python scripts/preflight_accelerator.py --backend cuda
+python scripts/preflight_accelerator.py --backend rocm
 ```
 
 ## 验证与运行
@@ -70,3 +93,6 @@ python run_experiment.py configs/code_integrity_trace_smoke_cpu_v4.json
 - PWE 用于低阶 anchor、传统参考解与基线；
 - `benchmarks/falsification_smoke_v2.json` 是 smoke-only 套件，不是最终论文测试集；
 - 当前代码尚未实现计划中的 ROM–Grassmann multi-chart、gap-aware routing 和 PWE fallback。
+
+面向非开发者的完成情况、投稿边界与后续清单见
+[当前状态与仍需补充的内容](docs/STATUS_AND_GAPS.zh-CN.md)。
