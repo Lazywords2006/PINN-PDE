@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import math
+from typing import Literal
 
 import torch
 from torch import Tensor
@@ -46,7 +47,10 @@ def _potential_coefficient(
 
 
 def plane_wave_hamiltonian(
-    parameters: Tensor, cutoff: int = 3, potential_family: str = "harmonic_honeycomb"
+    parameters: Tensor,
+    cutoff: int = 3,
+    potential_family: str = "harmonic_honeycomb",
+    mode_shape: Literal["square", "hexagonal"] = "square",
 ) -> tuple[Tensor, Tensor]:
     expected = 5 if potential_family == "gaussian_honeycomb" else 4
     if parameters.shape != (expected,):
@@ -56,45 +60,83 @@ def plane_wave_hamiltonian(
     values = parameters.detach().cpu().to(torch.float64)
     wavevector = values[:2]
     indices = torch.arange(-cutoff, cutoff + 1, dtype=torch.float64)
-    modes = torch.cartesian_prod(indices, indices)
+    if mode_shape == "square":
+        modes = torch.cartesian_prod(indices, indices)
+    elif mode_shape == "hexagonal":
+        candidates = torch.cartesian_prod(indices, indices)
+        mask = torch.maximum(
+            torch.maximum(candidates[:, 0].abs(), candidates[:, 1].abs()),
+            (candidates[:, 0] - candidates[:, 1]).abs(),
+        ) <= cutoff
+        modes = candidates[mask]
+    else:
+        raise ValueError(f"unknown plane-wave mode shape: {mode_shape}")
     matrix = torch.zeros((len(modes), len(modes)), dtype=torch.complex128)
     shifted = modes + wavevector
     kinetic = 0.5 * (shifted[:, 0].square() + shifted[:, 1].square() + shifted[:, 0] * shifted[:, 1])
     matrix.diagonal().copy_(kinetic.to(torch.complex128))
     integer_modes = modes.to(torch.int64)
-    for row in range(len(modes)):
-        for column in range(len(modes)):
-            difference = tuple((integer_modes[row] - integer_modes[column]).tolist())
-            matrix[row, column] += _potential_coefficient(difference, values, potential_family)
+    differences = integer_modes[:, None, :] - integer_modes[None, :, :]
+    if potential_family == "harmonic_honeycomb":
+        amplitude = float(values[2])
+        breaking = float(values[3])
+        sine_coefficients = {
+            (1, 0): -0.5j,
+            (-1, 0): 0.5j,
+            (0, 1): 0.5j,
+            (0, -1): -0.5j,
+            (1, -1): 0.5j,
+            (-1, 1): -0.5j,
+        }
+        for delta_mode, sine_coefficient in sine_coefficients.items():
+            target = torch.tensor(delta_mode, dtype=differences.dtype)
+            mask = (differences == target).all(dim=-1)
+            matrix[mask] += amplitude / 2.0 + breaking * sine_coefficient
+    else:
+        amplitude = float(values[2])
+        sigma = float(values[3])
+        imbalance = float(values[4])
+        difference_values = differences.to(torch.float64)
+        first = difference_values[..., 0]
+        second = difference_values[..., 1]
+        metric_norm = first.square() + second.square() + first * second
+        prefactor = sigma * sigma * math.sqrt(0.75) / (2.0 * math.pi)
+        phase_angle = -(first * (2.0 * math.pi / 3.0) + second * (4.0 * math.pi / 3.0))
+        phase = torch.polar(torch.ones_like(phase_angle), phase_angle)
+        coefficients = (
+            -amplitude
+            * prefactor
+            * torch.exp(-0.5 * sigma * sigma * metric_norm)
+            * (1.0 + (1.0 + imbalance) * phase)
+        )
+        matrix += coefficients
     return matrix, modes
 
 
 def solve_reference(
-    parameters: Tensor, cutoff: int = 3, rank: int = 2, potential_family: str = "harmonic_honeycomb"
+    parameters: Tensor,
+    cutoff: int = 3,
+    rank: int = 2,
+    potential_family: str = "harmonic_honeycomb",
+    mode_shape: Literal["square", "hexagonal"] = "square",
 ) -> ReferenceSolution:
-    matrix, modes = plane_wave_hamiltonian(parameters, cutoff, potential_family)
-    if torch.cuda.is_available():
-        device = torch.device("cuda")
-        matrix_gpu = matrix.to(device)
-        # Some ROCm hipSOLVER versions produce NaN eigenvectors for exactly
-        # degenerate matrices.  Try with a small perturbation first; fall
-        # back to scipy if GPU eigh still fails.
-        eps_perturb = 1e-10 * torch.randn(matrix_gpu.shape[0], device=device, dtype=torch.float64)
-        matrix_gpu = matrix_gpu + torch.diag(eps_perturb)
-        eigenvalues, eigenvectors = torch.linalg.eigh(matrix_gpu)
-        if not torch.isfinite(eigenvectors).all():
-            # GPU eigh failed — use scipy on CPU
-            import numpy as np
-            import scipy.linalg  # type: ignore[import-untyped]
-            matrix_np = (matrix + torch.diag(eps_perturb.cpu())).numpy()
-            evals_np, evecs_np = scipy.linalg.eigh(matrix_np)
-            eigenvalues = torch.from_numpy(evals_np)
-            eigenvectors = torch.from_numpy(evecs_np)
-        else:
-            eigenvalues = eigenvalues.cpu()
-            eigenvectors = eigenvectors.cpu()
-    else:
+    matrix, modes = plane_wave_hamiltonian(
+        parameters, cutoff, potential_family, mode_shape
+    )
+    try:
         eigenvalues, eigenvectors = torch.linalg.eigh(matrix)
+    except RuntimeError:
+        # Some accelerator images ship a CPU PyTorch without LAPACK. NumPy is
+        # already a required dependency and provides a deterministic CPU
+        # fallback without perturbing exact degeneracies.
+        try:
+            import numpy as np
+
+            values, vectors = np.linalg.eigh(matrix.numpy())
+        except Exception as fallback_error:
+            raise RuntimeError("both PyTorch and NumPy reference eigensolvers failed") from fallback_error
+        eigenvalues = torch.from_numpy(values)
+        eigenvectors = torch.from_numpy(vectors)
     if not 1 <= rank <= len(eigenvalues):
         raise ValueError("rank is outside the plane-wave basis")
     return ReferenceSolution(eigenvalues[:rank].real, eigenvectors[:, :rank], modes)
@@ -110,10 +152,14 @@ def uniform_grid(side: int, *, dtype: torch.dtype = torch.float32) -> Tensor:
 def evaluate_reference_basis(solution: ReferenceSolution, coordinates: Tensor) -> Tensor:
     """Evaluate plane-wave eigenvectors as real-block periodic functions."""
 
-    coordinates_f64 = coordinates.detach().to(torch.float64)
-    modes = solution.modes.to(coordinates_f64.device)
-    eigenvectors = solution.eigenvectors.to(torch.complex128).to(coordinates_f64.device)
-    phases = torch.einsum("bnd,md->bnm", coordinates_f64, modes)
+    output_device = coordinates.device
+    output_dtype = coordinates.dtype
+    coordinates_cpu = coordinates.detach().cpu().to(torch.float64)
+    modes = solution.modes.cpu().to(torch.float64)
+    eigenvectors = solution.eigenvectors.cpu().to(torch.complex128)
+    phases = torch.einsum("bnd,md->bnm", coordinates_cpu, modes)
     waves = torch.complex(torch.cos(phases), torch.sin(phases))
     values = torch.einsum("bnm,mr->bnr", waves, eigenvectors)
-    return torch.stack((values.real, values.imag), -1)
+    return torch.stack((values.real, values.imag), -1).to(
+        device=output_device, dtype=output_dtype
+    )

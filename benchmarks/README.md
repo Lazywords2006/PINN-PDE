@@ -1,7 +1,19 @@
 # 基准套件
 
-- `falsification_smoke_v2.json`：当前有效的 24 点可证伪烟测套件，仅用于 smoke，不是论文 final test；
-- `sci3_validation_v1.json` 与 `sci3_frozen_test_v1.json`：保留用于审计退役 V1 协议，不能继续作为正式论文验证/测试集；
-- 同名 `.sha256` 文件绑定精确内容。验证时从本目录运行 `shasum -a 256 -c <name>.sha256`。
+- `v2_validation.json`：64 点独立、split-balanced validation，只用于 pilot 与模型选择；
+- `v2_frozen_test.json`：640 点 final，含 IID、exact、near、strict OOD 与 gap scan；
+- `v2_reference_convergence.json`：cutoff 16/20/24 六点收敛审计；
+- `falsification_smoke_v2.json`：24 点工程烟测，不是论文 final；
+- `sci3_*_v1.json`：退役 V1，仅保留历史审计，禁止用于新结论。
 
-新的正式实验必须先建立对称闭合 PWE 参考、独立 validation 和 640 点 V2 final suite，并在任何训练前冻结其哈希。
+所有 V2 `.sha256` 都绑定文件原始字节。从本目录核验：
+
+```bash
+shasum -a 256 -c v2_validation.sha256
+shasum -a 256 -c v2_frozen_test.sha256
+shasum -a 256 -c v2_reference_convergence.sha256
+```
+
+不要手工编辑 V2 JSON；使用
+`python scripts/generate_v2_assets.py --device cpu --suites-only` 确定性重建套件。
+最终套件只能在 24-run promotion gate 为 GO 后打开。

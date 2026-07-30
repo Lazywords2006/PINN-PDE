@@ -44,7 +44,7 @@ def test_rom_coefficient_network_output_shape() -> None:
     net = ROMCoefficientNetwork(parameter_dim=4, num_modes=7, hidden_width=16, hidden_layers=1)
     params = torch.randn(3, 4)
     output = net(params)
-    assert output.shape == (3, 14)  # 2 * num_modes
+    assert output.shape == (3, 2, 7, 2)  # batch, rank, modes, real/imaginary
 
 
 def test_rom_coefficient_network_differentiable() -> None:
@@ -150,23 +150,29 @@ def test_chart_disagreement_different_basis_positive() -> None:
 # ── Fallback trigger ────────────────────────────────────────────────────────
 
 def test_should_fallback_below_thresholds_returns_false() -> None:
-    gap_risk = torch.tensor([0.1])
+    residual_risk = torch.tensor([0.1])
     chart_risk = 0.1
-    result = should_fallback(gap_risk, chart_risk, gap_threshold=0.5, chart_threshold=0.3)
+    result = should_fallback(
+        residual_risk, chart_risk, residual_threshold=0.5, chart_threshold=0.3
+    )
     assert not bool(result.any().cpu())
 
 
-def test_should_fallback_above_gap_threshold_returns_true() -> None:
-    gap_risk = torch.tensor([0.8])
+def test_should_fallback_above_residual_threshold_returns_true() -> None:
+    residual_risk = torch.tensor([0.8])
     chart_risk = 0.1
-    result = should_fallback(gap_risk, chart_risk, gap_threshold=0.5, chart_threshold=0.3)
+    result = should_fallback(
+        residual_risk, chart_risk, residual_threshold=0.5, chart_threshold=0.3
+    )
     assert bool(result.any().cpu())
 
 
 def test_should_fallback_above_chart_threshold_returns_true() -> None:
-    gap_risk = torch.tensor([0.1])
+    residual_risk = torch.tensor([0.1])
     chart_risk = 0.5
-    result = should_fallback(gap_risk, chart_risk, gap_threshold=0.5, chart_threshold=0.3)
+    result = should_fallback(
+        residual_risk, chart_risk, residual_threshold=0.5, chart_threshold=0.3
+    )
     assert bool(result.any().cpu())
 
 
@@ -281,10 +287,13 @@ def test_p3_model_risk_evaluation_single_chart() -> None:
     parameters = torch.tensor([[0.31, 0.35, 0.35, 0.05]])
     basis = model(coordinates, parameters)
     risks = model.evaluate_risks(coordinates, parameters, basis)
-    assert "external_gap" in risks
-    assert "gap_risk" in risks
-    assert isinstance(risks["external_gap"], float)
-    assert 0.0 <= risks["gap_risk"] <= 1.0
+    assert "projected_residual_rms" in risks
+    assert "residual_risk" in risks
+    assert "chart_disagreement" in risks
+    assert "should_fallback" in risks
+    assert risks["projected_residual_rms"].shape == (1,)
+    assert bool((risks["residual_risk"] >= 0.0).all())
+    assert bool((risks["residual_risk"] <= 1.0).all())
 
 
 def test_p3_model_forward_with_fallback() -> None:

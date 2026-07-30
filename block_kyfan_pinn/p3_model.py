@@ -1,56 +1,36 @@
-"""P3 ROM–Grassmann multi-chart Block KyFan-PINN model.
-
-Extends the base ``BlockKyFanPINN`` with:
-- Learnable ROM anchor (3-wave or 9-wave)
-- Multi-chart architecture with smooth partition-of-unity blending
-- M-weighted Grassmann correction
-- External spectral gap risk monitoring
-- Chart disagreement risk monitoring
-- High-risk PWE fallback
-"""
+"""P3 multi-chart ROM correction for rank-two Bloch spectral clusters."""
 
 from __future__ import annotations
 
-import math
 from collections.abc import Sequence
 
 import torch
 from torch import Tensor, nn
 
-from .model import BlockKyFanPINN, periodic_features, periodic_mgs_dual, periodic_mgs
+from .model import BlockKyFanPINN
 from .p3_rom import (
     ROMCoefficientNetwork,
     _k_point_modes,
     chart_disagreement_risk,
     chart_partition,
-    external_gap_risk,
-    m_weighted_gram_schmidt,
     parametric_rom_anchor,
     should_fallback,
 )
+from .physics import apply_hamiltonian, periodic_mgs, periodic_mgs_dual, ritz_matrix
 from .reference import evaluate_reference_basis, solve_reference
 
 
 class P3BlockKyFanPINN(nn.Module):
-    """P3 Block KyFan-PINN with ROM–Grassmann multi-chart architecture.
+    """A physical anchor plus multi-chart Fourier corrections and L2 retraction.
 
-    Parameters
-    ----------
-    width, hidden_layers : base network architecture (shared across charts)
-    anchor_scale : ROM anchor strength multiplier
-    anchor_kind : "correct"/"wrong"/"random"/"none" — legacy fixed anchor for ablation
-    parameter_dim : total dimension of parameter vector (Bloch + potential)
-    orthogonalization : "dual_path" or "stop_gradient"
-    num_rom_shells : number of reciprocal-lattice shells for ROM basis
-        (1 → 7 modes ≈ 3-wave, 2 → 19 modes ≈ 9-wave)
-    rom_hidden_width, rom_hidden_layers : ROM coefficient network size
-    num_charts : number of Grassmann charts (default 1 = single-chart)
-    chart_temperature : softmax temperature for chart blending
-    m_weighted : enable M-weighted Gram-Schmidt quadrature
-    gap_monitor : compute external gap risk during evaluation
-    fallback_enabled : enable PWE fallback for high-risk parameters
-    reference_cutoff : plane-wave cutoff for fallback reference solve
-    potential_family : "harmonic_honeycomb" or "gaussian_honeycomb"
+    The model keeps the rank-two output basis invariant at crossings. Each ROM
+    chart predicts a parameter-dependent complex Fourier correction. A smooth
+    partition of unity blends those local corrections in normalized parameter
+    space, and a standard cell-L2 retraction preserves the Ky Fan constraint.
+
+    ``m_weighted`` applies a detached local energy-density weight to the
+    tangent correction *before* the final L2 retraction. It does not replace
+    the physical L2 inner product used by the variational objective.
     """
 
     def __init__(
@@ -62,23 +42,43 @@ class P3BlockKyFanPINN(nn.Module):
         anchor_kind: str = "correct",
         parameter_dim: int = 4,
         orthogonalization: str = "dual_path",
-        # --- P3-specific ---
         num_rom_shells: int = 1,
         rom_hidden_width: int = 64,
         rom_hidden_layers: int = 2,
-        num_charts: int = 1,
-        chart_temperature: float = 0.5,
+        num_charts: int = 2,
+        chart_temperature: float = 0.25,
         m_weighted: bool = True,
         gap_monitor: bool = True,
         fallback_enabled: bool = True,
-        reference_cutoff: int = 8,
+        reference_cutoff: int = 24,
         potential_family: str = "harmonic_honeycomb",
+        parameter_lower: Sequence[float] | None = None,
+        parameter_upper: Sequence[float] | None = None,
     ) -> None:
         super().__init__()
         if num_charts < 1:
             raise ValueError("num_charts must be positive")
         if anchor_scale <= 0:
             raise ValueError("anchor_scale must be positive")
+        if anchor_kind not in {"correct", "wrong", "random", "none"}:
+            raise ValueError("unknown anchor_kind")
+        if orthogonalization not in {"dual_path", "stop_gradient"}:
+            raise ValueError("unknown orthogonalization")
+
+        if parameter_lower is None or parameter_upper is None:
+            if parameter_dim == 5:
+                parameter_lower = (0.28, 0.28, 1.0, 0.18, -0.08)
+                parameter_upper = (0.38, 0.38, 4.0, 0.35, 0.08)
+            else:
+                parameter_lower = (0.28, 0.28, 0.20, -0.08)
+                parameter_upper = (0.38, 0.38, 0.80, 0.08)
+        if len(parameter_lower) != parameter_dim or len(parameter_upper) != parameter_dim:
+            raise ValueError("parameter bounds must match parameter_dim")
+        lower = torch.tensor(parameter_lower, dtype=torch.float32)
+        upper = torch.tensor(parameter_upper, dtype=torch.float32)
+        if bool((upper <= lower).any()):
+            raise ValueError("every parameter upper bound must exceed its lower bound")
+
         self.anchor_scale = anchor_scale
         self.anchor_kind = anchor_kind
         self.parameter_dim = parameter_dim
@@ -90,216 +90,203 @@ class P3BlockKyFanPINN(nn.Module):
         self.fallback_enabled = fallback_enabled
         self.reference_cutoff = reference_cutoff
         self.potential_family = potential_family
+        self.register_buffer("parameter_lower", lower)
+        self.register_buffer("parameter_upper", upper)
 
-        # Reciprocal-lattice modes for ROM
         self.rom_modes = _k_point_modes(num_rom_shells)
-        self.num_rom_modes = len(self.rom_modes)
-
-        # Base coordinate network (shared across charts)
         self.base_network = BlockKyFanPINN(
             width=width,
             hidden_layers=hidden_layers,
-            anchor_kind="none",  # ROM handles the anchor
-            anchor_scale=0.0,
+            anchor_kind="none",
+            anchor_scale=anchor_scale,
             parameter_dim=parameter_dim,
             orthogonalization=orthogonalization,
         )
-
-        # ROM coefficient networks — one per chart
-        self.rom_coefficient_networks = nn.ModuleList([
+        if anchor_kind != "none":
+            final = self.base_network.network[-1]
+            nn.init.zeros_(final.weight)
+            nn.init.zeros_(final.bias)
+        self.rom_coefficient_networks = nn.ModuleList(
             ROMCoefficientNetwork(
                 parameter_dim=parameter_dim,
-                num_modes=self.num_rom_modes,
+                num_modes=len(self.rom_modes),
+                rank=2,
                 hidden_width=rom_hidden_width,
                 hidden_layers=rom_hidden_layers,
             )
             for _ in range(num_charts)
-        ])
-
-        # Chart center parameters (learnable for multi-chart)
-        # Initialised to spread across the training box.
-        self.chart_centers: list[tuple[float, ...]] | None = None
+        )
+        centers = torch.full((num_charts, parameter_dim), 0.5)
+        centers[:, 2] = torch.linspace(0.15, 0.85, num_charts)
         if num_charts > 1:
-            self._init_chart_centers()
+            centers[:, 0] = torch.linspace(0.3, 0.7, num_charts)
+            centers[:, 1] = torch.linspace(0.7, 0.3, num_charts)
+        self.chart_centers = nn.Parameter(centers)
 
-    def _init_chart_centers(self) -> None:
-        """Initialise chart centers with quasi-random spacing."""
-        # Use K-means++ style initialisation in parameter space
-        # For now use simple grid-like centres
-        if self.num_charts == 2:
-            # Two charts: low amplitude vs high amplitude
-            self.chart_centers = [
-                tuple(0.31 if i < 2 else (0.35 if self.potential_family == "harmonic_honeycomb" else 2.0)
-                      for i in range(self.parameter_dim)),
-                tuple(0.36 if i < 2 else (0.65 if self.potential_family == "harmonic_honeycomb" else 3.5)
-                      for i in range(self.parameter_dim)),
-            ]
-        else:
-            # Single chart or default
-            self.chart_centers = [
-                tuple(0.31 if i < 2 else 0.50 for i in range(self.parameter_dim))
-            ]
+    def _normalize_parameters(self, parameters: Tensor) -> Tensor:
+        lower = self.parameter_lower.to(device=parameters.device, dtype=parameters.dtype)
+        upper = self.parameter_upper.to(device=parameters.device, dtype=parameters.dtype)
+        return (parameters - lower) / (upper - lower)
 
-    def _compute_chart_weights(self, parameters: Tensor) -> Tensor:
-        """Return [B, C] partition-of-unity weights."""
-        if self.num_charts == 1:
-            return torch.ones(parameters.shape[0], 1, device=parameters.device)
-        if self.chart_centers is None:
-            self._init_chart_centers()
-        return chart_partition(parameters, self.chart_centers, self.chart_temperature)
+    def chart_weights(self, parameters: Tensor) -> Tensor:
+        """Return the differentiable partition-of-unity weights ``[B,C]``."""
 
-    def _compute_m_weights(
-        self, coordinates: Tensor, parameters: Tensor, basis: Tensor
-    ) -> Tensor | None:
-        """Compute M-weights from the energy integrand.
+        normalized = self._normalize_parameters(parameters)
+        bounded_centers = self.chart_centers.clamp(0.0, 1.0)
+        return chart_partition(normalized, bounded_centers, self.chart_temperature)
 
-        The M-matrix approximates the local contribution of each quadrature
-        point to the variational energy.  We use the kinetic + potential
-        density as a proxy.
-        """
-        if not self.m_weighted:
-            return None
+    def _fixed_anchor(self, coordinates: Tensor) -> Tensor:
+        if self.anchor_kind == "none":
+            return coordinates.new_zeros((*coordinates.shape[:2], 2, 2))
+        return BlockKyFanPINN.anchor(coordinates, self.anchor_kind)
+
+    def _rom_corrections(self, coordinates: Tensor, parameters: Tensor) -> list[Tensor]:
+        return [
+            parametric_rom_anchor(
+                coordinates,
+                parameters,
+                network,
+                modes=self.rom_modes,
+            )
+            for network in self.rom_coefficient_networks
+        ]
+
+    def _combined_correction(self, coordinates: Tensor, parameters: Tensor) -> Tensor:
+        weights = self.chart_weights(parameters)
+        corrections = self._rom_corrections(coordinates, parameters)
+        rom = sum(
+            weights[:, index, None, None, None] * correction
+            for index, correction in enumerate(corrections)
+        )
+        return self.base_network._raw(coordinates, parameters) + rom
+
+    def _importance_weights(
+        self, coordinates: Tensor, parameters: Tensor, provisional_basis: Tensor
+    ) -> Tensor:
         from .physics import covariant_gradient_energy, periodic_potential
 
-        kinetic = 0.5 * covariant_gradient_energy(basis, coordinates, parameters)
-        density = basis.square().sum(-1)  # [B, P, R]
+        kinetic = 0.5 * covariant_gradient_energy(provisional_basis, coordinates, parameters)
+        density = provisional_basis.square().sum(-1)
         potential = periodic_potential(
             coordinates, parameters, self.potential_family
         )[..., None] * density
-        integrand = (kinetic + potential).sum(-1)  # [B, P]
-        # Use absolute value as weight (positive, energy-like)
-        weights = integrand.abs() + 1e-8
-        return weights.detach()
+        local_energy = (kinetic + potential).abs().sum(-1).detach() + 1e-8
+        relative = local_energy / local_energy.mean(dim=1, keepdim=True).clamp_min(1e-8)
+        return (1.0 + 0.5 * (relative - 1.0)).clamp(0.25, 4.0)
+
+    def _raw_pair(self, coordinates: Tensor, parameters: Tensor) -> tuple[Tensor, Tensor]:
+        fixed = self._fixed_anchor(coordinates)
+        correction = self._combined_correction(coordinates, parameters)
+        normalization_coordinates = coordinates.detach()
+        normalization_fixed = self._fixed_anchor(normalization_coordinates)
+        normalization_correction = self._combined_correction(
+            normalization_coordinates, parameters
+        )
+        provisional = fixed + self.anchor_scale * correction
+        normalization_provisional = normalization_fixed + self.anchor_scale * normalization_correction
+        if self.m_weighted:
+            provisional_basis = periodic_mgs_dual(provisional, normalization_provisional)
+            importance = self._importance_weights(coordinates, parameters, provisional_basis)
+            provisional = fixed + self.anchor_scale * importance[..., None, None] * correction
+            normalization_provisional = (
+                normalization_fixed
+                + self.anchor_scale
+                * importance.detach()[..., None, None]
+                * normalization_correction
+            )
+        return provisional, normalization_provisional
 
     def forward(self, coordinates: Tensor, parameters: Tensor) -> Tensor:
-        """Forward pass with ROM anchor and multi-chart blending.
-
-        Returns
-        -------
-        basis : [B, P, 2, 2] — rank-2 orthonormal complex block basis.
-        """
         if coordinates.ndim != 3 or coordinates.shape[-1] != 2:
             raise ValueError("coordinates must have shape [batch, points, 2]")
         if parameters.shape != (coordinates.shape[0], self.parameter_dim):
             raise ValueError(f"parameters must have shape [batch, {self.parameter_dim}]")
-
-        # Chart weights
-        chart_weights = self._compute_chart_weights(parameters)  # [B, C]
-
-        # Build ROM anchor: weighted average across charts
-        rom_anchor = torch.zeros(
-            coordinates.shape[0], coordinates.shape[1], 2, 2,
-            device=coordinates.device, dtype=coordinates.dtype,
-        )
-        for chart_idx, rom_net in enumerate(self.rom_coefficient_networks):
-            chart_anchor = parametric_rom_anchor(
-                coordinates, parameters, rom_net,
-                modes=self.rom_modes, anchor_scale=self.anchor_scale,
-            )
-            rom_anchor = rom_anchor + chart_weights[:, chart_idx, None, None, None] * chart_anchor
-
-        # Base network forward pass (anchor-free)
-        raw = self.base_network._raw(coordinates, parameters)  # [B, P, 2, 2]
-
-        # Combine ROM anchor + network correction
-        combined = rom_anchor + raw
-
-        # Orthogonalization with optional M-weighting
+        raw, normalization_raw = self._raw_pair(coordinates, parameters)
         if self.orthogonalization == "dual_path":
-            normalization_raw = self.base_network._raw(coordinates.detach(), parameters)
-            normalization_combined = rom_anchor.detach() + normalization_raw
-            if self.m_weighted:
-                # Use M-weighted Gram-Schmidt
-                m_weights = self._compute_m_weights(coordinates, parameters, combined)
-                # For now dual-path + M-weighted uses standard dual-path then
-                # re-normalises with M-weights (simplified approach)
-                return periodic_mgs_dual(combined, normalization_combined)
-            return periodic_mgs_dual(combined, normalization_combined)
+            return periodic_mgs_dual(raw, normalization_raw)
+        return periodic_mgs(raw)
 
-        if self.m_weighted:
-            m_weights = self._compute_m_weights(coordinates, parameters, combined)
-            return m_weighted_gram_schmidt(combined, m_weights)
-        return periodic_mgs(combined)
+    def _chart_bases(self, coordinates: Tensor, parameters: Tensor) -> list[Tensor]:
+        fixed = self._fixed_anchor(coordinates)
+        shared = self.base_network._raw(coordinates, parameters)
+        return [
+            periodic_mgs(fixed + self.anchor_scale * (shared + correction))
+            for correction in self._rom_corrections(coordinates, parameters)
+        ]
+
+    @staticmethod
+    def _residual_per_sample(basis: Tensor, h_basis: Tensor) -> Tensor:
+        matrix_real, matrix_imag = ritz_matrix(basis, h_basis)
+        q_real, q_imag = basis[..., 0], basis[..., 1]
+        projected_real = torch.einsum("bni,bij->bnj", q_real, matrix_real) - torch.einsum(
+            "bni,bij->bnj", q_imag, matrix_imag
+        )
+        projected_imag = torch.einsum("bni,bij->bnj", q_real, matrix_imag) + torch.einsum(
+            "bni,bij->bnj", q_imag, matrix_real
+        )
+        residual = h_basis - torch.stack((projected_real, projected_imag), dim=-1)
+        return torch.sqrt(residual.square().mean(dim=(1, 2, 3)))
 
     def evaluate_risks(
         self, coordinates: Tensor, parameters: Tensor, basis: Tensor | None = None
-    ) -> dict[str, object]:
-        """Compute gap risk and chart disagreement risk.
+    ) -> dict[str, Tensor]:
+        """Compute label-free per-sample residual and chart-disagreement risks."""
 
-        Returns a dictionary suitable for logging and fallback decisions.
-        """
         if basis is None:
             basis = self(coordinates, parameters)
-
-        risks: dict[str, object] = {}
-
-        # External gap risk
-        if self.gap_monitor:
-            gap_risk, external_gap = external_gap_risk(
-                basis, coordinates, parameters, self.potential_family, self.reference_cutoff
-            )
-            risks["external_gap"] = external_gap
-            risks["gap_risk"] = float(gap_risk.detach().cpu())
-
-        # Chart disagreement risk (multi-chart only)
-        if self.num_charts > 1:
-            # Compare prediction from chart 0 vs chart 1
-            with torch.no_grad():
-                rom0 = parametric_rom_anchor(
-                    coordinates, parameters, self.rom_coefficient_networks[0],
-                    modes=self.rom_modes, anchor_scale=self.anchor_scale,
-                )
-                raw0 = self.base_network._raw(coordinates, parameters)
-                basis0 = periodic_mgs(rom0 + raw0)
-
-                rom1 = parametric_rom_anchor(
-                    coordinates, parameters, self.rom_coefficient_networks[1],
-                    modes=self.rom_modes, anchor_scale=self.anchor_scale,
-                )
-                raw1 = self.base_network._raw(coordinates, parameters)
-                basis1 = periodic_mgs(rom1 + raw1)
-
-            disagreement = chart_disagreement_risk(basis0, basis1)
-            risks["chart_disagreement"] = disagreement
-
-        # Fallback decision
-        if self.fallback_enabled:
-            gap_risk_tensor = torch.tensor(risks.get("gap_risk", 0.0))
-            chart_risk = float(risks.get("chart_disagreement", 0.0))
-            fallback = should_fallback(gap_risk_tensor, chart_risk)
-            risks["should_fallback"] = bool(fallback.any().cpu() if isinstance(fallback, Tensor) else fallback)
-
-        return risks
+        h_basis = apply_hamiltonian(basis, coordinates, parameters, self.potential_family)
+        residual = self._residual_per_sample(basis, h_basis)
+        residual_risk = torch.sigmoid((residual - 0.10) / 0.05)
+        chart_bases = self._chart_bases(coordinates, parameters)
+        if len(chart_bases) == 1:
+            disagreement = torch.zeros_like(residual_risk)
+        else:
+            pairwise = [
+                chart_disagreement_risk(chart_bases[left], chart_bases[right]).to(residual.device)
+                for left in range(len(chart_bases))
+                for right in range(left + 1, len(chart_bases))
+            ]
+            disagreement = torch.stack(pairwise).amax(dim=0)
+        fallback = should_fallback(residual_risk, disagreement)
+        return {
+            "projected_residual_rms": residual,
+            "residual_risk": residual_risk,
+            "chart_disagreement": disagreement,
+            "should_fallback": fallback,
+        }
 
     def forward_with_fallback(
         self, coordinates: Tensor, parameters: Tensor
     ) -> tuple[Tensor, dict[str, object]]:
-        """Forward pass with automatic PWE fallback for high-risk parameters.
+        """Use deterministic hexagonal PWE only for samples flagged as risky."""
 
-        Returns
-        -------
-        basis : [B, P, 2, 2]
-        info : dict with risk metrics and fallback flags.
-        """
         basis = self(coordinates, parameters)
-        info = self.evaluate_risks(coordinates, parameters, basis)
-
-        # PWE fallback: replace basis with PWE reference for high-risk samples
-        if self.fallback_enabled and info.get("should_fallback", False):
-            pwe_basis_list: list[Tensor] = []
-            for b in range(parameters.shape[0]):
-                ref = solve_reference(
-                    parameters[b], cutoff=self.reference_cutoff, rank=2,
+        risks = self.evaluate_risks(coordinates, parameters, basis)
+        fallback_mask = (
+            risks["should_fallback"]
+            if self.fallback_enabled and self.gap_monitor
+            else torch.zeros_like(risks["should_fallback"])
+        )
+        outputs: list[Tensor] = []
+        for index in range(parameters.shape[0]):
+            if bool(fallback_mask[index].detach().cpu()):
+                reference = solve_reference(
+                    parameters[index],
+                    cutoff=self.reference_cutoff,
+                    rank=2,
                     potential_family=self.potential_family,
+                    mode_shape="hexagonal",
                 )
-                ref_basis_eval = evaluate_reference_basis(ref, coordinates[b:b+1])
-                if coordinates.is_cuda:
-                    ref_basis_eval = ref_basis_eval.to(coordinates.device)
-                pwe_basis_list.append(ref_basis_eval)
-            fallback_basis = torch.cat(pwe_basis_list, dim=0)
-            info["fallback_used"] = True
-            info["fallback_fraction"] = info.get("should_fallback", False)
-            return fallback_basis, info
-
-        info["fallback_used"] = False
-        return basis, info
+                reference_basis = evaluate_reference_basis(
+                    reference, coordinates[index : index + 1]
+                )
+                outputs.append(periodic_mgs(reference_basis))
+            else:
+                outputs.append(basis[index : index + 1])
+        result = torch.cat(outputs, dim=0)
+        info: dict[str, object] = {
+            key: value.detach().cpu().tolist() for key, value in risks.items()
+        }
+        info["fallback_used"] = bool(fallback_mask.any().detach().cpu())
+        info["fallback_fraction"] = float(fallback_mask.float().mean().detach().cpu())
+        return result, info

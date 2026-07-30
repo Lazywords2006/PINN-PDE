@@ -56,13 +56,8 @@ def _complex_linalg_check(device: torch.device, dtype: torch.dtype) -> float:
     matrix[1, 0] = 0.25 - 0.125j
     matrix[2, 3] = -0.2 + 0.1j
     matrix[3, 2] = -0.2 - 0.1j
-    # Some PyTorch builds lack CPU LAPACK; move to GPU when available.
-    compute_device = device
-    if device.type == "cpu" and torch.cuda.is_available():
-        compute_device = torch.device("cuda")
-        matrix = matrix.to(compute_device)
     q, _ = torch.linalg.qr(matrix)
-    identity = torch.eye(4, device=compute_device, dtype=dtype)
+    identity = torch.eye(4, device=device, dtype=dtype)
     orthogonality_error = (q.mH @ q - identity).abs().max()
     eigenvalues = torch.linalg.eigvalsh(matrix)
     if not bool(torch.isfinite(eigenvalues).all().detach().cpu()):

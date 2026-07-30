@@ -1,5 +1,7 @@
 import torch
 import csv
+import json
+from pathlib import Path
 
 from block_kyfan_pinn.protocol import (
     build_falsification_smoke_points,
@@ -106,6 +108,12 @@ def test_suite_validation_rejects_duplicate_identity() -> None:
     point = {"id": "same", "family": "harmonic_honeycomb", "split": "iid", "parameters": [0.3, 0.3, 0.5, 0.0]}
     with __import__("pytest").raises(ValueError, match="duplicated"):
         _validate_suite_payload({"point_count": 2, "points": [point, dict(point)]})
+
+
+def test_retired_v1_suite_remains_readable_for_historical_audit() -> None:
+    root = Path(__file__).resolve().parents[1]
+    suite = json.loads((root / "benchmarks/sci3_validation_v1.json").read_text())
+    assert len(_validate_suite_payload(suite)) == 64
 
 
 def test_holm_stops_after_first_failed_hypothesis() -> None:

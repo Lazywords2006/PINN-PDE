@@ -195,10 +195,11 @@ def _evaluate(
         h_basis = apply_hamiltonian(basis, coordinates, parameters, config.potential_family)
         residual = float(projected_residual_rms(basis, h_basis).detach().cpu())
         matrix_real, matrix_imag = ritz_matrix(basis, h_basis)
+        if device.type == "mps":
+            matrix_real = matrix_real.cpu()
+            matrix_imag = matrix_imag.cpu()
         matrix = torch.complex(matrix_real.detach(), matrix_imag.detach())
-        if torch.cuda.is_available() and not matrix.is_cuda:
-            matrix = matrix.to("cuda")
-        ritz_values = torch.linalg.eigvalsh(matrix[0]).cpu().real
+        ritz_values = torch.linalg.eigvalsh(matrix[0]).real.cpu()
         reference = solve_reference(
             parameters[0], cutoff=config.reference_cutoff, rank=2, potential_family=config.potential_family
         )

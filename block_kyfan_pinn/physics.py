@@ -287,14 +287,30 @@ def generalized_trace_energy(
     h_basis = apply_hamiltonian(raw_basis, coordinates, parameters, potential_family)
     b_real, b_imag = complex_gram_mean(raw_basis)
     a_real, a_imag = ritz_matrix(raw_basis, h_basis)
-    b_matrix = torch.complex(b_real, b_imag)
-    a_matrix = torch.complex(a_real, a_imag)
-    if torch.cuda.is_available() and not b_matrix.is_cuda:
-        b_matrix = b_matrix.to("cuda")
-        a_matrix = a_matrix.to("cuda")
-    identity = torch.eye(b_matrix.shape[-1], dtype=b_matrix.dtype, device=b_matrix.device)
-    solution = torch.linalg.solve(b_matrix + regularization * identity, a_matrix)
-    return solution.diagonal(dim1=-2, dim2=-1).real.sum(-1).mean()
+    rank = b_real.shape[-1]
+    block_b = torch.cat(
+        (
+            torch.cat((b_real, -b_imag), dim=-1),
+            torch.cat((b_imag, b_real), dim=-1),
+        ),
+        dim=-2,
+    )
+    block_a = torch.cat((a_real, a_imag), dim=-2)
+    output_device = block_b.device
+    if output_device.type == "mps":
+        # MPS 2.8 supports the forward solve but not its LU backward pass.
+        # The matrices are only 4x4, so a differentiable CPU copy is cheaper
+        # and more reliable than requiring a process-wide fallback flag.
+        block_b = block_b.cpu()
+        block_a = block_a.cpu()
+    identity = torch.eye(
+        2 * rank, dtype=block_b.dtype, device=block_b.device
+    )
+    solution = torch.linalg.solve(
+        block_b + regularization * identity, block_a
+    )
+    solution_real = solution[..., :rank, :]
+    return solution_real.diagonal(dim1=-2, dim2=-1).sum(-1).mean().to(output_device)
 
 
 def galerkin_low_energy(
@@ -303,10 +319,10 @@ def galerkin_low_energy(
 ) -> Tensor:
     h_basis = apply_hamiltonian(trial_basis, coordinates, parameters, potential_family)
     matrix_real, matrix_imag = ritz_matrix(trial_basis, h_basis)
-    matrix = torch.complex(matrix_real, matrix_imag)
-    if torch.cuda.is_available() and not matrix.is_cuda:
-        matrix = matrix.to("cuda")
-    eigenvalues = torch.linalg.eigvalsh(matrix).cpu().real
+    if matrix_real.device.type == "mps":
+        matrix_real = matrix_real.cpu()
+        matrix_imag = matrix_imag.cpu()
+    eigenvalues = torch.linalg.eigvalsh(torch.complex(matrix_real, matrix_imag)).real
     return eigenvalues[..., :target_rank].sum(-1).mean()
 
 
@@ -318,17 +334,24 @@ def galerkin_rank_basis(
 
     h_basis = apply_hamiltonian(trial_basis, coordinates, parameters, potential_family)
     matrix_real, matrix_imag = ritz_matrix(trial_basis, h_basis)
-    matrix = torch.complex(matrix_real, matrix_imag)
-    if torch.cuda.is_available() and not matrix.is_cuda:
-        matrix = matrix.to("cuda")
-    _, eigenvectors = torch.linalg.eigh(matrix)
-    if eigenvectors.is_cuda:
-        eigenvectors = eigenvectors.cpu()
+    target_device = trial_basis.device
+    if matrix_real.device.type == "mps":
+        matrix_real = matrix_real.cpu()
+        matrix_imag = matrix_imag.cpu()
+    _, eigenvectors = torch.linalg.eigh(torch.complex(matrix_real, matrix_imag))
     # Ritz coefficients are constants when differentiating the selected functions in space.
     coefficients = eigenvectors[..., :target_rank].detach()
-    complex_basis = torch.complex(trial_basis[..., 0], trial_basis[..., 1])
-    selected = torch.einsum("bnm,bmr->bnr", complex_basis, coefficients)
-    return periodic_mgs(torch.stack((selected.real, selected.imag), -1))
+    coefficient_real = coefficients.real.to(target_device)
+    coefficient_imag = coefficients.imag.to(target_device)
+    basis_real = trial_basis[..., 0]
+    basis_imag = trial_basis[..., 1]
+    selected_real = torch.einsum(
+        "bnm,bmr->bnr", basis_real, coefficient_real
+    ) - torch.einsum("bnm,bmr->bnr", basis_imag, coefficient_imag)
+    selected_imag = torch.einsum(
+        "bnm,bmr->bnr", basis_real, coefficient_imag
+    ) + torch.einsum("bnm,bmr->bnr", basis_imag, coefficient_real)
+    return periodic_mgs(torch.stack((selected_real, selected_imag), -1))
 
 
 def causal_sorted_basis(

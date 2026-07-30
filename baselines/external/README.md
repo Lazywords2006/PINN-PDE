@@ -16,4 +16,7 @@ git clone https://github.com/haarisamian/neural-bloch-eigensolver.git
 git -C neural-bloch-eigensolver checkout 7ba841f26301cf5047647d26ad30a1def25c1276
 ```
 
-项目内 `wang_xie_trace`、`dai_galerkin` 和 `causal_sort` 是针对统一 Bloch 参数网络的公式级适配，不得写成作者官方代码直接运行结果。正式运行时必须同时保存固定提交号、环境与适配差异。
+当前 V2 promotion pilot 实际包含 P1 block、ordered residual、Wang–Xie trace 公式适配和
+P3。项目内 `wang_xie_trace`、`dai_galerkin` 和 `causal_sort` 都是针对统一 Bloch 参数
+网络的公式级适配，不得写成作者官方代码直接运行结果。正式投稿矩阵仍需补 Dai/Galerkin
+和监督 Grassmann 上界，并保存固定提交号、环境、参数量、训练预算与适配差异。
