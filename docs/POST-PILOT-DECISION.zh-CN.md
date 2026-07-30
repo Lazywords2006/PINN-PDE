@@ -1,170 +1,170 @@
-# P3 后验审计与下一阶段决策
+# 当前结果、A-GTNet 方案与投稿决策
 
 更新时间：2026-07-30。
 
-## 先说结论
+## 一句话先说清楚
 
-这个项目仍然是一个真实的“神经网络求解二维偏微分方程本征问题”课题：网络求解
-二维 Bloch–Schrödinger PDE 的最低 rank-2 本征子空间，训练不使用 PWE 本征函数
-标签。课题没有跑偏，工程路径也可以继续。
+本文使用一个**无标签、变分式的参数化神经网络 A-GTNet**，求解二维周期
+Bloch–Schrödinger 偏微分方程的最低 rank-2 本征谱簇：
 
-但是，**当前 P3 方法不能按原样写成可投稿论文**。AMD 交接报告称 P3 在 validation
-pilot 上明显输给 `wang_xie_trace`，promotion gate 为 STOP。冻结 final 没有运行，
-这是正确做法。现阶段可写的是方法、协议和负结果分析，不能写“P3 优于基线”。
+\[
+\left[\tfrac12(-i\nabla+\mathbf{k})^T G(-i\nabla+\mathbf{k})
++V_{\mu}(\mathbf{x})\right]u_j=E_j u_j,
+\qquad \mathbf{x}\in[0,2\pi)^2.
+\]
 
-下一步不是给 P3 增加训练轮数，而是提出一个暂称 **P4-GT-ROM** 的诊断候选：所有
-候选共享广义迹目标 `tr(B^-1 A)`，再逐项加入物理 anchor、单图 ROM 和多图 ROM。
-只有这样才能回答“ROM 是否真的有效”，而不是把目标函数、正交化和网络模块的影响
-混在一起。
+网络不使用 PWE 本征函数作为训练标签，也不在 Dirac 简并点强行区分“第 1 条带”和
+“第 2 条带”，而是直接学习两条带共同张成的二维谱子空间。因此这是真正的神经网络
+PDE 本征求解，而不是普通监督回归，也不是把一维常微分方程包装成 PDE。
 
-## 一、证据可信度分层
+## 当前结果到底说明了什么
 
-| 结论 | 当前状态 | 能否写入论文结果 |
+### 已经能确定的事实
+
+- P3 multi-chart KyFan-PINN 的代码和验证协议能够运行；
+- AMD 执行报告称 P3 的 24-run validation pilot 为 STOP，near-cluster 误差约为最佳
+  generalized-trace 基线的 3.08 倍；
+- 该次 AMD 原始 CSV、checkpoint 和证据压缩包未回收到仓库，所以具体数值只能称
+  “执行者报告”，不能放进论文正式结果表；
+- final 从未打开，避免了利用测试集继续调参，这是正确的实验纪律。
+
+### 本地探索性诊断
+
+在 Apple MPS 上用同一网络宽度、同一训练点、同一优化预算做过一次 200 步、seed 42
+的开发探针。`near_cluster` 平均投影误差为：
+
+| 方法 | 误差 | 解释 |
+|---|---:|---|
+| G0：纯 generalized trace | 0.126527 | 公平底座基线 |
+| G1：G0 + 物理 anchor | **0.108527** | 相对 G0 改善约 14.2% |
+| G2：G1 + 静态单图 ROM | 0.117777 | ROM 没有超过简单 anchor |
+| G3：G1 + 退火单图 ROM | 0.113169 | 好于 G2，但仍没有超过 G1 |
+| K3：历史 P3 | 0.401505 | 再次显示 hard MGS 路线优化困难 |
+
+这只是**一个 seed 的开发探针**，不能作为论文实验，也没有达到预先设定的 15% 门槛。
+它只支持一个下一步假设：应把最简单的 G1 作为候选主方法，而不是继续堆叠 ROM。
+
+另一个 basis-invariant 自蒸馏探针使误差恶化到约 0.326，已经判为 STOP 并从正式实现
+中删除。负结果保留在决策记录中，不再让执行机尝试。
+
+## 为什么把最终候选改成 A-GTNet
+
+A-GTNet 是 **Anchored Generalized-Trace Network**。其输出是两个未正交的复值周期
+试探函数组成的矩阵 \(Y_\theta\)，训练目标为
+
+\[
+\mathcal L_{GT}=\operatorname{tr}\!\left[
+(Y_\theta^*Y_\theta)^{-1}(Y_\theta^*H Y_\theta)
+\right].
+\]
+
+候选 G1 只在纯 G0 网络输出上增加一个不含可训练参数的低能 Bloch 物理锚点：
+
+\[
+Y_{A\text{-}GTNet}=Y_{\theta}+\alpha Y_{\mathrm{anchor}}.
+\]
+
+它的研究价值不应写成“我们发明了 generalized trace”或“我们发明了物理 anchor”。
+更稳妥的主张是：
+
+> 对带内部简并的参数化二维 Bloch PDE 谱簇，使用固定秩、基底不变的 generalized-
+> trace 训练，并用不增加可训练参数的低能 Bloch 子空间作为坐标先验，能否改善无标签
+> 摊销式神经求解器在简并邻域的优化稳定性和泛化？
+
+这比 P3 更适合写论文，原因是：G0 与 G1 的网络参数、目标、采样和预算完全相同，唯一
+变量就是物理 anchor。ROM 作为 G2/G3 消融保留，用来证明复杂模块并非提升来源。
+
+## 冻结的五方法对照
+
+| 代号 | 训练目标 | 物理 anchor | ROM | 论文角色 |
+|---|---|---:|---:|---|
+| G0 `g0_trace` | generalized trace | 否 | 否 | 最关键公平基线 |
+| G1 `g1_anchor` | generalized trace | 是 | 否 | **A-GTNet 主候选** |
+| G2 `g2_static_rom` | generalized trace | 是 | 静态单图 | 复杂度消融 |
+| G3 `g3_annealed_rom` | generalized trace | 是 | 退火单图 | 延续训练消融 |
+| K3 `k3_p3` | Ky Fan + hard MGS | 是 | 历史双图 | 失败机制负对照 |
+
+五种方法在 harmonic honeycomb 和 Gaussian honeycomb 两个势族上运行，固定 seeds
+`42/137/251`、每次 500 步，共 30 次。执行机不得改变方法、seed、步数或门槛。
+
+## 远端 promotion 的硬门槛
+
+只有同时满足下列条件，A-GTNet 才进入下一阶段：
+
+1. 30/30 运行完成，无 NaN；
+2. 最大正交误差 `<2e-4`，最大 Gram 条件数 `<1e8`；
+3. G1 相对 G0 的 near-cluster 平均投影误差整体至少改善 15%；
+4. harmonic 与 Gaussian 两个势族分别都至少改善 15%；
+5. 6 个“势族 × seed”配对全部为正改善；
+6. G0 与 G1 在**每个势族内**可训练参数量完全相等；
+7. G1 优于历史 P3；
+8. G1 不得比最佳 ROM 扩展差超过 2%，否则主候选选择不成立；
+9. G3 的 ROM 系数在训练结束时确实退火为 0，保证消融协议被执行。
+
+`PROMOTION_GO` 只表示可以由本地继续设计论文实验，不代表已经达到投稿标准，也不授权
+远端执行 frozen final。任一条件失败都是 `PROMOTION_STOP`，不得挑 seed 或改门槛。
+
+## 远端机器的唯一职责
+
+远端不是研究助理，也不负责选择算法。它只需要从干净的 `main` 执行：
+
+```bash
+python scripts/run_p4_executor.py --device auto 2>&1 | tee p4-executor.log
+```
+
+程序自动生成 validation 参考缓存、先做 10-run 工程 smoke、再做冻结的 30-run
+promotion，并输出带 manifest 与 SHA-256 的证据包。远端只回传：
+
+- `artifacts/p4-evidence-*.tar.gz`；
+- 对应 `.sha256`；
+- `p4-executor.log`。
+
+所有解释、统计、下一阶段选择和论文文字都在本地完成。详细操作见
+[执行机唯一指令](P4-EXECUTOR.zh-CN.md)。
+
+## GO 以后才运行什么
+
+若 promotion GO，仍需先由本地冻结 final 方案，再让执行机运行：
+
+1. 一次且仅一次 frozen final；
+2. 至少 5 个新 seed，或根据 pilot 方差完成统计功效分析；
+3. anchor 类型/尺度、错误 anchor、静态/退火 ROM 的消融；
+4. exact degeneracy、near degeneracy、IID、strict OOD、gap scan；
+5. 参数量匹配、时间匹配、采样匹配和峰值显存；
+6. Dai/Galerkin、监督 Grassmann 上界、逐带神经本征求解器等期刊级基线；
+7. 至少一个不同周期势族或另一种二维周期几何。
+
+若 promotion STOP，则不开 final。应根据失败项决定：若改善稳定但不足 15%，可把 anchor
+作为优化技巧而非主创新，另找更强研究问题；若跨 seed/势族不稳定，则停止 A-GTNet
+精度主张，转向“简并处的基底不变表示与失败机制分析”或更换 PDE 场景。
+
+## 论文应准备的图
+
+| 图 | 必须展示的内容 | 审稿问题 |
 |---|---|---|
-| 仓库代码、CI、V2 suite 结构 | 可本地核验 | 可以作为工程事实 |
-| 三份 benchmark SHA-256 与 cutoff 收敛 JSON | 可本地核验 | 可以描述参考协议 |
-| 24/24 AMD pilot 完成 | 仅见交接报告 | 只能注明“执行者报告”，不能当独立复核结果 |
-| P3 near-cluster 误差 0.4874、最佳基线 0.1582 | 仅见交接报告 | 原始 CSV/JSON 找回或重跑前不能进正式结果表 |
-| P3 promotion gate STOP | 与报告一致，原始数据缺失 | 必须据此保持 final 关闭 |
-| frozen final、正式消融、统计显著性 | 未运行 | 不能声称 |
+| Fig. 1 | PDE → 周期神经试探基 → anchor → generalized trace → rank-2 谱簇 | 是否真在解 PDE |
+| Fig. 2 | 参考/预测能带和 Dirac 点局部放大 | 简并处是否物理正确 |
+| Fig. 3 | `k_x-k_y` 平面的 G0/G1 误差热图 | 改善是否覆盖区域 |
+| Fig. 4 | exact/near/IID/OOD 的配对 seed 分布与 95% CI | 是否稳定泛化 |
+| Fig. 5 | G0/G1/G2/G3/K3 消融 | anchor 是否是真正来源 |
+| Fig. 6 | 训练 loss、投影误差、梯度范数、Gram 条件数 | 为什么优化改善 |
+| Fig. 7 | 错误/random/correct anchor 与 anchor scale 敏感性 | 是否只是幸运初始化 |
+| Fig. 8 | 误差—训练时间、误差—参数量 Pareto | 是否值得计算成本 |
+| Fig. 9 | 第二势/第二几何上的主结果 | 外部有效性 |
 
-缺失的证据包括 24 个 `result.json`、逐点 `metrics.csv`、训练曲线、24 个 checkpoint、
-`summary.json`、`pilot_gate.json`、环境记录和结果包 SHA 清单。旧服务器路径
-`/tmp/pinn-pde-results.tar.gz` 不是持久化证据。
+主指标必须是 basis-invariant 投影误差和主角度；本征值误差、PDE residual、正交误差、
+训练/推理时间和显存作为补充。不能用单个最好 seed 的曲线代替统计图。
 
-还有一个必须保留的来源说明：报告把运行提交写为 `4e7c8e1a`，但运行前修复的
-`reference_basis[..., :2, :]` 直到后续提交 `683bef5` 才进入 Git。这意味着试验很可能
-在带未提交改动的工作树上执行；仅记录 Git commit 不能唯一还原运行源码。只有原始
-`source_fingerprint`、结果文件和 checkpoint 同时存在时，才能闭合这一来源链。
+## 现在能不能发表
 
-## 二、P3 为什么可能失败
+- **现在直接投稿：不能。** P3 是负结果，A-GTNet 只有一个本地探索 seed。
+- **是否值得继续：值得。** 下一次 30-run 实验规模小、问题清楚且有硬停止条件。
+- **SCI 四区：有条件可能。** 需要 promotion GO、一次 frozen final、完整消融、公平
+  期刊级基线和第二外部场景。
+- **SCI 三区：当前不足。** 还需要更强外部有效性，以及对 physical anchor 改善
+  generalized-trace 优化条件的理论或数值解释。
+- **当前创新强度：中等偏弱、待证。** 若两个势族和全部 seed 都达到 15% 以上，且错误
+  anchor 消融支持机制，可提升到中等；若只有约 10% 单场景提升，不足以当期刊主创新。
 
-下面是根据代码和报告提出的可检验假设，不是已经证实的因果结论。
-
-1. **目标与参数化方式混杂。** P3 对硬正交化后的基最小化 Ky Fan trace；最佳基线
-   对未正交的试探基直接最小化 `tr(B^-1 A)`。两者连续理论上相关，但有限采样、MGS
-   的梯度路径和优化条件数不同，当前实验没有隔离这一差别。
-2. **硬 MGS 可能妨碍优化。** P3 每次前向都经过 dual-path modified Gram–Schmidt；
-   generalized trace 则允许网络在原始试探空间中优化，只在评价时正交化。
-3. **anchor 可能限制了可达空间。** P3 从固定低能 anchor 出发，修正统一乘 0.1。
-   这在初始点有物理意义，但对 Gaussian 势族或较强参数可能过于保守。
-4. **多图没有受到“必须分工”的训练约束。** 两个图只通过 softmax 权重混合，没有
-   图利用率、覆盖率或防塌缩指标。它们可能退化成一个图或相互抵消。
-5. **M 加权是启发式调制。** detached 局部能量权重会改变修正的空间分布，但并不
-   保证改善目标谱子空间；它应当最后单独验证，而不是与 ROM 同时启用。
-6. **现有预算不能解释为公平等算力。** pilot 统一了步数和宽度，但 P3 有 13,444
-   个参数，harmonic 的 generalized-trace 基线有 9,156 个，P3 多约 47%。正式论文
-   还需同时报告参数量、每步时间、总时间和峰值显存。
-
-报告中的负结果也给出一个有用线索：P3 在 Gaussian 上略好于 P1，却仍远差于
-generalized trace。这更像是“ROM 可能补偿了一部分复杂势误差，但训练目标/约束仍是
-主导瓶颈”，需要正交实验验证，不能直接当作创新证据。
-
-## 三、下一版程序要做什么
-
-### N0：先补证据闭环
-
-优先尝试找回旧结果包；找不回就只重跑 P3 validation pilot，不运行 final。新的结果
-导出必须包含：
-
-- Git commit、dirty 状态、Python/PyTorch/ROCm 或 CUDA 环境；
-- suite、reference cache、源码、配置和 checkpoint SHA-256；
-- 逐点指标、训练曲线、每个 seed 的 result、总 summary 和 gate；
-- 一个列出所有文件相对路径、字节数和 SHA-256 的 manifest；
-- 下载到本地后再次校验，不能只保存在 `/tmp`。
-
-### N1：实现 P4-GT-ROM，但不修改历史 P3
-
-新增独立模型和脚本，保留 P3 以便复现。关键实现原则：
-
-1. 给 P3 组件增加只返回**未正交试探基**的公共接口，但保持现有 `forward()` 和历史
-   checkpoint 语义不变。
-2. P4 训练时对原始试探基使用 `generalized_trace_energy`；评价时才使用标准
-   `periodic_mgs`，不要在 generalized trace 前先做硬 MGS。
-3. 第一轮关闭 M 加权、fallback 和风险头，只检验 anchor 与 ROM；避免同时改变过多
-   因素。
-4. 新脚本写入 `results/p4_objective_diagnostic/`，不得覆盖
-   `results/p3_v2_pilot/`，也不得读取 frozen final。
-5. 记录 Gram 矩阵条件数、梯度范数、图权重熵、有效图数和每 50 步 validation 误差，
-   用来判断是目标优化失败还是图塌缩。
-
-### N2：冻结以下对照矩阵
-
-| 代号 | 共同目标 | 物理 anchor | ROM | 图数 | 要回答的问题 |
-|---|---|---:|---:|---:|---|
-| G0 | generalized trace | 否 | 否 | 0 | 当前最佳基线 |
-| G1 | generalized trace | 是 | 否 | 0 | anchor 是否独立有效 |
-| G2 | generalized trace | 是 | 是 | 1 | ROM 是否独立有效 |
-| G3 | generalized trace | 是 | 是 | 2 | 多图是否优于单图 |
-| K3 | Ky Fan + hard MGS | 是 | 是 | 2 | 历史 P3 负对照 |
-
-先做每势族、每方法、seed 42 的 200 步工程诊断，只用于发现 NaN、图塌缩和明显实现
-错误，不作论文结论。通过后固定 500 步、两势族、3 seeds，完整运行 30 次。所有方法
-使用相同采样点和优化器；同时报告同宽度结果与参数量匹配结果，不能只选择有利预算。
-
-### N3：预先冻结继续/停止标准
-
-P4 promotion 前不要打开 final。建议沿用严格门槛：
-
-- 30/30 运行完成，无 NaN，所有指标有限；
-- G3 在 `near_cluster` 上相对 G0 的平均投影误差整体改善至少 15%；
-- harmonic 与 Gaussian 两个势族分别都改善至少 15%；
-- 3 个 seed 的方向一致，报告均值、标准差、95% CI 和配对效应量；
-- G3 必须优于 G2，且图权重没有塌缩，否则“多图”主张不成立；
-- 参数量增加必须与训练/推理代价一起报告。
-
-若 G1 有效而 G2/G3 无效，应删掉 ROM，不能继续称多图 ROM 创新；仅“加物理 anchor”
-通常不足以单独支撑期刊主创新。若 G3 仍不能稳定优于 G0，应停止这条精度创新路线，
-转向新的研究问题，而不是调 final 或增加 seed 直到出现有利结果。
-
-## 四、达到论文水平还需要哪些实验
-
-只有 P4 promotion 为 GO，才继续：
-
-1. 一次冻结 final；禁止根据 final 再调参。
-2. 至少 5 个新 seed 的主实验，或根据 pilot 方差做功效分析后确定重复数。
-3. 同目标消融：anchor、ROM、图数、M 加权、图利用率约束、fallback。
-4. 泛化：IID、精确简并、近简并、严格 OOD、gap scan、未见势强度。
-5. 公平性：参数量匹配、训练时间匹配、采样点匹配和相同优化预算。
-6. 效率：参数量、每步/总训练时间、推理时间、峰值显存和参考 PWE 成本。
-7. 至少一个额外周期势族或几何，用于支撑外部有效性；否则 SCI 三区证据偏弱。
-
-## 五、论文应该准备的图片
-
-| 图 | 内容 | 证明什么 |
-|---|---|---|
-| Fig. 1 | PDE、anchor、raw trial basis、generalized trace、ROM 图路由的流程图 | 方法不是普通监督代理模型 |
-| Fig. 2 | 高对称路径上的参考/预测能带与 Dirac 点局部放大 | 能带交叉处的物理正确性 |
-| Fig. 3 | `(kx, ky)` 平面的投影误差热图，G0/G3/参考并排 | 改善是否覆盖区域而非单点 |
-| Fig. 4 | exact/near/OOD 各 split、各 seed 的箱线或 violin 图 | 稳定性和泛化 |
-| Fig. 5 | G0→G1→G2→G3 的消融及 95% CI | 每个模块是否独立有效 |
-| Fig. 6 | loss、validation 投影误差、梯度范数随训练步变化 | generalized trace 是否改善优化 |
-| Fig. 7 | 参数空间中的图权重、熵和有效图数 | 多图是否真的分工 |
-| Fig. 8 | 误差—训练时间、误差—参数量 Pareto 图 | 精度是否值得计算成本 |
-| Fig. 9 | 无标签风险分数与真实误差的校准/可靠性图 | fallback 是否可用 |
-
-主指标应是 basis-invariant 的投影误差和主角度；能带值误差、PDE 残差、正交误差、
-训练时间和显存作为补充。不要用单个 seed 的最好曲线作为主图。
-
-## 六、硬件与时间
-
-一张 RTX 5090 32 GB、RTX 4090 24 GB 或现有 MI300X 192 GB 都足够，不需要多卡。
-模型显存很小，主要成本来自二阶自动微分和 30 次独立训练。建议先在一张卡上跑 10 次
-200 步诊断，再估算正式 30-run 的真实时间；没有实测前不承诺固定小时数。正式统计
-应固定同一种后端，AMD 和 NVIDIA 结果不要混为同一 seed 组。
-
-## 七、投稿判断
-
-- **现在能否投稿**：不能。P3 的唯一 GPU pilot 被报告为 STOP，且原始证据缺失。
-- **方向是否值得继续**：值得进行一次受控的 P4 objective/ROM 诊断；这是一项有明确
-  停止条件的低风险验证，不等于承诺最终一定发表。
-- **SCI 四区**：P4 通过 promotion、冻结 final、完整消融和公平基线后，才有条件。
-- **SCI 三区**：还需要第二个外部问题、较强统计结果，以及对 generalized trace 与
-  hard-retraction 优化差异的理论或数值分析。
-- **最可能的审稿质疑**：ROM/多图是否只是模块堆叠；为何不直接用 generalized trace；
-  与 PWE 相比何时摊销划算；两种相近 honeycomb 势能否代表一般 PDE；结果是否只来自
-  更多参数或更多计算。
-
-因此当前最诚实、也最有效的论文路线是：把 P3 负结果当作方法筛选证据，先证明
-“generalized trace 底座上的 ROM 是否有独立价值”。证明不了就及时换方向；证明了，
-再打开 frozen final 和扩展论文实验。
+当前最理性的下一步不是写满整篇结果，也不是租多卡，而是让一张 GPU 严格执行这次
+冻结 promotion。结果决定是否继续，不由期待决定。
