@@ -1,0 +1,136 @@
+EXEC: /mnt/workspace/PINN-PDE/.venv-rocm/bin/python scripts/generate_v2_assets.py --device auto --cache-only --reference-scope validation
+Device: cuda
+Using committed, SHA-verified cutoff convergence audit.
+
+Pre-computing PWE references for 64 points in v2_validation.json...
+  64 references saved in 64.9s
+
+V2 asset generation complete.
+EXEC: /mnt/workspace/PINN-PDE/.venv-rocm/bin/python scripts/run_p4_diagnostic.py --protocol smoke --device auto --method all --family all --seed 42 --steps 5 --points 64 --parameter-batch 1 --max-points-per-split 1
+[1/10] g0_trace_harmonic_honeycomb_seed42
+[2/10] g0_trace_gaussian_honeycomb_seed42
+[3/10] g1_anchor_harmonic_honeycomb_seed42
+[4/10] g1_anchor_gaussian_honeycomb_seed42
+[5/10] g2_static_rom_harmonic_honeycomb_seed42
+[6/10] g2_static_rom_gaussian_honeycomb_seed42
+[7/10] g3_annealed_rom_harmonic_honeycomb_seed42
+[8/10] g3_annealed_rom_gaussian_honeycomb_seed42
+[9/10] k3_p3_harmonic_honeycomb_seed42
+[10/10] k3_p3_gaussian_honeycomb_seed42
+{
+  "all_runs_completed": true,
+  "finite_metrics": true,
+  "orthogonality_pass": true,
+  "gram_condition_pass": true,
+  "engineering_pass": true
+}
+EXEC: /mnt/workspace/PINN-PDE/.venv-rocm/bin/python scripts/run_p4_diagnostic.py --protocol promotion --device auto --method all --family all --seed 42 137 251 --steps 500
+[1/30] g0_trace_harmonic_honeycomb_seed42
+[2/30] g0_trace_harmonic_honeycomb_seed137
+[3/30] g0_trace_harmonic_honeycomb_seed251
+[4/30] g0_trace_gaussian_honeycomb_seed42
+[5/30] g0_trace_gaussian_honeycomb_seed137
+[6/30] g0_trace_gaussian_honeycomb_seed251
+[7/30] g1_anchor_harmonic_honeycomb_seed42
+[8/30] g1_anchor_harmonic_honeycomb_seed137
+[9/30] g1_anchor_harmonic_honeycomb_seed251
+[10/30] g1_anchor_gaussian_honeycomb_seed42
+[11/30] g1_anchor_gaussian_honeycomb_seed137
+[12/30] g1_anchor_gaussian_honeycomb_seed251
+[13/30] g2_static_rom_harmonic_honeycomb_seed42
+[14/30] g2_static_rom_harmonic_honeycomb_seed137
+[15/30] g2_static_rom_harmonic_honeycomb_seed251
+[16/30] g2_static_rom_gaussian_honeycomb_seed42
+[17/30] g2_static_rom_gaussian_honeycomb_seed137
+[18/30] g2_static_rom_gaussian_honeycomb_seed251
+[19/30] g3_annealed_rom_harmonic_honeycomb_seed42
+[20/30] g3_annealed_rom_harmonic_honeycomb_seed137
+[21/30] g3_annealed_rom_harmonic_honeycomb_seed251
+[22/30] g3_annealed_rom_gaussian_honeycomb_seed42
+[23/30] g3_annealed_rom_gaussian_honeycomb_seed137
+[24/30] g3_annealed_rom_gaussian_honeycomb_seed251
+[25/30] k3_p3_harmonic_honeycomb_seed42
+[26/30] k3_p3_harmonic_honeycomb_seed137
+[27/30] k3_p3_harmonic_honeycomb_seed251
+[28/30] k3_p3_gaussian_honeycomb_seed42
+[29/30] k3_p3_gaussian_honeycomb_seed137
+[30/30] k3_p3_gaussian_honeycomb_seed251
+{
+  "all_runs_completed": true,
+  "finite_metrics": true,
+  "orthogonality_pass": true,
+  "gram_condition_pass": true,
+  "g1_vs_g0_improvement_percent": 26.95459556868492,
+  "g1_vs_g0_at_least_15pct": true,
+  "family_improvement_percent": {
+    "harmonic_honeycomb": 25.12152238286523,
+    "gaussian_honeycomb": 28.047159935636543
+  },
+  "g1_vs_g0_at_least_15pct_each_family": true,
+  "g1_vs_historical_p3_improvement_percent": 75.07729573366115,
+  "g1_better_than_historical_p3": true,
+  "parameter_count_pairs": {
+    "harmonic_honeycomb": [
+      9156,
+      9156
+    ],
+    "gaussian_honeycomb": [
+      9220,
+      9220
+    ]
+  },
+  "g1_matches_g0_parameter_count_each_family": true,
+  "g1_within_2pct_of_best_rom_extension": false,
+  "paired_seed_improvements": [
+    {
+      "family": "harmonic_honeycomb",
+      "seed": 42,
+      "g0_error": 0.12483939647348401,
+      "g1_error": 0.08905139501667352,
+      "improvement_percent": 28.667233635987575
+    },
+    {
+      "family": "harmonic_honeycomb",
+      "seed": 137,
+      "g0_error": 0.13434283914248848,
+      "g1_error": 0.0992547229607144,
+      "improvement_percent": 26.11833753532517
+    },
+    {
+      "family": "harmonic_honeycomb",
+      "seed": 251,
+      "g0_error": 0.11881810768395265,
+      "g1_error": 0.09473478447313913,
+      "improvement_percent": 20.2690681414262
+    },
+    {
+      "family": "gaussian_honeycomb",
+      "seed": 42,
+      "g0_error": 0.25959494655339477,
+      "g1_error": 0.15014482540651042,
+      "improvement_percent": 42.16188435100069
+    },
+    {
+      "family": "gaussian_honeycomb",
+      "seed": 137,
+      "g0_error": 0.19502087908892754,
+      "g1_error": 0.15823448388350705,
+      "improvement_percent": 18.86279837178165
+    },
+    {
+      "family": "gaussian_honeycomb",
+      "seed": 251,
+      "g0_error": 0.17958231818604115,
+      "g1_error": 0.1479442668299666,
+      "improvement_percent": 17.617575981672438
+    }
+  ],
+  "all_family_seed_pairs_improve": true,
+  "rom_fully_annealed": true,
+  "promotion_go": false
+}
+P4_EXECUTION_STATUS=PROMOTION_STOP
+EVIDENCE_BUNDLE=/mnt/workspace/PINN-PDE/artifacts/p4-evidence-20260801-080059.tar.gz
+EVIDENCE_SHA256=/mnt/workspace/PINN-PDE/artifacts/p4-evidence-20260801-080059.tar.gz.sha256
+EVIDENCE_MANIFEST=/mnt/workspace/PINN-PDE/results/evidence-manifest.json
+EXECUTOR_EXIT_CODE=2

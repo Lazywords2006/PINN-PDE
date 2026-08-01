@@ -1,0 +1,1263 @@
+BASE_TORCH=2.10.0+git8514f05
+BASE_ROCM=7.2.53211
+BASE_GPU=
+Looking in indexes: https://mirrors.cloud.aliyuncs.com/pypi/simple
+Requirement already satisfied: pip in ./.venv-rocm/lib/python3.12/site-packages (25.0.1)
+Collecting pip
+  Downloading https://mirrors.cloud.aliyuncs.com/pypi/packages/62/36/a3aed958d60531cb442b7ab4596cda7b3621cfb916f8ae1d6769795c7dc1/pip-26.2-py3-none-any.whl (1.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 21.4 MB/s eta 0:00:00
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 25.0.1
+    Uninstalling pip-25.0.1:
+      Successfully uninstalled pip-25.0.1
+Successfully installed pip-26.2
+Looking in indexes: https://mirrors.cloud.aliyuncs.com/pypi/simple
+Requirement already satisfied: numpy<3,>=1.26 in /usr/local/lib/python3.12/dist-packages (from -r requirements-core.txt (line 1)) (2.1.3)
+Requirement already satisfied: pytest<10,>=8 in /usr/local/lib/python3.12/dist-packages (from -r requirements-core.txt (line 2)) (9.0.3)
+Requirement already satisfied: iniconfig>=1.0.1 in /usr/local/lib/python3.12/dist-packages (from pytest<10,>=8->-r requirements-core.txt (line 2)) (2.3.0)
+Requirement already satisfied: packaging>=22 in /usr/local/lib/python3.12/dist-packages (from pytest<10,>=8->-r requirements-core.txt (line 2)) (26.2)
+Requirement already satisfied: pluggy<2,>=1.5 in /usr/local/lib/python3.12/dist-packages (from pytest<10,>=8->-r requirements-core.txt (line 2)) (1.6.0)
+Requirement already satisfied: pygments>=2.7.2 in /usr/local/lib/python3.12/dist-packages (from pytest<10,>=8->-r requirements-core.txt (line 2)) (2.20.0)
+{
+  "status": "PASS",
+  "requested_backend": "rocm",
+  "detected_backend": "rocm",
+  "selected_device": "cuda",
+  "device_name": "",
+  "total_memory_bytes": 205822885888,
+  "compute_capability": null,
+  "python_version": "3.12.13",
+  "platform": "Linux-5.10.134-008.14.kangaroo.al8.x86_64-x86_64-with-glibc2.35",
+  "torch_version": "2.10.0+git8514f05",
+  "torch_cuda_version": null,
+  "torch_hip_version": "7.2.53211",
+  "checks": {
+    "second_derivative_float32": {
+      "status": "PASS",
+      "maximum_error": 1.1920928955078125e-07
+    },
+    "second_derivative_float64": {
+      "status": "PASS",
+      "maximum_error": 3.3306690738754696e-16
+    },
+    "complex64_linalg": {
+      "status": "PASS",
+      "maximum_error": 1.192136380723241e-07
+    },
+    "complex128_linalg": {
+      "status": "PASS",
+      "maximum_error": 2.220509306328986e-16
+    }
+  }
+}
+..FF.................FF.FFFFFFF............FF..................s.......F [ 68%]
+F..FFF......s....................                                        [100%]
+=================================== FAILURES ===================================
+__________ test_cpu_numerical_preflight_exercises_required_operations __________
+
+    def test_cpu_numerical_preflight_exercises_required_operations() -> None:
+        checks = run_numerical_checks(torch.device("cpu"))
+        assert checks["second_derivative_float32"]["status"] == "PASS"
+        assert checks["second_derivative_float64"]["status"] == "PASS"
+>       assert checks["complex64_linalg"]["status"] == "PASS"
+E       AssertionError: assert 'FAIL' == 'PASS'
+E         
+E         - PASS
+E         + FAIL
+
+tests/test_accelerator.py:38: AssertionError
+_________________ test_accelerator_report_is_machine_readable __________________
+
+    def test_accelerator_report_is_machine_readable() -> None:
+        report = accelerator_report("cpu")
+>       assert report["status"] == "PASS"
+E       AssertionError: assert 'FAIL' == 'PASS'
+E         
+E         - PASS
+E         + FAIL
+
+tests/test_accelerator.py:44: AssertionError
+__________ test_tiny_experiment_writes_checkpoint_metrics_and_summary __________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_tiny_experiment_writes_ch0')
+
+    def test_tiny_experiment_writes_checkpoint_metrics_and_summary(tmp_path) -> None:
+        config = ExperimentConfig(
+            name="test",
+            device="cpu",
+            seeds=(3,),
+            steps=4,
+            points=32,
+            parameter_batch=2,
+            width=16,
+            hidden_layers=1,
+            anchor_scale=0.05,
+            residual_weight=0.01,
+            residual_start_fraction=0.0,
+            eval_grid_side=7,
+            reference_cutoff=2,
+            output_dir=str(tmp_path),
+        )
+>       summary = run_experiment(config)
+                  ^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_experiment.py:82: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+block_kyfan_pinn/experiment.py:454: in run_experiment
+    runs = [_run_seed(config, seed, root) for seed in config.seeds]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+block_kyfan_pinn/experiment.py:410: in _run_seed
+    rows = _evaluate(model, config, device)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = BlockKyFanPINN(
+  (network): Sequential(
+    (0): Linear(in_features=8, out_features=16, bias=True)
+    (1): SiLU()
+    (2): Linear(in_features=16, out_features=4, bias=True)
+  )
+)
+config = ExperimentConfig(name='test', method='block_kyfan', device='cpu', seeds=(3,), steps=4, points=32, parameter_batch=2, w... 0.38, 0.8, 0.08), dtype='float32', subspace_rank=6, orthogonalization='dual_path', sampling_stream='cpu_generator_v2')
+device = device(type='cpu')
+
+    def _evaluate(
+        model: BlockKyFanPINN | OrderedEigenPINN | GeneralizedTracePINN | GalerkinSubspacePINN | CausalSortPINN,
+        config: ExperimentConfig,
+        device: torch.device,
+    ) -> list[dict[str, object]]:
+        dtype = torch.float64 if config.dtype == "float64" else torch.float32
+        coordinates_cpu = uniform_grid(config.eval_grid_side, dtype=dtype)
+        rows: list[dict[str, object]] = []
+        for case, values in _evaluation_cases(config.potential_family):
+            coordinates = coordinates_cpu.unsqueeze(0).to(device).requires_grad_()
+            parameters = torch.tensor([values], device=device)
+            output = model(coordinates, parameters)
+            if isinstance(output, tuple):
+                basis = output[0]
+            elif config.method == "wang_xie_trace":
+                basis = periodic_mgs(output)
+            elif config.method == "dai_galerkin":
+                basis = galerkin_rank_basis(output, coordinates, parameters, config.potential_family)
+            elif config.method == "causal_sort":
+                basis = causal_sorted_basis(output, coordinates, parameters, config.potential_family)
+            else:
+                basis = output
+            h_basis = apply_hamiltonian(basis, coordinates, parameters, config.potential_family)
+            residual = float(projected_residual_rms(basis, h_basis).detach().cpu())
+            matrix_real, matrix_imag = ritz_matrix(basis, h_basis)
+            if device.type == "mps":
+                matrix_real = matrix_real.cpu()
+                matrix_imag = matrix_imag.cpu()
+            matrix = torch.complex(matrix_real.detach(), matrix_imag.detach())
+>           ritz_values = torch.linalg.eigvalsh(matrix[0]).real.cpu()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           RuntimeError: Calling torch.linalg.eigh or eigvalsh on a CPU tensor requires compiling PyTorch with LAPACK. Please use PyTorch built with LAPACK support.
+
+block_kyfan_pinn/experiment.py:202: RuntimeError
+________________ test_resume_rejects_changed_scientific_config _________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_resume_rejects_changed_sc0')
+
+    def test_resume_rejects_changed_scientific_config(tmp_path) -> None:
+        config = ExperimentConfig(
+            name="resume_guard",
+            device="cpu",
+            seeds=(17,),
+            steps=1,
+            points=16,
+            parameter_batch=1,
+            width=8,
+            hidden_layers=1,
+            eval_grid_side=5,
+            reference_cutoff=1,
+            output_dir=str(tmp_path),
+        )
+>       run_experiment(config)
+
+tests/test_experiment.py:113: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+block_kyfan_pinn/experiment.py:454: in run_experiment
+    runs = [_run_seed(config, seed, root) for seed in config.seeds]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+block_kyfan_pinn/experiment.py:410: in _run_seed
+    rows = _evaluate(model, config, device)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = BlockKyFanPINN(
+  (network): Sequential(
+    (0): Linear(in_features=8, out_features=8, bias=True)
+    (1): SiLU()
+    (2): Linear(in_features=8, out_features=4, bias=True)
+  )
+)
+config = ExperimentConfig(name='resume_guard', method='block_kyfan', device='cpu', seeds=(17,), steps=1, points=16, parameter_b... 0.38, 0.8, 0.08), dtype='float32', subspace_rank=6, orthogonalization='dual_path', sampling_stream='cpu_generator_v2')
+device = device(type='cpu')
+
+    def _evaluate(
+        model: BlockKyFanPINN | OrderedEigenPINN | GeneralizedTracePINN | GalerkinSubspacePINN | CausalSortPINN,
+        config: ExperimentConfig,
+        device: torch.device,
+    ) -> list[dict[str, object]]:
+        dtype = torch.float64 if config.dtype == "float64" else torch.float32
+        coordinates_cpu = uniform_grid(config.eval_grid_side, dtype=dtype)
+        rows: list[dict[str, object]] = []
+        for case, values in _evaluation_cases(config.potential_family):
+            coordinates = coordinates_cpu.unsqueeze(0).to(device).requires_grad_()
+            parameters = torch.tensor([values], device=device)
+            output = model(coordinates, parameters)
+            if isinstance(output, tuple):
+                basis = output[0]
+            elif config.method == "wang_xie_trace":
+                basis = periodic_mgs(output)
+            elif config.method == "dai_galerkin":
+                basis = galerkin_rank_basis(output, coordinates, parameters, config.potential_family)
+            elif config.method == "causal_sort":
+                basis = causal_sorted_basis(output, coordinates, parameters, config.potential_family)
+            else:
+                basis = output
+            h_basis = apply_hamiltonian(basis, coordinates, parameters, config.potential_family)
+            residual = float(projected_residual_rms(basis, h_basis).detach().cpu())
+            matrix_real, matrix_imag = ritz_matrix(basis, h_basis)
+            if device.type == "mps":
+                matrix_real = matrix_real.cpu()
+                matrix_imag = matrix_imag.cpu()
+            matrix = torch.complex(matrix_real.detach(), matrix_imag.detach())
+>           ritz_values = torch.linalg.eigvalsh(matrix[0]).real.cpu()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           RuntimeError: Calling torch.linalg.eigh or eigvalsh on a CPU tensor requires compiling PyTorch with LAPACK. Please use PyTorch built with LAPACK support.
+
+block_kyfan_pinn/experiment.py:202: RuntimeError
+_____ test_completed_checkpoint_can_finalize_after_evaluation_interruption _____
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_completed_checkpoint_can_0')
+
+    def test_completed_checkpoint_can_finalize_after_evaluation_interruption(tmp_path) -> None:
+        config = ExperimentConfig(
+            name="finalize_recovery",
+            device="cpu",
+            seeds=(19,),
+            steps=1,
+            points=16,
+            parameter_batch=1,
+            width=8,
+            hidden_layers=1,
+            eval_grid_side=5,
+            reference_cutoff=1,
+            checkpoint_every=1,
+            resume=True,
+            output_dir=str(tmp_path),
+        )
+>       first = run_experiment(config)
+                ^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_experiment.py:148: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+block_kyfan_pinn/experiment.py:454: in run_experiment
+    runs = [_run_seed(config, seed, root) for seed in config.seeds]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+block_kyfan_pinn/experiment.py:410: in _run_seed
+    rows = _evaluate(model, config, device)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = BlockKyFanPINN(
+  (network): Sequential(
+    (0): Linear(in_features=8, out_features=8, bias=True)
+    (1): SiLU()
+    (2): Linear(in_features=8, out_features=4, bias=True)
+  )
+)
+config = ExperimentConfig(name='finalize_recovery', method='block_kyfan', device='cpu', seeds=(19,), steps=1, points=16, parame... 0.38, 0.8, 0.08), dtype='float32', subspace_rank=6, orthogonalization='dual_path', sampling_stream='cpu_generator_v2')
+device = device(type='cpu')
+
+    def _evaluate(
+        model: BlockKyFanPINN | OrderedEigenPINN | GeneralizedTracePINN | GalerkinSubspacePINN | CausalSortPINN,
+        config: ExperimentConfig,
+        device: torch.device,
+    ) -> list[dict[str, object]]:
+        dtype = torch.float64 if config.dtype == "float64" else torch.float32
+        coordinates_cpu = uniform_grid(config.eval_grid_side, dtype=dtype)
+        rows: list[dict[str, object]] = []
+        for case, values in _evaluation_cases(config.potential_family):
+            coordinates = coordinates_cpu.unsqueeze(0).to(device).requires_grad_()
+            parameters = torch.tensor([values], device=device)
+            output = model(coordinates, parameters)
+            if isinstance(output, tuple):
+                basis = output[0]
+            elif config.method == "wang_xie_trace":
+                basis = periodic_mgs(output)
+            elif config.method == "dai_galerkin":
+                basis = galerkin_rank_basis(output, coordinates, parameters, config.potential_family)
+            elif config.method == "causal_sort":
+                basis = causal_sorted_basis(output, coordinates, parameters, config.potential_family)
+            else:
+                basis = output
+            h_basis = apply_hamiltonian(basis, coordinates, parameters, config.potential_family)
+            residual = float(projected_residual_rms(basis, h_basis).detach().cpu())
+            matrix_real, matrix_imag = ritz_matrix(basis, h_basis)
+            if device.type == "mps":
+                matrix_real = matrix_real.cpu()
+                matrix_imag = matrix_imag.cpu()
+            matrix = torch.complex(matrix_real.detach(), matrix_imag.detach())
+>           ritz_values = torch.linalg.eigvalsh(matrix[0]).real.cpu()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           RuntimeError: Calling torch.linalg.eigh or eigvalsh on a CPU tensor requires compiling PyTorch with LAPACK. Please use PyTorch built with LAPACK support.
+
+block_kyfan_pinn/experiment.py:202: RuntimeError
+_____________ test_partial_resume_preserves_original_initial_loss ______________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_partial_resume_preserves_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f6a9c0d1e80>
+
+    def test_partial_resume_preserves_original_initial_loss(tmp_path, monkeypatch) -> None:
+        torch = __import__("torch")
+        config = ExperimentConfig(
+            name="partial_resume",
+            device="cpu",
+            seeds=(23,),
+            steps=3,
+            points=16,
+            parameter_batch=1,
+            width=8,
+            hidden_layers=1,
+            eval_grid_side=5,
+            reference_cutoff=1,
+            checkpoint_every=1,
+            resume=True,
+            output_dir=str(tmp_path),
+        )
+        original_step = torch.optim.Adam.step
+        calls = 0
+    
+        def interrupted_step(optimizer, *args, **kwargs):
+            nonlocal calls
+            calls += 1
+            if calls == 2:
+                raise RuntimeError("simulated interruption")
+            return original_step(optimizer, *args, **kwargs)
+    
+        monkeypatch.setattr(torch.optim.Adam, "step", interrupted_step)
+        with pytest.raises(RuntimeError, match="simulated interruption"):
+            run_experiment(config)
+        checkpoint = torch.load(tmp_path / "seed_23" / "latest.pt", weights_only=False)
+        original_initial = float(checkpoint["training_rows"][0]["loss"])
+        monkeypatch.setattr(torch.optim.Adam, "step", original_step)
+>       recovered = run_experiment(config)
+                    ^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_experiment.py:191: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+block_kyfan_pinn/experiment.py:454: in run_experiment
+    runs = [_run_seed(config, seed, root) for seed in config.seeds]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+block_kyfan_pinn/experiment.py:410: in _run_seed
+    rows = _evaluate(model, config, device)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = BlockKyFanPINN(
+  (network): Sequential(
+    (0): Linear(in_features=8, out_features=8, bias=True)
+    (1): SiLU()
+    (2): Linear(in_features=8, out_features=4, bias=True)
+  )
+)
+config = ExperimentConfig(name='partial_resume', method='block_kyfan', device='cpu', seeds=(23,), steps=3, points=16, parameter... 0.38, 0.8, 0.08), dtype='float32', subspace_rank=6, orthogonalization='dual_path', sampling_stream='cpu_generator_v2')
+device = device(type='cpu')
+
+    def _evaluate(
+        model: BlockKyFanPINN | OrderedEigenPINN | GeneralizedTracePINN | GalerkinSubspacePINN | CausalSortPINN,
+        config: ExperimentConfig,
+        device: torch.device,
+    ) -> list[dict[str, object]]:
+        dtype = torch.float64 if config.dtype == "float64" else torch.float32
+        coordinates_cpu = uniform_grid(config.eval_grid_side, dtype=dtype)
+        rows: list[dict[str, object]] = []
+        for case, values in _evaluation_cases(config.potential_family):
+            coordinates = coordinates_cpu.unsqueeze(0).to(device).requires_grad_()
+            parameters = torch.tensor([values], device=device)
+            output = model(coordinates, parameters)
+            if isinstance(output, tuple):
+                basis = output[0]
+            elif config.method == "wang_xie_trace":
+                basis = periodic_mgs(output)
+            elif config.method == "dai_galerkin":
+                basis = galerkin_rank_basis(output, coordinates, parameters, config.potential_family)
+            elif config.method == "causal_sort":
+                basis = causal_sorted_basis(output, coordinates, parameters, config.potential_family)
+            else:
+                basis = output
+            h_basis = apply_hamiltonian(basis, coordinates, parameters, config.potential_family)
+            residual = float(projected_residual_rms(basis, h_basis).detach().cpu())
+            matrix_real, matrix_imag = ritz_matrix(basis, h_basis)
+            if device.type == "mps":
+                matrix_real = matrix_real.cpu()
+                matrix_imag = matrix_imag.cpu()
+            matrix = torch.complex(matrix_real.detach(), matrix_imag.detach())
+>           ritz_values = torch.linalg.eigvalsh(matrix[0]).real.cpu()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           RuntimeError: Calling torch.linalg.eigh or eigvalsh on a CPU tensor requires compiling PyTorch with LAPACK. Please use PyTorch built with LAPACK support.
+
+block_kyfan_pinn/experiment.py:202: RuntimeError
+___________________ test_tiny_ordered_residual_baseline_runs ___________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_tiny_ordered_residual_bas0')
+
+    def test_tiny_ordered_residual_baseline_runs(tmp_path) -> None:
+        config = ExperimentConfig(
+            name="ordered",
+            method="ordered_residual",
+            device="cpu",
+            seeds=(4,),
+            steps=2,
+            points=24,
+            parameter_batch=1,
+            width=12,
+            hidden_layers=1,
+            eval_grid_side=7,
+            reference_cutoff=2,
+            output_dir=str(tmp_path),
+        )
+>       summary = run_experiment(config)
+                  ^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_experiment.py:210: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+block_kyfan_pinn/experiment.py:454: in run_experiment
+    runs = [_run_seed(config, seed, root) for seed in config.seeds]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+block_kyfan_pinn/experiment.py:410: in _run_seed
+    rows = _evaluate(model, config, device)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = OrderedEigenPINN(
+  (coordinate_network): Sequential(
+    (0): Linear(in_features=8, out_features=12, bias=True)
+    (...eatures=4, out_features=12, bias=True)
+    (1): SiLU()
+    (2): Linear(in_features=12, out_features=2, bias=True)
+  )
+)
+config = ExperimentConfig(name='ordered', method='ordered_residual', device='cpu', seeds=(4,), steps=2, points=24, parameter_ba... 0.38, 0.8, 0.08), dtype='float32', subspace_rank=6, orthogonalization='dual_path', sampling_stream='cpu_generator_v2')
+device = device(type='cpu')
+
+    def _evaluate(
+        model: BlockKyFanPINN | OrderedEigenPINN | GeneralizedTracePINN | GalerkinSubspacePINN | CausalSortPINN,
+        config: ExperimentConfig,
+        device: torch.device,
+    ) -> list[dict[str, object]]:
+        dtype = torch.float64 if config.dtype == "float64" else torch.float32
+        coordinates_cpu = uniform_grid(config.eval_grid_side, dtype=dtype)
+        rows: list[dict[str, object]] = []
+        for case, values in _evaluation_cases(config.potential_family):
+            coordinates = coordinates_cpu.unsqueeze(0).to(device).requires_grad_()
+            parameters = torch.tensor([values], device=device)
+            output = model(coordinates, parameters)
+            if isinstance(output, tuple):
+                basis = output[0]
+            elif config.method == "wang_xie_trace":
+                basis = periodic_mgs(output)
+            elif config.method == "dai_galerkin":
+                basis = galerkin_rank_basis(output, coordinates, parameters, config.potential_family)
+            elif config.method == "causal_sort":
+                basis = causal_sorted_basis(output, coordinates, parameters, config.potential_family)
+            else:
+                basis = output
+            h_basis = apply_hamiltonian(basis, coordinates, parameters, config.potential_family)
+            residual = float(projected_residual_rms(basis, h_basis).detach().cpu())
+            matrix_real, matrix_imag = ritz_matrix(basis, h_basis)
+            if device.type == "mps":
+                matrix_real = matrix_real.cpu()
+                matrix_imag = matrix_imag.cpu()
+            matrix = torch.complex(matrix_real.detach(), matrix_imag.detach())
+>           ritz_values = torch.linalg.eigvalsh(matrix[0]).real.cpu()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           RuntimeError: Calling torch.linalg.eigh or eigvalsh on a CPU tensor requires compiling PyTorch with LAPACK. Please use PyTorch built with LAPACK support.
+
+block_kyfan_pinn/experiment.py:202: RuntimeError
+___________ test_tiny_recent_subspace_baselines_run[wang_xie_trace] ____________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_tiny_recent_subspace_base0')
+method = 'wang_xie_trace'
+
+    @pytest.mark.parametrize("method", ("wang_xie_trace", "dai_galerkin", "causal_sort"))
+    def test_tiny_recent_subspace_baselines_run(tmp_path, method) -> None:
+        output = tmp_path / method
+        config = ExperimentConfig(
+            name=method,
+            method=method,
+            device="cpu",
+            seeds=(5,),
+            steps=1,
+            points=24,
+            parameter_batch=1,
+            width=12,
+            hidden_layers=1,
+            eval_grid_side=7,
+            reference_cutoff=2,
+            output_dir=str(output),
+        )
+>       summary = run_experiment(config)
+                  ^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_experiment.py:232: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+block_kyfan_pinn/experiment.py:454: in run_experiment
+    runs = [_run_seed(config, seed, root) for seed in config.seeds]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+block_kyfan_pinn/experiment.py:341: in _run_seed
+    loss = generalized_trace_energy(output, coordinates, parameters, config.potential_family)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+raw_basis = tensor([[[[-0.1211, -0.1945],
+          [ 0.0561,  0.2204]],
+
+         [[-0.1022, -0.2238],
+          [ 0.1461,  0.187...          [-0.1870,  0.1999]],
+
+         [[-0.2985, -0.2651],
+          [-0.1716,  0.2639]]]], grad_fn=<ViewBackward0>)
+coordinates = tensor([[[1.0540, 0.6366],
+         [1.0540, 1.8932],
+         [1.0540, 3.1499],
+         [1.0540, 4.4065],
+         [...6.0806, 1.8932],
+         [6.0806, 3.1499],
+         [6.0806, 4.4065],
+         [6.0806, 5.6631]]], requires_grad=True)
+parameters = tensor([[0.3011, 0.3610, 0.3061, 0.0418]])
+potential_family = 'harmonic_honeycomb', regularization = 1e-06
+
+    def generalized_trace_energy(
+        raw_basis: Tensor, coordinates: Tensor, parameters: Tensor,
+        potential_family: str = "harmonic_honeycomb", regularization: float = 1e-6,
+    ) -> Tensor:
+        """Trace(B^-1 A) baseline used by multi-eigenpair variational methods."""
+    
+        h_basis = apply_hamiltonian(raw_basis, coordinates, parameters, potential_family)
+        b_real, b_imag = complex_gram_mean(raw_basis)
+        a_real, a_imag = ritz_matrix(raw_basis, h_basis)
+        rank = b_real.shape[-1]
+        block_b = torch.cat(
+            (
+                torch.cat((b_real, -b_imag), dim=-1),
+                torch.cat((b_imag, b_real), dim=-1),
+            ),
+            dim=-2,
+        )
+        block_a = torch.cat((a_real, a_imag), dim=-2)
+        output_device = block_b.device
+        if output_device.type == "mps":
+            # MPS 2.8 supports the forward solve but not its LU backward pass.
+            # The matrices are only 4x4, so a differentiable CPU copy is cheaper
+            # and more reliable than requiring a process-wide fallback flag.
+            block_b = block_b.cpu()
+            block_a = block_a.cpu()
+        identity = torch.eye(
+            2 * rank, dtype=block_b.dtype, device=block_b.device
+        )
+>       solution = torch.linalg.solve(
+            block_b + regularization * identity, block_a
+        )
+E       RuntimeError: Calling torch.linalg.lu_factor on a CPU tensor requires compiling PyTorch with LAPACK. Please use PyTorch built with LAPACK support.
+
+block_kyfan_pinn/physics.py:309: RuntimeError
+____________ test_tiny_recent_subspace_baselines_run[dai_galerkin] _____________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_tiny_recent_subspace_base1')
+method = 'dai_galerkin'
+
+    @pytest.mark.parametrize("method", ("wang_xie_trace", "dai_galerkin", "causal_sort"))
+    def test_tiny_recent_subspace_baselines_run(tmp_path, method) -> None:
+        output = tmp_path / method
+        config = ExperimentConfig(
+            name=method,
+            method=method,
+            device="cpu",
+            seeds=(5,),
+            steps=1,
+            points=24,
+            parameter_batch=1,
+            width=12,
+            hidden_layers=1,
+            eval_grid_side=7,
+            reference_cutoff=2,
+            output_dir=str(output),
+        )
+>       summary = run_experiment(config)
+                  ^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_experiment.py:232: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+block_kyfan_pinn/experiment.py:454: in run_experiment
+    runs = [_run_seed(config, seed, root) for seed in config.seeds]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+block_kyfan_pinn/experiment.py:343: in _run_seed
+    loss = galerkin_low_energy(output, coordinates, parameters, config.potential_family)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+trial_basis = tensor([[[[-0.6033,  0.2928],
+          [ 0.6783, -0.1710],
+          [-0.0231, -0.0319],
+          [-1.5548, -1.0971]...
+          [-0.8267, -0.5821],
+          [-0.3851, -0.4246],
+          [-0.4791,  0.1939]]]], grad_fn=<StackBackward0>)
+coordinates = tensor([[[1.0540, 0.6366],
+         [1.0540, 1.8932],
+         [1.0540, 3.1499],
+         [1.0540, 4.4065],
+         [...6.0806, 1.8932],
+         [6.0806, 3.1499],
+         [6.0806, 4.4065],
+         [6.0806, 5.6631]]], requires_grad=True)
+parameters = tensor([[0.3011, 0.3610, 0.3061, 0.0418]])
+potential_family = 'harmonic_honeycomb', target_rank = 2
+
+    def galerkin_low_energy(
+        trial_basis: Tensor, coordinates: Tensor, parameters: Tensor,
+        potential_family: str = "harmonic_honeycomb", target_rank: int = 2,
+    ) -> Tensor:
+        h_basis = apply_hamiltonian(trial_basis, coordinates, parameters, potential_family)
+        matrix_real, matrix_imag = ritz_matrix(trial_basis, h_basis)
+        if matrix_real.device.type == "mps":
+            matrix_real = matrix_real.cpu()
+            matrix_imag = matrix_imag.cpu()
+>       eigenvalues = torch.linalg.eigvalsh(torch.complex(matrix_real, matrix_imag)).real
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Calling torch.linalg.eigh or eigvalsh on a CPU tensor requires compiling PyTorch with LAPACK. Please use PyTorch built with LAPACK support.
+
+block_kyfan_pinn/physics.py:325: RuntimeError
+_____________ test_tiny_recent_subspace_baselines_run[causal_sort] _____________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_tiny_recent_subspace_base2')
+method = 'causal_sort'
+
+    @pytest.mark.parametrize("method", ("wang_xie_trace", "dai_galerkin", "causal_sort"))
+    def test_tiny_recent_subspace_baselines_run(tmp_path, method) -> None:
+        output = tmp_path / method
+        config = ExperimentConfig(
+            name=method,
+            method=method,
+            device="cpu",
+            seeds=(5,),
+            steps=1,
+            points=24,
+            parameter_batch=1,
+            width=12,
+            hidden_layers=1,
+            eval_grid_side=7,
+            reference_cutoff=2,
+            output_dir=str(output),
+        )
+>       summary = run_experiment(config)
+                  ^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_experiment.py:232: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+block_kyfan_pinn/experiment.py:454: in run_experiment
+    runs = [_run_seed(config, seed, root) for seed in config.seeds]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+block_kyfan_pinn/experiment.py:410: in _run_seed
+    rows = _evaluate(model, config, device)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CausalSortPINN(
+  (network): Sequential(
+    (0): Linear(in_features=8, out_features=12, bias=True)
+    (1): SiLU()
+    (2): Linear(in_features=12, out_features=4, bias=True)
+  )
+)
+config = ExperimentConfig(name='causal_sort', method='causal_sort', device='cpu', seeds=(5,), steps=1, points=24, parameter_bat... 0.38, 0.8, 0.08), dtype='float32', subspace_rank=6, orthogonalization='dual_path', sampling_stream='cpu_generator_v2')
+device = device(type='cpu')
+
+    def _evaluate(
+        model: BlockKyFanPINN | OrderedEigenPINN | GeneralizedTracePINN | GalerkinSubspacePINN | CausalSortPINN,
+        config: ExperimentConfig,
+        device: torch.device,
+    ) -> list[dict[str, object]]:
+        dtype = torch.float64 if config.dtype == "float64" else torch.float32
+        coordinates_cpu = uniform_grid(config.eval_grid_side, dtype=dtype)
+        rows: list[dict[str, object]] = []
+        for case, values in _evaluation_cases(config.potential_family):
+            coordinates = coordinates_cpu.unsqueeze(0).to(device).requires_grad_()
+            parameters = torch.tensor([values], device=device)
+            output = model(coordinates, parameters)
+            if isinstance(output, tuple):
+                basis = output[0]
+            elif config.method == "wang_xie_trace":
+                basis = periodic_mgs(output)
+            elif config.method == "dai_galerkin":
+                basis = galerkin_rank_basis(output, coordinates, parameters, config.potential_family)
+            elif config.method == "causal_sort":
+                basis = causal_sorted_basis(output, coordinates, parameters, config.potential_family)
+            else:
+                basis = output
+            h_basis = apply_hamiltonian(basis, coordinates, parameters, config.potential_family)
+            residual = float(projected_residual_rms(basis, h_basis).detach().cpu())
+            matrix_real, matrix_imag = ritz_matrix(basis, h_basis)
+            if device.type == "mps":
+                matrix_real = matrix_real.cpu()
+                matrix_imag = matrix_imag.cpu()
+            matrix = torch.complex(matrix_real.detach(), matrix_imag.detach())
+>           ritz_values = torch.linalg.eigvalsh(matrix[0]).real.cpu()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           RuntimeError: Calling torch.linalg.eigh or eigvalsh on a CPU tensor requires compiling PyTorch with LAPACK. Please use PyTorch built with LAPACK support.
+
+block_kyfan_pinn/experiment.py:202: RuntimeError
+____________ test_projector_sine_error_is_basis_rotation_invariant _____________
+
+    def test_projector_sine_error_is_basis_rotation_invariant() -> None:
+        torch.manual_seed(9)
+        basis = periodic_mgs(torch.randn(1, 40, 2, 2))
+        rotation = torch.tensor([[0.6, -0.8], [0.8, 0.6]])
+        rotated_real = torch.einsum("bnir,ij->bnjr", basis, rotation)
+        assert projector_sine_error(basis, rotated_real) < 1e-5
+>       mean_angle, max_angle = principal_angle_degrees(basis, rotated_real)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_metrics.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+predicted = tensor([[[[-0.7211, -0.4845],
+          [ 0.8872, -1.1761]],
+
+         [[ 0.9768,  0.4182],
+          [-0.6662, -1.819...    [[ 0.2042, -0.0224],
+          [ 0.1012,  0.4880]],
+
+         [[-0.2362,  0.2373],
+          [ 0.5919,  0.9448]]]])
+reference = tensor([[[[ 2.7715e-01, -1.2316e+00],
+          [ 1.1092e+00, -3.1805e-01]],
+
+         [[ 5.3149e-02, -1.2048e+00],
+  ...
+          [-1.0267e-01,  3.1074e-01]],
+
+         [[ 3.3179e-01,  8.9822e-01],
+          [ 5.4413e-01,  3.7702e-01]]]])
+
+    def principal_angle_degrees(predicted: Tensor, reference: Tensor) -> tuple[float, float]:
+        """Return mean and maximum principal angle in degrees."""
+    
+        if predicted.shape != reference.shape:
+            raise ValueError("predicted and reference bases must have equal shape")
+>       singular_values = torch.linalg.svdvals(_complex_overlap(predicted, reference)).clamp(0.0, 1.0)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: svd: LAPACK library not found in compilation
+
+block_kyfan_pinn/metrics.py:45: RuntimeError
+_____________ test_chart_disagreement_identical_basis_returns_zero _____________
+
+    def test_chart_disagreement_identical_basis_returns_zero() -> None:
+        torch.manual_seed(13)
+        basis = periodic_mgs(torch.randn(1, 40, 2, 2))
+>       risk = chart_disagreement_risk(basis, basis)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_p3.py:138: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+basis_a = tensor([[[[ 0.3191,  0.2701],
+          [ 1.0315, -0.0548]],
+
+         [[ 0.1103, -0.9850],
+          [-0.2721, -0.064...    [[-0.6983, -0.8218],
+          [ 0.1964,  0.5660]],
+
+         [[ 0.0391, -0.9447],
+          [ 0.7180, -0.2316]]]])
+basis_b = tensor([[[[ 0.3191,  0.2701],
+          [ 1.0315, -0.0548]],
+
+         [[ 0.1103, -0.9850],
+          [-0.2721, -0.064...    [[-0.6983, -0.8218],
+          [ 0.1964,  0.5660]],
+
+         [[ 0.0391, -0.9447],
+          [ 0.7180, -0.2316]]]])
+
+    def chart_disagreement_risk(basis_a: Tensor, basis_b: Tensor) -> Tensor:
+        """Return one basis-invariant principal-angle disagreement per sample."""
+    
+        from .metrics import _complex_overlap
+    
+>       singular_values = torch.linalg.svdvals(_complex_overlap(basis_a, basis_b)).clamp(0.0, 1.0)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: svd: LAPACK library not found in compilation
+
+block_kyfan_pinn/p3_rom.py:194: RuntimeError
+_______________ test_chart_disagreement_different_basis_positive _______________
+
+    def test_chart_disagreement_different_basis_positive() -> None:
+        torch.manual_seed(17)
+        basis_a = periodic_mgs(torch.randn(1, 40, 2, 2))
+        basis_b = periodic_mgs(torch.randn(1, 40, 2, 2))
+>       risk = chart_disagreement_risk(basis_a, basis_b)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_p3.py:146: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+basis_a = tensor([[[[-9.0581e-01,  1.0654e+00],
+          [ 1.5721e+00, -3.1864e-01]],
+
+         [[ 5.8484e-02,  3.8800e-01],
+  ...
+          [ 5.0125e-01,  5.5837e-01]],
+
+         [[-6.3574e-02, -9.3606e-01],
+          [ 5.8622e-01,  8.8434e-02]]]])
+basis_b = tensor([[[[ 0.3706,  0.1880],
+          [ 0.5921, -1.4928]],
+
+         [[ 0.4503, -0.6700],
+          [ 0.2767,  0.407...    [[-0.7312,  0.0960],
+          [-0.9347, -0.7722]],
+
+         [[-0.7534, -0.2578],
+          [-0.1340, -0.0868]]]])
+
+    def chart_disagreement_risk(basis_a: Tensor, basis_b: Tensor) -> Tensor:
+        """Return one basis-invariant principal-angle disagreement per sample."""
+    
+        from .metrics import _complex_overlap
+    
+>       singular_values = torch.linalg.svdvals(_complex_overlap(basis_a, basis_b)).clamp(0.0, 1.0)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: svd: LAPACK library not found in compilation
+
+block_kyfan_pinn/p3_rom.py:194: RuntimeError
+____________ test_p3_pilot_smoke_writes_a_real_resumable_checkpoint ____________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_p3_pilot_smoke_writes_a_r0')
+
+    def test_p3_pilot_smoke_writes_a_real_resumable_checkpoint(tmp_path: Path) -> None:
+        point = generate_validation_suite(seed=20260731)[0]
+        payload = build_suite_payload(
+            [point], suite_id="pilot-smoke", seed=20260731, purpose="validation"
+        )
+        parameters = torch.tensor(point["parameters"], dtype=torch.float64)
+        solution = solve_reference(
+            parameters,
+            cutoff=2,
+            rank=3,
+            potential_family=str(point["family"]),
+            mode_shape="hexagonal",
+        )
+        grid = uniform_grid(5).unsqueeze(0)
+        rank_two = ReferenceSolution(
+            solution.eigenvalues[:2], solution.eigenvectors[:, :2], solution.modes
+        )
+        reference_basis = periodic_mgs(evaluate_reference_basis(rank_two, grid))[0]
+        config = PilotConfig(
+            method="p3",
+            potential_family=str(point["family"]),
+            seed=7,
+            device="cpu",
+            steps=1,
+            points=12,
+            parameter_batch=1,
+            width=8,
+            hidden_layers=1,
+            eval_grid_side=5,
+            checkpoint_every=1,
+        )
+        run_dir = tmp_path / "run"
+>       result = run_pilot_run(
+            config,
+            run_dir,
+            suite_payload=payload,
+            suite_hash="suite-hash",
+            references={
+                str(point["id"]): {
+                    "basis": reference_basis,
+                    "eigenvalues": solution.eigenvalues,
+                }
+            },
+            cache_hash="cache-hash",
+        )
+
+tests/test_p3_protocol_integrity.py:336: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/run_p3_pilot.py:411: in run_pilot_run
+    evaluation = _evaluate_suite(model, config, device, family_points, references)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = P3BlockKyFanPINN(
+  (base_network): BlockKyFanPINN(
+    (network): Sequential(
+      (0): Linear(in_features=8, out_fe...=32, bias=True)
+        (3): SiLU()
+        (4): Linear(in_features=32, out_features=28, bias=True)
+      )
+    )
+  )
+)
+config = PilotConfig(method='p3', potential_family='harmonic_honeycomb', seed=7, device='cpu', steps=1, points=12, parameter_batch=1, width=8, hidden_layers=1, learning_rate=0.001, eval_grid_side=5, reference_cutoff=24, checkpoint_every=1)
+device = device(type='cpu')
+points = [{'family': 'harmonic_honeycomb', 'id': 'val-harmonic_honeycomb-iid-000', 'parameters': [0.312046502758355, 0.33555135338202363, 0.55524160716246, 0.06966742866663618], 'split': 'iid_hidden'}]
+references = {'val-harmonic_honeycomb-iid-000': {'basis': tensor([[[ 1.0375e-01,  1.7783e-03],
+         [ 4.4037e-02, -1.6865e-03]]...-01],
+         [-8.8264e-02,  2.1271e-01]]]), 'eigenvalues': tensor([-0.3524, -0.1638,  0.1212], dtype=torch.float64)}}
+
+    def _evaluate_suite(
+        model: nn.Module,
+        config: PilotConfig,
+        device: torch.device,
+        points: list[dict[str, object]],
+        references: dict[str, dict[str, object]],
+    ) -> list[dict[str, object]]:
+        grid = uniform_grid(config.eval_grid_side).unsqueeze(0)
+        rows: list[dict[str, object]] = []
+        for point in points:
+            coordinates = grid.to(device).requires_grad_()
+            parameters = torch.tensor([point["parameters"]], device=device)
+            output = model(coordinates, parameters)
+            basis = _evaluation_basis(config.method, output)
+            reference_basis = references[str(point["id"])]["basis"]
+            # Reference stores all 6 eigenvectors; compare only against lowest rank-2 block
+            reference_basis = reference_basis[..., :2, :].unsqueeze(0).to(
+                device=device, dtype=basis.dtype
+            )
+            h_basis = apply_hamiltonian(
+                basis, coordinates, parameters, config.potential_family
+            )
+            matrix_real, matrix_imag = ritz_matrix(basis, h_basis)
+            if device.type == "mps":
+                matrix_real = matrix_real.cpu()
+                matrix_imag = matrix_imag.cpu()
+>           ritz_values = torch.linalg.eigvalsh(
+                torch.complex(matrix_real, matrix_imag)[0].detach()
+            ).real.cpu()
+E           RuntimeError: Calling torch.linalg.eigh or eigvalsh on a CPU tensor requires compiling PyTorch with LAPACK. Please use PyTorch built with LAPACK support.
+
+scripts/run_p3_pilot.py:267: RuntimeError
+___________ test_generalized_trace_real_block_matches_complex_solve ____________
+
+    def test_generalized_trace_real_block_matches_complex_solve() -> None:
+        torch.manual_seed(109)
+        coordinates = (torch.rand(2, 25, 2, dtype=torch.float64) * (2 * math.pi)).requires_grad_()
+        from block_kyfan_pinn.model import BlockKyFanPINN
+    
+        raw = BlockKyFanPINN.anchor(coordinates, "correct")
+        parameters = torch.tensor(
+            [[0.31, 0.35, 0.5, 0.02], [0.34, 0.32, 0.6, -0.01]],
+            dtype=torch.float64,
+        )
+        from block_kyfan_pinn.physics import apply_hamiltonian, complex_gram_mean, ritz_matrix
+    
+        h_basis = apply_hamiltonian(raw, coordinates, parameters)
+        b_real, b_imag = complex_gram_mean(raw)
+        a_real, a_imag = ritz_matrix(raw, h_basis)
+        identity = torch.eye(2, dtype=torch.complex128)
+>       expected = torch.linalg.solve(
+            torch.complex(b_real, b_imag) + 1e-6 * identity,
+            torch.complex(a_real, a_imag),
+        ).diagonal(dim1=-2, dim2=-1).real.sum(-1).mean()
+E       RuntimeError: Calling torch.linalg.lu_factor on a CPU tensor requires compiling PyTorch with LAPACK. Please use PyTorch built with LAPACK support.
+
+tests/test_p3_protocol_integrity.py:372: RuntimeError
+________ test_anchored_trace_returns_raw_trial_basis_and_backpropagates ________
+
+    def test_anchored_trace_returns_raw_trial_basis_and_backpropagates() -> None:
+        torch.manual_seed(401)
+        model = AnchoredGeneralizedTracePINN(
+            width=12,
+            hidden_layers=1,
+            parameter_dim=4,
+            anchor_kind="correct",
+            anchor_scale=0.1,
+        )
+        coordinates = _coordinates()
+        parameters = torch.tensor(
+            [[0.31, 0.35, 0.50, 0.02], [0.35, 0.31, 0.70, -0.02]]
+        )
+        raw = model(coordinates, parameters)
+        assert raw.shape == (2, 25, 2, 2)
+        assert orthogonality_error(periodic_mgs(raw)) < 5e-5
+>       loss = generalized_trace_energy(raw, coordinates, parameters)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_p4.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+raw_basis = tensor([[[[-4.0186e-01, -1.1644e-01],
+          [ 4.4245e-01, -1.6446e-01]],
+
+         [[-2.1364e-01,  1.6576e-01],
+  ... -2.3320e-01]],
+
+         [[-3.6434e-01, -1.4127e-01],
+          [ 5.9497e-01, -2.5111e-01]]]], grad_fn=<AddBackward0>)
+coordinates = tensor([[[2.9676, 0.1928],
+         [0.4071, 3.5942],
+         [4.5467, 3.0064],
+         [1.1896, 3.8814],
+         [...3.2832, 4.5713],
+         [6.2702, 0.3800],
+         [4.6509, 4.6840],
+         [5.0258, 4.8035]]], requires_grad=True)
+parameters = tensor([[ 0.3100,  0.3500,  0.5000,  0.0200],
+        [ 0.3500,  0.3100,  0.7000, -0.0200]])
+potential_family = 'harmonic_honeycomb', regularization = 1e-06
+
+    def generalized_trace_energy(
+        raw_basis: Tensor, coordinates: Tensor, parameters: Tensor,
+        potential_family: str = "harmonic_honeycomb", regularization: float = 1e-6,
+    ) -> Tensor:
+        """Trace(B^-1 A) baseline used by multi-eigenpair variational methods."""
+    
+        h_basis = apply_hamiltonian(raw_basis, coordinates, parameters, potential_family)
+        b_real, b_imag = complex_gram_mean(raw_basis)
+        a_real, a_imag = ritz_matrix(raw_basis, h_basis)
+        rank = b_real.shape[-1]
+        block_b = torch.cat(
+            (
+                torch.cat((b_real, -b_imag), dim=-1),
+                torch.cat((b_imag, b_real), dim=-1),
+            ),
+            dim=-2,
+        )
+        block_a = torch.cat((a_real, a_imag), dim=-2)
+        output_device = block_b.device
+        if output_device.type == "mps":
+            # MPS 2.8 supports the forward solve but not its LU backward pass.
+            # The matrices are only 4x4, so a differentiable CPU copy is cheaper
+            # and more reliable than requiring a process-wide fallback flag.
+            block_b = block_b.cpu()
+            block_a = block_a.cpu()
+        identity = torch.eye(
+            2 * rank, dtype=block_b.dtype, device=block_b.device
+        )
+>       solution = torch.linalg.solve(
+            block_b + regularization * identity, block_a
+        )
+E       RuntimeError: Calling torch.linalg.lu_factor on a CPU tensor requires compiling PyTorch with LAPACK. Please use PyTorch built with LAPACK support.
+
+block_kyfan_pinn/physics.py:309: RuntimeError
+__________ test_rom_trace_exposes_raw_basis_and_chart_diagnostics[1] ___________
+
+num_charts = 1
+
+    @pytest.mark.parametrize("num_charts", [1, 2])
+    def test_rom_trace_exposes_raw_basis_and_chart_diagnostics(num_charts: int) -> None:
+        torch.manual_seed(403 + num_charts)
+        model = ROMGeneralizedTracePINN(
+            width=12,
+            hidden_layers=1,
+            parameter_dim=4,
+            anchor_scale=0.1,
+            anchor_kind="correct",
+            num_rom_shells=1,
+            rom_hidden_width=12,
+            rom_hidden_layers=1,
+            num_charts=num_charts,
+            chart_temperature=0.25,
+            potential_family="harmonic_honeycomb",
+            parameter_lower=(0.28, 0.28, 0.20, -0.08),
+            parameter_upper=(0.38, 0.38, 0.80, 0.08),
+        )
+        coordinates = _coordinates()
+        parameters = torch.tensor(
+            [[0.31, 0.35, 0.50, 0.02], [0.35, 0.31, 0.70, -0.02]]
+        )
+        raw = model(coordinates, parameters)
+        weights = model.chart_weights(parameters)
+        disagreement = model.chart_disagreement(coordinates, parameters)
+        assert raw.shape == (2, 25, 2, 2)
+        assert weights.shape == (2, num_charts)
+        assert torch.allclose(weights.sum(-1), torch.ones(2), atol=1e-6)
+        assert disagreement.shape == (2,)
+>       loss = generalized_trace_energy(raw, coordinates, parameters)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_p4.py:90: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+raw_basis = tensor([[[[ 0.0660, -0.2468],
+          [-0.2562,  0.1095]],
+
+         [[ 0.1902, -0.1953],
+          [ 0.0563,  0.014...
+          [-0.2179,  0.2015]],
+
+         [[-0.1219, -0.3861],
+          [-0.0817,  0.1359]]]], grad_fn=<AddBackward0>)
+coordinates = tensor([[[3.3654, 5.9027],
+         [2.5879, 3.8929],
+         [3.0577, 5.0798],
+         [4.3481, 2.2549],
+         [...5.7504, 5.6191],
+         [4.5110, 0.4629],
+         [3.4229, 0.8438],
+         [5.8904, 0.5936]]], requires_grad=True)
+parameters = tensor([[ 0.3100,  0.3500,  0.5000,  0.0200],
+        [ 0.3500,  0.3100,  0.7000, -0.0200]])
+potential_family = 'harmonic_honeycomb', regularization = 1e-06
+
+    def generalized_trace_energy(
+        raw_basis: Tensor, coordinates: Tensor, parameters: Tensor,
+        potential_family: str = "harmonic_honeycomb", regularization: float = 1e-6,
+    ) -> Tensor:
+        """Trace(B^-1 A) baseline used by multi-eigenpair variational methods."""
+    
+        h_basis = apply_hamiltonian(raw_basis, coordinates, parameters, potential_family)
+        b_real, b_imag = complex_gram_mean(raw_basis)
+        a_real, a_imag = ritz_matrix(raw_basis, h_basis)
+        rank = b_real.shape[-1]
+        block_b = torch.cat(
+            (
+                torch.cat((b_real, -b_imag), dim=-1),
+                torch.cat((b_imag, b_real), dim=-1),
+            ),
+            dim=-2,
+        )
+        block_a = torch.cat((a_real, a_imag), dim=-2)
+        output_device = block_b.device
+        if output_device.type == "mps":
+            # MPS 2.8 supports the forward solve but not its LU backward pass.
+            # The matrices are only 4x4, so a differentiable CPU copy is cheaper
+            # and more reliable than requiring a process-wide fallback flag.
+            block_b = block_b.cpu()
+            block_a = block_a.cpu()
+        identity = torch.eye(
+            2 * rank, dtype=block_b.dtype, device=block_b.device
+        )
+>       solution = torch.linalg.solve(
+            block_b + regularization * identity, block_a
+        )
+E       RuntimeError: Calling torch.linalg.lu_factor on a CPU tensor requires compiling PyTorch with LAPACK. Please use PyTorch built with LAPACK support.
+
+block_kyfan_pinn/physics.py:309: RuntimeError
+__________ test_rom_trace_exposes_raw_basis_and_chart_diagnostics[2] ___________
+
+num_charts = 2
+
+    @pytest.mark.parametrize("num_charts", [1, 2])
+    def test_rom_trace_exposes_raw_basis_and_chart_diagnostics(num_charts: int) -> None:
+        torch.manual_seed(403 + num_charts)
+        model = ROMGeneralizedTracePINN(
+            width=12,
+            hidden_layers=1,
+            parameter_dim=4,
+            anchor_scale=0.1,
+            anchor_kind="correct",
+            num_rom_shells=1,
+            rom_hidden_width=12,
+            rom_hidden_layers=1,
+            num_charts=num_charts,
+            chart_temperature=0.25,
+            potential_family="harmonic_honeycomb",
+            parameter_lower=(0.28, 0.28, 0.20, -0.08),
+            parameter_upper=(0.38, 0.38, 0.80, 0.08),
+        )
+        coordinates = _coordinates()
+        parameters = torch.tensor(
+            [[0.31, 0.35, 0.50, 0.02], [0.35, 0.31, 0.70, -0.02]]
+        )
+        raw = model(coordinates, parameters)
+        weights = model.chart_weights(parameters)
+>       disagreement = model.chart_disagreement(coordinates, parameters)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_p4.py:85: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+block_kyfan_pinn/p4_model.py:198: in chart_disagreement
+    chart_disagreement_risk(bases[left], bases[right]).to(
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+basis_a = tensor([[[[-0.7315, -0.7946],
+          [-0.7713,  0.9024]],
+
+         [[-0.7241, -0.6781],
+          [-1.2942,  0.161...         [ 0.3049, -0.0584]],
+
+         [[-0.6455, -0.9702],
+          [ 0.7710,  0.3901]]]], grad_fn=<StackBackward0>)
+basis_b = tensor([[[[-0.7319, -0.7949],
+          [-0.7715,  0.9032]],
+
+         [[-0.7249, -0.6785],
+          [-1.2945,  0.162...         [ 0.3048, -0.0590]],
+
+         [[-0.6453, -0.9698],
+          [ 0.7724,  0.3903]]]], grad_fn=<StackBackward0>)
+
+    def chart_disagreement_risk(basis_a: Tensor, basis_b: Tensor) -> Tensor:
+        """Return one basis-invariant principal-angle disagreement per sample."""
+    
+        from .metrics import _complex_overlap
+    
+>       singular_values = torch.linalg.svdvals(_complex_overlap(basis_a, basis_b)).clamp(0.0, 1.0)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: svd: LAPACK library not found in compilation
+
+block_kyfan_pinn/p3_rom.py:194: RuntimeError
+=========================== short test summary info ============================
+FAILED tests/test_accelerator.py::test_cpu_numerical_preflight_exercises_required_operations
+FAILED tests/test_accelerator.py::test_accelerator_report_is_machine_readable
+FAILED tests/test_experiment.py::test_tiny_experiment_writes_checkpoint_metrics_and_summary
+FAILED tests/test_experiment.py::test_resume_rejects_changed_scientific_config
+FAILED tests/test_experiment.py::test_completed_checkpoint_can_finalize_after_evaluation_interruption
+FAILED tests/test_experiment.py::test_partial_resume_preserves_original_initial_loss
+FAILED tests/test_experiment.py::test_tiny_ordered_residual_baseline_runs - R...
+FAILED tests/test_experiment.py::test_tiny_recent_subspace_baselines_run[wang_xie_trace]
+FAILED tests/test_experiment.py::test_tiny_recent_subspace_baselines_run[dai_galerkin]
+FAILED tests/test_experiment.py::test_tiny_recent_subspace_baselines_run[causal_sort]
+FAILED tests/test_metrics.py::test_projector_sine_error_is_basis_rotation_invariant
+FAILED tests/test_p3.py::test_chart_disagreement_identical_basis_returns_zero
+FAILED tests/test_p3.py::test_chart_disagreement_different_basis_positive - R...
+FAILED tests/test_p3_protocol_integrity.py::test_p3_pilot_smoke_writes_a_real_resumable_checkpoint
+FAILED tests/test_p3_protocol_integrity.py::test_generalized_trace_real_block_matches_complex_solve
+FAILED tests/test_p4.py::test_anchored_trace_returns_raw_trial_basis_and_backpropagates
+FAILED tests/test_p4.py::test_rom_trace_exposes_raw_basis_and_chart_diagnostics[1]
+FAILED tests/test_p4.py::test_rom_trace_exposes_raw_basis_and_chart_diagnostics[2]
+{
+  "status": "PASS",
+  "scope": "engineering_smoke_not_paper_result",
+  "config": {
+    "device": "rocm",
+    "seed": 17,
+    "steps": 5,
+    "points": 64,
+    "width": 32,
+    "hidden_layers": 2,
+    "learning_rate": 0.003
+  },
+  "device": "cuda",
+  "torch_version": "2.10.0+git8514f05",
+  "python_version": "3.12.13",
+  "initial_energy": -0.06614227592945099,
+  "final_energy": -0.0671067163348198,
+  "energy_reduction": 0.0009644404053688049,
+  "orthogonality_error": 1.1920928955078125e-07,
+  "residual_rms": 0.21504324674606323,
+  "projector_sine_error": 0.28222301651325993,
+  "reference_eigenvalues": [
+    -0.1551037047156812,
+    -0.027072320808006825
+  ],
+  "elapsed_seconds": 1.0112319579999394,
+  "peak_memory_bytes": 296217088,
+  "loss_history": [
+    -0.06614227592945099,
+    -0.06628183275461197,
+    -0.06644442677497864,
+    -0.06663456559181213,
+    -0.06685463339090347
+  ]
+}
+ROCM_ENGINEERING_VALIDATION=PASS
+Formal V2 paper experiments were not started by this setup script.

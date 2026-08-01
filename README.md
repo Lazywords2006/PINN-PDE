@@ -6,14 +6,18 @@
 强行给两条能带编号，而是直接学习最低两个本征态共同张成的 rank-2 谱簇。训练使用
 无标签 Ky Fan 变分目标；PWE 高精度解只用于参考解和评估，不作为训练标签。
 
-截至 2026-07-30，P3 multi-chart ROM 原型、V2 validation/final 套件、原始字节
-SHA-256、真实 checkpoint、断点续训、参考解收敛审计、24-run promotion gate 和冻结
-测试入口均已实现并有自动测试。一份 AMD MI300X 交接报告称 24-run pilot 已完成，P3
-相对最佳 `wang_xie_trace` 基线的 near-cluster 投影误差改善为 **-208.1%**，因此 gate
-为 **STOP**，冻结 final 没有运行。原始 results 压缩包未进入仓库且本地未找回，所以
-这些数值目前是“已报告、尚未独立复核”的外部实验记录，不能直接作为论文实证。
-当前主候选已经收缩为 **A-GTNet**：在 retraction-free generalized-trace 网络上加入
-不增加可训练参数的低能 Bloch 子空间锚点；ROM 仅保留为消融，不再包装为主创新。
+截至 2026-08-01，P4 promotion 协议已在本机（AMD MI300X / ROCm）实际运行：为绕过
+该 torch 构建的两个环境缺陷（CPU 端无 LAPACK、导入 torch 的进程强制退出码 0），
+对 3 个脚本做了纯工程层修复（Gram 检查改在 GPU 上执行、退出改用 `os._exit`），
+30/30 个 run 全部成功完成，executor 门控判定 **PROMOTION_STOP**（exit 2）：
+A-GTNet（g1）相对 generalized-trace（g0）的 near-cluster 投影误差改善 **+26.95%**
+（两族 25.1%/28.0%，均 ≥15%）、相对历史 P3 改善 **+75.1%**、参数量完全一致，
+但**未保持在最优 ROM 扩展的 2% 以内**（`g1_within_2pct_of_best_rom_extension=false`），
+因此冻结 gate 为 **STOP**，冻结 final 没有运行。原始 checkpoint/CSV/manifest 已打包进
+`artifacts/p4-evidence-20260801-080059.tar.gz` 并进入本仓库，可独立复核。
+主候选为 **A-GTNet**：在 retraction-free generalized-trace 网络上加入不增加可训练
+参数的低能 Bloch 子空间锚点；ROM 仅保留为消融，不再包装为主创新。
+完整交接见 [docs/HANDOFF-20260801.zh-CN.md](docs/HANDOFF-20260801.zh-CN.md)。
 
 ## 解什么方程、用什么网络
 

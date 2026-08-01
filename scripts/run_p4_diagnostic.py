@@ -9,6 +9,7 @@ import hashlib
 import json
 import math
 import platform
+import os
 import statistics
 import sys
 import time
@@ -215,7 +216,7 @@ def _gradient_norm(model: nn.Module) -> float:
 
 def _gram_condition_numbers(raw_basis: torch.Tensor) -> torch.Tensor:
     real, imag = complex_gram_mean(raw_basis)
-    gram = torch.complex(real, imag).detach().cpu()
+    gram = torch.complex(real, imag).detach()
     eigenvalues = torch.linalg.eigvalsh(gram).real.clamp_min(1e-12)
     return eigenvalues.amax(-1) / eigenvalues.amin(-1)
 
@@ -1003,4 +1004,10 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    # Environment workaround: this ROCm torch build registers an exit hook that
+    # forces exit code 0 on interpreter shutdown, masking failures from the
+    # executor. os._exit() bypasses atexit hooks; run main() first, then flush.
+    code = main()
+    sys.stdout.flush()
+    sys.stderr.flush()
+    os._exit(code)
