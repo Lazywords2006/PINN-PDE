@@ -5,11 +5,15 @@
 谱簇。训练不读取参考本征函数标签，PWE 高精度解只用于评价。
 
 > 当前判断（2026-08-01）：研究方向可以继续，但还不能投稿。P4 的 30 次正式
-> validation 实验已独立核验为有效 `STOP`；P5 创新归因烟测已在 Apple MPS 上
-> 12/12 通过，正式 36-run P5 尚待远端 GPU 执行。冻结 final 仍未打开。
+> validation 实验已独立核验为有效 `STOP`；P5 机制归因 36-run promotion 已在远端
+> AMD MI300X / ROCm 上执行完成（36/36 run、0 失败），状态为有效
+> `P5_PROMOTION_STOP`：候选 `p5_static_low_rom` 未通过机制归因（近簇精度不敌
+> `p5_long_anchor` 控制组）与 gap-scan 安全门槛。冻结 final 仍未打开。
 
 权威状态、结果解释和下一步见
-[当前研究状态与 P5 方案](docs/CURRENT-STATUS.zh-CN.md)。执行机只需使用
+[当前研究状态与 P5 方案](docs/CURRENT-STATUS.zh-CN.md)。本次 P5 执行完整报告见
+[P5-EXECUTION-REPORT.zh-CN.md](docs/P5-EXECUTION-REPORT.zh-CN.md)，主控交接见
+[HANDOFF-P5-20260801.zh-CN.md](docs/HANDOFF-P5-20260801.zh-CN.md)。执行机只需使用
 [P5 交接提示词](docs/P5-EXECUTOR-PROMPT.zh-CN.md)。
 
 ## 到底用了什么网络，解了什么 PDE
