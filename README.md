@@ -4,16 +4,17 @@
 输入为二维坐标、Bloch 波矢和周期势参数；输出为最低两个本征态共同张成的 rank-2
 谱簇。训练不读取参考本征函数标签，PWE 高精度解只用于评价。
 
-> 当前判断（2026-08-01）：研究方向可以继续，但还不能投稿。P4 的 30 次正式
-> validation 已由主控独立核验为有效 `STOP`。远端执行机报告 P5 的 36-run promotion
-> 为 `P5_PROMOTION_STOP`，但 GitHub 当前只有执行报告，尚缺权威 P5 证据包、sidecar
-> 和原始 run 文件，故主控独立复核状态为 **BLOCKED**。冻结 final 仍未打开。
+> 当前判断（2026-08-01）：研究方向可以继续，但当前低频 ROM 方法不能投稿。P4 的
+> 30 次 validation 与 P5 的 36-run promotion 均已由主控从原始 checkpoint、CSV、JSON
+> 和 manifest 独立复核。P5 审计为 `audit_pass=true`，科学判定为
+> **`P5_PROMOTION_STOP`**：低频 ROM 的机制归因和 gap-scan 安全均未通过。冻结 final
+> 仍未打开。
 
 权威状态、结果解释和下一步见
 [当前研究状态与 P5 方案](docs/CURRENT-STATUS.zh-CN.md)。本次 P5 执行完整报告见
 [P5-EXECUTION-REPORT.zh-CN.md](docs/P5-EXECUTION-REPORT.zh-CN.md)，主控交接见
-[HANDOFF-P5-20260801.zh-CN.md](docs/HANDOFF-P5-20260801.zh-CN.md)。当前执行机只需使用
-[P5 证据上传提示词](docs/P5-EVIDENCE-UPLOAD-PROMPT.zh-CN.md)，不要重跑实验。
+[HANDOFF-P5-20260801.zh-CN.md](docs/HANDOFF-P5-20260801.zh-CN.md)。独立复核过程、哈希与
+逐点失败分析见 [P5 独立审计报告](docs/P5-INDEPENDENT-AUDIT.zh-CN.md)。
 
 ## 到底用了什么网络，解了什么 PDE
 
@@ -77,11 +78,10 @@ G2 的提升究竟来自低频物理结构，还是仅来自更多参数、更�
 | `p5_unanchored_low_rom` | 检验 anchor 与 ROM 的交互 |
 | `p5_highfreq_rom` | 同参数量、不同频率的结构对照 |
 
-远端报告表明，`p5_long_anchor` 的 near-cluster 误差 0.10616 优于 ROM 候选的
+独立重算表明，`p5_long_anchor` 的 near-cluster 误差 0.10616 优于 ROM 候选的
 0.11018，而 ROM 候选的 gap-scan 误差 0.14920 又劣于基础 anchor 的 0.14013。因此
-报告中的 `mechanism_go=false`、`gap_scan_non_regression=false` 和
-`promotion_go=false` 在算术上自洽。原始证据未进仓库前，这些数值必须标记为
-**远端报告、待独立复核**。
+`mechanism_go=false`、`gap_scan_non_regression=false` 和 `promotion_go=false` 均已
+独立确认。低频 ROM 可以保留为负结果或消融，但不能作为论文标题、摘要或主要贡献。
 
 ## 环境与验证
 
@@ -107,7 +107,7 @@ P5 本地工程烟测：
 python scripts/run_p5_executor.py --device auto --skip-cache --smoke-only
 ```
 
-收到权威证据包后执行独立审计：
+复现独立审计：
 
 ```bash
 python scripts/audit_p5_evidence.py \
@@ -117,7 +117,8 @@ python scripts/audit_p5_evidence.py \
 
 审计器会核验外层 SHA-256、包内 manifest、36-run 身份矩阵，直接读取每个
 `result.json` 重算 near-cluster/gap-scan 均值和全部门槛，并拒绝旧 summary、缺失 run
-或被篡改文件。只有 `audit_pass=true` 才能把 P5 数值升级为独立核验结果。
+或被篡改文件。本仓库证据已得到 `audit_pass=true`；审计不改变冻结科学门槛，所以
+最终仍是 STOP。
 
 ## 算力
 
@@ -134,15 +135,15 @@ benchmarks/        冻结 validation/final 套件与 SHA-256
 scripts/           资产生成、诊断、门控和证据打包
 tests/             单元测试与小型集成测试
 docs/              当前决策、架构、运行手册和历史交接
-artifacts/         已封存 P4 证据；权威 P5 包仍待上传
+artifacts/         已封存并独立核验 P4、P5 权威证据
 ```
 
 ## 研究纪律
 
-- P5 报告数值在原始证据包到达前不得写入论文结果表。
+- P5 数值现在可作为 validation 机制筛选的负结果引用，但不能写成 final 测试结论。
 - 当前结果只支持 validation 上的机制筛选，不支持论文精度主张。
 - frozen final 只有新协议明确 GO 后才能运行一次。
 - Ky Fan、generalized trace、Fourier ROM、PWE、谱投影和 MGS 都不是本文单独发明。
-- P5 报告若经审计成立，低频 ROM 不能继续作为论文主创新，长训练 anchor 也只能作为
+- P5 审计已经确认：低频 ROM 不能继续作为论文主创新，长训练 anchor 也只能作为
   强基线，不能把增加训练预算写成方法创新。
 - 任何无法通过参数量、训练时间、错误频率和多随机种子对照的提升，都不能写成创新。

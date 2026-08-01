@@ -1,8 +1,9 @@
 # P5 执行报告 — 远端 ROCm 机 36-run promotion（2026-08-01）
 
-> **证据级别：执行机自报告，主控独立审计尚未完成。** GitHub 当前没有
-> `p5-evidence-20260801-092048.tar.gz` 及 sidecar，以下数值不得直接进入论文结果表。
-> 报告在算术上支持 STOP，但真实性和完整性仍需原始包重算。
+> **证据级别：权威原始证据已回传并通过主控独立审计。** GitHub 已包含
+> `p5-evidence-20260801-092048.tar.gz` 及 sidecar。主控从 36 个 final checkpoint、
+> `metrics.csv`、`result.json` 与 manifest 独立重算，得到 `audit_pass=true`，并重现
+> `P5_PROMOTION_STOP`。详细审计见 `docs/P5-INDEPENDENT-AUDIT.zh-CN.md`。
 
 > 执行机最终状态：**`P5_PROMOTION_STOP`**（有效负结果，非程序故障）。冻结 final
 > 未打开，未运行 `evaluate_v2_final.py`。证据包 SHA-256 已核验。
@@ -13,8 +14,9 @@
 全部通过，36/36 正式 run 全部完成、0 失败、指标全部有限。但**候选机制
 `p5_static_low_rom` 未通过机制归因与 gap-scan 安全两道门槛**：近簇精度不敌
 `p5_long_anchor` 控制组，且 gap-scan 误差相对最优非 ROM 回退，因此 executor 如实判定
-**STOP**。这是一个有信息量的负结果：加低频 ROM 的收益更可能来自"训练更久/参数更多"，
-而非 ROM 的物理结构本身。
+**STOP**。这是一个有信息量的负结果：低频 ROM 相对基础 anchor 有局部收益，但它没有
+优于等算力 long-anchor，也没有保持 gap-scan 安全，因此现有证据不能把收益归因于低频
+ROM 结构本身。
 
 ## 机器环境
 
