@@ -1,20 +1,19 @@
-# A-GTROMNet：二维 Bloch–Schrödinger PDE 神经谱簇求解器
+# 二维 Bloch–Schrödinger PDE 神经谱簇求解器
 
 本项目使用一个轻量神经网络求解**二维参数化 Bloch–Schrödinger 本征偏微分方程**。
 输入为二维坐标、Bloch 波矢和周期势参数；输出为最低两个本征态共同张成的 rank-2
 谱簇。训练不读取参考本征函数标签，PWE 高精度解只用于评价。
 
 > 当前判断（2026-08-01）：研究方向可以继续，但还不能投稿。P4 的 30 次正式
-> validation 实验已独立核验为有效 `STOP`；P5 机制归因 36-run promotion 已在远端
-> AMD MI300X / ROCm 上执行完成（36/36 run、0 失败），状态为有效
-> `P5_PROMOTION_STOP`：候选 `p5_static_low_rom` 未通过机制归因（近簇精度不敌
-> `p5_long_anchor` 控制组）与 gap-scan 安全门槛。冻结 final 仍未打开。
+> validation 已由主控独立核验为有效 `STOP`。远端执行机报告 P5 的 36-run promotion
+> 为 `P5_PROMOTION_STOP`，但 GitHub 当前只有执行报告，尚缺权威 P5 证据包、sidecar
+> 和原始 run 文件，故主控独立复核状态为 **BLOCKED**。冻结 final 仍未打开。
 
 权威状态、结果解释和下一步见
 [当前研究状态与 P5 方案](docs/CURRENT-STATUS.zh-CN.md)。本次 P5 执行完整报告见
 [P5-EXECUTION-REPORT.zh-CN.md](docs/P5-EXECUTION-REPORT.zh-CN.md)，主控交接见
-[HANDOFF-P5-20260801.zh-CN.md](docs/HANDOFF-P5-20260801.zh-CN.md)。执行机只需使用
-[P5 交接提示词](docs/P5-EXECUTOR-PROMPT.zh-CN.md)。
+[HANDOFF-P5-20260801.zh-CN.md](docs/HANDOFF-P5-20260801.zh-CN.md)。当前执行机只需使用
+[P5 证据上传提示词](docs/P5-EVIDENCE-UPLOAD-PROMPT.zh-CN.md)，不要重跑实验。
 
 ## 到底用了什么网络，解了什么 PDE
 
@@ -29,7 +28,7 @@
 其中函数值和一阶导数满足二维周期边界条件。当前验证两个周期势族：harmonic
 honeycomb 与 Gaussian honeycomb。
 
-当前候选 **A-GTROMNet** 包含：
+P5 被检验的候选 **A-GTROMNet** 包含：
 
 - 以周期坐标特征、Bloch 波矢和势参数为输入的 SiLU MLP；
 - K 点附近的物理低能 anchor；
@@ -78,8 +77,11 @@ G2 的提升究竟来自低频物理结构，还是仅来自更多参数、更�
 | `p5_unanchored_low_rom` | 检验 anchor 与 ROM 的交互 |
 | `p5_highfreq_rom` | 同参数量、不同频率的结构对照 |
 
-正式 P5 只有同时证明“低频结构归因成立”和“gap-scan 不退化”才会输出
-`P5_PROMOTION_GO`。否则保持 `P5_PROMOTION_STOP`，继续改方法，禁止打开 frozen final。
+远端报告表明，`p5_long_anchor` 的 near-cluster 误差 0.10616 优于 ROM 候选的
+0.11018，而 ROM 候选的 gap-scan 误差 0.14920 又劣于基础 anchor 的 0.14013。因此
+报告中的 `mechanism_go=false`、`gap_scan_non_regression=false` 和
+`promotion_go=false` 在算术上自洽。原始证据未进仓库前，这些数值必须标记为
+**远端报告、待独立复核**。
 
 ## 环境与验证
 
@@ -105,20 +107,23 @@ P5 本地工程烟测：
 python scripts/run_p5_executor.py --device auto --skip-cache --smoke-only
 ```
 
-P5 正式 validation 归因实验：
+收到权威证据包后执行独立审计：
 
 ```bash
-python scripts/run_p5_executor.py --device auto
+python scripts/audit_p5_evidence.py \
+  artifacts/p5-evidence-20260801-092048.tar.gz \
+  --sidecar artifacts/p5-evidence-20260801-092048.tar.gz.sha256
 ```
 
-正式运行要求干净 Git 工作树。程序会校验 JSON、run 数和缓存哈希，不会再仅凭子进程
-退出码判断 GO。无论 GO/STOP 都会生成 `artifacts/p5-evidence-*.tar.gz` 与 SHA-256。
+审计器会核验外层 SHA-256、包内 manifest、36-run 身份矩阵，直接读取每个
+`result.json` 重算 near-cluster/gap-scan 均值和全部门槛，并拒绝旧 summary、缺失 run
+或被篡改文件。只有 `audit_pass=true` 才能把 P5 数值升级为独立核验结果。
 
 ## 算力
 
 - 本地 Apple MPS/CPU：适合单元测试和 12-run、5-step 烟测，不作为论文正式结果。
 - 单张 RTX 4060 8 GB：模型和显存足够，可复现；完整矩阵会更慢。
-- 单张 RTX 4090/5090 或 MI300X：推荐用于 P5 正式 36-run，预计约 20–40 分钟。
+- 单张 RTX 4090/5090 或 MI300X：足以运行完整机制矩阵。
 - 不需要多卡、H100 集群或大规模预训练。
 
 ## 目录
@@ -129,14 +134,15 @@ benchmarks/        冻结 validation/final 套件与 SHA-256
 scripts/           资产生成、诊断、门控和证据打包
 tests/             单元测试与小型集成测试
 docs/              当前决策、架构、运行手册和历史交接
-artifacts/         已封存的 P4/P5 证据包
+artifacts/         已封存 P4 证据；权威 P5 包仍待上传
 ```
 
 ## 研究纪律
 
+- P5 报告数值在原始证据包到达前不得写入论文结果表。
 - 当前结果只支持 validation 上的机制筛选，不支持论文精度主张。
 - frozen final 只有新协议明确 GO 后才能运行一次。
 - Ky Fan、generalized trace、Fourier ROM、PWE、谱投影和 MGS 都不是本文单独发明。
-- 潜在创新必须限定为：物理 anchor 与低频参数化 ROM 是否共同形成一个在内部简并处
-  稳定、基底不变且消费级单卡可复现的神经谱簇求解机制。
+- P5 报告若经审计成立，低频 ROM 不能继续作为论文主创新，长训练 anchor 也只能作为
+  强基线，不能把增加训练预算写成方法创新。
 - 任何无法通过参数量、训练时间、错误频率和多随机种子对照的提升，都不能写成创新。
