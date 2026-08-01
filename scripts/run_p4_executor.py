@@ -15,7 +15,11 @@ import tarfile
 import time
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 import torch
+
+from block_kyfan_pinn.device import select_device
 
 
 def _sha256(path: Path) -> str:
@@ -26,9 +30,13 @@ def _sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def _included_files(root: Path, include_paths: tuple[Path, ...], manifest: Path) -> list[Path]:
+def _included_files(
+    root: Path, include_paths: tuple[Path, ...], manifest: Path
+) -> list[Path]:
     def eligible(path: Path) -> bool:
-        return path.is_file() and "__pycache__" not in path.parts and path.suffix != ".pyc"
+        return (
+            path.is_file() and "__pycache__" not in path.parts and path.suffix != ".pyc"
+        )
 
     files: set[Path] = set()
     for requested in include_paths:
@@ -38,7 +46,11 @@ def _included_files(root: Path, include_paths: tuple[Path, ...], manifest: Path)
         if eligible(path):
             files.add(path.resolve())
         else:
-            files.update(candidate.resolve() for candidate in path.rglob("*") if eligible(candidate))
+            files.update(
+                candidate.resolve()
+                for candidate in path.rglob("*")
+                if eligible(candidate)
+            )
     files.discard(manifest.resolve())
     return sorted(files, key=lambda path: str(path.relative_to(root.resolve())))
 
@@ -49,6 +61,8 @@ def write_evidence_bundle(
     include_paths: tuple[Path, ...],
     output_dir: Path,
     label: str,
+    prefix: str = "p4-evidence",
+    manifest_name: str = "evidence-manifest.json",
 ) -> tuple[Path, Path, Path]:
     """Write a hash manifest, compressed evidence bundle, and SHA sidecar."""
 
@@ -57,7 +71,7 @@ def write_evidence_bundle(
     output_dir.mkdir(parents=True, exist_ok=True)
     results_root = root / "results"
     results_root.mkdir(parents=True, exist_ok=True)
-    manifest = results_root / "evidence-manifest.json"
+    manifest = results_root / manifest_name
     files = _included_files(root, include_paths, manifest)
     payload = {
         "schema_version": 1,
@@ -72,7 +86,7 @@ def write_evidence_bundle(
         ],
     }
     manifest.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n")
-    archive = output_dir / f"p4-evidence-{label}.tar.gz"
+    archive = output_dir / f"{prefix}-{label}.tar.gz"
     with tarfile.open(archive, "w:gz") as handle:
         for path in files:
             handle.add(path, arcname=str(path.relative_to(root)), recursive=False)
@@ -90,26 +104,36 @@ def _git_value(root: Path, *arguments: str) -> str:
 
 
 def _environment(root: Path, device: str) -> dict[str, object]:
+    selected_device = select_device(device)
     selected_name: str | None = None
     accelerator_memory: int | None = None
-    if torch.cuda.is_available():
+    if selected_device.type == "cuda":
         try:
             selected_name = torch.cuda.get_device_name(0)
             accelerator_memory = int(torch.cuda.get_device_properties(0).total_memory)
         except Exception:
             selected_name = None
+    elif selected_device.type == "mps":
+        selected_name = "Apple MPS"
+    selected_backend = (
+        "rocm"
+        if selected_device.type == "cuda" and getattr(torch.version, "hip", None)
+        else selected_device.type
+    )
     return {
         "timestamp_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "git_commit": _git_value(root, "rev-parse", "HEAD"),
         "git_branch": _git_value(root, "branch", "--show-current"),
         "git_status_porcelain": _git_value(root, "status", "--porcelain"),
         "requested_device": device,
+        "selected_device": str(selected_device),
+        "selected_backend": selected_backend,
         "platform": platform.platform(),
         "python": platform.python_version(),
         "torch": torch.__version__,
         "cuda": torch.version.cuda,
         "hip": getattr(torch.version, "hip", None),
-        "accelerator_available": torch.cuda.is_available(),
+        "accelerator_available": selected_device.type != "cpu",
         "accelerator_name": selected_name,
         "accelerator_total_memory_bytes": accelerator_memory,
         "cpu_count": os.cpu_count(),
@@ -128,9 +152,7 @@ def _write_environment_details(execution_dir: Path) -> None:
     )
     query = shutil.which("nvidia-smi") or shutil.which("rocminfo")
     if query is not None:
-        hardware = subprocess.run(
-            (query,), check=False, text=True, capture_output=True
-        )
+        hardware = subprocess.run((query,), check=False, text=True, capture_output=True)
         (execution_dir / "accelerator-query.txt").write_text(
             hardware.stdout + hardware.stderr
         )
@@ -150,15 +172,81 @@ def _run(root: Path, command: list[str], records: list[dict[str, object]]) -> in
     return completed.returncode
 
 
+def _read_json(path: Path) -> dict[str, object] | None:
+    try:
+        value = json.loads(path.read_text())
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        return None
+    return value if isinstance(value, dict) else None
+
+
+def interpret_promotion_outputs(
+    return_code: int,
+    gate: dict[str, object] | None,
+    summary: dict[str, object] | None,
+    expected_runs: int = 30,
+) -> tuple[str, int]:
+    """Interpret promotion JSON, never a subprocess code alone.
+
+    Some ROCm torch builds force process exit code zero even after an exception.
+    A complete 30-run summary and the serialized gate are therefore mandatory.
+    """
+
+    if gate is None or summary is None:
+        return "ENGINEERING_FAIL", 1
+    complete = (
+        int(summary.get("total_runs", 0)) == expected_runs
+        and int(summary.get("completed_runs", 0)) == expected_runs
+        and int(summary.get("failed_runs", expected_runs)) == 0
+    )
+    if not complete:
+        return "ENGINEERING_FAIL", 1
+    if bool(gate.get("promotion_go")):
+        return ("PROMOTION_GO", 0) if return_code == 0 else ("ENGINEERING_FAIL", 1)
+    return "PROMOTION_STOP", 2
+
+
+def _interpret_smoke_outputs(
+    gate: dict[str, object] | None, summary: dict[str, object] | None
+) -> bool:
+    if gate is None or summary is None or not bool(gate.get("engineering_pass")):
+        return False
+    total = int(summary.get("total_runs", 0))
+    return (
+        total > 0
+        and int(summary.get("completed_runs", 0)) == total
+        and int(summary.get("failed_runs", total)) == 0
+    )
+
+
+def _hash_sidecar_matches(path: Path, sidecar: Path) -> bool:
+    try:
+        expected = sidecar.read_text().split()[0]
+    except (FileNotFoundError, IndexError, OSError):
+        return False
+    return path.is_file() and _sha256(path) == expected
+
+
+def _clear_decision_files(output_dir: Path) -> None:
+    """Prevent a crashed subprocess from reusing a stale gate or summary."""
+
+    for name in ("summary.json", "diagnostic_gate.json"):
+        (output_dir / name).unlink(missing_ok=True)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--device", default="auto", choices=("auto", "cpu", "mps", "cuda", "rocm"))
+    parser.add_argument(
+        "--device", default="auto", choices=("auto", "cpu", "mps", "cuda", "rocm")
+    )
     parser.add_argument("--smoke-only", action="store_true")
     parser.add_argument("--skip-cache", action="store_true")
     parser.add_argument(
         "--allow-dirty",
         action="store_true",
-        help="local development only; formal remote execution must use a clean checkout",
+        help=(
+            "local development only; formal remote execution requires a clean checkout"
+        ),
     )
     args = parser.parse_args()
 
@@ -191,17 +279,25 @@ def main() -> int:
             ],
             records,
         )
-        if cache_code != 0:
+        cache_ready = _hash_sidecar_matches(
+            root / "data/v2_validation_references.pt",
+            root / "data/v2_validation_references.sha256",
+        )
+        if cache_code != 0 or not cache_ready:
             status = "CACHE_FAIL"
         else:
             exit_code = 0
 
-    cache_ready = (root / "data/v2_validation_references.pt").is_file()
+    cache_ready = _hash_sidecar_matches(
+        root / "data/v2_validation_references.pt",
+        root / "data/v2_validation_references.sha256",
+    )
     if args.skip_cache and not cache_ready:
         status = "CACHE_MISSING"
         exit_code = 1
     elif (args.skip_cache or exit_code == 0) and cache_ready:
-        smoke_code = _run(
+        _clear_decision_files(root / "results/p4_smoke")
+        _run(
             root,
             [
                 python,
@@ -227,13 +323,16 @@ def main() -> int:
             ],
             records,
         )
-        if smoke_code != 0:
+        smoke_gate = _read_json(root / "results/p4_smoke/diagnostic_gate.json")
+        smoke_summary = _read_json(root / "results/p4_smoke/summary.json")
+        if not _interpret_smoke_outputs(smoke_gate, smoke_summary):
             status = "SMOKE_FAIL"
-            exit_code = smoke_code
+            exit_code = 1
         elif args.smoke_only:
             status = "SMOKE_PASS"
             exit_code = 0
         else:
+            _clear_decision_files(root / "results/p4_promotion")
             promotion_code = _run(
                 root,
                 [
@@ -256,8 +355,13 @@ def main() -> int:
                 ],
                 records,
             )
-            status = "PROMOTION_GO" if promotion_code == 0 else "PROMOTION_STOP"
-            exit_code = promotion_code
+            promotion_gate = _read_json(
+                root / "results/p4_promotion/diagnostic_gate.json"
+            )
+            promotion_summary = _read_json(root / "results/p4_promotion/summary.json")
+            status, exit_code = interpret_promotion_outputs(
+                promotion_code, promotion_gate, promotion_summary
+            )
 
     execution = {
         "status": status,
@@ -284,6 +388,7 @@ def main() -> int:
         root / "benchmarks/v2_reference_convergence.json",
         root / "benchmarks/v2_reference_convergence.sha256",
         root / "block_kyfan_pinn",
+        root / "scripts/generate_v2_assets.py",
         root / "scripts/run_p4_diagnostic.py",
         root / "scripts/run_p4_executor.py",
         root / "requirements.txt",

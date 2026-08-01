@@ -1,104 +1,88 @@
-# V2 运行手册
+# 当前运行手册（P5）
 
-> **历史协议状态**：2026-07-30 的 AMD 交接报告给出 P3 gate STOP。原始结果尚未在
-> 仓库中独立复核，但这不构成绕过 gate 的理由。本手册保留用于复现 P3 与审计证据；
-> 任何后继方法必须使用新的输出目录和独立 promotion 协议，不能覆盖本协议结果。
+## 1. 纪律
 
-## 1. 工程门禁
+P5 是 validation 上的机制归因，不是 frozen-final 实验。禁止修改方法、seed、步数、
+门槛、套件或输出目录。P4 结果不可覆盖，P5 STOP 时禁止运行 final。
 
-在仓库根目录执行与设备对应的脚本：
-
-```bash
-bash scripts/setup_cuda.sh   # NVIDIA
-bash scripts/setup_rocm.sh   # AMD ROCm
-```
-
-看到 `*_ENGINEERING_VALIDATION=PASS` 只表示环境和小烟测通过，不代表论文实验通过。
-
-## 2. 冻结并验证全部 V2 资产
+## 2. 同步与环境
 
 ```bash
-python scripts/generate_v2_assets.py --device auto --reference-scope all
+git fetch origin
+git switch main
+git pull --ff-only origin main
+git status --porcelain
 ```
 
-该命令会重新生成确定性的 64 点 split-balanced validation、640 点 frozen final 套件，运行六点
-cutoff 16/20/24 收敛审计，并预计算 validation 与 frozen final 参考缓存。此时不加载
-任何训练模型，只验证 final 参数点的谱隙标签和参考解。缓存每 25 点保存
-一次 `.partial.pt`；中断后运行同一命令会继续。若 partial 的套件哈希不一致，程序会
-拒绝混用。
-
-核验：
+正式执行要求最后一条没有输出。选择一个环境脚本：
 
 ```bash
-(cd benchmarks && shasum -a 256 -c v2_validation.sha256)
-(cd benchmarks && shasum -a 256 -c v2_frozen_test.sha256)
-(cd benchmarks && shasum -a 256 -c v2_reference_convergence.sha256)
+bash scripts/setup_cuda.sh      # NVIDIA
+bash scripts/setup_rtx5090.sh   # RTX 5090
+bash scripts/setup_rocm.sh      # AMD ROCm
 ```
 
-## 3. 运行 promotion pilot
+AMD 镜像不要用 pip 安装 CUDA 版 torch 覆盖预装 ROCm 版本。
+
+## 3. 本地烟测
+
+有已核验 validation 缓存时：
 
 ```bash
-python scripts/run_p3_pilot.py \
-  --device auto \
-  --method all \
-  --family all \
-  --seed 42 137 251 \
-  --steps 500
+python scripts/run_p5_executor.py \
+  --device auto --skip-cache --smoke-only
 ```
 
-矩阵为 4 方法 × 2 势族 × 3 seeds，共 24 次。每次保存模型、优化器、CPU/加速器 RNG、
-采样 RNG、源码指纹、配置指纹、suite/cache 哈希和训练 CSV。服务器中断后执行同一命令
-即可恢复；若源码、配置或资产变化，恢复会被拒绝。
+合法成功状态为 `P5_EXECUTION_STATUS=SMOKE_PASS`。烟测为 6 方法 × 2 势族 × 1 seed，
+每个只训练 5 步，只证明工程可运行。
 
-程序返回码为 0 才表示 gate GO。核心门槛：
-
-- 24/24 完成且指标有限；
-- 最大正交误差 `<1e-4`；
-- 以 `near_cluster` 为主终点，P3 validation 投影误差相对最佳基线整体改善至少
-  15%，且两个势族分别都达到至少 15%。
-
-查看：
+## 4. 正式 P5
 
 ```bash
-jq . results/p3_v2_pilot/pilot_gate.json
-jq '{completed_runs,failed_runs,gate}' results/p3_v2_pilot/summary.json
+python scripts/run_p5_executor.py --device auto 2>&1 | tee p5-executor.log
 ```
 
-## 4. 只在 GO 后打开 frozen final
+程序会：
+
+1. 核验或生成 validation PWE 缓存；
+2. 跑 12-run smoke；
+3. smoke 通过后跑 36-run promotion；
+4. 解析 JSON 和 run 数，不只依赖退出码；
+5. 生成带 manifest 的证据包和 SHA-256 sidecar。
+
+断电后运行相同命令会从 `latest.pt` 继续。源码、配置、suite 或缓存哈希不一致时会拒绝
+续训。
+
+## 5. 结果解释
 
 ```bash
-python scripts/evaluate_v2_final.py --device auto
+jq . results/p5_execution/execution-summary.json
+jq . results/p5_promotion/diagnostic_gate.json
+jq '{total_runs,completed_runs,failed_runs,gate}' results/p5_promotion/summary.json
 ```
 
-final evaluator 会先从 24 个 checkpoint/result 文件重新计算 promotion gate，并校验
-checkpoint、源码、validation suite 和缓存绑定。若不是 GO，它会在读取 final suite 前
-终止。成功输出：
+- `P5_PROMOTION_GO`：低频结构归因和 gap 安全都通过；先回收证据，仍不要直接开 final。
+- `P5_PROMOTION_STOP`：科学门槛未过；保留结果，不改门槛重跑。
+- `SMOKE_FAIL`、`CACHE_FAIL`、`ENGINEERING_FAIL`：工程失败；保留 traceback 和失败包。
 
-- `results/p3_v2_final/per_parameter.csv`
-- `results/p3_v2_final/summary.json`
-
-当前报告状态为 STOP，因此不要运行这一节命令。
-
-## 5. 常见故障
-
-- `source fingerprint mismatch`：运行期间源码改变；不要强行续训，固定提交后重跑。
-- `cache SHA-256 ... invalid`：缓存或 sidecar 不完整；从匹配的 partial 继续或重新生成。
-- `labelled exact/near_cluster`：实际谱隙不满足冻结标签，必须修协议后重新冻结，不能
-  放宽标签掩盖问题。
-- pilot 返回 1 且无异常：这是科学 gate STOP，不是程序故障。
-- ROCm 环境丢失：不要安装 `requirements.txt` 覆盖镜像 PyTorch，重新执行
-  `scripts/setup_rocm.sh` 并使用新 venv。
-
-## 6. 结果回收
-
-停止租用机器前保存提交号和压缩包：
+## 6. 证据核验与回收
 
 ```bash
-git rev-parse HEAD > results/GIT_COMMIT.txt
-python -m pip freeze > results/pip-freeze.txt
-tar -czf pinn-pde-results-$(date +%Y%m%d-%H%M%S).tar.gz results data/*.sha256
-shasum -a 256 pinn-pde-results-*.tar.gz
+latest=$(ls -t artifacts/p5-evidence-*.tar.gz | head -1)
+sha256sum -c "${latest}.sha256" || shasum -a 256 -c "${latest}.sha256"
+git rev-parse HEAD > results/P5_GIT_COMMIT.txt
+python -m pip freeze > results/p5-pip-freeze.txt
 ```
 
-将压缩包和对应 SHA-256 下载到本地。不要只复制截图；CSV、JSON、日志、checkpoint 和
-环境记录都必须保留。
+下载 `latest`、对应 `.sha256`、`p5-executor.log` 和 Git commit。不要只保存截图。
+
+## 7. 常见故障
+
+- `formal P5 execution requires a clean Git checkout`：先备份结果，恢复干净工作树。
+- `source fingerprint mismatch`：运行期间源码变化；固定提交后重新开始，不强行续训。
+- `cache SHA-256 ... invalid`：缓存不完整；重新生成 validation 缓存。
+- MPS eigvalsh 错误：应使用当前已提交的后端分流版本；不要把 Gram 一律移到 MPS。
+- ROCm CPU LAPACK 错误：Gram 应保留在 ROCm GPU；不要恢复旧 `.cpu()` 实现。
+- 子进程退出码为 0 但 JSON 有 failure：以 summary/gate 为准，当前 executor 会自动拦截。
+
+完整判断见 [CURRENT-STATUS.zh-CN.md](CURRENT-STATUS.zh-CN.md)。

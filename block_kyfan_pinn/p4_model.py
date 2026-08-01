@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from collections.abc import Sequence
 import math
+from collections.abc import Sequence
 
 import torch
 from torch import Tensor, nn
@@ -50,7 +50,9 @@ class AnchoredGeneralizedTracePINN(GeneralizedTracePINN):
         if coordinates.ndim != 3 or coordinates.shape[-1] != 2:
             raise ValueError("coordinates must have shape [batch, points, 2]")
         if parameters.shape != (coordinates.shape[0], self.parameter_dim):
-            raise ValueError(f"parameters must have shape [batch, {self.parameter_dim}]")
+            raise ValueError(
+                f"parameters must have shape [batch, {self.parameter_dim}]"
+            )
         raw = super().forward(coordinates, parameters)
         anchor = BlockKyFanPINN.anchor(coordinates, self.anchor_kind)
         return raw + self.anchor_scale * anchor
@@ -78,6 +80,7 @@ class ROMGeneralizedTracePINN(nn.Module):
         decay_end_fraction: float = 0.75,
         parameter_dim: int = 4,
         num_rom_shells: int = 1,
+        rom_modes: Sequence[tuple[int, int]] | None = None,
         rom_hidden_width: int = 64,
         rom_hidden_layers: int = 2,
         num_charts: int = 2,
@@ -102,7 +105,10 @@ class ROMGeneralizedTracePINN(nn.Module):
             else:
                 parameter_lower = (0.28, 0.28, 0.20, -0.08)
                 parameter_upper = (0.38, 0.38, 0.80, 0.08)
-        if len(parameter_lower) != parameter_dim or len(parameter_upper) != parameter_dim:
+        if (
+            len(parameter_lower) != parameter_dim
+            or len(parameter_upper) != parameter_dim
+        ):
             raise ValueError("parameter bounds must match parameter_dim")
         lower = torch.tensor(parameter_lower, dtype=torch.float32)
         upper = torch.tensor(parameter_upper, dtype=torch.float32)
@@ -116,7 +122,12 @@ class ROMGeneralizedTracePINN(nn.Module):
             anchor_scale=anchor_scale,
             anchor_kind=anchor_kind,
         )
-        self.rom_modes = _k_point_modes(num_rom_shells)
+        selected_modes = (
+            _k_point_modes(num_rom_shells) if rom_modes is None else list(rom_modes)
+        )
+        if not selected_modes or len(set(selected_modes)) != len(selected_modes):
+            raise ValueError("ROM modes must be a non-empty unique sequence")
+        self.rom_modes = selected_modes
         self.rom_coefficient_networks = nn.ModuleList(
             ROMCoefficientNetwork(
                 parameter_dim=parameter_dim,
@@ -163,8 +174,12 @@ class ROMGeneralizedTracePINN(nn.Module):
         self.active_rom_scale.fill_(scale)
 
     def _normalize_parameters(self, parameters: Tensor) -> Tensor:
-        lower = self.parameter_lower.to(device=parameters.device, dtype=parameters.dtype)
-        upper = self.parameter_upper.to(device=parameters.device, dtype=parameters.dtype)
+        lower = self.parameter_lower.to(
+            device=parameters.device, dtype=parameters.dtype
+        )
+        upper = self.parameter_upper.to(
+            device=parameters.device, dtype=parameters.dtype
+        )
         return (parameters - lower) / (upper - lower)
 
     def chart_weights(self, parameters: Tensor) -> Tensor:

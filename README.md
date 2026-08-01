@@ -1,27 +1,20 @@
-# A-GTNet：二维 Bloch–Schrödinger PDE 神经谱簇求解器
+# A-GTROMNet：二维 Bloch–Schrödinger PDE 神经谱簇求解器
 
-一个用神经网络求解**二维参数化 Bloch–Schrödinger 本征偏微分方程**的研究原型。
+本项目使用一个轻量神经网络求解**二维参数化 Bloch–Schrödinger 本征偏微分方程**。
+输入为二维坐标、Bloch 波矢和周期势参数；输出为最低两个本征态共同张成的 rank-2
+谱簇。训练不读取参考本征函数标签，PWE 高精度解只用于评价。
 
-网络输入二维坐标、Bloch 波矢和势函数参数，输出两个复值周期函数。它不在能带交叉处
-强行给两条能带编号，而是直接学习最低两个本征态共同张成的 rank-2 谱簇。训练使用
-无标签 Ky Fan 变分目标；PWE 高精度解只用于参考解和评估，不作为训练标签。
+> 当前判断（2026-08-01）：研究方向可以继续，但还不能投稿。P4 的 30 次正式
+> validation 实验已独立核验为有效 `STOP`；P5 创新归因烟测已在 Apple MPS 上
+> 12/12 通过，正式 36-run P5 尚待远端 GPU 执行。冻结 final 仍未打开。
 
-截至 2026-08-01，P4 promotion 协议已在本机（AMD MI300X / ROCm）实际运行：为绕过
-该 torch 构建的两个环境缺陷（CPU 端无 LAPACK、导入 torch 的进程强制退出码 0），
-对 3 个脚本做了纯工程层修复（Gram 检查改在 GPU 上执行、退出改用 `os._exit`），
-30/30 个 run 全部成功完成，executor 门控判定 **PROMOTION_STOP**（exit 2）：
-A-GTNet（g1）相对 generalized-trace（g0）的 near-cluster 投影误差改善 **+26.95%**
-（两族 25.1%/28.0%，均 ≥15%）、相对历史 P3 改善 **+75.1%**、参数量完全一致，
-但**未保持在最优 ROM 扩展的 2% 以内**（`g1_within_2pct_of_best_rom_extension=false`），
-因此冻结 gate 为 **STOP**，冻结 final 没有运行。原始 checkpoint/CSV/manifest 已打包进
-`artifacts/p4-evidence-20260801-080059.tar.gz` 并进入本仓库，可独立复核。
-主候选为 **A-GTNet**：在 retraction-free generalized-trace 网络上加入不增加可训练
-参数的低能 Bloch 子空间锚点；ROM 仅保留为消融，不再包装为主创新。
-完整交接见 [docs/HANDOFF-20260801.zh-CN.md](docs/HANDOFF-20260801.zh-CN.md)。
+权威状态、结果解释和下一步见
+[当前研究状态与 P5 方案](docs/CURRENT-STATUS.zh-CN.md)。执行机只需使用
+[P5 交接提示词](docs/P5-EXECUTOR-PROMPT.zh-CN.md)。
 
-## 解什么方程、用什么网络
+## 到底用了什么网络，解了什么 PDE
 
-方程为
+求解方程为
 
 \[
 \left[\tfrac12(-i\nabla+\mathbf{k})^T G(-i\nabla+\mathbf{k})
@@ -29,31 +22,62 @@ A-GTNet（g1）相对 generalized-trace（g0）的 near-cluster 投影误差改�
 \qquad \mathbf{x}\in[0,2\pi)^2,
 \]
 
-并满足二维周期边界条件。当前包含 harmonic honeycomb 与 Gaussian honeycomb 两个势族。
+其中函数值和一阶导数满足二维周期边界条件。当前验证两个周期势族：harmonic
+honeycomb 与 Gaussian honeycomb。
 
-P3 网络由以下部分组成：周期坐标 MLP、物理低能 anchor、两个可学习参数图、每图一个
-轻量 Fourier ROM 修正、能量密度加权的局部修正，以及保持 rank-2 子空间正交的
-dual-path 复 MGS。风险判断只使用预测残差和图间分歧，不读取真实谱隙；高风险样本可
-回退到确定性的 hexagonal PWE。
+当前候选 **A-GTROMNet** 包含：
 
-这属于“神经网络求解 PDE 本征问题”，但不是普通点态 residual PINN。完整计算结构见
-[架构说明](docs/ARCHITECTURE.md)。
+- 以周期坐标特征、Bloch 波矢和势参数为输入的 SiLU MLP；
+- K 点附近的物理低能 anchor；
+- 一个由 PDE 参数生成七个低频 Fourier 系数的轻量 ROM 分支；
+- 无标签 generalized-trace 变分损失 `Tr(B⁻¹A)`；
+- 评价时的复数 modified Gram–Schmidt，保证 rank-2 子空间正交。
 
-## 目录
+这是真实的二维 PDE 本征求解，不是一维 ODE，也不是拿 PWE 标签做监督拟合。它不是
+传统“逐点 residual PINN”；更准确的名称是**无标签变分式神经谱簇求解器**。
 
-```text
-block_kyfan_pinn/  网络、PDE、参考解、指标和协议
-benchmarks/        V1 历史套件与 V2 冻结套件、收敛证据、SHA-256
-configs/           旧 V1 复现配置与当前工程 smoke 配置
-scripts/           资产生成、pilot、冻结测试、统计和审计工具
-tests/             单元与小型集成测试
-docs/              架构、运行手册、缺口和机器交接文档
-baselines/         外部官方实现的固定版本索引
-```
+## 为什么学习谱簇
 
-## 环境与工程验证
+两条能带在 Dirac 点相交时，单个本征函数可以交换编号或在簇内任意旋转。逐带学习的
+目标会不连续。只要目标簇与第三条能带仍有外部谱隙，rank-2 投影子空间仍然良定。
+因此本项目评价投影误差和主角度，不评价两列输出的具体顺序。
 
-CPU 或 Apple MPS：
+## 已核验的 P4 结果
+
+权威证据包为 `artifacts/p4-evidence-20260801-080059.tar.gz`，SHA-256 sidecar 已核验。
+30/30 个 run 完成，所有 manifest 文件的字节数和 SHA-256 均匹配。
+
+| 方法 | near-cluster 投影误差均值 | 解释 |
+|---|---:|---|
+| G0 generalized trace | 0.16870 | 无 anchor 的同架构基线 |
+| G1 anchor | 0.12323 | 比 G0 改善 26.95%，6/6 seed×势族均为正向 |
+| G2 static low-frequency ROM | **0.11018** | 比 G1 再改善 10.58%，但参数约多 23–24%、训练约慢 33% |
+| G3 annealed ROM | 0.13012 | 不如静态 ROM |
+| 历史 P3 | 0.49444 | 明显落后 |
+
+P4 唯一失败门槛是 G1 没有保持在最优 ROM 扩展的 2% 以内。因此停止的是“只把 G1
+作为论文主方法”，不是停止整个课题。G2 在 `gap_scan` 上又比 G1 差约 6.47%，所以也
+不能直接把 G2 包装为成功创新。
+
+## P5 要回答的唯一问题
+
+P5 不调 final，不改 P4，也不为了刷指标增加训练预算。它用 36 次 validation 运行判断
+G2 的提升究竟来自低频物理结构，还是仅来自更多参数、更多训练时间或任意 Fourier
+分支：
+
+| P5 方法 | 控制变量 |
+|---|---|
+| `p5_anchor` | G1 基线 |
+| `p5_static_low_rom` | 候选低频 ROM |
+| `p5_wide_anchor` | 参数量匹配 |
+| `p5_long_anchor` | 训练时间匹配 |
+| `p5_unanchored_low_rom` | 检验 anchor 与 ROM 的交互 |
+| `p5_highfreq_rom` | 同参数量、不同频率的结构对照 |
+
+正式 P5 只有同时证明“低频结构归因成立”和“gap-scan 不退化”才会输出
+`P5_PROMOTION_GO`。否则保持 `P5_PROMOTION_STOP`，继续改方法，禁止打开 frozen final。
+
+## 环境与验证
 
 ```bash
 python3 -m venv .venv
@@ -61,78 +85,54 @@ source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 python -m pytest -q
-python run_smoke.py --device cpu --steps 5 --points 64
 ```
 
-NVIDIA CUDA：
+设备脚本：
 
 ```bash
-bash scripts/setup_cuda.sh
+bash scripts/setup_cuda.sh      # NVIDIA CUDA
+bash scripts/setup_rtx5090.sh   # RTX 5090 / CUDA 12.8
+bash scripts/setup_rocm.sh      # AMD ROCm，保留镜像自带 PyTorch
 ```
 
-RTX 5090 + CUDA 12.8 可使用 `bash scripts/setup_rtx5090.sh`。AMD ROCm 镜像必须保留
-镜像预装的 ROCm PyTorch，使用：
+P5 本地工程烟测：
 
 ```bash
-bash scripts/setup_rocm.sh
+python scripts/run_p5_executor.py --device auto --skip-cache --smoke-only
 ```
 
-这些 setup 脚本只做环境、完整测试和最小 smoke，不会擅自运行论文实验。
-
-## V2 实验入口
-
-> 当前 P3 gate 已被报告为 STOP。以下命令保留用于复现和证据审计；不要绕过 gate 打开
-> frozen final。下一阶段的算法诊断与停止条件见
-> [当前结果、A-GTNet 方案与投稿决策](docs/POST-PILOT-DECISION.zh-CN.md)。
-
-A-GTNet 的五方法因子诊断、自动 gate、断点续训和证据打包已提供独立入口。目标
-机器不负责选择方案，只执行：
+P5 正式 validation 归因实验：
 
 ```bash
-python scripts/run_p4_executor.py --device auto
+python scripts/run_p5_executor.py --device auto
 ```
 
-该命令先做工程 smoke，通过后自动运行冻结的 30-run validation promotion；无论 GO
-或 STOP 都会生成带 SHA-256 manifest 的结果包。详细机器操作见
-[A-GTNet 执行机指令](docs/P4-EXECUTOR.zh-CN.md)。
-需要交给另一台机器或另一个 AI 时，使用可直接复制的
-[执行机交接提示词](docs/EXECUTOR-PROMPT.zh-CN.md)。
+正式运行要求干净 Git 工作树。程序会校验 JSON、run 数和缓存哈希，不会再仅凭子进程
+退出码判断 GO。无论 GO/STOP 都会生成 `artifacts/p5-evidence-*.tar.gz` 与 SHA-256。
 
-正式 promotion 前生成/核验套件、收敛证据和两套参考缓存。生成 final 缓存只验证物理
-协议，不会用模型查看 final 表现：
+## 算力
 
-```bash
-python scripts/generate_v2_assets.py --device auto --reference-scope all
+- 本地 Apple MPS/CPU：适合单元测试和 12-run、5-step 烟测，不作为论文正式结果。
+- 单张 RTX 4060 8 GB：模型和显存足够，可复现；完整矩阵会更慢。
+- 单张 RTX 4090/5090 或 MI300X：推荐用于 P5 正式 36-run，预计约 20–40 分钟。
+- 不需要多卡、H100 集群或大规模预训练。
+
+## 目录
+
+```text
+block_kyfan_pinn/  网络、PDE、参考解、指标和协议
+benchmarks/        冻结 validation/final 套件与 SHA-256
+scripts/           资产生成、诊断、门控和证据打包
+tests/             单元测试与小型集成测试
+docs/              当前决策、架构、运行手册和历史交接
+artifacts/         已封存的 P4/P5 证据包
 ```
 
-再运行 2 势族 × 4 方法 × 3 随机种子的 24-run pilot：
+## 研究纪律
 
-```bash
-python scripts/run_p3_pilot.py \
-  --device auto --method all --family all --seed 42 137 251 --steps 500
-```
-
-相同命令可以从 `latest.pt` 继续。只有 `results/p3_v2_pilot/pilot_gate.json` 中
-`pilot_go=true`，才允许模型运行一次冻结测试：
-
-```bash
-python scripts/evaluate_v2_final.py --device auto
-```
-
-详细命令、失败处理和结果回收见 [运行手册](docs/RUNBOOK.md) 与
-[目标机器交接文档](docs/HANDOFF.zh-CN.md)。
-
-## 当前结论边界
-
-- 已证明：代码路径可运行；P3 各机制不是空开关；V2 文件可验证；cutoff=24 的代表点
-  收敛审计通过；真实 checkpoint 与代码/配置/数据哈希绑定。
-- 已报告但未独立复核：AMD MI300X 上 24/24 pilot 完成、P3 gate STOP、最佳方法为
-  `wang_xie_trace`。仓库缺少该次运行的 CSV、JSON、checkpoint 和结果包。
-- 尚未证明：P3 或后继方法稳定优于基线、论文主张有统计显著性、达到 SCI 三区或
-  四区标准。
-- 当前决定：停止把 P3 当作可投稿主方法，保持 frozen final 未打开；以同参数量的
-  generalized-trace 无锚网络 G0 为公平基线，验证 A-GTNet/G1 的物理 anchor 是否在
-  两个势族和全部 seed 上稳定有效；静态/退火 ROM 仅作为消融。
-
-仍需补齐的论文内容见 [已知缺口](docs/KNOWN_GAPS.zh-CN.md)。第三方基线的官方仓库、
-许可证和固定提交见 [外部基线索引](baselines/external/README.md)。
+- 当前结果只支持 validation 上的机制筛选，不支持论文精度主张。
+- frozen final 只有新协议明确 GO 后才能运行一次。
+- Ky Fan、generalized trace、Fourier ROM、PWE、谱投影和 MGS 都不是本文单独发明。
+- 潜在创新必须限定为：物理 anchor 与低频参数化 ROM 是否共同形成一个在内部简并处
+  稳定、基底不变且消费级单卡可复现的神经谱簇求解机制。
+- 任何无法通过参数量、训练时间、错误频率和多随机种子对照的提升，都不能写成创新。

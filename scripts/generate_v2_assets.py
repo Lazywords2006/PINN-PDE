@@ -15,7 +15,6 @@ from __future__ import annotations
 
 import json
 import math
-import os
 import random
 import sys
 import time
@@ -606,10 +605,4 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    # Environment workaround: this ROCm torch build forces exit code 0 on
-    # interpreter shutdown, masking failures. os._exit() bypasses that hook.
-    # Run main() first so its prints are in the buffer, then flush, then exit.
-    code = main()
-    sys.stdout.flush()
-    sys.stderr.flush()
-    os._exit(code)
+    raise SystemExit(main())

@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import subprocess
 import sys
 import tarfile
 from pathlib import Path
@@ -10,8 +11,11 @@ from pathlib import Path
 import pytest
 import torch
 
-from block_kyfan_pinn.metrics import orthogonality_error
-from block_kyfan_pinn.metrics import principal_angle_degrees, projector_sine_error
+from block_kyfan_pinn.metrics import (
+    orthogonality_error,
+    principal_angle_degrees,
+    projector_sine_error,
+)
 from block_kyfan_pinn.model import BlockKyFanPINN
 from block_kyfan_pinn.p4_model import (
     AnchoredGeneralizedTracePINN,
@@ -22,11 +26,19 @@ from scripts.run_p4_diagnostic import (
     P4_FAMILIES,
     P4_METHODS,
     P4_PROMOTION_SEEDS,
+    _gram_condition_numbers,
     build_p4_gate,
     build_p4_model,
+)
+from scripts.run_p4_diagnostic import (
     main as p4_main,
 )
-from scripts.run_p4_executor import write_evidence_bundle
+from scripts.run_p4_executor import (
+    _clear_decision_files,
+    _environment,
+    interpret_promotion_outputs,
+    write_evidence_bundle,
+)
 
 
 def _coordinates(batch: int = 2, points: int = 25) -> torch.Tensor:
@@ -43,9 +55,7 @@ def test_anchored_trace_returns_raw_trial_basis_and_backpropagates() -> None:
         anchor_scale=0.1,
     )
     coordinates = _coordinates()
-    parameters = torch.tensor(
-        [[0.31, 0.35, 0.50, 0.02], [0.35, 0.31, 0.70, -0.02]]
-    )
+    parameters = torch.tensor([[0.31, 0.35, 0.50, 0.02], [0.35, 0.31, 0.70, -0.02]])
     raw = model(coordinates, parameters)
     assert raw.shape == (2, 25, 2, 2)
     assert orthogonality_error(periodic_mgs(raw)) < 5e-5
@@ -77,9 +87,7 @@ def test_rom_trace_exposes_raw_basis_and_chart_diagnostics(num_charts: int) -> N
         parameter_upper=(0.38, 0.38, 0.80, 0.08),
     )
     coordinates = _coordinates()
-    parameters = torch.tensor(
-        [[0.31, 0.35, 0.50, 0.02], [0.35, 0.31, 0.70, -0.02]]
-    )
+    parameters = torch.tensor([[0.31, 0.35, 0.50, 0.02], [0.35, 0.31, 0.70, -0.02]])
     raw = model(coordinates, parameters)
     weights = model.chart_weights(parameters)
     disagreement = model.chart_disagreement(coordinates, parameters)
@@ -265,6 +273,54 @@ def test_evidence_bundle_contains_manifest_and_matching_sha256(tmp_path: Path) -
     assert "results/evidence-manifest.json" in names
 
 
+def test_executor_never_turns_failed_runs_into_false_promotion_go() -> None:
+    false_gate = {"promotion_go": False}
+    failed_summary = {"total_runs": 30, "completed_runs": 0, "failed_runs": 30}
+    assert interpret_promotion_outputs(0, false_gate, failed_summary) == (
+        "ENGINEERING_FAIL",
+        1,
+    )
+
+    complete_stop = {"total_runs": 30, "completed_runs": 30, "failed_runs": 0}
+    assert interpret_promotion_outputs(0, false_gate, complete_stop) == (
+        "PROMOTION_STOP",
+        2,
+    )
+
+    true_gate = {"promotion_go": True}
+    assert interpret_promotion_outputs(0, true_gate, complete_stop) == (
+        "PROMOTION_GO",
+        0,
+    )
+    assert interpret_promotion_outputs(2, true_gate, complete_stop) == (
+        "ENGINEERING_FAIL",
+        1,
+    )
+
+
+def test_p4_executor_is_directly_invocable() -> None:
+    root = Path(__file__).resolve().parents[1]
+    completed = subprocess.run(
+        [sys.executable, "scripts/run_p4_executor.py", "--help"],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert completed.returncode == 0, completed.stderr
+    assert "--smoke-only" in completed.stdout
+
+
+def test_executor_clears_stale_decision_json(tmp_path: Path) -> None:
+    (tmp_path / "summary.json").write_text('{"promotion_go": true}\n')
+    (tmp_path / "diagnostic_gate.json").write_text('{"promotion_go": true}\n')
+    (tmp_path / "latest.pt").write_bytes(b"resume state")
+    _clear_decision_files(tmp_path)
+    assert not (tmp_path / "summary.json").exists()
+    assert not (tmp_path / "diagnostic_gate.json").exists()
+    assert (tmp_path / "latest.pt").read_bytes() == b"resume state"
+
+
 @pytest.mark.skipif(
     not hasattr(torch.backends, "mps") or not torch.backends.mps.is_available(),
     reason="MPS is unavailable",
@@ -276,3 +332,9 @@ def test_basis_metrics_move_mps_values_to_cpu_before_float64() -> None:
     mean_angle, max_angle = principal_angle_degrees(basis, basis)
     assert mean_angle < 0.1
     assert max_angle < 0.1
+    condition = _gram_condition_numbers(basis)
+    assert condition.device.type == "cpu"
+    assert bool(torch.isfinite(condition).all())
+    environment = _environment(Path(__file__).resolve().parents[1], "mps")
+    assert environment["selected_backend"] == "mps"
+    assert environment["accelerator_available"] is True
