@@ -1,23 +1,14 @@
-# 当前研究状态、P5 报告与证据门禁（2026-08-01）
+# 当前研究状态与投稿判断（2026-08-01，P5 独立审计后）
 
-## 最先看这一段
+## 一句话结论
 
-本课题没有跑题：它使用神经网络求解二维参数化 Bloch–Schrödinger 本征 PDE 的
-rank-2 谱簇。但当前方法还不能投稿。
+课题没有跑题：本项目确实使用神经网络求解二维参数化 Bloch–Schrödinger 本征 PDE
+的 rank-2 谱簇。P5 权威原始证据已经回传并通过独立审计，但科学结论是
+**`P5_PROMOTION_STOP`**。当前“低频 ROM 是主创新”的路线应停止；整个神经 PDE 课题
+仍可继续，但需要先验证新的失效感知或条件校正机制。目前不能投稿，也不能打开 frozen
+final。
 
-远端执行机已经报告 P5 36-run 完成且判定 `P5_PROMOTION_STOP`。报告中的数字在逻辑和
-算术上自洽，但权威证据包 `p5-evidence-20260801-092048.tar.gz`、sidecar、36 个
-`result.json` 和原始 CSV 没有随 GitHub 提交上传。主控因此不能按要求独立重算。
-
-当前状态必须分开写：
-
-- **P4：独立核验完成，结论可信。**
-- **P5：远端报告完成，主控审计 BLOCKED。**
-- **frozen final：未打开。**
-- **论文：不可投稿。**
-- **下一动作：上传既有 P5 证据，不重跑、不设计 P6。**
-
-## 到底用了什么网络、解了什么方程
+## 网络与 PDE
 
 求解对象为
 
@@ -28,136 +19,111 @@ rank-2 谱簇。但当前方法还不能投稿。
 \]
 
 并满足二维周期边界条件。网络接收二维坐标、Bloch 波矢和势参数，输出两个复值周期
-函数所张成的 rank-2 子空间。空间导数由自动微分计算，训练不读取 PWE 本征函数标签。
-因此它属于无标签变分式 neural PDE eigensolver，不是监督代理模型。
+函数张成的 rank-2 子空间。空间导数由自动微分计算，训练不读取 PWE 本征函数标签。
+因此它是无标签变分式 neural PDE eigensolver，不是监督代理模型。
 
 P5 检验的 A-GTROMNet 为周期特征 SiLU MLP + 物理低能 anchor + 七个低频 Fourier ROM
-模态，损失为 generalized trace `Tr(B⁻¹A)`。注意：这是“被检验的候选”，不是已获
-支持的最终方法。
+模态，损失为 generalized trace `Tr(B⁻¹A)`。P5 已证明它不能作为当前最终方法。
 
-## 已独立核验的 P4
+## 当前阶段状态
 
-权威包 `artifacts/p4-evidence-20260801-080059.tar.gz` 已完成外层 SHA、231 个 manifest
-文件和 30 个 run 的独立重算：
+- **P4：**30-run 权威证据独立核验完成，结论 `PROMOTION_STOP`。
+- **P5：**36-run 权威证据独立核验完成，`audit_pass=true`，结论
+  `P5_PROMOTION_STOP`。
+- **工程：**36/36 完成、0 失败，指标有限，正交与 Gram 稳定性通过。
+- **frozen final：**未打开；STOP 状态下禁止运行。
+- **论文：**当前方法不可投稿，课题可继续改进。
 
-| 方法 | near-cluster 投影误差 | 结论 |
-|---|---:|---|
-| G0 generalized trace | 0.16870 | 无 anchor 基线 |
-| G1 anchor | 0.12323 | 相对 G0 改善 26.95%，6/6 配对正向 |
-| G2 static low ROM | **0.11018** | 比 G1 再好 10.58%，但参数和计算更多 |
-| G3 annealed ROM | 0.13012 | 不如静态 ROM |
-| 历史 P3 | 0.49444 | 明显落后 |
+## P5 权威结果
 
-P4 的 STOP 只否定“G1 已经足够成为主方法”，并指出必须用 P5 排除容量和计算预算效应。
+证据包为 `artifacts/p5-evidence-20260801-092048.tar.gz`，SHA-256：
+`56891c5740eb94c62299b72869d790a1cbdee6abda3fae2903ed822f5e405101`。
 
-## P5 远端报告：目前能说什么
+| 方法 | near-cluster 投影误差 | gap-scan 投影误差 | 作用 |
+|---|---:|---:|---|
+| `p5_static_low_rom` | 0.11018 | 0.14920 | 被检验候选 |
+| `p5_anchor` | 0.12323 | **0.14013** | 基础 anchor |
+| `p5_wide_anchor` | 0.11910 | 0.15098 | 参数量控制 |
+| `p5_long_anchor` | **0.10616** | 0.15930 | 等算力控制 |
+| `p5_unanchored_low_rom` | 0.17171 | 0.21828 | anchor 交互控制 |
+| `p5_highfreq_rom` | 0.12110 | 0.14783 | 频率结构控制 |
 
-以下来自 commit `38af315` 的执行报告，**尚未由主控从原始 run 重算**：
+冻结门槛重算结果：
 
-| 方法 | 报告 near-cluster | 报告 gap-scan |
-|---|---:|---:|
-| `p5_static_low_rom` | 0.11018 | 0.14920 |
-| `p5_anchor` | 0.12323 | **0.14013** |
-| `p5_wide_anchor` | 0.11910 | 0.15098 |
-| `p5_long_anchor` | **0.10616** | 0.15930 |
-| `p5_unanchored_low_rom` | 0.17171 | 0.21828 |
-| `p5_highfreq_rom` | 0.12110 | 0.14783 |
+- `candidate_at_least_5pct_better_than_each_control=false`；
+- `candidate_better_in_each_family=false`；
+- `at_least_5_of_6_pairs_win_each_control=false`；
+- `gap_scan_non_regression=false`；
+- `mechanism_go=false`；
+- `promotion_go=false`。
 
-报告同时声称：36/36 完成、0 失败、最大正交误差约 `3.4e-7`、最大 Gram 条件数约
-11.0、`mechanism_go=false`、`gap_scan_non_regression=false`、
-`promotion_go=false`。
+## 结果到底说明什么
 
-### 报告在算术上是否自洽
+低频 ROM 相对普通 anchor 的 near-cluster 平均误差改善 10.58%，这个局部收益真实存在。
+但是：
 
-是：
+1. 等算力 long-anchor 的 near-cluster 误差 0.10616，优于候选的 0.11018；
+2. 候选只在 3/6 个势族×seed 组合上胜过 long-anchor；
+3. 候选 gap-scan 比最佳非 ROM anchor 差约 6.47%，超过 2% 安全容限；
+4. 去掉 anchor 后误差大幅增至 0.17171，说明收益高度依赖 anchor；
+5. 候选参数量增加约 23.6%，训练时间增加约 32.4%。
 
-- ROM 候选 0.11018 没有优于长训练 anchor 的 0.10616，更不可能“比所有控制至少好
-  5%”；
-- ROM 候选 gap-scan 0.14920 大于 `1.02 × 0.14013 = 0.14293`；
-- 因此两个关键门槛都应为 false，最终 STOP 与表中数字一致。
+所以不能声称“低频 ROM 的物理结构带来了稳定、可归因的优势”。`p5_long_anchor` 也不能
+升级为创新，因为它只是同一网络训练更久，并且 gap-scan 更差。
 
-但“自洽”不等于“独立核验”。没有原始包就无法检查是否漏 run、抄错 summary、选错
-checkpoint、CSV 与 JSON 是否一致或 manifest 是否被改动。
+## 逐点分析发现了什么
 
-## 为什么现在不能把 `p5_long_anchor` 升为新方法
+每个 run 有 32 个 validation 点。候选与基础 anchor 严格配对后，在 192 个逐点比较中
+胜 117 个（60.9%）；但 gap-scan 只胜 9/36，平均误差增加 0.00907。失败主要体现为
+gap-scan 安全性，而不是程序整体失效。
 
-不能，理由有三条：
+候选与 anchor 的误差差对参考 external gap 的简单线性相关约 0.045，对 internal gap
+约 −0.017。仅用真值谱隙的单阈值都不一定足够，更不能在推理时依赖不可获得的真值。
+下一步必须构造可由网络输出和 PDE 本身计算的无标签风险量，并先验证 risk–coverage。
 
-1. 它只是同一个 anchor 网络训练 665 步，不是新网络或新机制；增加训练预算不能作为
-   期刊论文核心创新。
-2. 虽然报告的 near-cluster 误差为全场最低 0.10616，但 gap-scan 为 0.15930，比基础
-   anchor 的 0.14013 高约 13.7%。它不是整体最优方法。
-3. 它最重要的作用是成为强计算预算基线，并证明静态 ROM 的 near-cluster 提升不能与
-   “训练更久”区分。
+完整检查见 [P5 独立审计报告](P5-INDEPENDENT-AUDIT.zh-CN.md)。
 
-因此 long anchor 应保留为后续论文的强基线，不应改名包装成新方法。
+## 下一步改进方向
 
-## ROM 是否继续作为主创新
+最小可行的新方向是**失效感知的条件谱簇校正器**，不是继续无条件叠加 ROM：
 
-如果原始证据重算后仍得到同样门槛，应放弃“低频 ROM 是主创新”的论文主张：
+1. 基础 anchor 网络生成主预测；
+2. 计算无标签风险特征：PDE residual、Gram condition、预测 Ritz 外部间隔、chart 角度、
+   多视图不一致；
+3. 低风险点直接输出 anchor，候选高收益区域才启用局部校正；
+4. 无法可靠判断或风险很高时回退到 PWE；
+5. 用 risk–coverage、选择性误差、回退率和 many-query break-even 量化价值。
 
-- 机制归因没有通过；
-- gap-scan 安全没有通过；
-- 参数和训练时间均增加；
-- 高风险区域不存在稳定优势。
+这个方向只有在小范围验测中证明“风险分数确实能优先找到失败点”后才值得写代码。若
+风险排序接近随机，就停止条件路由，重新筛选方法，不直接进入 P6 大矩阵。
 
-ROM 仍可作为负结果、消融或后续局部模块保留，但不能主导标题、摘要和贡献列表。
+## 下一轮小范围验测成功线
 
-## 是否马上设计 P6
-
-暂时不设计。P6 的选择依赖 36 个 run 的逐点数据：需要先检查退化集中在哪个势族、
-seed、参数区域以及是否与参考外部谱隙、PDE residual 或 Gram 条件数相关。现在只有六个
-聚合均值，无法判断应该做谱隙风险守门、课程学习、动态计算分配还是彻底换路线。
-
-在证据通过后，下一阶段应按以下顺序：
-
-1. 画出每个方法的逐点 near/gap 误差与配对差；
-2. 检查误差与参考外部谱隙、参数位置、势族和 seed 的相关性；
-3. 确认是否存在可由**无标签量**检测的失败区域；
-4. 先检索相近的谱隙感知/风险守门期刊方法，再冻结一个新机制；
-5. 用新的 validation 协议验证，仍不打开 frozen final。
-
-## 新增的独立证据审计器
-
-仓库新增 `scripts/audit_p5_evidence.py`。收到包后执行：
-
-```bash
-python scripts/audit_p5_evidence.py \
-  artifacts/p5-evidence-20260801-092048.tar.gz \
-  --sidecar artifacts/p5-evidence-20260801-092048.tar.gz.sha256
-```
-
-它会：
-
-- 核对外层 SHA-256 sidecar；
-- 拒绝重复或不安全的 tar 路径；
-- 对 manifest 中每个文件重算字节数和 SHA-256；
-- 验证 6 方法 × 2 势族 × 3 seeds 的 36-run 身份矩阵；
-- 逐 run 核对 `final.pt` 哈希以及 `metrics.csv` 的行数、分组均值和稳定性指标；
-- 从每个 `result.json` 重算两类误差、训练时间、参数量、配对胜率和完整 gate；
-- 将重算结果与原 summary、gate 和 execution status 对照；
-- 只有全部一致才输出 `audit_pass=true`。
+- 两个势族、3 seeds、与当前 validation 隔离的新机制开发集；
+- anchor、long-anchor、static-low-ROM 与新方法统一参数和 wall-clock 预算；
+- near-cluster 相对 long-anchor 至少改善 5%；
+- gap-scan 不超过最佳非 ROM 基线 2%；
+- 每个势族均改善，至少 5/6 势族×seed 配对获胜；
+- 风险排序 AUROC/AUPRC、risk–coverage 明显好于随机；
+- 正交误差、Gram 条件数与有限性门槛继续通过；
+- 只在上述条件同时满足时才允许冻结下一 promotion。
 
 ## 投稿判断
 
 | 问题 | 当前答案 |
 |---|---|
-| 是否属于神经网络解 PDE | 是，且为真实二维本征 PDE |
-| 是否可以继续 | 可以，但先补证据完整性 |
-| 是否可以现在投稿 | 不可以 |
-| P5 是否已独立核验 | 没有，证据包缺失 |
-| `p5_long_anchor` 是否为创新 | 不是，只是更强训练预算基线 |
-| ROM 是否可做主创新 | 若报告经核验成立，则不可以 |
-| SCI 四区 | 目前仍未达到 |
-| SCI 三区 | 当前明显不足 |
-| frozen final | 保持关闭 |
+| 是否属于神经网络解 PDE | 是，真实二维本征 PDE |
+| 当前结果是否可信 | 是，P4/P5 原始证据均独立审计 |
+| 当前低频 ROM 能否投稿 | 不能，机制归因和安全门槛失败 |
+| 整个课题是否继续 | 可以，但要更换主创新并先小测 |
+| SCI 四区 | 当前未达到；新机制与完整实验通过后再评估 |
+| SCI 三区 | 当前明显不足，需要更强机制、理论与物理用途 |
+| 是否运行 frozen final | 不运行，保持关闭 |
+| 是否需要再租多卡 | 不需要；单张 4060/4090/5090 足够开发与验证 |
 
-## 下一步唯一动作
+## 当前允许与禁止的动作
 
-让原远端执行机上传现有的：
+允许：分析原始 validation、设计新开发集、做小型风险可检测性验测、补文献与理论。
 
-- `artifacts/p5-evidence-20260801-092048.tar.gz`；
-- `artifacts/p5-evidence-20260801-092048.tar.gz.sha256`。
-
-不要重跑 P5，不要启动 P6，不要运行 `evaluate_v2_final.py`。上传后由主控运行审计器，
-再决定下一实验。
+禁止：修改旧门槛重跑 P5、挑 best checkpoint、把 validation 当 final、把 long-anchor
+包装成创新、在 STOP 状态下运行 `evaluate_v2_final.py`。
