@@ -9,7 +9,6 @@ import hashlib
 import json
 import math
 import platform
-import os
 import statistics
 import sys
 import time
@@ -41,6 +40,7 @@ from block_kyfan_pinn.p4_model import (
     ROMGeneralizedTracePINN,
     chart_statistics,
 )
+from block_kyfan_pinn.p5_model import P5_METHODS, build_p5_model
 from block_kyfan_pinn.physics import (
     apply_hamiltonian,
     complex_gram_mean,
@@ -59,7 +59,6 @@ from scripts.run_p3_pilot import (
     _load_reference_cache,
 )
 
-
 P4_METHODS = (
     "g0_trace",
     "g1_anchor",
@@ -74,7 +73,8 @@ P4_PROMOTION_POINTS = 256
 P4_PROMOTION_PARAMETER_BATCH = 4
 P4_PROMOTION_CHECKPOINT_EVERY = 100
 P4_PROMOTION_MONITOR_EVERY = 50
-RAW_TRACE_METHODS = frozenset(P4_METHODS[:4])
+ALL_DIAGNOSTIC_METHODS = P4_METHODS + P5_METHODS
+RAW_TRACE_METHODS = frozenset((*P4_METHODS[:4], *P5_METHODS))
 
 
 @dataclass(frozen=True)
@@ -97,8 +97,8 @@ class P4Config:
 
 
 def _validate_method_family(method: str, potential_family: str) -> None:
-    if method not in P4_METHODS:
-        raise ValueError(f"unknown P4 method: {method}")
+    if method not in ALL_DIAGNOSTIC_METHODS:
+        raise ValueError(f"unknown diagnostic method: {method}")
     if potential_family not in P4_FAMILIES:
         raise ValueError(f"unknown P4 potential family: {potential_family}")
 
@@ -115,6 +115,13 @@ def build_p4_model(
     """Build the frozen G0/G1/G2/G3/K3 factorial comparison."""
 
     _validate_method_family(method, potential_family)
+    if method in P5_METHODS:
+        return build_p5_model(
+            method,
+            potential_family=potential_family,
+            device=device,
+            dtype=dtype,
+        )
     lower, upper = FAMILY_BOUNDS[potential_family]
     parameter_dim = len(lower)
     common = {
@@ -171,7 +178,8 @@ def _p4_source_fingerprint() -> str:
     """Bind checkpoints to both the library and this exact runner."""
 
     root = Path(__file__).resolve().parents[1]
-    files = sorted((root / "block_kyfan_pinn").rglob("*.py")) + [Path(__file__).resolve()]
+    files = sorted((root / "block_kyfan_pinn").rglob("*.py"))
+    files += sorted((root / "scripts").glob("run_p[45]_diagnostic.py"))
     digest = hashlib.sha256()
     for path in files:
         digest.update(str(path.relative_to(root)).encode())
@@ -216,7 +224,16 @@ def _gradient_norm(model: nn.Module) -> float:
 
 def _gram_condition_numbers(raw_basis: torch.Tensor) -> torch.Tensor:
     real, imag = complex_gram_mean(raw_basis)
-    gram = torch.complex(real, imag).detach()
+    # The MI300X image used for the formal run has no usable CPU LAPACK,
+    # whereas Apple MPS does not implement complex Hermitian eigvalsh.  Keep
+    # the small Gram solve on CUDA/ROCm, but explicitly use CPU on MPS.
+    if real.device.type == "mps":
+        real = real.detach().cpu()
+        imag = imag.detach().cpu()
+    else:
+        real = real.detach()
+        imag = imag.detach()
+    gram = torch.complex(real, imag)
     eigenvalues = torch.linalg.eigvalsh(gram).real.clamp_min(1e-12)
     return eigenvalues.amax(-1) / eigenvalues.amin(-1)
 
@@ -259,8 +276,10 @@ def _evaluate_suite(
         output = model(coordinates, parameters)
         basis = _evaluation_basis(config.method, output)
         reference_basis = references[str(point["id"])]["basis"]
-        reference_basis = reference_basis[..., :2, :].unsqueeze(0).to(
-            device=device, dtype=basis.dtype
+        reference_basis = (
+            reference_basis[..., :2, :]
+            .unsqueeze(0)
+            .to(device=device, dtype=basis.dtype)
         )
         h_basis = apply_hamiltonian(
             basis, coordinates, parameters, config.potential_family
@@ -273,7 +292,10 @@ def _evaluate_suite(
             torch.complex(matrix_real, matrix_imag)[0].detach()
         ).real.cpu()
         reference_values = references[str(point["id"])]["eigenvalues"]
-        if not isinstance(reference_values, torch.Tensor) or reference_values.numel() < 3:
+        if (
+            not isinstance(reference_values, torch.Tensor)
+            or reference_values.numel() < 3
+        ):
             raise ValueError(f"reference eigenvalues are missing for {point['id']}")
         angle_mean, angle_max = principal_angle_degrees(basis, reference_basis)
         row: dict[str, object] = {
@@ -289,7 +311,9 @@ def _evaluate_suite(
             "trace_abs_error": float(
                 (ritz_values.sum() - reference_values[:2].sum()).abs()
             ),
-            "residual_rms": float(projected_residual_rms(basis, h_basis).detach().cpu()),
+            "residual_rms": float(
+                projected_residual_rms(basis, h_basis).detach().cpu()
+            ),
             "orthogonality_error": orthogonality_error(basis),
             "gram_condition": float(_gram_condition_numbers(output).amax()),
             "internal_gap": float(reference_values[1] - reference_values[0]),
@@ -411,9 +435,7 @@ def run_p4_run(
         )
         if should_log:
             chart = _chart_values(model, coordinates, parameters)
-            monitor_rows = _evaluate_suite(
-                model, config, device, monitored, references
-            )
+            monitor_rows = _evaluate_suite(model, config, device, monitored, references)
             training_rows.append(
                 {
                     "step": step + 1,
@@ -502,7 +524,9 @@ def run_p4_run(
         "final_loss": float(training_rows[-1]["loss"]),
         "elapsed_seconds": elapsed,
         "peak_memory_bytes": (
-            int(torch.cuda.max_memory_allocated(device)) if device.type == "cuda" else None
+            int(torch.cuda.max_memory_allocated(device))
+            if device.type == "cuda"
+            else None
         ),
         "mean_projector_sine_error": statistics.mean(projector_values),
         "std_projector_sine_error": (
@@ -538,7 +562,9 @@ def run_p4_run(
         )
         chart_count = len(chart_rows[0]["mean_chart_weights"])
         result["mean_chart_weights"] = [
-            statistics.mean(float(row["mean_chart_weights"][index]) for row in chart_rows)
+            statistics.mean(
+                float(row["mean_chart_weights"][index]) for row in chart_rows
+            )
             for index in range(chart_count)
         ]
     result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
@@ -569,14 +595,10 @@ def build_p4_gate(summary: dict[str, object]) -> dict[str, object]:
     family_improvements = {
         family: _improvement(
             float(
-                summary.get(
-                    f"g0_trace_{family}_near_cluster_projector_mean", math.inf
-                )
+                summary.get(f"g0_trace_{family}_near_cluster_projector_mean", math.inf)
             ),
             float(
-                summary.get(
-                    f"g1_anchor_{family}_near_cluster_projector_mean", math.inf
-                )
+                summary.get(f"g1_anchor_{family}_near_cluster_projector_mean", math.inf)
             ),
         )
         for family in P4_FAMILIES
@@ -631,14 +653,11 @@ def build_p4_gate(summary: dict[str, object]) -> dict[str, object]:
             baseline_count >= 0 and baseline_count == candidate_count
             for baseline_count, candidate_count in parameter_count_pairs.values()
         ),
-        "g1_within_2pct_of_best_rom_extension": g1
-        <= 1.02 * min(g2, g3),
+        "g1_within_2pct_of_best_rom_extension": g1 <= 1.02 * min(g2, g3),
         "paired_seed_improvements": paired,
         "all_family_seed_pairs_improve": len(paired_values) == 6
         and all(value > 0.0 for value in paired_values),
-        "rom_fully_annealed": float(
-            summary.get("g3_maximum_final_rom_scale", math.inf)
-        )
+        "rom_fully_annealed": float(summary.get("g3_maximum_final_rom_scale", math.inf))
         <= 1e-8,
     }
     gate["promotion_go"] = all(
@@ -744,7 +763,9 @@ def _aggregate_summary(
         method_results = [
             result for result in results if result["config"]["method"] == method
         ]
-        values = [float(result["mean_projector_sine_error"]) for result in method_results]
+        values = [
+            float(result["mean_projector_sine_error"]) for result in method_results
+        ]
         summary[f"{method}_projector_mean"] = (
             statistics.mean(values) if values else math.inf
         )
@@ -847,7 +868,9 @@ def _aggregate_summary(
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--protocol", choices=("smoke", "promotion"), default="smoke")
-    parser.add_argument("--device", default="auto", choices=("auto", "cpu", "mps", "cuda", "rocm"))
+    parser.add_argument(
+        "--device", default="auto", choices=("auto", "cpu", "mps", "cuda", "rocm")
+    )
     parser.add_argument("--method", choices=(*P4_METHODS, "all"), default="all")
     parser.add_argument("--family", choices=(*P4_FAMILIES, "all"), default="all")
     parser.add_argument("--seed", type=int, nargs="+", default=None)
@@ -857,7 +880,9 @@ def main() -> int:
     parser.add_argument("--checkpoint-every", type=int, default=None)
     parser.add_argument("--monitor-every", type=int, default=None)
     parser.add_argument("--max-points-per-split", type=int, default=None)
-    parser.add_argument("--suite", type=Path, default=Path("benchmarks/v2_validation.json"))
+    parser.add_argument(
+        "--suite", type=Path, default=Path("benchmarks/v2_validation.json")
+    )
     parser.add_argument(
         "--reference-cache", type=Path, default=Path("data/v2_validation_references.pt")
     )
@@ -869,9 +894,7 @@ def main() -> int:
         steps = args.steps or P4_PROMOTION_STEPS
         points = args.points or P4_PROMOTION_POINTS
         parameter_batch = args.parameter_batch or P4_PROMOTION_PARAMETER_BATCH
-        checkpoint_every = (
-            args.checkpoint_every or P4_PROMOTION_CHECKPOINT_EVERY
-        )
+        checkpoint_every = args.checkpoint_every or P4_PROMOTION_CHECKPOINT_EVERY
         monitor_every = args.monitor_every or P4_PROMOTION_MONITOR_EVERY
         max_points_per_split = args.max_points_per_split or 0
         if args.method != "all" or args.family != "all":
@@ -936,7 +959,9 @@ def main() -> int:
         for family in families:
             for seed in seeds:
                 run_id = f"{method}_{family}_seed{seed}"
-                print(f"[{len(results) + len(failures) + 1}/{total}] {run_id}", flush=True)
+                print(
+                    f"[{len(results) + len(failures) + 1}/{total}] {run_id}", flush=True
+                )
                 config = P4Config(
                     method=method,
                     potential_family=family,
@@ -987,7 +1012,11 @@ def main() -> int:
         cache_hash=cache_hash,
         steps=steps,
     )
-    gate = build_p4_gate(summary) if args.protocol == "promotion" else build_smoke_gate(summary)
+    gate = (
+        build_p4_gate(summary)
+        if args.protocol == "promotion"
+        else build_smoke_gate(summary)
+    )
     summary["gate"] = gate
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "summary.json").write_text(
@@ -998,16 +1027,12 @@ def main() -> int:
     )
     print(json.dumps(gate, ensure_ascii=False, indent=2))
     passed = bool(
-        gate["promotion_go"] if args.protocol == "promotion" else gate["engineering_pass"]
+        gate["promotion_go"]
+        if args.protocol == "promotion"
+        else gate["engineering_pass"]
     )
     return 0 if passed else 2
 
 
 if __name__ == "__main__":
-    # Environment workaround: this ROCm torch build registers an exit hook that
-    # forces exit code 0 on interpreter shutdown, masking failures from the
-    # executor. os._exit() bypasses atexit hooks; run main() first, then flush.
-    code = main()
-    sys.stdout.flush()
-    sys.stderr.flush()
-    os._exit(code)
+    raise SystemExit(main())

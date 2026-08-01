@@ -1,60 +1,53 @@
-# 方法与架构说明
+# 当前方法与架构说明
 
 ## 一句话版本
 
-P3 Block KyFan-PINN 用一个轻量神经网络学习二维 Bloch–Schrödinger PDE 的最低
-rank-2 本征子空间，而不是分别追踪两条会在简并点交换身份的能带。
+A-GTROMNet 用一个轻量神经网络无标签求解二维参数化 Bloch–Schrödinger PDE 的最低
+rank-2 本征子空间，不分别追踪在 Dirac 点交换身份的两条能带。
 
 ## 求解对象
-
-未知对象是两个周期复函数张成的子空间：
 
 \[
 \mathcal H_{\mathbf k,\mu}u=
 \left[\tfrac12(-i\nabla+\mathbf k)^TG(-i\nabla+\mathbf k)
-+V_\mu(\mathbf x)\right]u=Eu.
++V_\mu(\mathbf x)\right]u=Eu,
+\qquad \mathbf x\in[0,2\pi)^2.
 \]
 
-参数包含 Bloch 波矢 \((k_x,k_y)\) 和势函数参数。网络输出
-`[batch, points, rank=2, real/imag]`。因此项目是真实的二维 PDE 本征求解，不是一维
-ODE，也不是只拟合预先生成标签的代理模型。
+未知对象是两个周期复函数张成的子空间。网络输出形状为
+`[batch, points, rank=2, real/imag]`，因此项目求解的是真实二维 PDE 本征问题。
 
-## 网络数据流
+## 当前候选的数据流
 
-1. 周期坐标 MLP 接收 \((x,y,\mathbf k,\mu)\)，产生共享修正。
-2. 一个物理 anchor 提供接近 K 点低能平面波的起点。
-3. 两个局部 ROM 网络把 PDE 参数映射为复 Fourier 系数。
-4. 在归一化参数空间中，可学习图中心生成平滑 partition-of-unity 权重。
-5. 各图修正被平滑组合；可选能量密度权重突出局部困难区域。
-6. dual-path 复 modified Gram–Schmidt 把输出收回标准 cell-L2 正交约束。
-7. 训练最小化 Ky Fan trace，即两个低能态的总能量，不使用参考本征函数标签。
+1. 将二维坐标变换为 `sin/cos` 周期特征，并拼接 Bloch 波矢与势参数。
+2. 三层、宽度 64 的 SiLU MLP 产生共享复值试探函数。
+3. K 点附近的两个低能平面波组合提供固定物理 anchor。
+4. 一个小型参数网络把 PDE 参数映射到七个低频 Fourier 模态的复系数。
+5. 共享分支、anchor 和 ROM 修正共同组成未正交的 rank-2 试探空间。
+6. 训练最小化 generalized trace `Tr(B⁻¹A)`；`A` 是 Hamiltonian Ritz 矩阵，`B`
+   是 Gram 矩阵。空间导数由 PyTorch 自动微分计算。
+7. 评价时使用复 modified Gram–Schmidt，并以投影误差、主角度、PDE residual、正交
+   误差和 Gram 条件数评价。
 
-## P3 相对 P1 的实质差异
+PWE 参考解只在评价阶段使用，不是训练标签。
 
-- P1：单一坐标 MLP + 固定物理 anchor + Ky Fan trace。
-- P3：在 P1 上增加参数化多图 ROM 修正、可学习图中心、能量密度调制，以及由残差与
-  图间分歧构成的无标签风险信号。
+## P4 到 P5 的逻辑
 
-代码测试会分别验证 anchor 类型、M 加权和多图确实改变输出，避免“配置开关存在但
-计算完全相同”的假实现。
+- G0：只有 generalized-trace MLP。
+- G1：G0 + 物理 anchor；不增加可训练参数。
+- G2：G1 + 静态低频 Fourier ROM；当前最优但参数和计算更多。
+- G3：G2 的 ROM 在训练后半程退火到零；表现不如 G2。
+- P5：用宽网络、长训练、去 anchor ROM 和高频 ROM 四类控制，判断 G2 的收益究竟
+  是否来自正确低频物理结构。
 
 ## 为什么学习谱簇
 
-在内部简并处，单个本征向量可以任意旋转或交换编号；逐带标签不连续。只要目标
-rank-2 簇与第三条能带之间仍有外部谱隙，整个投影子空间仍是良定对象。项目以投影
-误差、主角度和 Ky Fan 能量评价该对象，不以两列输出的具体顺序评价。
-
-## 参考解与公平性
-
-参考解使用 hexagonal-shell plane-wave expansion。2026-07-30 的代表点审计比较
-cutoff 20 与 24：六点全部满足 rank-2 投影差 `<1e-3` 且低本征值最大差 `<1e-5`。
-正式缓存统一使用 cutoff 24。
-
-训练不读取 PWE 标签。validation 缓存只用于 pilot 评价；冻结 final suite 只有重新
-计算的 promotion gate 为 GO 后才能打开。
+内部简并处的单个本征向量不唯一，可以交换编号或在目标簇内旋转。只要第二与第三
+本征值之间仍有外部谱隙，整个 rank-2 投影仍是良定目标。因此损失和指标都必须对簇内
+基变换不敏感。
 
 ## 不应过度声称
 
-Ky Fan 原理、PWE、谱投影、ROM、多图思想和 MGS 都不是本文单独发明。可检验的论文
-主张应限定为：这些机制是否形成一个对内部简并更稳定、可摊销且消费级单卡可复现的
-参数化神经谱簇求解器。该主张必须由尚待运行的 GPU 对照、消融和统计实验支持。
+Ky Fan、generalized trace、PWE、Fourier ROM、谱投影、anchor 和 MGS 都有既有数学或
+计算工作。本项目能够主张的创新只能是经过 P5 和 final 证明的**特定协同机制**，不能
+把任何单个零件写成首创。当前 P5 正式实验尚未运行，因此方法名和创新表述仍是候选。
