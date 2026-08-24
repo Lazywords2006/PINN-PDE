@@ -25,7 +25,7 @@
 | risk suite | `292d590fbeee105c827556558a274300454bd937bb125ca0825ee75dca84496b` |
 | PWE reference cache | `9511548da16aae0f6f4873423bce14b55d7016e6e161e68a00d1675789ff8905` |
 | P5 evidence archive | `56891c5740eb94c62299b72869d790a1cbdee6abda3fae2903ed822f5e405101` |
-| P0 evidence archive | `45a63fe3e592b06574dba3fd3dcb773e1f8b31f4d0fd7c62409345c969d63e65` |
+| P0 self-contained evidence archive | `d5783e65e7c55149206757505bae922193b5315b5596b6324fe0f8f07c2ed81d` |
 | suite points | 160：calibration 80、audit 80 |
 | paired rows | 480：160 点 × 3 seeds |
 | checkpoint inventory | 12：2 方法 × 2 势族 × 3 seeds |
@@ -90,13 +90,14 @@ uv run --python 3.12 --with-requirements requirements.txt \
 - `results/risk_development_v1/gate.json`；
 - `results/risk_development_v1/checkpoint_inventory.json`；
 - `results/risk_development_v1/units/*.json`；
-- `artifacts/risk-development-evidence-20260824-083955.tar.gz` 及 sidecar。
+- `artifacts/risk-development-evidence-20260824-092630.tar.gz` 及 sidecar；包内含实际 P5
+  archive、P5 sidecar、参考缓存、6 个 unit JSON 及其 sidecar、源码与结果，可独立复核。
 
 ## 独立复核
 
 已经从 `features.csv` 在另一个进程重新拟合 calibration、计算 audit 指标和 gate；主要
 数值与存储 JSON 在 `1e-12` 容差内一致。证据包外层 SHA、tar 路径、重复成员、manifest
-字节数和 24 个文件 SHA 全部通过。
+字节数和 32 个文件 SHA 全部通过；6 个 resume unit 的内部行身份与 sidecar 也全部通过。
 
 ## 下一步
 
