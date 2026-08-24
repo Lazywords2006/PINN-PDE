@@ -17,6 +17,7 @@ from scripts.generate_v2_assets import (
     _generate_family_points,
     build_suite_payload,
 )
+from scripts.generate_risk_development import build_reference_cache
 
 P1_SUITE_SEED = 2026082403
 P1_FAMILIES = ("harmonic_honeycomb", "gaussian_honeycomb")
@@ -134,19 +135,67 @@ def validate_p1_suite_disjointness(
         raise ValueError("P1 parameters overlap an earlier decision suite")
 
 
+def build_p1_reference_cache(
+    suite_path: Path,
+    output_path: Path,
+    *,
+    cutoff: int = 24,
+    grid_side: int = 33,
+    rank: int = 3,
+) -> str:
+    """Build a SHA-bound PWE cache for the frozen P1 suite."""
+
+    suite, _ = load_frozen_suite(suite_path)
+    if suite.get("suite_id") != "block-kyfan-p1-validation-v1-20260824":
+        raise ValueError("unexpected P1 suite id")
+    return build_reference_cache(
+        suite_path,
+        output_path,
+        cutoff=cutoff,
+        grid_side=grid_side,
+        rank=rank,
+    )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--suite-only", action="store_true")
+    parser.add_argument("--cache-only", action="store_true")
+    parser.add_argument("--device", default="cpu", choices=("cpu",))
+    parser.add_argument("--cutoff", type=int, default=24)
+    parser.add_argument("--grid-side", type=int, default=33)
+    parser.add_argument("--rank", type=int, default=3)
     parser.add_argument(
         "--output",
         type=Path,
         default=Path("benchmarks/p1_validation_v1.json"),
     )
+    parser.add_argument(
+        "--cache-output",
+        type=Path,
+        default=Path("data/p1_validation_v1_references.pt"),
+    )
     args = parser.parse_args()
-    if not args.suite_only:
-        parser.error("--suite-only is required until the cache task is implemented")
+    if args.suite_only == args.cache_only:
+        parser.error("choose exactly one of --suite-only or --cache-only")
     root = Path(__file__).resolve().parents[1]
     output = args.output if args.output.is_absolute() else root / args.output
+    if args.cache_only:
+        cache_output = (
+            args.cache_output
+            if args.cache_output.is_absolute()
+            else root / args.cache_output
+        )
+        digest = build_p1_reference_cache(
+            output,
+            cache_output,
+            cutoff=args.cutoff,
+            grid_side=args.grid_side,
+            rank=args.rank,
+        )
+        print(f"P1_REFERENCE_CACHE={cache_output}")
+        print(f"P1_REFERENCE_CACHE_SHA256={digest}")
+        return 0
     points = generate_p1_validation_suite()
     validate_p1_suite_disjointness(points, root)
     digest = write_frozen_suite(build_p1_suite_payload(points), output)
@@ -158,4 +207,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

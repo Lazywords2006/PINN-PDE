@@ -7,6 +7,7 @@ import torch
 
 from block_kyfan_pinn.metrics import orthogonality_error, projector_sine_error
 from block_kyfan_pinn.p1_corrector import (
+    build_p1_gate,
     complex_procrustes_align,
     hard_select,
     risk_chordal_correct,
@@ -89,3 +90,63 @@ def test_hard_select_returns_only_requested_projector() -> None:
 
     assert projector_sine_error(selected[:1], candidate[:1]) < 1e-5
     assert projector_sine_error(selected[1:], anchor[1:]) < 1e-6
+
+
+def _passing_summary() -> dict[str, object]:
+    return {
+        "engineering_pass": True,
+        "maximum_orthogonality_error": 1e-6,
+        "p1_risk_chordal_near_cluster_projector_mean": 0.090,
+        "p5_long_anchor_near_cluster_projector_mean": 0.100,
+        "p1_risk_chordal_gap_scan_projector_mean": 0.101,
+        "p5_anchor_gap_scan_projector_mean": 0.100,
+        "p5_long_anchor_gap_scan_projector_mean": 0.105,
+        "family_near_projector_mean": {
+            "harmonic_honeycomb": {"p1_risk_chordal": 0.08, "p5_long_anchor": 0.09},
+            "gaussian_honeycomb": {"p1_risk_chordal": 0.10, "p5_long_anchor": 0.11},
+        },
+        "paired_near_wins_vs_long_anchor": 5,
+        "paired_near_comparisons": 6,
+        "p1_risk_chordal_overall_projector_mean": 0.10,
+        "p5_anchor_overall_projector_mean": 0.12,
+        "p5_static_low_rom_overall_projector_mean": 0.11,
+        "p1_risk_chordal_unsafe_rate_vs_anchor": 0.15,
+        "p5_static_low_rom_unsafe_rate_vs_anchor": 0.25,
+        "p1_risk_chordal_pwe_fraction": 0.0,
+        "p1_risk_chordal_latency_ms": 2.4,
+        "p5_anchor_latency_ms": 1.0,
+    }
+
+
+def test_p1_gate_accepts_only_complete_neural_primary_success() -> None:
+    gate = build_p1_gate(_passing_summary())
+
+    assert gate["pilot_go"] is True
+    assert all(value is True for key, value in gate.items() if key.endswith("_pass"))
+
+
+@pytest.mark.parametrize(
+    ("path", "value"),
+    [
+        (("engineering_pass",), False),
+        (("maximum_orthogonality_error",), 1e-3),
+        (("p1_risk_chordal_near_cluster_projector_mean",), 0.097),
+        (("p1_risk_chordal_gap_scan_projector_mean",), 0.103),
+        (("family_near_projector_mean", "gaussian_honeycomb", "p1_risk_chordal"), 0.12),
+        (("paired_near_wins_vs_long_anchor",), 4),
+        (("p1_risk_chordal_overall_projector_mean",), 0.115),
+        (("p1_risk_chordal_unsafe_rate_vs_anchor",), 0.20),
+        (("p1_risk_chordal_pwe_fraction",), 0.01),
+        (("p1_risk_chordal_latency_ms",), 2.6),
+    ],
+)
+def test_each_frozen_p1_requirement_forces_stop(
+    path: tuple[str, ...], value: object
+) -> None:
+    summary = _passing_summary()
+    target = summary
+    for key in path[:-1]:
+        target = target[key]  # type: ignore[index,assignment]
+    target[path[-1]] = value  # type: ignore[index]
+
+    assert build_p1_gate(summary)["pilot_go"] is False

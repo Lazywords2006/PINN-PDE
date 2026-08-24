@@ -12,16 +12,24 @@ from block_kyfan_pinn.suites import load_frozen_suite
 from scripts.generate_p1_validation import (
     P1_COUNTS,
     P1_FAMILIES,
+    build_p1_reference_cache,
     build_p1_suite_payload,
     generate_p1_validation_suite,
+    main as generate_p1_main,
     validate_p1_suite_disjointness,
 )
 from scripts.run_p1_pilot import (
     EXPECTED_P0_ARCHIVE_SHA256,
+    P1_METHODS,
+    build_inference_features,
+    build_p1_bases,
     frozen_thresholds,
     load_p0_calibration,
     p1_source_fingerprint,
 )
+from block_kyfan_pinn.metrics import orthogonality_error, projector_sine_error
+from block_kyfan_pinn.physics import periodic_mgs
+from block_kyfan_pinn.suites import write_frozen_suite
 
 
 def _identity(point: dict[str, object]) -> tuple[str, tuple[float, ...]]:
@@ -147,3 +155,127 @@ def test_p1_source_fingerprint_covers_corrector_and_orchestration(tmp_path: Path
 
     assert len(before) == 64
     assert before != after
+
+
+def test_p1_reference_cache_binds_tiny_suite(tmp_path: Path) -> None:
+    points = [
+        point
+        for point in generate_p1_validation_suite()
+        if point["split"] == "iid_hidden"
+    ][:2]
+    suite_path = tmp_path / "p1_tiny.json"
+    cache_path = tmp_path / "p1_tiny.pt"
+    write_frozen_suite(build_p1_suite_payload(points), suite_path)
+
+    digest = build_p1_reference_cache(
+        suite_path, cache_path, cutoff=2, grid_side=7, rank=3
+    )
+
+    payload = __import__("torch").load(cache_path, map_location="cpu", weights_only=False)
+    assert len(digest) == 64
+    assert payload["metadata"]["suite_id"] == "block-kyfan-p1-validation-v1-20260824"
+    assert payload["metadata"]["cutoff"] == 2
+    assert set(payload["references"]) == {point["id"] for point in points}
+    assert cache_path.with_suffix(".sha256").is_file()
+
+
+def test_p1_generator_cache_cli_writes_requested_cache(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    points = [
+        point
+        for point in generate_p1_validation_suite()
+        if point["split"] == "iid_hidden"
+    ][:2]
+    suite_path = tmp_path / "p1_cli.json"
+    cache_path = tmp_path / "p1_cli.pt"
+    write_frozen_suite(build_p1_suite_payload(points), suite_path)
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "generate_p1_validation.py",
+            "--cache-only",
+            "--output",
+            str(suite_path),
+            "--cache-output",
+            str(cache_path),
+            "--cutoff",
+            "2",
+            "--grid-side",
+            "7",
+            "--rank",
+            "3",
+        ],
+    )
+
+    assert generate_p1_main() == 0
+    assert cache_path.is_file()
+
+
+def _synthetic_basis(seed: int) -> object:
+    import torch
+
+    generator = torch.Generator().manual_seed(seed)
+    return periodic_mgs(torch.randn(2, 29, 2, 2, generator=generator, dtype=torch.float64))
+
+
+def test_build_inference_features_uses_only_paired_predictions() -> None:
+    anchor_basis = _synthetic_basis(1)
+    candidate_basis = _synthetic_basis(2)
+    anchor = {
+        "basis": anchor_basis,
+        "residual": 0.2,
+        "gram": 2.0,
+        "ritz_1": 0.4,
+        "ritz_2": 0.45,
+    }
+    candidate = {
+        "basis": candidate_basis,
+        "residual": 0.1,
+        "gram": 1.5,
+        "ritz_1": 0.41,
+        "ritz_2": 0.44,
+    }
+
+    features = build_inference_features(anchor, candidate)
+
+    assert tuple(features) == tuple(__import__("scripts.evaluate_risk_features", fromlist=["PROMOTED_FEATURES"]).PROMOTED_FEATURES)
+    assert all(isinstance(value, float) for value in features.values())
+    assert not any("reference" in name or "error" in name for name in features)
+
+
+def test_build_p1_bases_returns_all_frozen_methods_without_primary_pwe() -> None:
+    import torch
+
+    anchor = _synthetic_basis(3)
+    candidate = _synthetic_basis(4)
+    long_anchor = _synthetic_basis(5)
+    reference = _synthetic_basis(6)
+    thresholds = {
+        "t_low_q60": 0.3,
+        "t_hard_q80": 0.5,
+        "t_high_q90": 0.7,
+        "t_pwe_q95": 0.8,
+    }
+
+    outputs = build_p1_bases(
+        anchor,
+        candidate,
+        long_anchor,
+        reference,
+        score=torch.tensor([0.2, 0.9], dtype=torch.float64),
+        thresholds=thresholds,
+    )
+
+    assert tuple(outputs) == P1_METHODS
+    assert outputs["p1_risk_chordal"]["pwe_mask"].tolist() == [False, False]
+    assert outputs["p1_risk_chordal_pwe5"]["pwe_mask"].tolist() == [False, True]
+    for method, output in outputs.items():
+        basis = output["basis"]
+        assert basis.shape == anchor.shape
+        assert orthogonality_error(basis) < 1e-5
+        if method == "oracle_min_anchor_rom":
+            assert output["reference_only"] is True
+        else:
+            assert output["reference_only"] is False
+    assert projector_sine_error(outputs["p5_anchor"]["basis"], anchor) < 1e-6

@@ -7,6 +7,7 @@ import csv
 import hashlib
 import io
 import json
+import math
 import sys
 import tarfile
 from collections import Counter
@@ -18,6 +19,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from block_kyfan_pinn.risk import predict_logistic_score
 from block_kyfan_pinn.suites import file_sha256
+from block_kyfan_pinn.metrics import _complex_overlap, projector_sine_error
+from block_kyfan_pinn.p1_corrector import (
+    hard_select,
+    risk_chordal_correct,
+    risk_weight,
+)
 from scripts.evaluate_risk_features import PROMOTED_FEATURES
 
 EXPECTED_P0_ARCHIVE_SHA256 = (
@@ -28,6 +35,16 @@ P0_MODEL = "results/risk_development_v1/calibration_model.json"
 P0_FEATURES = "results/risk_development_v1/features.csv"
 P0_GATE = "results/risk_development_v1/gate.json"
 EMBEDDED_P5_ARCHIVE = "artifacts/p5-evidence-20260801-092048.tar.gz"
+P1_METHODS = (
+    "p5_anchor",
+    "p5_long_anchor",
+    "p5_static_low_rom",
+    "p1_hard_select",
+    "p1_no_risk_half_blend",
+    "p1_risk_chordal",
+    "p1_risk_chordal_pwe5",
+    "oracle_min_anchor_rom",
+)
 
 
 def p1_source_fingerprint(root: Path) -> str:
@@ -174,3 +191,121 @@ def frozen_thresholds(
         "score_max": float(scores.max()),
         "feature_schema": list(PROMOTED_FEATURES),
     }
+
+
+def _log_ratio(numerator: float, denominator: float) -> float:
+    return math.log(max(numerator, 1e-12)) - math.log(max(denominator, 1e-12))
+
+
+def build_inference_features(
+    anchor: dict[str, object], candidate: dict[str, object]
+) -> dict[str, float]:
+    """Build the approved P0 feature vector without any reference quantity."""
+
+    anchor_basis = anchor.get("basis")
+    candidate_basis = candidate.get("basis")
+    if not isinstance(anchor_basis, torch.Tensor) or not isinstance(
+        candidate_basis, torch.Tensor
+    ):
+        raise ValueError("paired inference bases are missing")
+    anchor_residual = float(anchor["residual"])
+    candidate_residual = float(candidate["residual"])
+    anchor_gram = float(anchor["gram"])
+    candidate_gram = float(candidate["gram"])
+    anchor_ritz_1 = float(anchor["ritz_1"])
+    anchor_ritz_2 = float(anchor["ritz_2"])
+    candidate_ritz_1 = float(candidate["ritz_1"])
+    candidate_ritz_2 = float(candidate["ritz_2"])
+    anchor_gap = abs(anchor_ritz_2 - anchor_ritz_1)
+    candidate_gap = abs(candidate_ritz_2 - candidate_ritz_1)
+    values = {
+        "anchor_residual": anchor_residual,
+        "candidate_residual": candidate_residual,
+        "residual_delta": candidate_residual - anchor_residual,
+        "residual_log_ratio": _log_ratio(candidate_residual, anchor_residual),
+        "anchor_gram": anchor_gram,
+        "candidate_gram": candidate_gram,
+        "gram_delta": candidate_gram - anchor_gram,
+        "gram_log_ratio": _log_ratio(candidate_gram, anchor_gram),
+        "anchor_ritz_gap": anchor_gap,
+        "candidate_ritz_gap": candidate_gap,
+        "ritz_gap_delta": candidate_gap - anchor_gap,
+        "ritz_gap_log_ratio": _log_ratio(candidate_gap, anchor_gap),
+        "ritz_1_abs_difference": abs(candidate_ritz_1 - anchor_ritz_1),
+        "ritz_2_abs_difference": abs(candidate_ritz_2 - anchor_ritz_2),
+        "trace_abs_difference": abs(
+            candidate_ritz_1
+            + candidate_ritz_2
+            - anchor_ritz_1
+            - anchor_ritz_2
+        ),
+        "projector_disagreement": projector_sine_error(
+            candidate_basis, anchor_basis
+        ),
+    }
+    if tuple(values) != PROMOTED_FEATURES or not all(
+        math.isfinite(value) for value in values.values()
+    ):
+        raise ValueError("P1 inference feature schema or values are invalid")
+    return values
+
+
+def _per_sample_projector_error(
+    predicted: torch.Tensor, reference: torch.Tensor
+) -> torch.Tensor:
+    overlap = _complex_overlap(predicted, reference)
+    rank = predicted.shape[2]
+    return torch.sqrt(
+        ((rank - overlap.abs().square().sum(dim=(1, 2))).clamp_min(0.0) / rank)
+    ).to(device=predicted.device, dtype=predicted.dtype)
+
+
+def build_p1_bases(
+    anchor: torch.Tensor,
+    candidate: torch.Tensor,
+    long_anchor: torch.Tensor,
+    reference: torch.Tensor,
+    *,
+    score: torch.Tensor,
+    thresholds: dict[str, object],
+) -> dict[str, dict[str, object]]:
+    """Construct every frozen P1 method from already-computed trial bases."""
+
+    if not (
+        anchor.shape == candidate.shape == long_anchor.shape == reference.shape
+    ):
+        raise ValueError("all P1 bases must have the same shape")
+    score = torch.as_tensor(score, device=anchor.device, dtype=anchor.dtype)
+    if score.shape != (anchor.shape[0],) or not bool(torch.isfinite(score).all()):
+        raise ValueError("P1 score must be finite and aligned with the batch")
+    t_low = float(thresholds["t_low_q60"])
+    t_hard = float(thresholds["t_hard_q80"])
+    t_high = float(thresholds["t_high_q90"])
+    t_pwe = float(thresholds["t_pwe_q95"])
+    primary = risk_chordal_correct(
+        anchor, candidate, risk_weight(score, t_low, t_high)
+    )
+    hard = hard_select(anchor, candidate, score <= t_hard)
+    half = risk_chordal_correct(
+        anchor, candidate, torch.full_like(score, 0.5)
+    )
+    pwe_mask = score > t_pwe
+    safety = torch.where(pwe_mask[:, None, None, None], reference, primary)
+    candidate_error = _per_sample_projector_error(candidate, reference)
+    anchor_error = _per_sample_projector_error(anchor, reference)
+    oracle_candidate = candidate_error < anchor_error
+    oracle = hard_select(anchor, candidate, oracle_candidate)
+    no_pwe = torch.zeros_like(pwe_mask)
+    outputs = {
+        "p5_anchor": {"basis": anchor, "pwe_mask": no_pwe},
+        "p5_long_anchor": {"basis": long_anchor, "pwe_mask": no_pwe},
+        "p5_static_low_rom": {"basis": candidate, "pwe_mask": no_pwe},
+        "p1_hard_select": {"basis": hard, "pwe_mask": no_pwe},
+        "p1_no_risk_half_blend": {"basis": half, "pwe_mask": no_pwe},
+        "p1_risk_chordal": {"basis": primary, "pwe_mask": no_pwe},
+        "p1_risk_chordal_pwe5": {"basis": safety, "pwe_mask": pwe_mask},
+        "oracle_min_anchor_rom": {"basis": oracle, "pwe_mask": no_pwe},
+    }
+    for method, output in outputs.items():
+        output["reference_only"] = method == "oracle_min_anchor_rom"
+    return outputs
