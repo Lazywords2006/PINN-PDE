@@ -23,9 +23,10 @@ def _validate_pair(anchor: Tensor, candidate: Tensor) -> None:
 
 
 def _right_complex_multiply(basis: Tensor, matrix: Tensor) -> Tensor:
-    matrix = matrix.to(device=basis.device)
-    real = matrix.real.to(dtype=basis.dtype)
-    imag = matrix.imag.to(dtype=basis.dtype)
+    # MPS has no complex128/float64 kernels.  Split and downcast on the SVD
+    # device before moving the two real blocks back to the prediction device.
+    real = matrix.real.to(dtype=basis.dtype).to(device=basis.device)
+    imag = matrix.imag.to(dtype=basis.dtype).to(device=basis.device)
     basis_real, basis_imag = basis[..., 0], basis[..., 1]
     output_real = torch.einsum("bni,bij->bnj", basis_real, real) - torch.einsum(
         "bni,bij->bnj", basis_imag, imag
@@ -103,6 +104,14 @@ def build_p1_gate(summary: dict[str, object]) -> dict[str, object]:
     rom_unsafe = float(summary["p5_static_low_rom_unsafe_rate_vs_anchor"])
     primary_latency = float(summary["p1_risk_chordal_latency_ms"])
     anchor_latency = float(summary["p5_anchor_latency_ms"])
+    combined_risk_auroc = float(summary["combined_risk_auroc"])
+    parameter_risk_auroc = float(summary["parameter_only_risk_auroc"])
+    risk_family = summary["combined_risk_auroc_by_family"]
+    if not isinstance(risk_family, dict) or set(risk_family) != {
+        "harmonic_honeycomb",
+        "gaussian_honeycomb",
+    }:
+        raise ValueError("P1 risk summary must contain both families")
     families = summary["family_near_projector_mean"]
     if not isinstance(families, dict) or set(families) != {
         "harmonic_honeycomb",
@@ -129,6 +138,9 @@ def build_p1_gate(summary: dict[str, object]) -> dict[str, object]:
         anchor_latency,
         float(summary["maximum_orthogonality_error"]),
         float(summary["p1_risk_chordal_pwe_fraction"]),
+        combined_risk_auroc,
+        parameter_risk_auroc,
+        *(float(value) for value in risk_family.values()),
     )
     near_improvement = (
         (long_near - primary_near) / long_near if long_near > 0.0 else -math.inf
@@ -152,6 +164,12 @@ def build_p1_gate(summary: dict[str, object]) -> dict[str, object]:
         and primary_unsafe <= 0.75 * rom_unsafe,
         "primary_zero_pwe_pass": float(summary["p1_risk_chordal_pwe_fraction"])
         == 0.0,
+        "combined_risk_auroc_pass": combined_risk_auroc >= 0.70,
+        "parameter_increment_pass": combined_risk_auroc
+        >= parameter_risk_auroc + 0.05,
+        "risk_families_pass": all(
+            float(value) >= 0.65 for value in risk_family.values()
+        ),
         "latency_pass": latency_ratio <= 2.5,
     }
     return {

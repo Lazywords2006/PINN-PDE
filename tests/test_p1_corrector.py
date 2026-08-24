@@ -34,6 +34,12 @@ def _real_rotate(basis: torch.Tensor, angle: float) -> torch.Tensor:
     return torch.einsum("bnir,ij->bnjr", basis, rotation)
 
 
+def _complex_rotate(basis: torch.Tensor, matrix: torch.Tensor) -> torch.Tensor:
+    basis_complex = torch.complex(basis[..., 0], basis[..., 1])
+    rotated = torch.einsum("bni,ij->bnj", basis_complex, matrix)
+    return torch.stack((rotated.real, rotated.imag), dim=-1)
+
+
 def test_complex_procrustes_removes_rank_two_basis_rotation() -> None:
     anchor = _basis()
     rotated = _real_rotate(anchor, 0.73)
@@ -48,6 +54,34 @@ def test_complex_procrustes_rejects_mismatched_shapes() -> None:
     anchor = _basis()
     with pytest.raises(ValueError, match="same shape"):
         complex_procrustes_align(anchor, anchor[:, :-1])
+
+
+def test_complex_procrustes_handles_general_u2_rotation_and_column_phases() -> None:
+    anchor = _basis()
+    raw = torch.tensor(
+        [[1.0 + 0.4j, -0.2 + 0.7j], [0.3 - 0.5j, 0.9 + 0.1j]],
+        dtype=torch.complex128,
+    )
+    unitary, _ = torch.linalg.qr(raw)
+    candidate = _complex_rotate(anchor, unitary)
+
+    aligned = complex_procrustes_align(anchor, candidate)
+
+    assert torch.allclose(aligned, anchor, atol=2e-10, rtol=2e-10)
+    assert orthogonality_error(aligned) < 1e-10
+
+
+@pytest.mark.skipif(
+    not torch.backends.mps.is_available(), reason="MPS accelerator is unavailable"
+)
+def test_complex_procrustes_moves_real_rotation_to_mps_safely() -> None:
+    anchor = _basis().float().to("mps")
+    candidate = _real_rotate(anchor, 0.41)
+
+    aligned = complex_procrustes_align(anchor, candidate)
+
+    assert aligned.device.type == "mps"
+    assert torch.isfinite(aligned).all()
 
 
 def test_risk_weight_has_frozen_endpoints_and_is_monotone() -> None:
@@ -113,6 +147,12 @@ def _passing_summary() -> dict[str, object]:
         "p1_risk_chordal_unsafe_rate_vs_anchor": 0.15,
         "p5_static_low_rom_unsafe_rate_vs_anchor": 0.25,
         "p1_risk_chordal_pwe_fraction": 0.0,
+        "combined_risk_auroc": 0.82,
+        "parameter_only_risk_auroc": 0.72,
+        "combined_risk_auroc_by_family": {
+            "harmonic_honeycomb": 0.85,
+            "gaussian_honeycomb": 0.75,
+        },
         "p1_risk_chordal_latency_ms": 2.4,
         "p5_anchor_latency_ms": 1.0,
     }
@@ -137,6 +177,9 @@ def test_p1_gate_accepts_only_complete_neural_primary_success() -> None:
         (("p1_risk_chordal_overall_projector_mean",), 0.115),
         (("p1_risk_chordal_unsafe_rate_vs_anchor",), 0.20),
         (("p1_risk_chordal_pwe_fraction",), 0.01),
+        (("combined_risk_auroc",), 0.69),
+        (("combined_risk_auroc",), 0.76),
+        (("combined_risk_auroc_by_family", "gaussian_honeycomb"), 0.64),
         (("p1_risk_chordal_latency_ms",), 2.6),
     ],
 )

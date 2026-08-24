@@ -12,12 +12,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from block_kyfan_pinn.suites import load_frozen_suite, write_frozen_suite
+from scripts.generate_risk_development import build_reference_cache
 from scripts.generate_v2_assets import (
     TRAINING_BOUNDS,
     _generate_family_points,
     build_suite_payload,
 )
-from scripts.generate_risk_development import build_reference_cache
 
 P1_SUITE_SEED = 2026082403
 P1_FAMILIES = ("harmonic_honeycomb", "gaussian_honeycomb")

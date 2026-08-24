@@ -115,9 +115,10 @@ Evaluate two families and seeds 42, 137, and 251 for:
 3. `p5_static_low_rom`;
 4. `p1_hard_select`;
 5. `p1_no_risk_half_blend`;
-6. `p1_risk_chordal` (primary);
-7. `p1_risk_chordal_pwe5` (reported safety variant, not primary rescue);
-8. `oracle_min_anchor_rom` (reference-only upper bound, never deployable).
+6. `p1_parameter_only_chordal` (strong routing baseline);
+7. `p1_risk_chordal` (primary);
+8. `p1_risk_chordal_pwe5` (reported safety variant, not primary rescue);
+9. `oracle_min_anchor_rom` (reference-only upper bound, never deployable).
 
 All neural methods use the exact audited final checkpoints.  No best checkpoint,
 extra optimization step, hidden parameter point, or audit-selected threshold is
@@ -148,6 +149,8 @@ Engineering requirements:
 - overall error is lower than both `p5_anchor` and `p5_static_low_rom`;
 - unsafe regression relative to anchor is at least 25% lower than static ROM;
 - numerical PWE fallback fraction is exactly zero for the primary method;
+- combined-risk AUROC is at least 0.70, each family is at least 0.65, and the
+  combined score exceeds the parameter-only AUROC by at least 0.05;
 - measured neural inference latency is no more than 2.5 times anchor latency.
 
 If any primary requirement fails, status is `P1_PILOT_STOP`.  The PWE safety
@@ -189,8 +192,12 @@ reference, source, model, and threshold hash match.
 
 ## 11. Scope Boundary
 
-P1 does not open frozen final, claim publication readiness, train a new router,
+P1 does not open frozen final, claim publication readiness, or train a new router,
 replace the P5 STOP decision, or generate paper results from smoke tests.  A P1
 GO authorizes an independent AMD/CUDA promotion matrix and a reviewed executor
 prompt.  Publication remains NO until promotion, final, baselines, ablations,
 statistics, efficiency, and figures are complete.
+
+The implemented P1 is an inference-time postprocessor over frozen neural PDE
+solvers, not a newly trained correction network.  Any paper must use that exact
+description unless a later shared-trunk/correction-head training stage is added.
