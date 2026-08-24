@@ -25,7 +25,7 @@
 | risk suite | `292d590fbeee105c827556558a274300454bd937bb125ca0825ee75dca84496b` |
 | PWE reference cache | `9511548da16aae0f6f4873423bce14b55d7016e6e161e68a00d1675789ff8905` |
 | P5 evidence archive | `56891c5740eb94c62299b72869d790a1cbdee6abda3fae2903ed822f5e405101` |
-| P0 evidence archive | `50ed6a74b145f360187793ca63c1cd596b95c95f12dd3eb79ecdd9235099d7b6` |
+| P0 evidence archive | `45a63fe3e592b06574dba3fd3dcb773e1f8b31f4d0fd7c62409345c969d63e65` |
 | suite points | 160：calibration 80、audit 80 |
 | paired rows | 480：160 点 × 3 seeds |
 | checkpoint inventory | 12：2 方法 × 2 势族 × 3 seeds |
@@ -90,7 +90,7 @@ uv run --python 3.12 --with-requirements requirements.txt \
 - `results/risk_development_v1/gate.json`；
 - `results/risk_development_v1/checkpoint_inventory.json`；
 - `results/risk_development_v1/units/*.json`；
-- `artifacts/risk-development-evidence-20260824-082658.tar.gz` 及 sidecar。
+- `artifacts/risk-development-evidence-20260824-083955.tar.gz` 及 sidecar。
 
 ## 独立复核
 

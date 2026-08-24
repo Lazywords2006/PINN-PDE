@@ -95,7 +95,7 @@ P1 工程与小测通过后，才允许生成无占位符的
 - risk reference SHA：
   `9511548da16aae0f6f4873423bce14b55d7016e6e161e68a00d1675789ff8905`；
 - P0 evidence SHA：
-  `50ed6a74b145f360187793ca63c1cd596b95c95f12dd3eb79ecdd9235099d7b6`。
+  `45a63fe3e592b06574dba3fd3dcb773e1f8b31f4d0fd7c62409345c969d63e65`。
 
 完整命令、指标和限制见 [RISK-DEVELOPMENT-RUNBOOK.zh-CN.md](RISK-DEVELOPMENT-RUNBOOK.zh-CN.md)。
 
