@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import json
+
 import pytest
 
 from scripts.probe_p2_refinement import (
@@ -9,6 +11,7 @@ from scripts.probe_p2_refinement import (
     build_parser,
     build_probe_gate,
     select_probe_points,
+    validate_selection_payload,
 )
 
 
@@ -62,6 +65,12 @@ def test_probe_selection_uses_worst_near_and_largest_gap_advantage() -> None:
             f"{family}-gap-1",
             f"{family}-gap-2",
         ]
+
+    validate_selection_payload(selected, rows)
+    changed = json.loads(json.dumps(selected))
+    changed["harmonic_honeycomb"]["near_cluster"].reverse()
+    with pytest.raises(ValueError, match="deterministic"):
+        validate_selection_payload(changed, rows)
 
 
 def _passing_summary() -> dict[str, object]:

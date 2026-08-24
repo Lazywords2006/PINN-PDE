@@ -214,6 +214,16 @@ def select_probe_points(
     return selected
 
 
+def validate_selection_payload(
+    selected: dict[str, object], p1_rows: list[dict[str, object]]
+) -> None:
+    """Require the frozen selection to equal the deterministic P1-row rule."""
+
+    expected = select_probe_points(p1_rows)
+    if selected != expected:
+        raise ValueError("P2 selection does not match deterministic P1-based selection")
+
+
 def build_probe_gate(summary: dict[str, object]) -> dict[str, object]:
     """Apply the frozen P2-A mechanism-probe thresholds."""
 
@@ -547,6 +557,7 @@ def run_probe(args: argparse.Namespace) -> tuple[str, int]:
             for values in splits.values()
         ):
             raise ValueError(f"P2 selection counts are invalid for {family}")
+    validate_selection_payload(selected_payload, p1_rows)
     selected_ids = {
         point
         for family in selected_payload.values()
