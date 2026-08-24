@@ -93,8 +93,9 @@ def test_clustered_bootstrap_is_deterministic_and_keeps_point_seeds() -> None:
 
 def test_one_shot_guard_rejects_existing_final_marker(tmp_path: Path) -> None:
     ensure_final_unused(tmp_path)
-    (tmp_path / "FINAL_EVALUATION_STARTED.json").write_text("{}\n")
+    marker = tmp_path / "results/P2_FROZEN_FINAL_STARTED.json"
+    marker.parent.mkdir(parents=True)
+    marker.write_text("{}\n")
 
     with pytest.raises(RuntimeError, match="already"):
         ensure_final_unused(tmp_path)
-

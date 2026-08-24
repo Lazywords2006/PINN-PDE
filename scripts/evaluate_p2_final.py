@@ -59,14 +59,15 @@ FINAL_METHODS = (
 )
 
 
-def ensure_final_unused(output_dir: Path) -> None:
+def ensure_final_unused(root: Path) -> None:
+    output_dir = root / "results/p2_final"
     forbidden = (
-        "FINAL_EVALUATION_STARTED.json",
-        "rows.csv",
-        "summary.json",
-        "gate.json",
+        root / "results/P2_FROZEN_FINAL_STARTED.json",
+        output_dir / "rows.csv",
+        output_dir / "summary.json",
+        output_dir / "gate.json",
     )
-    if any((output_dir / name).exists() for name in forbidden):
+    if any(path.exists() for path in forbidden):
         raise RuntimeError("frozen final evaluation has already started or completed")
 
 
@@ -423,6 +424,7 @@ def _audit_final_evidence(archive_path: Path, sidecar_path: Path) -> dict[str, o
                 errors.append("missing or undeclared files")
             required = {
                 "results/p2_final/gate.json",
+                "results/P2_FROZEN_FINAL_STARTED.json",
                 "benchmarks/v2_frozen_test.json",
                 "benchmarks/v2_frozen_test.sha256",
                 "data/v2_frozen_test_references.pt",
@@ -462,9 +464,9 @@ def build_final_cache(args: argparse.Namespace) -> int:
 
 def run_final(args: argparse.Namespace) -> tuple[str, int]:
     root = Path(__file__).resolve().parents[1]
-    output = root / args.output_dir
+    output = root / "results/p2_final"
     output.mkdir(parents=True, exist_ok=True)
-    ensure_final_unused(output)
+    ensure_final_unused(root)
     environment = _environment(root, args.device)
     if environment["git_status_porcelain"]:
         raise RuntimeError("frozen final requires a clean Git checkout")
@@ -482,7 +484,7 @@ def run_final(args: argparse.Namespace) -> tuple[str, int]:
             "git_commit": environment["git_commit"],
             "pilot_evidence_sha256": pilot_audit["archive_sha256"],
         },
-        output / "FINAL_EVALUATION_STARTED.json",
+        root / "results/P2_FROZEN_FINAL_STARTED.json",
     )
     suite_path = root / args.suite
     suite, suite_hash = load_frozen_suite(suite_path)
@@ -589,6 +591,7 @@ def run_final(args: argparse.Namespace) -> tuple[str, int]:
         root=root,
         include_paths=(
             output,
+            root / "results/P2_FROZEN_FINAL_STARTED.json",
             suite_path,
             suite_path.with_suffix(".sha256"),
             cache_path,
@@ -628,7 +631,6 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--reference-cache", type=Path, default=Path("data/v2_frozen_test_references.pt"))
     parser.add_argument("--pilot-evidence", type=Path, default=Path("artifacts/p2-pilot-evidence-20260824-130211.tar.gz"))
     parser.add_argument("--p5-archive", type=Path, default=Path("artifacts/p5-evidence-20260801-092048.tar.gz"))
-    parser.add_argument("--output-dir", type=Path, default=Path("results/p2_final"))
     return parser
 
 
