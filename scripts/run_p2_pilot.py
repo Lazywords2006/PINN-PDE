@@ -313,6 +313,9 @@ def run_pilot(args: argparse.Namespace) -> tuple[str, int]:
     root = Path(__file__).resolve().parents[1]
     output = root / args.output_dir
     output.mkdir(parents=True, exist_ok=True)
+    environment = _environment(root, args.device)
+    if environment["git_status_porcelain"]:
+        raise RuntimeError("formal P2 pilot requires a clean Git checkout")
     suite_path = root / args.suite
     suite, suite_hash = load_frozen_suite(suite_path)
     if suite != build_p2_suite_payload(generate_p2_validation_suite()):
@@ -433,7 +436,7 @@ def run_pilot(args: argparse.Namespace) -> tuple[str, int]:
         "latency_warmup": args.latency_warmup,
         "latency_repeats": args.latency_repeats,
         "pwe_repeats": args.pwe_repeats,
-        "environment": _environment(root, args.device),
+        "environment": environment,
     }
     _atomic_json(provenance, output / "provenance.json")
     summary.update(provenance)
