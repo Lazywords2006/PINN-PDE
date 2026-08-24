@@ -3,11 +3,15 @@
 
 from __future__ import annotations
 
+import argparse
+import csv
 import hashlib
 import io
 import json
+import math
 import sys
 import tarfile
+import time
 from collections import Counter
 from pathlib import Path, PurePosixPath
 
@@ -17,6 +21,8 @@ from torch import nn
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from block_kyfan_pinn.metrics import projector_sine_error
+from block_kyfan_pinn.device import select_device
+from block_kyfan_pinn.experiment import _source_fingerprint
 from block_kyfan_pinn.p5_model import build_p5_model
 from block_kyfan_pinn.physics import (
     apply_hamiltonian,
@@ -26,8 +32,20 @@ from block_kyfan_pinn.physics import (
     ritz_matrix,
 )
 from block_kyfan_pinn.reference import uniform_grid
-from block_kyfan_pinn.risk import safe_log_ratio
+from block_kyfan_pinn.risk import (
+    average_precision,
+    binary_auroc,
+    build_risk_gate,
+    clustered_bootstrap_auc,
+    fit_logistic_score,
+    predict_logistic_score,
+    risk_coverage,
+    safe_log_ratio,
+)
+from block_kyfan_pinn.suites import file_sha256, load_frozen_suite
 from scripts.audit_p5_evidence import audit_p5_evidence
+from scripts.run_p3_pilot import _load_reference_cache
+from scripts.run_p4_executor import _environment, write_evidence_bundle
 
 EXPECTED_P5_ARCHIVE_SHA256 = (
     "56891c5740eb94c62299b72869d790a1cbdee6abda3fae2903ed822f5e405101"
@@ -372,3 +390,417 @@ def evaluate_paired_points(
             )
         )
     return rows
+
+
+def _feature_matrix(rows: list[dict[str, object]]) -> torch.Tensor:
+    matrix = torch.tensor(
+        [
+            [float(row[name]) for name in PROMOTED_FEATURES]
+            for row in rows
+        ],
+        dtype=torch.float64,
+    )
+    if not bool(torch.isfinite(matrix).all()):
+        raise ValueError("risk feature matrix contains non-finite values")
+    return matrix
+
+
+def calibrate_and_audit(
+    rows: list[dict[str, object]],
+    *,
+    bootstrap_samples: int = 1000,
+    bootstrap_seed: int = 20260824,
+    expected_rows: int | None = None,
+) -> dict[str, object]:
+    """Fit on calibration rows and evaluate the audit role exactly once."""
+
+    if expected_rows is not None and len(rows) != expected_rows:
+        raise ValueError(
+            f"expected {expected_rows} paired rows, received {len(rows)}"
+        )
+    calibration = [row for row in rows if row.get("role") == "calibration"]
+    audit = [row for row in rows if row.get("role") == "audit"]
+    if not calibration or not audit or len(calibration) + len(audit) != len(rows):
+        raise ValueError("risk rows must have non-empty calibration and audit roles")
+    calibration_ids = {str(row["point_id"]) for row in calibration}
+    audit_ids = {str(row["point_id"]) for row in audit}
+    if not calibration_ids.isdisjoint(audit_ids):
+        raise ValueError("risk calibration and audit point IDs overlap")
+
+    calibration_matrix = _feature_matrix(calibration)
+    audit_matrix = _feature_matrix(audit)
+    calibration_labels = torch.tensor(
+        [bool(row["regression"]) for row in calibration], dtype=torch.bool
+    )
+    primary_labels = torch.tensor(
+        [bool(row["regression"]) for row in audit], dtype=torch.bool
+    )
+    unsafe_labels = torch.tensor(
+        [bool(row["unsafe_regression"]) for row in audit], dtype=torch.bool
+    )
+    severity = torch.tensor(
+        [float(row["delta_error"]) for row in audit], dtype=torch.float64
+    )
+    model = fit_logistic_score(
+        calibration_matrix,
+        calibration_labels,
+        list(PROMOTED_FEATURES),
+        l2=1e-2,
+    )
+    scores = predict_logistic_score(audit_matrix, model)
+    primary_auroc = binary_auroc(primary_labels, scores)
+    unsafe_auroc = binary_auroc(unsafe_labels, scores)
+    primary_auprc = average_precision(primary_labels, scores)
+    prevalence = float(primary_labels.double().mean())
+    unsafe_rate = float(unsafe_labels.double().mean())
+    family_auroc: dict[str, float] = {}
+    for family in RISK_FAMILIES:
+        mask = torch.tensor(
+            [row["family"] == family for row in audit], dtype=torch.bool
+        )
+        family_auroc[family] = binary_auroc(
+            primary_labels[mask], scores[mask]
+        )
+    top_count = max(1, math.ceil(0.20 * len(audit)))
+    top_indices = torch.argsort(scores, descending=True, stable=True)[:top_count]
+    top20_precision = float(primary_labels[top_indices].double().mean())
+    primary_curve = risk_coverage(
+        primary_labels, severity, scores, coverages=(0.5, 0.8, 1.0)
+    )
+    unsafe_curve = risk_coverage(
+        unsafe_labels, severity, scores, coverages=(0.5, 0.8, 1.0)
+    )
+    unsafe_80 = next(
+        float(row["failure_rate"])
+        for row in unsafe_curve
+        if row["coverage"] == 0.8
+    )
+    bootstrap = clustered_bootstrap_auc(
+        [str(row["point_id"]) for row in audit],
+        primary_labels,
+        scores,
+        samples=bootstrap_samples,
+        seed=bootstrap_seed,
+    )
+    metrics: dict[str, object] = {
+        "engineering_pass": True,
+        "calibration_rows": len(calibration),
+        "audit_rows": len(audit),
+        "primary_auroc": primary_auroc,
+        "unsafe_auroc": unsafe_auroc,
+        "primary_auroc_ci_low": bootstrap["low"],
+        "primary_auroc_ci_high": bootstrap["high"],
+        "primary_auprc": primary_auprc,
+        "primary_prevalence": prevalence,
+        "unsafe_rate": unsafe_rate,
+        "unsafe_rate_at_80pct_coverage": unsafe_80,
+        "family_auroc": family_auroc,
+        "top20_precision": top20_precision,
+        "primary_risk_coverage": primary_curve,
+        "unsafe_risk_coverage": unsafe_curve,
+        "bootstrap_valid_samples": bootstrap["valid_samples"],
+        "bootstrap_seed": bootstrap_seed,
+    }
+    gate = build_risk_gate(metrics)
+    return {
+        "model": model,
+        "metrics": metrics,
+        "gate": gate,
+        "audit_scores": scores.tolist(),
+    }
+
+
+def package_risk_evidence(
+    *,
+    root: Path,
+    include_paths: tuple[Path, ...],
+    output_dir: Path,
+    label: str,
+) -> tuple[Path, Path, Path]:
+    """Package P0 outputs using the repository's manifest convention."""
+
+    return write_evidence_bundle(
+        root=root,
+        include_paths=include_paths,
+        output_dir=output_dir,
+        label=label,
+        prefix="risk-development-evidence",
+        manifest_name="risk-development-evidence-manifest.json",
+    )
+
+
+def _atomic_json(payload: object, path: Path) -> None:
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n")
+    temporary.replace(path)
+
+
+def _unit_provenance(
+    *,
+    suite_sha256: str,
+    reference_sha256: str,
+    archive_sha256: str,
+    anchor_inventory: dict[str, object],
+    candidate_inventory: dict[str, object],
+) -> dict[str, object]:
+    return {
+        "suite_sha256": suite_sha256,
+        "reference_sha256": reference_sha256,
+        "archive_sha256": archive_sha256,
+        "source_fingerprint": _source_fingerprint(),
+        "anchor_checkpoint_sha256": anchor_inventory["checkpoint_sha256"],
+        "candidate_checkpoint_sha256": candidate_inventory["checkpoint_sha256"],
+        "feature_schema": list(PROMOTED_FEATURES),
+    }
+
+
+def _load_completed_unit(
+    path: Path, expected_provenance: dict[str, object]
+) -> list[dict[str, object]] | None:
+    if not path.is_file():
+        return None
+    payload = json.loads(path.read_text())
+    if not isinstance(payload, dict) or payload.get("provenance") != expected_provenance:
+        raise ValueError(f"risk unit provenance mismatch: {path}")
+    rows = payload.get("rows")
+    if not isinstance(rows, list) or len(rows) != 80:
+        raise ValueError(f"risk unit is incomplete: {path}")
+    return rows
+
+
+def _write_features_csv(rows: list[dict[str, object]], path: Path) -> None:
+    fieldnames = (
+        "role",
+        "family",
+        "split",
+        "point_id",
+        "seed",
+        *PROMOTED_FEATURES,
+        "anchor_projector_error",
+        "candidate_projector_error",
+        "delta_error",
+        "regression",
+        "unsafe_regression",
+        "reference_internal_gap",
+        "reference_external_gap",
+    )
+    temporary = path.with_suffix(".csv.tmp")
+    with temporary.open("w", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+    temporary.replace(path)
+
+
+def _report_markdown(
+    result: dict[str, object], provenance: dict[str, object]
+) -> str:
+    metrics = result["metrics"]
+    gate = result["gate"]
+    status = (
+        "RISK_DEVELOPMENT_GO" if gate["risk_go"] else "RISK_DEVELOPMENT_STOP"
+    )
+    return "\n".join(
+        (
+            "# P0 Risk-Development Report",
+            "",
+            "> Development evidence only. Frozen final was not read or evaluated.",
+            "",
+            f"- Status: `{status}`",
+            f"- Primary audit AUROC: `{metrics['primary_auroc']:.6f}`",
+            f"- Unsafe audit AUROC: `{metrics['unsafe_auroc']:.6f}`",
+            f"- Primary audit AUPRC: `{metrics['primary_auprc']:.6f}`",
+            f"- Primary prevalence: `{metrics['primary_prevalence']:.6f}`",
+            f"- Suite SHA-256: `{provenance['suite_sha256']}`",
+            f"- P5 archive SHA-256: `{provenance['archive_sha256']}`",
+            "",
+            "A STOP result forbids conditional-corrector implementation and P6 GPU execution.",
+            "A GO result authorizes a separate conditional-corrector design, not frozen final.",
+            "",
+        )
+    )
+
+
+def run_risk_evaluation(args: argparse.Namespace) -> tuple[str, int]:
+    """Run all six paired units and persist a deterministic P0 decision."""
+
+    root = Path(__file__).resolve().parents[1]
+    output_dir = args.output_dir if args.output_dir.is_absolute() else root / args.output_dir
+    output_dir.mkdir(parents=True, exist_ok=True)
+    for name in ("gate.json", "metrics.json", "calibration_model.json"):
+        (output_dir / name).unlink(missing_ok=True)
+
+    environment = _environment(root, args.device)
+    if environment["git_status_porcelain"] and not args.allow_dirty:
+        raise RuntimeError("risk evaluation requires a clean Git checkout")
+    _atomic_json(environment, output_dir / "environment.json")
+    device = select_device(args.device)
+
+    suite_path = args.suite if args.suite.is_absolute() else root / args.suite
+    suite, suite_hash = load_frozen_suite(suite_path)
+    if suite.get("suite_id") != "block-kyfan-risk-development-v1-20260824":
+        raise ValueError("unexpected risk-development suite")
+    points = suite["points"]
+    reference_path = (
+        args.reference_cache
+        if args.reference_cache.is_absolute()
+        else root / args.reference_cache
+    )
+    references, reference_hash = _load_reference_cache(
+        reference_path,
+        suite_id=str(suite["suite_id"]),
+        suite_hash=suite_hash,
+        point_ids={str(point["id"]) for point in points},
+        grid_side=33,
+        cutoff=24,
+    )
+    reference_payload = torch.load(
+        reference_path, map_location="cpu", weights_only=False
+    )
+    if reference_payload.get("metadata", {}).get("rank") != 3:
+        raise ValueError("risk reference cache rank must be three")
+
+    archive_path = args.archive if args.archive.is_absolute() else root / args.archive
+    sidecar_path = args.sidecar if args.sidecar.is_absolute() else root / args.sidecar
+    archive_hash = file_sha256(archive_path)
+    inventory = inventory_p5_checkpoints(archive_path, sidecar_path)
+    _atomic_json(inventory, output_dir / "checkpoint_inventory.json")
+    inventory_map = {
+        (str(row["method"]), str(row["family"]), int(row["seed"])): row
+        for row in inventory
+    }
+
+    unit_dir = output_dir / "units"
+    unit_dir.mkdir(exist_ok=True)
+    all_rows: list[dict[str, object]] = []
+    for family in RISK_FAMILIES:
+        family_points = [point for point in points if point["family"] == family]
+        if len(family_points) != 80:
+            raise ValueError(f"risk suite family count is not 80: {family}")
+        for seed in RISK_SEEDS:
+            anchor_row = inventory_map[("p5_anchor", family, seed)]
+            candidate_row = inventory_map[("p5_static_low_rom", family, seed)]
+            provenance = _unit_provenance(
+                suite_sha256=suite_hash,
+                reference_sha256=reference_hash,
+                archive_sha256=archive_hash,
+                anchor_inventory=anchor_row,
+                candidate_inventory=candidate_row,
+            )
+            unit_path = unit_dir / f"{family}_seed{seed}.json"
+            completed = _load_completed_unit(unit_path, provenance)
+            if completed is not None:
+                all_rows.extend(completed)
+                continue
+            anchor_model = load_p5_checkpoint(archive_path, anchor_row, device)
+            candidate_model = load_p5_checkpoint(archive_path, candidate_row, device)
+            rows = evaluate_paired_points(
+                anchor_model,
+                candidate_model,
+                family_points,
+                references,
+                seed=seed,
+                device=device,
+            )
+            _atomic_json({"provenance": provenance, "rows": rows}, unit_path)
+            all_rows.extend(rows)
+            print(f"RISK_UNIT_COMPLETE={family}:seed{seed}", flush=True)
+    if len(all_rows) != 480:
+        raise ValueError("risk evaluation did not produce 480 paired rows")
+    identities = {
+        (row["point_id"], row["seed"]) for row in all_rows
+    }
+    if len(identities) != 480:
+        raise ValueError("risk paired row identities are duplicated")
+    _write_features_csv(all_rows, output_dir / "features.csv")
+    result = calibrate_and_audit(
+        all_rows,
+        bootstrap_samples=args.bootstrap_samples,
+        bootstrap_seed=args.bootstrap_seed,
+        expected_rows=480,
+    )
+    provenance = {
+        "suite_sha256": suite_hash,
+        "reference_sha256": reference_hash,
+        "archive_sha256": archive_hash,
+        "source_fingerprint": _source_fingerprint(),
+        "feature_schema": list(PROMOTED_FEATURES),
+    }
+    model_payload = {**result["model"], **provenance}
+    metrics_payload = {**result["metrics"], **provenance}
+    gate_payload = {**result["gate"], **provenance}
+    _atomic_json(model_payload, output_dir / "calibration_model.json")
+    _atomic_json(metrics_payload, output_dir / "metrics.json")
+    _atomic_json(gate_payload, output_dir / "gate.json")
+    (output_dir / "report.md").write_text(
+        _report_markdown(result, provenance)
+    )
+
+    label = time.strftime("%Y%m%d-%H%M%S", time.gmtime())
+    archive, sidecar, manifest = package_risk_evidence(
+        root=root,
+        include_paths=(
+            output_dir,
+            suite_path,
+            suite_path.with_suffix(".sha256"),
+            reference_path,
+            reference_path.with_suffix(".sha256"),
+            sidecar_path,
+            root / "block_kyfan_pinn/risk.py",
+            root / "scripts/generate_risk_development.py",
+            root / "scripts/evaluate_risk_features.py",
+            root / "tests/test_risk.py",
+            root / "tests/test_risk_protocol_integrity.py",
+            root / "requirements.txt",
+        ),
+        output_dir=root / "artifacts",
+        label=label,
+    )
+    status = (
+        "RISK_DEVELOPMENT_GO"
+        if result["gate"]["risk_go"]
+        else "RISK_DEVELOPMENT_STOP"
+    )
+    print(f"RISK_DEVELOPMENT_STATUS={status}")
+    print(f"RISK_EVIDENCE_BUNDLE={archive}")
+    print(f"RISK_EVIDENCE_SHA256={sidecar}")
+    print(f"RISK_EVIDENCE_MANIFEST={manifest}")
+    return status, 0 if status == "RISK_DEVELOPMENT_GO" else 2
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--device", default="auto", choices=("auto", "cpu", "mps", "cuda", "rocm")
+    )
+    parser.add_argument(
+        "--suite", type=Path, default=Path("benchmarks/risk_development_v1.json")
+    )
+    parser.add_argument(
+        "--reference-cache",
+        type=Path,
+        default=Path("data/risk_development_v1_references.pt"),
+    )
+    parser.add_argument(
+        "--archive",
+        type=Path,
+        default=Path("artifacts/p5-evidence-20260801-092048.tar.gz"),
+    )
+    parser.add_argument(
+        "--sidecar",
+        type=Path,
+        default=Path("artifacts/p5-evidence-20260801-092048.tar.gz.sha256"),
+    )
+    parser.add_argument(
+        "--output-dir", type=Path, default=Path("results/risk_development_v1")
+    )
+    parser.add_argument("--bootstrap-samples", type=int, default=1000)
+    parser.add_argument("--bootstrap-seed", type=int, default=20260824)
+    parser.add_argument("--allow-dirty", action="store_true")
+    args = parser.parse_args()
+    _, exit_code = run_risk_evaluation(args)
+    return exit_code
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
