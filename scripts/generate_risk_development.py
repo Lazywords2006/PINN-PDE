@@ -9,13 +9,26 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+import torch
+
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from block_kyfan_pinn.suites import load_frozen_suite, write_frozen_suite
+from block_kyfan_pinn.experiment import _source_fingerprint
+from block_kyfan_pinn.reference import (
+    evaluate_reference_basis,
+    solve_reference,
+    uniform_grid,
+)
+from block_kyfan_pinn.suites import (
+    file_sha256,
+    load_frozen_suite,
+    write_frozen_suite,
+)
 from scripts.generate_v2_assets import (
     TRAINING_BOUNDS,
     _generate_family_points,
     build_suite_payload,
+    reference_gap_metadata,
 )
 
 RISK_CALIBRATION_SEED = 2026082401
@@ -167,22 +180,134 @@ def validate_risk_suite_disjointness(
             raise ValueError(f"risk {role} parameters overlap V2 assets")
 
 
+def _atomic_torch_save(payload: object, path: Path) -> None:
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    torch.save(payload, temporary)
+    temporary.replace(path)
+
+
+def build_reference_cache(
+    suite_path: Path,
+    output_path: Path,
+    *,
+    cutoff: int = 24,
+    grid_side: int = 33,
+    rank: int = 3,
+) -> str:
+    """Build a resumable, SHA-bound, float64 PWE reference cache."""
+
+    if cutoff < 1 or grid_side < 3 or rank < 3:
+        raise ValueError("reference cutoff/grid/rank policy is invalid")
+    suite, suite_hash = load_frozen_suite(suite_path)
+    points = suite["points"]
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    partial_path = output_path.with_suffix(".partial.pt")
+    metadata = {
+        "suite_id": suite["suite_id"],
+        "suite_sha256": suite_hash,
+        "grid_side": grid_side,
+        "cutoff": cutoff,
+        "rank": rank,
+        "mode_shape": "hexagonal",
+        "point_count": len(points),
+        "source_fingerprint": _source_fingerprint(),
+    }
+    references: dict[str, dict[str, object]] = {}
+    if partial_path.is_file():
+        partial = torch.load(
+            partial_path, map_location="cpu", weights_only=False
+        )
+        if partial.get("metadata") != metadata:
+            raise ValueError("partial reference-cache provenance mismatch")
+        raw_references = partial.get("references")
+        if not isinstance(raw_references, dict):
+            raise ValueError("partial reference cache is malformed")
+        references = raw_references
+
+    grid = uniform_grid(grid_side, dtype=torch.float64).unsqueeze(0)
+    point_ids = {str(point["id"]) for point in points}
+    if not set(references).issubset(point_ids):
+        raise ValueError("partial reference cache contains unexpected points")
+    for point in points:
+        identity = str(point["id"])
+        if identity in references:
+            continue
+        parameters = torch.tensor(point["parameters"], dtype=torch.float64)
+        solution = solve_reference(
+            parameters,
+            cutoff=cutoff,
+            rank=rank,
+            potential_family=str(point["family"]),
+            mode_shape="hexagonal",
+        )
+        basis = evaluate_reference_basis(solution, grid)[0].cpu()
+        gaps = reference_gap_metadata(point, solution.eigenvalues)
+        references[identity] = {
+            "basis": basis,
+            "eigenvalues": solution.eigenvalues.cpu(),
+            "parameters": [float(value) for value in point["parameters"]],
+            "family": str(point["family"]),
+            **gaps,
+        }
+        _atomic_torch_save(
+            {"metadata": metadata, "references": references}, partial_path
+        )
+
+    if set(references) != point_ids:
+        raise ValueError("reference cache does not cover the entire suite")
+    _atomic_torch_save(
+        {"metadata": metadata, "references": references}, output_path
+    )
+    digest = file_sha256(output_path)
+    output_path.with_suffix(".sha256").write_text(
+        f"{digest}  {output_path.name}\n"
+    )
+    partial_path.unlink(missing_ok=True)
+    return digest
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--suite-only", action="store_true")
+    parser.add_argument("--cache-only", action="store_true")
+    parser.add_argument("--device", default="cpu", choices=("cpu",))
+    parser.add_argument("--cutoff", type=int, default=24)
+    parser.add_argument("--grid-side", type=int, default=33)
+    parser.add_argument("--rank", type=int, default=3)
     parser.add_argument(
         "--output",
         type=Path,
         default=Path("benchmarks/risk_development_v1.json"),
     )
+    parser.add_argument(
+        "--cache-output",
+        type=Path,
+        default=Path("data/risk_development_v1_references.pt"),
+    )
     args = parser.parse_args()
-    if not args.suite_only:
-        parser.error("P0 reference caching is added in the next implementation task")
+    if args.suite_only == args.cache_only:
+        parser.error("choose exactly one of --suite-only or --cache-only")
     root = Path(__file__).resolve().parents[1]
+    output = args.output if args.output.is_absolute() else root / args.output
+    if args.cache_only:
+        cache_output = (
+            args.cache_output
+            if args.cache_output.is_absolute()
+            else root / args.cache_output
+        )
+        digest = build_reference_cache(
+            output,
+            cache_output,
+            cutoff=args.cutoff,
+            grid_side=args.grid_side,
+            rank=args.rank,
+        )
+        print(f"RISK_REFERENCE_CACHE={cache_output}")
+        print(f"RISK_REFERENCE_CACHE_SHA256={digest}")
+        return 0
     points = generate_risk_development_suite()
     validate_risk_suite_disjointness(points, root)
     payload = build_risk_suite_payload(points)
-    output = args.output if args.output.is_absolute() else root / args.output
     digest = write_frozen_suite(payload, output)
     print(f"RISK_SUITE={output}")
     print(f"RISK_SUITE_POINTS={len(points)}")
