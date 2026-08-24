@@ -9,7 +9,8 @@
 > 和 manifest 独立复核。P5 审计为 `audit_pass=true`，科学判定为
 > **`P5_PROMOTION_STOP`**：低频 ROM 的机制归因和 gap-scan 安全均未通过。冻结 final
 > 仍未打开。新增的独立 P0 风险开发得到 **`RISK_DEVELOPMENT_GO`**：held-out AUROC
-> 为 0.869，但它只授权设计条件校正器，不改变 P5 STOP，也不授权大规模 GPU/final。
+> 为 0.869。P1 基底不变风险门控校正器已完成实现和 MPS 工程烟测，状态
+> `P1_ENGINEERING_SMOKE_PASS`；现在只授权 AMD P1 pilot，不改变 P5 STOP，也不打开 final。
 
 权威状态、结果解释和下一步见
 [当前研究状态与 P5 方案](docs/CURRENT-STATUS.zh-CN.md)。本次 P5 执行完整报告见
@@ -18,6 +19,8 @@
 逐点失败分析见 [P5 独立审计报告](docs/P5-INDEPENDENT-AUDIT.zh-CN.md)。
 P0 设计、命令、实测、证据和限制见
 [风险开发运行手册](docs/RISK-DEVELOPMENT-RUNBOOK.zh-CN.md)。
+P1 方法、门槛、AMD 命令和回传要求见 [P1 运行手册](docs/P1-RUNBOOK.zh-CN.md)。
+P1 是冻结神经求解器上的推理期基底不变后处理器；不能写成“新训练的校正网络”。
 
 ## 到底用了什么网络，解了什么 PDE
 
@@ -138,6 +141,16 @@ python scripts/generate_risk_development.py --device cpu --cache-only
 python scripts/evaluate_risk_features.py --device mps
 ```
 
+P1 本地工程烟测与 AMD 正式入口：
+
+```bash
+python scripts/run_p1_pilot.py --device mps --smoke-only --allow-dirty
+python scripts/generate_p1_validation.py --device cpu --cache-only
+python scripts/run_p1_pilot.py --device rocm
+```
+
+第一条不是论文结果；第二、三条必须在干净提交和正式 ROCm 环境中运行。
+
 复现独立审计：
 
 ```bash
@@ -173,7 +186,7 @@ artifacts/         已封存并独立核验 P4、P5 权威证据
 
 - P5 数值现在可作为 validation 机制筛选的负结果引用，但不能写成 final 测试结论。
 - 当前结果只支持 validation 上的机制筛选，不支持论文精度主张。
-- P0 GO 只支持“风险可检测”，不支持“条件校正器有效”或“大规模实验 GO”。
+- P0 GO 只支持“风险可检测”；P1 smoke 只支持“工程可运行”，两者都不支持论文精度主张。
 - frozen final 只有新协议明确 GO 后才能运行一次。
 - Ky Fan、generalized trace、Fourier ROM、PWE、谱投影和 MGS 都不是本文单独发明。
 - P5 审计已经确认：低频 ROM 不能继续作为论文主创新，长训练 anchor 也只能作为
