@@ -21,6 +21,8 @@ outputs/
 artifacts/*
 !artifacts/p5-evidence-20260801-092048.tar.gz
 !artifacts/p5-evidence-20260801-092048.tar.gz.sha256
+!artifacts/risk-development-evidence-20260824-082658.tar.gz
+!artifacts/risk-development-evidence-20260824-082658.tar.gz.sha256
 *.pt
 *.pth
 *.ckpt

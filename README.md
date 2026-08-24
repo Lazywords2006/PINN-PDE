@@ -4,17 +4,20 @@
 输入为二维坐标、Bloch 波矢和周期势参数；输出为最低两个本征态共同张成的 rank-2
 谱簇。训练不读取参考本征函数标签，PWE 高精度解只用于评价。
 
-> 当前判断（2026-08-01）：研究方向可以继续，但当前低频 ROM 方法不能投稿。P4 的
+> 当前判断（2026-08-24）：研究方向可以继续，但当前低频 ROM 方法不能投稿。P4 的
 > 30 次 validation 与 P5 的 36-run promotion 均已由主控从原始 checkpoint、CSV、JSON
 > 和 manifest 独立复核。P5 审计为 `audit_pass=true`，科学判定为
 > **`P5_PROMOTION_STOP`**：低频 ROM 的机制归因和 gap-scan 安全均未通过。冻结 final
-> 仍未打开。
+> 仍未打开。新增的独立 P0 风险开发得到 **`RISK_DEVELOPMENT_GO`**：held-out AUROC
+> 为 0.869，但它只授权设计条件校正器，不改变 P5 STOP，也不授权大规模 GPU/final。
 
 权威状态、结果解释和下一步见
 [当前研究状态与 P5 方案](docs/CURRENT-STATUS.zh-CN.md)。本次 P5 执行完整报告见
 [P5-EXECUTION-REPORT.zh-CN.md](docs/P5-EXECUTION-REPORT.zh-CN.md)，主控交接见
 [HANDOFF-P5-20260801.zh-CN.md](docs/HANDOFF-P5-20260801.zh-CN.md)。独立复核过程、哈希与
 逐点失败分析见 [P5 独立审计报告](docs/P5-INDEPENDENT-AUDIT.zh-CN.md)。
+P0 设计、命令、实测、证据和限制见
+[风险开发运行手册](docs/RISK-DEVELOPMENT-RUNBOOK.zh-CN.md)。
 
 ## 到底用了什么网络，解了什么 PDE
 
@@ -83,6 +86,26 @@ G2 的提升究竟来自低频物理结构，还是仅来自更多参数、更�
 `mechanism_go=false`、`gap_scan_non_regression=false` 和 `promotion_go=false` 均已
 独立确认。低频 ROM 可以保留为负结果或消融，但不能作为论文标题、摘要或主要贡献。
 
+## P0 风险可检测性结果
+
+P0 使用 160 个与 P5 validation、frozen final 均不重叠的新参数点，calibration/audit
+各 80 点，并在 12 个已审计 P5 final checkpoint 上产生 480 个严格配对行。风险分数只用
+推理时可获得的 residual、Gram、rank-2 Ritz 与 anchor–ROM projector disagreement；
+真值误差和参考 gap 只用于事后标签与审计。
+
+Held-out audit 结果：
+
+- regression AUROC `0.869154`，clustered 95% CI `[0.818069, 0.912911]`；
+- unsafe-regression AUROC `0.843848`；
+- harmonic / Gaussian AUROC `0.968532 / 0.716611`；
+- top-20% precision `0.916667`；
+- 80% coverage 时 unsafe rate 从 `0.425000` 降至 `0.307292`；
+- 全部预注册门槛通过，状态 `RISK_DEVELOPMENT_GO`。
+
+限制：parameter-only 诊断基线 AUROC 为 `0.707734`，表明风险存在参数区域结构。组合特征
+仍高约 0.161，但后续必须把 parameter-only 纳入强基线。P0 没有实现条件校正器，不能
+写成新方法已优于基线。
+
 ## 环境与验证
 
 ```bash
@@ -105,6 +128,14 @@ P5 本地工程烟测：
 
 ```bash
 python scripts/run_p5_executor.py --device auto --skip-cache --smoke-only
+```
+
+P0 风险开发：
+
+```bash
+python scripts/generate_risk_development.py --suite-only
+python scripts/generate_risk_development.py --device cpu --cache-only
+python scripts/evaluate_risk_features.py --device mps
 ```
 
 复现独立审计：
@@ -142,6 +173,7 @@ artifacts/         已封存并独立核验 P4、P5 权威证据
 
 - P5 数值现在可作为 validation 机制筛选的负结果引用，但不能写成 final 测试结论。
 - 当前结果只支持 validation 上的机制筛选，不支持论文精度主张。
+- P0 GO 只支持“风险可检测”，不支持“条件校正器有效”或“大规模实验 GO”。
 - frozen final 只有新协议明确 GO 后才能运行一次。
 - Ky Fan、generalized trace、Fourier ROM、PWE、谱投影和 MGS 都不是本文单独发明。
 - P5 审计已经确认：低频 ROM 不能继续作为论文主创新，长训练 anchor 也只能作为
