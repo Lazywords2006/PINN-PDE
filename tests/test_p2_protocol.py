@@ -4,7 +4,12 @@ from __future__ import annotations
 
 import pytest
 
-from scripts.probe_p2_refinement import build_probe_gate, select_probe_points
+from scripts.probe_p2_refinement import (
+    audit_p2_evidence,
+    build_parser,
+    build_probe_gate,
+    select_probe_points,
+)
 
 
 def test_probe_selection_uses_worst_near_and_largest_gap_advantage() -> None:
@@ -83,6 +88,48 @@ def test_probe_gate_requires_every_predeclared_condition() -> None:
     assert build_probe_gate(_passing_summary())["probe_go"] is True
 
 
+def test_probe_parser_freezes_latency_policy() -> None:
+    args = build_parser().parse_args(["--run", "--device", "cuda"])
+
+    assert args.latency_warmup == 10
+    assert args.latency_repeats == 100
+
+
+def test_p2_evidence_audit_reopens_manifest_and_required_inputs(tmp_path) -> None:
+    from pathlib import Path
+
+    from scripts.run_p4_executor import write_evidence_bundle
+
+    paths = [
+        Path("artifacts/p1-pilot-evidence-20260824-113650.tar.gz"),
+        Path("artifacts/p1-pilot-evidence-20260824-113650.tar.gz.sha256"),
+        Path("artifacts/p5-evidence-20260801-092048.tar.gz"),
+        Path("artifacts/p5-evidence-20260801-092048.tar.gz.sha256"),
+        Path("results/p2_refinement_probe/gate.json"),
+        Path("results/p2_refinement_probe/selection.json"),
+        Path("results/p2_refinement_probe/selection.sha256"),
+        Path("data/p1_validation_v1_references.pt"),
+        Path("data/p1_validation_v1_references.sha256"),
+    ]
+    for relative in paths:
+        path = tmp_path / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(relative.as_posix().encode())
+    archive, sidecar, _ = write_evidence_bundle(
+        root=tmp_path,
+        include_paths=tuple(tmp_path / path for path in paths),
+        output_dir=tmp_path / "artifacts",
+        label="unit",
+        prefix="p2-refinement-probe-evidence",
+        manifest_name="p2-refinement-probe-evidence-manifest.json",
+    )
+
+    report = audit_p2_evidence(archive, sidecar)
+
+    assert report["audit_pass"] is True
+    assert report["member_count"] == len(paths)
+
+
 @pytest.mark.parametrize(
     ("key", "value"),
     [
@@ -99,4 +146,3 @@ def test_each_probe_requirement_forces_stop(key: str, value: object) -> None:
     summary = _passing_summary()
     summary[key] = value
     assert build_probe_gate(summary)["probe_go"] is False
-
