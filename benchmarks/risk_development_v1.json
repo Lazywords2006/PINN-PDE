@@ -1,0 +1,2076 @@
+{
+  "suite_id": "block-kyfan-risk-development-v1-20260824",
+  "protocol_version": 2,
+  "purpose": "risk_calibration_and_heldout_audit_not_final_test",
+  "generation_seed": 20260824,
+  "point_count": 160,
+  "split_counts": {
+    "iid_hidden": 32,
+    "exact_cluster": 16,
+    "near_cluster": 40,
+    "strict_ood": 32,
+    "gap_scan": 40
+  },
+  "family_counts": {
+    "harmonic_honeycomb": 80,
+    "gaussian_honeycomb": 80
+  },
+  "training_bounds": {
+    "harmonic_honeycomb": [
+      [
+        0.28,
+        0.38
+      ],
+      [
+        0.28,
+        0.38
+      ],
+      [
+        0.2,
+        0.8
+      ],
+      [
+        -0.08,
+        0.08
+      ]
+    ],
+    "gaussian_honeycomb": [
+      [
+        0.28,
+        0.38
+      ],
+      [
+        0.28,
+        0.38
+      ],
+      [
+        1.0,
+        4.0
+      ],
+      [
+        0.18,
+        0.35
+      ],
+      [
+        -0.08,
+        0.08
+      ]
+    ]
+  },
+  "points": [
+    {
+      "id": "risk-calibration-harmonic_honeycomb-iid_hidden-000",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.293101095258981,
+        0.2992680922637992,
+        0.25991713347231193,
+        0.004378573431170665
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-iid_hidden-001",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.3119140513110741,
+        0.3273115704461778,
+        0.2854365791393992,
+        -0.038700315409545355
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-iid_hidden-002",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.3512760855855169,
+        0.31370505214000766,
+        0.6643314743115709,
+        0.036004561962577813
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-iid_hidden-003",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.2867418870410273,
+        0.3332648818618197,
+        0.7309750822336898,
+        0.0758982923680412
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-iid_hidden-004",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.37987510311652894,
+        0.2872042745303689,
+        0.4606593736173399,
+        -0.009009724461768884
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-iid_hidden-005",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.3187031386169077,
+        0.3747698308742641,
+        0.38620574499145477,
+        -0.048642130292356096
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-iid_hidden-006",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.36091505512175526,
+        0.3503467378846903,
+        0.555921989670892,
+        -0.0616631514998937
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-iid_hidden-007",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.3359395776923198,
+        0.36684074477244033,
+        0.6426103921760395,
+        0.04593837671275934
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-exact_cluster-000",
+      "family": "harmonic_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.23,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-exact_cluster-001",
+      "family": "harmonic_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.35000000000000003,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-exact_cluster-002",
+      "family": "harmonic_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.4700000000000001,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-exact_cluster-003",
+      "family": "harmonic_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.5900000000000001,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-near_cluster-000",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3382056270836357,
+        0.3333333333333333,
+        0.34718373117696777,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-near_cluster-001",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3395845401182361,
+        0.3378751009139208,
+        0.6183464997677866,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-near_cluster-002",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.33599636876389,
+        0.3415293136368721,
+        0.39189120892780993,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-near_cluster-003",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3320191616351862,
+        0.3373779379337424,
+        0.3049624225105885,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-near_cluster-004",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3308648264320232,
+        0.33512680857780985,
+        0.2869874379479672,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-near_cluster-005",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.32687110669236485,
+        0.3333333333333333,
+        0.3304072522321865,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-near_cluster-006",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3310400098212378,
+        0.33166713627132133,
+        0.610765320117922,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-near_cluster-007",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.32967523928742054,
+        0.32207487751078884,
+        0.23477389085993822,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-near_cluster-008",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.33528156178655766,
+        0.3273373026961884,
+        0.40314308563866286,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-near_cluster-009",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.337115402326312,
+        0.3305854993660839,
+        0.6571643897794299,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-strict_ood-000",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.20405877162447264,
+        0.43531679770007914,
+        0.3474913823041793,
+        0.06654448039388877
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-strict_ood-001",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.24223871174881628,
+        0.3964586444864652,
+        0.6094818230277583,
+        -0.10197216313513521
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-strict_ood-002",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.21077125351159878,
+        0.4499473757978526,
+        0.427520451234449,
+        -0.14344595625746295
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-strict_ood-003",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.22411222599102687,
+        0.427882695854686,
+        0.4880752733309811,
+        -0.053895825449361515
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-strict_ood-004",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.274909293972306,
+        0.41170526219435005,
+        0.7340082662240581,
+        0.10875168287446438
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-strict_ood-005",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.2625390210371329,
+        0.4177829441764792,
+        0.22792921412533357,
+        0.12400507893227056
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-strict_ood-006",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.2563480839950851,
+        0.3993460270166839,
+        0.7721625661177485,
+        -0.016560385940380062
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-strict_ood-007",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.23425026954952977,
+        0.38417674137580976,
+        0.9330537301202668,
+        0.02015470190855767
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-gap_scan-000",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.3371212121212121,
+        0.3333333333333333,
+        0.45,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-gap_scan-001",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.35227272727272724,
+        0.3333333333333333,
+        0.45,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-gap_scan-002",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.36742424242424243,
+        0.3333333333333333,
+        0.45,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-gap_scan-003",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.38257575757575757,
+        0.3333333333333333,
+        0.45,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-gap_scan-004",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.3977272727272727,
+        0.3333333333333333,
+        0.45,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-gap_scan-005",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.41287878787878785,
+        0.3333333333333333,
+        0.45,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-gap_scan-006",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.42803030303030304,
+        0.3333333333333333,
+        0.45,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-gap_scan-007",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.4431818181818182,
+        0.3333333333333333,
+        0.45,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-gap_scan-008",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.4583333333333333,
+        0.3333333333333333,
+        0.45,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-harmonic_honeycomb-gap_scan-009",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.4734848484848485,
+        0.3333333333333333,
+        0.45,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-iid_hidden-000",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.35460157099118167,
+        0.3423455819170793,
+        3.942583354449625,
+        0.19512246104002873,
+        -0.05099785592678488
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-iid_hidden-001",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.2887916662727435,
+        0.28960032265056773,
+        3.253534429993003,
+        0.2772219400263297,
+        0.07321224033406064
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-iid_hidden-002",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.357512853461453,
+        0.3553133290690183,
+        1.8506235509255944,
+        0.22282684994731242,
+        -0.014145281455768502
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-iid_hidden-003",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.32680164763024444,
+        0.34411005075175927,
+        1.6868251321061802,
+        0.30978130989169617,
+        0.03095824279705381
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-iid_hidden-004",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.3087206623378547,
+        0.29337746258235714,
+        2.6989416398088446,
+        0.2910309717903599,
+        0.049607927763594226
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-iid_hidden-005",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.3785226486083235,
+        0.3088119060499607,
+        2.1485929849650183,
+        0.256683230341092,
+        -0.03046638018150377
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-iid_hidden-006",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.34046581350195915,
+        0.37139346444714916,
+        3.1690446601326214,
+        0.20774798651873422,
+        -0.07672072525799442
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-iid_hidden-007",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.2973879299894477,
+        0.31768478825273583,
+        1.1535669145270482,
+        0.332545553286935,
+        0.012752111878072542
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-exact_cluster-000",
+      "family": "gaussian_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        1.15,
+        0.18425,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-exact_cluster-001",
+      "family": "gaussian_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        1.75,
+        0.21825,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-exact_cluster-002",
+      "family": "gaussian_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        2.35,
+        0.25225,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-exact_cluster-003",
+      "family": "gaussian_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        2.95,
+        0.28625,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-near_cluster-000",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3394267025601224,
+        0.3333333333333333,
+        3.698068113614216,
+        0.19288361795002937,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-near_cluster-001",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3376757611370383,
+        0.3364882918075179,
+        2.916487869894481,
+        0.33404215189220415,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-near_cluster-002",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3365540445376821,
+        0.34324566318495353,
+        2.666515546354758,
+        0.18439861980402658,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-near_cluster-003",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.33226037521190244,
+        0.33663555887973967,
+        3.9953400455310555,
+        0.2902942384924305,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-near_cluster-004",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.32511716855838874,
+        0.33930272645943016,
+        2.4510400531072616,
+        0.311011034472845,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-near_cluster-005",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.32721526482434543,
+        0.3333333333333333,
+        1.1800915874701103,
+        0.24776907352070557,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-near_cluster-006",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3310904510979332,
+        0.3317037840040074,
+        2.312764542315401,
+        0.2209203756549626,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-near_cluster-007",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3309317608441337,
+        0.32594205321999076,
+        3.8294676933819867,
+        0.28186134863703227,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-near_cluster-008",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3354088063972813,
+        0.3269456840525698,
+        3.3500989867154836,
+        0.2728487225958684,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-near_cluster-009",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3399610079025956,
+        0.32851804589698463,
+        2.716515535489661,
+        0.18846255026858988,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-strict_ood-000",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.2511926106099756,
+        0.43722633716444687,
+        2.4884821510468034,
+        0.23507537638776638,
+        0.08398197991750772
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-strict_ood-001",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.23337644745697134,
+        0.4270351947846268,
+        2.7148334966562047,
+        0.3127825631284064,
+        0.11566630150405069
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-strict_ood-002",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.26358197206715306,
+        0.3941639542848929,
+        3.8934123625249333,
+        0.20872806832386434,
+        0.06319304374208029
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-strict_ood-003",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.24640548317194097,
+        0.38009260128530065,
+        3.4529456043185647,
+        0.17623312011562914,
+        -0.11400030948472611
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-strict_ood-004",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.2702575455155149,
+        0.4079063763841602,
+        1.476496217976857,
+        0.36569803406635637,
+        -0.026096647772173104
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-strict_ood-005",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.2130715575208586,
+        0.44170052509382096,
+        2.1797265171021336,
+        0.24893130010338654,
+        -0.04992202915113246
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-strict_ood-006",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.2063661595146453,
+        0.4174224071163928,
+        0.9577147603835333,
+        0.2820670841972286,
+        0.03215355995097674
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-strict_ood-007",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.2290433431351735,
+        0.4044328330474976,
+        4.397372163079314,
+        0.3799343323840175,
+        -0.08731973895158705
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-gap_scan-000",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.3371212121212121,
+        0.3333333333333333,
+        2.1,
+        0.24,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-gap_scan-001",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.35227272727272724,
+        0.3333333333333333,
+        2.1,
+        0.24,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-gap_scan-002",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.36742424242424243,
+        0.3333333333333333,
+        2.1,
+        0.24,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-gap_scan-003",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.38257575757575757,
+        0.3333333333333333,
+        2.1,
+        0.24,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-gap_scan-004",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.3977272727272727,
+        0.3333333333333333,
+        2.1,
+        0.24,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-gap_scan-005",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.41287878787878785,
+        0.3333333333333333,
+        2.1,
+        0.24,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-gap_scan-006",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.42803030303030304,
+        0.3333333333333333,
+        2.1,
+        0.24,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-gap_scan-007",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.4431818181818182,
+        0.3333333333333333,
+        2.1,
+        0.24,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-gap_scan-008",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.4583333333333333,
+        0.3333333333333333,
+        2.1,
+        0.24,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-calibration-gaussian_honeycomb-gap_scan-009",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.4734848484848485,
+        0.3333333333333333,
+        2.1,
+        0.24,
+        0.0
+      ],
+      "role": "calibration"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-iid_hidden-000",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.3495027057042237,
+        0.3048107588947162,
+        0.3382193910416731,
+        -0.02742032009144256
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-iid_hidden-001",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.3268017365961155,
+        0.3259596659266494,
+        0.43900591484024887,
+        0.05586876242903906
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-iid_hidden-002",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.2851177738581123,
+        0.3633180285197799,
+        0.24042728747712128,
+        0.06617188908181863
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-iid_hidden-003",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.3358877491474593,
+        0.33107716254827346,
+        0.6012505124713701,
+        -0.0770102344608933
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-iid_hidden-004",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.36960714291339714,
+        0.30654745428926033,
+        0.7769756520691051,
+        -0.0002871473073975256
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-iid_hidden-005",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.3001465114194642,
+        0.3767219624224247,
+        0.4176390113255222,
+        -0.04224057844913976
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-iid_hidden-006",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.36641413567831643,
+        0.2878564281786632,
+        0.7013587593724266,
+        0.01146074364315755
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-iid_hidden-007",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.30953518400528957,
+        0.3497989982791827,
+        0.5225368699587337,
+        0.020159973404422105
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-exact_cluster-000",
+      "family": "harmonic_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.29000000000000004,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-exact_cluster-001",
+      "family": "harmonic_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.41000000000000003,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-exact_cluster-002",
+      "family": "harmonic_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.53,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-exact_cluster-003",
+      "family": "harmonic_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.6500000000000001,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-near_cluster-000",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3419549723998493,
+        0.3333333333333333,
+        0.6496857582399962,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-near_cluster-001",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.33815653658616895,
+        0.3368375956177322,
+        0.6332942454277704,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-near_cluster-002",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3353325122171548,
+        0.3394861732719392,
+        0.7253389255206095,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-near_cluster-003",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3319976258621708,
+        0.3374442182278123,
+        0.6365112650874909,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-near_cluster-004",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.32960679970764545,
+        0.33604081849443757,
+        0.4080839185495728,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-near_cluster-005",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.32166702889823645,
+        0.3333333333333333,
+        0.6630700252492947,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-near_cluster-006",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.33045975895539664,
+        0.33124555934037575,
+        0.635803437413687,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-near_cluster-007",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.33019251203679245,
+        0.32366687933576016,
+        0.6806362312628972,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-near_cluster-008",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3345090501035966,
+        0.3297148491851131,
+        0.20161227191477868,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-near_cluster-009",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.335214774429639,
+        0.3319663863629302,
+        0.4169712111080571,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-strict_ood-000",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.23627815105902245,
+        0.4455587686271534,
+        0.23501124512201688,
+        -0.07704644262856902
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-strict_ood-001",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.20497283145854903,
+        0.3938723821076615,
+        0.8151093097087159,
+        0.006160578882952239
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-strict_ood-002",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.2617519171891418,
+        0.43028741268238196,
+        0.4723747833837886,
+        0.04598831499576675
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-strict_ood-003",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.24449579348281109,
+        0.4157775961515399,
+        0.30585546455089,
+        0.1274267781368005
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-strict_ood-004",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.2769167831603838,
+        0.40550489163499975,
+        0.9101020019143589,
+        -0.02418759648820723
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-strict_ood-005",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.22350856516289297,
+        0.3877774041172992,
+        0.49792692615774364,
+        0.07554313042851565
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-strict_ood-006",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.21505672678180904,
+        0.4350000761631991,
+        0.7263085039398587,
+        -0.05060865787216605
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-strict_ood-007",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.25673212394905504,
+        0.407301688184211,
+        0.5837447555828905,
+        -0.1271303673226146
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-gap_scan-000",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.34469696969696967,
+        0.3333333333333333,
+        0.65,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-gap_scan-001",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.35984848484848486,
+        0.3333333333333333,
+        0.65,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-gap_scan-002",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.375,
+        0.3333333333333333,
+        0.65,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-gap_scan-003",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.39015151515151514,
+        0.3333333333333333,
+        0.65,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-gap_scan-004",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.4053030303030303,
+        0.3333333333333333,
+        0.65,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-gap_scan-005",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.4204545454545454,
+        0.3333333333333333,
+        0.65,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-gap_scan-006",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.4356060606060606,
+        0.3333333333333333,
+        0.65,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-gap_scan-007",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.45075757575757575,
+        0.3333333333333333,
+        0.65,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-gap_scan-008",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.46590909090909094,
+        0.3333333333333333,
+        0.65,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-harmonic_honeycomb-gap_scan-009",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.4810606060606061,
+        0.3333333333333333,
+        0.65,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-iid_hidden-000",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.28410004682257617,
+        0.3531130425739995,
+        2.2733485869193935,
+        0.33600207075311633,
+        0.04111027180819267
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-iid_hidden-001",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.3010310270225708,
+        0.36911599130175154,
+        2.7589379309900233,
+        0.2920582296147745,
+        0.0778565745495761
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-iid_hidden-002",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.32387331405774317,
+        0.3027476267185588,
+        1.7338553340992386,
+        0.28205952761409947,
+        0.02054074807836105
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-iid_hidden-003",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.3555641870566183,
+        0.2868906120932771,
+        2.974583493420279,
+        0.3132594407858711,
+        -0.002661968956066227
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-iid_hidden-004",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.340218344614812,
+        0.3284134130231434,
+        1.9787635931914471,
+        0.1959624728705965,
+        -0.07272326160835155
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-iid_hidden-005",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.3057275606000044,
+        0.340672008316405,
+        1.3456348259702118,
+        0.21064951354017875,
+        -0.047573576259919516
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-iid_hidden-006",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.3743242038791236,
+        0.3625732333607121,
+        3.637279163455297,
+        0.22907244784887773,
+        0.00900922825861293
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-iid_hidden-007",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.3467548728027321,
+        0.3152190730598602,
+        3.437710139568498,
+        0.24884167095032783,
+        -0.03146354047332613
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-exact_cluster-000",
+      "family": "gaussian_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        1.45,
+        0.19275,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-exact_cluster-001",
+      "family": "gaussian_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        2.05,
+        0.22675,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-exact_cluster-002",
+      "family": "gaussian_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        2.6500000000000004,
+        0.26075,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-exact_cluster-003",
+      "family": "gaussian_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        3.25,
+        0.29474999999999996,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-near_cluster-000",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3408870903473507,
+        0.3333333333333333,
+        2.3011043198187444,
+        0.30294814750961563,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-near_cluster-001",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3419332503158653,
+        0.3395815387584583,
+        2.7673617898300638,
+        0.21811828936479397,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-near_cluster-002",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3351293005539353,
+        0.33886075208148647,
+        3.135512964447279,
+        0.27367623470032887,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-near_cluster-003",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3300207871014434,
+        0.3435283023373529,
+        3.4600946065917606,
+        0.25291233087589715,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-near_cluster-004",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3289019977827787,
+        0.3365528870666733,
+        3.341465167637061,
+        0.23779054996616886,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-near_cluster-005",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3297205414361467,
+        0.3333333333333333,
+        2.156619978339463,
+        0.2686060399330709,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-near_cluster-006",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3285685095282793,
+        0.32987148620050927,
+        3.500487489513474,
+        0.33788486838943455,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-near_cluster-007",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.33022212160719866,
+        0.32375800822314216,
+        1.6377553621552283,
+        0.3221313795948183,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-near_cluster-008",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.33524613225379907,
+        0.32744634358588937,
+        1.6486594412960258,
+        0.34735765708147215,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-near_cluster-009",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3366425127113954,
+        0.3309290737823729,
+        1.5930715836762133,
+        0.26563981123966496,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-strict_ood-000",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.25187850796346845,
+        0.44663280794445265,
+        1.1225884810675542,
+        0.1951279260597537,
+        -0.03988681028370898
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-strict_ood-001",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.21459941819463743,
+        0.43505622006286604,
+        4.111506295715749,
+        0.38465457662197866,
+        0.1040747677343262
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-strict_ood-002",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.27905146115387114,
+        0.38263749184552254,
+        1.9153475666547362,
+        0.2696013927584988,
+        0.05133532159034254
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-strict_ood-003",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.20304431114592586,
+        0.39906791438588135,
+        1.3949378329369742,
+        0.17085834564641517,
+        -0.08294965825337457
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-strict_ood-004",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.24536539200720234,
+        0.38953575344783575,
+        2.5224645460094495,
+        0.2927462140829551,
+        0.13560765751674256
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-strict_ood-005",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.22546910609519666,
+        0.431263539341524,
+        4.014121335870752,
+        0.2199120805300817,
+        0.03039124919955935
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-strict_ood-006",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.23391752530865448,
+        0.41719241206347846,
+        3.0164389333147126,
+        0.35300771917613216,
+        -0.1284048245898954
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-strict_ood-007",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.2605756565474903,
+        0.4145269816224915,
+        3.3624743903307426,
+        0.32527731111628405,
+        -0.023295363648215828
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-gap_scan-000",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.34469696969696967,
+        0.3333333333333333,
+        3.1,
+        0.3,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-gap_scan-001",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.35984848484848486,
+        0.3333333333333333,
+        3.1,
+        0.3,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-gap_scan-002",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.375,
+        0.3333333333333333,
+        3.1,
+        0.3,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-gap_scan-003",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.39015151515151514,
+        0.3333333333333333,
+        3.1,
+        0.3,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-gap_scan-004",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.4053030303030303,
+        0.3333333333333333,
+        3.1,
+        0.3,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-gap_scan-005",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.4204545454545454,
+        0.3333333333333333,
+        3.1,
+        0.3,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-gap_scan-006",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.4356060606060606,
+        0.3333333333333333,
+        3.1,
+        0.3,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-gap_scan-007",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.45075757575757575,
+        0.3333333333333333,
+        3.1,
+        0.3,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-gap_scan-008",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.46590909090909094,
+        0.3333333333333333,
+        3.1,
+        0.3,
+        0.0
+      ],
+      "role": "audit"
+    },
+    {
+      "id": "risk-audit-gaussian_honeycomb-gap_scan-009",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.4810606060606061,
+        0.3333333333333333,
+        3.1,
+        0.3,
+        0.0
+      ],
+      "role": "audit"
+    }
+  ],
+  "role_seeds": {
+    "calibration": 2026082401,
+    "audit": 2026082402
+  },
+  "role_counts": {
+    "calibration": 80,
+    "audit": 80
+  },
+  "role_family_counts": {
+    "calibration:harmonic_honeycomb": 40,
+    "calibration:gaussian_honeycomb": 40,
+    "audit:harmonic_honeycomb": 40,
+    "audit:gaussian_honeycomb": 40
+  }
+}
