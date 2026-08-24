@@ -7,9 +7,12 @@ import torch
 from block_kyfan_pinn.metrics import orthogonality_error, projector_sine_error
 from block_kyfan_pinn.model import BlockKyFanPINN
 from block_kyfan_pinn.p2_refinement import (
+    analytic_fourier_hamiltonian,
     fourier_only_ritz,
+    fourier_only_ritz_fast,
     hex_shell_modes,
     neural_augmented_ritz,
+    neural_augmented_ritz_fast,
     orthogonal_analytic_augmentation,
     outer_shell_modes,
 )
@@ -58,10 +61,10 @@ def test_neural_augmented_ritz_is_u2_invariant_and_orthonormal() -> None:
     rotated = _complex_rotate(neural)
     modes = outer_shell_modes(2)
 
-    first, first_info = neural_augmented_ritz(
+    first, first_info = neural_augmented_ritz_fast(
         neural, coordinates, parameters, "harmonic_honeycomb", modes
     )
-    second, second_info = neural_augmented_ritz(
+    second, second_info = neural_augmented_ritz_fast(
         rotated, coordinates, parameters, "harmonic_honeycomb", modes
     )
 
@@ -86,3 +89,39 @@ def test_fourier_only_ritz_returns_rank_two_projector() -> None:
     assert basis.shape == (1, 81, 2, 2)
     assert orthogonality_error(basis) < 1e-5
 
+
+def test_analytic_fourier_hamiltonian_matches_autodiff_refinement() -> None:
+    coordinates = uniform_grid(9).unsqueeze(0).requires_grad_()
+    parameters = torch.tensor([[0.34, 0.32, 0.5, 0.01]])
+    neural = periodic_mgs(BlockKyFanPINN.anchor(coordinates, "correct"))
+    modes = outer_shell_modes(2)
+
+    analytic_h = analytic_fourier_hamiltonian(
+        coordinates, parameters, "harmonic_honeycomb", modes
+    )
+    slow, _ = neural_augmented_ritz(
+        neural, coordinates, parameters, "harmonic_honeycomb", modes
+    )
+    fast, fast_info = neural_augmented_ritz_fast(
+        neural, coordinates, parameters, "harmonic_honeycomb", modes
+    )
+
+    assert analytic_h.shape == (1, 81, len(modes), 2)
+    assert fast_info["accepted_mode_count"] == len(modes)
+    assert projector_sine_error(slow, fast) < 1e-5
+
+
+def test_fast_fourier_only_matches_autodiff_control() -> None:
+    coordinates = uniform_grid(9).unsqueeze(0).requires_grad_()
+    parameters = torch.tensor([[0.34, 0.32, 0.5, 0.01]])
+    modes = hex_shell_modes(2)
+
+    slow = fourier_only_ritz(
+        coordinates, parameters, "harmonic_honeycomb", modes
+    )
+    fast = fourier_only_ritz_fast(
+        coordinates, parameters, "harmonic_honeycomb", modes
+    )
+
+    assert projector_sine_error(slow, fast) < 1e-5
+    assert orthogonality_error(fast) < 1e-5

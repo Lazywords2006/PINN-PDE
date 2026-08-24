@@ -23,9 +23,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from block_kyfan_pinn.device import select_device
 from block_kyfan_pinn.metrics import orthogonality_error, projector_sine_error
 from block_kyfan_pinn.p2_refinement import (
-    fourier_only_ritz,
+    fourier_only_ritz_fast,
     hex_shell_modes,
-    neural_augmented_ritz,
+    neural_augmented_ritz_fast,
     outer_shell_modes,
 )
 from block_kyfan_pinn.physics import periodic_mgs
@@ -341,7 +341,7 @@ def benchmark_refinement_latency(
     def p2_query() -> None:
         coordinates = grid.unsqueeze(0).to(device).requires_grad_()
         neural = periodic_mgs(long_model(coordinates, parameters))
-        neural_augmented_ritz(
+        neural_augmented_ritz_fast(
             neural, coordinates, parameters, family, modes
         )
 
@@ -649,7 +649,7 @@ def run_probe(args: argparse.Namespace) -> tuple[str, int]:
                 coordinates = grid.unsqueeze(0).to(device).requires_grad_()
                 _synchronize(device)
                 started = time.perf_counter()
-                fourier = fourier_only_ritz(
+                fourier = fourier_only_ritz_fast(
                     coordinates, parameters, family, control_modes
                 )
                 _synchronize(device)
@@ -673,7 +673,7 @@ def run_probe(args: argparse.Namespace) -> tuple[str, int]:
                     _synchronize(device)
                     started = time.perf_counter()
                     neural = periodic_mgs(long_model(coordinates, parameters))
-                    refined, info = neural_augmented_ritz(
+                    refined, info = neural_augmented_ritz_fast(
                         neural, coordinates, parameters, family, modes
                     )
                     _synchronize(device)

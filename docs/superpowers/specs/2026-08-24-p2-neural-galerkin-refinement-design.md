@@ -82,6 +82,13 @@ columns.  Any rank deficiency, non-finite Hamiltonian, insufficient accepted
 rank, or complex eigensolver failure is an engineering STOP, not a silent
 fallback to reference PWE.
 
+For efficiency, automatic differentiation applies the Hamiltonian only to the
+two neural columns.  Plane-wave Hamiltonians are assembled analytically, and
+the same detached orthogonalization transform is applied to both each trial
+column and its Hamiltonian image.  Unit tests require this fast assembly to
+match the direct per-column autodiff Rayleigh--Ritz projector.  The abandoned
+naive implementation is retained as a negative efficiency result.
+
 ## 5. Development Probe
 
 The first probe may reuse P1 validation points because P1 has already exposed
