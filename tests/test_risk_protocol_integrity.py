@@ -15,6 +15,7 @@ from block_kyfan_pinn.physics import periodic_mgs
 from block_kyfan_pinn.suites import load_frozen_suite, write_frozen_suite
 from scripts.evaluate_risk_features import (
     PROMOTED_FEATURES,
+    _risk_source_fingerprint,
     build_paired_feature_row,
     calibrate_and_audit,
     evaluate_paired_points,
@@ -312,3 +313,21 @@ def test_risk_evidence_bundle_has_manifest_and_matching_sidecar(
     with tarfile.open(archive, "r:gz") as handle:
         assert "results/risk_development_v1/metrics.json" in handle.getnames()
         assert "results/risk-development-evidence-manifest.json" in handle.getnames()
+
+
+def test_risk_source_fingerprint_covers_evaluator_scripts(tmp_path: Path) -> None:
+    package = tmp_path / "block_kyfan_pinn"
+    scripts = tmp_path / "scripts"
+    package.mkdir()
+    scripts.mkdir()
+    (package / "risk.py").write_text("VALUE = 1\n")
+    for name in (
+        "generate_risk_development.py",
+        "evaluate_risk_features.py",
+        "audit_p5_evidence.py",
+    ):
+        (scripts / name).write_text(f"NAME = {name!r}\n")
+    before = _risk_source_fingerprint(tmp_path)
+    (scripts / "evaluate_risk_features.py").write_text("NAME = 'changed'\n")
+    after = _risk_source_fingerprint(tmp_path)
+    assert before != after

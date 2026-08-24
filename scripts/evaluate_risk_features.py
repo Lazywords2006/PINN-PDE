@@ -22,7 +22,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from block_kyfan_pinn.metrics import projector_sine_error
 from block_kyfan_pinn.device import select_device
-from block_kyfan_pinn.experiment import _source_fingerprint
 from block_kyfan_pinn.p5_model import build_p5_model
 from block_kyfan_pinn.physics import (
     apply_hamiltonian,
@@ -71,6 +70,30 @@ PROMOTED_FEATURES = (
     "trace_abs_difference",
     "projector_disagreement",
 )
+
+
+def _risk_source_fingerprint(root: Path) -> str:
+    """Bind paired units to both the library and P0 orchestration sources."""
+
+    root = root.resolve()
+    files = sorted((root / "block_kyfan_pinn").rglob("*.py"))
+    files.extend(
+        root / "scripts" / name
+        for name in (
+            "generate_risk_development.py",
+            "evaluate_risk_features.py",
+            "audit_p5_evidence.py",
+        )
+    )
+    if not files or not all(path.is_file() for path in files):
+        raise FileNotFoundError("risk fingerprint source set is incomplete")
+    digest = hashlib.sha256()
+    for path in sorted(set(files), key=lambda value: str(value.relative_to(root))):
+        digest.update(str(path.relative_to(root)).encode())
+        digest.update(b"\0")
+        digest.update(path.read_bytes())
+        digest.update(b"\0")
+    return digest.hexdigest()
 
 
 def _member_is_safe(name: str) -> bool:
@@ -540,6 +563,7 @@ def _unit_provenance(
     suite_sha256: str,
     reference_sha256: str,
     archive_sha256: str,
+    source_fingerprint: str,
     anchor_inventory: dict[str, object],
     candidate_inventory: dict[str, object],
 ) -> dict[str, object]:
@@ -547,7 +571,7 @@ def _unit_provenance(
         "suite_sha256": suite_sha256,
         "reference_sha256": reference_sha256,
         "archive_sha256": archive_sha256,
-        "source_fingerprint": _source_fingerprint(),
+        "source_fingerprint": source_fingerprint,
         "anchor_checkpoint_sha256": anchor_inventory["checkpoint_sha256"],
         "candidate_checkpoint_sha256": candidate_inventory["checkpoint_sha256"],
         "feature_schema": list(PROMOTED_FEATURES),
@@ -663,6 +687,7 @@ def run_risk_evaluation(args: argparse.Namespace) -> tuple[str, int]:
     archive_path = args.archive if args.archive.is_absolute() else root / args.archive
     sidecar_path = args.sidecar if args.sidecar.is_absolute() else root / args.sidecar
     archive_hash = file_sha256(archive_path)
+    risk_source_fingerprint = _risk_source_fingerprint(root)
     inventory = inventory_p5_checkpoints(archive_path, sidecar_path)
     _atomic_json(inventory, output_dir / "checkpoint_inventory.json")
     inventory_map = {
@@ -684,6 +709,7 @@ def run_risk_evaluation(args: argparse.Namespace) -> tuple[str, int]:
                 suite_sha256=suite_hash,
                 reference_sha256=reference_hash,
                 archive_sha256=archive_hash,
+                source_fingerprint=risk_source_fingerprint,
                 anchor_inventory=anchor_row,
                 candidate_inventory=candidate_row,
             )
@@ -723,7 +749,7 @@ def run_risk_evaluation(args: argparse.Namespace) -> tuple[str, int]:
         "suite_sha256": suite_hash,
         "reference_sha256": reference_hash,
         "archive_sha256": archive_hash,
-        "source_fingerprint": _source_fingerprint(),
+        "source_fingerprint": risk_source_fingerprint,
         "feature_schema": list(PROMOTED_FEATURES),
     }
     model_payload = {**result["model"], **provenance}
