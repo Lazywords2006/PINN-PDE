@@ -7,6 +7,7 @@ import argparse
 import csv
 import hashlib
 import json
+import tarfile
 from collections import defaultdict
 from pathlib import Path
 
@@ -49,6 +50,9 @@ EXPECTED_FINAL_SUITE_SHA256 = (
 )
 EXPECTED_FINAL_REFERENCE_SHA256 = (
     "8969794607c3d82b2636eac518a49087407f9b8c0ce3fb3c037adf395673448d"
+)
+EXPECTED_PILOT_EVIDENCE_SHA256 = (
+    "0c49461a6c780840ca678582019cc433df5741fd62ef546dcde7e964b71c071b"
 )
 
 
@@ -102,6 +106,7 @@ def _sha256(path: Path) -> str:
 def _validate_final_inputs(
     final_dir: Path,
     evidence: Path,
+    pilot_evidence: Path,
     rows: list[dict[str, object]],
     summary: dict[str, object],
 ) -> None:
@@ -110,6 +115,33 @@ def _validate_final_inputs(
     actual = _sha256(evidence)
     if actual != declared or actual != EXPECTED_FINAL_EVIDENCE_SHA256:
         raise ValueError("final evidence SHA-256 is not approved")
+    with tarfile.open(evidence, "r:gz") as archive:
+        manifest_handle = archive.extractfile(
+            archive.getmember("results/p2-final-evidence-manifest.json")
+        )
+        if manifest_handle is None:
+            raise ValueError("final evidence manifest is unreadable")
+        manifest = json.loads(manifest_handle.read())
+    entries = {row["path"]: row for row in manifest["files"]}
+    rows_entry = entries.get("results/p2_final/rows.csv")
+    rows_path = final_dir / "rows.csv"
+    if (
+        rows_entry is None
+        or rows_path.stat().st_size != int(rows_entry["bytes"])
+        or _sha256(rows_path) != rows_entry["sha256"]
+    ):
+        raise ValueError("final rows do not match evidence manifest")
+    pilot_sidecar = pilot_evidence.with_suffix(pilot_evidence.suffix + ".sha256")
+    pilot_actual = _sha256(pilot_evidence)
+    pilot_declared = (
+        pilot_sidecar.read_text().split()[0] if pilot_sidecar.is_file() else ""
+    )
+    if (
+        pilot_actual != pilot_declared
+        or pilot_actual != EXPECTED_PILOT_EVIDENCE_SHA256
+        or summary.get("pilot_evidence_sha256") != EXPECTED_PILOT_EVIDENCE_SHA256
+    ):
+        raise ValueError("pilot evidence SHA-256 is not approved")
     gate = json.loads((final_dir / "gate.json").read_text())
     if gate.get("final_go") is not True:
         raise ValueError("paper figures require P2_FROZEN_FINAL_GO")
@@ -132,6 +164,44 @@ def _validate_final_inputs(
         stored = float(summary[f"{method}_overall_mean"])
         if abs(recomputed - stored) > 1e-12:
             raise ValueError(f"final summary does not match rows for {method}")
+        for split in SPLIT_LABELS:
+            recomputed_split = _group_mean(rows, method, split)
+            stored_split = float(summary[f"{method}_{split}_mean"])
+            if abs(recomputed_split - stored_split) > 1e-12:
+                raise ValueError(
+                    f"final split summary does not match rows for {method}:{split}"
+                )
+        for seed in (42, 137, 251):
+            seed_mean = float(
+                np.mean(
+                    [
+                        row["projector_error"]
+                        for row in rows
+                        if row["method"] == method and row["seed"] == seed
+                    ]
+                )
+            )
+            if abs(seed_mean - float(summary["seed_means"][method][str(seed)])) > 1e-12:
+                raise ValueError(
+                    f"final seed summary does not match rows for {method}:{seed}"
+                )
+    for family, stored_values in summary["family_near"].items():
+        for method, stored in stored_values.items():
+            recomputed = float(
+                np.mean(
+                    [
+                        row["projector_error"]
+                        for row in rows
+                        if row["family"] == family
+                        and row["method"] == method
+                        and row["split"] == "near_cluster"
+                    ]
+                )
+            )
+            if abs(recomputed - float(stored)) > 1e-12:
+                raise ValueError(
+                    f"final family summary does not match rows for {family}:{method}"
+                )
 
 
 def _group_mean(
@@ -420,6 +490,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--final-dir", type=Path, required=True)
     parser.add_argument("--final-evidence", type=Path, required=True)
+    parser.add_argument("--pilot-evidence", type=Path, required=True)
     parser.add_argument("--pilot-summary", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, default=Path("figures/p2_final"))
     parser.add_argument("--table-dir", type=Path, default=Path("paper/p2_final/tables"))
@@ -429,7 +500,11 @@ def main() -> int:
     summary = json.loads((args.final_dir / "summary.json").read_text())
     pilot_summary = json.loads(args.pilot_summary.read_text())
     _validate_final_inputs(
-        args.final_dir, args.final_evidence, rows, summary
+        args.final_dir,
+        args.final_evidence,
+        args.pilot_evidence,
+        rows,
+        summary,
     )
     table = _write_tables(rows, args.table_dir)
     figure_method_ranking(table, args.output_dir)
