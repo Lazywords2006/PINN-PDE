@@ -35,6 +35,7 @@ from scripts.run_p1_pilot import (
     build_inference_features,
     build_neural_p1_bases,
     build_p1_bases,
+    build_primary_neural_p1,
     evaluate_p1_point,
     fit_parameter_only_risk,
     frozen_thresholds,
@@ -42,6 +43,7 @@ from scripts.run_p1_pilot import (
     load_p0_calibration,
     p1_source_fingerprint,
     parameter_only_score,
+    prepare_environment,
     validate_p1_runtime_suite,
 )
 from scripts.run_p1_pilot import (
@@ -187,6 +189,8 @@ def test_p1_source_fingerprint_covers_corrector_and_orchestration(tmp_path: Path
         package / "p1_corrector.py",
         package / "risk.py",
         scripts / "generate_p1_validation.py",
+        scripts / "generate_risk_development.py",
+        scripts / "generate_v2_assets.py",
         scripts / "run_p1_pilot.py",
         scripts / "evaluate_risk_features.py",
         scripts / "audit_p5_evidence.py",
@@ -373,6 +377,34 @@ def test_primary_neural_outputs_are_built_without_reference_argument() -> None:
     assert set(completed) == set(P1_METHODS) - {"p5_long_anchor"}
 
 
+def test_production_primary_matches_primary_row_without_building_ablations() -> None:
+    import torch
+
+    anchor = _synthetic_basis(41)
+    candidate = _synthetic_basis(42)
+    score = torch.tensor([0.2, 0.8], dtype=torch.float64)
+    thresholds = {
+        "t_low_q60": 0.3,
+        "t_hard_q80": 0.5,
+        "t_high_q90": 0.7,
+        "t_pwe_q95": 0.8,
+        "score_min": 0.1,
+        "score_max": 0.9,
+    }
+
+    primary = build_primary_neural_p1(
+        anchor, candidate, score=score, thresholds=thresholds
+    )
+    all_neural = build_neural_p1_bases(
+        anchor, candidate, score=score, thresholds=thresholds
+    )
+
+    assert torch.allclose(
+        primary["basis"], all_neural["p1_risk_chordal"]["basis"]
+    )
+    assert set(primary) == {"basis", "weight", "risk_ood_mask"}
+
+
 def test_runtime_suite_validation_rejects_regeneration_or_overlap_changes() -> None:
     root = Path(__file__).resolve().parents[1]
     payload, _ = load_frozen_suite(root / "benchmarks/p1_validation_v1.json")
@@ -540,6 +572,18 @@ def test_accelerator_peak_memory_is_zero_on_cpu() -> None:
     assert accelerator_peak_memory(torch.device("cpu")) == 0
 
 
+def test_environment_timestamp_is_reused_when_runtime_is_unchanged(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "environment.json"
+    first = {"timestamp_utc": "first", "torch": "2.11", "hip": "7.2"}
+    second = {"timestamp_utc": "second", "torch": "2.11", "hip": "7.2"}
+
+    assert prepare_environment(path, first) == first
+    assert prepare_environment(path, second) == first
+    assert json.loads(path.read_text())["timestamp_utc"] == "first"
+
+
 def test_tiny_latency_benchmark_reports_primary_and_anchor_distribution() -> None:
     import torch
     from torch import nn
@@ -647,13 +691,21 @@ def test_p1_evidence_is_reopened_and_fully_audited(tmp_path: Path) -> None:
 
     p0 = tmp_path / "artifacts/risk-development-evidence-20260824-092630.tar.gz"
     p5 = tmp_path / "artifacts/p5-evidence-20260801-092048.tar.gz"
+    p0_sidecar = p0.with_suffix(p0.suffix + ".sha256")
+    p5_sidecar = p5.with_suffix(p5.suffix + ".sha256")
     gate = tmp_path / "results/p1_pilot/gate.json"
-    for path, payload in ((p0, b"p0"), (p5, b"p5"), (gate, b'{"pilot_go": false}')):
+    for path, payload in (
+        (p0, b"p0"),
+        (p5, b"p5"),
+        (p0_sidecar, b"p0-sidecar"),
+        (p5_sidecar, b"p5-sidecar"),
+        (gate, b'{"pilot_go": false}'),
+    ):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(payload)
     archive, sidecar, _ = write_evidence_bundle(
         root=tmp_path,
-        include_paths=(p0, p5, gate),
+        include_paths=(p0, p0_sidecar, p5, p5_sidecar, gate),
         output_dir=tmp_path / "artifacts",
         label="unit",
         prefix="p1-pilot-evidence",
@@ -663,6 +715,6 @@ def test_p1_evidence_is_reopened_and_fully_audited(tmp_path: Path) -> None:
     report = audit_p1_evidence(archive, sidecar)
 
     assert report["audit_pass"] is True
-    assert report["member_count"] == 3
+    assert report["member_count"] == 5
     p0.write_bytes(b"changed-after-package")
     assert audit_p1_evidence(archive, sidecar)["audit_pass"] is True

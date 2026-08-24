@@ -97,6 +97,8 @@ def p1_source_fingerprint(root: Path) -> str:
         root / "scripts/audit_p5_evidence.py",
         root / "scripts/evaluate_risk_features.py",
         root / "scripts/generate_p1_validation.py",
+        root / "scripts/generate_risk_development.py",
+        root / "scripts/generate_v2_assets.py",
         root / "scripts/run_p1_pilot.py",
         root / "scripts/run_p3_pilot.py",
         root / "scripts/run_p4_executor.py",
@@ -158,10 +160,18 @@ def audit_p1_evidence(
                 errors.append("manifest is malformed")
                 files = []
             member_count = len(files)
-            declared = {str(row.get("path", "")) for row in files}
+            declared_paths = [str(row.get("path", "")) for row in files]
+            declared = set(declared_paths)
+            if len(declared_paths) != len(declared):
+                errors.append("manifest paths are duplicated")
+            actual_files = {name for name, member in members.items() if member.isfile()}
+            if actual_files != declared | {manifest_name}:
+                errors.append("archive contains missing or undeclared files")
             required = {
                 "artifacts/risk-development-evidence-20260824-092630.tar.gz",
+                "artifacts/risk-development-evidence-20260824-092630.tar.gz.sha256",
                 "artifacts/p5-evidence-20260801-092048.tar.gz",
+                "artifacts/p5-evidence-20260801-092048.tar.gz.sha256",
                 "results/p1_pilot/gate.json",
             }
             if not required.issubset(declared):
@@ -562,18 +572,12 @@ def build_neural_p1_bases(
     score = torch.as_tensor(score, device=anchor.device, dtype=anchor.dtype)
     if score.shape != (anchor.shape[0],) or not bool(torch.isfinite(score).all()):
         raise ValueError("P1 score must be finite and aligned with the batch")
-    t_low = float(thresholds["t_low_q60"])
-    t_hard = float(thresholds["t_hard_q80"])
-    t_high = float(thresholds["t_high_q90"])
-    score_min = float(thresholds.get("score_min", 0.0))
-    score_max = float(thresholds.get("score_max", 1.0))
-    risk_ood = (score < score_min) | (score > score_max)
-    primary_weight = torch.where(
-        risk_ood,
-        torch.zeros_like(score),
-        risk_weight(score, t_low, t_high),
+    production = build_primary_neural_p1(
+        anchor, candidate, score=score, thresholds=thresholds
     )
-    primary = risk_chordal_correct(anchor, candidate, primary_weight)
+    t_hard = float(thresholds["t_hard_q80"])
+    risk_ood = production["risk_ood_mask"]
+    primary = production["basis"]
     hard = hard_select(anchor, candidate, (score <= t_hard) & ~risk_ood)
     half = risk_chordal_correct(
         anchor, candidate, torch.full_like(score, 0.5)
@@ -620,6 +624,39 @@ def build_neural_p1_bases(
         output["reference_only"] = False
     outputs["p1_parameter_only_chordal"]["risk_ood_mask"] = parameter_ood
     return outputs
+
+
+def build_primary_neural_p1(
+    anchor: torch.Tensor,
+    candidate: torch.Tensor,
+    *,
+    score: torch.Tensor,
+    thresholds: dict[str, object],
+) -> dict[str, torch.Tensor]:
+    """Build only the deployable reference-free P1 production output."""
+
+    if anchor.shape != candidate.shape:
+        raise ValueError("P1 anchor and candidate bases must have the same shape")
+    score = torch.as_tensor(score, device=anchor.device, dtype=anchor.dtype)
+    if score.shape != (anchor.shape[0],) or not bool(torch.isfinite(score).all()):
+        raise ValueError("P1 score must be finite and aligned with the batch")
+    risk_ood = (score < float(thresholds.get("score_min", 0.0))) | (
+        score > float(thresholds.get("score_max", 1.0))
+    )
+    weight = torch.where(
+        risk_ood,
+        torch.zeros_like(score),
+        risk_weight(
+            score,
+            float(thresholds["t_low_q60"]),
+            float(thresholds["t_high_q90"]),
+        ),
+    )
+    return {
+        "basis": risk_chordal_correct(anchor, candidate, weight),
+        "weight": weight,
+        "risk_ood_mask": risk_ood,
+    }
 
 
 def add_reference_p1_variants(
@@ -907,8 +944,6 @@ def benchmark_neural_latency(
     *,
     p0_model: dict[str, object],
     thresholds: dict[str, object],
-    parameter_model: dict[str, object] | None = None,
-    parameter_thresholds: dict[str, object] | None = None,
     device: torch.device,
     grid_side: int,
     warmup: int,
@@ -944,20 +979,11 @@ def benchmark_neural_latency(
         score = predict_logistic_score(matrix, p0_model).to(
             device=device, dtype=parameters.dtype
         )
-        parameter_score = (
-            parameter_only_score([point], parameter_model).to(
-                device=device, dtype=parameters.dtype
-            )
-            if parameter_model is not None
-            else score
-        )
-        build_neural_p1_bases(
+        build_primary_neural_p1(
             anchor["basis"],
             candidate["basis"],
             score=score,
             thresholds=thresholds,
-            parameter_score=parameter_score,
-            parameter_thresholds=parameter_thresholds,
         )
 
     for _ in range(warmup):
@@ -1127,6 +1153,30 @@ def _atomic_json(payload: object, path: Path) -> None:
     temporary = path.with_suffix(path.suffix + ".tmp")
     temporary.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n")
     temporary.replace(path)
+
+
+def prepare_environment(
+    path: Path, current: dict[str, object]
+) -> dict[str, object]:
+    """Reuse the original timestamp when all scientific runtime fields match."""
+
+    if path.is_file():
+        previous = json.loads(path.read_text())
+        if isinstance(previous, dict):
+            previous_stable = {
+                key: value
+                for key, value in previous.items()
+                if key != "timestamp_utc"
+            }
+            current_stable = {
+                key: value
+                for key, value in current.items()
+                if key != "timestamp_utc"
+            }
+            if previous_stable == current_stable:
+                return previous
+    _atomic_json(current, path)
+    return current
 
 
 def _write_p1_unit(
@@ -1333,10 +1383,10 @@ def run_p1_pilot(args: argparse.Namespace) -> tuple[str, int]:
     for name in ("summary.json", "gate.json", "rows.csv"):
         (output_dir / name).unlink(missing_ok=True)
 
-    environment = _environment(root, args.device)
-    if environment["git_status_porcelain"] and not args.allow_dirty:
+    current_environment = _environment(root, args.device)
+    if current_environment["git_status_porcelain"] and not args.allow_dirty:
         raise RuntimeError("formal P1 execution requires a clean Git checkout")
-    _atomic_json(environment, output_dir / "environment.json")
+    prepare_environment(output_dir / "environment.json", current_environment)
     device = select_device(args.device)
     if device.type == "cuda" and torch.cuda.is_available():
         torch.cuda.reset_peak_memory_stats(device)
@@ -1425,6 +1475,18 @@ def run_p1_pilot(args: argparse.Namespace) -> tuple[str, int]:
                 "p0_archive_sha256": calibration["archive_sha256"],
                 "p5_archive_sha256": p5_archive_sha256,
                 "source_fingerprint": source_fingerprint,
+                "requirements_sha256": file_sha256(root / "requirements.txt"),
+                "environment_sha256": file_sha256(
+                    output_dir / "environment.json"
+                ),
+                "torch_version": torch.__version__,
+                "hip_version": torch.version.hip,
+                "latency_warmup": (
+                    1 if args.smoke_only else args.latency_warmup
+                ),
+                "latency_repeats": (
+                    2 if args.smoke_only else args.latency_repeats
+                ),
                 "threshold_sha256": threshold_sha256,
                 "checkpoint_sha256": checkpoint_sha256,
             }
@@ -1472,8 +1534,6 @@ def run_p1_pilot(args: argparse.Namespace) -> tuple[str, int]:
                 family_points[0],
                 p0_model=calibration["model"],
                 thresholds=thresholds,
-                parameter_model=parameter_baseline["model"],
-                parameter_thresholds=parameter_baseline,
                 device=device,
                 grid_side=grid_side,
                 warmup=1 if args.smoke_only else args.latency_warmup,

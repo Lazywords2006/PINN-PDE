@@ -45,13 +45,13 @@ uv run --python 3.12 --with-requirements requirements.txt \
 
 2026-08-24 实测：
 
-- 191 项测试全部通过；
+- 193 项测试全部通过；
 - harmonic/Gaussian 各 1 点、seed 42；
 - 9 条方法每条 2 行，全部完整；
 - 最大正交误差 `1.5124290808632423e-7`；
 - 完整计时包含 residual/Ritz、风险、Procrustes 和 MGS；烟测 warm-up 1 次、重复 2 次；
-- anchor 路径 `57.711 ms`；
-- P1 风险路径 `173.587 ms`，约 `3.01x` anchor；
+- anchor 路径 `48.680 ms`；
+- P1 风险路径 `136.086 ms`，约 `2.80x` anchor；
 - MPS 当前分配显存 `154112` bytes；
 - 第二次运行成功从 SHA/来源绑定 unit 恢复；
 - 状态 `P1_ENGINEERING_SMOKE_PASS`。
@@ -130,7 +130,7 @@ python scripts/run_p1_pilot.py --device rocm
 - 最大正交误差 `<1e-4`；
 - 实测推理延迟不超过 anchor 的 2.5 倍。
 
-最新 7x7 小烟测的完整路径约为 `3.01x`，高于正式 `2.5x` 门槛；样本数太少，不能据此
+最新 7x7 小烟测的 production 主路径约为 `2.80x`，高于正式 `2.5x` 门槛；样本数太少，不能据此
 宣布 STOP，但正式 AMD 计时若仍超过 2.5x，P1 必须因效率门槛停止或改为共享 trunk。
 
 oracle 和 PWE 安全变体只作上界/安全分析，不能改变主方法 STOP。
