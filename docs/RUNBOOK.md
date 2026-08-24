@@ -1,88 +1,98 @@
-# 当前运行手册（P5）
+# Reproduction and SCI-Q3 Supplement Runbook
 
-## 1. 纪律
+## 1. Current rule
 
-P5 是 validation 上的机制归因，不是 frozen-final 实验。禁止修改方法、seed、步数、
-门槛、套件或输出目录。P4 结果不可覆盖，P5 STOP 时禁止运行 final。
+The P2 frozen final and Q3 supplement are complete and permanently closed. Do not run
+`scripts/evaluate_p2_final.py` or rerun `q3_supplement_v1` after changing methods or gates. The
+commands below are for code verification, evidence auditing, and figure regeneration.
 
-## 2. 同步与环境
-
-```bash
-git fetch origin
-git switch main
-git pull --ff-only origin main
-git status --porcelain
-```
-
-正式执行要求最后一条没有输出。选择一个环境脚本：
+## 2. Local verification
 
 ```bash
-bash scripts/setup_cuda.sh      # NVIDIA
-bash scripts/setup_rtx5090.sh   # RTX 5090
-bash scripts/setup_rocm.sh      # AMD ROCm
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python -m pytest -q
 ```
 
-AMD 镜像不要用 pip 安装 CUDA 版 torch 覆盖预装 ROCm 版本。
-
-## 3. 本地烟测
-
-有已核验 validation 缓存时：
+Device preflight:
 
 ```bash
-python scripts/run_p5_executor.py \
-  --device auto --skip-cache --smoke-only
+python scripts/preflight_accelerator.py --backend cuda
 ```
 
-合法成功状态为 `P5_EXECUTION_STATUS=SMOKE_PASS`。烟测为 6 方法 × 2 势族 × 1 seed，
-每个只训练 5 步，只证明工程可运行。
+Use `mps` or `rocm` only when that backend is actually available. MPS smoke tests are engineering
+checks and cannot replace the archived CUDA paper results.
 
-## 4. 正式 P5
+## 3. Verify returned final evidence without rerunning it
 
 ```bash
-python scripts/run_p5_executor.py --device auto 2>&1 | tee p5-executor.log
+shasum -a 256 -c \
+  results/remote_5090_p2_final_go/p2-final-evidence-20260824-133520.tar.gz.sha256
+
+jq . results/remote_5090_p2_final_go/results/p2_final/gate.json
+jq . results/remote_5090_p2_final_go/results/p2_final/summary.json
 ```
 
-程序会：
+Expected final evidence SHA-256:
 
-1. 核验或生成 validation PWE 缓存；
-2. 跑 12-run smoke；
-3. smoke 通过后跑 36-run promotion；
-4. 解析 JSON 和 run 数，不只依赖退出码；
-5. 生成带 manifest 的证据包和 SHA-256 sidecar。
+```text
+c653d0eddab018741312741f6db46f023a20812306d574b66947bbb42af25095
+```
 
-断电后运行相同命令会从 `latest.pt` 继续。源码、配置、suite 或缓存哈希不一致时会拒绝
-续训。
-
-## 5. 结果解释
+## 4. Regenerate publication figures
 
 ```bash
-jq . results/p5_execution/execution-summary.json
-jq . results/p5_promotion/diagnostic_gate.json
-jq '{total_runs,completed_runs,failed_runs,gate}' results/p5_promotion/summary.json
+python scripts/generate_p2_paper_figures.py
 ```
 
-- `P5_PROMOTION_GO`：低频结构归因和 gap 安全都通过；先回收证据，仍不要直接开 final。
-- `P5_PROMOTION_STOP`：科学门槛未过；保留结果，不改门槛重跑。
-- `SMOKE_FAIL`、`CACHE_FAIL`、`ENGINEERING_FAIL`：工程失败；保留 traceback 和失败包。
+The generator validates the final evidence digest, GO gate, 19,200-row identity matrix, method
+counts, suite/reference/pilot hashes, and numeric aggregates before plotting. Do not bypass these
+checks to produce a prettier figure.
 
-## 6. 证据核验与回收
+## 5. Completed SCI-Q3 supplement
+
+The supplement ran on 2026-08-25 and returned `Q3_SUPPLEMENT_GO`. Protocol and results:
+
+- `docs/Q3-SUPPLEMENT-PROTOCOL.zh-CN.md`;
+- `paper/p2_final/Q3_SUPPLEMENT_REPORT.zh-CN.md`;
+- `benchmarks/q3_supplement_v1.json`;
+- local evidence: `results/remote_5090_q3_supplement_go/`.
+
+The executed sequence was:
+
+1. write a new protocol and success criteria;
+2. generate a disjoint supplementary parameter suite and SHA-256 sidecar;
+3. implement and document a faithful Dai-style neural-subspace Galerkin baseline;
+4. implement and document a Wang–Xie trace baseline, including every Bloch-specific adaptation;
+5. run a small smoke, then a 3-seed pilot;
+6. compare parameter counts, training budget, wall time, peak memory, and identical test points;
+7. package rows, summaries, environment, source fingerprint, manifest, and outer SHA-256;
+8. report the positive result without changing the frozen main table.
+
+The legacy `sci3_*` configs remain retired. The completed supplement uses
+`scripts/generate_q3_supplement.py` and `scripts/run_q3_supplement.py`.
+
+Audit a returned archive without running experiments:
 
 ```bash
-latest=$(ls -t artifacts/p5-evidence-*.tar.gz | head -1)
-sha256sum -c "${latest}.sha256" || shasum -a 256 -c "${latest}.sha256"
-git rev-parse HEAD > results/P5_GIT_COMMIT.txt
-python -m pip freeze > results/p5-pip-freeze.txt
+python scripts/run_q3_supplement.py \
+  --audit-evidence results/remote_5090_q3_supplement_go/q3-supplement-evidence-20260824-170904.tar.gz
 ```
 
-下载 `latest`、对应 `.sha256`、`p5-executor.log` 和 Git commit。不要只保存截图。
+## 6. Hardware
 
-## 7. 常见故障
+- Documentation, theory, audit, and plotting: local CPU/Mac, no rented GPU.
+- Completed nearest-neighbor supplement: one RTX 5090 D 32 GB; wall time about 64 minutes.
+- A third potential family or same-device PWE timing may add 6–12 hours.
+- Multi-GPU training is unnecessary.
 
-- `formal P5 execution requires a clean Git checkout`：先备份结果，恢复干净工作树。
-- `source fingerprint mismatch`：运行期间源码变化；固定提交后重新开始，不强行续训。
-- `cache SHA-256 ... invalid`：缓存不完整；重新生成 validation 缓存。
-- MPS eigvalsh 错误：应使用当前已提交的后端分流版本；不要把 Gram 一律移到 MPS。
-- ROCm CPU LAPACK 错误：Gram 应保留在 ROCm GPU；不要恢复旧 `.cpu()` 实现。
-- 子进程退出码为 0 但 JSON 有 failure：以 summary/gate 为准，当前 executor 会自动拦截。
+## 7. Failure handling
 
-完整判断见 [CURRENT-STATUS.zh-CN.md](CURRENT-STATUS.zh-CN.md)。
+- Non-finite loss or rank deficiency: preserve traceback and exact config; stop that run.
+- Suite/cache/source hash mismatch: do not resume across revisions.
+- Nearest journal baseline wins: retain the result and narrow the paper claim.
+- Supplement does not pass its preregistered gate: do not modify the main frozen evidence.
+- CUDA results disagree with archived values: investigate environment and evidence bindings; never
+  overwrite the archive.

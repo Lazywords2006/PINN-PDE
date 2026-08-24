@@ -16,7 +16,17 @@ git clone https://github.com/haarisamian/neural-bloch-eigensolver.git
 git -C neural-bloch-eigensolver checkout 7ba841f26301cf5047647d26ad30a1def25c1276
 ```
 
-当前 V2 promotion pilot 实际包含 P1 block、ordered residual、Wang–Xie trace 公式适配和
-P3。项目内 `wang_xie_trace`、`dai_galerkin` 和 `causal_sort` 都是针对统一 Bloch 参数
-网络的公式级适配，不得写成作者官方代码直接运行结果。正式投稿矩阵仍需补 Dai/Galerkin
-和监督 Grassmann 上界，并保存固定提交号、环境、参数量、训练预算与适配差异。
+当前 P2 frozen-final 主表使用十个内部控制方法，但没有把外部作者仓库直接运行结果写入
+主表。项目内 `wang_xie_trace`、`dai_galerkin` 和 `causal_sort` 都是针对统一 Bloch 参数
+网络的公式级适配，不得写成作者官方代码直接运行结果。
+
+SCI-Q3 supplement 已完成：
+
+1. Wang–Xie trace Bloch 适配 overall `0.13114`，P2 `0.04728`；
+2. Dai neural-subspace Galerkin Bloch 适配 overall `0.43367`，但收敛较差；
+3. 两个适配均使用1500步、两个势族、3 seeds 和同一160点 suite；
+4. 固定提交、环境、参数量、训练预算、测试点与证据哈希已保存。
+
+这些结果是公式级适配，不是作者官方代码运行结果。不得用 Dai 适配的失败否定原论文，
+也不得修改方法后重跑已关闭的 supplement。完整报告见
+`paper/p2_final/Q3_SUPPLEMENT_REPORT.zh-CN.md`。

@@ -1,17 +1,23 @@
 # Repository guardrails
 
-This is a scientific-computing repository. Preserve the distinction between
-engineering smoke tests, the V2 validation pilot, and the frozen V2 final test.
+This is a scientific-computing repository with a completed one-shot final evaluation.
 
-- Do not use `benchmarks/v2_frozen_test.json` for training, tuning, or pilot decisions.
-- Do not run `scripts/evaluate_v2_final.py` unless the recomputed 24-run pilot gate is GO.
-- Do not describe smoke or unrun GPU experiments as paper results.
-- Do not edit frozen suite JSON or SHA-256 files by hand; regenerate them with
-  `scripts/generate_v2_assets.py --suites-only`.
-- Keep reference cutoff 24 unless a new, stricter convergence audit justifies a change.
-- Preserve checkpoint, source, suite, cache, and RNG provenance bindings.
-- Use `python -m pytest -q` before committing Python changes.
-- Generated data, checkpoints, and results belong in ignored `data/` and `results/`.
-
-Operational instructions are in `docs/RUNBOOK.md`; unresolved scientific work is
-tracked in `docs/KNOWN_GAPS.zh-CN.md`.
+- Canonical status: `docs/CURRENT-STATUS.zh-CN.md`.
+- Canonical numeric summary: `paper/p2_final/CORE_RESULTS.zh-CN.md`.
+- Current method: basis-invariant neural-augmented Rayleigh–Ritz with the complete second
+  hexagonal shell.
+- Final status: `P2_FROZEN_FINAL_GO`.
+- Supplement status: `Q3_SUPPLEMENT_GO`; evidence SHA-256
+  `282cdd418eaa11a68498ee7fbc0198dfc1f362a535385756a7cc38275806afe0`.
+- `benchmarks/v2_frozen_test.json` and its references are permanently closed to training,
+  tuning, checkpoint selection, and reruns.
+- `benchmarks/q3_supplement_v1.json` has already been used for one formal comparison and is now
+  closed to tuning or method changes.
+- Formula-level `wang_xie_trace` and `dai_galerkin` supplement results are not official
+  author-code reproductions.
+- Keep smoke, validation, frozen final, and planned experiments clearly separated.
+- Preserve source, suite, cache, checkpoint, RNG, manifest, and SHA-256 provenance.
+- Generated data, checkpoints, and large results belong in ignored `data/` or `results/` paths.
+- Run `python -m pytest -q` before committing Python changes.
+- Documentation cleanup may remove completed execution prompts, but must not remove archived
+  negative-result evidence.
