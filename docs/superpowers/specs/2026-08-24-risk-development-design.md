@@ -8,9 +8,10 @@ checkpoints, evaluates them on a new parameter suite, and asks whether inference
 label-free quantities can rank the points where the ROM candidate regresses relative to the
 anchor.
 
-P0 is a scientific falsification stage, not a method-promotion stage. It must not open
-`benchmarks/v2_frozen_test.json`, run `scripts/evaluate_v2_final.py`, retrain P5, or change
-the frozen P5 gate.
+P0 is a scientific falsification stage, not a method-promotion stage. It may read only the
+parameter coordinates in `benchmarks/v2_frozen_test.json` for mechanical overlap rejection. It
+must not read frozen-final references, labels, checkpoints or results; run
+`scripts/evaluate_v2_final.py`; retrain P5; or change the frozen P5 gate.
 
 ## 2. Alternatives Considered
 
@@ -69,6 +70,9 @@ Create `benchmarks/risk_development_v1.json` and its SHA-256 sidecar with these 
 - strict-OOD points are outside the corresponding training box;
 - no `(family, parameters)` tuple overlaps `v2_validation.json` or `v2_frozen_test.json`;
 - no calibration tuple overlaps an audit tuple.
+
+The final-suite JSON is used only as a set of parameter identities in this overlap check. No
+frozen-final reference cache or evaluation output is opened.
 
 References use the existing symmetry-closed hexagonal PWE solver with cutoff 24, rank 3,
 float64 assembly, and the existing 33×33 evaluation grid. The reference cache records suite

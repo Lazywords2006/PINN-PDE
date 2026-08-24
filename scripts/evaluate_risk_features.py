@@ -441,6 +441,12 @@ def calibrate_and_audit(
         raise ValueError(
             f"expected {expected_rows} paired rows, received {len(rows)}"
         )
+    identities = [
+        (str(row.get("role")), str(row.get("point_id")), int(row.get("seed", -1)))
+        for row in rows
+    ]
+    if len(identities) != len(set(identities)):
+        raise ValueError("risk point/seed identities are duplicated")
     calibration = [row for row in rows if row.get("role") == "calibration"]
     audit = [row for row in rows if row.get("role") == "audit"]
     if not calibration or not audit or len(calibration) + len(audit) != len(rows):
@@ -449,6 +455,21 @@ def calibrate_and_audit(
     audit_ids = {str(row["point_id"]) for row in audit}
     if not calibration_ids.isdisjoint(audit_ids):
         raise ValueError("risk calibration and audit point IDs overlap")
+    if expected_rows == 480:
+        for role_rows in (calibration, audit):
+            role_point_ids = {str(row["point_id"]) for row in role_rows}
+            if len(role_point_ids) != 80:
+                raise ValueError("formal risk role must contain 80 unique points")
+            for point_id in role_point_ids:
+                seeds = {
+                    int(row["seed"])
+                    for row in role_rows
+                    if row["point_id"] == point_id
+                }
+                if seeds != set(RISK_SEEDS):
+                    raise ValueError(
+                        f"formal risk point has incomplete seeds: {point_id}"
+                    )
 
     calibration_matrix = _feature_matrix(calibration)
     audit_matrix = _feature_matrix(audit)
@@ -552,6 +573,35 @@ def package_risk_evidence(
     )
 
 
+def _risk_evidence_inputs(
+    *,
+    root: Path,
+    output_dir: Path,
+    suite_path: Path,
+    reference_path: Path,
+    p5_archive_path: Path,
+    p5_sidecar_path: Path,
+) -> tuple[Path, ...]:
+    """Return the self-contained P0 evidence input set."""
+
+    return (
+        output_dir,
+        suite_path,
+        suite_path.with_suffix(".sha256"),
+        reference_path,
+        reference_path.with_suffix(".sha256"),
+        p5_archive_path,
+        p5_sidecar_path,
+        root / "block_kyfan_pinn/risk.py",
+        root / "scripts/generate_risk_development.py",
+        root / "scripts/evaluate_risk_features.py",
+        root / "scripts/audit_p5_evidence.py",
+        root / "tests/test_risk.py",
+        root / "tests/test_risk_protocol_integrity.py",
+        root / "requirements.txt",
+    )
+
+
 def _atomic_json(payload: object, path: Path) -> None:
     temporary = path.with_suffix(path.suffix + ".tmp")
     temporary.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n")
@@ -579,17 +629,74 @@ def _unit_provenance(
 
 
 def _load_completed_unit(
-    path: Path, expected_provenance: dict[str, object]
+    path: Path,
+    expected_provenance: dict[str, object],
+    *,
+    expected_family: str,
+    expected_seed: int,
+    expected_points: dict[str, tuple[str, str]],
 ) -> list[dict[str, object]] | None:
-    if not path.is_file():
+    sidecar = path.with_suffix(path.suffix + ".sha256")
+    if not path.is_file() and not sidecar.is_file():
         return None
+    if not path.is_file() or not sidecar.is_file():
+        raise ValueError(f"risk unit JSON and SHA-256 must coexist: {path}")
+    tokens = sidecar.read_text().split()
+    if not tokens or tokens[0] != file_sha256(path):
+        raise ValueError(f"risk unit SHA-256 mismatch: {path}")
     payload = json.loads(path.read_text())
     if not isinstance(payload, dict) or payload.get("provenance") != expected_provenance:
         raise ValueError(f"risk unit provenance mismatch: {path}")
     rows = payload.get("rows")
-    if not isinstance(rows, list) or len(rows) != 80:
+    if not isinstance(rows, list) or len(rows) != len(expected_points):
         raise ValueError(f"risk unit is incomplete: {path}")
+    identities: set[str] = set()
+    finite_fields = (
+        *PROMOTED_FEATURES,
+        "anchor_projector_error",
+        "candidate_projector_error",
+        "delta_error",
+        "reference_internal_gap",
+        "reference_external_gap",
+    )
+    for row in rows:
+        if not isinstance(row, dict):
+            raise ValueError(f"risk unit row is not an object: {path}")
+        point_id = str(row.get("point_id", ""))
+        expected_role_split = expected_points.get(point_id)
+        if expected_role_split is None or point_id in identities:
+            raise ValueError(f"risk unit point identity is invalid: {point_id}")
+        identities.add(point_id)
+        if row.get("family") != expected_family:
+            raise ValueError(f"risk unit row has wrong family: {point_id}")
+        if row.get("seed") != expected_seed:
+            raise ValueError(f"risk unit row has wrong seed: {point_id}")
+        if (row.get("role"), row.get("split")) != expected_role_split:
+            raise ValueError(f"risk unit row role/split mismatch: {point_id}")
+        if not all(
+            field in row and math.isfinite(float(row[field]))
+            for field in finite_fields
+        ):
+            raise ValueError(f"risk unit row has missing/non-finite fields: {point_id}")
+        if not isinstance(row.get("regression"), bool) or not isinstance(
+            row.get("unsafe_regression"), bool
+        ):
+            raise ValueError(f"risk unit row labels are not booleans: {point_id}")
+    if identities != set(expected_points):
+        raise ValueError(f"risk unit point set is incomplete: {path}")
     return rows
+
+
+def _write_completed_unit(
+    path: Path,
+    provenance: dict[str, object],
+    rows: list[dict[str, object]],
+) -> None:
+    _atomic_json({"provenance": provenance, "rows": rows}, path)
+    digest = file_sha256(path)
+    path.with_suffix(path.suffix + ".sha256").write_text(
+        f"{digest}  {path.name}\n"
+    )
 
 
 def _write_features_csv(rows: list[dict[str, object]], path: Path) -> None:
@@ -714,7 +821,17 @@ def run_risk_evaluation(args: argparse.Namespace) -> tuple[str, int]:
                 candidate_inventory=candidate_row,
             )
             unit_path = unit_dir / f"{family}_seed{seed}.json"
-            completed = _load_completed_unit(unit_path, provenance)
+            expected_points = {
+                str(point["id"]): (str(point["role"]), str(point["split"]))
+                for point in family_points
+            }
+            completed = _load_completed_unit(
+                unit_path,
+                provenance,
+                expected_family=family,
+                expected_seed=seed,
+                expected_points=expected_points,
+            )
             if completed is not None:
                 all_rows.extend(completed)
                 continue
@@ -728,7 +845,7 @@ def run_risk_evaluation(args: argparse.Namespace) -> tuple[str, int]:
                 seed=seed,
                 device=device,
             )
-            _atomic_json({"provenance": provenance, "rows": rows}, unit_path)
+            _write_completed_unit(unit_path, provenance, rows)
             all_rows.extend(rows)
             print(f"RISK_UNIT_COMPLETE={family}:seed{seed}", flush=True)
     if len(all_rows) != 480:
@@ -765,19 +882,13 @@ def run_risk_evaluation(args: argparse.Namespace) -> tuple[str, int]:
     label = time.strftime("%Y%m%d-%H%M%S", time.gmtime())
     archive, sidecar, manifest = package_risk_evidence(
         root=root,
-        include_paths=(
-            output_dir,
-            suite_path,
-            suite_path.with_suffix(".sha256"),
-            reference_path,
-            reference_path.with_suffix(".sha256"),
-            sidecar_path,
-            root / "block_kyfan_pinn/risk.py",
-            root / "scripts/generate_risk_development.py",
-            root / "scripts/evaluate_risk_features.py",
-            root / "tests/test_risk.py",
-            root / "tests/test_risk_protocol_integrity.py",
-            root / "requirements.txt",
+        include_paths=_risk_evidence_inputs(
+            root=root,
+            output_dir=output_dir,
+            suite_path=suite_path,
+            reference_path=reference_path,
+            p5_archive_path=archive_path,
+            p5_sidecar_path=sidecar_path,
         ),
         output_dir=root / "artifacts",
         label=label,

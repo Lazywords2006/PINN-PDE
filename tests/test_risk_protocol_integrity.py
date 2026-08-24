@@ -15,7 +15,10 @@ from block_kyfan_pinn.physics import periodic_mgs
 from block_kyfan_pinn.suites import load_frozen_suite, write_frozen_suite
 from scripts.evaluate_risk_features import (
     PROMOTED_FEATURES,
+    _load_completed_unit,
+    _risk_evidence_inputs,
     _risk_source_fingerprint,
+    _write_completed_unit,
     build_paired_feature_row,
     calibrate_and_audit,
     evaluate_paired_points,
@@ -192,7 +195,9 @@ def test_paired_feature_row_separates_permitted_features_from_oracle_labels() ->
     assert row["projector_disagreement"] > 0.0
 
 
-def test_actual_p5_checkpoint_pair_extracts_one_finite_feature_row() -> None:
+def test_actual_p5_checkpoint_pair_extracts_one_finite_feature_row(
+    tmp_path: Path,
+) -> None:
     root = Path(__file__).resolve().parents[1]
     archive = root / "artifacts/p5-evidence-20260801-092048.tar.gz"
     inventory = inventory_p5_checkpoints(
@@ -215,8 +220,24 @@ def test_actual_p5_checkpoint_pair_extracts_one_finite_feature_row() -> None:
         for point in suite["points"]
         if point["family"] == "harmonic_honeycomb"
     )
+    tiny_suite = build_suite_payload(
+        [point],
+        suite_id="unit-risk-checkpoint-pair",
+        seed=971,
+        purpose="unit_test_not_final",
+    )
+    tiny_suite_path = tmp_path / "suite.json"
+    write_frozen_suite(tiny_suite, tiny_suite_path)
+    tiny_cache_path = tmp_path / "references.pt"
+    build_reference_cache(
+        tiny_suite_path,
+        tiny_cache_path,
+        cutoff=2,
+        grid_side=33,
+        rank=3,
+    )
     cache = torch.load(
-        root / "data/risk_development_v1_references.pt",
+        tiny_cache_path,
         map_location="cpu",
         weights_only=False,
     )
@@ -291,6 +312,15 @@ def test_heldout_shuffled_labels_force_risk_stop() -> None:
     assert result["gate"]["risk_go"] is False
 
 
+def test_calibration_rejects_duplicate_point_seed_identity() -> None:
+    rows = _synthetic_risk_rows()
+    rows.append(dict(rows[0]))
+    with pytest.raises(ValueError, match="duplicated"):
+        calibrate_and_audit(
+            rows, bootstrap_samples=200, bootstrap_seed=959
+        )
+
+
 def test_risk_evidence_bundle_has_manifest_and_matching_sidecar(
     tmp_path: Path,
 ) -> None:
@@ -315,6 +345,19 @@ def test_risk_evidence_bundle_has_manifest_and_matching_sidecar(
         assert "results/risk-development-evidence-manifest.json" in handle.getnames()
 
 
+def test_risk_evidence_inputs_include_the_actual_p5_archive(tmp_path: Path) -> None:
+    paths = _risk_evidence_inputs(
+        root=tmp_path,
+        output_dir=tmp_path / "results/risk",
+        suite_path=tmp_path / "benchmarks/risk.json",
+        reference_path=tmp_path / "data/risk.pt",
+        p5_archive_path=tmp_path / "artifacts/p5.tar.gz",
+        p5_sidecar_path=tmp_path / "artifacts/p5.tar.gz.sha256",
+    )
+    assert tmp_path / "artifacts/p5.tar.gz" in paths
+    assert tmp_path / "artifacts/p5.tar.gz.sha256" in paths
+
+
 def test_risk_source_fingerprint_covers_evaluator_scripts(tmp_path: Path) -> None:
     package = tmp_path / "block_kyfan_pinn"
     scripts = tmp_path / "scripts"
@@ -331,3 +374,73 @@ def test_risk_source_fingerprint_covers_evaluator_scripts(tmp_path: Path) -> Non
     (scripts / "evaluate_risk_features.py").write_text("NAME = 'changed'\n")
     after = _risk_source_fingerprint(tmp_path)
     assert before != after
+
+
+def _unit_row(point_id: str, *, family: str = "harmonic_honeycomb") -> dict[str, object]:
+    row: dict[str, object] = {name: 0.1 for name in PROMOTED_FEATURES}
+    row.update(
+        {
+            "role": "calibration",
+            "family": family,
+            "split": "iid_hidden",
+            "point_id": point_id,
+            "seed": 42,
+            "anchor_projector_error": 0.1,
+            "candidate_projector_error": 0.11,
+            "delta_error": 0.01,
+            "regression": True,
+            "unsafe_regression": True,
+            "reference_internal_gap": 0.02,
+            "reference_external_gap": 0.20,
+        }
+    )
+    return row
+
+
+def test_completed_unit_rejects_byte_tampering(tmp_path: Path) -> None:
+    path = tmp_path / "unit.json"
+    provenance = {"suite_sha256": "abc", "feature_schema": list(PROMOTED_FEATURES)}
+    expected_points = {
+        "p0": ("calibration", "iid_hidden"),
+        "p1": ("calibration", "iid_hidden"),
+    }
+    _write_completed_unit(
+        path, provenance, [_unit_row("p0"), _unit_row("p1")]
+    )
+    assert _load_completed_unit(
+        path,
+        provenance,
+        expected_family="harmonic_honeycomb",
+        expected_seed=42,
+        expected_points=expected_points,
+    ) is not None
+    path.write_text(path.read_text().replace('"seed": 42', '"seed": 137', 1))
+    with pytest.raises(ValueError, match="SHA-256"):
+        _load_completed_unit(
+            path,
+            provenance,
+            expected_family="harmonic_honeycomb",
+            expected_seed=42,
+            expected_points=expected_points,
+        )
+
+
+def test_completed_unit_rejects_wrong_internal_row_identity(tmp_path: Path) -> None:
+    path = tmp_path / "unit.json"
+    provenance = {"suite_sha256": "abc", "feature_schema": list(PROMOTED_FEATURES)}
+    _write_completed_unit(
+        path,
+        provenance,
+        [_unit_row("p0"), _unit_row("p1", family="gaussian_honeycomb")],
+    )
+    with pytest.raises(ValueError, match="family"):
+        _load_completed_unit(
+            path,
+            provenance,
+            expected_family="harmonic_honeycomb",
+            expected_seed=42,
+            expected_points={
+                "p0": ("calibration", "iid_hidden"),
+                "p1": ("calibration", "iid_hidden"),
+            },
+        )
