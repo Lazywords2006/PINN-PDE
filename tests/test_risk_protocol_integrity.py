@@ -1,13 +1,23 @@
 from __future__ import annotations
 
 import json
+import math
 from collections import Counter
 from pathlib import Path
 
+import pytest
 import torch
 
+from block_kyfan_pinn.risk import FORBIDDEN_FEATURES
+from block_kyfan_pinn.physics import periodic_mgs
 from block_kyfan_pinn.suites import load_frozen_suite, write_frozen_suite
-from scripts.evaluate_risk_features import inventory_p5_checkpoints
+from scripts.evaluate_risk_features import (
+    PROMOTED_FEATURES,
+    build_paired_feature_row,
+    evaluate_paired_points,
+    inventory_p5_checkpoints,
+    load_p5_checkpoint,
+)
 from scripts.generate_risk_development import (
     RISK_AUDIT_SEED,
     RISK_CALIBRATION_SEED,
@@ -136,3 +146,83 @@ def test_p5_inventory_contains_only_twelve_declared_final_checkpoints() -> None:
     }
     assert all(str(row["checkpoint_member"]).endswith("/final.pt") for row in inventory)
     assert all("latest.pt" not in str(row["checkpoint_member"]) for row in inventory)
+
+
+def test_paired_feature_row_separates_permitted_features_from_oracle_labels() -> None:
+    torch.manual_seed(929)
+    anchor_basis = periodic_mgs(torch.randn(1, 25, 2, 2))
+    candidate_basis = periodic_mgs(torch.randn(1, 25, 2, 2))
+    anchor = {
+        "residual": 0.10,
+        "gram": 2.0,
+        "ritz_1": 0.2,
+        "ritz_2": 0.5,
+        "basis": anchor_basis,
+        "projector_error": 0.20,
+    }
+    candidate = {
+        "residual": 0.12,
+        "gram": 3.0,
+        "ritz_1": 0.25,
+        "ritz_2": 0.60,
+        "basis": candidate_basis,
+        "projector_error": 0.23,
+    }
+    row = build_paired_feature_row(
+        role="audit",
+        family="harmonic_honeycomb",
+        split="gap_scan",
+        point_id="risk-audit-harmonic-gap-000",
+        seed=42,
+        anchor=anchor,
+        candidate=candidate,
+        reference_internal_gap=0.01,
+        reference_external_gap=0.20,
+    )
+    assert all(name in row for name in PROMOTED_FEATURES)
+    assert set(PROMOTED_FEATURES).isdisjoint(FORBIDDEN_FEATURES)
+    assert row["regression"] is True
+    assert row["unsafe_regression"] is True
+    assert row["delta_error"] == pytest.approx(0.03)
+    assert row["projector_disagreement"] > 0.0
+
+
+def test_actual_p5_checkpoint_pair_extracts_one_finite_feature_row() -> None:
+    root = Path(__file__).resolve().parents[1]
+    archive = root / "artifacts/p5-evidence-20260801-092048.tar.gz"
+    inventory = inventory_p5_checkpoints(
+        archive, archive.with_suffix(archive.suffix + ".sha256")
+    )
+    selected = {
+        str(row["method"]): row
+        for row in inventory
+        if row["family"] == "harmonic_honeycomb" and row["seed"] == 42
+    }
+    anchor = load_p5_checkpoint(
+        archive, selected["p5_anchor"], torch.device("cpu")
+    )
+    candidate = load_p5_checkpoint(
+        archive, selected["p5_static_low_rom"], torch.device("cpu")
+    )
+    suite, _ = load_frozen_suite(root / "benchmarks/risk_development_v1.json")
+    point = next(
+        point
+        for point in suite["points"]
+        if point["family"] == "harmonic_honeycomb"
+    )
+    cache = torch.load(
+        root / "data/risk_development_v1_references.pt",
+        map_location="cpu",
+        weights_only=False,
+    )
+    rows = evaluate_paired_points(
+        anchor,
+        candidate,
+        [point],
+        cache["references"],
+        seed=42,
+        device=torch.device("cpu"),
+    )
+    assert len(rows) == 1
+    assert all(math.isfinite(float(rows[0][name])) for name in PROMOTED_FEATURES)
+    assert isinstance(rows[0]["regression"], bool)
