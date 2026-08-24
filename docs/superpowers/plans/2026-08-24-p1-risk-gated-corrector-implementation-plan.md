@@ -115,7 +115,7 @@ earlier suites.  Write canonical JSON plus a standard SHA-256 sidecar.
 ```bash
 uv run --python 3.12 --with-requirements requirements.txt \
   python scripts/generate_p1_validation.py --suite-only
-shasum -a 256 -c benchmarks/p1_validation_v1.sha256
+(cd benchmarks && shasum -a 256 -c p1_validation_v1.sha256)
 ```
 
 Expected: 96 points and `OK`.
@@ -282,7 +282,7 @@ Expected: HIP available, accelerator memory recorded, and all tests pass.
 
 ```bash
 python scripts/generate_p1_validation.py --device cpu --cache-only
-shasum -a 256 -c data/p1_validation_v1_references.sha256
+(cd data && shasum -a 256 -c p1_validation_v1_references.sha256)
 ```
 
 Expected: cutoff-24, rank-3, 33x33 cache and `OK`.
