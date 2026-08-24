@@ -318,7 +318,10 @@ def run_pilot(args: argparse.Namespace) -> tuple[str, int]:
         raise RuntimeError("formal P2 pilot requires a clean Git checkout")
     suite_path = root / args.suite
     suite, suite_hash = load_frozen_suite(suite_path)
-    if suite != build_p2_suite_payload(generate_p2_validation_suite()):
+    expected_suite = build_p2_suite_payload(generate_p2_validation_suite())
+    if json.dumps(suite, sort_keys=True) != json.dumps(
+        expected_suite, sort_keys=True
+    ):
         raise ValueError("P2 suite does not match deterministic regeneration")
     validate_p2_suite_disjointness(suite["points"], root)
     cache_path = root / args.reference_cache

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from collections import Counter
 from pathlib import Path
 
@@ -58,6 +59,16 @@ def test_p2_payload_freezes_protocol_metadata() -> None:
     assert payload["suite_id"] == "block-kyfan-p2-validation-v1-20260824"
     assert payload["generation_seed"] == 2026082404
     assert payload["purpose"] == "p2_full_shell_independent_pilot_not_final_test"
+
+
+def test_committed_p2_suite_matches_canonical_regeneration() -> None:
+    root = Path(__file__).resolve().parents[1]
+    committed, _ = load_frozen_suite(root / "benchmarks/p2_validation_v1.json")
+    regenerated = build_p2_suite_payload(generate_p2_validation_suite())
+
+    assert json.dumps(committed, sort_keys=True) == json.dumps(
+        regenerated, sort_keys=True
+    )
 
 
 def _passing_summary() -> dict[str, object]:
