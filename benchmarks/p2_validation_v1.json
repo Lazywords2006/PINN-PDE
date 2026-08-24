@@ -1,0 +1,1166 @@
+{
+  "suite_id": "block-kyfan-p2-validation-v1-20260824",
+  "protocol_version": 2,
+  "purpose": "p2_full_shell_independent_pilot_not_final_test",
+  "generation_seed": 2026082404,
+  "point_count": 96,
+  "split_counts": {
+    "iid_hidden": 16,
+    "exact_cluster": 16,
+    "near_cluster": 32,
+    "strict_ood": 16,
+    "gap_scan": 16
+  },
+  "family_counts": {
+    "harmonic_honeycomb": 48,
+    "gaussian_honeycomb": 48
+  },
+  "training_bounds": {
+    "harmonic_honeycomb": [
+      [
+        0.28,
+        0.38
+      ],
+      [
+        0.28,
+        0.38
+      ],
+      [
+        0.2,
+        0.8
+      ],
+      [
+        -0.08,
+        0.08
+      ]
+    ],
+    "gaussian_honeycomb": [
+      [
+        0.28,
+        0.38
+      ],
+      [
+        0.28,
+        0.38
+      ],
+      [
+        1.0,
+        4.0
+      ],
+      [
+        0.18,
+        0.35
+      ],
+      [
+        -0.08,
+        0.08
+      ]
+    ]
+  },
+  "points": [
+    {
+      "id": "p2-harmonic_honeycomb-iid_hidden-000",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.3620266692486612,
+        0.34982863887324844,
+        0.3148085652337488,
+        -0.042745546430133244
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-iid_hidden-001",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.3269155743589895,
+        0.36563912925020037,
+        0.5324233861944918,
+        0.036142429031292805
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-iid_hidden-002",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.2997144489324698,
+        0.3723620431550881,
+        0.6518430388806911,
+        0.011108714325042165
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-iid_hidden-003",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.3477989184164603,
+        0.3409145208025422,
+        0.7782395374206008,
+        0.06993436414034375
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-iid_hidden-004",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.3715912151906291,
+        0.284916109231491,
+        0.20061256222461685,
+        -0.026148313313247226
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-iid_hidden-005",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.316368765894519,
+        0.30365018520611026,
+        0.48264173150935324,
+        -0.07510710029230185
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-iid_hidden-006",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.33602804592344765,
+        0.327993246330055,
+        0.40921956127767845,
+        -0.008940329412399375
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-iid_hidden-007",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.2895844467057711,
+        0.3073013680843049,
+        0.5779108156852598,
+        0.056284832689747086
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-exact_cluster-000",
+      "family": "harmonic_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.2122448979591837,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-exact_cluster-001",
+      "family": "harmonic_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.2766917293233083,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-exact_cluster-002",
+      "family": "harmonic_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.34113856068743287,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-exact_cluster-003",
+      "family": "harmonic_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.4055853920515575,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-exact_cluster-004",
+      "family": "harmonic_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.4700322234156821,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-exact_cluster-005",
+      "family": "harmonic_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.5344790547798067,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-exact_cluster-006",
+      "family": "harmonic_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.5989258861439313,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-exact_cluster-007",
+      "family": "harmonic_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.6633727175080559,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-near_cluster-000",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3369808924537844,
+        0.3333333333333333,
+        0.7527177799540479,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-near_cluster-001",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.34013989295818925,
+        0.33615270264304975,
+        0.3712636619792146,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-near_cluster-002",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.334747916902962,
+        0.334747916902962,
+        0.3826841329979882,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-near_cluster-003",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3360548965555839,
+        0.33990376817534645,
+        0.7126666596810021,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-near_cluster-004",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3406862659815219,
+        0.4398154681408174,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-near_cluster-005",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.33023425708028803,
+        0.3408151652542637,
+        0.6430669545449756,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-near_cluster-006",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3286644968171716,
+        0.33800216984949505,
+        0.6977213913059723,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-near_cluster-007",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3245095765578108,
+        0.33698825306083624,
+        0.3214000574461492,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-near_cluster-008",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.32940672529626924,
+        0.3333333333333333,
+        0.6343811406773578,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-near_cluster-009",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3239164785170949,
+        0.32943274435354897,
+        0.7538300784355301,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-near_cluster-010",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3278570004051784,
+        0.3278570004051784,
+        0.23549721396073237,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-near_cluster-011",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.33196192409537695,
+        0.3300224585514953,
+        0.2694144932993193,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-near_cluster-012",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.32578115584379624,
+        0.3809712129549096,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-near_cluster-013",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.33780503385170285,
+        0.3225376932950148,
+        0.7967082134822236,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-near_cluster-014",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3382597249452241,
+        0.3284069417214425,
+        0.5237157348726826,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-near_cluster-015",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.33866216342956423,
+        0.33112605963589253,
+        0.42352923692799044,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-strict_ood-000",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.2067168115494079,
+        0.42343713086529294,
+        0.5500424770455283,
+        0.12445712206470297
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-strict_ood-001",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.27575594025753997,
+        0.40623481923675037,
+        0.24471959709348035,
+        -0.1152603408198904
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-strict_ood-002",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.24304688506556607,
+        0.42716524268545214,
+        0.9203597547376676,
+        -0.09672881074775445
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-strict_ood-003",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.22777853127657643,
+        0.3873445784847257,
+        0.6853291943778377,
+        -0.051512586067557764
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-strict_ood-004",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.23590711758431165,
+        0.3960753249730256,
+        0.3644017177521578,
+        0.027317300159002467
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-strict_ood-005",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.2189057371904855,
+        0.43642245442512356,
+        0.8308264922408293,
+        0.053332743207492206
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-strict_ood-006",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.25380703111671143,
+        0.4131704287005978,
+        0.643053361074209,
+        -0.018949180067724503
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-strict_ood-007",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.26218974254869354,
+        0.4425288879149907,
+        0.3942815065346681,
+        0.10725230154965984
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-gap_scan-000",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.3466886205634833,
+        0.3333333333333333,
+        0.575,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-gap_scan-001",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.36498353457738747,
+        0.3333333333333333,
+        0.575,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-gap_scan-002",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.3832784485912916,
+        0.3333333333333333,
+        0.575,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-gap_scan-003",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.40157336260519577,
+        0.3333333333333333,
+        0.575,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-gap_scan-004",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.41986827661909987,
+        0.3333333333333333,
+        0.575,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-gap_scan-005",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.438163190633004,
+        0.3333333333333333,
+        0.575,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-gap_scan-006",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.45645810464690817,
+        0.3333333333333333,
+        0.575,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-harmonic_honeycomb-gap_scan-007",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.4747530186608123,
+        0.3333333333333333,
+        0.575,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-iid_hidden-000",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.2934646105092393,
+        0.36717139808945154,
+        3.93557382898493,
+        0.26596029846275243,
+        -0.009751160688682772
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-iid_hidden-001",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.32533690304739704,
+        0.30622356048163424,
+        3.3065296039067533,
+        0.24686404660344613,
+        0.023385659529938763
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-iid_hidden-002",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.313999960728252,
+        0.3029731685086789,
+        2.968139882726896,
+        0.2137706517473729,
+        -0.068158598139039
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-iid_hidden-003",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.36644777306505716,
+        0.29057439420591674,
+        1.2007452788520958,
+        0.1873643123547515,
+        0.06824478074054445
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-iid_hidden-004",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.37574640823952704,
+        0.3318350257349352,
+        1.5703861507703176,
+        0.22778026988478545,
+        0.040455282566875625
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-iid_hidden-005",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.28810426136158646,
+        0.3274477628748648,
+        2.302201489737974,
+        0.34650489613722135,
+        -0.04133972649995088
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-iid_hidden-006",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.34425734854308077,
+        0.37743253229695206,
+        2.821390331611245,
+        0.3255076499209123,
+        -0.02361593625111086
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-iid_hidden-007",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.33197677056126784,
+        0.3432998477780092,
+        1.919655921431218,
+        0.29198760023452736,
+        0.0064526298305365715
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-exact_cluster-000",
+      "family": "gaussian_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        1.0612244897959184,
+        0.1949628844114528,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-exact_cluster-001",
+      "family": "gaussian_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        1.3834586466165413,
+        0.21299045599151642,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-exact_cluster-002",
+      "family": "gaussian_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        1.7056928034371643,
+        0.23101802757158005,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-exact_cluster-003",
+      "family": "gaussian_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        2.0279269602577874,
+        0.24904559915164368,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-exact_cluster-004",
+      "family": "gaussian_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        2.3501611170784105,
+        0.26707317073170733,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-exact_cluster-005",
+      "family": "gaussian_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        2.6723952738990335,
+        0.28510074231177096,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-exact_cluster-006",
+      "family": "gaussian_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        2.994629430719656,
+        0.3031283138918346,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-exact_cluster-007",
+      "family": "gaussian_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        3.316863587540279,
+        0.3211558854718982,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-near_cluster-000",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.34143819132644915,
+        0.3333333333333333,
+        1.8935477828982696,
+        0.2306285772369357,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-near_cluster-001",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3401453315168823,
+        0.3361549553678202,
+        1.2050933774598254,
+        0.2342244455919104,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-near_cluster-002",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.33983358885442594,
+        0.33983358885442594,
+        3.358315571386426,
+        0.2284885898747977,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-near_cluster-003",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3372699043877876,
+        0.3428370565622422,
+        2.1003634433230003,
+        0.2093521968401525,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-near_cluster-004",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.34090787788634,
+        3.5191744765533377,
+        0.2451327076772183,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-near_cluster-005",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3290099900285914,
+        0.3437708073744362,
+        3.734580708867795,
+        0.25948816309202694,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-near_cluster-006",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3272966395633253,
+        0.33937002710334135,
+        1.0847321499924698,
+        0.23054197891496078,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-near_cluster-007",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3293417673437002,
+        0.3349866941013465,
+        1.2636698860069293,
+        0.2825935069288197,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-near_cluster-008",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3294461547140685,
+        0.3333333333333333,
+        3.2190283673010773,
+        0.18759535473003416,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-near_cluster-009",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3267759374995089,
+        0.3306171710451144,
+        2.428446154023555,
+        0.1889051089296143,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-near_cluster-010",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.33152364554361563,
+        0.33152364554361563,
+        2.4543048371357337,
+        0.3457744859476433,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-near_cluster-011",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.33142056467967995,
+        0.3287155013080013,
+        1.6251520035413256,
+        0.20970438161653684,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-near_cluster-012",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3311522204128999,
+        2.042097956416576,
+        0.196896876960321,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-near_cluster-013",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3345785427046059,
+        0.3303271319812129,
+        1.102071854834286,
+        0.3187159904711054,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-near_cluster-014",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.33512429929924376,
+        0.3315423673674229,
+        3.9372174399624926,
+        0.33588425608380185,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-near_cluster-015",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.34316297682390123,
+        0.32926176168624766,
+        3.8502065790438382,
+        0.22401369031985802,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-strict_ood-000",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.22209201368230577,
+        0.381194395178243,
+        1.3131607282928335,
+        0.19014265874382436,
+        0.07721193922603531
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-strict_ood-001",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.26242125084233325,
+        0.43799407685226954,
+        4.289650079021822,
+        0.156176215612163,
+        -0.02409622915530346
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-strict_ood-002",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.20210805822416333,
+        0.4101177227136131,
+        3.437394408341535,
+        0.3158883085933766,
+        -0.04639947289598813
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-strict_ood-003",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.25663501164940306,
+        0.42724755410624543,
+        2.6631729698163378,
+        0.33978026712404985,
+        -0.0767606392145988
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-strict_ood-004",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.27578381937462043,
+        0.4419490926143104,
+        2.226536094948907,
+        0.25874694880933435,
+        -0.12751605375274194
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-strict_ood-005",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.2349867465470947,
+        0.41903654950393265,
+        3.99740920227059,
+        0.3943475064400447,
+        0.03563848409491688
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-strict_ood-006",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.21956331867632156,
+        0.40622491285587714,
+        1.8290514511871356,
+        0.2340966785329782,
+        0.048368646977170665
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-strict_ood-007",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.24177163924839778,
+        0.3899765825314916,
+        0.8894361760208799,
+        0.2891917708442472,
+        0.129369942660616
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-gap_scan-000",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.3466886205634833,
+        0.3333333333333333,
+        2.75,
+        0.285,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-gap_scan-001",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.36498353457738747,
+        0.3333333333333333,
+        2.75,
+        0.285,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-gap_scan-002",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.3832784485912916,
+        0.3333333333333333,
+        2.75,
+        0.285,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-gap_scan-003",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.40157336260519577,
+        0.3333333333333333,
+        2.75,
+        0.285,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-gap_scan-004",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.41986827661909987,
+        0.3333333333333333,
+        2.75,
+        0.285,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-gap_scan-005",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.438163190633004,
+        0.3333333333333333,
+        2.75,
+        0.285,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-gap_scan-006",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.45645810464690817,
+        0.3333333333333333,
+        2.75,
+        0.285,
+        0.0
+      ]
+    },
+    {
+      "id": "p2-gaussian_honeycomb-gap_scan-007",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.4747530186608123,
+        0.3333333333333333,
+        2.75,
+        0.285,
+        0.0
+      ]
+    }
+  ]
+}

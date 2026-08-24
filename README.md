@@ -4,13 +4,12 @@
 输入为二维坐标、Bloch 波矢和周期势参数；输出为最低两个本征态共同张成的 rank-2
 谱簇。训练不读取参考本征函数标签，PWE 高精度解只用于评价。
 
-> 当前判断（2026-08-24）：研究方向可以继续，但当前低频 ROM 方法不能投稿。P4 的
-> 30 次 validation 与 P5 的 36-run promotion 均已由主控从原始 checkpoint、CSV、JSON
-> 和 manifest 独立复核。P5 审计为 `audit_pass=true`，科学判定为
-> **`P5_PROMOTION_STOP`**：低频 ROM 的机制归因和 gap-scan 安全均未通过。冻结 final
-> 仍未打开。新增的独立 P0 风险开发得到 **`RISK_DEVELOPMENT_GO`**：held-out AUROC
-> 为 0.869。P1 基底不变风险门控校正器已完成实现和 MPS 工程烟测，状态
-> `P1_ENGINEERING_SMOKE_PASS`；现在只授权 AMD P1 pilot，不改变 P5 STOP，也不打开 final。
+> 当前判断（2026-08-24）：低频 ROM 和风险路由分别经 P5/P1 判为 STOP，但新的
+> **P2 full-shell 基底不变神经增强 Rayleigh–Ritz 求解器**已经通过独立 pilot 和唯一一次
+> 640 点 frozen final。最终 overall projector error 为 **0.04532**，long-anchor 为
+> 0.14719；点级 bootstrap 改善 69.2%，95% CI `[67.7%, 70.8%]`。最终状态
+> **`P2_FROZEN_FINAL_GO`**，证据 audit PASS，本地独立重算完全一致。禁止再次运行或调节
+> frozen final，当前进入论文与复现材料准备。
 
 权威状态、结果解释和下一步见
 [当前研究状态与 P5 方案](docs/CURRENT-STATUS.zh-CN.md)。本次 P5 执行完整报告见
@@ -21,6 +20,8 @@ P0 设计、命令、实测、证据和限制见
 [风险开发运行手册](docs/RISK-DEVELOPMENT-RUNBOOK.zh-CN.md)。
 P1 方法、门槛、AMD 命令和回传要求见 [P1 运行手册](docs/P1-RUNBOOK.zh-CN.md)。
 P1 是冻结神经求解器上的推理期基底不变后处理器；不能写成“新训练的校正网络”。
+P2 的完整方法、final 表格、统计、效率和投稿判断见
+[P2 最终实验报告](paper/p2_final/P2_FINAL_EXPERIMENT_REPORT.zh-CN.md)。
 
 ## 到底用了什么网络，解了什么 PDE
 
@@ -51,6 +52,25 @@ P5 被检验的候选 **A-GTROMNet** 包含：
 两条能带在 Dirac 点相交时，单个本征函数可以交换编号或在簇内任意旋转。逐带学习的
 目标会不连续。只要目标簇与第三条能带仍有外部谱隙，rank-2 投影子空间仍然良定。
 因此本项目评价投影误差和主角度，不评价两列输出的具体顺序。
+
+## 最终 P2 方法与结果
+
+P2 先用 long-anchor 神经网络给出 rank-2 粗子空间，再加入完整二阶六角 Fourier shell
+（19 个解析模式），只对两个神经列使用自动微分，对 Fourier 列解析装配 Hamiltonian，
+最后在 21 维紧凑空间中提取最低两个 Ritz 向量。方法不使用 reference projector 构造
+输出，也不增加新的学习参数。
+
+Frozen-final：640 参数点 × 2 势族 × 3 seeds × 10 方法，共 19,200 行。
+
+| 方法 | Overall | Near | Gap-scan |
+|---|---:|---:|---:|
+| Long anchor | 0.14719 | 0.08924 | 0.15938 |
+| Neural + shell 1 | 0.06172 | 0.04513 | 0.05768 |
+| **P2 full shell** | **0.04532** | **0.03903** | **0.04389** |
+| Fourier-only rank 21 | 0.13697 | 0.12249 | 0.13700 |
+
+P2 平均推理 107.8 ms、p95 121.9 ms；同服务器 cutoff-24 CPU PWE 为 313.4 ms。
+所有 family-seed 配对获胜，最大正交误差 `3.12e-7`。
 
 ## 已核验的 P4 结果
 
