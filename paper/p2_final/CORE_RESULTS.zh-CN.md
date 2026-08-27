@@ -1,6 +1,6 @@
 # P2 核心数据与证据索引
 
-更新日期：2026-08-25
+更新日期：2026-08-27
 状态：`P2_FROZEN_FINAL_GO`
 用途：论文写作、表格复核、图表生成与后续 AI 交接的唯一数值摘要。
 
@@ -131,3 +131,14 @@ Fourier shell，通过基底不变的 Rayleigh–Ritz 提取最低谱簇。
 
 Wang–Xie 适配速度最快但精度较低。P2 与 Dai 适配延迟接近，P2 精度更高。Dai 适配训练
 收敛不佳，应作为透明负结果而不是对 Dai 原论文的否定。
+
+## 9. 理论与成本补充
+
+- 外部谱隙残差界：
+  \(e_{\mathrm{proj}}\le\lVert HQ-Q(Q^*HQ)\rVert_F/(\sqrt2\,\delta)\)；
+- 该界依赖目标簇到第三态的外部谱隙，不依赖簇内 gap，因此允许内部交叉；
+- 33×33 网格的 MLP 线性层前向约19.5M FLOPs；
+- P2 在线复杂度：两个神经 Hamiltonian AD + \(O(NM)\) 解析 Fourier 作用 +
+  \(O(Nr^2)\) 配对正交化 + \(O(r^3)\) Ritz；
+- 当前系统级训练成本 break-even：约206–354次参数查询；
+- 详细推导与限制见 `paper/p2_final/THEORY_AND_COST.zh-CN.md`。

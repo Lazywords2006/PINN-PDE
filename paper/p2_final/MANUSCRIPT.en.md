@@ -7,32 +7,23 @@
 
 ## Abstract
 
-Parameterized differential eigenproblems require repeated solution over large families of
-operators. Neural networks can amortize this cost, but eigenvalue crossings make individually
-ordered eigenfunctions discontinuous because their labels may swap and their bases may rotate
-within a degenerate cluster. We study the lowest rank-two spectral cluster of a two-dimensional
-periodic Bloch–Schrödinger partial differential equation and propose a basis-invariant
-neural-augmented Rayleigh–Ritz solver. A lightweight SiLU multilayer perceptron receives periodic
-coordinates, the Bloch wavevector, and potential parameters. It predicts a label-free neural
-coarse subspace through a generalized-trace variational objective. At inference, the coarse
-subspace is augmented by the complete second hexagonal Fourier shell. Automatic differentiation
-is retained for only two neural columns, whereas the Hamiltonian action on 19 plane waves is
-assembled analytically. Applying each complex orthogonalization transform to both a trial vector
-and its Hamiltonian image yields a compact, basis-independent Ritz problem. A one-shot frozen
-test contains 640 parameter points, two honeycomb potential families, three independently trained
-checkpoint seeds, ten methods, and 19,200 paired evaluations. The proposed solver attains an
-overall rank-two projector sine error of 0.04532, compared with 0.14719 for a compute-matched
-long-anchor neural baseline and 0.13697 for a same-rank Fourier-only control. The point-clustered
-bootstrap improvement over long-anchor is 69.19%, with a 95% confidence interval of
-[67.66%, 70.75%]. Errors near crossings, under strict parameter shift, and on gap scans are
-0.03903, 0.05685, and 0.04389, respectively. On a separate 160-point journal-baseline supplement,
-P2 attains 0.04728 overall versus 0.13114 for a Wang–Xie trace adaptation, a 63.78% improvement
-with a 95% interval of [59.58%, 67.88%] and six wins in six family-by-seed comparisons. Mean
-inference time is 107.81 ms on one RTX 5090 D,
-or 34.4% of the wall time of the same-server cutoff-24 CPU plane-wave reference solve. These
-results show that a parameter-dependent neural coarse space and a compact analytic shell can
-cooperate effectively at internal eigenvalue crossings. The method is positioned as a hybrid
-neural numerical eigensolver, not as a conventional residual PINN or a purely spectral method.
+Parameterized Bloch eigenproblems require repeated PDE solves, while internal band crossings make
+individually ordered eigenfunctions discontinuous. We propose a basis-invariant neural-augmented
+Rayleigh–Ritz solver for the lowest rank-two spectral cluster of a two-dimensional periodic
+Bloch–Schrödinger equation. A lightweight SiLU multilayer perceptron learns a label-free neural
+coarse space through a generalized-trace objective. At inference, this space is augmented by the
+complete second hexagonal Fourier shell. Automatic differentiation is used only for the two neural
+columns; Hamiltonian actions on 19 plane waves are assembled analytically, and paired
+orthogonalization produces a compact Ritz problem. A one-shot frozen test contains 640 parameter
+points, two honeycomb potential families, three checkpoint seeds, ten methods, and 19,200 paired
+evaluations. The proposed solver attains an overall projector error of 0.04532, compared with
+0.14719 for a compute-matched long-anchor network and 0.13697 for a same-rank Fourier-only
+control. Its improvement over long-anchor is 69.19%, with a point-clustered 95% interval of
+[67.66%, 70.75%]. On a separate 160-point journal-baseline supplement, P2 attains 0.04728 versus
+0.13114 for a Wang–Xie trace adaptation, an improvement of 63.78% with a 95% interval of
+[59.58%, 67.88%], and wins all six family-by-seed comparisons. The results support a reproducible
+accuracy-cost trade-off at internal crossings. The method is a hybrid neural numerical
+eigensolver rather than a conventional residual PINN or a purely Fourier solver.
 
 **Keywords:** neural PDE solver; parametric eigenproblem; Bloch–Schrödinger equation; spectral
 cluster; Rayleigh–Ritz; basis invariance; scientific machine learning
@@ -281,6 +272,43 @@ pipeline is
 \xrightarrow{\text{Ritz}}\widehat U_2.
 \]
 
+![P2 method pipeline](../../figures/p2_final/fig09_method_pipeline.svg)
+
+**Figure 1.** Basis-invariant neural-augmented Rayleigh–Ritz pipeline. Figure numbering will be
+updated after the target journal template is selected.
+
+### 4.5 External-gap stability
+
+Let \(U\) be the exact lowest rank-two invariant subspace, \(Q\) an orthonormal Ritz basis,
+\(M=Q^*HQ\), and \(R=HQ-QM\). If the approximate Ritz spectrum is separated from the
+unwanted spectrum by
+
+\[
+\delta=\operatorname{dist}(\sigma(M),\sigma(H|_{U^\perp}))>0,
+\]
+
+then the Hermitian invariant-subspace residual bound gives
+
+\[
+e_{\mathrm{proj}}
+\le\frac{\lVert R\rVert_F}{\sqrt2\,\delta}.
+\]
+
+The separation concerns the target cluster and the third state; it does not require a positive
+internal gap between the first two eigenvalues. The bound therefore remains meaningful at an
+internal Dirac crossing. The reported residual RMS is normalized over grid points, rank, and
+real/imaginary components and must be rescaled before insertion into this Frobenius-norm bound.
+
+### 4.6 Complexity and amortization
+
+For \(N\) grid points, \(M=19\) analytic modes, and trial rank \(r\le21\), the online stage
+contains two neural Hamiltonian evaluations, \(O(NM)\) analytic Fourier actions,
+\(O(Nr^2)\) paired orthogonalization, and an \(O(r^3)\) Ritz solve. The MLP linear layers require
+approximately 19.5 million FLOPs on the 33 by 33 grid. End-to-end FLOPs for second-order automatic
+differentiation depend on the backend, so measured wall time is reported instead of an unverified
+total. Archived timings give an approximate system-level training break-even of 206–354 repeated
+parameter queries.
+
 ## 5. Experimental Design
 
 ### 5.1 Development and freezing protocol
@@ -438,8 +466,9 @@ conditions. The supplement contains formula-level Bloch adaptations rather than 
 author-code reproductions, and the convergence of the Dai adaptation limits its comparative
 strength. The P2-to-PWE timing
 uses a GPU method and CPU reference and must be interpreted as a system configuration rather than
-a hardware-independent speedup. FLOP counts, training amortization break-even, and an explicit
-external-gap Ritz projector bound remain incomplete. Three formal training seeds are supported by
+a hardware-independent speedup. The manuscript provides symbolic complexity, neural-forward FLOPs,
+a break-even estimate, and an external-gap residual bound, but it does not yet contain profiler-based
+end-to-end hardware FLOPs for second-order automatic differentiation. Three formal training seeds are supported by
 clustered bootstrap statistics and six of six family-seed wins, but additional seeds may still be
 useful in supplementary experiments. The frozen test itself must not be rerun.
 
@@ -460,8 +489,8 @@ regimes, and every family-seed pairing.
 
 The evidence is sufficient to continue journal preparation and supports the classification of this
 work as a genuine neural PDE eigensolver. It provides a strong Q4 foundation, and the independent
-journal-baseline supplement improves the case for Q3. The remaining priorities are an
-external-gap/Ritz error statement, a complete FLOP and training-amortization table, and careful
+journal-baseline supplement improves the case for Q3. The remaining priorities are target-journal
+formatting, a publication-ready method diagram, optional CUDA profiler counts, and careful
 qualification of the adapted baselines. The frozen test and current supplement remain closed.
 
 ## Data Availability

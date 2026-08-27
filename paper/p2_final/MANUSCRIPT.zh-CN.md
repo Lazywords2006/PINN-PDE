@@ -5,25 +5,16 @@
 
 ## 摘要
 
-参数化偏微分算子本征问题需要对大量参数实例重复求解。神经网络可以摊销这部分成本，
-但能带交叉使逐条编号的本征函数发生标签交换或簇内旋转，导致普通残差 PINN 和逐模态
-回归面对不连续目标。本文研究二维周期 Bloch–Schrödinger 本征偏微分方程的最低
-rank-2 谱簇，提出一种基底不变的神经增强 Rayleigh–Ritz 求解器。轻量 SiLU MLP 以周期
-坐标、Bloch 波矢和势参数为输入，通过无标签 generalized-trace 变分目标预测神经粗子
-空间。推理阶段加入完整二阶六角 Fourier 壳层，只对两个神经列使用自动微分，并解析
-装配 19 个 Fourier 列的 Hamiltonian。同步作用于试验向量及其 Hamiltonian 像的复正交
-变换保证小型 Ritz 问题与基底选择无关。一次性 frozen-final 包含 640 个参数点、两个
-honeycomb 势族、3 个独立 checkpoint seeds、10 种方法和 19,200 个严格配对结果。本文
-方法的总体 projector sine error 为 0.04532，优于等训练成本 long-anchor 神经基线的
-0.14719 和同秩 Fourier-only 控制的 0.13697。相对 long-anchor 的总体改善为 69.19%，
-参数点聚类 bootstrap 的 95% 置信区间为 [67.66%, 70.75%]。在内部交叉邻域、严格参数
-外推和 gap-scan 上的误差分别为 0.03903、0.05685 和 0.04389。新的160点独立期刊基线
-supplement 中，P2 的总体误差为0.04728，Wang–Xie trace 适配为0.13114；P2 改善
-63.78%，95% CI 为 [59.58%, 67.88%]，并在6/6个 family×seed 配对中获胜。单张
-RTX 5090 D 上的
-平均推理时间为 107.81 ms，约为同服务器 cutoff-24 CPU 平面波参考求解的 34.4%。结果
-表明，神经粗子空间与紧凑解析壳层的协同能够稳定处理内部本征值交叉。本文将该方法
-定位为混合神经数值本征求解器，而不是普通残差 PINN 或纯谱方法。
+参数化 Bloch 本征问题需要重复求解 PDE 实例，而内部能带交叉会使逐条编号的本征
+函数发生标签交换。本文面向二维 Bloch–Schrödinger 方程的最低 rank-2 谱簇，提出基底
+不变的神经增强 Rayleigh–Ritz 求解器。SiLU MLP 通过无标签 generalized-trace 目标预测
+粗子空间；推理时加入完整二阶六角 Fourier 壳层，仅对两个神经列使用自动微分，并解析
+计算19个 Fourier 列的 Hamiltonian。640点 frozen final 中，本文方法的总体 projector
+error 为0.04532，long-anchor 为0.14719，改善69.19%，95% CI 为
+[67.66%,70.75%]。在独立160点 supplement 中，P2 为0.04728，
+Wang–Xie trace 适配为0.13114，改善63.78%，95% CI 为[59.58%,67.88%]，且
+6/6个 family×seed 配对获胜。结果表明，该混合神经数值求解器能够稳定处理内部交叉，
+并形成可复现的精度—成本折中。
 
 **关键词：** 神经偏微分方程求解；参数化本征问题；Bloch–Schrödinger 方程；谱簇；
 Rayleigh–Ritz；基底不变性；科学机器学习
@@ -244,6 +235,38 @@ A_W=\widehat W^*H\widehat W.
 \xrightarrow{\text{Ritz}}\widehat U_2.
 \]
 
+![P2 方法流程](../../figures/p2_final/fig09_method_pipeline.svg)
+
+**图 1.** P2 基底不变神经增强 Rayleigh–Ritz 流程。图号将在目标期刊模板中统一调整。
+
+### 4.5 外部谱隙稳定性
+
+令 \(U\) 为最低 rank-2 真实不变子空间，\(Q\) 为正交 Ritz 基，
+\(M=Q^*HQ\)，块残差为 \(R=HQ-QM\)。若近似 Ritz 谱与目标簇外真实谱的分离量
+
+\[
+\delta=\operatorname{dist}(\sigma(M),\sigma(H|_{U^\perp}))>0,
+\]
+
+则 Hermitian 不变子空间扰动界给出
+
+\[
+e_{\mathrm{proj}}
+\le\frac{\lVert R\rVert_F}{\sqrt2\,\delta}.
+\]
+
+该界只要求最低两态与第三态保持外部隔离，不要求 \(\lambda_2-\lambda_1>0\)，因此允许
+目标簇内部发生 Dirac 交叉。代码报告的 residual RMS 是归一化量，应用该界时必须恢复
+离散内积下的 Frobenius 范数。完整命题与证明思路见 `THEORY_AND_COST.zh-CN.md`。
+
+### 4.6 复杂度与成本摊销
+
+对 \(N\) 个网格点、\(M=19\) 个解析模式和 \(r\le21\) 的试验空间，在线复杂度包括两个
+神经列的 Hamiltonian 自动微分、\(O(NM)\) 解析 Fourier 作用、\(O(Nr^2)\) 配对正交化和
+\(O(r^3)\) 小型 Ritz solve。33×33 网格上，MLP 线性层前向约为19.5M FLOPs。二阶自动
+微分的端到端 FLOPs 依赖后端，因此本文报告 wall time，不虚构总 FLOPs。根据归档训练
+时间和两组 P2 latency，当前系统级 break-even 约为206–354次重复参数查询。
+
 ## 5 实验设计
 
 ### 5.1 开发与冻结纪律
@@ -384,8 +407,9 @@ switching；Pau [9] 早已将 reduced basis 用于 band structure。本文相对
 晶格或非周期边界。第二，supplement 完成了 Wang–Xie/Dai 思想的公式级 Bloch 适配，
 但不是作者官方代码复现；Dai 适配的收敛问题限制了其比较强度。第三，P2 与 PWE 的
 wall-clock 比较使用 GPU 对 CPU，只能说明
-当前系统配置下的成本，不是设备无关复杂度结论。第四，本文尚未给出完整 FLOPs、训练
-摊销 break-even 和基于外部谱隙的 Ritz projector 误差界。第五，网络训练只有 3 个正式
+当前系统配置下的成本，不是设备无关复杂度结论。第四，本文已给出符号复杂度、网络前向
+FLOPs、break-even 估算和外部谱隙残差界，但尚未用 CUDA profiler 获得包含二阶自动微分
+的端到端硬件 FLOPs。第五，网络训练只有 3 个正式
 seeds；虽然点聚类 bootstrap 和 6/6 family×seed 获胜支持稳定性，更多 seeds 仍可用于
 补充材料，但不应重跑 frozen final。
 
@@ -403,7 +427,7 @@ checkpoint、源码和证据包均以 SHA-256 绑定；final 的19,200行与 sup
 也表明该课题属于真实的神经网络 PDE 本征求解，而非简单数据拟合。
 
 稳健的 SCI 四区投稿基础已经形成，独立期刊基线 supplement 进一步增强了 SCI 三区
-可行性。投稿前的主要缺口已转为 external-gap/Ritz 理论说明、完整 FLOPs/成本摊销表，
+可行性。投稿前的主要缺口已转为目标期刊格式、方法矢量图、可选 CUDA profiler 计数，
 以及对公式级适配边界的谨慎表述。Frozen final 与当前 supplement 均不再开放调参。
 
 ## 数据与代码可得性声明

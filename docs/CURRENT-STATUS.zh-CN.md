@@ -1,6 +1,6 @@
 # 当前研究状态
 
-更新日期：2026-08-25
+更新日期：2026-08-27
 
 ## 一句话结论
 
@@ -72,8 +72,8 @@ residual PINN，也不是纯 Fourier 谱方法。
 ## 投稿判断
 
 - SCI 四区：实验基础已经充分，进入论文定稿；
-- SCI 三区：实验竞争力明显增强，当前重点转为 external-gap/Ritz 理论说明、FLOPs、
-  成本摊销和谨慎表述适配基线；
+- SCI 三区：实验竞争力明显增强；external-gap/Ritz 残差界、网络前向 FLOPs 和
+  break-even 已补，当前重点是期刊格式、方法图和谨慎表述适配基线；
 - 创新强度：实验组合创新中等偏强，纯数学原创性中等；
 - 现阶段不能写“已优于所有期刊方法”；
 - Frozen final 永久关闭。
@@ -84,6 +84,8 @@ residual PINN，也不是纯 Fourier 谱方法。
 - 英文初稿：`paper/p2_final/MANUSCRIPT.en.md`；
 - 核心数据：`paper/p2_final/CORE_RESULTS.zh-CN.md`；
 - Q3 supplement：`paper/p2_final/Q3_SUPPLEMENT_REPORT.zh-CN.md`；
+- 理论与成本：`paper/p2_final/THEORY_AND_COST.zh-CN.md`；
+- 引用审计：`paper/p2_final/CITATION_AUDIT.zh-CN.md`；
 - 投稿缺口：`docs/KNOWN_GAPS.zh-CN.md`；
 - 运行手册：`docs/RUNBOOK.md`；
 - 论文图表：`figures/p2_final/`。

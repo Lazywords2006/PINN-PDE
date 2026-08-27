@@ -48,6 +48,8 @@ family-by-seed comparisons. These are transparent Bloch adaptations, not officia
 - [English manuscript draft](paper/p2_final/MANUSCRIPT.en.md)
 - [Detailed final experiment report](paper/p2_final/P2_FINAL_EXPERIMENT_REPORT.zh-CN.md)
 - [SCI-Q3 supplement report](paper/p2_final/Q3_SUPPLEMENT_REPORT.zh-CN.md)
+- [External-gap theory and cost analysis](paper/p2_final/THEORY_AND_COST.zh-CN.md)
+- [Citation audit](paper/p2_final/CITATION_AUDIT.zh-CN.md)
 - [Historical P5 negative-result audit](docs/P5-INDEPENDENT-AUDIT.zh-CN.md)
 
 ## Environment

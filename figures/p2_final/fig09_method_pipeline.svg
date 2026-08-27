@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="430" viewBox="0 0 1600 430" role="img" aria-labelledby="title desc">
+  <title id="title">P2 basis-invariant neural-augmented Rayleigh–Ritz pipeline</title>
+  <desc id="desc">A seven-stage flow from Bloch PDE parameters to a rank-two spectral projector.</desc>
+  <defs>
+    <style>
+      .title { font-family: Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 700; fill: #1f2925; }
+      .label { font-family: Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; fill: #1f2925; }
+      .sub { font-family: Helvetica, Arial, sans-serif; font-size: 16px; fill: #59655f; }
+      .tag { font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 700; fill: #176b4d; }
+      .box { fill: #ffffff; stroke: #cfd8d2; stroke-width: 2; rx: 18; }
+      .neural { fill: #e8f3ed; stroke: #70a48d; }
+      .analytic { fill: #eaf1f5; stroke: #7fa2b5; }
+      .ritz { fill: #f8ece5; stroke: #c58b6e; }
+      .arrow { stroke: #62706a; stroke-width: 3; }
+      .arrowhead { fill: #62706a; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="430" fill="#f7f8f5"/>
+  <text x="60" y="60" class="title">Basis-invariant neural-augmented Rayleigh–Ritz solver</text>
+  <text x="60" y="90" class="sub">Two-dimensional parametric Bloch–Schrödinger spectral clusters</text>
+
+  <g transform="translate(55 145)">
+    <rect class="box" width="180" height="150"/>
+    <text x="90" y="48" text-anchor="middle" class="label">PDE input</text>
+    <text x="90" y="80" text-anchor="middle" class="sub">x, k, μ</text>
+    <text x="90" y="110" text-anchor="middle" class="sub">periodic features</text>
+    <text x="90" y="134" text-anchor="middle" class="tag">NO LABELS</text>
+  </g>
+
+  <line x1="245" y1="220" x2="280" y2="220" class="arrow"/>
+  <polygon points="280,210 298,220 280,230" class="arrowhead"/>
+
+  <g transform="translate(300 145)">
+    <rect class="box neural" width="200" height="150"/>
+    <text x="100" y="44" text-anchor="middle" class="label">SiLU MLP</text>
+    <text x="100" y="75" text-anchor="middle" class="sub">3 layers × width 64</text>
+    <text x="100" y="103" text-anchor="middle" class="sub">generalized trace</text>
+    <text x="100" y="132" text-anchor="middle" class="tag">≈ 9.2k PARAMS</text>
+  </g>
+
+  <line x1="510" y1="220" x2="545" y2="220" class="arrow"/>
+  <polygon points="545,210 563,220 545,230" class="arrowhead"/>
+
+  <g transform="translate(565 145)">
+    <rect class="box neural" width="180" height="150"/>
+    <text x="90" y="48" text-anchor="middle" class="label">Neural space</text>
+    <text x="90" y="82" text-anchor="middle" class="sub">rank-2 coarse basis</text>
+    <text x="90" y="112" text-anchor="middle" class="sub">Qθ(k, μ)</text>
+    <text x="90" y="136" text-anchor="middle" class="tag">AUTODIFF × 2</text>
+  </g>
+
+  <line x1="755" y1="220" x2="790" y2="220" class="arrow"/>
+  <polygon points="790,210 808,220 790,230" class="arrowhead"/>
+
+  <g transform="translate(810 145)">
+    <rect class="box analytic" width="190" height="150"/>
+    <text x="95" y="45" text-anchor="middle" class="label">Fourier shell</text>
+    <text x="95" y="78" text-anchor="middle" class="sub">19 analytic modes</text>
+    <text x="95" y="108" text-anchor="middle" class="sub">closed hexagonal shell 2</text>
+    <text x="95" y="136" text-anchor="middle" class="tag">ANALYTIC Hφ</text>
+  </g>
+
+  <line x1="1010" y1="220" x2="1045" y2="220" class="arrow"/>
+  <polygon points="1045,210 1063,220 1045,230" class="arrowhead"/>
+
+  <g transform="translate(1065 145)">
+    <rect class="box" width="195" height="150"/>
+    <text x="97.5" y="44" text-anchor="middle" class="label">Paired MGS</text>
+    <text x="97.5" y="78" text-anchor="middle" class="sub">same transform on</text>
+    <text x="97.5" y="106" text-anchor="middle" class="sub">W and HW</text>
+    <text x="97.5" y="136" text-anchor="middle" class="tag">BASIS INVARIANT</text>
+  </g>
+
+  <line x1="1270" y1="220" x2="1305" y2="220" class="arrow"/>
+  <polygon points="1305,210 1323,220 1305,230" class="arrowhead"/>
+
+  <g transform="translate(1325 145)">
+    <rect class="box ritz" width="220" height="150"/>
+    <text x="110" y="42" text-anchor="middle" class="label">Compact Ritz</text>
+    <text x="110" y="74" text-anchor="middle" class="sub">trial rank ≤ 21</text>
+    <text x="110" y="103" text-anchor="middle" class="sub">two lowest Ritz vectors</text>
+    <text x="110" y="134" text-anchor="middle" class="tag">RANK-2 PROJECTOR</text>
+  </g>
+
+  <text x="800" y="370" text-anchor="middle" class="sub">Internal band crossings are allowed; stability is controlled by the external gap to the third state.</text>
+</svg>
