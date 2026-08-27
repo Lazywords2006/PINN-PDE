@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Generate V2 frozen experimental assets.
 
 Creates:
@@ -29,26 +30,23 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from block_kyfan_pinn.device import select_device
 from block_kyfan_pinn.metrics import projector_sine_error
 from block_kyfan_pinn.physics import periodic_mgs
-from block_kyfan_pinn.reference import evaluate_reference_basis, solve_reference, uniform_grid
+from block_kyfan_pinn.reference import (
+    evaluate_reference_basis,
+    solve_reference,
+    uniform_grid,
+)
 from block_kyfan_pinn.suites import file_sha256, load_frozen_suite, write_frozen_suite
+from block_kyfan_pinn.symmetry import legacy_hexagonal_shell_modes
 
-
-# ── Symmetry-closed PWE: hexagonal shells ───────────────────────────────────
+# ── Archived V2 reciprocal dictionaries ─────────────────────────────────────
 
 def hex_shell_modes(num_shells: int) -> list[tuple[int, int]]:
-    """Return integer (m₁, m₂) within the first ``num_shells`` hexagonal shells.
+    """Return the historical V2 minus-cross reciprocal dictionary.
 
-    A hexagonal shell of order *s* contains all vectors whose
-    max(|m₁|, |m₂|, |m₁−m₂|) = s.  This set is closed under the
-    honeycomb point-group operations.
+    V2 used ``max(|m₁|, |m₂|, |m₁-m₂|)``. This function intentionally
+    preserves that archived numerical policy; V3 uses ``hexagonal_d6``.
     """
-    modes: list[tuple[int, int]] = []
-    for s in range(num_shells + 1):
-        for m1 in range(-s, s + 1):
-            for m2 in range(-s, s + 1):
-                if max(abs(m1), abs(m2), abs(m1 - m2)) == s:
-                    modes.append((m1, m2))
-    return modes
+    return legacy_hexagonal_shell_modes(num_shells)
 
 
 def symmetry_closed_pwe(
@@ -189,8 +187,6 @@ def _generate_family_points(
     points: list[dict] = []
     bounds = TRAINING_BOUNDS[family]
     k_point = (1.0 / 3.0, 1.0 / 3.0)
-    param_dim = len(bounds)
-
     # IID hidden — LHS within training box
     for i, params in enumerate(_lhs_sample(n_iid, bounds, rng)):
         points.append({"id": f"{family}-iid-{i:03d}", "family": family,

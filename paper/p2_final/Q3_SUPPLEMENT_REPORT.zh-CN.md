@@ -1,5 +1,9 @@
 # SCI 三区独立补充实验报告
 
+> **已废止，禁止用于投稿。** 本报告沿用了与 positive-cross kinetic metric 不一致的旧
+> reciprocal shell，只保留历史审计意义。Wang–Xie/Dai 结果还是公式级 Bloch 适配，
+> 从来都不是作者官方代码复现。当前对照以 V3 formal confirmation 为准。
+
 执行日期：2026-08-25
 设备：NVIDIA RTX 5090 D 32 GB
 状态：`Q3_SUPPLEMENT_GO`

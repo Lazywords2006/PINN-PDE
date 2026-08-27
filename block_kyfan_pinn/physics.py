@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
+import math
+
 import torch
 from torch import Tensor
-import math
 
 
 def complex_gram_mean(basis: Tensor) -> tuple[Tensor, Tensor]:
@@ -251,6 +252,14 @@ def ritz_matrix(basis: Tensor, h_basis: Tensor) -> tuple[Tensor, Tensor]:
     return real / basis.shape[1], imag / basis.shape[1]
 
 
+def hermitian_ritz_matrix(basis: Tensor, h_basis: Tensor) -> Tensor:
+    """Return the explicitly Hermitian part of the collocation Ritz matrix."""
+
+    matrix_real, matrix_imag = ritz_matrix(basis, h_basis)
+    matrix = torch.complex(matrix_real, matrix_imag)
+    return 0.5 * (matrix + matrix.mH)
+
+
 def projected_residual_rms(basis: Tensor, h_basis: Tensor) -> Tensor:
     matrix_real, matrix_imag = ritz_matrix(basis, h_basis)
     q_real, q_imag = basis[..., 0], basis[..., 1]
@@ -318,11 +327,10 @@ def galerkin_low_energy(
     potential_family: str = "harmonic_honeycomb", target_rank: int = 2,
 ) -> Tensor:
     h_basis = apply_hamiltonian(trial_basis, coordinates, parameters, potential_family)
-    matrix_real, matrix_imag = ritz_matrix(trial_basis, h_basis)
-    if matrix_real.device.type == "mps":
-        matrix_real = matrix_real.cpu()
-        matrix_imag = matrix_imag.cpu()
-    eigenvalues = torch.linalg.eigvalsh(torch.complex(matrix_real, matrix_imag)).real
+    matrix = hermitian_ritz_matrix(trial_basis, h_basis)
+    if matrix.device.type == "mps":
+        matrix = matrix.cpu()
+    eigenvalues = torch.linalg.eigvalsh(matrix).real
     return eigenvalues[..., :target_rank].sum(-1).mean()
 
 
@@ -333,12 +341,11 @@ def galerkin_rank_basis(
     """Extract the lowest Ritz eigenspace from a larger neural trial subspace."""
 
     h_basis = apply_hamiltonian(trial_basis, coordinates, parameters, potential_family)
-    matrix_real, matrix_imag = ritz_matrix(trial_basis, h_basis)
+    matrix = hermitian_ritz_matrix(trial_basis, h_basis)
     target_device = trial_basis.device
-    if matrix_real.device.type == "mps":
-        matrix_real = matrix_real.cpu()
-        matrix_imag = matrix_imag.cpu()
-    _, eigenvectors = torch.linalg.eigh(torch.complex(matrix_real, matrix_imag))
+    if matrix.device.type == "mps":
+        matrix = matrix.cpu()
+    _, eigenvectors = torch.linalg.eigh(matrix)
     # Ritz coefficients are constants when differentiating the selected functions in space.
     coefficients = eigenvectors[..., :target_rank].detach()
     coefficient_real = coefficients.real.to(target_device)

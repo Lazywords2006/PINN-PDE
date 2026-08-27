@@ -1,5 +1,9 @@
 # 基准套件
 
+- `v3_symmetry_pilot.json`：24点、两个势族、五种split的工程/机制 pilot，已关闭；
+- `v3_symmetry_convergence_audit.json`：修正 D6 reference cutoff 与 65/97 网格收敛证据；
+- `v3_symmetry_test.json`：只允许在 V3 freeze commit 推送后生成，160点 CUDA confirmation；
+
 - `v2_validation.json`：64 点独立、split-balanced validation，只用于 pilot 与模型选择；
 - `v2_frozen_test.json`：640 点 final，含 IID、exact、near、strict OOD 与 gap scan；
 - `v2_reference_convergence.json`：cutoff 16/20/24 六点收敛审计；
@@ -8,12 +12,14 @@
 - `q3_supplement_v1.json`：160 点独立期刊基线 supplement，已运行一次并关闭；
 - `sci3_*_v1.json`：退役 V1，仅保留历史审计，禁止用于新结论。
 
-所有 V2 `.sha256` 都绑定文件原始字节。从本目录核验：
+所有 `.sha256` 都绑定文件原始字节。从本目录核验：
 
 ```bash
 shasum -a 256 -c v2_validation.sha256
 shasum -a 256 -c v2_frozen_test.sha256
 shasum -a 256 -c v2_reference_convergence.sha256
+shasum -a 256 -c v3_symmetry_pilot.sha256
+shasum -a 256 -c v3_symmetry_convergence_audit.sha256
 ```
 
 不要手工编辑 V2 JSON；使用
@@ -24,3 +30,6 @@ SHA-256，不能复用 `sci3_*_v1.json` 冒充新实验。
 
 `q3_supplement_v1.json` 已于 2026-08-25 返回 `Q3_SUPPLEMENT_GO`。它同样不得在修改
 方法、训练预算或门槛后重跑。
+
+旧 V2/Q3 的 reciprocal shell 与 positive-cross kinetic metric 不一致，因此这些运行只作
+历史审计，不再支撑投稿。V3 formal 打开后禁止修改方法、gate、suite、reference 或源码。

@@ -1,0 +1,52 @@
+{
+  "files": [
+    {
+      "kind": "result",
+      "path": "rows.csv",
+      "bytes": 249974,
+      "sha256": "922133ae6399de89f974af03161e913bf53df24427c5bb4c78ecd6b48964ec19"
+    },
+    {
+      "kind": "result",
+      "path": "summary.json",
+      "bytes": 7591,
+      "sha256": "9ac9993c12a17ffc7ca5830c165af94686e9db32e3c1e1c313f819730260c71a"
+    },
+    {
+      "kind": "result",
+      "path": "gate.json",
+      "bytes": 548,
+      "sha256": "5593da08d54dc8ca0c100df264c134ed1f0ad31ed3f7747a89f878f6951c89cf"
+    },
+    {
+      "kind": "result",
+      "path": "provenance.json",
+      "bytes": 2298,
+      "sha256": "b2278b30dd957828eb4774a6a0c590323c75eb06d1ba077e47987a637e74387c"
+    },
+    {
+      "kind": "bound_input",
+      "path": "/Users/lazywords/Paper/PINN-PDE-main-20260730/benchmarks/v3_symmetry_pilot.json",
+      "bytes": 7455,
+      "sha256": "ada77c55dec17a6b912b1b7347182a0f60135a1f3771ca9387e1bd5b8161ed7d"
+    },
+    {
+      "kind": "bound_input",
+      "path": "/Users/lazywords/Paper/PINN-PDE-main-20260730/benchmarks/v3_symmetry_pilot.sha256",
+      "bytes": 89,
+      "sha256": "8d2c594d4c2ec3c2c07c57adccf998b4183963e3f4d7433f992c8997ff7c8130"
+    },
+    {
+      "kind": "bound_input",
+      "path": "/Users/lazywords/Paper/PINN-PDE-main-20260730/data/v3_symmetry_pilot_references.pt",
+      "bytes": 5232001,
+      "sha256": "e586cdf8c9c72c90bc9a224b5c9e83b6e384a4991987dca09f238552feade4a1"
+    },
+    {
+      "kind": "bound_input",
+      "path": "/Users/lazywords/Paper/PINN-PDE-main-20260730/data/v3_symmetry_pilot_references.sha256",
+      "bytes": 98,
+      "sha256": "96c5d2d502350cca41ec756ebc0b403d4e55af6a3c5254a29fcfcef45bc768dd"
+    }
+  ]
+}

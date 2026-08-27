@@ -1,0 +1,913 @@
+{
+  "summary": {
+    "points": 10,
+    "max_reference_projector_20_24": 1.4745480180959168e-05,
+    "max_reference_projector_24_28": 1.512376102473438e-06,
+    "max_reference_eigenvalue_20_24": 4.618741460127307e-08,
+    "max_reference_eigenvalue_24_28": 6.954897213695688e-10,
+    "max_solver_projector_grid_difference": 0.0002102682295718943,
+    "max_solver_eigenvalue_grid_difference": 4.76837158203125e-07,
+    "max_raw_hermiticity_defect": 4.874665592069505e-06,
+    "reference_rows": [
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-iid-000",
+        "family": "harmonic_honeycomb",
+        "projector_20_24": 0.0,
+        "projector_24_28": 7.068241373080863e-08,
+        "eigenvalue_20_24": 1.9186041644303486e-14,
+        "eigenvalue_24_28": 4.2847669856627135e-14
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-exact-000",
+        "family": "harmonic_honeycomb",
+        "projector_20_24": 0.0,
+        "projector_24_28": 4.470348358154297e-08,
+        "eigenvalue_20_24": 4.679590048795035e-14,
+        "eigenvalue_24_28": 8.862355294070312e-14
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-near-000",
+        "family": "harmonic_honeycomb",
+        "projector_20_24": 0.0,
+        "projector_24_28": 0.0,
+        "eigenvalue_20_24": 3.1351657381328835e-14,
+        "eigenvalue_24_28": 6.175442102129836e-14
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-ood-000",
+        "family": "harmonic_honeycomb",
+        "projector_20_24": 6.828569911354542e-08,
+        "projector_24_28": 4.712160915387242e-08,
+        "eigenvalue_20_24": 1.9734214262712158e-14,
+        "eigenvalue_24_28": 3.47499806707674e-14
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-gap-000",
+        "family": "harmonic_honeycomb",
+        "projector_20_24": 0.0,
+        "projector_24_28": 0.0,
+        "eigenvalue_20_24": 2.9753977059954195e-14,
+        "eigenvalue_24_28": 3.097522238704187e-14
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-iid-000",
+        "family": "gaussian_honeycomb",
+        "projector_20_24": 8.229435248067425e-08,
+        "projector_24_28": 0.0,
+        "eigenvalue_20_24": 8.73912053833692e-13,
+        "eigenvalue_24_28": 3.8430369997399794e-13
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-exact-000",
+        "family": "gaussian_honeycomb",
+        "projector_20_24": 4.325188777953384e-07,
+        "projector_24_28": 4.2146848510894035e-08,
+        "eigenvalue_20_24": 3.276472149149612e-11,
+        "eigenvalue_24_28": 2.7007562852787714e-13
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-near-000",
+        "family": "gaussian_honeycomb",
+        "projector_20_24": 2.1338858247801396e-06,
+        "projector_24_28": 1.3616432907057603e-07,
+        "eigenvalue_20_24": 7.90969206798664e-10,
+        "eigenvalue_24_28": 4.078445914323936e-12
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-ood-000",
+        "family": "gaussian_honeycomb",
+        "projector_20_24": 1.4745480180959168e-05,
+        "projector_24_28": 1.512376102473438e-06,
+        "eigenvalue_20_24": 4.618741460127307e-08,
+        "eigenvalue_24_28": 6.954897213695688e-10
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-gap-000",
+        "family": "gaussian_honeycomb",
+        "projector_20_24": 3.333666521489187e-07,
+        "projector_24_28": 1.0536712127723509e-08,
+        "eigenvalue_20_24": 1.9013044610938223e-11,
+        "eigenvalue_24_28": 4.692461696986783e-13
+      }
+    ],
+    "solver_rows": [
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-iid-000",
+        "family": "harmonic_honeycomb",
+        "seed": 42,
+        "side": 65,
+        "projector_error": 0.0018963525009826334,
+        "eigenvalues": [
+          0.008271834813058376,
+          0.04435183107852936
+        ],
+        "hermiticity_defect": 2.4606276838312624e-07,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-iid-000",
+        "family": "harmonic_honeycomb",
+        "seed": 42,
+        "side": 97,
+        "projector_error": 0.0018509423789842203,
+        "eigenvalues": [
+          0.008271830156445503,
+          0.04435185343027115
+        ],
+        "hermiticity_defect": 7.184596597653581e-07,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-iid-000",
+        "family": "harmonic_honeycomb",
+        "seed": 137,
+        "side": 65,
+        "projector_error": 0.0018963525009826334,
+        "eigenvalues": [
+          0.008271834813058376,
+          0.04435183107852936
+        ],
+        "hermiticity_defect": 2.4606276838312624e-07,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-iid-000",
+        "family": "harmonic_honeycomb",
+        "seed": 137,
+        "side": 97,
+        "projector_error": 0.0018509423789842203,
+        "eigenvalues": [
+          0.008271830156445503,
+          0.04435185343027115
+        ],
+        "hermiticity_defect": 7.184596597653581e-07,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-iid-000",
+        "family": "harmonic_honeycomb",
+        "seed": 251,
+        "side": 65,
+        "projector_error": 0.0018963525009826334,
+        "eigenvalues": [
+          0.008271834813058376,
+          0.04435183107852936
+        ],
+        "hermiticity_defect": 2.4606276838312624e-07,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-iid-000",
+        "family": "harmonic_honeycomb",
+        "seed": 251,
+        "side": 97,
+        "projector_error": 0.0018509423789842203,
+        "eigenvalues": [
+          0.008271830156445503,
+          0.04435185343027115
+        ],
+        "hermiticity_defect": 7.184596597653581e-07,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-exact-000",
+        "family": "harmonic_honeycomb",
+        "seed": 42,
+        "side": 65,
+        "projector_error": 0.0036917037514684497,
+        "eigenvalues": [
+          -0.18773524463176727,
+          -0.18773524463176727
+        ],
+        "hermiticity_defect": 5.476576347973605e-08,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-exact-000",
+        "family": "harmonic_honeycomb",
+        "seed": 42,
+        "side": 97,
+        "projector_error": 0.003687517567386281,
+        "eigenvalues": [
+          -0.18773536384105682,
+          -0.18773476779460907
+        ],
+        "hermiticity_defect": 3.041504328393785e-07,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-exact-000",
+        "family": "harmonic_honeycomb",
+        "seed": 137,
+        "side": 65,
+        "projector_error": 0.0036917037514684497,
+        "eigenvalues": [
+          -0.18773524463176727,
+          -0.18773524463176727
+        ],
+        "hermiticity_defect": 5.476576347973605e-08,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-exact-000",
+        "family": "harmonic_honeycomb",
+        "seed": 137,
+        "side": 97,
+        "projector_error": 0.003687517567386281,
+        "eigenvalues": [
+          -0.18773536384105682,
+          -0.18773476779460907
+        ],
+        "hermiticity_defect": 3.041504328393785e-07,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-exact-000",
+        "family": "harmonic_honeycomb",
+        "seed": 251,
+        "side": 65,
+        "projector_error": 0.0036917037514684497,
+        "eigenvalues": [
+          -0.18773524463176727,
+          -0.18773524463176727
+        ],
+        "hermiticity_defect": 5.476576347973605e-08,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-exact-000",
+        "family": "harmonic_honeycomb",
+        "seed": 251,
+        "side": 97,
+        "projector_error": 0.003687517567386281,
+        "eigenvalues": [
+          -0.18773536384105682,
+          -0.18773476779460907
+        ],
+        "hermiticity_defect": 3.041504328393785e-07,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-near-000",
+        "family": "harmonic_honeycomb",
+        "seed": 42,
+        "side": 65,
+        "projector_error": 0.0021942674116906253,
+        "eigenvalues": [
+          0.01402077917009592,
+          0.015454713255167007
+        ],
+        "hermiticity_defect": 7.077027817103954e-07,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-near-000",
+        "family": "harmonic_honeycomb",
+        "seed": 42,
+        "side": 97,
+        "projector_error": 0.0021949070023776726,
+        "eigenvalues": [
+          0.01402077917009592,
+          0.015454722568392754
+        ],
+        "hermiticity_defect": 4.0293247138833976e-07,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-near-000",
+        "family": "harmonic_honeycomb",
+        "seed": 137,
+        "side": 65,
+        "projector_error": 0.0021942674116906253,
+        "eigenvalues": [
+          0.01402077917009592,
+          0.015454713255167007
+        ],
+        "hermiticity_defect": 7.077027817103954e-07,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-near-000",
+        "family": "harmonic_honeycomb",
+        "seed": 137,
+        "side": 97,
+        "projector_error": 0.0021949070023776726,
+        "eigenvalues": [
+          0.01402077917009592,
+          0.015454722568392754
+        ],
+        "hermiticity_defect": 4.0293247138833976e-07,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-near-000",
+        "family": "harmonic_honeycomb",
+        "seed": 251,
+        "side": 65,
+        "projector_error": 0.0021942674116906253,
+        "eigenvalues": [
+          0.01402077917009592,
+          0.015454713255167007
+        ],
+        "hermiticity_defect": 7.077027817103954e-07,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-near-000",
+        "family": "harmonic_honeycomb",
+        "seed": 251,
+        "side": 97,
+        "projector_error": 0.0021949070023776726,
+        "eigenvalues": [
+          0.01402077917009592,
+          0.015454722568392754
+        ],
+        "hermiticity_defect": 4.0293247138833976e-07,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-ood-000",
+        "family": "harmonic_honeycomb",
+        "seed": 42,
+        "side": 65,
+        "projector_error": 0.005110424637647565,
+        "eigenvalues": [
+          -0.1609484851360321,
+          -0.08256363868713379
+        ],
+        "hermiticity_defect": 7.267533419508254e-08,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-ood-000",
+        "family": "harmonic_honeycomb",
+        "seed": 42,
+        "side": 97,
+        "projector_error": 0.0051067624294714115,
+        "eigenvalues": [
+          -0.16094863414764404,
+          -0.08256354928016663
+        ],
+        "hermiticity_defect": 4.385643421755958e-07,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-ood-000",
+        "family": "harmonic_honeycomb",
+        "seed": 137,
+        "side": 65,
+        "projector_error": 0.005110424637647565,
+        "eigenvalues": [
+          -0.1609484851360321,
+          -0.08256363868713379
+        ],
+        "hermiticity_defect": 7.267533419508254e-08,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-ood-000",
+        "family": "harmonic_honeycomb",
+        "seed": 137,
+        "side": 97,
+        "projector_error": 0.0051067624294714115,
+        "eigenvalues": [
+          -0.16094863414764404,
+          -0.08256354928016663
+        ],
+        "hermiticity_defect": 4.385643421755958e-07,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-ood-000",
+        "family": "harmonic_honeycomb",
+        "seed": 251,
+        "side": 65,
+        "projector_error": 0.005110424637647565,
+        "eigenvalues": [
+          -0.1609484851360321,
+          -0.08256363868713379
+        ],
+        "hermiticity_defect": 7.267533419508254e-08,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-ood-000",
+        "family": "harmonic_honeycomb",
+        "seed": 251,
+        "side": 97,
+        "projector_error": 0.0051067624294714115,
+        "eigenvalues": [
+          -0.16094863414764404,
+          -0.08256354928016663
+        ],
+        "hermiticity_defect": 4.385643421755958e-07,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-gap-000",
+        "family": "harmonic_honeycomb",
+        "seed": 42,
+        "side": 65,
+        "projector_error": 0.008591807237730046,
+        "eigenvalues": [
+          -0.2633565366268158,
+          -0.25165221095085144
+        ],
+        "hermiticity_defect": 7.362500298313535e-08,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-gap-000",
+        "family": "harmonic_honeycomb",
+        "seed": 42,
+        "side": 97,
+        "projector_error": 0.008595793733746738,
+        "eigenvalues": [
+          -0.26335644721984863,
+          -0.2516525089740753
+        ],
+        "hermiticity_defect": 4.4754128225577006e-07,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-gap-000",
+        "family": "harmonic_honeycomb",
+        "seed": 137,
+        "side": 65,
+        "projector_error": 0.008591807237730046,
+        "eigenvalues": [
+          -0.2633565366268158,
+          -0.25165221095085144
+        ],
+        "hermiticity_defect": 7.362500298313535e-08,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-gap-000",
+        "family": "harmonic_honeycomb",
+        "seed": 137,
+        "side": 97,
+        "projector_error": 0.008595793733746738,
+        "eigenvalues": [
+          -0.26335644721984863,
+          -0.2516525089740753
+        ],
+        "hermiticity_defect": 4.4754128225577006e-07,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-gap-000",
+        "family": "harmonic_honeycomb",
+        "seed": 251,
+        "side": 65,
+        "projector_error": 0.008591807237730046,
+        "eigenvalues": [
+          -0.2633565366268158,
+          -0.25165221095085144
+        ],
+        "hermiticity_defect": 7.362500298313535e-08,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-harmonic_honeycomb-gap-000",
+        "family": "harmonic_honeycomb",
+        "seed": 251,
+        "side": 97,
+        "projector_error": 0.008595793733746738,
+        "eigenvalues": [
+          -0.26335644721984863,
+          -0.2516525089740753
+        ],
+        "hermiticity_defect": 4.4754128225577006e-07,
+        "route": "fourier"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-iid-000",
+        "family": "gaussian_honeycomb",
+        "seed": 42,
+        "side": 65,
+        "projector_error": 0.012834992210288408,
+        "eigenvalues": [
+          0.12756316363811493,
+          0.13847854733467102
+        ],
+        "hermiticity_defect": 4.890466698270757e-08,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-iid-000",
+        "family": "gaussian_honeycomb",
+        "seed": 42,
+        "side": 97,
+        "projector_error": 0.012832154194571356,
+        "eigenvalues": [
+          0.1275632679462433,
+          0.13847872614860535
+        ],
+        "hermiticity_defect": 1.4251780839913408e-06,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-iid-000",
+        "family": "gaussian_honeycomb",
+        "seed": 137,
+        "side": 65,
+        "projector_error": 0.013800278389272433,
+        "eigenvalues": [
+          0.12758184969425201,
+          0.13856589794158936
+        ],
+        "hermiticity_defect": 7.332702267603963e-08,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-iid-000",
+        "family": "gaussian_honeycomb",
+        "seed": 137,
+        "side": 97,
+        "projector_error": 0.013799696681990993,
+        "eigenvalues": [
+          0.12758158147335052,
+          0.13856607675552368
+        ],
+        "hermiticity_defect": 5.286522082315059e-07,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-iid-000",
+        "family": "gaussian_honeycomb",
+        "seed": 251,
+        "side": 65,
+        "projector_error": 0.013366070449401317,
+        "eigenvalues": [
+          0.12767064571380615,
+          0.13848885893821716
+        ],
+        "hermiticity_defect": 8.260874295729081e-08,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-iid-000",
+        "family": "gaussian_honeycomb",
+        "seed": 251,
+        "side": 97,
+        "projector_error": 0.013362709797602087,
+        "eigenvalues": [
+          0.1276707500219345,
+          0.1384889930486679
+        ],
+        "hermiticity_defect": 1.2978259746887488e-06,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-exact-000",
+        "family": "gaussian_honeycomb",
+        "seed": 42,
+        "side": 65,
+        "projector_error": 0.0418283689607239,
+        "eigenvalues": [
+          0.06145695596933365,
+          0.06354256719350815
+        ],
+        "hermiticity_defect": 2.3778214597314218e-07,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-exact-000",
+        "family": "gaussian_honeycomb",
+        "seed": 42,
+        "side": 97,
+        "projector_error": 0.04182571859591966,
+        "eigenvalues": [
+          0.061456985771656036,
+          0.06354258209466934
+        ],
+        "hermiticity_defect": 9.098018267650332e-07,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-exact-000",
+        "family": "gaussian_honeycomb",
+        "seed": 137,
+        "side": 65,
+        "projector_error": 0.0411584175078947,
+        "eigenvalues": [
+          0.060963258147239685,
+          0.06351624429225922
+        ],
+        "hermiticity_defect": 3.098807610513177e-07,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-exact-000",
+        "family": "gaussian_honeycomb",
+        "seed": 137,
+        "side": 97,
+        "projector_error": 0.041158757818371174,
+        "eigenvalues": [
+          0.06096324324607849,
+          0.06351630389690399
+        ],
+        "hermiticity_defect": 1.3257987347969902e-06,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-exact-000",
+        "family": "gaussian_honeycomb",
+        "seed": 251,
+        "side": 65,
+        "projector_error": 0.041598500276797415,
+        "eigenvalues": [
+          0.06066392362117767,
+          0.0641542449593544
+        ],
+        "hermiticity_defect": 1.1186017445652396e-07,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-exact-000",
+        "family": "gaussian_honeycomb",
+        "seed": 251,
+        "side": 97,
+        "projector_error": 0.04159889712863972,
+        "eigenvalues": [
+          0.06066405400633812,
+          0.06415409594774246
+        ],
+        "hermiticity_defect": 1.4417245211006957e-06,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-near-000",
+        "family": "gaussian_honeycomb",
+        "seed": 42,
+        "side": 65,
+        "projector_error": 0.09721289396738865,
+        "eigenvalues": [
+          -0.042831405997276306,
+          -0.03251860663294792
+        ],
+        "hermiticity_defect": 8.425073474427336e-07,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-near-000",
+        "family": "gaussian_honeycomb",
+        "seed": 42,
+        "side": 97,
+        "projector_error": 0.09721255217577655,
+        "eigenvalues": [
+          -0.0428314283490181,
+          -0.032518625259399414
+        ],
+        "hermiticity_defect": 1.814056759030791e-06,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-near-000",
+        "family": "gaussian_honeycomb",
+        "seed": 137,
+        "side": 65,
+        "projector_error": 0.09311000238816003,
+        "eigenvalues": [
+          -0.0461186021566391,
+          -0.03347746655344963
+        ],
+        "hermiticity_defect": 7.465796443284489e-07,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-near-000",
+        "family": "gaussian_honeycomb",
+        "seed": 137,
+        "side": 97,
+        "projector_error": 0.09310926300964896,
+        "eigenvalues": [
+          -0.046118512749671936,
+          -0.033477526158094406
+        ],
+        "hermiticity_defect": 1.7072007949536783e-06,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-near-000",
+        "family": "gaussian_honeycomb",
+        "seed": 251,
+        "side": 65,
+        "projector_error": 0.09401983986181475,
+        "eigenvalues": [
+          -0.04741382598876953,
+          -0.031321391463279724
+        ],
+        "hermiticity_defect": 1.1179964758412098e-06,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-near-000",
+        "family": "gaussian_honeycomb",
+        "seed": 251,
+        "side": 97,
+        "projector_error": 0.09402004109858407,
+        "eigenvalues": [
+          -0.04741384834051132,
+          -0.03132140263915062
+        ],
+        "hermiticity_defect": 1.9060504428125569e-06,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-ood-000",
+        "family": "gaussian_honeycomb",
+        "seed": 42,
+        "side": 65,
+        "projector_error": 0.10090990210760918,
+        "eigenvalues": [
+          -0.011061311699450016,
+          0.04458305612206459
+        ],
+        "hermiticity_defect": 8.812123724055709e-07,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-ood-000",
+        "family": "gaussian_honeycomb",
+        "seed": 42,
+        "side": 97,
+        "projector_error": 0.10090972020509874,
+        "eigenvalues": [
+          -0.011061279103159904,
+          0.04458301514387131
+        ],
+        "hermiticity_defect": 2.5864173949230462e-06,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-ood-000",
+        "family": "gaussian_honeycomb",
+        "seed": 137,
+        "side": 65,
+        "projector_error": 0.09538260108390141,
+        "eigenvalues": [
+          -0.014005569741129875,
+          0.04365051910281181
+        ],
+        "hermiticity_defect": 9.646786338635138e-07,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-ood-000",
+        "family": "gaussian_honeycomb",
+        "seed": 137,
+        "side": 97,
+        "projector_error": 0.09538214670815867,
+        "eigenvalues": [
+          -0.01400554645806551,
+          0.04365057498216629
+        ],
+        "hermiticity_defect": 1.6655300214551971e-06,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-ood-000",
+        "family": "gaussian_honeycomb",
+        "seed": 251,
+        "side": 65,
+        "projector_error": 0.0952006008704996,
+        "eigenvalues": [
+          -0.014323062263429165,
+          0.044224489480257034
+        ],
+        "hermiticity_defect": 8.58172711559746e-07,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-ood-000",
+        "family": "gaussian_honeycomb",
+        "seed": 251,
+        "side": 97,
+        "projector_error": 0.0952010986987541,
+        "eigenvalues": [
+          -0.014323053881525993,
+          0.04422438517212868
+        ],
+        "hermiticity_defect": 9.009794439407415e-07,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-gap-000",
+        "family": "gaussian_honeycomb",
+        "seed": 42,
+        "side": 65,
+        "projector_error": 0.06177270742457482,
+        "eigenvalues": [
+          0.00020692848192993551,
+          0.014630387537181377
+        ],
+        "hermiticity_defect": 1.630727410883992e-06,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-gap-000",
+        "family": "gaussian_honeycomb",
+        "seed": 42,
+        "side": 97,
+        "projector_error": 0.061772013271076065,
+        "eigenvalues": [
+          0.00020689339726231992,
+          0.01463042851537466
+        ],
+        "hermiticity_defect": 3.8133525777084287e-06,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-gap-000",
+        "family": "gaussian_honeycomb",
+        "seed": 137,
+        "side": 65,
+        "projector_error": 0.06014993312110317,
+        "eigenvalues": [
+          -0.000648332410492003,
+          0.01406709011644125
+        ],
+        "hermiticity_defect": 2.2558344880962977e-06,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-gap-000",
+        "family": "gaussian_honeycomb",
+        "seed": 137,
+        "side": 97,
+        "projector_error": 0.06015066426978944,
+        "eigenvalues": [
+          -0.0006483208853751421,
+          0.014067036099731922
+        ],
+        "hermiticity_defect": 4.874665592069505e-06,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-gap-000",
+        "family": "gaussian_honeycomb",
+        "seed": 251,
+        "side": 65,
+        "projector_error": 0.060926882449191096,
+        "eigenvalues": [
+          -0.0016285181045532227,
+          0.015668300911784172
+        ],
+        "hermiticity_defect": 2.632784344314132e-06,
+        "route": "hybrid"
+      },
+      {
+        "point_id": "v3-pilot-gaussian_honeycomb-gap-000",
+        "family": "gaussian_honeycomb",
+        "seed": 251,
+        "side": 97,
+        "projector_error": 0.06092629690686679,
+        "eigenvalues": [
+          -0.0016285466263070703,
+          0.015668334439396858
+        ],
+        "hermiticity_defect": 4.850202913075918e-06,
+        "route": "hybrid"
+      }
+    ]
+  },
+  "gate": {
+    "reference_projector_pass": true,
+    "reference_eigenvalue_pass": true,
+    "solver_projector_grid_pass": true,
+    "solver_eigenvalue_grid_pass": true,
+    "raw_hermiticity_pass": true,
+    "convergence_go": true
+  },
+  "provenance": {
+    "suite_id": "block-kyfan-v3-symmetry-pilot-20260827",
+    "suite_sha256": "ada77c55dec17a6b912b1b7347182a0f60135a1f3771ca9387e1bd5b8161ed7d",
+    "p5_archive_sha256": "56891c5740eb94c62299b72869d790a1cbdee6abda3fae2903ed822f5e405101",
+    "checkpoint_inventory_sha256": "186a5629d2c98e37df359d0c1746dfc027b95f04dad3051687b3044affa2b7b9",
+    "source_fingerprint": "27b8d487a8ff81a89d27d49856b3559e51188d0424a143ad7133d9d572f2dbbb",
+    "cutoffs": [
+      20,
+      24,
+      28
+    ],
+    "solver_grids": [
+      65,
+      97
+    ],
+    "reference_grid": 97,
+    "selected_point_ids": [
+      "v3-pilot-harmonic_honeycomb-iid-000",
+      "v3-pilot-harmonic_honeycomb-exact-000",
+      "v3-pilot-harmonic_honeycomb-near-000",
+      "v3-pilot-harmonic_honeycomb-ood-000",
+      "v3-pilot-harmonic_honeycomb-gap-000",
+      "v3-pilot-gaussian_honeycomb-iid-000",
+      "v3-pilot-gaussian_honeycomb-exact-000",
+      "v3-pilot-gaussian_honeycomb-near-000",
+      "v3-pilot-gaussian_honeycomb-ood-000",
+      "v3-pilot-gaussian_honeycomb-gap-000"
+    ]
+  }
+}

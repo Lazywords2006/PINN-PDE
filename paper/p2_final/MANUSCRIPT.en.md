@@ -1,5 +1,10 @@
 # A Basis-Invariant Neural-Augmented Rayleigh–Ritz Solver for Parametric Bloch Spectral Clusters with Eigenvalue Crossings
 
+> **SUPERSEDED — DO NOT SUBMIT.** A 27 August 2026 audit found an inconsistent reciprocal-shell
+> convention in this version. Its P2/Q3 numbers remain immutable historical evidence, but the
+> current method is the V3 symmetry-corrected SR-SC-NARR protocol. This manuscript will be replaced
+> after the new CUDA confirmation; none of the results below are current publication claims.
+>
 > English manuscript v0.3, 27 August 2026. Every numerical value below comes from an archived
 > experiment. The NMPDE-oriented editable DOCX and PDF preview are complete. Author names,
 > affiliations, ORCID, CRediT roles, funding, and final journal-system metadata remain for the

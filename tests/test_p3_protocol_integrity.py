@@ -9,8 +9,8 @@ from pathlib import Path
 import pytest
 import torch
 
-from block_kyfan_pinn.metrics import orthogonality_error
 from block_kyfan_pinn.experiment import _source_fingerprint
+from block_kyfan_pinn.metrics import orthogonality_error
 from block_kyfan_pinn.p3_model import P3BlockKyFanPINN
 from block_kyfan_pinn.p3_rom import m_weighted_gram_mean, m_weighted_gram_schmidt
 from block_kyfan_pinn.physics import generalized_trace_energy, periodic_mgs
@@ -22,6 +22,7 @@ from block_kyfan_pinn.reference import (
     uniform_grid,
 )
 from block_kyfan_pinn.suites import load_frozen_suite, write_frozen_suite
+from scripts.evaluate_v2_final import _load_promoted_runs
 from scripts.generate_v2_assets import (
     build_suite_payload,
     generate_validation_suite,
@@ -30,14 +31,13 @@ from scripts.generate_v2_assets import (
 from scripts.run_p3_pilot import (
     PILOT_FAMILIES,
     PILOT_METHODS,
+    PilotConfig,
     _config_fingerprint,
     _load_completed_result,
-    PilotConfig,
     build_pilot_gate,
     build_pilot_model,
     run_pilot_run,
 )
-from scripts.evaluate_v2_final import _load_promoted_runs
 
 
 def _p3(*, anchor_kind: str = "correct", m_weighted: bool = False) -> P3BlockKyFanPINN:
@@ -108,7 +108,7 @@ def test_m_weighted_gram_schmidt_supports_per_sample_weights() -> None:
     assert torch.allclose(gram_imag, torch.zeros_like(gram_imag), atol=5e-5)
 
 
-def test_hexagonal_reference_uses_the_declared_symmetry_closed_modes() -> None:
+def test_hexagonal_reference_preserves_the_archived_v2_mode_policy() -> None:
     parameters = torch.tensor([1 / 3, 1 / 3, 0.5, 0.0], dtype=torch.float64)
     square_matrix, square_modes = plane_wave_hamiltonian(parameters, cutoff=1, mode_shape="square")
     hex_matrix, hex_modes = plane_wave_hamiltonian(parameters, cutoff=1, mode_shape="hexagonal")
@@ -116,7 +116,34 @@ def test_hexagonal_reference_uses_the_declared_symmetry_closed_modes() -> None:
     assert hex_matrix.shape == (7, 7)
     assert len(square_modes) == 9
     assert len(hex_modes) == 7
+    assert {tuple(int(value) for value in row) for row in hex_modes} == {
+        (-1, -1),
+        (-1, 0),
+        (0, -1),
+        (0, 0),
+        (0, 1),
+        (1, 0),
+        (1, 1),
+    }
     assert torch.allclose(hex_matrix, hex_matrix.mH, atol=1e-12)
+
+
+def test_d6_reference_uses_the_positive_cross_metric_closure() -> None:
+    parameters = torch.tensor([1 / 3, 1 / 3, 0.5, 0.0], dtype=torch.float64)
+    matrix, modes = plane_wave_hamiltonian(
+        parameters, cutoff=1, mode_shape="hexagonal_d6"
+    )
+    assert matrix.shape == (7, 7)
+    assert {tuple(int(value) for value in row) for row in modes} == {
+        (-1, 0),
+        (-1, 1),
+        (0, -1),
+        (0, 0),
+        (0, 1),
+        (1, -1),
+        (1, 0),
+    }
+    assert torch.allclose(matrix, matrix.mH, atol=1e-12)
 
 
 def test_reference_solver_is_deterministic_at_exact_degeneracy() -> None:
@@ -363,7 +390,11 @@ def test_generalized_trace_real_block_matches_complex_solve() -> None:
         [[0.31, 0.35, 0.5, 0.02], [0.34, 0.32, 0.6, -0.01]],
         dtype=torch.float64,
     )
-    from block_kyfan_pinn.physics import apply_hamiltonian, complex_gram_mean, ritz_matrix
+    from block_kyfan_pinn.physics import (
+        apply_hamiltonian,
+        complex_gram_mean,
+        ritz_matrix,
+    )
 
     h_basis = apply_hamiltonian(raw, coordinates, parameters)
     b_real, b_imag = complex_gram_mean(raw)

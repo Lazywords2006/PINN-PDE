@@ -1,0 +1,30 @@
+{
+  "formal": false,
+  "git_commit": "7c1075f32d84b4d22f417ec22d6f4d572588adbf",
+  "git_status_before_open": "not_required",
+  "source_fingerprint": "27b8d487a8ff81a89d27d49856b3559e51188d0424a143ad7133d9d572f2dbbb",
+  "suite_sha256": "ada77c55dec17a6b912b1b7347182a0f60135a1f3771ca9387e1bd5b8161ed7d",
+  "reference_sha256": "e586cdf8c9c72c90bc9a224b5c9e83b6e384a4991987dca09f238552feade4a1",
+  "p5_archive_sha256": "56891c5740eb94c62299b72869d790a1cbdee6abda3fae2903ed822f5e405101",
+  "checkpoint_inventory_sha256": "186a5629d2c98e37df359d0c1746dfc027b95f04dad3051687b3044affa2b7b9",
+  "adapted_checkpoint_sha256": {
+    "dai_galerkin/gaussian_honeycomb/seed_137/final.pt": "d40ea5b670083a2e0cdd2567580ec50e810893269b5940e5114505260a45c72f",
+    "dai_galerkin/gaussian_honeycomb/seed_251/final.pt": "48a0bfdbd838b277a74642515c43164d816641dd51c19f7a1af52b8ee98e63aa",
+    "dai_galerkin/gaussian_honeycomb/seed_42/final.pt": "46ffb6f44a75bbfb9da26db7fb7f7f6c8a963995bdbbf06baee4c426a604fa2b",
+    "dai_galerkin/harmonic_honeycomb/seed_137/final.pt": "48a5c64a360a551ac46e7adb52e89150f12292e43e8124bc167612f1217cd209",
+    "dai_galerkin/harmonic_honeycomb/seed_251/final.pt": "7dcffd15fbbb148f12461a284e21d29e663b1b6715494cc08471b06e0cdd3b15",
+    "dai_galerkin/harmonic_honeycomb/seed_42/final.pt": "c52421e9d3fff2fa0f300492951b3fbbffc0622d04fa2102445e4df31c0c393f",
+    "wang_xie_trace/gaussian_honeycomb/seed_137/final.pt": "b8035b372e40f1db79bc444ab83ef4be762f3286bc7f92512993c39688264dc9",
+    "wang_xie_trace/gaussian_honeycomb/seed_251/final.pt": "99879ff7afc3d38d7296188db40410edd2fc74fde1b3c399bf40f1d920bbf042",
+    "wang_xie_trace/gaussian_honeycomb/seed_42/final.pt": "db8f75cdf5a9efe0bc6404702a3d34044920b30ae7c2399ef51c72cffef4ecd8",
+    "wang_xie_trace/harmonic_honeycomb/seed_137/final.pt": "b3180dfe1ead5b354eb7e89a25fabd890af73c3e27937c96984e645a1be8e6b0",
+    "wang_xie_trace/harmonic_honeycomb/seed_251/final.pt": "f633bb0e32e55b6c17898a2bd6c17a5ed6a5e012fd3c83b6c1abeee335471a99",
+    "wang_xie_trace/harmonic_honeycomb/seed_42/final.pt": "868a075799cf4a3530ca0cd213036ce52a8122a4db4ac5c0a43f144a524b8597"
+  },
+  "formal_manifest_sha256": null,
+  "convergence_audit_sha256": null,
+  "device": "cpu",
+  "torch": "2.8.0",
+  "platform": "macOS-27.0-arm64-arm-64bit",
+  "cuda": {}
+}

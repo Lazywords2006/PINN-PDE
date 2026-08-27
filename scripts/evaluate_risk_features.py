@@ -219,7 +219,7 @@ def load_p5_checkpoint(
     checkpoint = torch.load(
         io.BytesIO(checkpoint_bytes),
         map_location=device,
-        weights_only=False,
+        weights_only=True,
     )
     if not isinstance(checkpoint, dict):
         raise ValueError("P5 checkpoint payload must be an object")

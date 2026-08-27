@@ -1,8 +1,12 @@
 # P2 核心数据与证据索引
 
+> **已废止，禁止用于投稿。** 2026-08-27 的对称性审计发现旧 shell 与 kinetic metric
+> 符号不一致。本文件只保留历史可追溯性；当前方法和结果见
+> `docs/CURRENT-STATUS.zh-CN.md` 与 `paper/v3_pilot/`。
+
 更新日期：2026-08-27
-状态：`P2_FROZEN_FINAL_GO`
-用途：论文写作、表格复核、图表生成与后续 AI 交接的唯一数值摘要。
+状态：`SUPERSEDED_V2_HISTORICAL_ONLY`
+用途：旧实验审计，不得用于当前论文主张、表格或投稿文件。
 
 ## 1. 研究对象
 

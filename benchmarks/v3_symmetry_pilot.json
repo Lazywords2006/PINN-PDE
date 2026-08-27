@@ -1,0 +1,330 @@
+{
+  "suite_id": "block-kyfan-v3-symmetry-pilot-20260827",
+  "protocol_version": 2,
+  "purpose": "symmetry_correction_engineering_only",
+  "generation_seed": 20260827,
+  "point_count": 24,
+  "grid_side": 65,
+  "reference_cutoff": 24,
+  "mode_policy": "positive_cross_metric_d6_closure",
+  "training_bounds": {
+    "harmonic_honeycomb": [
+      [
+        0.28,
+        0.38
+      ],
+      [
+        0.28,
+        0.38
+      ],
+      [
+        0.2,
+        0.8
+      ],
+      [
+        -0.08,
+        0.08
+      ]
+    ],
+    "gaussian_honeycomb": [
+      [
+        0.28,
+        0.38
+      ],
+      [
+        0.28,
+        0.38
+      ],
+      [
+        1.0,
+        4.0
+      ],
+      [
+        0.18,
+        0.35
+      ],
+      [
+        -0.08,
+        0.08
+      ]
+    ]
+  },
+  "points": [
+    {
+      "id": "v3-pilot-harmonic_honeycomb-iid-000",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.3375589390726155,
+        0.30032746113869935,
+        0.2123939970273365,
+        0.013861954231586981
+      ]
+    },
+    {
+      "id": "v3-pilot-harmonic_honeycomb-iid-001",
+      "family": "harmonic_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.30627626202082053,
+        0.3553764959684223,
+        0.6558022453606506,
+        -0.06530928597198857
+      ]
+    },
+    {
+      "id": "v3-pilot-harmonic_honeycomb-exact-000",
+      "family": "harmonic_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.46130000000000004,
+        0.0
+      ]
+    },
+    {
+      "id": "v3-pilot-harmonic_honeycomb-exact-001",
+      "family": "harmonic_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.7613000000000001,
+        0.0
+      ]
+    },
+    {
+      "id": "v3-pilot-harmonic_honeycomb-near-000",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.33492631242757626,
+        0.3347496363319539,
+        0.22749325243207819,
+        0.0
+      ]
+    },
+    {
+      "id": "v3-pilot-harmonic_honeycomb-near-001",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.32993611403647827,
+        0.33446080423127184,
+        0.6141462627508666,
+        0.0
+      ]
+    },
+    {
+      "id": "v3-pilot-harmonic_honeycomb-near-002",
+      "family": "harmonic_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.33560928635346987,
+        0.32228491970599527,
+        0.5870733672757196,
+        0.0
+      ]
+    },
+    {
+      "id": "v3-pilot-harmonic_honeycomb-ood-000",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.27402453073539595,
+        0.42334060282315233,
+        0.3888171012459157,
+        0.024844477103572515
+      ]
+    },
+    {
+      "id": "v3-pilot-harmonic_honeycomb-ood-001",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.2011581881662347,
+        0.40193486261038724,
+        0.635909623102838,
+        -0.11136997101317456
+      ]
+    },
+    {
+      "id": "v3-pilot-harmonic_honeycomb-ood-002",
+      "family": "harmonic_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.2346934498614567,
+        0.43093309814862896,
+        0.9238178087335303,
+        0.12135900398260543
+      ]
+    },
+    {
+      "id": "v3-pilot-harmonic_honeycomb-gap-000",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.35768187713713,
+        0.3333333333333333,
+        0.5357000000000001,
+        0.0
+      ]
+    },
+    {
+      "id": "v3-pilot-harmonic_honeycomb-gap-001",
+      "family": "harmonic_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.4166371890107299,
+        0.3333333333333333,
+        0.23569999999999997,
+        0.0
+      ]
+    },
+    {
+      "id": "v3-pilot-gaussian_honeycomb-iid-000",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.30429117166515646,
+        0.35070701984506897,
+        1.004481814761876,
+        0.2605269183921221,
+        -0.034858309640923714
+      ]
+    },
+    {
+      "id": "v3-pilot-gaussian_honeycomb-iid-001",
+      "family": "gaussian_honeycomb",
+      "split": "iid_hidden",
+      "parameters": [
+        0.33971350066172395,
+        0.2995593422102195,
+        3.019405363892787,
+        0.3314149226932467,
+        0.015231311697310485
+      ]
+    },
+    {
+      "id": "v3-pilot-gaussian_honeycomb-exact-000",
+      "family": "gaussian_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        2.3064999999999998,
+        0.27044,
+        0.0
+      ]
+    },
+    {
+      "id": "v3-pilot-gaussian_honeycomb-exact-001",
+      "family": "gaussian_honeycomb",
+      "split": "exact_cluster",
+      "parameters": [
+        0.3333333333333333,
+        0.3333333333333333,
+        3.8064999999999998,
+        0.18544,
+        0.0
+      ]
+    },
+    {
+      "id": "v3-pilot-gaussian_honeycomb-near-000",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3401701268718872,
+        0.339411863318189,
+        3.7251241346325674,
+        0.2636317188758592,
+        0.0
+      ]
+    },
+    {
+      "id": "v3-pilot-gaussian_honeycomb-near-001",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3264369068845038,
+        0.33562212291133525,
+        2.9167949383120177,
+        0.26345028080465127,
+        0.0
+      ]
+    },
+    {
+      "id": "v3-pilot-gaussian_honeycomb-near-002",
+      "family": "gaussian_honeycomb",
+      "split": "near_cluster",
+      "parameters": [
+        0.3348195104325226,
+        0.3261188174052604,
+        1.778175882792741,
+        0.19903538439083385,
+        0.0
+      ]
+    },
+    {
+      "id": "v3-pilot-gaussian_honeycomb-ood-000",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.24013652037742056,
+        0.43013692559627936,
+        4.181092363523128,
+        0.2140547982536108,
+        0.13593787087419532
+      ]
+    },
+    {
+      "id": "v3-pilot-gaussian_honeycomb-ood-001",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.254351298972452,
+        0.40765725047307666,
+        0.8876512285408839,
+        0.3639876874200303,
+        -0.06816595486804052
+      ]
+    },
+    {
+      "id": "v3-pilot-gaussian_honeycomb-ood-002",
+      "family": "gaussian_honeycomb",
+      "split": "strict_ood",
+      "parameters": [
+        0.20722081855345384,
+        0.39588655096719066,
+        2.8933312132752427,
+        0.2715316390885809,
+        0.004837656037580601
+      ]
+    },
+    {
+      "id": "v3-pilot-gaussian_honeycomb-gap-000",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.35768187713713,
+        0.3333333333333333,
+        2.6785,
+        0.29152,
+        0.0
+      ]
+    },
+    {
+      "id": "v3-pilot-gaussian_honeycomb-gap-001",
+      "family": "gaussian_honeycomb",
+      "split": "gap_scan",
+      "parameters": [
+        0.4166371890107299,
+        0.3333333333333333,
+        1.1784999999999997,
+        0.20652,
+        0.0
+      ]
+    }
+  ]
+}

@@ -7,18 +7,13 @@ from collections.abc import Sequence
 import torch
 from torch import Tensor, nn
 
+from .symmetry import legacy_hexagonal_shell_modes
+
 
 def _k_point_modes(num_shells: int) -> list[tuple[int, int]]:
     """Return the reciprocal modes in ``num_shells`` hexagonal shells."""
 
-    if num_shells < 0:
-        raise ValueError("num_shells must be non-negative")
-    modes: list[tuple[int, int]] = []
-    for m1 in range(-num_shells, num_shells + 1):
-        for m2 in range(-num_shells, num_shells + 1):
-            if max(abs(m1), abs(m2), abs(m1 - m2)) <= num_shells:
-                modes.append((m1, m2))
-    return sorted(modes)
+    return legacy_hexagonal_shell_modes(num_shells)
 
 
 def _build_rom_basis(coordinates: Tensor, modes: Sequence[tuple[int, int]]) -> Tensor:

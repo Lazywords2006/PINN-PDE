@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 import math
+from dataclasses import dataclass
 from typing import Literal
 
 import torch
 from torch import Tensor
+
+from .symmetry import hexagonal_shell_modes, legacy_hexagonal_shell_modes
 
 
 @dataclass(frozen=True)
@@ -50,7 +52,7 @@ def plane_wave_hamiltonian(
     parameters: Tensor,
     cutoff: int = 3,
     potential_family: str = "harmonic_honeycomb",
-    mode_shape: Literal["square", "hexagonal"] = "square",
+    mode_shape: Literal["square", "hexagonal", "hexagonal_d6"] = "square",
 ) -> tuple[Tensor, Tensor]:
     expected = 5 if potential_family == "gaussian_honeycomb" else 4
     if parameters.shape != (expected,):
@@ -63,12 +65,9 @@ def plane_wave_hamiltonian(
     if mode_shape == "square":
         modes = torch.cartesian_prod(indices, indices)
     elif mode_shape == "hexagonal":
-        candidates = torch.cartesian_prod(indices, indices)
-        mask = torch.maximum(
-            torch.maximum(candidates[:, 0].abs(), candidates[:, 1].abs()),
-            (candidates[:, 0] - candidates[:, 1]).abs(),
-        ) <= cutoff
-        modes = candidates[mask]
+        modes = torch.tensor(legacy_hexagonal_shell_modes(cutoff), dtype=torch.float64)
+    elif mode_shape == "hexagonal_d6":
+        modes = torch.tensor(hexagonal_shell_modes(cutoff), dtype=torch.float64)
     else:
         raise ValueError(f"unknown plane-wave mode shape: {mode_shape}")
     matrix = torch.zeros((len(modes), len(modes)), dtype=torch.complex128)
@@ -118,7 +117,7 @@ def solve_reference(
     cutoff: int = 3,
     rank: int = 2,
     potential_family: str = "harmonic_honeycomb",
-    mode_shape: Literal["square", "hexagonal"] = "square",
+    mode_shape: Literal["square", "hexagonal", "hexagonal_d6"] = "square",
 ) -> ReferenceSolution:
     matrix, modes = plane_wave_hamiltonian(
         parameters, cutoff, potential_family, mode_shape
