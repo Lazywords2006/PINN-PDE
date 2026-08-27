@@ -1,9 +1,9 @@
 # A Basis-Invariant Neural-Augmented Rayleigh–Ritz Solver for Parametric Bloch Spectral Clusters with Eigenvalue Crossings
 
-> English manuscript draft v0.2, 25 August 2026. Author names, affiliations, target journal,
-> and journal formatting remain to be specified. Every numerical value below comes from an
-> archived experiment. Missing nearest-neighbor journal baselines and theory are identified as
-> pending work rather than reported as completed results.
+> English manuscript v0.3, 27 August 2026. Every numerical value below comes from an archived
+> experiment. The NMPDE-oriented editable DOCX and PDF preview are complete. Author names,
+> affiliations, ORCID, CRediT roles, funding, and final journal-system metadata remain for the
+> authors to supply.
 
 ## Abstract
 
@@ -63,16 +63,16 @@ amortized coarse space for an internally crossing Bloch cluster, and can a fixed
 shell correct that space without turning inference into a full high-cutoff plane-wave solve? The
 contributions are as follows.
 
-1. The lowest two Bloch states are formulated as a rank-two projector-learning problem. Training,
+**Contribution 1 — Crossing-aware target.** The lowest two Bloch states are formulated as a rank-two projector-learning problem. Training,
    refinement, and evaluation are insensitive to column permutations, phases, and unitary rotations
    within the target cluster.
-2. A compact trial space combines a label-free neural coarse basis with the complete second
+**Contribution 2 — Neural-analytic trial space.** A compact trial space combines a label-free neural coarse basis with the complete second
    hexagonal Fourier shell. A same-rank Fourier-only control isolates the contribution of the neural
    component.
-3. Hamiltonian assembly is split by column type. Only the two neural columns use automatic
+**Contribution 3 — Paired fast assembly.** Hamiltonian assembly is split by column type. Only the two neural columns use automatic
    differentiation. The 19 Fourier columns use an analytic action. The same orthogonalization transform
    is applied to each pair \((w,Hw)\).
-4. Evaluation uses an independent pilot, a one-shot frozen test, and a disjoint journal-baseline
+**Contribution 4 — Frozen evidence protocol.** Evaluation uses an independent pilot, a one-shot frozen test, and a disjoint journal-baseline
    supplement, with clustered bootstrap intervals, timing, and hash-bound evidence auditing.
 
 The claims in this draft are limited to this combined mechanism and the archived benchmarks. The
@@ -272,10 +272,9 @@ pipeline is
 \xrightarrow{\text{Ritz}}\widehat U_2.
 \]
 
-![P2 method pipeline](../../figures/p2_final/fig09_method_pipeline.svg)
+![P2 method pipeline](../../figures/p2_final/fig09_method_pipeline.png)
 
-**Figure 1.** Basis-invariant neural-augmented Rayleigh–Ritz pipeline. Figure numbering will be
-updated after the target journal template is selected.
+**Figure 1.** Basis-invariant neural-augmented Rayleigh–Ritz pipeline.
 
 ### 4.5 External-gap stability
 
@@ -287,7 +286,7 @@ unwanted spectrum by
 \delta=\operatorname{dist}(\sigma(M),\sigma(H|_{U^\perp}))>0,
 \]
 
-then the Hermitian invariant-subspace residual bound gives
+then the Hermitian invariant-subspace residual bound [15] gives
 
 \[
 e_{\mathrm{proj}}
@@ -354,6 +353,8 @@ reference. The matrix contains 1,440 rows and uses 2,000 point-clustered bootstr
 
 ### 6.1 Main comparison
 
+**Table 1.** Frozen-final rank-two projector sine error (lower is better).
+
 | Method | Overall | Near | Gap scan |
 |---|---:|---:|---:|
 | Unanchored trace | 0.19784 | 0.14589 | 0.21830 |
@@ -372,17 +373,30 @@ overall improvement over long-anchor is 69.19%, with a point-clustered 95% inter
 [67.66%, 70.75%]. The near-crossing improvement is 56.28%, with a 95% interval of
 [53.24%, 59.22%]. Both intervals remain far from zero.
 
+![Frozen-final overall method comparison](../../figures/p2_final/fig01_method_overall_error.png)
+
+**Figure 2.** Overall projector error for the ten frozen-final methods. Lower is better.
+
 ### 6.2 Parameter regimes and potential families
 
 Errors on IID, exact-cluster, near-cluster, strict-OOD, and gap-scan points are 0.04383, 0.04220,
 0.03903, 0.05685, and 0.04389. Long-anchor reaches 0.22921 on strict OOD, indicating that the
 gain is not confined to points selected around the crossing.
 
+![Projector error across five parameter regimes](../../figures/p2_final/fig02_split_comparison.png)
+
+**Figure 3.** Projector error across IID, exact-cluster, near-cluster, strict-OOD, and gap-scan
+regimes.
+
 For harmonic near-cluster points, error decreases from 0.06508 to 0.03037. For the Gaussian
 family, it decreases from 0.11340 to 0.04770. The proposed solver wins all six
 family-by-checkpoint-seed comparisons. Overall errors across the three seeds are 0.04384, 0.04559,
 and 0.04654, with a standard deviation of 0.00137. Maximum orthogonality error is
 \(3.12\times10^{-7}\).
+
+![Point-clustered bootstrap intervals](../../figures/p2_final/fig04_bootstrap_improvement.png)
+
+**Figure 4.** Point-clustered bootstrap intervals for improvement over the long-anchor baseline.
 
 ### 6.3 Ablation evidence
 
@@ -405,7 +419,14 @@ forward pass alone remains close to 1 ms, so the proposed solver is not a cost-f
 occupies an intermediate accuracy-latency point between a fast neural surrogate and a high-accuracy
 direct eigensolve.
 
+![Accuracy-latency comparison](../../figures/p2_final/fig07_accuracy_latency.png)
+
+**Figure 5.** Accuracy-latency comparison. P2 lies between a single neural forward pass and the
+cutoff-24 reference solve.
+
 ### 6.5 Independent journal-baseline supplement
+
+**Table 2.** Independent supplement results on 160 parameter points (lower is better).
 
 | Method | Overall | Near | Gap scan | Strict OOD |
 |---|---:|---:|---:|---:|
@@ -487,11 +508,11 @@ projectors. Frozen evaluation reduces overall projector error from 0.14719 for t
 neural baseline to 0.04532, with consistent gains across both potential families, all five parameter
 regimes, and every family-seed pairing.
 
-The evidence is sufficient to continue journal preparation and supports the classification of this
-work as a genuine neural PDE eigensolver. It provides a strong Q4 foundation, and the independent
-journal-baseline supplement improves the case for Q3. The remaining priorities are target-journal
-formatting, a publication-ready method diagram, optional CUDA profiler counts, and careful
-qualification of the adapted baselines. The frozen test and current supplement remain closed.
+The evidence supports the classification of this work as a genuine neural PDE eigensolver and is
+sufficient for journal submission preparation. It provides a strong Q4 foundation, while the
+independent journal-baseline supplement creates a realistic but not guaranteed Q3 opportunity.
+The target-journal package and publication-ready method diagram are complete. Optional CUDA
+profiler counts should be added only if requested; the frozen test and supplement remain closed.
 
 ## Data Availability
 
@@ -586,3 +607,7 @@ the Physical Sciences, 2024. https://neurips.cc/virtual/2024/99978
 [14] H. Jin, M. Mattheakis, and P. Protopapas, “Physics-Informed Neural Networks for
 Quantum Eigenvalue Problems,” in *2022 International Joint Conference on Neural
 Networks (IJCNN)*, 2022. https://doi.org/10.1109/IJCNN55064.2022.9891944
+
+[15] C. Davis and W. M. Kahan, “The rotation of eigenvectors by a perturbation. III,”
+*SIAM Journal on Numerical Analysis*, vol. 7, no. 1, pp. 1–46, 1970.
+https://doi.org/10.1137/0707001

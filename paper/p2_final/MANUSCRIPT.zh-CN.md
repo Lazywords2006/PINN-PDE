@@ -1,7 +1,8 @@
 # 面向本征值交叉的参数化 Bloch 谱簇基底不变神经增强 Rayleigh–Ritz 求解器
 
-> 中文论文初稿 v0.2，2026-08-25。作者、单位、目标期刊和版式待定。所有数值均来自已
-> 封存的真实实验；公式级期刊基线适配与作者官方实现严格区分。
+> 中文论文稿 v0.3，2026-08-27。所有数值均来自已封存实验；NMPDE 方向的可编辑英文
+> DOCX 与 PDF 预览已经完成。作者姓名、单位、ORCID、CRediT、资助和投稿系统元数据仍需
+> 作者本人填写；公式级期刊基线适配与作者官方实现严格区分。
 
 ## 摘要
 
@@ -46,13 +47,13 @@ regression [8] 以及周期量子系统的 equation-driven 网络 [13] 中。传
 前提下，利用一个轻量参数网络生成可摊销的神经粗子空间，并通过固定、紧凑、可解析装配
 的 Fourier 壳层提高其精度与安全性。主要贡献如下。
 
-1. 将二维参数化 Bloch–Schrödinger 问题表述为 rank-2 谱投影学习，训练、推理与评价均
+**贡献 1——交叉感知目标。** 将二维参数化 Bloch–Schrödinger 问题表述为 rank-2 谱投影学习，训练、推理与评价均
    对目标簇内的复酉基变换不敏感。
-2. 构造由无标签神经粗子空间和完整二阶六角 Fourier 壳层组成的紧凑试验空间。相同秩的
+**贡献 2——神经—解析试验空间。** 构造由无标签神经粗子空间和完整二阶六角 Fourier 壳层组成的紧凑试验空间。相同秩的
    Fourier-only 控制证明，性能增益不能由固定字典单独解释。
-3. 对 neural/Fourier 两类列采用混合 Hamiltonian 装配：两个神经列保留自动微分，19 个
+**贡献 3——配对快速装配。** 对 neural/Fourier 两类列采用混合 Hamiltonian 装配：两个神经列保留自动微分，19 个
    Fourier 列解析计算，并对 `(W, HW)` 同步施加正交变换。
-4. 通过独立 pilot、一次性 frozen final，以及一个160点期刊基线 supplement，使用两个
+**贡献 4——冻结证据协议。** 通过独立 pilot、一次性 frozen final，以及一个160点期刊基线 supplement，使用两个
    势族、3 seeds、点聚类 bootstrap 与证据哈希审计检验精度、稳定性和效率。
 
 本文当前的可证主张限于上述组合机制及冻结 benchmark。独立 supplement 已完成
@@ -235,9 +236,9 @@ A_W=\widehat W^*H\widehat W.
 \xrightarrow{\text{Ritz}}\widehat U_2.
 \]
 
-![P2 方法流程](../../figures/p2_final/fig09_method_pipeline.svg)
+![P2 方法流程](../../figures/p2_final/fig09_method_pipeline.png)
 
-**图 1.** P2 基底不变神经增强 Rayleigh–Ritz 流程。图号将在目标期刊模板中统一调整。
+**图 1.** P2 基底不变神经增强 Rayleigh–Ritz 流程。
 
 ### 4.5 外部谱隙稳定性
 
@@ -248,7 +249,7 @@ A_W=\widehat W^*H\widehat W.
 \delta=\operatorname{dist}(\sigma(M),\sigma(H|_{U^\perp}))>0,
 \]
 
-则 Hermitian 不变子空间扰动界给出
+则 Hermitian 不变子空间扰动界 [15] 给出
 
 \[
 e_{\mathrm{proj}}
@@ -309,6 +310,8 @@ near、strict-OOD 和 gap-scan。Wang–Xie trace 与 Dai rank-6 neural-subspace
 
 ### 6.1 主结果
 
+**表 1.** Frozen-final rank-2 projector sine error（越低越好）。
+
 | 方法 | Overall | Near | Gap-scan |
 |---|---:|---:|---:|
 | Unanchored trace | 0.19784 | 0.14589 | 0.21830 |
@@ -326,15 +329,27 @@ P2 full shell 在总体、near 和 gap-scan 上均取得最低误差。相对 lo
 为 69.19%，95% CI 为 [67.66%, 70.75%]；near 改善为 56.28%，95% CI 为
 [53.24%, 59.22%]。总体置信区间远离零，说明改善不依赖单个 seed 或少数点。
 
+![Frozen-final 十方法总体误差](../../figures/p2_final/fig01_method_overall_error.png)
+
+**图 2.** Frozen-final 十种方法总体 projector error，越低越好。
+
 ### 6.2 不同参数区域与势族
 
 P2 在 IID、exact、near、strict-OOD 和 gap-scan 上的误差分别为 0.04383、0.04220、
 0.03903、0.05685 和 0.04389。最难的 strict-OOD 上，long-anchor 为 0.22921，说明优势
 并不限于人为选定的 crossing 邻域。
 
+![五类参数区域误差](../../figures/p2_final/fig02_split_comparison.png)
+
+**图 3.** IID、exact、near、strict-OOD 与 gap-scan 五类参数区域的 projector error。
+
 harmonic near 误差从 0.06508 降至 0.03037，Gaussian near 从 0.11340 降至 0.04770。
 P2 在 6 个 family×seed 配对中全部获胜。三个 seed 的总体误差为 0.04384、0.04559 和
 0.04654，seed 间标准差为 0.00137。最大正交误差为 \(3.12\times10^{-7}\)。
+
+![点聚类 bootstrap 区间](../../figures/p2_final/fig04_bootstrap_improvement.png)
+
+**图 4.** 相对 long-anchor 的参数点聚类 bootstrap 改善区间。
 
 ### 6.3 消融
 
@@ -353,7 +368,13 @@ P2 的平均推理时间为 107.81 ms/参数，p95 为 121.90 ms。同服务器 
 本文不把 P2 描述为零成本后处理，而将其定位在“快速神经代理”与“高精度直接谱求解”
 之间的 accuracy–latency Pareto 点。
 
+![精度延迟比较](../../figures/p2_final/fig07_accuracy_latency.png)
+
+**图 5.** 精度—延迟比较。P2 位于单次神经前向与 cutoff-24 reference solve 之间。
+
 ### 6.5 独立期刊基线 supplement
+
+**表 2.** 160点独立 supplement 结果（越低越好）。
 
 | 方法 | Overall | Near | Gap-scan | Strict-OOD |
 |---|---:|---:|---:|---:|
@@ -426,9 +447,9 @@ checkpoint、源码和证据包均以 SHA-256 绑定；final 的19,200行与 sup
 势族、所有五个参数区域和全部 family×seed 配对中保持优势。结果支持继续完成期刊论文，
 也表明该课题属于真实的神经网络 PDE 本征求解，而非简单数据拟合。
 
-稳健的 SCI 四区投稿基础已经形成，独立期刊基线 supplement 进一步增强了 SCI 三区
-可行性。投稿前的主要缺口已转为目标期刊格式、方法矢量图、可选 CUDA profiler 计数，
-以及对公式级适配边界的谨慎表述。Frozen final 与当前 supplement 均不再开放调参。
+稳健的 SCI 四区投稿基础已经形成，独立期刊基线 supplement 提供了现实但不保证的
+SCI 三区机会。目标期刊投稿包和方法图已经完成；只有期刊明确要求时才补 CUDA profiler。
+对公式级适配边界必须保持谨慎表述，frozen final 与 supplement 均不再开放调参。
 
 ## 数据与代码可得性声明
 
@@ -519,3 +540,7 @@ the Physical Sciences, 2024. https://neurips.cc/virtual/2024/99978
 [14] H. Jin, M. Mattheakis, and P. Protopapas, “Physics-Informed Neural Networks for
 Quantum Eigenvalue Problems,” in *2022 International Joint Conference on Neural
 Networks (IJCNN)*, 2022. https://doi.org/10.1109/IJCNN55064.2022.9891944
+
+[15] C. Davis and W. M. Kahan, “The rotation of eigenvectors by a perturbation. III,”
+*SIAM Journal on Numerical Analysis*, vol. 7, no. 1, pp. 1–46, 1970.
+https://doi.org/10.1137/0707001

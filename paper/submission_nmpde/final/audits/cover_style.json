@@ -1,0 +1,69 @@
+{
+  "input": "/Users/lazywords/Paper/PINN-PDE-main-20260730/paper/submission_nmpde/final/NMPDE_cover_letter.docx",
+  "fonts_by_char_count": {
+    "Times New Roman": 2124
+  },
+  "direct_run_formatting_runs": 16,
+  "direct_paragraph_formatting_paragraphs": 11,
+  "heading_like_paragraphs_not_heading_style": [],
+  "examples": {
+    "direct_paragraph_formatting": [
+      {
+        "para_index": 1,
+        "text": "27 August 2026",
+        "style": "Normal"
+      },
+      {
+        "para_index": 2,
+        "text": "Editor-in-Chief\nNumerical Methods for Partial Differential Equations",
+        "style": "Normal"
+      },
+      {
+        "para_index": 3,
+        "text": "Dear Editor,",
+        "style": "Normal"
+      },
+      {
+        "para_index": 4,
+        "text": "Please consider our original research manuscript, \u201cA Basis-Invariant Neural-Augmented Rayleigh\u2013Ritz Solver for Parametri",
+        "style": "Normal"
+      },
+      {
+        "para_index": 5,
+        "text": "The manuscript develops a label-free neural numerical method for a family of two-dimensional periodic Bloch\u2013Schr\u00f6dinger ",
+        "style": "Normal"
+      }
+    ],
+    "direct_run_formatting": [
+      {
+        "para_index": 1,
+        "run_text": "27 August 2026",
+        "style": "Normal"
+      },
+      {
+        "para_index": 2,
+        "run_text": "Editor-in-Chief",
+        "style": "Normal"
+      },
+      {
+        "para_index": 2,
+        "run_text": "Numerical Methods for Partial Differential Equations",
+        "style": "Normal"
+      },
+      {
+        "para_index": 3,
+        "run_text": "Dear Editor,",
+        "style": "Normal"
+      },
+      {
+        "para_index": 4,
+        "run_text": "Please consider our original research manuscript, \u201cA Basis-Invariant Neural-Augm",
+        "style": "Normal"
+      }
+    ]
+  },
+  "notes": [
+    "Direct formatting is not always wrong, but it often causes inconsistent output when templates change.",
+    "Heading-like paragraphs not using Heading styles can break TOC and accessibility."
+  ]
+}

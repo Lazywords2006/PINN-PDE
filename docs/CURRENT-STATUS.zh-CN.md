@@ -6,9 +6,10 @@
 
 当前课题是用无标签神经网络求解二维参数化 Bloch–Schrödinger 本征 PDE 的最低 rank-2
 谱簇。最终 P2 full-shell 基底不变神经增强 Rayleigh–Ritz 已通过独立 pilot 和唯一一次
-640 点 frozen final，状态为 **`P2_FROZEN_FINAL_GO`**。新的160点期刊基线 supplement
-也已完成，状态为 **`Q3_SUPPLEMENT_GO`**。两套证据均已回传本地并独立审计，远端 GPU
-已经关机。当前不需要继续租 GPU，也不得重跑 final 或修改 supplement 门槛。
+640 点 frozen final，状态为 **`P2_FROZEN_FINAL_GO`**。160点期刊基线 supplement 状态为
+**`Q3_SUPPLEMENT_GO`**。英文投稿 DOCX/PDF、单页 cover letter、中文稿、理论、引用审计与
+期刊检查表均已完成，状态为 **`NMPDE_SUBMISSION_PACKAGE_READY`**。当前不需要继续租
+GPU，也不得重跑 final 或修改 supplement 门槛。
 
 ## 方法
 
@@ -31,8 +32,9 @@ residual PINN，也不是纯 Fourier 谱方法。
 | P2 outer-shell probe | STOP | near 有效，gap/效率门槛失败 |
 | P2 full-shell independent pilot | GO | 96 点 × 2 势族 × 3 seeds，全门槛通过 |
 | P2 frozen final | **GO** | 640 点、10 方法、3 seeds、19,200 行、审计通过 |
-| 中英文论文初稿 | **完成 v0.1** | 进入引用、理论和最近邻补强 |
+| 中英文论文初稿 | **完成 v0.3** | 理论、引用与最近邻补强已并入 |
 | SCI-Q3 supplement | **GO** | 160点、2势族、3 seeds、3方法、1440行、双重审计 |
+| NMPDE 投稿包 | **READY** | 22页英文稿、DOCX/PDF、单页 cover letter、检查表 |
 
 ## 最终主结果
 
@@ -71,12 +73,11 @@ residual PINN，也不是纯 Fourier 谱方法。
 
 ## 投稿判断
 
-- SCI 四区：实验基础已经充分，进入论文定稿；
-- SCI 三区：实验竞争力明显增强；external-gap/Ritz 残差界、网络前向 FLOPs 和
-  break-even 已补，当前重点是期刊格式、方法图和谨慎表述适配基线；
+- SCI 四区：实验与稿件基础充分，具备合理投稿条件；
+- SCI 三区：实验竞争力明显增强，具有现实机会但不保证录用；
 - 创新强度：实验组合创新中等偏强，纯数学原创性中等；
 - 现阶段不能写“已优于所有期刊方法”；
-- Frozen final 永久关闭。
+- Frozen final 与 supplement 永久关闭；除非编辑明确要求，不再补主实验。
 
 ## 当前文件入口
 
@@ -86,6 +87,8 @@ residual PINN，也不是纯 Fourier 谱方法。
 - Q3 supplement：`paper/p2_final/Q3_SUPPLEMENT_REPORT.zh-CN.md`；
 - 理论与成本：`paper/p2_final/THEORY_AND_COST.zh-CN.md`；
 - 引用审计：`paper/p2_final/CITATION_AUDIT.zh-CN.md`；
-- 投稿缺口：`docs/KNOWN_GAPS.zh-CN.md`；
+- 目标期刊：`paper/submission_nmpde/JOURNAL_TARGET.zh-CN.md`；
+- 投稿检查表：`paper/submission_nmpde/SUBMISSION_CHECKLIST.zh-CN.md`；
+- 英文投稿文件：`paper/submission_nmpde/final/`；
 - 运行手册：`docs/RUNBOOK.md`；
 - 论文图表：`figures/p2_final/`。

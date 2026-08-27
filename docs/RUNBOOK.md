@@ -44,12 +44,17 @@ c653d0eddab018741312741f6db46f023a20812306d574b66947bbb42af25095
 ## 4. Regenerate publication figures
 
 ```bash
-python scripts/generate_p2_paper_figures.py
+python scripts/generate_p2_paper_figures.py \
+  --final-dir results/remote_5090_p2_final_go/results/p2_final \
+  --final-evidence results/remote_5090_p2_final_go/p2-final-evidence-20260824-133520.tar.gz \
+  --pilot-evidence results/remote_5090_p2_pilot_go/p2-pilot-evidence-20260824-130211.tar.gz \
+  --pilot-summary results/remote_5090_p2_pilot_go/results/p2_pilot/summary.json
 ```
 
 The generator validates the final evidence digest, GO gate, 19,200-row identity matrix, method
 counts, suite/reference/pilot hashes, and numeric aggregates before plotting. Do not bypass these
-checks to produce a prettier figure.
+checks to produce a prettier figure. Install `matplotlib` if figure regeneration is required; it is
+not needed for the solver test suite.
 
 ## 5. Completed SCI-Q3 supplement
 

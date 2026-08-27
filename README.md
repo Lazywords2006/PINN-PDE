@@ -6,7 +6,9 @@ ordered eigenfunctions at an internal band crossing.
 
 Current scientific status: **`P2_FROZEN_FINAL_GO` + `Q3_SUPPLEMENT_GO`**. The one-shot final
 evaluation is complete and permanently closed. A separate 160-point journal-baseline supplement
-has also completed on an RTX 5090 D and passed its preregistered gate.
+has also completed on an RTX 5090 D and passed its preregistered gate. The editable NMPDE-oriented
+manuscript, PDF preview, cover letter, theory note, citation audit, and submission checklist are
+complete: **`NMPDE_SUBMISSION_PACKAGE_READY`**.
 
 ## Method in one paragraph
 
@@ -42,7 +44,6 @@ family-by-seed comparisons. These are transparent Bloch adaptations, not officia
 - [Current status](docs/CURRENT-STATUS.zh-CN.md)
 - [Architecture](docs/ARCHITECTURE.md)
 - [Reproduction and supplement runbook](docs/RUNBOOK.md)
-- [Known publication gaps](docs/KNOWN_GAPS.zh-CN.md)
 - [Core data index](paper/p2_final/CORE_RESULTS.zh-CN.md)
 - [Chinese manuscript draft](paper/p2_final/MANUSCRIPT.zh-CN.md)
 - [English manuscript draft](paper/p2_final/MANUSCRIPT.en.md)
@@ -50,7 +51,10 @@ family-by-seed comparisons. These are transparent Bloch adaptations, not officia
 - [SCI-Q3 supplement report](paper/p2_final/Q3_SUPPLEMENT_REPORT.zh-CN.md)
 - [External-gap theory and cost analysis](paper/p2_final/THEORY_AND_COST.zh-CN.md)
 - [Citation audit](paper/p2_final/CITATION_AUDIT.zh-CN.md)
-- [Historical P5 negative-result audit](docs/P5-INDEPENDENT-AUDIT.zh-CN.md)
+- [Target journal and rationale](paper/submission_nmpde/JOURNAL_TARGET.zh-CN.md)
+- [Submission checklist](paper/submission_nmpde/SUBMISSION_CHECKLIST.zh-CN.md)
+- [Editable manuscript](paper/submission_nmpde/final/NMPDE_manuscript.docx)
+- [PDF preview](paper/submission_nmpde/final/NMPDE_manuscript.pdf)
 
 ## Environment
 
@@ -72,9 +76,10 @@ block_kyfan_pinn/   neural models, Bloch physics, reference solver, P2 refinemen
 benchmarks/         frozen suites and SHA-256 sidecars
 scripts/            training, evaluation, audit, figure and supplement tools
 tests/              unit and protocol-integrity tests
-paper/p2_final/     core data, bilingual drafts, tables and final report
-figures/p2_final/   eight publication figures in PNG and SVG
-docs/               current status, architecture, runbook, gaps, retained audit
+paper/p2_final/     core data, bilingual drafts, tables, theory and final report
+paper/submission_nmpde/ editable submission files, journal note and checklist
+figures/p2_final/   nine publication figures in PNG and SVG
+docs/               current status, architecture, runbook and frozen protocol
 results/            ignored/local evidence and returned remote results
 ```
 
