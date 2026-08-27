@@ -13,7 +13,7 @@
 - [x] orthogonality、raw Hermiticity、external gap；
 - [x] 2,000次 stratified point bootstrap；
 - [x] family-specific 与 routing ablation；
-- [x] 12张论文图和数值表；
+- [x] 11张可复现图表图和数值表；
 - [x] 66篇核验文献，50篇正式期刊；
 - [x] 中英文 Markdown、DOCX、PDF；
 - [x] DOCX逐页渲染与无障碍检查；
