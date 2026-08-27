@@ -4,14 +4,16 @@ This repository solves a genuine two-dimensional parametric Bloch–Schrödinger
 label-free neural network. The target is the lowest rank-two spectral projector, not two globally
 ordered eigenfunctions at an internal band crossing.
 
-Current scientific status: **`V3_SYMMETRY_PILOT_GO` + `V3_CONVERGENCE_GO`**. An external audit
+Current scientific status: **`V3_FORMAL_PROMOTION_GO`**. An external audit
 found that the archived P2/Q3 shell convention was inconsistent with the positive-cross kinetic
 metric. Those immutable results are retained as superseded historical evidence and must not be
 submitted. The corrected D6 shell, paired-normalization derivative fix, Hermitian Ritz assembly,
 strong Fourier controls, spectral-roughness routing, grid-65 references, and cutoff/grid convergence
-audit now pass on a disjoint 24-point pilot. The 160-point confirmation suite and reference cache
-are frozen and verified but have not been opened. The single CUDA run is the remaining blocking
-experiment; no publication claim uses it until that run is complete.
+audit passed on a disjoint 24-point pilot. The 160-point CUDA confirmation has now been opened once
+and completed: all formal and convergence gates pass, with 5,280 unique rows and a hash-bound
+evidence archive. The suite is permanently closed. The paper claim is conditional neural
+augmentation, because harmonic cases fall back to Fourier and all measured gain comes from the
+spectrally rich Gaussian family.
 
 ## Method in one paragraph
 
@@ -23,6 +25,19 @@ space directly; spectrally rich cases use a rank-25 neural–Fourier trial space
 rank can rise to27 when a kinetic-energy multiplet crosses the rank boundary. Fourier Hamiltonian
 actions are analytic, neural actions use automatic differentiation, and a Hermitian compact Ritz
 solve extracts the cluster. The method is a routed hybrid eigensolver, not a standard residual PINN.
+
+## V3 formal result
+
+| Method | Overall projector error | Eigenvalue MAE | A10 latency |
+|---|---:|---:|---:|
+| **SR-SC-NARR** | **0.030929** | **0.009837** | 176.64 ms |
+| Kinetic Fourier ≥25 | 0.043425 | 0.015996 | 105.55 ms |
+| Fixed neural–Fourier 25 | 0.031784 | 0.009890 | 134.81 ms |
+| D6 shell 3, rank 37 | 0.030799 | 0.011275 | 220.37 ms |
+
+The 28.76% aggregate improvement over Fourier-25 comes entirely from the Gaussian family; harmonic
+cases route to Fourier and match the control. Relative to shell-3, SR-SC-NARR is a lower-rank,
+lower-eigenvalue-error, lower-latency Pareto point with 0.42% higher mean projector error.
 
 ## Superseded historical result
 
@@ -48,18 +63,17 @@ family-by-seed comparisons. These are transparent Bloch adaptations, not officia
 - [Current status](docs/CURRENT-STATUS.zh-CN.md)
 - [V3 correction and confirmation protocol](docs/V3-SYMMETRY-CORRECTION-PROTOCOL.zh-CN.md)
 - [V3 pilot evidence](paper/v3_pilot/README.md)
+- [V3 formal evidence and results](paper/v3_formal/README.md)
+- [English V3 manuscript](paper/v3_manuscript/MANUSCRIPT.en.md)
+- [Chinese V3 manuscript](paper/v3_manuscript/MANUSCRIPT.zh-CN.md)
 - [Architecture](docs/ARCHITECTURE.md)
 - [Reproduction and supplement runbook](docs/RUNBOOK.md)
 - [Historical V2 data index — superseded](paper/p2_final/CORE_RESULTS.zh-CN.md)
-- [Chinese manuscript draft](paper/p2_final/MANUSCRIPT.zh-CN.md)
-- [English manuscript draft](paper/p2_final/MANUSCRIPT.en.md)
-- [Detailed final experiment report](paper/p2_final/P2_FINAL_EXPERIMENT_REPORT.zh-CN.md)
-- [SCI-Q3 supplement report](paper/p2_final/Q3_SUPPLEMENT_REPORT.zh-CN.md)
-- [External-gap theory and cost analysis](paper/p2_final/THEORY_AND_COST.zh-CN.md)
-- [Citation audit](paper/p2_final/CITATION_AUDIT.zh-CN.md)
+- [Verified 66-paper literature matrix](paper/v3_formal/LITERATURE_MATRIX.md)
+- [Verified BibTeX](paper/v3_formal/REFERENCES_VERIFIED.bib)
+- [Bilingual DOCX/PDF package](paper/v3_submission/)
 - [Target journal and rationale](paper/submission_nmpde/JOURNAL_TARGET.zh-CN.md)
-- The v0.3 DOCX/PDF package is superseded and must not be submitted. A new package will be built
-  only after the V3 CUDA confirmation passes.
+- The old v0.3 P2 package is superseded. Only `paper/v3_submission/` may be used for the current draft.
 
 ## Environment
 
@@ -81,9 +95,10 @@ block_kyfan_pinn/   neural models, Bloch physics, reference solver, P2 refinemen
 benchmarks/         frozen suites and SHA-256 sidecars
 scripts/            training, evaluation, audit, figure and supplement tools
 tests/              unit and protocol-integrity tests
-paper/p2_final/     core data, bilingual drafts, tables, theory and final report
-paper/submission_nmpde/ editable submission files, journal note and checklist
-figures/p2_final/   nine publication figures in PNG and SVG
+paper/v3_formal/    formal rows, summaries, tables, literature matrix and evidence metadata
+paper/v3_manuscript/ bilingual source manuscripts
+paper/v3_submission/ visually verified bilingual DOCX/PDF files
+figures/v3_formal/  publication figures in PNG and SVG
 docs/               current status, architecture, runbook and frozen protocol
 results/            ignored/local evidence and returned remote results
 ```
@@ -91,7 +106,7 @@ results/            ignored/local evidence and returned remote results
 ## Non-negotiable research rules
 
 - Never rerun, tune on, or select checkpoints using `benchmarks/v2_frozen_test.json`.
-- Do not alter the final suite, reference cache, thresholds, or one-shot marker.
+- Do not alter or rerun the final suite, reference cache, thresholds, or one-shot marker.
 - Do not present smoke tests as paper results or formula-level baseline adaptations as official
   author-code reproductions.
 - Do not claim Rayleigh–Ritz, Galerkin, Fourier bases, Ky Fan trace, or spectral projectors as new.

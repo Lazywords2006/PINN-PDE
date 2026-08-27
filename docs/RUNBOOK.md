@@ -2,10 +2,9 @@
 
 ## 1. Current rule
 
-P2 and Q3 are superseded historical evidence. Do not run `scripts/evaluate_p2_final.py`, reopen
-`v2_frozen_test`, or rerun `q3_supplement_v1`. V3 pilot and convergence evidence have passed. The
-only remaining main experiment is one procedurally frozen 160-point CUDA confirmation. Generate the
-formal suite only after the V3 freeze commit has been pushed.
+P2 and Q3 are superseded historical evidence. The V3 one-shot CUDA confirmation has completed with
+`V3_FORMAL_PROMOTION_GO` and is permanently closed. Do not run `scripts/evaluate_p2_final.py`,
+reopen any V2/Q3 suite, or rerun `v3_symmetry_test.json`.
 
 ## 2. Local verification
 
@@ -63,6 +62,8 @@ point set: 96ed54c912780fd3c23ee35b7ab622367692ccc799d2182a5fb38f4eda540e3e
 
 ## 5. Run the single formal CUDA confirmation
 
+**Historical record only: do not execute this command again.**
+
 ```bash
 python scripts/run_v3_symmetry_evaluation.py \
   --suite benchmarks/v3_symmetry_test.json \
@@ -81,11 +82,20 @@ python scripts/run_v3_symmetry_evaluation.py \
 The command refuses a dirty checkout, non-CUDA device, wrong source fingerprint, wrong suite digest,
 wrong P5/Q3 evidence, stale convergence audit, an existing output, or a second formal opening.
 
+Verify the completed evidence instead:
+
+```bash
+cd artifacts
+shasum -a 256 -c v3-symmetry-formal-evidence.tar.gz.sha256
+cd ../paper/v3_submission
+shasum -a 256 -c SHA256SUMS.txt
+```
+
 ## 6. Hardware
 
 - Local CPU/Mac: tests, pilot, convergence audit, reference generation, writing, and plotting.
-- Formal run: one NVIDIA CUDA GPU. RTX 4060 is feasible; RTX 4090/5090 shortens the wall time.
-- Recommended rental: one RTX 5090/5090 D with at least 32 GB system disk and 50 GB data disk.
+- Completed formal run: one NVIDIA A10 24GB, about 39 minutes, peak reserved memory 1.26GB.
+- No additional GPU is required for the current Q4 submission package.
 - Multi-GPU training is unnecessary; the protocol is single-GPU by design.
 
 ## 7. Failure handling

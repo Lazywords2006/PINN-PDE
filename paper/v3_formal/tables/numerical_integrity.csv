@@ -1,0 +1,8 @@
+metric,value,threshold
+reference_projector_cutoff_24_28,1.512376102473438e-06,<1e-3
+reference_eigenvalue_cutoff_24_28,6.954897213695688e-10,<1e-5
+solver_projector_grid_65_97,0.0002102682295718943,<1e-3
+solver_eigenvalue_grid_65_97,4.76837158203125e-07,<1e-4
+proposed_raw_hermiticity_defect,7.1349118115904275e-06,<1e-4
+maximum_orthogonality_error,2.471871356037177e-07,<1e-4
+minimum_external_gap,0.01916951606838449,>1e-2

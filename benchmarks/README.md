@@ -2,7 +2,7 @@
 
 - `v3_symmetry_pilot.json`：24点、两个势族、五种split的工程/机制 pilot，已关闭；
 - `v3_symmetry_convergence_audit.json`：修正 D6 reference cutoff 与 65/97 网格收敛证据；
-- `v3_symmetry_test.json`：只允许在 V3 freeze commit 推送后生成，160点 CUDA confirmation；
+- `v3_symmetry_test.json`：160点 CUDA confirmation，已于2026-08-28唯一一次打开并永久关闭；
 
 - `v2_validation.json`：64 点独立、split-balanced validation，只用于 pilot 与模型选择；
 - `v2_frozen_test.json`：640 点 final，含 IID、exact、near、strict OOD 与 gap scan；

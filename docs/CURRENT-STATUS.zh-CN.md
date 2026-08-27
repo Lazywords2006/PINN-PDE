@@ -1,89 +1,113 @@
 # 当前研究状态
 
-更新日期：2026-08-27
+更新日期：2026-08-28
 
 ## 一句话结论
 
-旧 P2/Q3 实验已经被外部复审发现的 reciprocal-shell 符号错误判定为 **superseded**，
-不能投稿。代码和方法已升级为 V3：**SR-SC-NARR**（spectral-roughness-routed,
-symmetry-consistent neural-augmented Rayleigh–Ritz）。修正版24点独立 pilot 和 cutoff/grid
-convergence audit 均已通过；新的160点 CUDA confirmation suite、reference cache 与 formal
-manifest 已生成、核验并冻结，但尚未打开运行，因此当前状态是 **继续研究，暂不可投稿**。
+当前课题使用 **SR-SC-NARR 条件神经增强 Rayleigh–Ritz 求解器**，求解二维参数化
+Bloch–Schrödinger 本征 PDE 的最低 rank-2 谱投影。修正 D6 对称性后的唯一一次160点 CUDA
+正式确认已完成，17项 formal/convergence gate 全部通过，状态为
+**`V3_FORMAL_PROMOTION_GO`**。证据足以进入 SCI 四区投稿准备；SCI 三区具有现实机会，
+但路由阈值附近的外部泛化仍是主要短板。
 
-## 为什么旧论文被废止
+## 到底用了什么网络、解什么方程
 
-旧版 kinetic metric 为 `m1²+m2²+m1m2`，shell 却使用
-`max(|m1|,|m2|,|m1-m2|)`。正确 D6 closure 应使用 `m1+m2`。此外 paired
-orthogonalization 的 normalization 没有 detach，导致组合试验空间的自动微分出现非局部
-grid derivative；旧 rank-21 Fourier control 还使用了两个不对称外层模式。
+- 网络：3层、每层64单元、SiLU 激活的 family-specific 参数条件 MLP；
+- 训练：不使用 PWE 波函数标签，最小化 generalized-trace 变分目标；
+- PDE：二维周期 Bloch–Schrödinger 本征方程；
+- 输出：不是给两条会交换身份的能带强行编号，而是最低两态共同张成的 rank-2 谱空间；
+- 推理：势谱尾能量决定使用 tie-closed Fourier 空间还是 neural–Fourier 混合空间，再做
+  紧凑 Hermitian Rayleigh–Ritz 求解。
 
-旧证据哈希仍证明旧代码被如实运行，但不能证明旧方法的对称性或数值正确性。旧 DOCX/PDF、
-640点表格和 Q3 supplement 只保留追溯价值。
+因此，它属于真实的“神经网络求解 PDE 本征问题”，但不是普通 residual PINN。
 
-## V3 方法
+## 正式结果
 
-1. 保留已封存的3层×64宽度 label-free generalized-trace SiLU MLP；网络训练不依赖 shell
-   或 reference labels，所以无需重训。
-2. 使用与 positive-cross metric 一致的 D6 shell。
-3. Hybrid candidate 由 D6 shell-2、最低 kinetic dictionary 与两个神经方向构成。
-4. Pure candidate 为 kinetic-energy 排序且关闭边界简并 ties 的 Fourier dictionary。
-5. 使用势函数 shell-1 以外 Fourier tail-energy ratio 路由：spectrally rich 势使用 neural
-   augmentation，简单势直接使用 Fourier，完全不读测试标签。
-6. Paired normalization 视为离散求积常数；Ritz matrix 显式 Hermitian 化，并报告 raw defect。
-7. 正式评价使用65×65网格和 corrected D6 cutoff-24 float64 PWE。
+正式矩阵：160个物理点 × 3 seeds × 11方法 = 5,280行。
 
-## 最新可用结果（仅 pilot）
-
-24点、两个势族、五种 split、3 seeds 的最新 pilot：
-
-| 方法 | Projector error | Eigenvalue MAE | CPU latency |
+| 方法 | Overall projector error | Eigenvalue MAE | CUDA 延迟 |
 |---|---:|---:|---:|
-| **SR-SC-NARR** | **0.02978** | **0.00807** | 52.51 ms |
-| kinetic Fourier（minimum rank 25） | 0.04172 | 0.01276 | 29.56 ms |
-| full D6 shell-3（rank 37） | 0.02960 | 0.00918 | 61.76 ms |
-| Wang–Xie adapted | 0.14786 | 0.01746 | 0.82 ms |
-| Dai adapted | 0.43386 | 0.10087 | 111.23 ms |
+| **SR-SC-NARR** | **0.030929** | **0.009837** | 176.64 ms |
+| Kinetic Fourier ≥25 | 0.043425 | 0.015996 | 105.55 ms |
+| Fixed neural–Fourier 25 | 0.031784 | 0.009890 | 134.81 ms |
+| D6 shell 3, rank 37 | 0.030799 | 0.011275 | 220.37 ms |
+| Long-anchor neural | 0.139905 | 0.022595 | 1.27 ms |
+| Wang–Xie adapted | 0.132717 | 0.018248 | 1.10 ms |
+| Dai adapted | 0.432885 | 0.110026 | 130.33 ms |
 
-这些结果表明 SR-SC-NARR 相对同等级 Fourier control 有约29%的 projector 改善，并与
-rank-37 Fourier 形成较小 trial rank / 较低成本 / 相近精度的 Pareto 点。它不是正式论文
-结果，也不能保证 confirmation 继续通过。
+- 相对 Fourier-25，均值 projector error 改善28.76%；
+- family×split 分层 point bootstrap 95%区间：[28.08%, 29.44%]；
+- p95 / maximum：0.10568 / 0.16686；
+- proposed-method 最大 raw Hermiticity defect：`7.13e-6`；
+- 最大正交误差：`2.47e-7`；
+- 最小 external gap：0.01917；
+- trial rank：25–27；rank-37 Fourier control 为37；
+- 峰值 allocated/reserved CUDA 显存：1.24/1.26GB。
 
-Convergence audit（修正版）当前通过：
+## 必须诚实说明的条件性
 
-- cutoff 24→28 reference projector 最大差约 `1.51e-6`；
-- 低两本征值最大差约 `6.95e-10`；
-- grid 65→97 solver projector 直接差 `2.10e-4`，eigenvalue 差 `4.77e-7`；
-- raw Hermiticity defect 已从错误实现的最高约 `0.586` 降到 `1e-5` 量级。
+正式数据中，80个 harmonic 点全部进入 Fourier 分支，与 Fourier-25 数值完全一致；80个
+Gaussian 点全部进入 hybrid 分支，projector error 从0.07873降到0.05374，降低31.75%。
+因此，整体提升全部来自 Gaussian 势族。
 
-当前源码与 pilot 的绑定指纹为
-`27b8d487a8ff81a89d27d49856b3559e51188d0424a143ad7133d9d572f2dbbb`，pilot 证据包
-SHA-256 为 `e9f3047ebb0aaf8bd89202de95544d1b8b6a0a6b62fe8a2427ac80d78fffa5b4`。
-收敛 JSON / bundle SHA-256 分别为
-`b2a104f7dde8e506b9446634af6d716c00c8317adb2d6fa5c8f1484e4cf0e0f2` 和
-`1df60548ddf9a6cb124d7f50285f51560ee00bf811721ffac870102398a47616`。
+安全说法是：
 
-## 下一步唯一主任务
+> 对谱尾复杂的局域 Gaussian 势，两个无标签神经方向能够稳定改善紧凑 Fourier 空间；
+> 对光滑 harmonic 势，路由安全回退至 Fourier，避免精度回退。
 
-1. formal/pilot 隔离、tie closure、参数边界、provenance 与 projector convergence 修复：
-   **已完成并通过复审**；
-2. 与当前源码指纹绑定的 pilot / convergence evidence：**已重新生成并通过**；
-3. V3 freeze 提交并推送：**已完成，commit `05f3123`**；
-4. 固定 seed 的160点 suite、reference 与 formal manifest：**已生成并核验，等待单独提交**；
-5. 下一动作：在 clean CUDA checkout 上只运行一次正式确认；
-6. confirmation 全门槛通过后，重写双语论文、图表、HTML、DOCX/PDF 和投稿判断。
+禁止写成：
 
-正式输入已经绑定：suite SHA-256
-`cf834352157fbe298bb511cb7ab8e325471473fde0a0f2824f2c31e35b4f7571`，reference SHA-256
-`19ef0364cdb0b0407ef2fa3c6880268690ddaf7d46b82b43d50b0a6bce51b36e`，physical-point digest
-`96ed54c912780fd3c23ee35b7ab622367692ccc799d2182a5fb38f4eda540e3e`。正式 test 尚未打开，
-`V3_CONFIRMATION_OPENED.json` 不存在。
+- “神经方法在所有势族上都优于 Fourier”；
+- “SR-SC-NARR projector accuracy 最优”；
+- “路由已经跨势族泛化”；
+- “路由提高了当前实现的速度”；
+- “优于 Wang–Xie/Dai 原作者官方方法”。
 
-完整冻结标准见 [V3-SYMMETRY-CORRECTION-PROTOCOL.zh-CN.md](V3-SYMMETRY-CORRECTION-PROTOCOL.zh-CN.md)。
+## 与 rank-37 强对照的关系
 
-## 当前禁止事项
+SR-SC-NARR 的 mean projector error 比 rank-37 shell-3 高0.42%，但 eigenvalue MAE 低
+12.75%、延迟低19.84%、rank低10–12维；Gaussian family 的 projector error 还低7.71%。
+因此应写成 Pareto trade-off，不写无条件支配。
 
-- 禁止提交 v0.3 NMPDE DOCX/PDF；
-- 禁止把旧 P2/Q3 数字写成当前结果；
-- 禁止在160点 confirmation 打开后修改方法、控制或 gate；
-- 禁止把 pilot GO 写成期刊可发表结论；
-- 禁止因某个 baseline 收敛差而宣称普适优越性。
+## 数值审计
+
+| 检查 | 结果 | 门槛 |
+|---|---:|---:|
+| cutoff 24→28 reference projector | `1.51e-6` | `<1e-3` |
+| cutoff 24→28 eigenvalue | `6.95e-10` | `<1e-5` |
+| grid 65→97 solver projector | `2.10e-4` | `<1e-3` |
+| grid 65→97 solver eigenvalue | `4.77e-7` | `<1e-4` |
+| proposed raw Hermiticity defect | `7.13e-6` | `<1e-4` |
+
+5,280行身份无缺失、无重复，必需数值全部 finite，result manifest 与完整 evidence archive
+逐文件哈希一致。
+
+## 投稿判断
+
+- SCI 四区：**达到正式写稿和投稿准备标准**；
+- SCI 三区：**可以尝试，但不是稳妥档**；
+- 创新强度：组合与机制创新中等，数值证据强，通用路由外部有效性中等偏弱；
+- 最可能质疑：route 与 family 完全混淆、阈值0.1附近无样本、router 当前增加延迟、
+  bootstrap 条件于3个 checkpoints、外部基线为公式级适配。
+
+冲击更稳健 Q3 的最有效补充是：固定现有0.1阈值，预注册连续 roughness sweep 或第三个中等
+谱复杂度势族，并加入 tail-ratio/AD/Fourier/orthogonalization/Ritz 的 latency breakdown。
+这些补充不得重新调节已经冻结的路由。
+
+## 当前文件入口
+
+- 英文新稿：`paper/v3_manuscript/MANUSCRIPT.en.md`；
+- 中文新稿：`paper/v3_manuscript/MANUSCRIPT.zh-CN.md`；
+- 正式数据与审计：`paper/v3_formal/`；
+- 正式论文图：`figures/v3_formal/`；
+- 完整 evidence：`artifacts/v3-symmetry-formal-evidence.tar.gz`；
+- 方法协议：`docs/V3-SYMMETRY-CORRECTION-PROTOCOL.zh-CN.md`；
+- 复现实验：`docs/RUNBOOK.md`。
+
+正式 evidence SHA-256：
+`108a4b042549ead58f7b13f42b6ace4685e93a4e8a54e9563b044c03c29ad78c`。
+
+## 旧内容状态
+
+旧 P2/Q3 论文、图表和数字全部是 `SUPERSEDED_V2_HISTORICAL_ONLY`，禁止投稿或与 V3
+数值混合。旧证据只为解释审计历史而保留。

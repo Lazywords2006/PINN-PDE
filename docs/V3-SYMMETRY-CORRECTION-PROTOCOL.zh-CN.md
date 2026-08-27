@@ -102,3 +102,23 @@ Ritz eigenvalue 差为 `4.77e-7`，raw Hermiticity defect 为 `4.87e-6`。
    研究，不再声称跨势族普适；
 3. 若 reference/grid convergence 失败，先修数值离散，不发表当前实验；
 4. 若 corrected Wang–Xie 适配在正式点上追平或反超，保留结果并进一步缩窄创新范围。
+
+## 7. 唯一一次正式结果（2026-08-28）
+
+状态：`V3_FORMAL_PROMOTION_GO`，17项 formal/convergence gate 全部为 true。
+
+- 160点 × 3 seeds × 11方法 = 5,280行；
+- SR-SC-NARR overall `0.030929`，eigenvalue MAE `0.009837`；
+- Fourier-25 overall `0.043425`；改善28.76%，bootstrap 95%区间
+  `[28.08%,29.44%]`；
+- harmonic 80点全部走 Fourier 并与 control 持平；Gaussian 80点全部走 hybrid 并改善
+  31.75%；
+- shell-3 overall `0.030799`：本文 projector error 高0.42%，但 eigenvalue MAE 低12.75%、
+  latency 低19.84%、trial rank 25–27 对37；
+- proposed raw Hermiticity defect `7.13e-6`，最大正交误差 `2.47e-7`；
+- 正式设备 NVIDIA A10，CUDA 12.8，峰值 allocated/reserved 显存1.24/1.26GB。
+
+Evidence SHA-256：
+`108a4b042549ead58f7b13f42b6ace4685e93a4e8a54e9563b044c03c29ad78c`。
+
+正式 suite 已永久关闭。后续 roughness sweep 只能作为固定方法的外部补充，禁止重新选择阈值。

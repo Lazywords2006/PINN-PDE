@@ -1,0 +1,4 @@
+c92ba1ef5f803edc1bd51311508ff1964de39a4febfe9a05573c51ec19a1cd05  SR-SC-NARR_manuscript_en.docx
+ce6ec61b99e1fca76d8ba473b0d57e891dcab53fad3df1fe7fa424da495d9d5f  SR-SC-NARR_manuscript_en.pdf
+b8513e4c3e380bff722f39c1dbd1eef6dd91c4d4fbacecb1f0ae06789e165f72  SR-SC-NARR_manuscript_zh-CN.docx
+eced20bb8800f9a132f680c2dbd7e4a1b7177e1d06bd5af232f1f88441521b18  SR-SC-NARR_manuscript_zh-CN.pdf
