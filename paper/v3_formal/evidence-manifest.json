@@ -1,0 +1,76 @@
+{
+  "files": [
+    {
+      "kind": "result",
+      "path": "rows.csv",
+      "bytes": 1679367,
+      "sha256": "213b8b81ce45800635316dd890d10303c68ada74672d7c5daceedf8188f22400"
+    },
+    {
+      "kind": "result",
+      "path": "summary.json",
+      "bytes": 7602,
+      "sha256": "35392a3f1cc3b588f0ff070d773fa6c3fb7de6c7ba66a2c2c558160b00334c99"
+    },
+    {
+      "kind": "result",
+      "path": "gate.json",
+      "bytes": 555,
+      "sha256": "f46f668883d77429a794969c963563a50a158102344b6b84e9d78788bcb16e9c"
+    },
+    {
+      "kind": "result",
+      "path": "provenance.json",
+      "bytes": 2731,
+      "sha256": "8611722dfc2fbf9c5112d021aee9cd50dae5f9dc830edb8f1212a41067d468bf"
+    },
+    {
+      "kind": "bound_input",
+      "path": "/mnt/workspace/PINN-PDE-v3-formal-e7/benchmarks/v3_symmetry_test.json",
+      "bytes": 45470,
+      "sha256": "cf834352157fbe298bb511cb7ab8e325471473fde0a0f2824f2c31e35b4f7571"
+    },
+    {
+      "kind": "bound_input",
+      "path": "/mnt/workspace/PINN-PDE-v3-formal-e7/benchmarks/v3_symmetry_test.sha256",
+      "bytes": 88,
+      "sha256": "ab4dab31aafe4bfe1d57445238665bbaf2e3dd154d49b09344df166cf290ddba"
+    },
+    {
+      "kind": "bound_input",
+      "path": "/mnt/workspace/PINN-PDE-v3-formal-e7/data/v3_symmetry_test_references.pt",
+      "bytes": 34873527,
+      "sha256": "19ef0364cdb0b0407ef2fa3c6880268690ddaf7d46b82b43d50b0a6bce51b36e"
+    },
+    {
+      "kind": "bound_input",
+      "path": "/mnt/workspace/PINN-PDE-v3-formal-e7/data/v3_symmetry_test_references.sha256",
+      "bytes": 97,
+      "sha256": "434ffc569523d5ebfb9a10a6689cfa9e63439db873eefa208b05507802ead967"
+    },
+    {
+      "kind": "bound_input",
+      "path": "/mnt/workspace/PINN-PDE-v3-formal-e7/benchmarks/v3_symmetry_test.manifest.json",
+      "bytes": 693,
+      "sha256": "73a57b0a6ad178855610f46c14c0702c28724c177694721092a15b497162d497"
+    },
+    {
+      "kind": "bound_input",
+      "path": "/mnt/workspace/PINN-PDE-v3-formal-e7/benchmarks/v3_symmetry_convergence_audit.json",
+      "bytes": 27968,
+      "sha256": "b2a104f7dde8e506b9446634af6d716c00c8317adb2d6fa5c8f1484e4cf0e0f2"
+    },
+    {
+      "kind": "bound_input",
+      "path": "/mnt/workspace/PINN-PDE-v3-formal-e7/benchmarks/v3_symmetry_convergence_audit.sha256",
+      "bytes": 101,
+      "sha256": "5f903c66ab74222424f1d505f1d43bd76b75b1e6d5ef453c36b6ce00aec88a13"
+    },
+    {
+      "kind": "bound_input",
+      "path": "/mnt/workspace/PINN-PDE-v3-formal-e7/benchmarks/V3_CONFIRMATION_OPENED.json",
+      "bytes": 418,
+      "sha256": "93c1d4f9dae114f0c9bd9eaffcfa1f91bfac0dfa455ef63545c7bad643d090f6"
+    }
+  ]
+}

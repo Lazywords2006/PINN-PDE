@@ -1,0 +1,19 @@
+{
+  "identity_complete": true,
+  "finite_metrics": true,
+  "orthogonality_pass": true,
+  "raw_hermiticity_pass": true,
+  "external_isolation_pass": true,
+  "absolute_projector_pass": true,
+  "absolute_eigenvalue_pass": true,
+  "all_strong_controls_pass": true,
+  "near_controls_pass": true,
+  "tail_pass": true,
+  "kinetic_control_margin_pass": true,
+  "all_split_kinetic_control_pass": true,
+  "family_seed_wins_pass": true,
+  "bootstrap_margin_pass": true,
+  "higher_rank_pareto_context_pass": true,
+  "promotion_go": true,
+  "convergence_pass": true
+}
