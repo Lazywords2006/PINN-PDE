@@ -1,0 +1,12 @@
+{
+  "suite_sha256": "cf834352157fbe298bb511cb7ab8e325471473fde0a0f2824f2c31e35b4f7571",
+  "reference_sha256": "19ef0364cdb0b0407ef2fa3c6880268690ddaf7d46b82b43d50b0a6bce51b36e",
+  "source_fingerprint": "27b8d487a8ff81a89d27d49856b3559e51188d0424a143ad7133d9d572f2dbbb",
+  "point_count": 160,
+  "suite_id": "block-kyfan-v3-symmetry-confirm-20260917",
+  "generation_seed": 20260917,
+  "purpose": "post_correction_procedurally_frozen_confirmation",
+  "mode_policy": "positive_cross_metric_d6_closure",
+  "physical_point_digest": "96ed54c912780fd3c23ee35b7ab622367692ccc799d2182a5fb38f4eda540e3e",
+  "convergence_audit_sha256": "b2a104f7dde8e506b9446634af6d716c00c8317adb2d6fa5c8f1484e4cf0e0f2"
+}

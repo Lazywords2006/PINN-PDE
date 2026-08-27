@@ -9,8 +9,9 @@ found that the archived P2/Q3 shell convention was inconsistent with the positiv
 metric. Those immutable results are retained as superseded historical evidence and must not be
 submitted. The corrected D6 shell, paired-normalization derivative fix, Hermitian Ritz assembly,
 strong Fourier controls, spectral-roughness routing, grid-65 references, and cutoff/grid convergence
-audit now pass on a disjoint 24-point pilot. A procedurally frozen 160-point CUDA confirmation is
-the remaining blocking experiment; no publication claim uses it until that run is complete.
+audit now pass on a disjoint 24-point pilot. The 160-point confirmation suite and reference cache
+are frozen and verified but have not been opened. The single CUDA run is the remaining blocking
+experiment; no publication claim uses it until that run is complete.
 
 ## Method in one paragraph
 

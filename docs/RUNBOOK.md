@@ -53,6 +53,14 @@ Commit and push `benchmarks/v3_symmetry_test.json`, its sidecar, the formal mani
 cache, and its sidecar without changing source code. The generator binds the suite, 160-point digest,
 source fingerprint, reference cache, and convergence audit.
 
+Frozen formal-input hashes:
+
+```text
+suite:     cf834352157fbe298bb511cb7ab8e325471473fde0a0f2824f2c31e35b4f7571
+reference: 19ef0364cdb0b0407ef2fa3c6880268690ddaf7d46b82b43d50b0a6bce51b36e
+point set: 96ed54c912780fd3c23ee35b7ab622367692ccc799d2182a5fb38f4eda540e3e
+```
+
 ## 5. Run the single formal CUDA confirmation
 
 ```bash

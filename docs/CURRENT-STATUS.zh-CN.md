@@ -7,8 +7,8 @@
 旧 P2/Q3 实验已经被外部复审发现的 reciprocal-shell 符号错误判定为 **superseded**，
 不能投稿。代码和方法已升级为 V3：**SR-SC-NARR**（spectral-roughness-routed,
 symmetry-consistent neural-augmented Rayleigh–Ritz）。修正版24点独立 pilot 和 cutoff/grid
-convergence audit 均已通过；新的160点 CUDA confirmation 尚未运行，因此当前状态是
-**继续研究，暂不可投稿**。
+convergence audit 均已通过；新的160点 CUDA confirmation suite、reference cache 与 formal
+manifest 已生成、核验并冻结，但尚未打开运行，因此当前状态是 **继续研究，暂不可投稿**。
 
 ## 为什么旧论文被废止
 
@@ -67,10 +67,16 @@ SHA-256 为 `e9f3047ebb0aaf8bd89202de95544d1b8b6a0a6b62fe8a2427ac80d78fffa5b4`�
 1. formal/pilot 隔离、tie closure、参数边界、provenance 与 projector convergence 修复：
    **已完成并通过复审**；
 2. 与当前源码指纹绑定的 pilot / convergence evidence：**已重新生成并通过**；
-3. 当前动作：提交并推送 V3 freeze；
-4. 之后生成固定 seed 的160点 confirmation suite、reference 与 formal manifest，并单独提交；
-5. 在 clean CUDA checkout 上只运行一次正式确认；
+3. V3 freeze 提交并推送：**已完成，commit `05f3123`**；
+4. 固定 seed 的160点 suite、reference 与 formal manifest：**已生成并核验，等待单独提交**；
+5. 下一动作：在 clean CUDA checkout 上只运行一次正式确认；
 6. confirmation 全门槛通过后，重写双语论文、图表、HTML、DOCX/PDF 和投稿判断。
+
+正式输入已经绑定：suite SHA-256
+`cf834352157fbe298bb511cb7ab8e325471473fde0a0f2824f2c31e35b4f7571`，reference SHA-256
+`19ef0364cdb0b0407ef2fa3c6880268690ddaf7d46b82b43d50b0a6bce51b36e`，physical-point digest
+`96ed54c912780fd3c23ee35b7ab622367692ccc799d2182a5fb38f4eda540e3e`。正式 test 尚未打开，
+`V3_CONFIRMATION_OPENED.json` 不存在。
 
 完整冻结标准见 [V3-SYMMETRY-CORRECTION-PROTOCOL.zh-CN.md](V3-SYMMETRY-CORRECTION-PROTOCOL.zh-CN.md)。
 
