@@ -63,12 +63,21 @@ tmp/
 **/results/**/*.tgz
 **/results/**/*.tar
 **/results/**/*.tar.gz
-01_文献库/**/*.pdf
-01_文献库/**/*.zip
-01_文献库/**/*.tgz
-01_文献库/**/*.tar
-01_文献库/**/*.tar.gz
+文献库/**/*.pdf
+文献库/**/*.zip
+文献库/**/*.tgz
+文献库/**/*.tar
+文献库/**/*.tar.gz
 **/all_results.json
 
 # Large local evidence moved out of the code repository (kept local, not tracked)
-03_当前主线_BlockKyFanPINN/论文与证据/
+/论文与证据/
+
+# Independent git repository (GitHub: PINN-PDE-code)
+/代码/
+
+# Hidden compatibility symlinks to old folder names (frozen records still cite them)
+/01_文献库
+/04_独立诊断
+/05_自主研究推进
+/06_论文审查
