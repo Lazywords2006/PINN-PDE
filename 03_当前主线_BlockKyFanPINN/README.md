@@ -1,21 +1,7 @@
-# 当前唯一论文主线
+# 当前论文入口
 
-权威代码仓库：[02_当前代码仓库](02_当前代码仓库)
-GitHub：[Lazywords2006/PINN-PDE](https://github.com/Lazywords2006/PINN-PDE)
+代码：[代码仓库](02_当前代码仓库/)（GitHub：PINN-PDE-code，只含代码）。论文、文档、数据与证据在 `论文与证据/`（本地存放，不进 git）。状态：[当前状态](论文与证据/docs/CURRENT-STATUS.zh-CN.md)。
 
-方法为 P2 basis-invariant neural-augmented Rayleigh–Ritz，求解二维参数化
-Bloch–Schrödinger PDE 的最低 rank-2 谱簇。
+当前论文为“参数化 Bloch 谱簇中神经增强的条件性收益与局限”，使用V3正式记录并纳入独立诊断的限制。阅读[英文源稿](论文与证据/paper/v3_manuscript/MANUSCRIPT.en.md)或[中英文 Word/PDF](论文与证据/paper/v3_submission/)。
 
-状态：`P2_FROZEN_FINAL_GO`、`Q3_SUPPLEMENT_GO`、`NMPDE_SUBMISSION_PACKAGE_READY`。
-正式 GPU 实验已结束，服务器已关闭，不需要继续租卡。
-
-阅读顺序：
-
-1. [最新状态](../00_项目总览/00_当前研究总档案.md)
-2. [英文投稿 DOCX](02_当前代码仓库/paper/submission_nmpde/final/NMPDE_manuscript.docx)
-3. [中文论文初稿](02_当前代码仓库/paper/p2_final/MANUSCRIPT.zh-CN.md)
-4. [核心结果](02_当前代码仓库/paper/p2_final/CORE_RESULTS.zh-CN.md)
-5. [目标期刊与检查表](02_当前代码仓库/paper/submission_nmpde/JOURNAL_TARGET.zh-CN.md)
-6. [复现手册](02_当前代码仓库/docs/RUNBOOK.md)
-
-不得重跑 frozen final，也不得把 Q3 supplement 用作新的调参集。
+P2/Q3稿件是历史材料。V3正式集仍关闭，不能以本轮改稿为由重训、调阈值或改写旧实验。

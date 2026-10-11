@@ -1,34 +1,22 @@
-# 神经网络求解二维 Bloch–Schrödinger PDE
+# 参数化 Bloch 谱簇的神经求解研究
 
-当前唯一主线：使用无标签参数神经网络和 symmetry-consistent Rayleigh–Ritz，求解二维参数化
-Bloch–Schrödinger 本征偏微分方程的最低 rank-2 谱投影。
+研究对象：二维参数化 Bloch–Schrödinger 本征问题的最低两态谱簇。完整状态见[当前研究总档案](00_项目总览/00_当前研究总档案.md)。
 
-## 先看这里
+## 现在在做什么
 
-- [最新简明 HTML](00_项目总览/09_全部工作简版.html)
-- [当前研究总档案](00_项目总览/00_当前研究总档案.md)
-- [英文论文 DOCX](03_当前主线_BlockKyFanPINN/02_当前代码仓库/paper/v3_submission/SR-SC-NARR_manuscript_en.docx)
-- [英文论文 PDF](03_当前主线_BlockKyFanPINN/02_当前代码仓库/paper/v3_submission/SR-SC-NARR_manuscript_en.pdf)
-- [中文论文 DOCX](03_当前主线_BlockKyFanPINN/02_当前代码仓库/paper/v3_submission/SR-SC-NARR_manuscript_zh-CN.docx)
-- [中文论文 PDF](03_当前主线_BlockKyFanPINN/02_当前代码仓库/paper/v3_submission/SR-SC-NARR_manuscript_zh-CN.pdf)
+1. **当前主线（进行中）**：寻找真正新的神经求解机制，同时交付完整数学模型、合格数据，并说明与已有论文的实质区别。最新是 R29"相位相干成对 Fourier 模式激活"，目前只有机制定义，还没有实验。入口：[05_自主研究推进](05_自主研究推进/README.md)。
+2. **投稿论文（冻结）**：SR-SC-NARR《参数化 Bloch 谱簇中神经增强的条件性收益与局限》，已修订完成，等待作者确定署名、投稿目标和是否公开。[中英文 Word/PDF](03_当前主线_BlockKyFanPINN/论文与证据/paper/v3_submission/)。
+3. **副线成果**：Eig-PIELM 版本限定技术纠错（R11/R17/R18/R25），独立保存。
 
-## 当前状态
+## 目录
 
-- `V3_FORMAL_PROMOTION_GO`；
-- 160点、2势族、5 splits、3 seeds、11方法、5,280行；
-- SR-SC-NARR overall projector error `0.030929`；
-- 相对 Fourier-25 改善28.76%，95%区间 `[28.08%,29.44%]`；
-- 66篇核验文献，其中50篇正式期刊；
-- 中英文 Markdown、DOCX、PDF、11张可复现图、表格和完整 evidence 已生成；
-- GPU 已关闭，不再需要租用算力。
+| 目录 | 内容 |
+|---|---|
+| `00_项目总览/` | 总档案（唯一状态入口）；`历史/` 存旧版 README、旧总档案和 2026-08 的 HTML 简版 |
+| `01_文献库/` | 当前主线相关 PDF |
+| `03_当前主线_BlockKyFanPINN/` | `02_当前代码仓库` 指向代码仓库 `PINN-PDE-code`（只含代码）；`论文与证据/` 存论文稿、docs、数据、results、artifacts |
+| `04_独立诊断/` | 2026-09 对 V3 方法的 P0、P1/P2 和 AutoStudy 诊断，用于限定论文主张 |
+| `05_自主研究推进/` | `当前主线/`（R19 起）与 `历史_R01-R18/`；索引见该目录 README |
+| `06_论文审查/` | SR-SC-NARR 的审查报告与修订记录 |
 
-核心结论必须写成“对谱复杂 Gaussian 势的条件性神经增强；对 harmonic 安全回退 Fourier”。
-SCI 四区已具备投稿准备基础；SCI 三区可以尝试，但建议增加固定阈值的 roughness 外部验证。
-
-## 保留目录
-
-- `00_项目总览/`：读者入口；
-- `01_文献库/`：当前主线论文 PDF；
-- `03_当前主线_BlockKyFanPINN/`：权威 Git 代码仓库快捷入口。
-
-旧 P2/Q3 路线只保留在代码仓库中作为历史审计，禁止恢复为当前投稿稿件。
+2026-10-11 的目录整理只移动了 05 内的位置。round 内的源码、数据和清单都没动，只把尚未冻结的 R29 文档里一处绝对路径改成了新位置。新旧路径对照见 [MOVE_LOG](05_自主研究推进/MOVE_LOG_20261011.tsv)。
