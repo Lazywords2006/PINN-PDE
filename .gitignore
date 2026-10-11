@@ -69,3 +69,6 @@ tmp/
 01_文献库/**/*.tar
 01_文献库/**/*.tar.gz
 **/all_results.json
+
+# Large local evidence moved out of the code repository (kept local, not tracked)
+03_当前主线_BlockKyFanPINN/论文与证据/
