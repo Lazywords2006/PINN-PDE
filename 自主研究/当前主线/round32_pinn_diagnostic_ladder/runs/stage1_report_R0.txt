@@ -1,0 +1,11 @@
+cell                              seed       vol     trace      flux     E-def     M-def  U  C   wall
+m0_lin_c0.3_d0.1_k0.3                0  2.00e-02  1.93e-02  2.67e-02  7.12e-04  6.69e-04  0  0   1265
+m0_lin_c0.3_d0.1_k0.3                1  2.91e-02  2.79e-02  3.12e-02  1.02e-03  8.38e-04  0  0   6199
+m0_lin_c0.3_d0.1_k0.3                2  1.13e-02  1.06e-02  1.46e-02  5.76e-03  4.58e-03  0  0   6176
+m0_const_c0.3_d0.1_k0.3              0  1.87e-03  2.77e-03  2.52e-02  4.66e-05  2.39e-05  1  0   1711
+m0_const_c0.3_d0.1_k0.3              1  1.75e-03  2.61e-03  2.31e-02  5.61e-05  2.99e-05  1  0   5713
+m0_const_c0.3_d0.1_k0.3              2  1.45e-03  2.15e-03  1.99e-02  6.91e-05  3.45e-05  1  0   5658
+
+cell verdicts (runs, U-pass runs, C-pass runs; cell U-pass needs >=2 of 3):
+  m0_lin_c0.3_d0.1_k0.3              runs=3 U=0 C=0  U-FAIL
+  m0_const_c0.3_d0.1_k0.3            runs=3 U=3 C=0  U-PASS

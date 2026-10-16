@@ -1,0 +1,6 @@
+# R32 diagnostic ladder (CPU, float64). Versions used locally on 2026-10-15/16:
+numpy>=2.0   # 2.4.6
+scipy>=1.13  # 1.17.1
+torch>=2.3   # 2.14.1 (CPU build is enough)
+matplotlib>=3.8
+pytest>=8
