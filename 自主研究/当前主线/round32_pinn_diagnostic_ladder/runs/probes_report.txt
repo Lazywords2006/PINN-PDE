@@ -1,0 +1,36 @@
+=== probe_adam60k
+cell verdicts (runs, U-pass runs, C-pass runs; cell U-pass needs >=2 of 3):
+  m0_lin_c0.3_d0.1_k0.3              runs=3 U=0 C=0  U-FAIL
+=== probe_w128
+cell verdicts (runs, U-pass runs, C-pass runs; cell U-pass needs >=2 of 3):
+  m0_lin_c0.3_d0.1_k0.3              runs=3 U=1 C=0  U-FAIL
+=== probe_nf16k
+cell verdicts (runs, U-pass runs, C-pass runs; cell U-pass needs >=2 of 3):
+  m0_lin_c0.3_d0.1_k0.3              runs=3 U=0 C=0  U-FAIL
+=== probe_lr3e-3
+cell verdicts (runs, U-pass runs, C-pass runs; cell U-pass needs >=2 of 3):
+  m0_lin_c0.3_d0.1_k0.3              runs=3 U=1 C=0  U-FAIL
+=== probe_w32
+cell verdicts (runs, U-pass runs, C-pass runs; cell U-pass needs >=2 of 3):
+  m0_lin_c0.3_d0.1_k0.3              runs=3 U=0 C=0  U-FAIL
+=== probe_adam5k
+cell verdicts (runs, U-pass runs, C-pass runs; cell U-pass needs >=2 of 3):
+  m0_lin_c0.3_d0.1_k0.3              runs=3 U=0 C=0  U-FAIL
+=== probe_nolbfgs
+cell verdicts (runs, U-pass runs, C-pass runs; cell U-pass needs >=2 of 3):
+  m0_lin_c0.3_d0.1_k0.3              runs=3 U=0 C=0  U-FAIL
+=== probe_budget120
+cell verdicts (runs, U-pass runs, C-pass runs; cell U-pass needs >=2 of 3):
+  m0_lin_c0.3_d0.1_k0.3              runs=3 U=0 C=0  U-FAIL
+=== probe_wbc0.1
+cell verdicts (runs, U-pass runs, C-pass runs; cell U-pass needs >=2 of 3):
+  m0_lin_c0.3_d0.1_k0.3              runs=3 U=1 C=0  U-FAIL
+=== probe_wbc10
+cell verdicts (runs, U-pass runs, C-pass runs; cell U-pass needs >=2 of 3):
+  m0_lin_c0.3_d0.1_k0.3              runs=3 U=0 C=0  U-FAIL
+=== probe_wic10
+cell verdicts (runs, U-pass runs, C-pass runs; cell U-pass needs >=2 of 3):
+  m0_lin_c0.3_d0.1_k0.3              runs=3 U=2 C=0  U-PASS
+=== probe_wic100
+cell verdicts (runs, U-pass runs, C-pass runs; cell U-pass needs >=2 of 3):
+  m0_lin_c0.3_d0.1_k0.3              runs=3 U=1 C=0  U-FAIL
