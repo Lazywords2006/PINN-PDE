@@ -72,7 +72,12 @@ def parse_overrides(items):
     out = {}
     for it in items or []:
         k, v = it.split("=")
-        out[k] = float(v) if "." in v or "e" in v.lower() else int(v)
+        for cast in (int, float, str):
+            try:
+                out[k] = cast(v)
+                break
+            except ValueError:
+                pass
     return out
 
 
