@@ -63,6 +63,25 @@ PROBLEMS = {
 }
 
 
+
+def _e1(c: float) -> Problem1D:
+    return Problem1D(f"E1_c{c:g}", D=1.0, c=c, R=lambda u: 0.0 * u, G=lambda u: 0.3 * u,
+                     f=lambda x: x**2 - 0.5, f_x=lambda x: 2.0 * x, f_xx=lambda x: 2.0 + 0.0 * x)
+
+
+def _e3(kappa: float) -> Problem1D:
+    return Problem1D(f"E3_k{kappa:g}", D=0.1, c=0.3, R=lambda u: u * (1.0 - u), G=lambda u: kappa * (u - 1.0),
+                     f=lambda x: 0.1 * (1.0 - x**2), f_x=lambda x: -0.2 * x, f_xx=lambda x: -0.2 + 0.0 * x)
+
+
+# parameter axes (amendment 2): E1 with other boundary capacities c, E3 with other reservoir strengths kappa
+AXES = {p.name: p for p in [_e1(c) for c in (0.03, 0.1, 1.0, 3.0)] + [_e3(k) for k in (0.1, 3.0)]}
+
+
+def get_problem(name: str) -> Problem1D:
+    return PROBLEMS[name] if name in PROBLEMS else AXES[name]
+
+
 def cheb(n: int) -> tuple[np.ndarray, np.ndarray]:
     """Chebyshev points on [0,1] ordered x_0 = 0 ... x_n = 1 and the first-derivative matrix."""
     j = np.arange(n + 1)
@@ -110,12 +129,12 @@ class Reference:
 
 
 def self_check(name: str, n_lo: int = 48, n_hi: int = 96) -> float:
-    p = PROBLEMS[name]
+    p = get_problem(name)
     lo, hi = Reference(p, n_lo), Reference(p, n_hi)
     xq = np.linspace(0.0, 1.0, 401)
     return max(float(np.max(np.abs(lo(xq, t) - hi(xq, t)))) for t in OUT_TIMES)
 
 
 if __name__ == "__main__":
-    for name, p in PROBLEMS.items():
+    for name, p in {**PROBLEMS, **AXES}.items():
         print(f"{name}: delta = {p.mismatch():+.4f}, c' = {p.c / np.sqrt(p.D):.3f}, ref self-check = {self_check(name):.2e}")

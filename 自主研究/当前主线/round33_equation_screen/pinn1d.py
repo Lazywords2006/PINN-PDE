@@ -41,6 +41,11 @@ class Config:
     rba_gamma: float = 0.999
     rba_eta: float = 0.01
     seed: int = 0
+    arch: str = "mlp"  # "mlp" or "pirate" (PirateNet, Wang et al. 2024)
+    pirate_blocks: int = 3
+    fourier_scale: float = 1.0
+    causal_eps: float = 0.0  # > 0: causal weighting (Wang, Sankaran, Perdikaris 2022) with this epsilon
+    causal_chunks: int = 32
 
 
 def layer_profile(y: torch.Tensor, t: torch.Tensor, c: float) -> torch.Tensor:
@@ -69,10 +74,40 @@ class MLP(nn.Module):
         return self.layers[-1](h).squeeze(-1)
 
 
+class PirateNet(nn.Module):
+    """PirateNet (Wang, Li, Chen, Perdikaris, JMLR 2024): random Fourier embedding, gated residual blocks with
+    adaptive skip weights alpha (initialised at 0, so the network starts as a shallow model). The physics-informed
+    least-squares initialisation of the last layer is not used."""
+
+    def __init__(self, width: int, blocks: int, scale: float):
+        super().__init__()
+        self.register_buffer("B", scale * torch.randn(2, width // 2))
+        self.u = nn.Linear(width, width)
+        self.v = nn.Linear(width, width)
+        self.blocks = nn.ModuleList(nn.ModuleList(nn.Linear(width, width) for _ in range(3)) for _ in range(blocks))
+        self.alpha = nn.Parameter(torch.zeros(blocks))
+        self.out = nn.Linear(width, 1)
+        for layer in [self.u, self.v, self.out] + [l for b in self.blocks for l in b]:
+            nn.init.xavier_normal_(layer.weight)
+            nn.init.zeros_(layer.bias)
+
+    def forward(self, x: torch.Tensor, t: torch.Tensor) -> torch.Tensor:
+        z = torch.stack([x, t], dim=-1) @ self.B
+        h = torch.cat([torch.cos(z), torch.sin(z)], dim=-1)
+        u, v = torch.tanh(self.u(h)), torch.tanh(self.v(h))
+        for k, (l1, l2, l3) in enumerate(self.blocks):
+            f = torch.tanh(l1(h))
+            z1 = f * u + (1.0 - f) * v
+            g = torch.tanh(l2(z1))
+            z2 = g * u + (1.0 - g) * v
+            h = self.alpha[k] * torch.tanh(l3(z2)) + (1.0 - self.alpha[k]) * h
+        return self.out(h).squeeze(-1)
+
+
 class Model(nn.Module):
     def __init__(self, p: Problem1D, method: str, cfg: Config):
         super().__init__()
-        self.base = MLP(cfg.width, cfg.depth)
+        self.base = MLP(cfg.width, cfg.depth) if cfg.arch == "mlp" else PirateNet(cfg.width, cfg.pirate_blocks, cfg.fourier_scale)
         self.p, self.method, self.tau = p, method, cfg.tau
         self.hard = method.startswith("hardic")
         self.layer = method.endswith("layer")
@@ -126,7 +161,20 @@ def train(p: Problem1D, method: str, cfg: Config) -> tuple[Model, dict]:
     fixed_adam = draw(cfg.nf, cfg.nb, cfg.n0) if rba else None
     lam = [torch.ones(n) for n in (cfg.nf, cfg.nb, cfg.nb, cfg.n0)] if rba else None
 
-    def loss_of(res, weights=None):
+    def causal_mean(r, t):
+        """Causal weighting: chunk losses L_k in time, weights exp(-eps * sum_{j<k} L_j) (no gradient)."""
+        idx = (t * cfg.causal_chunks).long().clamp(0, cfg.causal_chunks - 1)
+        sums = torch.zeros(cfg.causal_chunks).index_add(0, idx, r.pow(2))
+        counts = torch.zeros(cfg.causal_chunks).index_add(0, idx, torch.ones_like(r)).clamp_min(1.0)
+        chunk = sums / counts
+        w = torch.exp(-cfg.causal_eps * (torch.cumsum(chunk, 0) - chunk)).detach()
+        return (w * chunk).mean()
+
+    def loss_of(res, weights=None, pts_used=None):
+        if cfg.causal_eps > 0.0:
+            _, t_f, t_b0, t_b1, _ = pts_used
+            out = causal_mean(res[0], t_f) + causal_mean(res[1], t_b0) + causal_mean(res[2], t_b1)
+            return out + sum(r.pow(2).mean() for r in res[3:])
         if weights is None:
             return sum(r.pow(2).mean() for r in res)
         return sum((w * r).pow(2).mean() for w, r in zip(weights, res))
@@ -136,8 +184,9 @@ def train(p: Problem1D, method: str, cfg: Config) -> tuple[Model, dict]:
     opt = torch.optim.Adam(model.parameters(), lr=cfg.lr0)
     sched = torch.optim.lr_scheduler.ExponentialLR(opt, (cfg.lr1 / cfg.lr0) ** (1.0 / cfg.adam_steps))
     for step in range(cfg.adam_steps):
-        res = residuals(model, fixed_adam if rba else draw(cfg.nf, cfg.nb, cfg.n0))
-        loss = loss_of(res, lam)
+        pts_step = fixed_adam if rba else draw(cfg.nf, cfg.nb, cfg.n0)
+        res = residuals(model, pts_step)
+        loss = loss_of(res, lam, pts_step)
         opt.zero_grad()
         loss.backward()
         opt.step()
@@ -157,16 +206,16 @@ def train(p: Problem1D, method: str, cfg: Config) -> tuple[Model, dict]:
 
     def closure():
         lbfgs.zero_grad()
-        value = loss_of(residuals(model, pts), lam)
+        value = loss_of(residuals(model, pts), lam, pts)
         value.backward()
         return value
 
-    hist["lbfgs_loss"].append(loss_of(residuals(model, pts), lam).item())
+    hist["lbfgs_loss"].append(loss_of(residuals(model, pts), lam, pts).item())
     done = 0
     while done < cfg.lbfgs_iters:
         lbfgs.step(closure)
         done += cfg.lbfgs_chunk
-        hist["lbfgs_loss"].append(loss_of(residuals(model, pts), lam).item())
+        hist["lbfgs_loss"].append(loss_of(residuals(model, pts), lam, pts).item())
         if hist["lbfgs_loss"][-1] >= hist["lbfgs_loss"][-2] * (1.0 - 1e-9):
             break
     hist["wall_seconds"] = time.perf_counter() - start

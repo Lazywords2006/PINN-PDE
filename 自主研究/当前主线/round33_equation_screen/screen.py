@@ -46,14 +46,14 @@ def run_one(job) -> str:
     import torch
 
     from pinn1d import Config, train
-    from problems import PROBLEMS, Reference
+    from problems import Reference, get_problem
 
     torch.set_num_threads(1)
     eq, method, seed, overrides, tag = job
     path = out_path(tag, eq, method, seed)
     if path.exists():
         return f"skip {path.relative_to(HERE)}"
-    p = PROBLEMS[eq]
+    p = get_problem(eq)
     cfg = replace(Config(), seed=seed, **overrides)
     model, hist = train(p, method, cfg)
     metrics = evaluate(model, Reference(p, 64))

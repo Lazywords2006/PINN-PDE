@@ -4,13 +4,13 @@ import torch
 from scipy.optimize import brentq
 
 from pinn1d import Config, Model, residuals
-from problems import OUT_TIMES, PROBLEMS, Reference
+from problems import AXES, OUT_TIMES, PROBLEMS, Reference
 
 
-def eigen_reference_e1(x, t, n_modes=400):
+def eigen_reference_e1(x, t, n_modes=400, c=0.3):
     """Independent E1 reference: u_t = u_xx, u_x(0) = 0, c u_t + u_x + kappa u = 0 at x = 1.
     Modes cos(mu x) with (kappa - c mu^2) cos mu - mu sin mu = 0, weighted inner product <f,g> = int f g + c f(1) g(1)."""
-    c, kappa = 0.3, 0.3
+    kappa = 0.3
     g = lambda mu: (kappa - c * mu**2) * np.cos(mu) - mu * np.sin(mu)
     grid = np.linspace(1e-6, 1300.0, 400000)
     vals = g(grid)
@@ -64,3 +64,34 @@ def test_reference_self_consistency(eq):
     x = np.linspace(0, 1, 201)
     lo, hi = Reference(p, 48), Reference(p, 96)
     assert max(np.max(np.abs(lo(x, t) - hi(x, t))) for t in OUT_TIMES) < 1e-8
+
+
+@pytest.mark.parametrize("c", [0.03, 0.1, 1.0, 3.0])
+def test_e1_axis_reference_matches_eigen_expansion(c):
+    x = np.linspace(0, 1, 101)
+    ref = Reference(AXES[f"E1_c{c:g}"], 48)
+    for t in OUT_TIMES:
+        assert np.max(np.abs(ref(x, t) - eigen_reference_e1(x, t, c=c))) < 1e-8
+
+
+@pytest.mark.parametrize("name", list(AXES))
+def test_axis_reference_self_consistency(name):
+    p = AXES[name]
+    x = np.linspace(0, 1, 201)
+    lo, hi = Reference(p, 48), Reference(p, 96)
+    assert max(np.max(np.abs(lo(x, t) - hi(x, t))) for t in OUT_TIMES) < 1e-8
+
+
+def test_pirate_and_causal_train_smoke():
+    from dataclasses import replace
+
+    from pinn1d import train
+
+    p = PROBLEMS["E3_fisher"]
+    for cfg in (replace(Config(), arch="pirate", adam_steps=3, lbfgs_iters=0),
+                replace(Config(), causal_eps=1.0, adam_steps=3, lbfgs_iters=0)):
+        model, hist = train(p, "hardic+layer", cfg)
+        x = torch.linspace(0, 1, 7)
+        assert torch.isfinite(model(x, 0.5 + 0 * x)).all()
+        assert torch.max(torch.abs(model(x, 0 * x) - p.f(x))) < 1e-14
+        assert np.isfinite(hist["loss"][-1])
