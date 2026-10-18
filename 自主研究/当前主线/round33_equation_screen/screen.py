@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import json
 import multiprocessing as mp
+import os
 import platform
 from dataclasses import asdict, replace
 from pathlib import Path
@@ -55,7 +56,11 @@ def run_one(job) -> str:
         return f"skip {path.relative_to(HERE)}"
     p = get_problem(eq)
     cfg = replace(Config(), seed=seed, **overrides)
-    ckpt = str(path.with_suffix('.ckpt'))
+    # R33_CKPT_DIR: put checkpoints outside the repository (ignored files in the checkout may not survive a container restart)
+    ckpt_dir = os.environ.get("R33_CKPT_DIR")
+    ckpt = str(Path(ckpt_dir) / f"{tag}__{eq}__{path.stem}.ckpt") if ckpt_dir else str(path.with_suffix('.ckpt'))
+    if ckpt_dir:
+        Path(ckpt_dir).mkdir(parents=True, exist_ok=True)
     path.parent.mkdir(parents=True, exist_ok=True)
     model, hist = train(p, method, cfg, ckpt=ckpt)
     metrics = evaluate(model, Reference(p, 64))
