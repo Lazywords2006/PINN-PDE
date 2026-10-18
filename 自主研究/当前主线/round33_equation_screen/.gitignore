@@ -1,2 +1,4 @@
 runs/smoke/
 __pycache__/
+*.ckpt
+*.ckpt.tmp

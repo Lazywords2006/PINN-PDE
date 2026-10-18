@@ -55,7 +55,9 @@ def run_one(job) -> str:
         return f"skip {path.relative_to(HERE)}"
     p = get_problem(eq)
     cfg = replace(Config(), seed=seed, **overrides)
-    model, hist = train(p, method, cfg)
+    ckpt = str(path.with_suffix('.ckpt'))
+    path.parent.mkdir(parents=True, exist_ok=True)
+    model, hist = train(p, method, cfg, ckpt=ckpt)
     metrics = evaluate(model, Reference(p, 64))
     rec = {"eq": eq, "method": method, "seed": seed, "tag": tag, "config": asdict(cfg), "delta": p.mismatch(),
            "metrics": metrics, "max_vol": max(metrics["vol"]), "max_trace": max(metrics["trace"]),
@@ -65,6 +67,7 @@ def run_one(job) -> str:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(rec))
     torch.save(model.base.state_dict(), path.with_suffix(".pt"))
+    Path(ckpt).unlink(missing_ok=True)
     return f"done {path.relative_to(HERE)} vol={rec['max_vol']:.2e} wall={rec['wall_seconds']:.0f}s"
 
 

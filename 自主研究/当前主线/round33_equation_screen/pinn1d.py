@@ -148,7 +148,12 @@ def residuals(model: Model, pts) -> list[torch.Tensor]:
     return out
 
 
-def train(p: Problem1D, method: str, cfg: Config) -> tuple[Model, dict]:
+def train(p: Problem1D, method: str, cfg: Config, ckpt: str | None = None, ckpt_every: int = 500) -> tuple[Model, dict]:
+    """ckpt (optional): file used to save training state every `ckpt_every` Adam steps and after every L-BFGS chunk,
+    and to resume from after an interruption. Resuming restores the network, optimiser, scheduler, sampling generator,
+    RBA weights and point sets, so the remaining steps see the same samples as an uninterrupted run."""
+    import os
+
     torch.manual_seed(cfg.seed)
     gen = torch.Generator().manual_seed(1000 + cfg.seed)
     model = Model(p, method, cfg)
@@ -179,30 +184,59 @@ def train(p: Problem1D, method: str, cfg: Config) -> tuple[Model, dict]:
             return sum(r.pow(2).mean() for r in res)
         return sum((w * r).pow(2).mean() for w, r in zip(weights, res))
 
-    hist = {"loss": [], "lbfgs_loss": []}
-    start = time.perf_counter()
+    hist = {"loss": [], "lbfgs_loss": [], "resumed_at": []}
     opt = torch.optim.Adam(model.parameters(), lr=cfg.lr0)
     sched = torch.optim.lr_scheduler.ExponentialLR(opt, (cfg.lr1 / cfg.lr0) ** (1.0 / cfg.adam_steps))
-    for step in range(cfg.adam_steps):
-        pts_step = fixed_adam if rba else draw(cfg.nf, cfg.nb, cfg.n0)
-        res = residuals(model, pts_step)
-        loss = loss_of(res, lam, pts_step)
-        opt.zero_grad()
-        loss.backward()
-        opt.step()
-        sched.step()
-        if rba:
-            with torch.no_grad():
-                for i, r in enumerate(res):
-                    a = r.detach().abs()
-                    lam[i] = cfg.rba_gamma * lam[i] + cfg.rba_eta * a / a.max().clamp_min(1e-300)
-        if step % 10 == 0:
-            hist["loss"].append(loss.item())
-    adam_seconds = time.perf_counter() - start
+    state = {"phase": "adam", "step": 0, "elapsed": 0.0, "adam_seconds": 0.0, "done": 0}
+    pts = lbfgs_state = None
+    if ckpt and os.path.exists(ckpt):
+        c = torch.load(ckpt, weights_only=False)
+        model.load_state_dict(c["model"])
+        opt.load_state_dict(c["opt"])
+        sched.load_state_dict(c["sched"])
+        gen.set_state(c["gen"])
+        fixed_adam, lam, hist, state, pts, lbfgs_state = c["fixed_adam"], c["lam"], c["hist"], c["state"], c["pts"], c["lbfgs"]
+        hist["resumed_at"].append(f"{state['phase']}:{state['step'] if state['phase'] == 'adam' else state['done']}")
 
-    pts = fixed_adam if rba else draw(cfg.nf_fixed, cfg.nb_fixed, cfg.n0_fixed)
+    def save(lbfgs_opt=None):
+        if not ckpt:
+            return
+        tmp = ckpt + ".tmp"
+        torch.save({"model": model.state_dict(), "opt": opt.state_dict(), "sched": sched.state_dict(),
+                    "gen": gen.get_state(), "fixed_adam": fixed_adam, "lam": lam, "hist": hist, "state": state,
+                    "pts": pts, "lbfgs": lbfgs_opt.state_dict() if lbfgs_opt is not None else None}, tmp)
+        os.replace(tmp, ckpt)
+
+    seg_start = time.perf_counter()
+    base_elapsed = state["elapsed"]
+    if state["phase"] == "adam":
+        for step in range(state["step"], cfg.adam_steps):
+            pts_step = fixed_adam if rba else draw(cfg.nf, cfg.nb, cfg.n0)
+            res = residuals(model, pts_step)
+            loss = loss_of(res, lam, pts_step)
+            opt.zero_grad()
+            loss.backward()
+            opt.step()
+            sched.step()
+            if rba:
+                with torch.no_grad():
+                    for i, r in enumerate(res):
+                        a = r.detach().abs()
+                        lam[i] = cfg.rba_gamma * lam[i] + cfg.rba_eta * a / a.max().clamp_min(1e-300)
+            if step % 10 == 0:
+                hist["loss"].append(loss.item())
+            if (step + 1) % ckpt_every == 0 and step + 1 < cfg.adam_steps:
+                state.update(step=step + 1, elapsed=base_elapsed + time.perf_counter() - seg_start)
+                save()
+        state["adam_seconds"] = base_elapsed + time.perf_counter() - seg_start
+        pts = fixed_adam if rba else draw(cfg.nf_fixed, cfg.nb_fixed, cfg.n0_fixed)
+        state.update(phase="lbfgs", step=cfg.adam_steps, done=0, elapsed=state["adam_seconds"])
+        save()
+
     lbfgs = torch.optim.LBFGS(model.parameters(), lr=1.0, max_iter=cfg.lbfgs_chunk, history_size=50,
                               line_search_fn="strong_wolfe", tolerance_grad=1e-14, tolerance_change=1e-16)
+    if lbfgs_state is not None:
+        lbfgs.load_state_dict(lbfgs_state)
 
     def closure():
         lbfgs.zero_grad()
@@ -210,14 +244,17 @@ def train(p: Problem1D, method: str, cfg: Config) -> tuple[Model, dict]:
         value.backward()
         return value
 
-    hist["lbfgs_loss"].append(loss_of(residuals(model, pts), lam, pts).item())
-    done = 0
-    while done < cfg.lbfgs_iters:
+    if not hist["lbfgs_loss"]:
+        hist["lbfgs_loss"].append(loss_of(residuals(model, pts), lam, pts).item())
+    done = state["done"]
+    stopped = len(hist["lbfgs_loss"]) >= 2 and hist["lbfgs_loss"][-1] >= hist["lbfgs_loss"][-2] * (1.0 - 1e-9)
+    while done < cfg.lbfgs_iters and not stopped:
         lbfgs.step(closure)
         done += cfg.lbfgs_chunk
         hist["lbfgs_loss"].append(loss_of(residuals(model, pts), lam, pts).item())
-        if hist["lbfgs_loss"][-1] >= hist["lbfgs_loss"][-2] * (1.0 - 1e-9):
-            break
-    hist["wall_seconds"] = time.perf_counter() - start
-    hist["adam_seconds"] = adam_seconds
+        stopped = hist["lbfgs_loss"][-1] >= hist["lbfgs_loss"][-2] * (1.0 - 1e-9)
+        state.update(done=done, elapsed=base_elapsed + time.perf_counter() - seg_start)
+        save(lbfgs)
+    hist["wall_seconds"] = base_elapsed + time.perf_counter() - seg_start
+    hist["adam_seconds"] = state["adam_seconds"]
     return model, hist

@@ -95,3 +95,36 @@ def test_pirate_and_causal_train_smoke():
         assert torch.isfinite(model(x, 0.5 + 0 * x)).all()
         assert torch.max(torch.abs(model(x, 0 * x) - p.f(x))) < 1e-14
         assert np.isfinite(hist["loss"][-1])
+
+
+@pytest.mark.parametrize("method,interrupt_after", [("hardic+layer", 25), ("rba", 25), ("hardic", 60)])
+def test_checkpoint_resume_matches_uninterrupted(tmp_path, monkeypatch, method, interrupt_after):
+    """Interrupt training (in the Adam phase, or in L-BFGS for 60 calls) and resume from the checkpoint:
+    the final network must equal the uninterrupted one."""
+    from dataclasses import replace
+
+    import pinn1d
+
+    p = PROBLEMS["E3_fisher"]
+    cfg = replace(Config(), adam_steps=40, nf=64, nb=16, n0=16, lbfgs_iters=100, lbfgs_chunk=10,
+                  nf_fixed=64, nb_fixed=16, n0_fixed=16)
+    ref_model, ref_hist = pinn1d.train(p, method, cfg)
+    ckpt = str(tmp_path / "run.ckpt")
+    real = pinn1d.residuals
+    calls = {"n": 0}
+
+    def flaky(*a, **k):
+        calls["n"] += 1
+        if calls["n"] > interrupt_after:
+            raise KeyboardInterrupt
+        return real(*a, **k)
+
+    monkeypatch.setattr(pinn1d, "residuals", flaky)
+    with pytest.raises(KeyboardInterrupt):
+        pinn1d.train(p, method, cfg, ckpt=ckpt, ckpt_every=10)
+    monkeypatch.setattr(pinn1d, "residuals", real)
+    model, hist = pinn1d.train(p, method, cfg, ckpt=ckpt, ckpt_every=10)
+    assert hist["resumed_at"]
+    for a, b in zip(ref_model.state_dict().values(), model.state_dict().values()):
+        assert torch.equal(a, b)
+    assert hist["lbfgs_loss"] == ref_hist["lbfgs_loss"]
