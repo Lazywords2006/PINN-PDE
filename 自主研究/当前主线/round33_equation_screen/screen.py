@@ -40,14 +40,18 @@ def evaluate(model, ref) -> dict:
         vol.append(float(np.sqrt(np.sum(wg * (u - ur) ** 2) / np.sum(wg * ur**2))))
         r1 = float(ref(np.array([1.0]), t)[0])
         trace.append(abs(u1 - r1) / max(abs(r1), 1e-12))
-    return {"times": list(OUT_TIMES), "vol": vol, "trace": trace}
+    out = {"times": list(OUT_TIMES), "vol": vol, "trace": trace}
+    if hasattr(model, "surface"):  # E4: surface variable v(t), absolute error
+        with torch.no_grad():
+            out["surface_abs"] = [abs(float(model.surface(torch.tensor([t]))[0]) - ref.v(t)) for t in OUT_TIMES]
+    return out
 
 
 def run_one(job) -> str:
     import torch
 
     from pinn1d import Config, train
-    from problems import Reference, get_problem
+    from problems import get_problem, get_reference
 
     torch.set_num_threads(1)
     eq, method, seed, overrides, tag = job
@@ -63,7 +67,7 @@ def run_one(job) -> str:
         Path(ckpt_dir).mkdir(parents=True, exist_ok=True)
     path.parent.mkdir(parents=True, exist_ok=True)
     model, hist = train(p, method, cfg, ckpt=ckpt)
-    metrics = evaluate(model, Reference(p, 64))
+    metrics = evaluate(model, get_reference(p, 64))
     rec = {"eq": eq, "method": method, "seed": seed, "tag": tag, "config": asdict(cfg), "delta": p.mismatch(),
            "metrics": metrics, "max_vol": max(metrics["vol"]), "max_trace": max(metrics["trace"]),
            "wall_seconds": hist["wall_seconds"], "adam_seconds": hist["adam_seconds"],
@@ -109,8 +113,12 @@ def cmd_report(a):
     from problems import PROBLEMS
 
     root = HERE / "runs" / a.tag
-    for eq in PROBLEMS:
-        print(f"\n### {eq}  (delta = {PROBLEMS[eq].mismatch():+.3f})\n")
+    from problems import BULK_SURFACE
+
+    for eq, prob in {**PROBLEMS, **BULK_SURFACE}.items():
+        if not (root / eq).exists():
+            continue
+        print(f"\n### {eq}  (delta = {prob.mismatch():+.3f})\n")
         print("| method | runs | max-vol per seed | median | max-trace median | wall median (s) |")
         print("|---|---|---|---|---|---|")
         med = {}

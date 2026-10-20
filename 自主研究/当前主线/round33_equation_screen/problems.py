@@ -78,7 +78,35 @@ def _e3(kappa: float) -> Problem1D:
 AXES = {p.name: p for p in [_e1(c) for c in (0.03, 0.1, 1.0, 3.0)] + [_e3(k) for k in (0.1, 3.0)]}
 
 
-def get_problem(name: str) -> Problem1D:
+@dataclass(frozen=True)
+class BulkSurface:
+    """E4: u_t = D u_xx + R(u), u_x(0) = 0, flux exchange D u_x = kappa (v - u) at x = 1 with an independent surface
+    variable v' = kappa (u(1,t) - v) - gamma v^3, u(x,0) = f(x), v(0) = V0. Incompatible data give a flux jump at the
+    corner (u continuous, u_x jumps, sqrt(t) singularity)."""
+    name: str
+    D: float
+    kappa: float
+    gamma: float
+    V0: float
+    R: Callable
+    f: Callable
+    f_x: Callable
+    kind: str = "bulk_surface"
+
+    def mismatch(self) -> float:
+        """Delta_y = jump of D u_y at y = 1 - x = 0, t = 0: demanded by the exchange condition minus the one carried by f."""
+        return float(self.kappa * (self.f(1.0) - self.V0) + self.D * self.f_x(1.0))
+
+
+BULK_SURFACE = {
+    "E4_bulk_surface": BulkSurface("E4_bulk_surface", D=0.1, kappa=1.0, gamma=1.0, V0=1.0,
+                                   R=lambda u: u * (1.0 - u), f=lambda x: 0.1 * (1.0 - x**2), f_x=lambda x: -0.2 * x),
+}
+
+
+def get_problem(name: str):
+    if name in BULK_SURFACE:
+        return BULK_SURFACE[name]
     return PROBLEMS[name] if name in PROBLEMS else AXES[name]
 
 
@@ -128,9 +156,55 @@ class Reference:
         return np.polynomial.chebyshev.chebval(2.0 * np.asarray(xq) - 1.0, coef)
 
 
+class ReferenceBS:
+    """Reference for E4: Chebyshev collocation, the exchange condition at x = 1 and the Neumann condition at x = 0 are
+    eliminated algebraically (2x2 solve), the surface variable v is an extra ODE unknown; scipy Radau."""
+
+    def __init__(self, p: BulkSurface, n: int = 48, rtol: float = 1e-12, atol: float = 1e-14, method: str = "Radau"):
+        self.p, self.n = p, n
+        x, d1 = cheb(n)  # x_0 = 0 ... x_n = 1
+        d2 = d1 @ d1
+        self.x = x
+        m = np.array([[d1[0, 0], d1[0, n]], [p.D * d1[n, 0], p.D * d1[n, n] + p.kappa]])
+
+        def full(ui, v):
+            rhs = np.array([-d1[0, 1:n] @ ui, p.kappa * v - p.D * (d1[n, 1:n] @ ui)])
+            u0, un = np.linalg.solve(m, rhs)
+            return np.concatenate([[u0], ui, [un]])
+
+        def rhs(_t, y):
+            ui, v = y[:-1], y[-1]
+            u = full(ui, v)
+            return np.concatenate([p.D * (d2[1:n] @ u) + p.R(u[1:n]), [p.kappa * (u[n] - v) - p.gamma * v**3]])
+
+        y0 = np.concatenate([p.f(x[1:n]), [p.V0]])
+        sol = solve_ivp(rhs, (0.0, max(OUT_TIMES)), y0, method=method, rtol=rtol, atol=atol, dense_output=True)
+        if not sol.success:
+            raise RuntimeError(sol.message)
+        self._sol, self._full = sol, full
+
+    def state(self, t: float):
+        y = self._sol.sol(t)
+        return self._full(y[:-1], y[-1]), float(y[-1])
+
+    def values(self, t: float) -> np.ndarray:
+        return self.state(t)[0]
+
+    def v(self, t: float) -> float:
+        return self.state(t)[1]
+
+    def __call__(self, xq: np.ndarray, t: float) -> np.ndarray:
+        coef = np.polynomial.chebyshev.chebfit(2.0 * self.x - 1.0, self.values(t), self.n)
+        return np.polynomial.chebyshev.chebval(2.0 * np.asarray(xq) - 1.0, coef)
+
+
+def get_reference(p, n: int = 64, **kw):
+    return ReferenceBS(p, n, **kw) if getattr(p, "kind", "") == "bulk_surface" else Reference(p, n, **kw)
+
+
 def self_check(name: str, n_lo: int = 48, n_hi: int = 96) -> float:
     p = get_problem(name)
-    lo, hi = Reference(p, n_lo), Reference(p, n_hi)
+    lo, hi = get_reference(p, n_lo), get_reference(p, n_hi)
     xq = np.linspace(0.0, 1.0, 401)
     return max(float(np.max(np.abs(lo(xq, t) - hi(xq, t)))) for t in OUT_TIMES)
 
@@ -138,3 +212,5 @@ def self_check(name: str, n_lo: int = 48, n_hi: int = 96) -> float:
 if __name__ == "__main__":
     for name, p in {**PROBLEMS, **AXES}.items():
         print(f"{name}: delta = {p.mismatch():+.4f}, c' = {p.c / np.sqrt(p.D):.3f}, ref self-check = {self_check(name):.2e}")
+    for name, p in BULK_SURFACE.items():
+        print(f"{name}: Delta_y = {p.mismatch():+.4f}, ref self-check = {self_check(name):.2e}")

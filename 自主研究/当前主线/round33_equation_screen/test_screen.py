@@ -128,3 +128,140 @@ def test_checkpoint_resume_matches_uninterrupted(tmp_path, monkeypatch, method, 
     for a, b in zip(ref_model.state_dict().values(), model.state_dict().values()):
         assert torch.equal(a, b)
     assert hist["lbfgs_loss"] == ref_hist["lbfgs_loss"]
+
+
+# ---- E4 (bulk-surface, flux-jump corner layer) ----
+
+def test_e4_reference_self_consistency():
+    from problems import BULK_SURFACE, ReferenceBS
+
+    p = BULK_SURFACE["E4_bulk_surface"]
+    x = np.linspace(0, 1, 201)
+    lo, hi = ReferenceBS(p, 48), ReferenceBS(p, 96)
+    assert max(np.max(np.abs(lo(x, t) - hi(x, t))) for t in OUT_TIMES) < 1e-8
+    assert max(abs(lo.v(t) - hi.v(t)) for t in OUT_TIMES) < 1e-8
+
+
+def test_e4_reference_second_integrator():
+    from problems import BULK_SURFACE, ReferenceBS
+
+    p = BULK_SURFACE["E4_bulk_surface"]
+    x = np.linspace(0, 1, 201)
+    a, b = ReferenceBS(p, 96), ReferenceBS(p, 96, rtol=1e-11, atol=1e-13, method="BDF")
+    assert max(np.max(np.abs(a(x, t) - b(x, t))) for t in OUT_TIMES) < 1e-7
+
+
+def test_e4_reference_satisfies_exchange_condition():
+    from problems import BULK_SURFACE, ReferenceBS
+
+    p = BULK_SURFACE["E4_bulk_surface"]
+    ref = ReferenceBS(p, 96)
+    h = 1e-5
+    for t in OUT_TIMES:
+        ux = (ref(np.array([1.0]), t) - ref(np.array([1.0 - h]), t)) / h
+        assert abs(p.D * ux[0] - p.kappa * (ref.v(t) - ref(np.array([1.0]), t)[0])) < 5e-4
+
+
+def test_e4_sqrt_t_coefficient_matches_flux_layer():
+    """u(1,t) - f(1) ~ -2 Delta_y sqrt(t/(pi D)) as t -> 0 (reference vs analytic flux layer), within 5% at t = 1e-5."""
+    from problems import BULK_SURFACE, ReferenceBS
+
+    p = BULK_SURFACE["E4_bulk_surface"]
+    ref = ReferenceBS(p, 160)
+    t = 1e-5
+    got = (ref.values(t)[-1] - p.f(1.0)) / np.sqrt(t)
+    want = -2.0 * p.mismatch() / np.sqrt(np.pi * p.D)
+    assert abs(got - want) / abs(want) < 0.05
+
+
+def test_e4_flux_layer_solves_heat_equation_and_flux():
+    from pinn1d import flux_layer
+
+    p = PROBLEMS and __import__("problems").BULK_SURFACE["E4_bulk_surface"]
+    d, dy = p.D, p.mismatch()
+    y = torch.linspace(0.02, 0.6, 7).requires_grad_(True)
+    t = torch.full_like(y, 0.07).requires_grad_(True)
+    u = flux_layer(y, t, d, dy)
+    ut = torch.autograd.grad(u.sum(), t, create_graph=True)[0]
+    uy = torch.autograd.grad(u.sum(), y, create_graph=True)[0]
+    uyy = torch.autograd.grad(uy.sum(), y)[0]
+    assert torch.max(torch.abs(ut - d * uyy)) < 1e-9
+    y0 = torch.zeros(3, requires_grad=True)
+    t0 = torch.tensor([0.01, 0.07, 0.3])
+    uy0 = torch.autograd.grad(flux_layer(y0, t0, d, dy).sum(), y0)[0]
+    assert torch.max(torch.abs(d * uy0 - dy)) < 1e-9
+
+
+def test_e4_hard_ic_exact_and_layer_vanishes_at_t0():
+    from problems import BULK_SURFACE
+
+    p = BULK_SURFACE["E4_bulk_surface"]
+    x = torch.linspace(0, 1, 40)
+    for method in ("hardic", "hardic+layer"):
+        m = Model(p, method, Config())
+        assert torch.max(torch.abs(m(x, torch.zeros_like(x)) - p.f(x))) < 1e-14
+        assert abs(float(m.surface(torch.zeros(1))[0]) - p.V0) < 1e-14
+
+
+def test_e4_layer_shifts_flux_residual_by_delta():
+    """With the networks zeroed, the unlifted exchange-flux residual at t -> 0+ equals Delta_y and the lift removes it."""
+    from pinn1d import residuals
+    from problems import BULK_SURFACE
+
+    p = BULK_SURFACE["E4_bulk_surface"]
+    t = torch.tensor([1e-10])
+    vals = {}
+    for method in ("hardic", "hardic+layer"):
+        m = Model(p, method, Config())
+        for prm in list(m.base.parameters()) + list(m.surf.parameters()):
+            torch.nn.init.zeros_(prm)
+        vals[method] = residuals(m, (torch.rand(4), torch.rand(4), t, t, torch.rand(4)))[2]
+    assert float(vals["hardic"]) == pytest.approx(p.mismatch(), rel=1e-3)
+    assert abs(float(vals["hardic+layer"])) < 2e-3
+
+
+@pytest.mark.parametrize("method", ["vanilla", "rba", "hardic+layer"])
+def test_e4_train_smoke_and_resume(tmp_path, monkeypatch, method):
+    from dataclasses import replace
+
+    import pinn1d
+    from problems import BULK_SURFACE
+
+    p = BULK_SURFACE["E4_bulk_surface"]
+    cfg = replace(Config(), adam_steps=20, nf=32, nb=8, n0=8, lbfgs_iters=20, lbfgs_chunk=10,
+                  nf_fixed=32, nb_fixed=8, n0_fixed=8)
+    ref_model, ref_hist = pinn1d.train(p, method, cfg)
+    x = torch.linspace(0, 1, 5)
+    assert torch.isfinite(ref_model(x, 0.5 + 0 * x)).all() and torch.isfinite(ref_model.surface(torch.tensor([0.5]))).all()
+    ckpt = str(tmp_path / "e4.ckpt")
+    real = pinn1d.residuals
+    calls = {"n": 0}
+
+    def flaky(*a, **k):
+        calls["n"] += 1
+        if calls["n"] > 12:
+            raise KeyboardInterrupt
+        return real(*a, **k)
+
+    monkeypatch.setattr(pinn1d, "residuals", flaky)
+    with pytest.raises(KeyboardInterrupt):
+        pinn1d.train(p, method, cfg, ckpt=ckpt, ckpt_every=5)
+    monkeypatch.setattr(pinn1d, "residuals", real)
+    model, hist = pinn1d.train(p, method, cfg, ckpt=ckpt, ckpt_every=5)
+    assert hist["resumed_at"]
+    for a, b in zip(ref_model.state_dict().values(), model.state_dict().values()):
+        assert torch.equal(a, b)
+
+
+def test_e4_evaluate_reports_surface_error():
+    from dataclasses import replace
+
+    import pinn1d
+    from problems import BULK_SURFACE, get_reference
+    from screen import evaluate
+
+    p = BULK_SURFACE["E4_bulk_surface"]
+    cfg = replace(Config(), adam_steps=2, lbfgs_iters=0, nf=16, nb=4, n0=4)
+    model, _ = pinn1d.train(p, "hardic+layer", cfg)
+    out = evaluate(model, get_reference(p, 64))
+    assert len(out["vol"]) == 5 and len(out["surface_abs"]) == 5 and all(np.isfinite(out["vol"]))

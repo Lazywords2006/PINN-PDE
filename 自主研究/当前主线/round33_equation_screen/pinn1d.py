@@ -58,6 +58,33 @@ def layer_profile(y: torch.Tensor, t: torch.Tensor, c: float) -> torch.Tensor:
     return c * (2.0 * rt * ierfc - c * impedance)
 
 
+def flux_layer(y: torch.Tensor, t: torch.Tensor, d: float, delta_y: float) -> torch.Tensor:
+    """E4 flux layer: U_t = D U_yy (y > 0), D U_y(0, t) = delta_y, U(y, 0) = 0, i.e.
+    U = -2 delta_y sqrt(t/D) ierfc(y / (2 sqrt(D t)))."""
+    rt = torch.sqrt(t.clamp_min(1e-30))
+    eta = y / (2.0 * math.sqrt(d) * rt)
+    ierfc = torch.exp(-(eta**2)) * (1.0 / math.sqrt(math.pi) - eta * torch.special.erfcx(eta))
+    return -2.0 * delta_y * rt / math.sqrt(d) * ierfc
+
+
+class SurfaceNet(nn.Module):
+    """E4 surface variable network v(t): tanh MLP 3 x 32."""
+
+    def __init__(self, width: int = 32, depth: int = 3):
+        super().__init__()
+        dims = [1] + [width] * depth + [1]
+        self.layers = nn.ModuleList(nn.Linear(a, b) for a, b in zip(dims[:-1], dims[1:]))
+        for layer in self.layers:
+            nn.init.xavier_normal_(layer.weight)
+            nn.init.zeros_(layer.bias)
+
+    def forward(self, t: torch.Tensor) -> torch.Tensor:
+        h = t.unsqueeze(-1)
+        for layer in self.layers[:-1]:
+            h = torch.tanh(layer(h))
+        return self.layers[-1](h).squeeze(-1)
+
+
 class MLP(nn.Module):
     def __init__(self, width: int, depth: int):
         super().__init__()
@@ -113,22 +140,59 @@ class Model(nn.Module):
         self.layer = method.endswith("layer")
         self.delta = p.mismatch() if self.layer else 0.0
         self.sqrt_d = math.sqrt(p.D)
+        self.bulk_surface = getattr(p, "kind", "") == "bulk_surface"
+        if self.bulk_surface:
+            self.surf = SurfaceNet()
 
     def forward(self, x: torch.Tensor, t: torch.Tensor) -> torch.Tensor:
         out = self.base(x, t)
         if self.hard:
             out = self.p.f(x) + t * out
         if self.layer:
-            y = (1.0 - x) / self.sqrt_d
-            out = out + self.delta * layer_profile(y, t, self.p.c / self.sqrt_d) * torch.exp(-t / self.tau)
+            if self.bulk_surface:
+                out = out + flux_layer(1.0 - x, t, self.p.D, self.delta) * torch.exp(-t / self.tau)
+            else:
+                y = (1.0 - x) / self.sqrt_d
+                out = out + self.delta * layer_profile(y, t, self.p.c / self.sqrt_d) * torch.exp(-t / self.tau)
         return out
+
+    def surface(self, t: torch.Tensor) -> torch.Tensor:
+        """E4 surface variable v(t); hard initial condition v = V0 + t N_v."""
+        out = self.surf(t)
+        return self.p.V0 + t * out if self.hard else out
 
 
 def _d(y, x):
     return torch.autograd.grad(y.sum(), x, create_graph=True)[0]
 
 
+def residuals_bulk_surface(model: Model, pts) -> list[torch.Tensor]:
+    """E4 residuals: bulk, Neumann at x = 0, exchange flux at x = 1, surface ODE, then (soft IC only) u and v initial."""
+    p = model.p
+    x_f, t_f, t_b0, t_b1, x_0 = pts
+    x = x_f.clone().requires_grad_(True)
+    t = t_f.clone().requires_grad_(True)
+    u = model(x, t)
+    u_x = _d(u, x)
+    r_pde = _d(u, t) - p.D * _d(u_x, x) - p.R(u)
+    x = torch.zeros_like(t_b0).requires_grad_(True)
+    r_b0 = _d(model(x, t_b0), x)
+    x = torch.ones_like(t_b1).requires_grad_(True)
+    t = t_b1.clone().requires_grad_(True)
+    u = model(x, t)
+    v = model.surface(t)
+    r_flux = p.D * _d(u, x) - p.kappa * (v - u)
+    r_surf = _d(v, t) - p.kappa * (u - v) + p.gamma * v**3
+    out = [r_pde, r_b0, r_flux, r_surf]
+    if not model.hard:
+        out.append(model(x_0, torch.zeros_like(x_0)) - p.f(x_0))
+        out.append((model.surface(torch.zeros(1)) - p.V0))
+    return out
+
+
 def residuals(model: Model, pts) -> list[torch.Tensor]:
+    if model.bulk_surface:
+        return residuals_bulk_surface(model, pts)
     p = model.p
     x_f, t_f, t_b0, t_b1, x_0 = pts
     x = x_f.clone().requires_grad_(True)
@@ -164,7 +228,8 @@ def train(p: Problem1D, method: str, cfg: Config, ckpt: str | None = None, ckpt_
                 torch.rand(nb, generator=gen), torch.rand(n0, generator=gen))
 
     fixed_adam = draw(cfg.nf, cfg.nb, cfg.n0) if rba else None
-    lam = [torch.ones(n) for n in (cfg.nf, cfg.nb, cfg.nb, cfg.n0)] if rba else None
+    sizes = (cfg.nf, cfg.nb, cfg.nb, cfg.nb, cfg.n0, 1) if model.bulk_surface else (cfg.nf, cfg.nb, cfg.nb, cfg.n0)
+    lam = [torch.ones(n) for n in sizes] if rba else None
 
     def causal_mean(r, t):
         """Causal weighting: chunk losses L_k in time, weights exp(-eps * sum_{j<k} L_j) (no gradient)."""
