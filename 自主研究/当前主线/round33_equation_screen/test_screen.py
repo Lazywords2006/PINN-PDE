@@ -267,6 +267,20 @@ def test_e4_evaluate_reports_surface_error():
     assert len(out["vol"]) == 5 and len(out["surface_abs"]) == 5 and all(np.isfinite(out["vol"]))
 
 
+@pytest.mark.parametrize("eq", list(PROBLEMS))
+def test_evaluate_dynamic_boundary_has_no_surface_branch(eq):
+    """E1--E3 expose Model.surface but do not have an independent surface network."""
+    from screen import evaluate
+
+    p = PROBLEMS[eq]
+    model = Model(p, "hardic+layer", Config(width=8, depth=1))
+    out = evaluate(model, Reference(p, 48))
+    assert out["times"] == list(OUT_TIMES)
+    assert len(out["vol"]) == len(OUT_TIMES)
+    assert all(np.isfinite(out["vol"]))
+    assert "surface_abs" not in out
+
+
 # ---- baselines of amendment 3: SOAP, heavy IC weight, first-segment refinement ----
 
 def test_soap_minimises_quadratic_and_resumes_identically():

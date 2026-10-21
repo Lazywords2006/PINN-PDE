@@ -1,0 +1,5 @@
+# 本机隔离环境，安装/缓存位置见 HANDOFF 和 run_preflight.ps1；不修改系统 Python。
+torch==2.14.1
+numpy==2.5.3
+scipy==1.18.1
+pytest==9.1.1

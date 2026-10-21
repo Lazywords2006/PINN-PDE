@@ -1,0 +1,2 @@
+# 保留固定版本官方源码原有的空白，不把第三方排版当作本项目改动。
+soap_official.py -whitespace

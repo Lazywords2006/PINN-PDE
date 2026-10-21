@@ -11,7 +11,7 @@ from __future__ import annotations
 
 import math
 import time
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 
 import torch
 from torch import nn
@@ -327,6 +327,11 @@ def train(p: Problem1D, method: str, cfg: Config, ckpt: str | None = None, ckpt_
     hist = {"loss": [], "lbfgs_loss": [], "resumed_at": []}
     if cfg.optimizer == "soap":
         opt = SOAP(model.parameters(), lr=cfg.lr0, betas=(0.95, 0.95), shampoo_beta=cfg.soap_beta, freq=cfg.soap_freq)
+    elif cfg.optimizer == "soap_official64":
+        from soap_baseline import SOAPOfficial64
+
+        opt = SOAPOfficial64(model.parameters(), lr=cfg.lr0, betas=(0.95, 0.95), shampoo_beta=cfg.soap_beta,
+                             precondition_frequency=cfg.soap_freq, weight_decay=0.0)
     else:
         opt = torch.optim.Adam(model.parameters(), lr=cfg.lr0)
     sched = torch.optim.lr_scheduler.ExponentialLR(opt, (cfg.lr1 / cfg.lr0) ** (1.0 / cfg.adam_steps))
@@ -334,6 +339,9 @@ def train(p: Problem1D, method: str, cfg: Config, ckpt: str | None = None, ckpt_
     pts = lbfgs_state = None
     if ckpt and os.path.exists(ckpt):
         c = torch.load(ckpt, weights_only=False)
+        expected_identity = {"problem": p.name, "method": method, "config": asdict(cfg)}
+        if "identity" in c and c["identity"] != expected_identity:
+            raise ValueError("checkpoint does not match the requested problem, method, or configuration")
         model.load_state_dict(c["model"])
         opt.load_state_dict(c["opt"])
         sched.load_state_dict(c["sched"])
@@ -347,7 +355,9 @@ def train(p: Problem1D, method: str, cfg: Config, ckpt: str | None = None, ckpt_
         tmp = ckpt + ".tmp"
         torch.save({"model": model.state_dict(), "opt": opt.state_dict(), "sched": sched.state_dict(),
                     "gen": gen.get_state(), "fixed_adam": fixed_adam, "lam": lam, "hist": hist, "state": state,
-                    "pts": pts, "lbfgs": lbfgs_opt.state_dict() if lbfgs_opt is not None else None}, tmp)
+                    "pts": pts, "lbfgs": lbfgs_opt.state_dict() if lbfgs_opt is not None else None,
+                    "identity": {"problem": p.name, "method": method, "config": asdict(cfg)},
+                    "environment": {"torch": str(torch.__version__)}}, tmp)
         os.replace(tmp, ckpt)
 
     seg_start = time.perf_counter()

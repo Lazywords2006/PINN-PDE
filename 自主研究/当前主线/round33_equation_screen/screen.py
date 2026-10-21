@@ -41,7 +41,7 @@ def evaluate(model, ref) -> dict:
         r1 = float(ref(np.array([1.0]), t)[0])
         trace.append(abs(u1 - r1) / max(abs(r1), 1e-12))
     out = {"times": list(OUT_TIMES), "vol": vol, "trace": trace}
-    if hasattr(model, "surface"):  # E4: surface variable v(t), absolute error
+    if model.bulk_surface:  # E4 alone has an independent surface network and reference v(t).
         with torch.no_grad():
             out["surface_abs"] = [abs(float(model.surface(torch.tensor([t]))[0]) - ref.v(t)) for t in OUT_TIMES]
     return out
@@ -52,30 +52,33 @@ def run_one(job) -> str:
 
     from pinn1d import Config, train
     from problems import get_problem, get_reference
+    from run_artifacts import load_result, save_outputs, validate_checkpoint, validate_config
 
     torch.set_num_threads(1)
     eq, method, seed, overrides, tag = job
     path = out_path(tag, eq, method, seed)
-    if path.exists():
-        return f"skip {path.relative_to(HERE)}"
     p = get_problem(eq)
     cfg = replace(Config(), seed=seed, **overrides)
+    validate_config(cfg, method)
+    if path.exists():
+        _, _, status = load_result(path, expected_config=cfg, expected_job=(eq, method, seed, tag))
+        return f"skip verified {status} {path.relative_to(HERE)}"
     # R33_CKPT_DIR: put checkpoints outside the repository (ignored files in the checkout may not survive a container restart)
     ckpt_dir = os.environ.get("R33_CKPT_DIR")
     ckpt = str(Path(ckpt_dir) / f"{tag}__{eq}__{path.stem}.ckpt") if ckpt_dir else str(path.with_suffix('.ckpt'))
     if ckpt_dir:
         Path(ckpt_dir).mkdir(parents=True, exist_ok=True)
     path.parent.mkdir(parents=True, exist_ok=True)
+    validate_checkpoint(ckpt, p, method, cfg)
     model, hist = train(p, method, cfg, ckpt=ckpt)
     metrics = evaluate(model, get_reference(p, 64))
     rec = {"eq": eq, "method": method, "seed": seed, "tag": tag, "config": asdict(cfg), "delta": p.mismatch(),
            "metrics": metrics, "max_vol": max(metrics["vol"]), "max_trace": max(metrics["trace"]),
            "wall_seconds": hist["wall_seconds"], "adam_seconds": hist["adam_seconds"],
            "final_adam_loss": hist["loss"][-1], "final_lbfgs_loss": hist["lbfgs_loss"][-1], "history": hist,
-           "env": {"python": platform.python_version(), "torch": torch.__version__, "numpy": np.__version__}}
+           "env": {"python": platform.python_version(), "torch": str(torch.__version__), "numpy": np.__version__}}
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(rec))
-    torch.save(model.base.state_dict(), path.with_suffix(".pt"))
+    save_outputs(path, rec, model)
     Path(ckpt).unlink(missing_ok=True)
     return f"done {path.relative_to(HERE)} vol={rec['max_vol']:.2e} wall={rec['wall_seconds']:.0f}s"
 
@@ -94,13 +97,20 @@ def parse_overrides(items):
 
 
 def cmd_run(a):
-    from pinn1d import METHODS
-    from problems import PROBLEMS
+    from pinn1d import METHODS, Config
+    from problems import PROBLEMS, get_problem
+    from run_artifacts import validate_config
 
     eqs = a.eqs.split(",") if a.eqs else list(PROBLEMS)
     methods = a.methods.split(",") if a.methods else list(METHODS)
     seeds = [int(s) for s in a.seeds.split(",")]
     ov = parse_overrides(a.set)
+    if a.workers <= 0 or len(set(seeds)) != len(seeds) or len(set(eqs)) != len(eqs) or len(set(methods)) != len(methods):
+        raise ValueError('workers must be positive and job lists must not contain duplicates')
+    for eq in eqs:
+        get_problem(eq)
+    for method in methods:
+        validate_config(replace(Config(), **ov), method)
     jobs = [(e, m, s, ov, a.tag) for s in seeds for e in eqs for m in methods]
     print(f"{len(jobs)} jobs tag={a.tag} overrides={ov}", flush=True)
     with mp.get_context("spawn").Pool(a.workers) as pool:
@@ -110,12 +120,12 @@ def cmd_run(a):
 
 def cmd_report(a):
     from pinn1d import METHODS
-    from problems import PROBLEMS
+    from problems import PROBLEMS, AXES
 
     root = HERE / "runs" / a.tag
     from problems import BULK_SURFACE
 
-    for eq, prob in {**PROBLEMS, **BULK_SURFACE}.items():
+    for eq, prob in {**PROBLEMS, **AXES, **BULK_SURFACE}.items():
         if not (root / eq).exists():
             continue
         print(f"\n### {eq}  (delta = {prob.mismatch():+.3f})\n")
