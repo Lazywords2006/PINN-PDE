@@ -1,0 +1,9 @@
+来源：https://github.com/nikhilvyas/SOAP/blob/main/soap.py
+固定上游 Git blob：a6362cc9ed2f50ed299204eb3bf07715e7280757
+soap_official.py 保留上游源代码与空白；许可证见 SOAP_LICENSE。
+
+本项目新增 soap_baseline.SOAPOfficial64，保留上游初始化、更新顺序、
+偏差校正、QR 刷新与二阶矩重排，只让预条件矩阵分配及分解保留输入
+dtype/device。论文中须标作“官方 SOAP 算法的 float64 适配”，不能说成
+上游代码逐字未改的 float64 默认实现。float32 下与固定上游逐步核对，
+float64 下另测分解精度及续跑；旧 pinn1d.SOAP 保留为历史自定义变体。
