@@ -34,7 +34,7 @@
 
 ## 3. 待办（按优先级）
 
-1. **修订 3 基线**（判据 B-1/B-2/B-3，见 `SCREEN_PROTOCOL.md` 修订 3）：tag `soap1e3`（SOAP lr0=0.001，方法 vanilla、hardic、hardic+layer，E1+E3，种子 0–2，18 个）、`soap3e3`（lr0=0.003，18 个）、`ic1000`（vanilla，w_ic=1000，t_refine=0.3，E1+E3，种子 0–2，6 个）。共 42 个 run。**云端两个 Haiku 会话正在跑它们**（见第 5 节），本机接手时先 `git pull`，只跑还没有 json 的；`screen.py` 会自动跳过已有 json。
+1. **修订 3 基线**（判据 B-1/B-2/B-3，见 `SCREEN_PROTOCOL.md` 修订 3）：tag `soap1e3`（SOAP lr0=0.001，方法 vanilla、hardic、hardic+layer，E1+E3，种子 0–2，18 个）、`soap3e3`（lr0=0.003，18 个）、`ic1000`（vanilla，w_ic=1000，t_refine=0.3，E1+E3，种子 0–2，6 个）。共 42 个 run。云端已暂停，仓库里这三个 tag 目前都是 0 个 json，本机从头跑（`screen.py` 会自动跳过已有 json，所以中断后重跑同一条命令即可）。
 2. **E1 PirateNet 种子 0、1**（tag `pirate`，4 个 run，每个 6–9 小时）：补齐后判 A-2。
 3. 把 B-1/B-2/B-3 和 A-2 的结果写进 `SCREEN_REPORT.md` 和 `总览/00_当前研究总档案.md` 的 R33 一节，推送。
 4. 读 Awais 等 2026（*Physics-informed neural networks for the heat equation with dynamic (Wentzell) boundary conditions*，Open J. Math. Sci. 10, 526–536，DOI 10.30538/oms2026.0303）全文，确认它的人造解是否本来就相容；把结果写进 `RELATED_WORK.md`。云端没读到（网络限制），本机可读。
@@ -56,13 +56,17 @@
   - 汇总：`python screen.py report --tag <tag>`
 - 提交：结果在 `runs/<tag>/<eq>/<method>_s<seed>.json` 与 `.pt`；`git add runs/<tag>/`，提交，`git pull --rebase` 后 `git push`。不要提交 `.ckpt`（已在 `.gitignore`）。
 
-## 5. 云端仍在跑的会话（可能与本机重复，需要先协调）
+## 5. 云端会话状态（2026-10-22 JST 更新：全部已归档暂停）
 
-- `session_01Eq7RvsiwjG6HiRKdLoe2Fp`：soap1e3 + ic1000（24 个）。
-- `session_01X9pp726kqWgNZxz4h3AU9z`：soap3e3（18 个）。
-- `session_014aeWV1Qxi9u64Z8oBFde84`：E1 PirateNet 种子 0、1（带 checkpoint 镜像，镜像分支 `claude/r33-ckpt-store-k5lc11`）。
-- 它们每完成若干 run 就推送到本分支。**本机开跑前先 `git pull`，并决定：让云端继续跑某些 tag、本机只跑别的，或让云端停止（在 app 里停会话，或用 send_message 让其停）。** 两边跑同一个 run 不会出错（结果确定性一致，按种子固定），只是浪费时间；推送时可能 json 冲突，用 `git pull --rebase` 后保留一份。
-- 云端容器会反复重启，checkpoint 存 `/tmp` 会丢，所以那边用 git 镜像；本机无此问题。
+用户决定改在本机跑，云端三个 Haiku 会话已于 2026-10-21 13:53 UTC（22:53 JST）归档（容器释放，进程已停），不会再往仓库推送：
+
+- `session_01Eq7RvsiwjG6HiRKdLoe2Fp`（soap1e3 + ic1000）：归档时 **0 个 run 完成**，没有任何结果文件；从头跑。
+- `session_01X9pp726kqWgNZxz4h3AU9z`（soap3e3）：归档时 **0 个 run 完成**；从头跑。
+- `session_014aeWV1Qxi9u64Z8oBFde84`（E1 PirateNet 种子 0、1）：归档时 4 个 run 都在 Adam 阶段，**镜像分支 `claude/r33-ckpt-store-k5lc11`（提交 aec7fcd，2026-10-21 13:52 UTC）里有最新 checkpoint**：hardic 种子 0、1 在第 16500 步，hardic+layer 种子 0、1 在第 16000 步（总 20000 步，之后还有 L-BFGS 3000 次）。**本机可以从这些 checkpoint 续跑，省掉约 80% 的 Adam 时间**：
+  1. `git clone --branch claude/r33-ckpt-store-k5lc11 --depth 1 <仓库地址> ckpt_store`（或在 R33 目录用 `CKPT_BRANCH=claude/r33-ckpt-store-k5lc11 R33_CKPT_DIR=<本地目录> bash ckpt_sync.sh restore`，需要 bash 和 git）；
+  2. 镜像里的文件名是 `pirate__E1_heat__<method>_s<seed>.ckptgit`，把它们复制到 `R33_CKPT_DIR` 下并改扩展名为 `.ckpt`（例如 `pirate__E1_heat__hardic_s0.ckpt`；hardic+layer 的文件名里 `+` 已换成 `_`，以镜像里的实际名字为准）；
+  3. 设 `R33_CKPT_DIR` 后运行第 4 节的 PirateNet 命令，会自动续跑（续跑结果与不中断逐位一致，有测试；checkpoint 是同一版代码、float64 存的，不要换 torch 大版本以免状态不兼容）。
+- 若需要云端会话恢复，用 `unarchive_session`；但新开会话更干净。云端容器会反复重启，不推荐继续在云端跑长任务。
 
 ## 6. 容易踩的坑
 
