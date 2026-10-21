@@ -46,6 +46,11 @@ class Config:
     fourier_scale: float = 1.0
     causal_eps: float = 0.0  # > 0: causal weighting (Wang, Sankaran, Perdikaris 2022) with this epsilon
     causal_chunks: int = 32
+    w_ic: float = 1.0  # weight on the (soft) initial-condition loss; > 1 for the "heavy IC weight" baseline
+    t_refine: float = 0.0  # fraction of collocation/boundary times drawn from the first segment [0, 0.01]
+    optimizer: str = "adam"  # "adam" or "soap" (own implementation of Vyas et al. 2024)
+    soap_freq: int = 10
+    soap_beta: float = 0.95
 
 
 def layer_profile(y: torch.Tensor, t: torch.Tensor, c: float) -> torch.Tensor:
@@ -83,6 +88,66 @@ class SurfaceNet(nn.Module):
         for layer in self.layers[:-1]:
             h = torch.tanh(layer(h))
         return self.layers[-1](h).squeeze(-1)
+
+
+class SOAP(torch.optim.Optimizer):
+    """SOAP (Vyas, Chen, Morwani, Kakade et al. 2024): Adam run in the eigenbasis of the Shampoo preconditioner.
+    Own float64 implementation (the `heavyball` package does not support float64). 2-D parameters get the rotated
+    Adam update; 1-D parameters (biases, alpha) use plain Adam. The eigenbasis is refreshed every `freq` steps and
+    the first moment is re-expressed in the new basis."""
+
+    def __init__(self, params, lr=1e-3, betas=(0.95, 0.95), shampoo_beta=0.95, eps=1e-8, freq=10):
+        super().__init__(params, dict(lr=lr, betas=betas, shampoo_beta=shampoo_beta, eps=eps, freq=freq))
+
+    @staticmethod
+    def _eigbasis(gg):
+        _, q = torch.linalg.eigh(gg + 1e-30 * torch.eye(gg.shape[0], dtype=gg.dtype))
+        return q.flip(-1)
+
+    @torch.no_grad()
+    def step(self, closure=None):
+        loss = None
+        if closure is not None:
+            with torch.enable_grad():
+                loss = closure()
+        for group in self.param_groups:
+            b1, b2 = group["betas"]
+            for p in group["params"]:
+                if p.grad is None:
+                    continue
+                g = p.grad
+                st = self.state[p]
+                if not st:
+                    st["step"] = 0
+                    st["m"] = torch.zeros_like(p)
+                    st["v"] = torch.zeros_like(p)
+                    if p.ndim == 2:
+                        st["L"] = torch.zeros(p.shape[0], p.shape[0], dtype=p.dtype)
+                        st["R"] = torch.zeros(p.shape[1], p.shape[1], dtype=p.dtype)
+                st["step"] += 1
+                t = st["step"]
+                if p.ndim == 2:
+                    sb = group["shampoo_beta"]
+                    st["L"].mul_(sb).add_(g @ g.T, alpha=1 - sb)
+                    st["R"].mul_(sb).add_(g.T @ g, alpha=1 - sb)
+                    if t == 1:
+                        st["QL"], st["QR"] = self._eigbasis(st["L"]), self._eigbasis(st["R"])
+                    elif t % group["freq"] == 0:
+                        m_orig = st["QL"] @ st["m"] @ st["QR"].T
+                        st["QL"], st["QR"] = self._eigbasis(st["L"]), self._eigbasis(st["R"])
+                        st["m"] = st["QL"].T @ m_orig @ st["QR"]
+                    gr = st["QL"].T @ g @ st["QR"]
+                else:
+                    gr = g
+                st["m"].mul_(b1).add_(gr, alpha=1 - b1)
+                st["v"].mul_(b2).addcmul_(gr, gr, value=1 - b2)
+                mhat = st["m"] / (1 - b1**t)
+                vhat = st["v"] / (1 - b2**t)
+                upd = mhat / (vhat.sqrt() + group["eps"])
+                if p.ndim == 2:
+                    upd = st["QL"] @ upd @ st["QR"].T
+                p.add_(upd, alpha=-group["lr"])
+        return loss
 
 
 class MLP(nn.Module):
@@ -224,8 +289,16 @@ def train(p: Problem1D, method: str, cfg: Config, ckpt: str | None = None, ckpt_
     rba = method == "rba"
 
     def draw(nf, nb, n0):
-        return (torch.rand(nf, generator=gen), torch.rand(nf, generator=gen), torch.rand(nb, generator=gen),
-                torch.rand(nb, generator=gen), torch.rand(n0, generator=gen))
+        pts = (torch.rand(nf, generator=gen), torch.rand(nf, generator=gen), torch.rand(nb, generator=gen),
+               torch.rand(nb, generator=gen), torch.rand(n0, generator=gen))
+        if cfg.t_refine > 0.0:  # a fraction of the times goes to the first segment [0, 0.01]
+            x_f, t_f, t_b0, t_b1, x_0 = pts
+            t_f, t_b0, t_b1 = t_f.clone(), t_b0.clone(), t_b1.clone()
+            t_f[: int(cfg.t_refine * nf)] *= 0.01
+            t_b0[: int(cfg.t_refine * nb)] *= 0.01
+            t_b1[: int(cfg.t_refine * nb)] *= 0.01
+            pts = (x_f, t_f, t_b0, t_b1, x_0)
+        return pts
 
     fixed_adam = draw(cfg.nf, cfg.nb, cfg.n0) if rba else None
     sizes = (cfg.nf, cfg.nb, cfg.nb, cfg.nb, cfg.n0, 1) if model.bulk_surface else (cfg.nf, cfg.nb, cfg.nb, cfg.n0)
@@ -241,6 +314,8 @@ def train(p: Problem1D, method: str, cfg: Config, ckpt: str | None = None, ckpt_
         return (w * chunk).mean()
 
     def loss_of(res, weights=None, pts_used=None):
+        if cfg.w_ic != 1.0 and not model.hard and not model.bulk_surface:
+            res = list(res[:-1]) + [res[-1] * math.sqrt(cfg.w_ic)]
         if cfg.causal_eps > 0.0:
             _, t_f, t_b0, t_b1, _ = pts_used
             out = causal_mean(res[0], t_f) + causal_mean(res[1], t_b0) + causal_mean(res[2], t_b1)
@@ -250,7 +325,10 @@ def train(p: Problem1D, method: str, cfg: Config, ckpt: str | None = None, ckpt_
         return sum((w * r).pow(2).mean() for w, r in zip(weights, res))
 
     hist = {"loss": [], "lbfgs_loss": [], "resumed_at": []}
-    opt = torch.optim.Adam(model.parameters(), lr=cfg.lr0)
+    if cfg.optimizer == "soap":
+        opt = SOAP(model.parameters(), lr=cfg.lr0, betas=(0.95, 0.95), shampoo_beta=cfg.soap_beta, freq=cfg.soap_freq)
+    else:
+        opt = torch.optim.Adam(model.parameters(), lr=cfg.lr0)
     sched = torch.optim.lr_scheduler.ExponentialLR(opt, (cfg.lr1 / cfg.lr0) ** (1.0 / cfg.adam_steps))
     state = {"phase": "adam", "step": 0, "elapsed": 0.0, "adam_seconds": 0.0, "done": 0}
     pts = lbfgs_state = None

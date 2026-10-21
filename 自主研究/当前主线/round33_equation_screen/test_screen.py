@@ -265,3 +265,76 @@ def test_e4_evaluate_reports_surface_error():
     model, _ = pinn1d.train(p, "hardic+layer", cfg)
     out = evaluate(model, get_reference(p, 64))
     assert len(out["vol"]) == 5 and len(out["surface_abs"]) == 5 and all(np.isfinite(out["vol"]))
+
+
+# ---- baselines of amendment 3: SOAP, heavy IC weight, first-segment refinement ----
+
+def test_soap_minimises_quadratic_and_resumes_identically():
+    from pinn1d import SOAP
+
+    torch.manual_seed(0)
+    a = torch.randn(6, 6)
+    a = a @ a.T + 0.1 * torch.eye(6)
+    target = torch.randn(6, 4)
+
+    def run(steps, state=None, w0=None):
+        w = (w0 if w0 is not None else torch.zeros(6, 4)).clone().requires_grad_(True)
+        opt = SOAP([w], lr=0.05, freq=5)
+        if state is not None:
+            opt.load_state_dict(state)
+        for _ in range(steps):
+            loss = 0.5 * ((w - target) * (a @ (w - target))).sum()
+            opt.zero_grad(); loss.backward(); opt.step()
+        return w.detach(), opt.state_dict(), loss.item()
+
+    w, _, loss = run(400)
+    assert loss < 1e-4
+    w_full, _, _ = run(40)
+    w_half, state, _ = run(20)
+    import copy
+    w_res, _, _ = run(20, state=copy.deepcopy(state), w0=w_half)
+    assert torch.allclose(w_full, w_res, atol=1e-12)
+
+
+def test_ic_weight_and_refinement_change_loss_and_points():
+    from dataclasses import replace
+
+    import pinn1d
+
+    p = PROBLEMS["E3_fisher"]
+    cfg0 = replace(Config(), adam_steps=3, lbfgs_iters=0, nf=64, nb=16, n0=16)
+    base, h0 = pinn1d.train(p, "vanilla", cfg0)
+    heavy, h1 = pinn1d.train(p, "vanilla", replace(cfg0, w_ic=1000.0))
+    assert h1["loss"][0] > 10 * h0["loss"][0]
+    ref, _ = pinn1d.train(p, "vanilla", replace(cfg0, t_refine=0.3))
+    assert all(torch.isfinite(q).all() for q in ref.state_dict().values())
+
+
+@pytest.mark.parametrize("method", ["vanilla", "hardic+layer"])
+def test_soap_train_smoke_and_resume(tmp_path, monkeypatch, method):
+    from dataclasses import replace
+
+    import pinn1d
+
+    p = PROBLEMS["E3_fisher"]
+    cfg = replace(Config(), optimizer="soap", adam_steps=20, nf=32, nb=8, n0=8, lbfgs_iters=20, lbfgs_chunk=10,
+                  nf_fixed=32, nb_fixed=8, n0_fixed=8)
+    ref_model, _ = pinn1d.train(p, method, cfg)
+    ckpt = str(tmp_path / "s.ckpt")
+    real = pinn1d.residuals
+    calls = {"n": 0}
+
+    def flaky(*a, **k):
+        calls["n"] += 1
+        if calls["n"] > 12:
+            raise KeyboardInterrupt
+        return real(*a, **k)
+
+    monkeypatch.setattr(pinn1d, "residuals", flaky)
+    with pytest.raises(KeyboardInterrupt):
+        pinn1d.train(p, method, cfg, ckpt=ckpt, ckpt_every=5)
+    monkeypatch.setattr(pinn1d, "residuals", real)
+    model, hist = pinn1d.train(p, method, cfg, ckpt=ckpt, ckpt_every=5)
+    assert hist["resumed_at"]
+    for x, y in zip(ref_model.state_dict().values(), model.state_dict().values()):
+        assert torch.equal(x, y)
