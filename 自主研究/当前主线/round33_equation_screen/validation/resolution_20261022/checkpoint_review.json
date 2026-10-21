@@ -1,0 +1,76 @@
+{
+  "范围": "恢复可操作性与本机短续跑一致性；不声称跨机器完整训练轨迹逐位相同",
+  "checkpoint数": 4,
+  "本机Torch": "2.14.1+cpu",
+  "源ZIP_SHA256": "b75872481c4ffb01821ca7e18c504fbc36cf9c5b25e3ca5c32e6ba09393e410d",
+  "检查": [
+    {
+      "文件": "pirate__E1_heat__hardic_layer_s0.ckptgit",
+      "原始Git对象核对": true,
+      "源SHA256": "26b4e5dee9c6e94a8d5b34815c3458973fee2b3c5395ee6f554e4cc877c18a47",
+      "源提交": "aec7fcdfc0dae861f46ca594d0771c5669af5ad3",
+      "方法": "hardic+layer",
+      "种子": 0,
+      "Adam步数": 16000,
+      "工作副本": "D:\\CodexRuntime\\runs\\r33_resolution_20261021\\checkpoint_restore\\checkpoints\\pirate__E1_heat__hardic_layer_s0.ckpt",
+      "Torch": "2.14.1+cpu",
+      "本机短续跑核验": {
+        "恢复位置": "adam:16000",
+        "验证后Adam步数": 16002,
+        "重复两次模型优化器采样状态逐位相同": true,
+        "仅执行Adam更新次数": 4
+      }
+    },
+    {
+      "文件": "pirate__E1_heat__hardic_layer_s1.ckptgit",
+      "原始Git对象核对": true,
+      "源SHA256": "11cad167243c63958b721dcbd3a436192e51b836180c6bbf6f38f36006ed9e1b",
+      "源提交": "aec7fcdfc0dae861f46ca594d0771c5669af5ad3",
+      "方法": "hardic+layer",
+      "种子": 1,
+      "Adam步数": 16000,
+      "工作副本": "D:\\CodexRuntime\\runs\\r33_resolution_20261021\\checkpoint_restore\\checkpoints\\pirate__E1_heat__hardic_layer_s1.ckpt",
+      "Torch": "2.14.1+cpu",
+      "本机短续跑核验": {
+        "恢复位置": "adam:16000",
+        "验证后Adam步数": 16002,
+        "重复两次模型优化器采样状态逐位相同": true,
+        "仅执行Adam更新次数": 4
+      }
+    },
+    {
+      "文件": "pirate__E1_heat__hardic_s0.ckptgit",
+      "原始Git对象核对": true,
+      "源SHA256": "936c5f0cf330ceb2ff4193bb19cea54ab83efc1a4ba6cee78096afd169ac0f61",
+      "源提交": "aec7fcdfc0dae861f46ca594d0771c5669af5ad3",
+      "方法": "hardic",
+      "种子": 0,
+      "Adam步数": 16500,
+      "工作副本": "D:\\CodexRuntime\\runs\\r33_resolution_20261021\\checkpoint_restore\\checkpoints\\pirate__E1_heat__hardic_s0.ckpt",
+      "Torch": "2.14.1+cpu",
+      "本机短续跑核验": {
+        "恢复位置": "adam:16500",
+        "验证后Adam步数": 16502,
+        "重复两次模型优化器采样状态逐位相同": true,
+        "仅执行Adam更新次数": 4
+      }
+    },
+    {
+      "文件": "pirate__E1_heat__hardic_s1.ckptgit",
+      "原始Git对象核对": true,
+      "源SHA256": "450c8b6ed0b65863bb309b65d1864182a143db3ae767d78a575753c0ba3708b7",
+      "源提交": "aec7fcdfc0dae861f46ca594d0771c5669af5ad3",
+      "方法": "hardic",
+      "种子": 1,
+      "Adam步数": 16500,
+      "工作副本": "D:\\CodexRuntime\\runs\\r33_resolution_20261021\\checkpoint_restore\\checkpoints\\pirate__E1_heat__hardic_s1.ckpt",
+      "Torch": "2.14.1+cpu",
+      "本机短续跑核验": {
+        "恢复位置": "adam:16500",
+        "验证后Adam步数": 16502,
+        "重复两次模型优化器采样状态逐位相同": true,
+        "仅执行Adam更新次数": 4
+      }
+    }
+  ]
+}

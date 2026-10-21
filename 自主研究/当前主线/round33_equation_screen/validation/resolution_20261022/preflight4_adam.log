@@ -1,0 +1,13 @@
+12 jobs tag=preflight4_adam overrides={'width': 64, 'depth': 4, 'adam_steps': 4000, 'lbfgs_iters': 500, 'nf': 2048, 'nb': 128, 'n0': 256, 'nf_fixed': 4096, 'nb_fixed': 256, 'n0_fixed': 512, 'lr0': 0.001, 'lr1': 1e-05, 'tau': 0.1, 't_refine': 0, 'w_ic': 1, 'soap_beta': 0.95, 'soap_freq': 10, 'optimizer': 'adam'}
+done runs\preflight4_adam\E1_heat\vanilla_s100.json vol=2.24e-01 wall=677s
+done runs\preflight4_adam\E1_heat\vanilla_s101.json vol=1.77e-01 wall=680s
+done runs\preflight4_adam\E3_fisher\vanilla_s100.json vol=7.27e-02 wall=681s
+done runs\preflight4_adam\E1_heat\hardic_s100.json vol=2.84e-02 wall=694s
+done runs\preflight4_adam\E1_heat\hardic_s101.json vol=4.15e-02 wall=695s
+done runs\preflight4_adam\E3_fisher\hardic_s100.json vol=2.28e-03 wall=696s
+done runs\preflight4_adam\E1_heat\hardic_layer_s100.json vol=3.73e-03 wall=751s
+done runs\preflight4_adam\E3_fisher\hardic_layer_s100.json vol=1.11e-03 wall=754s
+done runs\preflight4_adam\E3_fisher\vanilla_s101.json vol=9.99e-02 wall=442s
+done runs\preflight4_adam\E3_fisher\hardic_s101.json vol=4.77e-03 wall=443s
+done runs\preflight4_adam\E1_heat\hardic_layer_s101.json vol=6.00e-03 wall=463s
+done runs\preflight4_adam\E3_fisher\hardic_layer_s101.json vol=3.01e-03 wall=451s

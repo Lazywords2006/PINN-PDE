@@ -1,0 +1,8 @@
+{
+  "source": "local filesystem log timestamps, approximate batch wall time",
+  "start_utc": "2026-10-21T15:56:05.1929738Z",
+  "end_utc": "2026-10-21T16:26:02.0078319Z",
+  "batch_seconds": 1796.8148581,
+  "adam_batch_seconds": 1160.0528582,
+  "soap_batch_seconds": 633.3503938
+}

@@ -1,0 +1,2 @@
+# Preserve original diagnostic logs, including pytest traceback whitespace.
+**/*.log -text -whitespace

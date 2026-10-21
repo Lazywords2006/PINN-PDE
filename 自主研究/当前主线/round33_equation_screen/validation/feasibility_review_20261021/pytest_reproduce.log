@@ -1,0 +1,157 @@
+FFF                                                                      [100%]
+================================== FAILURES ===================================
+________ test_evaluate_dynamic_boundary_has_no_surface_branch[E1_heat] ________
+
+eq = 'E1_heat'
+
+    @pytest.mark.parametrize("eq", list(PROBLEMS))
+    def test_evaluate_dynamic_boundary_has_no_surface_branch(eq):
+        """E1--E3 expose Model.surface but do not have an independent surface network."""
+        from screen import evaluate
+    
+        p = PROBLEMS[eq]
+        model = Model(p, "hardic+layer", Config(width=8, depth=1))
+>       out = evaluate(model, Reference(p, 48))
+
+test_screen.py:277: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+screen.py:46: in evaluate
+    out["surface_abs"] = [abs(float(model.surface(torch.tensor([t]))[0]) - ref.v(t)) for t in OUT_TIMES]
+pinn1d.py:226: in surface
+    out = self.surf(t)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = Model(
+  (base): MLP(
+    (layers): ModuleList(
+      (0): Linear(in_features=2, out_features=8, bias=True)
+      (1): Linear(in_features=8, out_features=1, bias=True)
+    )
+  )
+)
+name = 'surf'
+
+    def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+        if "_parameters" in self.__dict__:
+            _parameters = self.__dict__["_parameters"]
+            if name in _parameters:
+                return _parameters[name]
+        if "_buffers" in self.__dict__:
+            _buffers = self.__dict__["_buffers"]
+            if name in _buffers:
+                return _buffers[name]
+        if "_modules" in self.__dict__:
+            modules = self.__dict__["_modules"]
+            if name in modules:
+                return modules[name]
+>       raise AttributeError(
+            f"'{type(self).__name__}' object has no attribute '{name}'"
+        )
+E       AttributeError: 'Model' object has no attribute 'surf'
+
+C:\Users\LazyM\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py:1940: AttributeError
+_____ test_evaluate_dynamic_boundary_has_no_surface_branch[E2_allen_cahn] _____
+
+eq = 'E2_allen_cahn'
+
+    @pytest.mark.parametrize("eq", list(PROBLEMS))
+    def test_evaluate_dynamic_boundary_has_no_surface_branch(eq):
+        """E1--E3 expose Model.surface but do not have an independent surface network."""
+        from screen import evaluate
+    
+        p = PROBLEMS[eq]
+        model = Model(p, "hardic+layer", Config(width=8, depth=1))
+>       out = evaluate(model, Reference(p, 48))
+
+test_screen.py:277: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+screen.py:46: in evaluate
+    out["surface_abs"] = [abs(float(model.surface(torch.tensor([t]))[0]) - ref.v(t)) for t in OUT_TIMES]
+pinn1d.py:226: in surface
+    out = self.surf(t)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = Model(
+  (base): MLP(
+    (layers): ModuleList(
+      (0): Linear(in_features=2, out_features=8, bias=True)
+      (1): Linear(in_features=8, out_features=1, bias=True)
+    )
+  )
+)
+name = 'surf'
+
+    def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+        if "_parameters" in self.__dict__:
+            _parameters = self.__dict__["_parameters"]
+            if name in _parameters:
+                return _parameters[name]
+        if "_buffers" in self.__dict__:
+            _buffers = self.__dict__["_buffers"]
+            if name in _buffers:
+                return _buffers[name]
+        if "_modules" in self.__dict__:
+            modules = self.__dict__["_modules"]
+            if name in modules:
+                return modules[name]
+>       raise AttributeError(
+            f"'{type(self).__name__}' object has no attribute '{name}'"
+        )
+E       AttributeError: 'Model' object has no attribute 'surf'
+
+C:\Users\LazyM\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py:1940: AttributeError
+_______ test_evaluate_dynamic_boundary_has_no_surface_branch[E3_fisher] _______
+
+eq = 'E3_fisher'
+
+    @pytest.mark.parametrize("eq", list(PROBLEMS))
+    def test_evaluate_dynamic_boundary_has_no_surface_branch(eq):
+        """E1--E3 expose Model.surface but do not have an independent surface network."""
+        from screen import evaluate
+    
+        p = PROBLEMS[eq]
+        model = Model(p, "hardic+layer", Config(width=8, depth=1))
+>       out = evaluate(model, Reference(p, 48))
+
+test_screen.py:277: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+screen.py:46: in evaluate
+    out["surface_abs"] = [abs(float(model.surface(torch.tensor([t]))[0]) - ref.v(t)) for t in OUT_TIMES]
+pinn1d.py:226: in surface
+    out = self.surf(t)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = Model(
+  (base): MLP(
+    (layers): ModuleList(
+      (0): Linear(in_features=2, out_features=8, bias=True)
+      (1): Linear(in_features=8, out_features=1, bias=True)
+    )
+  )
+)
+name = 'surf'
+
+    def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+        if "_parameters" in self.__dict__:
+            _parameters = self.__dict__["_parameters"]
+            if name in _parameters:
+                return _parameters[name]
+        if "_buffers" in self.__dict__:
+            _buffers = self.__dict__["_buffers"]
+            if name in _buffers:
+                return _buffers[name]
+        if "_modules" in self.__dict__:
+            modules = self.__dict__["_modules"]
+            if name in modules:
+                return modules[name]
+>       raise AttributeError(
+            f"'{type(self).__name__}' object has no attribute '{name}'"
+        )
+E       AttributeError: 'Model' object has no attribute 'surf'
+
+C:\Users\LazyM\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py:1940: AttributeError
+=========================== short test summary info ===========================
+FAILED test_screen.py::test_evaluate_dynamic_boundary_has_no_surface_branch[E1_heat]
+FAILED test_screen.py::test_evaluate_dynamic_boundary_has_no_surface_branch[E2_allen_cahn]
+FAILED test_screen.py::test_evaluate_dynamic_boundary_has_no_surface_branch[E3_fisher]
+3 failed, 43 deselected in 5.73s

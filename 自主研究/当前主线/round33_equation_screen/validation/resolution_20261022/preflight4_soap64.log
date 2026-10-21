@@ -1,0 +1,13 @@
+12 jobs tag=preflight4_soap64 overrides={'width': 64, 'depth': 4, 'adam_steps': 4000, 'lbfgs_iters': 500, 'nf': 2048, 'nb': 128, 'n0': 256, 'nf_fixed': 4096, 'nb_fixed': 256, 'n0_fixed': 512, 'lr0': 0.001, 'lr1': 1e-05, 'tau': 0.1, 't_refine': 0, 'w_ic': 1, 'soap_beta': 0.95, 'soap_freq': 10, 'optimizer': 'soap_official64'}
+done runs\preflight4_soap64\E1_heat\hardic_s100.json vol=3.62e-02 wall=354s
+done runs\preflight4_soap64\E3_fisher\hardic_s100.json vol=3.23e-03 wall=358s
+done runs\preflight4_soap64\E1_heat\hardic_s101.json vol=4.54e-02 wall=382s
+done runs\preflight4_soap64\E1_heat\vanilla_s100.json vol=2.17e-01 wall=391s
+done runs\preflight4_soap64\E3_fisher\vanilla_s100.json vol=4.93e-02 wall=392s
+done runs\preflight4_soap64\E1_heat\vanilla_s101.json vol=1.77e-01 wall=394s
+done runs\preflight4_soap64\E1_heat\hardic_layer_s100.json vol=1.06e-02 wall=420s
+done runs\preflight4_soap64\E3_fisher\hardic_layer_s100.json vol=1.16e-03 wall=423s
+done runs\preflight4_soap64\E3_fisher\vanilla_s101.json vol=4.51e-02 wall=233s
+done runs\preflight4_soap64\E3_fisher\hardic_s101.json vol=1.84e-03 wall=221s
+done runs\preflight4_soap64\E1_heat\hardic_layer_s101.json vol=4.01e-03 wall=256s
+done runs\preflight4_soap64\E3_fisher\hardic_layer_s101.json vol=9.25e-04 wall=234s

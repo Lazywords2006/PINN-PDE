@@ -1,0 +1,13 @@
+{
+  "范围": "技能输出格式审核，非研究结果否定",
+  "panel_size": 2,
+  "usable_phase2_outputs": 0,
+  "状态": "[PANEL-SHRUNK]",
+  "正式综合决定": null,
+  "操作": "按协议不重试已看材料的Phase2，不为其代造评分；保留定性意见",
+  "逐角色": [
+    {"角色":"eic", "Phase1基本结构":true, "Phase2必需一级小节":true, "逐维度小节":false, "逐失败条件小节":false, "可用于正式综合":false},
+    {"角色":"method", "Phase1基本结构":true, "Phase2必需一级小节":true, "逐维度小节":true, "逐失败条件小节":false, "可用于正式综合":false}
+  ],
+  "诊断": ["[PROTOCOL-VIOLATION: phase2_lint_failed=required_subsections]"]
+}
