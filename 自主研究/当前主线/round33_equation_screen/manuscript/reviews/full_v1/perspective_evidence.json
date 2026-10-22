@@ -1,0 +1,894 @@
+{
+  "reviewer": "perspective",
+  "phase": "2",
+  "input_sha256": "c128d002efb7ce3b8b6fcb7a603d949c4c5ba9e352ac0b2693b1d20e343d197c",
+  "embedded_paper_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "retrained": false,
+  "model_reloaded": false,
+  "raw_json_count": 30,
+  "raw_metrics_scope": "Recomputed max over each metrics.vol series and three-seed medians only; not a model or reference-solver replay",
+  "raw_summary": [
+    {
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "vanilla",
+      "seed_values": [
+        0.0025329985641337183,
+        0.014647206427275116,
+        0.004675169889310211
+      ],
+      "median": 0.004675169889310211
+    },
+    {
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "hardic",
+      "seed_values": [
+        0.12988729247850572,
+        0.04982738948407484,
+        0.07214318791028707
+      ],
+      "median": 0.07214318791028707
+    },
+    {
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "rba",
+      "seed_values": [
+        0.10346820949163024,
+        0.04906269061998768,
+        0.014750768793041047
+      ],
+      "median": 0.04906269061998768
+    },
+    {
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "hardic_layer",
+      "seed_values": [
+        0.007712856651521004,
+        0.0005055689353847629,
+        0.005576309573543175
+      ],
+      "median": 0.005576309573543175
+    },
+    {
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "hardic_over_corrected": 12.937443116962287,
+      "vanilla_over_corrected": 0.8383985551109958
+    },
+    {
+      "tag": "axis",
+      "eq": "E3_k0.1",
+      "method": "hardic",
+      "seed_values": [
+        0.00036433337240608643,
+        0.0003109938361907852,
+        0.000880788407005883
+      ],
+      "median": 0.00036433337240608643
+    },
+    {
+      "tag": "axis",
+      "eq": "E3_k0.1",
+      "method": "hardic_layer",
+      "seed_values": [
+        0.0002891417111139754,
+        0.0005040411919197467,
+        0.0006084875941179113
+      ],
+      "median": 0.0005040411919197467
+    },
+    {
+      "tag": "axis",
+      "eq": "E3_k0.1",
+      "hardic_over_corrected": 0.7228245989547923,
+      "vanilla_over_corrected": null
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E1_heat",
+      "method": "hardic",
+      "seed_values": [
+        0.013262857705973682,
+        0.0910410861872862,
+        0.04430485131984485
+      ],
+      "median": 0.04430485131984485
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E1_heat",
+      "method": "hardic_layer",
+      "seed_values": [
+        0.00012082446202214802,
+        0.0029768454552935625,
+        0.00014764821423072187
+      ],
+      "median": 0.00014764821423072187
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E1_heat",
+      "hardic_over_corrected": 300.0703499915824,
+      "vanilla_over_corrected": null
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E3_fisher",
+      "method": "hardic",
+      "seed_values": [
+        0.0004260000321246892,
+        0.002494763101516382,
+        0.004285371101920529
+      ],
+      "median": 0.002494763101516382
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E3_fisher",
+      "method": "hardic_layer",
+      "seed_values": [
+        7.711494165251126E-05,
+        8.343261317128131E-05,
+        8.092506824861077E-05
+      ],
+      "median": 8.092506824861077E-05
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E3_fisher",
+      "hardic_over_corrected": 30.828062990965837,
+      "vanilla_over_corrected": null
+    }
+  ],
+  "raw_records": [
+    {
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "vanilla",
+      "seed": 0,
+      "max_vol": 0.0025329985641337183,
+      "stored_max_vol": 0.0025329985641337183,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\vanilla_s0.json",
+      "sha256": "6da3f205bcc9df65ea64d9bc294dcd12a55417e121e6c2a4de7bcb4d1fd61ce0",
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "vanilla",
+      "seed": 1,
+      "max_vol": 0.014647206427275116,
+      "stored_max_vol": 0.014647206427275116,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\vanilla_s1.json",
+      "sha256": "4c90beb3d867481703d63e1759f0901bcae1e7e2fba9c195ca7da76bbc02815d",
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "vanilla",
+      "seed": 2,
+      "max_vol": 0.004675169889310211,
+      "stored_max_vol": 0.004675169889310211,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\vanilla_s2.json",
+      "sha256": "9207579a92240136f494102c8fb49791b65c1d80907d23bdfc271e7343d03500",
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "hardic",
+      "seed": 0,
+      "max_vol": 0.12988729247850572,
+      "stored_max_vol": 0.12988729247850572,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\hardic_s0.json",
+      "sha256": "c19b4e1a3cb83d6cd4b2988f56a71028f0dc1e6352abc58c7294afdb16d4a127",
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "hardic",
+      "seed": 1,
+      "max_vol": 0.04982738948407484,
+      "stored_max_vol": 0.04982738948407484,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\hardic_s1.json",
+      "sha256": "97b0c76806af01a3765d240a9c4aa355b15fa7783aa53571647cd5d5eb525b6a",
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "hardic",
+      "seed": 2,
+      "max_vol": 0.07214318791028707,
+      "stored_max_vol": 0.07214318791028707,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\hardic_s2.json",
+      "sha256": "6be7b90fdabb82604e3622934dbf09a8e8851115b003e51e49b7db038e56dffa",
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "rba",
+      "seed": 0,
+      "max_vol": 0.10346820949163024,
+      "stored_max_vol": 0.10346820949163024,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\rba_s0.json",
+      "sha256": "180094d179ba7ddfdeab693de6f665018481bf84e69dcce0c3f54def0e6f1845",
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "rba",
+      "seed": 1,
+      "max_vol": 0.04906269061998768,
+      "stored_max_vol": 0.04906269061998768,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\rba_s1.json",
+      "sha256": "e296e1d28bba2f610c0c03e9a3dff947d867aadc869c2f1370ce9b1ae16e20b7",
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "rba",
+      "seed": 2,
+      "max_vol": 0.014750768793041047,
+      "stored_max_vol": 0.014750768793041047,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\rba_s2.json",
+      "sha256": "1fd25b854696bd08815253308c969517edb00531a743f24eda65c20049895c86",
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "hardic+layer",
+      "seed": 0,
+      "max_vol": 0.007712856651521004,
+      "stored_max_vol": 0.007712856651521004,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\hardic_layer_s0.json",
+      "sha256": "e3a949e44724aff5ba291bc13fdd681794b9ed230d50978fa48dae8d1e5cf198",
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "hardic+layer",
+      "seed": 1,
+      "max_vol": 0.0005055689353847629,
+      "stored_max_vol": 0.0005055689353847629,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\hardic_layer_s1.json",
+      "sha256": "46320b08f13df432c485c46bb88f6bea985a527c01b486c589ecdbafa4432da9",
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "hardic+layer",
+      "seed": 2,
+      "max_vol": 0.005576309573543175,
+      "stored_max_vol": 0.005576309573543175,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\hardic_layer_s2.json",
+      "sha256": "040915ef873c09e84e8c5025c5aecbb1be585682354988fbbc9dba292d000bc1",
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "axis",
+      "eq": "E3_k0.1",
+      "method": "hardic",
+      "seed": 0,
+      "max_vol": 0.00036433337240608643,
+      "stored_max_vol": 0.00036433337240608643,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E3_k0.1\\hardic_s0.json",
+      "sha256": "6c2e7eb0c423f47f1d00f8df16db70d3e9d64ffbdd42a87941c07d1297ac8e34",
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "axis",
+      "eq": "E3_k0.1",
+      "method": "hardic",
+      "seed": 1,
+      "max_vol": 0.0003109938361907852,
+      "stored_max_vol": 0.0003109938361907852,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E3_k0.1\\hardic_s1.json",
+      "sha256": "162fb847b679bcbac76ba3353caed1338570797a6054f1b59e274fa8ee18adcc",
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "axis",
+      "eq": "E3_k0.1",
+      "method": "hardic",
+      "seed": 2,
+      "max_vol": 0.000880788407005883,
+      "stored_max_vol": 0.000880788407005883,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E3_k0.1\\hardic_s2.json",
+      "sha256": "54d9517eb7e4fec6b8ffb3d489be59c1034e76972cff89a2850fd64afbec23f1",
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "axis",
+      "eq": "E3_k0.1",
+      "method": "hardic+layer",
+      "seed": 0,
+      "max_vol": 0.0002891417111139754,
+      "stored_max_vol": 0.0002891417111139754,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E3_k0.1\\hardic_layer_s0.json",
+      "sha256": "d6a915ced46280da6e1ed70829de786d0cafc7ce56b7ad3e9b90f1b370c6a6b4",
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "axis",
+      "eq": "E3_k0.1",
+      "method": "hardic+layer",
+      "seed": 1,
+      "max_vol": 0.0005040411919197467,
+      "stored_max_vol": 0.0005040411919197467,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E3_k0.1\\hardic_layer_s1.json",
+      "sha256": "5936e33faced1f14a54df1d89738f69a33c4cffb04cbf2714fdbdb4b607a2237",
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "axis",
+      "eq": "E3_k0.1",
+      "method": "hardic+layer",
+      "seed": 2,
+      "max_vol": 0.0006084875941179113,
+      "stored_max_vol": 0.0006084875941179113,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E3_k0.1\\hardic_layer_s2.json",
+      "sha256": "f188e2b849aec0cb531a7027b66f40747912fdbbbf84850ecdc72aee4b0db388",
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E1_heat",
+      "method": "hardic",
+      "seed": 0,
+      "max_vol": 0.013262857705973682,
+      "stored_max_vol": 0.013262857705973682,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E1_heat\\hardic_s0.json",
+      "sha256": "725214efbfa6fab4ee55c1ec9a161d1d81142cb594c8462e5c06f98196b69421",
+      "env": {
+        "python": "3.12.6",
+        "torch": "2.14.1+cpu",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E1_heat",
+      "method": "hardic",
+      "seed": 1,
+      "max_vol": 0.0910410861872862,
+      "stored_max_vol": 0.0910410861872862,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E1_heat\\hardic_s1.json",
+      "sha256": "8cbe169e0f7ae95b84dd68b808f1ca360ffd5e9204e676d01545e661eab1e5a3",
+      "env": {
+        "python": "3.12.6",
+        "torch": "2.14.1+cpu",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E1_heat",
+      "method": "hardic",
+      "seed": 2,
+      "max_vol": 0.04430485131984485,
+      "stored_max_vol": 0.04430485131984485,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E1_heat\\hardic_s2.json",
+      "sha256": "767850b79096e1ea3c152f308d533da9bc3f0d37cc0bc8bc8d8b913eeecb0189",
+      "env": {
+        "python": "3.12.6",
+        "torch": "2.14.1+cpu",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "seed": 0,
+      "max_vol": 0.00012082446202214802,
+      "stored_max_vol": 0.00012082446202214802,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E1_heat\\hardic_layer_s0.json",
+      "sha256": "92a371db9fcdd4257963d095dd3da5bd9ad3fcaebcab362535c434b1f49bbd49",
+      "env": {
+        "python": "3.12.6",
+        "torch": "2.14.1+cpu",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "seed": 1,
+      "max_vol": 0.0029768454552935625,
+      "stored_max_vol": 0.0029768454552935625,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E1_heat\\hardic_layer_s1.json",
+      "sha256": "4e730e8b2d73baa2ee3f098335c9e34107a7e74b707723eee950b666990926a1",
+      "env": {
+        "python": "3.12.6",
+        "torch": "2.14.1+cpu",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "seed": 2,
+      "max_vol": 0.00014764821423072187,
+      "stored_max_vol": 0.00014764821423072187,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E1_heat\\hardic_layer_s2.json",
+      "sha256": "882b30c8aee85a99ebaa69bb687c3ab3038125cf338a9581efeafe04cf804675",
+      "env": {
+        "python": "3.12.6",
+        "torch": "2.14.1+cpu",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E3_fisher",
+      "method": "hardic",
+      "seed": 0,
+      "max_vol": 0.0004260000321246892,
+      "stored_max_vol": 0.0004260000321246892,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E3_fisher\\hardic_s0.json",
+      "sha256": "d69cedc42e821520d8e900f64769812354e2d2ad668ef50ec0607ab7d1a65851",
+      "env": {
+        "python": "3.12.6",
+        "torch": "2.14.1+cpu",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E3_fisher",
+      "method": "hardic",
+      "seed": 1,
+      "max_vol": 0.002494763101516382,
+      "stored_max_vol": 0.002494763101516382,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E3_fisher\\hardic_s1.json",
+      "sha256": "e3b9e51ca304e6bc01addf79287f69dd10dbfb88751b2fa5dfdb06069c9bb291",
+      "env": {
+        "python": "3.12.6",
+        "torch": "2.14.1+cpu",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E3_fisher",
+      "method": "hardic",
+      "seed": 2,
+      "max_vol": 0.004285371101920529,
+      "stored_max_vol": 0.004285371101920529,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E3_fisher\\hardic_s2.json",
+      "sha256": "ce002143971d04f3805e2e3a88e9cc89e17a025c34ac2ef577dd12e335a791f3",
+      "env": {
+        "python": "3.12.6",
+        "torch": "2.14.1+cpu",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "seed": 0,
+      "max_vol": 7.711494165251126E-05,
+      "stored_max_vol": 7.711494165251126E-05,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E3_fisher\\hardic_layer_s0.json",
+      "sha256": "f903c8a1bab9f697304bbc2d4f0436b047a4b0ab3e0babf1213063c4851bb6e4",
+      "env": {
+        "python": "3.12.6",
+        "torch": "2.14.1+cpu",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "seed": 1,
+      "max_vol": 8.343261317128131E-05,
+      "stored_max_vol": 8.343261317128131E-05,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E3_fisher\\hardic_layer_s1.json",
+      "sha256": "edc20e50a83823b640067fb9543471b1ef9eb1a695bc715af7a60631c7421315",
+      "env": {
+        "python": "3.12.6",
+        "torch": "2.14.1+cpu",
+        "numpy": "2.5.3"
+      }
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "seed": 2,
+      "max_vol": 8.092506824861077E-05,
+      "stored_max_vol": 8.092506824861077E-05,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E3_fisher\\hardic_layer_s2.json",
+      "sha256": "d19fa0a8602da7c2e127f2bc46f60ee276177dfe13f0c94813461d5dd1950d0f",
+      "env": {
+        "python": "3.12.6",
+        "torch": "2.14.1+cpu",
+        "numpy": "2.5.3"
+      }
+    }
+  ],
+  "source_hashes": [
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\SCREEN_PROTOCOL.md",
+      "sha256": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\E4_PROTOCOL.md",
+      "sha256": "16de99e3f2c03068af6e647e1a8b06c07169b7acee0103705130837a0cc22b2c"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\pinn1d.py",
+      "sha256": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\problems.py",
+      "sha256": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\analytic_layer.png",
+      "sha256": "32c820a18d9bfbd59024a495426c33fd648b19a080b19478e4fe17875caeee1f"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\history_v2\\historical_comparison.png",
+      "sha256": "433b14dfb1f00bec71752f1ce47e2a643e3ce5867cb101171e0a9fcd08fc41bf"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2\\tau_sensitivity.png",
+      "sha256": "ec4f697e34b44bb2edfb4bf793280446a6354358e57582e4a77f0d5cf0d0b70a"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2\\default_six_arms.png",
+      "sha256": "2bef60d297d954b53730b9a3523d353ce489ab01b3b470c4b3a2ae182da5d874"
+    }
+  ],
+  "word_count_method": "CJK Unified Ideographs in six main-section prose; excludes Markdown headings, pipe tables, image embeds, captions beginning figure/table number plus whitespace, table-number note lines, display math, abstracts, references and appendices. Result-description paragraphs beginning table number without whitespace are retained.",
+  "word_counts": [
+    {
+      "section": 1,
+      "title": "引言与相关工作",
+      "han_characters": 1688
+    },
+    {
+      "section": 2,
+      "title": "方程、相容性与修正构造",
+      "han_characters": 2127
+    },
+    {
+      "section": 3,
+      "title": "实验设计与复现方法",
+      "han_characters": 2163
+    },
+    {
+      "section": 4,
+      "title": "数值结果",
+      "han_characters": 2355
+    },
+    {
+      "section": 5,
+      "title": "讨论与局限",
+      "han_characters": 1739
+    },
+    {
+      "section": 6,
+      "title": "结论",
+      "han_characters": 761
+    }
+  ],
+  "main_han_sum": 10833.0,
+  "six_section_quota_bases_in_input": false,
+  "visual_review": "All four manuscript PNGs opened and inspected; labels, seed encodings, environment labels and non-CI descriptions legible",
+  "external_sources": [
+    "https://dlmf.nist.gov/7.14.E4",
+    "https://arxiv.org/abs/1011.4549",
+    "https://ivo100.oden.utexas.edu/assets/papers/cmame96.pdf",
+    "https://www.sandia.gov/research/publications/details/verification-and-validation-in-computational-fluid-dynamics-2002-03-01/",
+    "https://doi.org/10.1080/00401706.1991.10484804",
+    "https://www.stat.cmu.edu/technometrics/90-00/vol-33-02/v3302161.pdf"
+  ],
+  "limits": [
+    "No other reviewer, evaluator or integrity report read",
+    "Protocol appendices contain author historical observations; these were not used as independent acceptance evidence",
+    "No numerical values for the missing E4 surface weights were used as reproduced evidence",
+    "No full-library literature audit",
+    "No panel-level decision inferred"
+  ],
+  "max_reaggregated_vs_stored_difference": 0.0
+}

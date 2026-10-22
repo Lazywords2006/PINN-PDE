@@ -1,0 +1,240 @@
+{
+  "review_role": "EIC",
+  "phase": 2,
+  "reviewed_at": "2026-10-23T07:46:25.3026233+08:00",
+  "input_sha256": "9de9db03146ced6d103136e585694a753ae5b5a2d2b64ad822ff09051b23981a",
+  "paper_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "hashes_observed_match": true,
+  "phase1_dissent": false,
+  "dimension_scores": {
+    "D1": "pass",
+    "D2": "pass",
+    "D3": "pass",
+    "D4": "pass",
+    "D5": "warn"
+  },
+  "local_condition_results": {
+    "F1": false,
+    "F2": false,
+    "F3": false,
+    "F0": true
+  },
+  "local_editorial_decision": "accept",
+  "panel_aggregation_performed": false,
+  "counting": {
+    "definition": "保留六章标题和正文中表N给出等叙述，排除显示公式、表格行、图片链接、独立图表题注及表下注；仅统计Unicode CJK U+3400-4DBF与U+4E00-9FFF。",
+    "section_counts": [
+      1695,
+      2180,
+      2213,
+      2416,
+      1789,
+      763
+    ],
+    "section_targets": [
+      1800,
+      2200,
+      2000,
+      2500,
+      1700,
+      800
+    ],
+    "total": 11056,
+    "total_target": 11000,
+    "total_tolerance": 0.1,
+    "section_tolerance": 0.15,
+    "all_within_tolerance": true
+  },
+  "raw_checks": {
+    "scope": "两方程SOAP64 hardic与hardic+layer的全部三个种子，共12份原始JSON；已直接读取、计算五时刻最大值、核SHA256和CSV；此处保存本轮既有核查结果。",
+    "csv_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2\\default_six_arms.csv",
+    "rows": [
+      {
+        "source": "runs/final_soap64_v1/E1_heat/hardic_s0.json",
+        "eq": "E1_heat",
+        "method": "hardic",
+        "seed": 0,
+        "max_vol": 0.013262857705973682,
+        "source_sha256": "725214efbfa6fab4ee55c1ec9a161d1d81142cb594c8462e5c06f98196b69421",
+        "raw_sha256_matched_in_current_review": true,
+        "recomputed_max_from_five_values_matched_in_current_review": true,
+        "csv_agreed_in_current_review": true
+      },
+      {
+        "source": "runs/final_soap64_v1/E1_heat/hardic_s1.json",
+        "eq": "E1_heat",
+        "method": "hardic",
+        "seed": 1,
+        "max_vol": 0.0910410861872862,
+        "source_sha256": "8cbe169e0f7ae95b84dd68b808f1ca360ffd5e9204e676d01545e661eab1e5a3",
+        "raw_sha256_matched_in_current_review": true,
+        "recomputed_max_from_five_values_matched_in_current_review": true,
+        "csv_agreed_in_current_review": true
+      },
+      {
+        "source": "runs/final_soap64_v1/E1_heat/hardic_s2.json",
+        "eq": "E1_heat",
+        "method": "hardic",
+        "seed": 2,
+        "max_vol": 0.04430485131984485,
+        "source_sha256": "767850b79096e1ea3c152f308d533da9bc3f0d37cc0bc8bc8d8b913eeecb0189",
+        "raw_sha256_matched_in_current_review": true,
+        "recomputed_max_from_five_values_matched_in_current_review": true,
+        "csv_agreed_in_current_review": true
+      },
+      {
+        "source": "runs/final_soap64_v1/E1_heat/hardic_layer_s0.json",
+        "eq": "E1_heat",
+        "method": "hardic+layer",
+        "seed": 0,
+        "max_vol": 0.00012082446202214802,
+        "source_sha256": "92a371db9fcdd4257963d095dd3da5bd9ad3fcaebcab362535c434b1f49bbd49",
+        "raw_sha256_matched_in_current_review": true,
+        "recomputed_max_from_five_values_matched_in_current_review": true,
+        "csv_agreed_in_current_review": true
+      },
+      {
+        "source": "runs/final_soap64_v1/E1_heat/hardic_layer_s1.json",
+        "eq": "E1_heat",
+        "method": "hardic+layer",
+        "seed": 1,
+        "max_vol": 0.0029768454552935625,
+        "source_sha256": "4e730e8b2d73baa2ee3f098335c9e34107a7e74b707723eee950b666990926a1",
+        "raw_sha256_matched_in_current_review": true,
+        "recomputed_max_from_five_values_matched_in_current_review": true,
+        "csv_agreed_in_current_review": true
+      },
+      {
+        "source": "runs/final_soap64_v1/E1_heat/hardic_layer_s2.json",
+        "eq": "E1_heat",
+        "method": "hardic+layer",
+        "seed": 2,
+        "max_vol": 0.00014764821423072187,
+        "source_sha256": "882b30c8aee85a99ebaa69bb687c3ab3038125cf338a9581efeafe04cf804675",
+        "raw_sha256_matched_in_current_review": true,
+        "recomputed_max_from_five_values_matched_in_current_review": true,
+        "csv_agreed_in_current_review": true
+      },
+      {
+        "source": "runs/final_soap64_v1/E3_fisher/hardic_s0.json",
+        "eq": "E3_fisher",
+        "method": "hardic",
+        "seed": 0,
+        "max_vol": 0.0004260000321246892,
+        "source_sha256": "d69cedc42e821520d8e900f64769812354e2d2ad668ef50ec0607ab7d1a65851",
+        "raw_sha256_matched_in_current_review": true,
+        "recomputed_max_from_five_values_matched_in_current_review": true,
+        "csv_agreed_in_current_review": true
+      },
+      {
+        "source": "runs/final_soap64_v1/E3_fisher/hardic_s1.json",
+        "eq": "E3_fisher",
+        "method": "hardic",
+        "seed": 1,
+        "max_vol": 0.002494763101516382,
+        "source_sha256": "e3b9e51ca304e6bc01addf79287f69dd10dbfb88751b2fa5dfdb06069c9bb291",
+        "raw_sha256_matched_in_current_review": true,
+        "recomputed_max_from_five_values_matched_in_current_review": true,
+        "csv_agreed_in_current_review": true
+      },
+      {
+        "source": "runs/final_soap64_v1/E3_fisher/hardic_s2.json",
+        "eq": "E3_fisher",
+        "method": "hardic",
+        "seed": 2,
+        "max_vol": 0.004285371101920529,
+        "source_sha256": "ce002143971d04f3805e2e3a88e9cc89e17a025c34ac2ef577dd12e335a791f3",
+        "raw_sha256_matched_in_current_review": true,
+        "recomputed_max_from_five_values_matched_in_current_review": true,
+        "csv_agreed_in_current_review": true
+      },
+      {
+        "source": "runs/final_soap64_v1/E3_fisher/hardic_layer_s0.json",
+        "eq": "E3_fisher",
+        "method": "hardic+layer",
+        "seed": 0,
+        "max_vol": 7.711494165251126E-05,
+        "source_sha256": "f903c8a1bab9f697304bbc2d4f0436b047a4b0ab3e0babf1213063c4851bb6e4",
+        "raw_sha256_matched_in_current_review": true,
+        "recomputed_max_from_five_values_matched_in_current_review": true,
+        "csv_agreed_in_current_review": true
+      },
+      {
+        "source": "runs/final_soap64_v1/E3_fisher/hardic_layer_s1.json",
+        "eq": "E3_fisher",
+        "method": "hardic+layer",
+        "seed": 1,
+        "max_vol": 8.343261317128131E-05,
+        "source_sha256": "edc20e50a83823b640067fb9543471b1ef9eb1a695bc715af7a60631c7421315",
+        "raw_sha256_matched_in_current_review": true,
+        "recomputed_max_from_five_values_matched_in_current_review": true,
+        "csv_agreed_in_current_review": true
+      },
+      {
+        "source": "runs/final_soap64_v1/E3_fisher/hardic_layer_s2.json",
+        "eq": "E3_fisher",
+        "method": "hardic+layer",
+        "seed": 2,
+        "max_vol": 8.092506824861077E-05,
+        "source_sha256": "d19fa0a8602da7c2e127f2bc46f60ee276177dfe13f0c94813461d5dd1950d0f",
+        "raw_sha256_matched_in_current_review": true,
+        "recomputed_max_from_five_values_matched_in_current_review": true,
+        "csv_agreed_in_current_review": true
+      }
+    ],
+    "e1_baseline_median": 0.04430485131984485,
+    "e1_corrected_median": 0.00014764821423072187,
+    "e1_ratio": 300.0703499915824,
+    "e3_baseline_median": 0.002494763101516382,
+    "e3_corrected_median": 8.092506824861077E-05,
+    "e3_ratio": 30.828062990965837
+  },
+  "implementation_observations": [
+    {
+      "path": "pinn1d.py",
+      "line": 58,
+      "finding": "time clamp_min(1e-30)"
+    },
+    {
+      "path": "problems.py",
+      "line": 101,
+      "finding": "E3 axis G(u)=kappa*(u-1.0)"
+    },
+    {
+      "path": "SCREEN_PROTOCOL.md",
+      "line": 157,
+      "finding": "S6-SOAP threshold matches manuscript: both median ratios >=3 and >=2/3 corrected seeds <=1e-2"
+    }
+  ],
+  "visual_inspection": [
+    "manuscript/figures/analytic_layer.png",
+    "manuscript/figures/history_v2/historical_comparison.png",
+    "validation/stage6_analysis_20261022/complete_v2/tau_sensitivity.png",
+    "validation/stage6_analysis_20261022/complete_v2/default_six_arms.png"
+  ],
+  "primary_literature": [
+    {
+      "url": "https://dlmf.nist.gov/7.14.E4",
+      "scope": "公式7.14.4与稿件变换代换"
+    },
+    {
+      "url": "https://pisrt.org/psr-press/journals/oms/01-vol-10-2026-issue-1/physics-informed-neural-networks-for-the-heat-equation-with-dynamic-wentzell-boundary-conditions/",
+      "scope": "动态边界、光滑制造解和硬初值随机特征最小二乘定义"
+    },
+    {
+      "url": "https://www.global-sci.com/cicp/article/view/5794",
+      "scope": "Chen-Qin-Temam出版社题录及摘要；非全文逐式审核"
+    },
+    {
+      "url": "https://arxiv.org/abs/2409.11321v2",
+      "scope": "SOAP v2题录与摘要思想"
+    }
+  ],
+  "limits": [
+    "未读取其他评审、evaluator或完整性报告",
+    "未重复全部206运行或488产物扫描",
+    "未训练、未重新积分参考解、未重载模型",
+    "一手文献为代表性核查，非全部全文复查",
+    "本次所有科学输入保持只读；仅写EIC正式报告与本证据文件"
+  ]
+}

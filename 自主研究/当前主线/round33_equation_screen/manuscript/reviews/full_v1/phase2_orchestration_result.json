@@ -1,0 +1,119 @@
+{
+  "recorded_at": "2026-10-23T07:54:10.152565+08:00",
+  "reports_present": 5,
+  "required_panel_size": 5,
+  "contractually_usable": 2,
+  "status": "CONTRACTED_EDITORIAL_ROUND_ABORTED",
+  "tag": "[PANEL-SHRUNK: usable=2, panel_size=5]",
+  "reason": "三个真实评分行的所有本地条件均未触发，冻结模板无可派生动作；不是未完成审稿或数据被证明无效。",
+  "editorial_decision": null,
+  "synthesizer_invoked": false,
+  "contract_modified": false,
+  "reviewer_score_modified": false,
+  "reviewer_retry": false,
+  "fallback_action_invented": false,
+  "phase2_lint_exit_code": 1,
+  "phase2_lint_sha256": "5b08f5eb8b890eea4cf0d19f2cfb7cd7735879e6745fc580fc03c0c6661c94cd",
+  "reviewer_reports": [
+    {
+      "role": "eic",
+      "sha256": "fdf6d8bd2f9e27f3f22118ab2050eccbe60b1f15133c6b1300a758955fee6e0e",
+      "scores": {
+        "D1": "pass",
+        "D2": "pass",
+        "D3": "pass",
+        "D4": "pass",
+        "D5": "warn"
+      },
+      "fired": {
+        "F1": false,
+        "F2": false,
+        "F3": false,
+        "F0": true
+      },
+      "failures": []
+    },
+    {
+      "role": "method",
+      "sha256": "7456fa16569c64b41705607889f7a2aed2bde05a6c022f1f668428486fc1c000",
+      "scores": {
+        "D1": "warn",
+        "D2": "pass",
+        "D3": "pass",
+        "D4": "pass",
+        "D5": "warn"
+      },
+      "fired": {
+        "F1": false,
+        "F2": false,
+        "F3": false,
+        "F0": false
+      },
+      "failures": [
+        "decision_not_derivable_from_fired_condition"
+      ]
+    },
+    {
+      "role": "domain",
+      "sha256": "93dd5ed660068b6ab54d7c1e2a2043d2617052a04cc88fdd2a37829f79faa5ec",
+      "scores": {
+        "D1": "warn",
+        "D2": "pass",
+        "D3": "pass",
+        "D4": "pass",
+        "D5": "warn"
+      },
+      "fired": {
+        "F1": false,
+        "F2": false,
+        "F3": false,
+        "F0": false
+      },
+      "failures": [
+        "decision_not_derivable_from_fired_condition"
+      ]
+    },
+    {
+      "role": "perspective",
+      "sha256": "656afd5be44f0d80df53b3d70cd77a3bae7f5cd7be94a65016b56c1727980abf",
+      "scores": {
+        "D1": "warn",
+        "D2": "pass",
+        "D3": "pass",
+        "D4": "pass",
+        "D5": "warn"
+      },
+      "fired": {
+        "F1": false,
+        "F2": false,
+        "F3": false,
+        "F0": false
+      },
+      "failures": [
+        "decision_not_derivable_from_fired_condition"
+      ]
+    },
+    {
+      "role": "da",
+      "sha256": "7f2c13c9df54cc117b6afa5f3307f3e30bee1dc621bf78d5729b15fe120fa5a7",
+      "scores": {
+        "D1": "pass",
+        "D2": "pass",
+        "D3": "pass",
+        "D4": "warn",
+        "D5": "warn"
+      },
+      "fired": {
+        "F1": false,
+        "F2": false,
+        "F3": false,
+        "F0": true
+      },
+      "failures": []
+    }
+  ],
+  "orchestrator_read_all_five_reports": true,
+  "trigger_consistency_manual_review": "各报告明确引用自身Phase1触发语并给出稿件位置；保留角色间对局部缺口的不同分档，没有代改评分。",
+  "next_action": "按照五份独立报告的具体意见进行已授权的作者修订，再以无合约模板的常规re-review模式核查变更；不追改本轮中止事实。",
+  "scope": "内部自动审稿；无真实期刊录用判断"
+}

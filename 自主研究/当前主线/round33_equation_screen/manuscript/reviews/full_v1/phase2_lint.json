@@ -1,0 +1,167 @@
+{
+  "checked_utc": "2026-10-22T23:53:03.527199+00:00",
+  "contract_sha256": "5c57f4b63df625c2b5ec47f9bb1b7bdff651fef89f3144b4d0ef37094971e406",
+  "panel_size": 5,
+  "usable_phase2_outputs": 2,
+  "reports": [
+    {
+      "role": "eic",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\full_v1\\eic_phase2.md",
+      "sha256": "fdf6d8bd2f9e27f3f22118ab2050eccbe60b1f15133c6b1300a758955fee6e0e",
+      "scores": {
+        "D1": "pass",
+        "D2": "pass",
+        "D3": "pass",
+        "D4": "pass",
+        "D5": "warn"
+      },
+      "fired": {
+        "F1": false,
+        "F2": false,
+        "F3": false,
+        "F0": true
+      },
+      "derived_action": "editorial_decision=accept",
+      "dissent_dimensions": [],
+      "phase1_trigger_substrings": {
+        "D1": "参数、重复次数、参考解精度、敏感性范围、数据处理或复现说明存在局部缺口",
+        "D2": "对已有工作的重大误述使主要贡献定位失实",
+        "D3": "理论与实验之间的连接说明不足，或适用范围与限制未在摘要、讨论和结论中保持一致",
+        "D4": "核心跨领域论证依赖概念混同或缺乏支撑的迁移",
+        "D5": "存在局部歧义、重复、章节衔接不畅、符号或引用格式不一致、图表可读性不足等可定位问题，但主要研究仍可理解"
+      },
+      "structural_pass": true,
+      "trigger_consistency_requires_orchestrator_read": true,
+      "failures": []
+    },
+    {
+      "role": "method",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\full_v1\\method_phase2.md",
+      "sha256": "7456fa16569c64b41705607889f7a2aed2bde05a6c022f1f668428486fc1c000",
+      "scores": {
+        "D1": "warn",
+        "D2": "pass",
+        "D3": "pass",
+        "D4": "pass",
+        "D5": "warn"
+      },
+      "fired": {
+        "F1": false,
+        "F2": false,
+        "F3": false,
+        "F0": false
+      },
+      "derived_action": null,
+      "dissent_dimensions": [],
+      "phase1_trigger_substrings": {
+        "D1": "核心设计及关键证据仍可核查，但存在能够局部补正的报告或验证不足，例如次要实现参数不全",
+        "D2": "可定位并核实的领域事实或数学表述错误实质性改变所求问题、使主要分析不成立或使关键比较失去效力",
+        "D3": "在无法排除关键替代解释的情况下，将主要效果确定归因于特定机制",
+        "D4": "仅研究范围专门化、未提出跨学科贡献或缺少额外应用案例，不触发 block。",
+        "D5": "存在可局部修复的符号、术语、图注、图表标签、交叉引用、段落组织或重复表达问题"
+      },
+      "structural_pass": false,
+      "trigger_consistency_requires_orchestrator_read": true,
+      "failures": [
+        "decision_not_derivable_from_fired_condition"
+      ]
+    },
+    {
+      "role": "domain",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\full_v1\\domain_phase2.md",
+      "sha256": "93dd5ed660068b6ab54d7c1e2a2043d2617052a04cc88fdd2a37829f79faa5ec",
+      "scores": {
+        "D1": "warn",
+        "D2": "pass",
+        "D3": "pass",
+        "D4": "pass",
+        "D5": "warn"
+      },
+      "fired": {
+        "F1": false,
+        "F2": false,
+        "F3": false,
+        "F0": false
+      },
+      "derived_action": null,
+      "dissent_dimensions": [],
+      "phase1_trigger_substrings": {
+        "D1": "研究对象和主要证据关系可以辨认，但部分参数、参考解精度、评估区域、统计汇总或复现说明不足，造成局部不确定性；理论与实验之间的适用范围说明不够完整，但尚无明确的中心结论失效证据。",
+        "D2": "术语、归属或适用条件存在可定位的局部不精确，但通过限定措辞、补充定义或修正文献即可解决，且未动摇中心结论",
+        "D3": "中心论证包含循环论证、相互矛盾的前提或结论，或依赖未成立的关键推导",
+        "D4": "跨领域表述系统性地混淆不同概念，使相邻领域读者无法正确理解中心结论",
+        "D5": "存在可修复的组织、术语一致性、符号说明、图表可读性、交叉引用或文献格式问题"
+      },
+      "structural_pass": false,
+      "trigger_consistency_requires_orchestrator_read": true,
+      "failures": [
+        "decision_not_derivable_from_fired_condition"
+      ]
+    },
+    {
+      "role": "perspective",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\full_v1\\perspective_phase2.md",
+      "sha256": "656afd5be44f0d80df53b3d70cd77a3bae7f5cd7be94a65016b56c1727980abf",
+      "scores": {
+        "D1": "warn",
+        "D2": "pass",
+        "D3": "pass",
+        "D4": "pass",
+        "D5": "warn"
+      },
+      "fired": {
+        "F1": false,
+        "F2": false,
+        "F3": false,
+        "F0": false
+      },
+      "derived_action": null,
+      "dissent_dimensions": [],
+      "phase1_trigger_substrings": {
+        "D1": "核心研究过程能够辨认，但部分实现细节、计算成本、随机性披露或使用条件交代不足，增加他人复现或迁移的成本；缺口可通过补充记录、澄清范围或收窄非核心主张解决，尚未使中心证据失去可判断性。",
+        "D2": "可明确定位并核对的事实或概念错误，且该错误直接改变中心问题、方法能力或研究贡献的含义",
+        "D3": "中心结论依赖一个没有证据或没有披露前提的关键跨越",
+        "D4": "关键概念缺少解释、相邻领域术语之间的对应不清，或实践含义对资源、输入条件及迁移限制说明不足",
+        "D5": "段落安排、跨节衔接、符号说明、图表标注或语言表达持续增加阅读成本"
+      },
+      "structural_pass": false,
+      "trigger_consistency_requires_orchestrator_read": true,
+      "failures": [
+        "decision_not_derivable_from_fired_condition"
+      ]
+    },
+    {
+      "role": "da",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\full_v1\\da_phase2.md",
+      "sha256": "7f2c13c9df54cc117b6afa5f3307f3e30bee1dc621bf78d5729b15fe120fa5a7",
+      "scores": {
+        "D1": "pass",
+        "D2": "pass",
+        "D3": "pass",
+        "D4": "warn",
+        "D5": "warn"
+      },
+      "fired": {
+        "F1": false,
+        "F2": false,
+        "F3": false,
+        "F0": true
+      },
+      "derived_action": "editorial_decision=accept",
+      "dissent_dimensions": [],
+      "phase1_trigger_substrings": {
+        "D1": "核心结论依赖不成立的设计前提、实质不等价且未控制的比较、会改变结论的数据处理，或无法追溯的关键结果",
+        "D2": "发现可核实的核心事实、定义或理论条件错误，且修正后会使主要问题设定、贡献定位或结论不成立",
+        "D3": "局部推论过强、概念衔接不足、限定条件未贯穿全文，或相关替代解释尚未被充分讨论，但核心论证可通过缩小主张或补充说明得到保留",
+        "D4": "局部术语、符号或背景说明不足，增加相邻领域读者的理解负担",
+        "D5": "可定位的结构重复、术语或符号不一致、图表说明不足"
+      },
+      "structural_pass": true,
+      "trigger_consistency_requires_orchestrator_read": true,
+      "failures": []
+    }
+  ],
+  "panel_cardinality_pass": false,
+  "protocol_status": "PANEL-SHRUNK",
+  "limits": "结构与机械一致性核查，不是语义审稿；不替换分数，不修改评语，不决定科研正确性。"
+}

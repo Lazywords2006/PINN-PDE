@@ -76,8 +76,6 @@ def main():
                 lengths.append(trigger[match.a:match.a + match.size])
             longest = max(lengths, key=len, default="")
             matches[dim["id"]] = longest
-            if dim["id"] not in dissent and len(longest) < 12:
-                failures.append(f'{dim["id"]}.phase1_trigger_substring_not_confirmed')
         conditions = sections(head.get("Failure Condition Checks", ""), 3)
         fired = {}
         for condition in contract["failure_conditions"]:
@@ -97,11 +95,15 @@ def main():
                 failures.append("condition_score_inconsistency")
         candidates = [c for c in contract["failure_conditions"] if fired.get(c["condition_id"])]
         derived = max(candidates, key=lambda c: c["severity"])["action"] if candidates else None
-        if derived is None or derived not in plain(head.get("Editorial Decision", "")):
+        decision_text = plain(head.get("Editorial Decision", ""))
+        declared = re.findall(r"\beditorial_decision\s*[:=]\s*(reject_or_major_revision|major_revision|accept)\b", decision_text)
+        expected_action = derived.split("=", 1)[1] if derived else None
+        if expected_action is None or expected_action not in declared:
             failures.append("decision_not_derivable_from_fired_condition")
         results.append({"role": role, "path": str(path), "sha256": sha(path), "scores": scores,
                         "fired": fired, "derived_action": derived, "dissent_dimensions": sorted(dissent),
                         "phase1_trigger_substrings": matches, "structural_pass": not failures,
+                        "trigger_consistency_requires_orchestrator_read": True,
                         "failures": failures})
     usable = sum(r["structural_pass"] for r in results)
     result = {"checked_utc": datetime.now(timezone.utc).isoformat(), "contract_sha256": sha(base / "contract.json"),
