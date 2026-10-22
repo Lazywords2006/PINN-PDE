@@ -5,3 +5,6 @@
 **/*.bib -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 **/*.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 **/*.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Frozen typesetting evidence includes TeX, verbatim logs and source diffs.
+process/render_complete_v1/** -text whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

@@ -1,0 +1,213 @@
+{
+  "scope": "Manuscript typesetting preflight only; no science review or final delivery acceptance",
+  "source_sha256_unchanged": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "original_renderer_sha256_unchanged": "c48735c16e1f8bc9da0e1ce9e4ead252de3fd6febe831ed1538a9ab35ed88000",
+  "renderer_v2_sha256": "fee7a28695faf9c849534e98a49ca5c72e06bf03b3a91604e574bfadceebafa5",
+  "html_sha256": "974125fee4ea1cb3289b563284541f6a83c714b6f36ec68eba3250da9c0bf906",
+  "pdf_sha256": "19d66c7f47d0ec8d82005108d2b2c78bb7b393b4ff10ab0ac8ca22ec963ca17e",
+  "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_v1.md",
+  "html": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_v1_renderer_v2_preview_final\\complete_v1.html",
+  "pdf": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_v1_renderer_v2_preview_final\\complete_v1.pdf",
+  "html_body_equal_except_removed_auto_captions": true,
+  "html_body_normalized_sha256": "8a958905fc2e70110ac1f304f80169b0a5895afc2e43b00bc721e5bf7434a421",
+  "tex_body_equal_except_figure_layout_wrappers": true,
+  "tex_body_normalized_sha256": "8e81b0d5fc31fddaca65263037f5eccbee30850d4f090da2a90718ee81563738",
+  "mathml_elements_preserved": 22,
+  "display_math_blocks_exact": 22,
+  "table_count_preserved": 13,
+  "all_table_latex_exact": true,
+  "old_automatic_caption_count": 4,
+  "new_automatic_caption_count": 0,
+  "handwritten_chinese_caption_count": 4,
+  "all_images_embedded_exact": [
+    {
+      "path": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/figures/analytic_layer.png",
+      "sha256": "32c820a18d9bfbd59024a495426c33fd648b19a080b19478e4fe17875caeee1f",
+      "embedded_exact_bytes": true
+    },
+    {
+      "path": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/figures/history_v2/historical_comparison.png",
+      "sha256": "433b14dfb1f00bec71752f1ce47e2a643e3ce5867cb101171e0a9fcd08fc41bf",
+      "embedded_exact_bytes": true
+    },
+    {
+      "path": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/validation/stage6_analysis_20261022/complete_v2/tau_sensitivity.png",
+      "sha256": "ec4f697e34b44bb2edfb4bf793280446a6354358e57582e4a77f0d5cf0d0b70a",
+      "embedded_exact_bytes": true
+    },
+    {
+      "path": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/validation/stage6_analysis_20261022/complete_v2/default_six_arms.png",
+      "sha256": "2bef60d297d954b53730b9a3523d353ce489ab01b3b470c4b3a2ae182da5d874",
+      "embedded_exact_bytes": true
+    }
+  ],
+  "html_remote_dependencies": [],
+  "html_script_count": 0,
+  "body_font_size_pt": 11,
+  "margin_mm": 22,
+  "line_spread": 1.25,
+  "missing_glyph_warnings": 0,
+  "overfull_box_warnings": 0,
+  "outside_page_blocks": 0,
+  "page_count": 25,
+  "image_pages": [
+    6,
+    11,
+    14,
+    15
+  ],
+  "last_page_body_lines": 22,
+  "pages": [
+    {
+      "page": 1,
+      "body_lines": 39,
+      "image_count": 0,
+      "text_characters": 1991
+    },
+    {
+      "page": 2,
+      "body_lines": 42,
+      "image_count": 0,
+      "text_characters": 1941
+    },
+    {
+      "page": 3,
+      "body_lines": 46,
+      "image_count": 0,
+      "text_characters": 1419
+    },
+    {
+      "page": 4,
+      "body_lines": 72,
+      "image_count": 0,
+      "text_characters": 1134
+    },
+    {
+      "page": 5,
+      "body_lines": 47,
+      "image_count": 0,
+      "text_characters": 720
+    },
+    {
+      "page": 6,
+      "body_lines": 42,
+      "image_count": 1,
+      "text_characters": 933
+    },
+    {
+      "page": 7,
+      "body_lines": 49,
+      "image_count": 0,
+      "text_characters": 1197
+    },
+    {
+      "page": 8,
+      "body_lines": 39,
+      "image_count": 0,
+      "text_characters": 1693
+    },
+    {
+      "page": 9,
+      "body_lines": 47,
+      "image_count": 0,
+      "text_characters": 1401
+    },
+    {
+      "page": 10,
+      "body_lines": 155,
+      "image_count": 0,
+      "text_characters": 1894
+    },
+    {
+      "page": 11,
+      "body_lines": 19,
+      "image_count": 1,
+      "text_characters": 801
+    },
+    {
+      "page": 12,
+      "body_lines": 117,
+      "image_count": 0,
+      "text_characters": 1666
+    },
+    {
+      "page": 13,
+      "body_lines": 85,
+      "image_count": 0,
+      "text_characters": 1027
+    },
+    {
+      "page": 14,
+      "body_lines": 86,
+      "image_count": 1,
+      "text_characters": 1258
+    },
+    {
+      "page": 15,
+      "body_lines": 85,
+      "image_count": 1,
+      "text_characters": 1208
+    },
+    {
+      "page": 16,
+      "body_lines": 72,
+      "image_count": 0,
+      "text_characters": 1696
+    },
+    {
+      "page": 17,
+      "body_lines": 38,
+      "image_count": 0,
+      "text_characters": 1511
+    },
+    {
+      "page": 18,
+      "body_lines": 43,
+      "image_count": 0,
+      "text_characters": 1666
+    },
+    {
+      "page": 19,
+      "body_lines": 48,
+      "image_count": 0,
+      "text_characters": 2479
+    },
+    {
+      "page": 20,
+      "body_lines": 103,
+      "image_count": 0,
+      "text_characters": 1543
+    },
+    {
+      "page": 21,
+      "body_lines": 86,
+      "image_count": 0,
+      "text_characters": 1543
+    },
+    {
+      "page": 22,
+      "body_lines": 72,
+      "image_count": 0,
+      "text_characters": 1659
+    },
+    {
+      "page": 23,
+      "body_lines": 172,
+      "image_count": 0,
+      "text_characters": 2389
+    },
+    {
+      "page": 24,
+      "body_lines": 54,
+      "image_count": 0,
+      "text_characters": 1541
+    },
+    {
+      "page": 25,
+      "body_lines": 22,
+      "image_count": 0,
+      "text_characters": 825
+    }
+  ],
+  "visual_review": "PENDING human-visible tool inspection of contact and selected full pages"
+}

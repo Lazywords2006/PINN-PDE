@@ -1,0 +1,83 @@
+--- render_manuscript.py
++++ render_manuscript_v2.py
+@@ -1,4 +1,4 @@
+-"""Render an explicitly labelled manuscript; compilation cache stays on D:.
++"""Render v2: preserve hand-written captions and avoid orphaned paragraph lines.
+ 
+ Use the separate r33-analysis environment. This does not touch research runs.
+ HTML uses native MathML, so equations do not require a remote JavaScript service.
+@@ -20,13 +20,13 @@
+ HERE = Path(__file__).resolve().parent
+ RUNTIME = Path(r"D:\CodexRuntime\runs\r33_paper_render")
+ XELATEX = Path(r"C:\Users\LazyM\AppData\Local\Programs\MiKTeX\miktex\bin\x64\xelatex.exe")
+-FORMAT = "markdown+tex_math_single_backslash+tex_math_dollars+pipe_tables+fenced_code_blocks"
++FORMAT = "markdown+tex_math_single_backslash+tex_math_dollars+pipe_tables+fenced_code_blocks-implicit_figures"
+ 
+ CSS = """
+ body{max-width:1020px;margin:2.5rem auto;padding:0 1.5rem;color:#20242a;
+ font:17px/1.85 'Noto Serif CJK SC','Source Han Serif SC','SimSun',serif}
+ h1,h2,h3{line-height:1.45;color:#152735}h1{font-size:1.85rem}h2{margin-top:2.6rem}
+-p{text-align:justify}a{color:#245b87;text-decoration:none}a:hover{text-decoration:underline}
++p{text-align:justify;orphans:3;widows:3}a{color:#245b87;text-decoration:none}a:hover{text-decoration:underline}
+ table{border-collapse:collapse;width:100%;font-size:.83rem;display:block;overflow-x:auto}
+ th,td{padding:.45rem .65rem;border-bottom:1px solid #d6dce1;text-align:left}
+ th{border-top:2px solid #52616b;background:#f3f5f6}img{max-width:100%;height:auto}
+@@ -53,6 +53,10 @@
+ \setlength{\parindent}{2em}
+ \setlength{\parskip}{.35em}
+ \setlength{\emergencystretch}{3em}
++\clubpenalty=10000
++\widowpenalty=10000
++\displaywidowpenalty=10000
++\raggedbottom
+ \setcounter{secnumdepth}{-1}
+ \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+ \providecommand{\passthrough}[1]{#1}
+@@ -74,7 +78,9 @@
+     if not Path(r"D:\CodexRuntime").is_dir():
+         raise RuntimeError("D:\\CodexRuntime 不可用，不回退 C:。")
+     output.mkdir(parents=True, exist_ok=True)
+-    work = RUNTIME / (source.stem + "_" + sha(source)[:12])
++    source_hash = sha(source)
++    renderer_hash = sha(__file__)
++    work = RUNTIME / (source.stem + "_" + source_hash[:12] + "_renderer_v2_" + renderer_hash[:12])
+     work.mkdir(parents=True, exist_ok=True)
+     env = dict(os.environ, TEMP=r"D:\CodexRuntime\temp", TMP=r"D:\CodexRuntime\temp")
+     pandoc = pypandoc.get_pandoc_path()
+@@ -90,7 +96,11 @@
+     subprocess.run(common + ["--to=html5", "--mathml", "--embed-resources", "--css", str(css),
+                             "--include-before-body", str(banner), "-o", str(html_path)],
+                    cwd=source.parent, env=env, check=True)
+-    report = {"source": str(source), "source_sha256": sha(source), "label": label,
++    report = {"source": str(source), "source_sha256": source_hash, "label": label,
++              "renderer": str(Path(__file__).resolve()), "renderer_sha256": renderer_hash,
++              "markdown_reader_format": FORMAT,
++              "caption_policy": "Original handwritten Chinese captions; implicit_figures disabled",
++              "pdf_typography": "Original 11pt body, 22mm margins, 1.25 line spread; widow/club penalties 10000",
+               "html": str(html_path), "html_sha256": sha(html_path),
+               "html_math": "native MathML; no remote script", "pdf_requested": pdf,
+               "visual_review": "pending; automated geometry checks do not replace inspection"}
+@@ -119,6 +129,14 @@
+                           .replace("+", r"+\allowbreak{}") + "}", tex_text)
+         tex_text = tex_text.replace(r"\_", r"\_\allowbreak{}")
+         tex_text = tex_text.replace("hardic+layer", r"hardic+\allowbreak{}layer")
++        # With implicit figures disabled, keep each image with its existing
++        # Chinese caption. Only layout wrappers are added; caption text is kept.
++        captioned_image = re.compile(r"(?m)^(\\pandocbounded\{\\includegraphics[^\n]+\})\n\n(图\d[^\n]+)")
++        tex_text, captioned_image_count = captioned_image.subn(
++            lambda m: "\\par\\noindent\\begin{minipage}{\\linewidth}\n"
++                      "\\noindent" + m[1] + "\\par\\vspace{.35em}\n"
++                      + m[2] + "\n\\end{minipage}\\par", tex_text)
++        report["handwritten_caption_blocks_kept_together"] = captioned_image_count
+         tex.write_text(tex_text, encoding="utf-8")
+         for attempt in (1, 2):
+             with (work / f"xelatex_{attempt}.stdout.log").open("w", encoding="utf-8") as log:
+@@ -155,6 +173,8 @@
+         for i in range(len(doc)):
+             doc[i].get_pixmap(matrix=fitz.Matrix(1.3, 1.3)).save(preview / f"page_{i + 1:03}.png")
+         report["preview_directory"] = str(preview)
++    if sha(source) != source_hash:
++        raise RuntimeError("原稿在排版过程中发生变化，请以冻结原稿重新渲染。")
+     (output / (source.stem + "_render.json")).write_text(
+         json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+     print(json.dumps(report, ensure_ascii=False, indent=2))

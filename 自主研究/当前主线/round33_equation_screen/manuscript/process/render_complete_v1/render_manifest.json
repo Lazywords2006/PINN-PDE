@@ -1,0 +1,30 @@
+{
+  "created_utc": "2026-10-22T23:05:46.508331+00:00",
+  "scope": "Typesetting preflight only; source manuscript unchanged; not final delivery acceptance",
+  "visual_review_completed": true,
+  "visual_review_pages": "25-page contact plus full-size pages 6,11,14,15,25",
+  "source_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "renderer_v2_sha256": "fee7a28695faf9c849534e98a49ca5c72e06bf03b3a91604e574bfadceebafa5",
+  "runtime_outputs": {
+    "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_v1_renderer_v2_preview_final\\complete_v1.html": "974125fee4ea1cb3289b563284541f6a83c714b6f36ec68eba3250da9c0bf906",
+    "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_v1_renderer_v2_preview_final\\complete_v1.pdf": "19d66c7f47d0ec8d82005108d2b2c78bb7b393b4ff10ab0ac8ca22ec963ca17e",
+    "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_v1_renderer_v2_preview_final\\complete_v1_render.json": "1b61057ffc69bd0c690dc0578df490639933e0bce0e9ae81b372dd22cdc26df2"
+  },
+  "evidence_files_sha256": {
+    "attempt1_render.json": "09051f5bbae5de99b5eb5b79e4cb86e35d305b2b5d25cf847dcd75eb29d946fc",
+    "check_render.py": "c3affd32065ded716efb6ea7e5b22a64c6d1eac42ba94f6be88810cefc6a1ab3",
+    "contact.png": "89d116dbb61fd2f7859731e76a2e7f68f0dd69134b865300a39bbe904e4f1158",
+    "final_compilation_source.tex": "5f34234b747ebd31294f9749184aa108844f88376a238a0ef4e35e6bb0bd4ddf",
+    "final_compile.log": "d23695a2ee68fdfc06343340cf566602e18715b25b276bcab2929d129040e1e8",
+    "final_render.json": "1b61057ffc69bd0c690dc0578df490639933e0bce0e9ae81b372dd22cdc26df2",
+    "original_render.json": "605c096532be47ad3c1f8ab1eb4ea99932c86d02b04669d2b38ddec48a4d0297",
+    "render_checks.json": "eb4205a01b80a339aff915dbd1f7dc67ba628cbba0aea803ab58bfdc95f4a813",
+    "renderer_changes.diff": "ab90ccf560177ee42bb8c0da7952e63481a2101bb2f7210db9ebc0638118bbcd",
+    "visual_checks/page_006.png": "384c699a69ddb28ae1a3e6343e0eeda6d0667d86ecd705ade9478761ffbd2309",
+    "visual_checks/page_011.png": "2714e1b30444b1e4282c3e1483c7464dca7c98db7a458a8d56c1d289cbef43d4",
+    "visual_checks/page_014.png": "b24dd2f7be033db4f638856db117bf5e146041ec088a228d7a4e4a43e7262d11",
+    "visual_checks/page_015.png": "ee6f7a633019862b7ad2ab275e7f2d46ddffa7f1e3ecaba04ad22546500280a4",
+    "visual_checks/page_025.png": "2664eae2a11bda15115b8452f6e0a0005f76981e5de67470f5908e651ca06b40",
+    "VISUAL_REVIEW.md": "8193c6aacedc929b7075b29be300ba31d5309ea91ba47ecd72b894ed6a6e129d"
+  }
+}
