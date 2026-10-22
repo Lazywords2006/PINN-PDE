@@ -5,8 +5,8 @@
 ## 当前阶段
 
 - 第一阶段：22/22 已完成，结果归档提交 `958a70a` 已推送。全库 176 次、398 个原始文件，旧数据与阈值保留。
-- 第二阶段：协议修订 6 正在登记；计划 12 次 τ 灵敏度和 18 次固定 SOAP64，合计 30 次完整训练，零调参。协议提交和工程门通过前不派发。
-- 写作：使用 academic-pipeline / academic-paper / academic-paper-reviewer 技能。先补数学出处和文献，生成正文及证据映射；实验未完不能填造结果。
+- 第二阶段：协议修订 6 已先行提交为 `bfe89e3a07f1bb3bcc8e049d8d3d7ff95b4a647a`，并推送成功；计划 12 次 τ 灵敏度和 18 次固定 SOAP64，合计 30 次完整训练，零调参。运行器尚在工程门检查，正式派发前须记录实现提交和工程门证据。
+- 写作：使用 academic-pipeline / academic-paper / academic-paper-reviewer 技能。`manuscript/PAPER_CONFIGURATION.json` 固定正文 11000 汉字及分节口径；writer 已完成盲承诺，正在生成有明确缺口的工作稿。`manuscript/research/` 已有经典数学出处、14 条文献核验和逐句引用边界；实验未完不能填造结果。
 - 自动续行：本线程 heartbeat 自动化 ID `r33`，每 30 分钟检查并继续工作。状态不变且无行动时安静，阶段完成、异常或最终交付时才通知。目标交付后关闭自动化。
 
 ## 任务分工与文件边界
@@ -15,6 +15,7 @@
 - `r33_stage6_engineering`：仅 stage6 运行器、启动脚本、专用测试及工程材料；不改旧训练源、协议或启动真实训练。
 - `r33_classical_sources`：`manuscript/research/` 的数学核查、引用上下文、文献元数据/BibTeX；不改数据。
 - writer：先仅元数据的盲承诺，再接收大纲/论据/来源后写正文。完整稿件进入独立核验前必须有本轮真实结果。
+- 当前 writer 为 `r33_writer_blind`，只写 `manuscript/drafts/` 与 `manuscript/process/`；来源代理 `r33_classical_sources` 的四份正式输入已通知 writer。旧 `r33_eic_review` / `r33_method_review` 是上一阶段研究准备度审查，不是本次完整稿件审查通过凭证。
 - 审查：冻结稿件后分五视角独立只读审查，不交叉读取彼此意见；编辑综合只引用已有报告。修订与复核另存版本。审查的 Accept 只代表内部可用性，不是期刊录用。
 
 ## 工作口径

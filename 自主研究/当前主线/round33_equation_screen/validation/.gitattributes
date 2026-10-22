@@ -6,3 +6,6 @@ stage5_20261022/ic_validation.json -text whitespace=blank-at-eol,blank-at-eof,sp
 stage5_20261022/pirate_validation.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 stage5_20261022/priority_change_20261022.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 stage5_analysis_20261022/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve stage-6 engineering and completion evidence bytes.
+stage6_20261022/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+stage6_20261022/*.xml -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

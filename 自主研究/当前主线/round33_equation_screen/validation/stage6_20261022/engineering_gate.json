@@ -1,0 +1,285 @@
+{
+  "time_utc": "2026-10-22T16:00:10.558319+00:00",
+  "passed": true,
+  "prereg_commit": "bfe89e3a07f1bb3bcc8e049d8d3d7ff95b4a647a",
+  "runtime": "D:\\CodexRuntime\\runs\\r33_stage6_20261022",
+  "environment": {
+    "python": "3.12.6",
+    "torch": "2.14.1+cpu",
+    "numpy": "2.5.3"
+  },
+  "references": [
+    {
+      "eq": "E1_heat",
+      "N64_N96_max_abs": 6.847300504375653e-13,
+      "points": 401,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "eq": "E3_fisher",
+      "N64_N96_max_abs": 3.676781101802362e-13,
+      "points": 401,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "tolerance": 1e-08,
+      "passed": true
+    }
+  ],
+  "source_hashes": {
+    "pinn1d.py": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+    "problems.py": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+    "screen.py": "26eb4a06e67350098d7099f2411ecdd2ad5cdf0f314c8f7080b800ae24e67695",
+    "run_artifacts.py": "bd463ae18d21ef71b9a630fbd77426c1a8c616b77b2ba30cebdb80d104ae3a90",
+    "soap_baseline.py": "76ce746f81fe006b3782ee413383de6852a033299504ffd5cde0dd8292557ac2",
+    "stage5_support.py": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf",
+    "third_party/soap_official.py": "6b2328e53fb3cb58cf18b21e706f6f17e7f7dcac83c8abb1053fa74d6e0ca592",
+    "stage6_runner.py": "7a2f55cd271cfd9d4355998d35b66a095a656aa46e260fc8c1dfeb83db2e870b",
+    "run_stage6.ps1": "be217e09ce415474044ad50e15b83be9bc4102254c5c5be735673b9dc1b73c28",
+    "test_stage6_runner.py": "fcb3f454065f029647ad4eebe0d1507bdb6bc648c598b4fc909d04591e38087b",
+    "SCREEN_PROTOCOL.md": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+    "validation/stage6_20261022/soap_upstream_blob.json": "cb9a6689ab864c2ceea5de92b72ff8db3174a5edf623006257868918c45f6fb5"
+  },
+  "reused_tests": {
+    "tests": 71,
+    "reused": true,
+    "training_source_hashes": {
+      "pinn1d.py": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+      "problems.py": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+      "screen.py": "26eb4a06e67350098d7099f2411ecdd2ad5cdf0f314c8f7080b800ae24e67695",
+      "run_artifacts.py": "bd463ae18d21ef71b9a630fbd77426c1a8c616b77b2ba30cebdb80d104ae3a90",
+      "soap_baseline.py": "76ce746f81fe006b3782ee413383de6852a033299504ffd5cde0dd8292557ac2",
+      "stage5_support.py": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf"
+    },
+    "pytest_log_sha256": "71d1d5e23a0cc699564050b64d57dea32a0fc5f01f8d5ad773ed553b3bad6e38",
+    "protocol_hash_excluded_from_old_gate": "修订 6 已单独检查预注册提交"
+  },
+  "old_results": {
+    "files": 398,
+    "unchanged": true,
+    "manifest_sha256": "9953f34410cfba34efa1927311a819b0cb82460d6ec30d3c92f9a538c29fea28"
+  },
+  "vendor_source": {
+    "repository": "nikhilvyas/SOAP",
+    "upstream_blob_sha1": "a6362cc9ed2f50ed299204eb3bf07715e7280757",
+    "upstream_bytes": 19180,
+    "local_bytes": 19181,
+    "local_sha256": "6b2328e53fb3cb58cf18b21e706f6f17e7f7dcac83c8abb1053fa74d6e0ca592",
+    "difference": "本地原有文件仅在上游末尾添加一个 LF；其余字节完全相同。",
+    "passed": true
+  },
+  "runner_tests": {
+    "tests": 41,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "command": [
+      "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "test_stage6_runner.py",
+      "-q",
+      "--basetemp",
+      "D:\\CodexRuntime\\temp\\r33-stage6-pytest",
+      "--junitxml",
+      "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_20261022\\pytest.xml"
+    ],
+    "junit_sha256": "fdac366003b6432b637eb23bfc5eeae108bee115a04fcc551ea7730a28f06ea0"
+  },
+  "existing_identities": [],
+  "tasks": [
+    [
+      "sensitivity_tau003_v1",
+      "E1_heat",
+      "hardic+layer",
+      0
+    ],
+    [
+      "sensitivity_tau003_v1",
+      "E3_fisher",
+      "hardic+layer",
+      0
+    ],
+    [
+      "sensitivity_tau003_v1",
+      "E1_heat",
+      "hardic+layer",
+      1
+    ],
+    [
+      "sensitivity_tau003_v1",
+      "E3_fisher",
+      "hardic+layer",
+      1
+    ],
+    [
+      "sensitivity_tau003_v1",
+      "E1_heat",
+      "hardic+layer",
+      2
+    ],
+    [
+      "sensitivity_tau003_v1",
+      "E3_fisher",
+      "hardic+layer",
+      2
+    ],
+    [
+      "sensitivity_tau03_v1",
+      "E1_heat",
+      "hardic+layer",
+      0
+    ],
+    [
+      "sensitivity_tau03_v1",
+      "E3_fisher",
+      "hardic+layer",
+      0
+    ],
+    [
+      "sensitivity_tau03_v1",
+      "E1_heat",
+      "hardic+layer",
+      1
+    ],
+    [
+      "sensitivity_tau03_v1",
+      "E3_fisher",
+      "hardic+layer",
+      1
+    ],
+    [
+      "sensitivity_tau03_v1",
+      "E1_heat",
+      "hardic+layer",
+      2
+    ],
+    [
+      "sensitivity_tau03_v1",
+      "E3_fisher",
+      "hardic+layer",
+      2
+    ],
+    [
+      "final_soap64_v1",
+      "E1_heat",
+      "vanilla",
+      0
+    ],
+    [
+      "final_soap64_v1",
+      "E1_heat",
+      "hardic",
+      0
+    ],
+    [
+      "final_soap64_v1",
+      "E1_heat",
+      "hardic+layer",
+      0
+    ],
+    [
+      "final_soap64_v1",
+      "E3_fisher",
+      "vanilla",
+      0
+    ],
+    [
+      "final_soap64_v1",
+      "E3_fisher",
+      "hardic",
+      0
+    ],
+    [
+      "final_soap64_v1",
+      "E3_fisher",
+      "hardic+layer",
+      0
+    ],
+    [
+      "final_soap64_v1",
+      "E1_heat",
+      "vanilla",
+      1
+    ],
+    [
+      "final_soap64_v1",
+      "E1_heat",
+      "hardic",
+      1
+    ],
+    [
+      "final_soap64_v1",
+      "E1_heat",
+      "hardic+layer",
+      1
+    ],
+    [
+      "final_soap64_v1",
+      "E3_fisher",
+      "vanilla",
+      1
+    ],
+    [
+      "final_soap64_v1",
+      "E3_fisher",
+      "hardic",
+      1
+    ],
+    [
+      "final_soap64_v1",
+      "E3_fisher",
+      "hardic+layer",
+      1
+    ],
+    [
+      "final_soap64_v1",
+      "E1_heat",
+      "vanilla",
+      2
+    ],
+    [
+      "final_soap64_v1",
+      "E1_heat",
+      "hardic",
+      2
+    ],
+    [
+      "final_soap64_v1",
+      "E1_heat",
+      "hardic+layer",
+      2
+    ],
+    [
+      "final_soap64_v1",
+      "E3_fisher",
+      "vanilla",
+      2
+    ],
+    [
+      "final_soap64_v1",
+      "E3_fisher",
+      "hardic",
+      2
+    ],
+    [
+      "final_soap64_v1",
+      "E3_fisher",
+      "hardic+layer",
+      2
+    ]
+  ],
+  "new_training_started_by_gate": false
+}
