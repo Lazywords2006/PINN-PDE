@@ -9,6 +9,8 @@
 3. `research/CITATION_CONTEXT.md`、`REFERENCES_VERIFIED.json`、`references.bib`：13条正文文献及1条备选、实际阅读版本、上下文和题录更正。
 4. `process/writer_data_evidence.json`、`working_tables.md`：176个历史结果的独立重聚合与逐文件哈希；不包含正在运行的30项预测结果。
 5. `integrity/working_20261023/REVISED1_FOLLOWUP_CN.md`：F01–F05关闭复核，六旧表、完整筛选及解析图核对正确；历史全生产链与机制因果证据仍有限制。工作稿预审与完整稿最终审查分开存放，不能相互替代。
+6. `figures/history_v2/`：原初值与固定新初值的36项默认Adam＋L-BFGS结果图，全部种子/中位数、逐点CSV和来源哈希齐全。原6/6、新5/6配对改善及新E3种子0退步3.57%均保留。v2已完成独立数值与PNG/PDF复核；v1及其视觉问题历史保留。生成时evidence中的`visual_review=pending`由后续同目录`INDEPENDENT_FIGURE_REVIEW`另行闭环，不回改生成记录。这幅图待完整稿整合，未覆盖强基线/E4，不能单独替代完整结果表。
+7. `process/reproducibility/`：中文复现说明、数据字典、39项来源/命令核对与AI实质参与声明。当前仍为在途快照，待30/30后更新。N04澄清第一阶段调用数的实现记录和每10步抽样的末次损失，不把它们写成独立逐步观测或终点重评。
 
 `PAPER_CONFIGURATION.json` 与 `OUTLINE_AND_EVIDENCE.md` 固定文章范围及正文计数口径。`process/writer_phase4a.md` 和 `evaluator_phase6a.md` 是在对应稿件可见之前形成的标准承诺；当前 writer Phase4b 自评明确记录数据及篇幅未完整，不能当作审查通过。
 

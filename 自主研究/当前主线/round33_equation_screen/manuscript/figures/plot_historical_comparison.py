@@ -1,4 +1,4 @@
-"""Plot all 36 original/new-IC default Adam runs; never trains or selects seeds.
+"""Plot all 36 default Adam plus L-BFGS runs; never trains or selects seeds.
 
 Adapted from plot-from-data/bar_grouped_hatch: grouped methods, neutral/red
 colors, light horizontal grid, open axes and 300 dpi. Actual seed points and
@@ -105,7 +105,7 @@ def main(output):
                           "layer_lower_than_hardic": values[2] < values[1]})
         for i, method in enumerate(METHODS):
             values = [by_id[(panel, method, seed)]["max_vol"] for seed in (0, 1, 2)]
-            ax.hlines(median(values), i - .24, i + .24, color="#202020", lw=2, zorder=5)
+            ax.hlines(median(values), i - .24, i + .24, color="#202020", lw=2, zorder=3)
             groups.append({"panel": panel, "tag": tag, "equation": eq, "method": method,
                            "seeds": values, "median": median(values), "min": min(values), "max": max(values)})
         ax.axhline(1e-2, color="#4063A1", ls="--", lw=.9, zorder=1)
@@ -128,7 +128,7 @@ def main(output):
                 Line2D([], [], color="#4063A1", lw=.9, ls="--", label="1e−2 参考线")]
     fig.legend(handles=handles, loc="upper center", bbox_to_anchor=(.5, .955), ncol=6,
                frameon=False, fontsize=9, columnspacing=1.4)
-    fig.suptitle("默认 Adam：原初值与固定新初值的全部种子", y=.995, fontsize=14)
+    fig.suptitle("默认 Adam＋L-BFGS：原初值与固定新初值", y=.995, fontsize=14)
     fig.text(.5, .035, "每个初值单独训练；纵轴越低越好；短横线为中位数，非置信区间", ha="center", fontsize=10)
     fig.subplots_adjust(left=.09, right=.985, bottom=.11, top=.86, wspace=.24, hspace=.39)
     for extension in ("png", "pdf"):
@@ -140,7 +140,7 @@ def main(output):
         writer.writerows(rows)
     counts = {tag: sum(r["layer_lower_than_hardic"] for r in pairs if r["tag"] == tag)
               for tag in ("confirm", "final_ic_v1")}
-    caption = ("图：默认Adam下普通PINN、硬初值及硬初值加校正的全部报告种子。每个点为t={0.05,0.1,0.25,0.5,1}五个时刻中的最大体相对L²误差，纵轴为对数尺度；圆、三角、方形对应种子0、1、2，细线仅连接相同种子，短横线为三种子中位数，均不表示置信区间。蓝色虚线为1e−2参考线，不是发表标准。上排原初值来自历史云端confirm，下排固定新初值来自本机final_ic_v1；各问题分别训练，不能据上下排差异隔离初值和运行环境的因果效应，也不代表模型直接泛化到新初值。相同初值内，校正对硬初值的逐种子比较原初值为"
+    caption = ("图：默认Adam＋L-BFGS训练路线下普通PINN、硬初值及硬初值加校正的全部报告种子。每个点为t={0.05,0.1,0.25,0.5,1}五个时刻中的最大体相对L²误差，纵轴为对数尺度；圆、三角、方形对应种子0、1、2，细线仅连接相同种子，短横线为三种子中位数，均不表示置信区间。蓝色虚线为1e−2参考线，不是发表标准。上排原初值来自历史云端confirm，下排固定新初值来自本机final_ic_v1；各问题分别训练，不能据上下排差异隔离初值和运行环境的因果效应，也不代表模型直接泛化到新初值。相同初值内，校正对硬初值的逐种子比较原初值为"
                f"{counts['confirm']}/6改善、新初值为{counts['final_ic_v1']}/6改善；新E3种子0校正误差高{percent:.2f}%，保留图示。该图未覆盖RBA、因果训练、PirateNet、弱错配和E4；对应完整对照及负面结果须结合正文表格阅读。")
     (build / "historical_comparison_caption.md").write_text(caption + "\n", encoding="utf-8")
     for row in rows:
@@ -163,5 +163,5 @@ def main(output):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=FIGURES / "history_v1")
+    parser.add_argument("--output", type=Path, default=FIGURES / "history_v2")
     main(parser.parse_args().output.resolve())
