@@ -1,5 +1,7 @@
 # Stage6 编排故障修复与恢复路线
 
+执行结果更新（2026-10-23 04:57）：本路线已实际完成至恢复派发。原21任务42个HANDLE全部零退出，原监督器完整结束；关闭日志与恢复manifest原样绑定。随后限定时区表示修复解决真实Gate中的同瞬间字符串误拒绝，当前完整回归110通过、独立31项验证通过，新Gate再验证110通过。恢复Run完整复算原21后只派发原queued的9项，所有任务仍各1次attempt。当前实际runner91632、启动进程25644、上限9；快照21 completed / 9 running / 0 failed。见`recovery_dispatch/dispatch_evidence.json`及`timezone_binding_repair/INDEPENDENT_REVIEW.md`。**不要重复执行下方历史恢复命令；现在应跟踪当前runner直到30/30最终验收。** 下文保留此前执行步骤及当时尚待完成的状态。
+
 最新补充（2026-10-23）：两处单元测试补齐HERE临时目录隔离后，当前完整Torch回归**81 passed，6.10秒**，独立定向复核5项通过；此前79 passed / 2 failed及修前源保存在`regression_fixture_repair/`，未覆盖历史。当前测试源SHA为`6fcd2d482d5cd0fad8abdacdbe10fbfa8b632f941f9ecbc5b55f860760a894a6`，生产runner仍为v2。下文较早的完整回归PENDING记录由此次新证据补足。**恢复派发仍须等待原21全部真实零退出、完整产物验收及新Gate，不能只凭测试通过开跑。** 本轮尚未重启runner、派发训练、终止原worker、修改科学协议/训练源码/系统页文件。
 
 ## 事实与当前保护

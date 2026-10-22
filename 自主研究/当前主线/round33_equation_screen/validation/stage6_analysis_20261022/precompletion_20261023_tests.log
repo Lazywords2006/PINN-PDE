@@ -1,0 +1,31 @@
+test_bad_or_future_timestamp_cannot_imply_freshness (test_analysis.AnalysisTests.test_bad_or_future_timestamp_cannot_imply_freshness) ... ok
+test_both_zero_is_not_threefold_improvement (test_analysis.AnalysisTests.test_both_zero_is_not_threefold_improvement) ... ok
+test_cloud_and_local_times_are_separate (test_analysis.AnalysisTests.test_cloud_and_local_times_are_separate) ... ok
+test_complete_gate_fails_before_outputs_while_running (test_analysis.AnalysisTests.test_complete_gate_fails_before_outputs_while_running) ... ok
+test_completed_label_alone_cannot_pass_gate (test_analysis.AnalysisTests.test_completed_label_alone_cannot_pass_gate) ... ok
+test_duplicate_task_rejected_even_if_count_thirty (test_analysis.AnalysisTests.test_duplicate_task_rejected_even_if_count_thirty) ... ok
+test_exact_registered_matrix (test_analysis.AnalysisTests.test_exact_registered_matrix) ... ok
+test_local_chinese_font_exists_and_covers_labels (test_analysis.AnalysisTests.test_local_chinese_font_exists_and_covers_labels) ... ok
+test_missing_batch_time_is_not_fabricated_from_attempts (test_analysis.AnalysisTests.test_missing_batch_time_is_not_fabricated_from_attempts) ... ok
+test_missing_task_rejected (test_analysis.AnalysisTests.test_missing_task_rejected) ... ok
+test_nonfinite_nested_values_rejected (test_analysis.AnalysisTests.test_nonfinite_nested_values_rejected) ... ok
+test_old_diagnostics_are_missing_not_zero (test_analysis.AnalysisTests.test_old_diagnostics_are_missing_not_zero) ... ok
+test_orphan_interval_remains_in_batch_time_not_runner_time (test_analysis.AnalysisTests.test_orphan_interval_remains_in_batch_time_not_runner_time) ... ok
+test_partial_cannot_render (test_analysis.AnalysisTests.test_partial_cannot_render) ... ok
+test_partial_never_returns_final_judgment (test_analysis.AnalysisTests.test_partial_never_returns_final_judgment) ... ok
+test_plot_refuses_unbound_aggregates_without_drawing (test_analysis.AnalysisTests.test_plot_refuses_unbound_aggregates_without_drawing) ... ok
+test_recent_snapshot_does_not_verify_process (test_analysis.AnalysisTests.test_recent_snapshot_does_not_verify_process) ... ok
+test_soap_boundary_inclusive (test_analysis.AnalysisTests.test_soap_boundary_inclusive) ... ok
+test_soap_joint_does_not_hide_one_failed_equation (test_analysis.AnalysisTests.test_soap_joint_does_not_hide_one_failed_equation) ... ok
+test_soap_ratio_alone_is_not_enough (test_analysis.AnalysisTests.test_soap_ratio_alone_is_not_enough) ... ok
+test_soap_success_count_alone_is_not_enough (test_analysis.AnalysisTests.test_soap_success_count_alone_is_not_enough) ... ok
+test_stale_snapshot_is_not_live_progress (test_analysis.AnalysisTests.test_stale_snapshot_is_not_live_progress) ... ok
+test_tau_all_three_levels_retained_without_reselecting_main (test_analysis.AnalysisTests.test_tau_all_three_levels_retained_without_reselecting_main) ... ok
+test_tolerance_is_reference_relative (test_analysis.AnalysisTests.test_tolerance_is_reference_relative) ... ok
+test_truncated_sequence_rejected (test_analysis.AnalysisTests.test_truncated_sequence_rejected) ... ok
+test_wrong_seed_rejected (test_analysis.AnalysisTests.test_wrong_seed_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.370s
+
+OK

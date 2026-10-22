@@ -1,0 +1,148 @@
+{
+  "new_worker_pairs": 9,
+  "processes": [
+    {
+      "ProcessId": 91632,
+      "ParentProcessId": 25644,
+      "CreationDate": "2026-10-23T04:55:29.54468+08:00",
+      "ExecutablePath": "C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "CommandLine": "\"C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -u \"E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py\" --run --workers 9 "
+    },
+    {
+      "ProcessId": 91884,
+      "ParentProcessId": 91632,
+      "CreationDate": "2026-10-23T04:55:36.656684+08:00",
+      "ExecutablePath": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+      "CommandLine": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -u E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py --worker final_soap64_v1 E3_fisher vanilla 1 --runtime D:\\CodexRuntime\\runs\\r33_stage6_20261022 --set width=64 --set depth=4 --set adam_steps=20000 --set lr0=0.001 --set lr1=1e-05 --set nf=4096 --set nb=256 --set n0=256 --set lbfgs_iters=3000 --set lbfgs_chunk=50 --set nf_fixed=8192 --set nb_fixed=512 --set n0_fixed=512 --set tau=0.1 --set rba_gamma=0.999 --set rba_eta=0.01 --set seed=1 --set arch=mlp --set pirate_blocks=3 --set fourier_scale=1.0 --set causal_eps=0.0 --set causal_chunks=32 --set w_ic=1 --set t_refine=0 --set optimizer=soap_official64 --set soap_freq=10 --set soap_beta=0.95"
+    },
+    {
+      "ProcessId": 71232,
+      "ParentProcessId": 91884,
+      "CreationDate": "2026-10-23T04:55:36.686562+08:00",
+      "ExecutablePath": "C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "CommandLine": "\"C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -u E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py --worker final_soap64_v1 E3_fisher vanilla 1 --runtime D:\\CodexRuntime\\runs\\r33_stage6_20261022 --set width=64 --set depth=4 --set adam_steps=20000 --set lr0=0.001 --set lr1=1e-05 --set nf=4096 --set nb=256 --set n0=256 --set lbfgs_iters=3000 --set lbfgs_chunk=50 --set nf_fixed=8192 --set nb_fixed=512 --set n0_fixed=512 --set tau=0.1 --set rba_gamma=0.999 --set rba_eta=0.01 --set seed=1 --set arch=mlp --set pirate_blocks=3 --set fourier_scale=1.0 --set causal_eps=0.0 --set causal_chunks=32 --set w_ic=1 --set t_refine=0 --set optimizer=soap_official64 --set soap_freq=10 --set soap_beta=0.95"
+    },
+    {
+      "ProcessId": 61412,
+      "ParentProcessId": 91632,
+      "CreationDate": "2026-10-23T04:55:42.685571+08:00",
+      "ExecutablePath": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+      "CommandLine": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -u E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py --worker final_soap64_v1 E3_fisher hardic 1 --runtime D:\\CodexRuntime\\runs\\r33_stage6_20261022 --set width=64 --set depth=4 --set adam_steps=20000 --set lr0=0.001 --set lr1=1e-05 --set nf=4096 --set nb=256 --set n0=256 --set lbfgs_iters=3000 --set lbfgs_chunk=50 --set nf_fixed=8192 --set nb_fixed=512 --set n0_fixed=512 --set tau=0.1 --set rba_gamma=0.999 --set rba_eta=0.01 --set seed=1 --set arch=mlp --set pirate_blocks=3 --set fourier_scale=1.0 --set causal_eps=0.0 --set causal_chunks=32 --set w_ic=1 --set t_refine=0 --set optimizer=soap_official64 --set soap_freq=10 --set soap_beta=0.95"
+    },
+    {
+      "ProcessId": 42152,
+      "ParentProcessId": 61412,
+      "CreationDate": "2026-10-23T04:55:42.718704+08:00",
+      "ExecutablePath": "C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "CommandLine": "\"C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -u E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py --worker final_soap64_v1 E3_fisher hardic 1 --runtime D:\\CodexRuntime\\runs\\r33_stage6_20261022 --set width=64 --set depth=4 --set adam_steps=20000 --set lr0=0.001 --set lr1=1e-05 --set nf=4096 --set nb=256 --set n0=256 --set lbfgs_iters=3000 --set lbfgs_chunk=50 --set nf_fixed=8192 --set nb_fixed=512 --set n0_fixed=512 --set tau=0.1 --set rba_gamma=0.999 --set rba_eta=0.01 --set seed=1 --set arch=mlp --set pirate_blocks=3 --set fourier_scale=1.0 --set causal_eps=0.0 --set causal_chunks=32 --set w_ic=1 --set t_refine=0 --set optimizer=soap_official64 --set soap_freq=10 --set soap_beta=0.95"
+    },
+    {
+      "ProcessId": 91716,
+      "ParentProcessId": 91632,
+      "CreationDate": "2026-10-23T04:55:48.720274+08:00",
+      "ExecutablePath": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+      "CommandLine": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -u E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py --worker final_soap64_v1 E3_fisher hardic+layer 1 --runtime D:\\CodexRuntime\\runs\\r33_stage6_20261022 --set width=64 --set depth=4 --set adam_steps=20000 --set lr0=0.001 --set lr1=1e-05 --set nf=4096 --set nb=256 --set n0=256 --set lbfgs_iters=3000 --set lbfgs_chunk=50 --set nf_fixed=8192 --set nb_fixed=512 --set n0_fixed=512 --set tau=0.1 --set rba_gamma=0.999 --set rba_eta=0.01 --set seed=1 --set arch=mlp --set pirate_blocks=3 --set fourier_scale=1.0 --set causal_eps=0.0 --set causal_chunks=32 --set w_ic=1 --set t_refine=0 --set optimizer=soap_official64 --set soap_freq=10 --set soap_beta=0.95"
+    },
+    {
+      "ProcessId": 84200,
+      "ParentProcessId": 91716,
+      "CreationDate": "2026-10-23T04:55:48.756418+08:00",
+      "ExecutablePath": "C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "CommandLine": "\"C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -u E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py --worker final_soap64_v1 E3_fisher hardic+layer 1 --runtime D:\\CodexRuntime\\runs\\r33_stage6_20261022 --set width=64 --set depth=4 --set adam_steps=20000 --set lr0=0.001 --set lr1=1e-05 --set nf=4096 --set nb=256 --set n0=256 --set lbfgs_iters=3000 --set lbfgs_chunk=50 --set nf_fixed=8192 --set nb_fixed=512 --set n0_fixed=512 --set tau=0.1 --set rba_gamma=0.999 --set rba_eta=0.01 --set seed=1 --set arch=mlp --set pirate_blocks=3 --set fourier_scale=1.0 --set causal_eps=0.0 --set causal_chunks=32 --set w_ic=1 --set t_refine=0 --set optimizer=soap_official64 --set soap_freq=10 --set soap_beta=0.95"
+    },
+    {
+      "ProcessId": 54752,
+      "ParentProcessId": 91632,
+      "CreationDate": "2026-10-23T04:55:54.765372+08:00",
+      "ExecutablePath": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+      "CommandLine": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -u E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py --worker final_soap64_v1 E1_heat vanilla 2 --runtime D:\\CodexRuntime\\runs\\r33_stage6_20261022 --set width=64 --set depth=4 --set adam_steps=20000 --set lr0=0.001 --set lr1=1e-05 --set nf=4096 --set nb=256 --set n0=256 --set lbfgs_iters=3000 --set lbfgs_chunk=50 --set nf_fixed=8192 --set nb_fixed=512 --set n0_fixed=512 --set tau=0.1 --set rba_gamma=0.999 --set rba_eta=0.01 --set seed=2 --set arch=mlp --set pirate_blocks=3 --set fourier_scale=1.0 --set causal_eps=0.0 --set causal_chunks=32 --set w_ic=1 --set t_refine=0 --set optimizer=soap_official64 --set soap_freq=10 --set soap_beta=0.95"
+    },
+    {
+      "ProcessId": 88756,
+      "ParentProcessId": 54752,
+      "CreationDate": "2026-10-23T04:55:54.806752+08:00",
+      "ExecutablePath": "C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "CommandLine": "\"C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -u E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py --worker final_soap64_v1 E1_heat vanilla 2 --runtime D:\\CodexRuntime\\runs\\r33_stage6_20261022 --set width=64 --set depth=4 --set adam_steps=20000 --set lr0=0.001 --set lr1=1e-05 --set nf=4096 --set nb=256 --set n0=256 --set lbfgs_iters=3000 --set lbfgs_chunk=50 --set nf_fixed=8192 --set nb_fixed=512 --set n0_fixed=512 --set tau=0.1 --set rba_gamma=0.999 --set rba_eta=0.01 --set seed=2 --set arch=mlp --set pirate_blocks=3 --set fourier_scale=1.0 --set causal_eps=0.0 --set causal_chunks=32 --set w_ic=1 --set t_refine=0 --set optimizer=soap_official64 --set soap_freq=10 --set soap_beta=0.95"
+    },
+    {
+      "ProcessId": 67972,
+      "ParentProcessId": 91632,
+      "CreationDate": "2026-10-23T04:56:00.810787+08:00",
+      "ExecutablePath": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+      "CommandLine": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -u E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py --worker final_soap64_v1 E1_heat hardic 2 --runtime D:\\CodexRuntime\\runs\\r33_stage6_20261022 --set width=64 --set depth=4 --set adam_steps=20000 --set lr0=0.001 --set lr1=1e-05 --set nf=4096 --set nb=256 --set n0=256 --set lbfgs_iters=3000 --set lbfgs_chunk=50 --set nf_fixed=8192 --set nb_fixed=512 --set n0_fixed=512 --set tau=0.1 --set rba_gamma=0.999 --set rba_eta=0.01 --set seed=2 --set arch=mlp --set pirate_blocks=3 --set fourier_scale=1.0 --set causal_eps=0.0 --set causal_chunks=32 --set w_ic=1 --set t_refine=0 --set optimizer=soap_official64 --set soap_freq=10 --set soap_beta=0.95"
+    },
+    {
+      "ProcessId": 49516,
+      "ParentProcessId": 67972,
+      "CreationDate": "2026-10-23T04:56:00.856298+08:00",
+      "ExecutablePath": "C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "CommandLine": "\"C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -u E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py --worker final_soap64_v1 E1_heat hardic 2 --runtime D:\\CodexRuntime\\runs\\r33_stage6_20261022 --set width=64 --set depth=4 --set adam_steps=20000 --set lr0=0.001 --set lr1=1e-05 --set nf=4096 --set nb=256 --set n0=256 --set lbfgs_iters=3000 --set lbfgs_chunk=50 --set nf_fixed=8192 --set nb_fixed=512 --set n0_fixed=512 --set tau=0.1 --set rba_gamma=0.999 --set rba_eta=0.01 --set seed=2 --set arch=mlp --set pirate_blocks=3 --set fourier_scale=1.0 --set causal_eps=0.0 --set causal_chunks=32 --set w_ic=1 --set t_refine=0 --set optimizer=soap_official64 --set soap_freq=10 --set soap_beta=0.95"
+    },
+    {
+      "ProcessId": 89208,
+      "ParentProcessId": 91632,
+      "CreationDate": "2026-10-23T04:56:06.864295+08:00",
+      "ExecutablePath": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+      "CommandLine": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -u E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py --worker final_soap64_v1 E1_heat hardic+layer 2 --runtime D:\\CodexRuntime\\runs\\r33_stage6_20261022 --set width=64 --set depth=4 --set adam_steps=20000 --set lr0=0.001 --set lr1=1e-05 --set nf=4096 --set nb=256 --set n0=256 --set lbfgs_iters=3000 --set lbfgs_chunk=50 --set nf_fixed=8192 --set nb_fixed=512 --set n0_fixed=512 --set tau=0.1 --set rba_gamma=0.999 --set rba_eta=0.01 --set seed=2 --set arch=mlp --set pirate_blocks=3 --set fourier_scale=1.0 --set causal_eps=0.0 --set causal_chunks=32 --set w_ic=1 --set t_refine=0 --set optimizer=soap_official64 --set soap_freq=10 --set soap_beta=0.95"
+    },
+    {
+      "ProcessId": 49744,
+      "ParentProcessId": 89208,
+      "CreationDate": "2026-10-23T04:56:06.908595+08:00",
+      "ExecutablePath": "C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "CommandLine": "\"C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -u E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py --worker final_soap64_v1 E1_heat hardic+layer 2 --runtime D:\\CodexRuntime\\runs\\r33_stage6_20261022 --set width=64 --set depth=4 --set adam_steps=20000 --set lr0=0.001 --set lr1=1e-05 --set nf=4096 --set nb=256 --set n0=256 --set lbfgs_iters=3000 --set lbfgs_chunk=50 --set nf_fixed=8192 --set nb_fixed=512 --set n0_fixed=512 --set tau=0.1 --set rba_gamma=0.999 --set rba_eta=0.01 --set seed=2 --set arch=mlp --set pirate_blocks=3 --set fourier_scale=1.0 --set causal_eps=0.0 --set causal_chunks=32 --set w_ic=1 --set t_refine=0 --set optimizer=soap_official64 --set soap_freq=10 --set soap_beta=0.95"
+    },
+    {
+      "ProcessId": 90000,
+      "ParentProcessId": 91632,
+      "CreationDate": "2026-10-23T04:56:12.926123+08:00",
+      "ExecutablePath": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+      "CommandLine": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -u E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py --worker final_soap64_v1 E3_fisher vanilla 2 --runtime D:\\CodexRuntime\\runs\\r33_stage6_20261022 --set width=64 --set depth=4 --set adam_steps=20000 --set lr0=0.001 --set lr1=1e-05 --set nf=4096 --set nb=256 --set n0=256 --set lbfgs_iters=3000 --set lbfgs_chunk=50 --set nf_fixed=8192 --set nb_fixed=512 --set n0_fixed=512 --set tau=0.1 --set rba_gamma=0.999 --set rba_eta=0.01 --set seed=2 --set arch=mlp --set pirate_blocks=3 --set fourier_scale=1.0 --set causal_eps=0.0 --set causal_chunks=32 --set w_ic=1 --set t_refine=0 --set optimizer=soap_official64 --set soap_freq=10 --set soap_beta=0.95"
+    },
+    {
+      "ProcessId": 79280,
+      "ParentProcessId": 90000,
+      "CreationDate": "2026-10-23T04:56:12.97343+08:00",
+      "ExecutablePath": "C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "CommandLine": "\"C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -u E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py --worker final_soap64_v1 E3_fisher vanilla 2 --runtime D:\\CodexRuntime\\runs\\r33_stage6_20261022 --set width=64 --set depth=4 --set adam_steps=20000 --set lr0=0.001 --set lr1=1e-05 --set nf=4096 --set nb=256 --set n0=256 --set lbfgs_iters=3000 --set lbfgs_chunk=50 --set nf_fixed=8192 --set nb_fixed=512 --set n0_fixed=512 --set tau=0.1 --set rba_gamma=0.999 --set rba_eta=0.01 --set seed=2 --set arch=mlp --set pirate_blocks=3 --set fourier_scale=1.0 --set causal_eps=0.0 --set causal_chunks=32 --set w_ic=1 --set t_refine=0 --set optimizer=soap_official64 --set soap_freq=10 --set soap_beta=0.95"
+    },
+    {
+      "ProcessId": 88068,
+      "ParentProcessId": 91632,
+      "CreationDate": "2026-10-23T04:56:18.992413+08:00",
+      "ExecutablePath": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+      "CommandLine": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -u E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py --worker final_soap64_v1 E3_fisher hardic 2 --runtime D:\\CodexRuntime\\runs\\r33_stage6_20261022 --set width=64 --set depth=4 --set adam_steps=20000 --set lr0=0.001 --set lr1=1e-05 --set nf=4096 --set nb=256 --set n0=256 --set lbfgs_iters=3000 --set lbfgs_chunk=50 --set nf_fixed=8192 --set nb_fixed=512 --set n0_fixed=512 --set tau=0.1 --set rba_gamma=0.999 --set rba_eta=0.01 --set seed=2 --set arch=mlp --set pirate_blocks=3 --set fourier_scale=1.0 --set causal_eps=0.0 --set causal_chunks=32 --set w_ic=1 --set t_refine=0 --set optimizer=soap_official64 --set soap_freq=10 --set soap_beta=0.95"
+    },
+    {
+      "ProcessId": 73644,
+      "ParentProcessId": 88068,
+      "CreationDate": "2026-10-23T04:56:19.043811+08:00",
+      "ExecutablePath": "C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "CommandLine": "\"C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -u E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py --worker final_soap64_v1 E3_fisher hardic 2 --runtime D:\\CodexRuntime\\runs\\r33_stage6_20261022 --set width=64 --set depth=4 --set adam_steps=20000 --set lr0=0.001 --set lr1=1e-05 --set nf=4096 --set nb=256 --set n0=256 --set lbfgs_iters=3000 --set lbfgs_chunk=50 --set nf_fixed=8192 --set nb_fixed=512 --set n0_fixed=512 --set tau=0.1 --set rba_gamma=0.999 --set rba_eta=0.01 --set seed=2 --set arch=mlp --set pirate_blocks=3 --set fourier_scale=1.0 --set causal_eps=0.0 --set causal_chunks=32 --set w_ic=1 --set t_refine=0 --set optimizer=soap_official64 --set soap_freq=10 --set soap_beta=0.95"
+    },
+    {
+      "ProcessId": 79628,
+      "ParentProcessId": 91632,
+      "CreationDate": "2026-10-23T04:56:25.078355+08:00",
+      "ExecutablePath": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+      "CommandLine": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -u E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py --worker final_soap64_v1 E3_fisher hardic+layer 2 --runtime D:\\CodexRuntime\\runs\\r33_stage6_20261022 --set width=64 --set depth=4 --set adam_steps=20000 --set lr0=0.001 --set lr1=1e-05 --set nf=4096 --set nb=256 --set n0=256 --set lbfgs_iters=3000 --set lbfgs_chunk=50 --set nf_fixed=8192 --set nb_fixed=512 --set n0_fixed=512 --set tau=0.1 --set rba_gamma=0.999 --set rba_eta=0.01 --set seed=2 --set arch=mlp --set pirate_blocks=3 --set fourier_scale=1.0 --set causal_eps=0.0 --set causal_chunks=32 --set w_ic=1 --set t_refine=0 --set optimizer=soap_official64 --set soap_freq=10 --set soap_beta=0.95"
+    },
+    {
+      "ProcessId": 4844,
+      "ParentProcessId": 79628,
+      "CreationDate": "2026-10-23T04:56:25.141005+08:00",
+      "ExecutablePath": "C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "CommandLine": "\"C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -u E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py --worker final_soap64_v1 E3_fisher hardic+layer 2 --runtime D:\\CodexRuntime\\runs\\r33_stage6_20261022 --set width=64 --set depth=4 --set adam_steps=20000 --set lr0=0.001 --set lr1=1e-05 --set nf=4096 --set nb=256 --set n0=256 --set lbfgs_iters=3000 --set lbfgs_chunk=50 --set nf_fixed=8192 --set nb_fixed=512 --set n0_fixed=512 --set tau=0.1 --set rba_gamma=0.999 --set rba_eta=0.01 --set seed=2 --set arch=mlp --set pirate_blocks=3 --set fourier_scale=1.0 --set causal_eps=0.0 --set causal_chunks=32 --set w_ic=1 --set t_refine=0 --set optimizer=soap_official64 --set soap_freq=10 --set soap_beta=0.95"
+    }
+  ],
+  "observed_local": "2026-10-23T04:58:30.0976138+08:00",
+  "runner_launcher_pid": 25644,
+  "archived_status_sha256": "b94e8e1ba795b426352647c8cfce1bb071c49c6df66adc762c58e7d309f9b6db",
+  "new_gate_sha256": "4572088adf9eb3010c4d483b6ae71a82087dd5bd41b35dcb38e0687f5666d6e3",
+  "original_completed_and_recomputed": 21,
+  "original_deadline_unix": 1792858084.3746972,
+  "scope": "Snapshot of recovery dispatch and read-only current process inventory; final30 acceptance pending",
+  "source_commit": "2a42ded",
+  "runner_pid": 91632,
+  "attempts_per_task": 1
+}

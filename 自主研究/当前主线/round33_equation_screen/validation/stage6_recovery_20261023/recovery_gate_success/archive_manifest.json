@@ -1,0 +1,24 @@
+{
+  "source_commit": "2a42ded",
+  "tests": 110,
+  "gate_passed": true,
+  "archived_utc": "2026-10-22T20:55:28.9753451Z",
+  "files": [
+    {
+      "source": "validation\\stage6_20261022\\engineering_gate.json",
+      "archive": "validation\\stage6_recovery_20261023\\recovery_gate_success\\engineering_gate.json",
+      "sha256": "4572088adf9eb3010c4d483b6ae71a82087dd5bd41b35dcb38e0687f5666d6e3"
+    },
+    {
+      "source": "validation\\stage6_20261022\\pytest.log",
+      "archive": "validation\\stage6_recovery_20261023\\recovery_gate_success\\pytest.log",
+      "sha256": "91f2fcadc2b990c44887539f0ba0391ea0f668825fc07196f70e50cf317d9b21"
+    },
+    {
+      "source": "validation\\stage6_20261022\\pytest.xml",
+      "archive": "validation\\stage6_recovery_20261023\\recovery_gate_success\\pytest.xml",
+      "sha256": "92ce4dcdf885e8b0817065379fd486537ebd9e5b5104195e05f0d8260eb6012d"
+    }
+  ],
+  "scope": "Recovery gate only; full original21 result validation and remaining9 dispatch still required"
+}

@@ -1,0 +1,15 @@
+{
+  "scope": "Current analysis source including N04 wording; synthetic standard-library tests only, not scientific results",
+  "recorded_utc": "2026-10-22T20:43:04.6882230Z",
+  "tests": 26,
+  "command": "D:/CodexRuntime/venvs/r33-analysis/Scripts/python.exe -m unittest test_analysis -v",
+  "exit_code": 0,
+  "stage6_scientific_results": "PENDING",
+  "sha256": {
+    "analyze_stage6.py": "5eee1bd327426cbba355e76f60d87d24d1d822eb4c76347302cdde9b57b19dc1",
+    "plot_stage6.py": "1a38eb9618949eb94e998e1aa990b4d173bfcbae0246c63b862aa7732c6286fa",
+    "test_analysis.py": "3931fa149c1d257a24c57f2315c33c3d5ce4346ca41eecf78c2ccaace5bb0cd6",
+    "precompletion_20261023_tests.log": "f1c3df554e48f62e5a5b9bb6e72952f6eddfdafc3e08a0c402b473ebe3416c3f"
+  },
+  "passed": 26
+}
