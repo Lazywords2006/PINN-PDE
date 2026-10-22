@@ -1,0 +1,18 @@
+{
+  "generated_local": "2026-10-23T00:24:44.501878+08:00",
+  "tests_run": 21,
+  "failures": 0,
+  "errors": 0,
+  "successful": true,
+  "frozen_runner_and_training_sources_unchanged": true,
+  "research_training_started_by_this_tool": false,
+  "formal_analysis_generated": false,
+  "figures_generated": false,
+  "code_sha256": {
+    "analyze_stage6.py": "b2869693cdd47e87d0b5234fe21125207f8234391dc16b73c452a24c40a64e56",
+    "plot_stage6.py": "1a38eb9618949eb94e998e1aa990b4d173bfcbae0246c63b862aa7732c6286fa",
+    "test_analysis.py": "d8a4f502274cce0117bcec0020ad6e8d45fa501669b23892c3ab0bfeab51a92b"
+  },
+  "test_scope": "合成聚合/边界输入仅用于单元测试；没有输出模拟图或正式研究结果。",
+  "test_log_sha256": "852fe9919921da4179ff28243732d246ee91f181ad8b60a243188de54650c4db"
+}

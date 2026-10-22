@@ -1,0 +1,429 @@
+{
+  "precision_decimal_digits": 70,
+  "differential_points": [
+    {
+      "C": 0.05,
+      "t": 1e-08,
+      "eta": 0.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 9.055679078826712e-72,
+      "boundary_absolute": 0.0
+    },
+    {
+      "C": 0.05,
+      "t": 1e-08,
+      "eta": 0.25,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 0.0
+    },
+    {
+      "C": 0.05,
+      "t": 1e-08,
+      "eta": 1.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 0.0
+    },
+    {
+      "C": 0.05,
+      "t": 1e-08,
+      "eta": 3.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 5.527147875260445e-75
+    },
+    {
+      "C": 0.05,
+      "t": 0.0001,
+      "eta": 0.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 0.0,
+      "boundary_absolute": 0.0
+    },
+    {
+      "C": 0.05,
+      "t": 0.0001,
+      "eta": 0.25,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 0.0
+    },
+    {
+      "C": 0.05,
+      "t": 0.0001,
+      "eta": 1.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 4.527839539413356e-72
+    },
+    {
+      "C": 0.05,
+      "t": 0.0001,
+      "eta": 3.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 4.1453609064453334e-75
+    },
+    {
+      "C": 0.05,
+      "t": 0.03,
+      "eta": 0.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 9.055679078826712e-72,
+      "boundary_absolute": 0.0
+    },
+    {
+      "C": 0.05,
+      "t": 0.03,
+      "eta": 0.25,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 0.0
+    },
+    {
+      "C": 0.05,
+      "t": 0.03,
+      "eta": 1.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 5.093819481840026e-72
+    },
+    {
+      "C": 0.05,
+      "t": 0.03,
+      "eta": 3.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 6.079862662786489e-75
+    },
+    {
+      "C": 0.05,
+      "t": 0.7,
+      "eta": 0.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 2.026208193887477e-70,
+      "boundary_absolute": 0.0
+    },
+    {
+      "C": 0.05,
+      "t": 0.7,
+      "eta": 0.25,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 1.830945113750276e-70
+    },
+    {
+      "C": 0.05,
+      "t": 0.7,
+      "eta": 1.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 6.367274352300032e-71
+    },
+    {
+      "C": 0.05,
+      "t": 0.7,
+      "eta": 3.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 1.4681486543660556e-74
+    },
+    {
+      "C": 0.7,
+      "t": 1e-08,
+      "eta": 0.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 0.0,
+      "boundary_absolute": 0.0
+    },
+    {
+      "C": 0.7,
+      "t": 1e-08,
+      "eta": 0.25,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 9.055679078826712e-72
+    },
+    {
+      "C": 0.7,
+      "t": 1e-08,
+      "eta": 1.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 4.527839539413356e-72
+    },
+    {
+      "C": 0.7,
+      "t": 1e-08,
+      "eta": 3.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 4.421718300208356e-75
+    },
+    {
+      "C": 0.7,
+      "t": 0.0001,
+      "eta": 0.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 0.0,
+      "boundary_absolute": 0.0
+    },
+    {
+      "C": 0.7,
+      "t": 0.0001,
+      "eta": 0.25,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 9.055679078826712e-72
+    },
+    {
+      "C": 0.7,
+      "t": 0.0001,
+      "eta": 1.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 2.263919769706678e-72
+    },
+    {
+      "C": 0.7,
+      "t": 0.0001,
+      "eta": 3.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 3.869003512682311e-75
+    },
+    {
+      "C": 0.7,
+      "t": 0.03,
+      "eta": 0.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 0.0,
+      "boundary_absolute": 9.055679078826712e-72
+    },
+    {
+      "C": 0.7,
+      "t": 0.03,
+      "eta": 0.25,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 0.0
+    },
+    {
+      "C": 0.7,
+      "t": 0.03,
+      "eta": 1.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 0.0
+    },
+    {
+      "C": 0.7,
+      "t": 0.03,
+      "eta": 3.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 3.3162887251562667e-75
+    },
+    {
+      "C": 0.7,
+      "t": 0.7,
+      "eta": 0.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 0.0,
+      "boundary_absolute": 9.055679078826712e-72
+    },
+    {
+      "C": 0.7,
+      "t": 0.7,
+      "eta": 0.25,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 0.0
+    },
+    {
+      "C": 0.7,
+      "t": 0.7,
+      "eta": 1.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 1.131959884853339e-72
+    },
+    {
+      "C": 0.7,
+      "t": 0.7,
+      "eta": 3.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 2.210859150104178e-75
+    },
+    {
+      "C": 3.0,
+      "t": 1e-08,
+      "eta": 0.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 9.055679078826712e-72,
+      "boundary_absolute": 0.0
+    },
+    {
+      "C": 3.0,
+      "t": 1e-08,
+      "eta": 0.25,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 0.0
+    },
+    {
+      "C": 3.0,
+      "t": 1e-08,
+      "eta": 1.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 0.0
+    },
+    {
+      "C": 3.0,
+      "t": 1e-08,
+      "eta": 3.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 3.0399313313932445e-75
+    },
+    {
+      "C": 3.0,
+      "t": 0.0001,
+      "eta": 0.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 0.0,
+      "boundary_absolute": 0.0
+    },
+    {
+      "C": 3.0,
+      "t": 0.0001,
+      "eta": 0.25,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 0.0
+    },
+    {
+      "C": 3.0,
+      "t": 0.0001,
+      "eta": 1.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 0.0
+    },
+    {
+      "C": 3.0,
+      "t": 0.0001,
+      "eta": 3.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 5.250790481497422e-75
+    },
+    {
+      "C": 3.0,
+      "t": 0.03,
+      "eta": 0.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 9.055679078826712e-72,
+      "boundary_absolute": 0.0
+    },
+    {
+      "C": 3.0,
+      "t": 0.03,
+      "eta": 0.25,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 9.055679078826712e-72
+    },
+    {
+      "C": 3.0,
+      "t": 0.03,
+      "eta": 1.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 2.263919769706678e-72
+    },
+    {
+      "C": 3.0,
+      "t": 0.03,
+      "eta": 3.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 1.105429575052089e-75
+    },
+    {
+      "C": 3.0,
+      "t": 0.7,
+      "eta": 0.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 9.055679078826712e-72,
+      "boundary_absolute": 0.0
+    },
+    {
+      "C": 3.0,
+      "t": 0.7,
+      "eta": 0.25,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 0.0
+    },
+    {
+      "C": 3.0,
+      "t": 0.7,
+      "eta": 1.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 4.527839539413356e-72
+    },
+    {
+      "C": 3.0,
+      "t": 0.7,
+      "eta": 3.0,
+      "pde_absolute": 0.0,
+      "wt_q_absolute": 1.3817869688151111e-75
+    }
+  ],
+  "inverse_and_integral": [
+    {
+      "C": 0.05,
+      "t": 0.001,
+      "eta": 0.5,
+      "inverse_relative": 1.3557313740535993e-70,
+      "integral_relative": 1.3294817339973172e-70
+    },
+    {
+      "C": 0.7,
+      "t": 0.02,
+      "eta": 0.0,
+      "inverse_relative": 1.2759640050502765e-70,
+      "integral_relative": 1.3068109311357817e-70
+    },
+    {
+      "C": 3.0,
+      "t": 0.7,
+      "eta": 2.0,
+      "inverse_relative": 2.2422806380307983e-69,
+      "integral_relative": 2.2398669728667987e-69
+    }
+  ],
+  "physical_scaling": [
+    {
+      "D": 0.01,
+      "c": 0.2,
+      "pde_absolute": 0.0,
+      "boundary_absolute": 0.0
+    },
+    {
+      "D": 0.3,
+      "c": 1.1,
+      "pde_absolute": 2.263919769706678e-72,
+      "boundary_absolute": 0.0
+    },
+    {
+      "D": 4.0,
+      "c": 0.07,
+      "pde_absolute": 0.0,
+      "boundary_absolute": 0.0
+    }
+  ],
+  "boundary_asymptotic": [
+    {
+      "t": 0.0001,
+      "w_over_t": 0.9893547021863107,
+      "coefficient": -1.0645297813689272,
+      "limit": -1.0746468258052502
+    },
+    {
+      "t": 1e-06,
+      "w_over_t": 0.998926372705789,
+      "coefficient": -1.0736272942110556,
+      "limit": -1.0746468258052502
+    },
+    {
+      "t": 1e-08,
+      "w_over_t": 0.9998925455206239,
+      "coefficient": -1.0745447937608565,
+      "limit": -1.0746468258052502
+    },
+    {
+      "t": 1e-10,
+      "w_over_t": 0.9999892536337819,
+      "coefficient": -1.074636621811343,
+      "limit": -1.0746468258052502
+    }
+  ],
+  "summary": {
+    "pde_max_abs": 0.0,
+    "wt_q_max_abs": 2.026208193887477e-70,
+    "boundary_max_abs": 9.055679078826712e-72,
+    "inverse_max_relative": 2.2422806380307983e-69,
+    "integral_max_relative": 2.2398669728667987e-69
+  }
+}

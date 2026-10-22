@@ -1,0 +1,51 @@
+{
+  "definition": "只统计六个编号正文章节内的中文汉字；摘要、英文摘要、表格数据行、图题、参考文献、声明及附录不计。数学符号和公式不计。",
+  "implementation_notes": "包括六节标题及小节标题；排除全部Markdown表格行、显示公式、图题、HTML注释和工作稿MATERIAL GAP占位文本。",
+  "sections": {
+    "1 引言与相关工作": {
+      "actual_cjk": 1666,
+      "target_cjk": 1800,
+      "deviation_percent": -7.44,
+      "within_15_percent": true
+    },
+    "2 方程、相容性与修正构造": {
+      "actual_cjk": 2180,
+      "target_cjk": 2200,
+      "deviation_percent": -0.91,
+      "within_15_percent": true
+    },
+    "3 实验设计与复现方法": {
+      "actual_cjk": 1962,
+      "target_cjk": 2000,
+      "deviation_percent": -1.9,
+      "within_15_percent": true
+    },
+    "4 数值结果": {
+      "actual_cjk": 1682,
+      "target_cjk": 2500,
+      "deviation_percent": -32.72,
+      "within_15_percent": false
+    },
+    "5 讨论与局限": {
+      "actual_cjk": 1592,
+      "target_cjk": 1700,
+      "deviation_percent": -6.35,
+      "within_15_percent": true
+    },
+    "6 结论": {
+      "actual_cjk": 490,
+      "target_cjk": 800,
+      "deviation_percent": -38.75,
+      "within_15_percent": false
+    }
+  },
+  "actual_body_cjk": 9572,
+  "target_body_cjk": 11000,
+  "deviation_percent": -12.98,
+  "within_10_percent": false,
+  "material_gaps": [
+    "[MATERIAL GAP：等待修订6的12次新训练及全部重新加载、加密参考和独立残差核验。此处将并列三个预先固定的衰减参数档位、全部种子、各档中位数及范围，报告相对于主配置的比值和跨档中位数最大最小比。主配置保持0.1，不选择最低误差档，不设置事后的“鲁棒通过线”。]",
+    "[MATERIAL GAP：等待修订6的18次完整训练与数值复核。此处将报告 Adam 与固定 SOAP64 六臂默认配置，并按预先登记的 S6-SOAP 条件描述是否满足本批叠加判据。原小预算 G2 失败不改，不填写旧零结果标签，不将待完成结果解释为优化器无关性。]"
+  ],
+  "draft_sha256": "9783dd11b2756134b5f365e234e1e7ba4590ab6dd11435fc1910c2e85b84e8d9"
+}

@@ -5,8 +5,9 @@
 ## 当前阶段
 
 - 第一阶段：22/22 已完成，结果归档提交 `958a70a` 已推送。全库 176 次、398 个原始文件，旧数据与阈值保留。
-- 第二阶段：协议修订 6 已先行提交为 `bfe89e3a07f1bb3bcc8e049d8d3d7ff95b4a647a`，并推送成功；计划 12 次 τ 灵敏度和 18 次固定 SOAP64，合计 30 次完整训练，零调参。运行器尚在工程门检查，正式派发前须记录实现提交和工程门证据。
+- 第二阶段：协议修订 6 已先行提交为 `bfe89e3a07f1bb3bcc8e049d8d3d7ff95b4a647a`，并推送成功；12 次 τ 灵敏度和 18 次固定 SOAP64，合计 30 次完整训练，零调参。运行器实现 `46855c4`、测试日志 `e2c8ea8`、PS5 编码修复和重新检查 `7c3edb2` 均先于训练提交。2026-10-23 00:08:04（UTC+8）正式启动；实际 runner PID=42100，venv launcher PID=73808，启动上限24。实时状态以 D 盘 status.json 和实际进程为准，不能重复启动。
 - 写作：使用 academic-pipeline / academic-paper / academic-paper-reviewer 技能。`manuscript/PAPER_CONFIGURATION.json` 固定正文 11000 汉字及分节口径；writer 已完成盲承诺，正在生成有明确缺口的工作稿。`manuscript/research/` 已有经典数学出处、14 条文献核验和逐句引用边界；实验未完不能填造结果。
+- 00:14 快照：19 项运行、11 项排队、0 完成/失败；内存提交约91.4%，已自动暂缓新派发，已有 checkpoint 为500–1000步。这只是历史快照，后续必须读取实时状态。当前没有完整的 stage6 结果表。
 - 自动续行：本线程 heartbeat 自动化 ID `r33`，每 30 分钟检查并继续工作。状态不变且无行动时安静，阶段完成、异常或最终交付时才通知。目标交付后关闭自动化。
 
 ## 任务分工与文件边界
@@ -16,6 +17,7 @@
 - `r33_classical_sources`：`manuscript/research/` 的数学核查、引用上下文、文献元数据/BibTeX；不改数据。
 - writer：先仅元数据的盲承诺，再接收大纲/论据/来源后写正文。完整稿件进入独立核验前必须有本轮真实结果。
 - 当前 writer 为 `r33_writer_blind`，只写 `manuscript/drafts/` 与 `manuscript/process/`；来源代理 `r33_classical_sources` 的四份正式输入已通知 writer。旧 `r33_eic_review` / `r33_method_review` 是上一阶段研究准备度审查，不是本次完整稿件审查通过凭证。
+- `r33_evaluator_blind` 已在未看稿件/数据时完成 Phase6a 五维标准与评分计划；完整稿件就绪后才提供给它做 Phase6b。`r33_stage6_engineering` 目前只准备 `validation/stage6_analysis_20261022/` 的完成态分析，不再改冻结运行器；正式输出必须等30/30验证通过。
 - 审查：冻结稿件后分五视角独立只读审查，不交叉读取彼此意见；编辑综合只引用已有报告。修订与复核另存版本。审查的 Accept 只代表内部可用性，不是期刊录用。
 
 ## 工作口径
@@ -37,5 +39,9 @@
 ## 恢复与停止
 
 临时文件、缓存与运行目录均使用 D:\CodexRuntime。先读本文件、最新协议和 `D:\CodexRuntime\runs\r33_stage6_20261022\status.json`，检查进程身份/锁后再操作。真实训练失败只允许同任务同配置恢复，记录中断，不重抽种子。训练或复核错误先处理工程原因，已完成初稿内容继续独立推进。
+
+首次 PS5 启动解析失败发生在任何训练派发之前；启动器补 UTF-8 BOM、真实 PS5 ParseFile 检查后，新的专项测试为42 passed。原71训练测试仅因源/日志hash匹配复用，没有重复冒称本轮运行。Gate通过后用同一PS5入口启动成功。运行期间不要修改冻结源码或 SCREEN_PROTOCOL.md，避免后续worker源门失败。
+
+论文排版使用独立 `D:\CodexRuntime\venvs\r33-analysis` 环境（新增pypandoc_binary1.17、pymupdf1.26.7），不动训练环境。`manuscript/render_manuscript.py` 生成离线MathML HTML及本机XeLaTeX PDF，所有编译中间物与预览在D盘；当前仅工作稿排版预检，未作为最终稿交付。
 
 只有完整初稿、图表、来源证据和自动审查修订记录实际交付后，才将目标 complete 并关闭 heartbeat。长训练等待不等于目标完成；不得把“已启动”说成“已经交付”。

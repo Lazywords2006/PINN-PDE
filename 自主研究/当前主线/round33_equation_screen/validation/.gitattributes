@@ -9,3 +9,5 @@ stage5_analysis_20261022/*.json -text whitespace=blank-at-eol,blank-at-eof,space
 # Preserve stage-6 engineering and completion evidence bytes.
 stage6_20261022/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 stage6_20261022/*.xml -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+stage6_analysis_20261022/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+stage6_analysis_20261022/*.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

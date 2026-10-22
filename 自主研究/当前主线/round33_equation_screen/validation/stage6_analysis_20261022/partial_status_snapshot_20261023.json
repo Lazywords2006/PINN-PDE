@@ -1,0 +1,30 @@
+{
+  "analysis_state": "partial",
+  "generated_local": "2026-10-23T00:24:44.483340+08:00",
+  "prereg_commit": "bfe89e3a07f1bb3bcc8e049d8d3d7ff95b4a647a",
+  "required_tasks": 30,
+  "runner_phase": "running",
+  "counts": {
+    "queued": 11,
+    "running": 19,
+    "completed": 0,
+    "failed": 0
+  },
+  "saved_json_count": 0,
+  "validator_reported_count": 0,
+  "validator_reported_complete": false,
+  "runner_pid": 42100,
+  "runner_updated_utc": "2026-10-22T16:24:44.033860+00:00",
+  "resources": {
+    "available_physical_gib": 6.307491302490234,
+    "total_physical_gib": 31.78112030029297,
+    "commit_used_fraction": 0.9198918080563367,
+    "available_commit_gib": 3.7475509643554688
+  },
+  "stop_dispatch_reason": null,
+  "final_criteria_evaluated": false,
+  "notice": "PARTIAL：仅报告运行/落盘/验证状态；不计算最终效果判据、不生成正式分析图。",
+  "input_sha256": {
+    "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\status.json": "1bd7ad0cd5955cdcd75a5de15c6583217aeb653a0e4deae01ac1e0041107aa10"
+  }
+}

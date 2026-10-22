@@ -1,0 +1,45 @@
+{
+  "working_draft_not_complete": true,
+  "draft_body_matches_file_verbatim": true,
+  "contract_id": "academic_paper/writer_full/v1",
+  "D6_from_contract": "paragraph_structure",
+  "phase4b_sections_in_order": true,
+  "dimension_count": 7,
+  "failure_checks_order": [
+    "F1",
+    "F4",
+    "F2",
+    "F3",
+    "F0"
+  ],
+  "actual_body_cjk": 9572,
+  "total_target": 11000,
+  "material_gap_count": 2,
+  "references": 13,
+  "citation_occurrences": 17,
+  "original_json_count": 176,
+  "original_json_hashes_match_snapshot": true,
+  "remaining_scientific_inputs": [
+    "修订6全部12次tau灵敏度结果和复核",
+    "修订6全部18次SOAP64结果和复核"
+  ],
+  "remaining_work": [
+    "补齐4.5及4.6结果和论证",
+    "更新摘要、讨论和结论",
+    "完成稿件图表与引用终审",
+    "按最终全文核算字数和TEEL比例",
+    "冻结完整v1后交独立evaluator"
+  ],
+  "draft_sha256": "9783dd11b2756134b5f365e234e1e7ba4590ab6dd11435fc1910c2e85b84e8d9",
+  "phase4b_sha256": "e80aa70de93af1547f1e700948f34cbe411a02232ada1d59e8ccab457b36bd5b",
+  "scores": {
+    "D1": "block",
+    "D2": "pass",
+    "D3": "warn",
+    "D4": "block",
+    "D5": "block",
+    "D6": "warn",
+    "D7": "pass"
+  },
+  "decision": "escalate_to_evaluator"
+}

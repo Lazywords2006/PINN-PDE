@@ -1,0 +1,47 @@
+{
+  "recorded_utc": "2026-10-22T16:42:26.720901+00:00",
+  "prereg_commit": "bfe89e3a07f1bb3bcc8e049d8d3d7ff95b4a647a",
+  "implementation_commit_at_launch": "7c3edb2",
+  "launch_command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File run_stage6.ps1 -Action Run -Workers 24",
+  "launcher_pid": 73808,
+  "runner_pid": 42100,
+  "first_started_utc": "2026-10-22T16:08:04.374697+00:00",
+  "snapshot_updated_utc": "2026-10-22T16:42:26.368533+00:00",
+  "snapshot_counts": {
+    "queued": 11,
+    "running": 19,
+    "completed": 0,
+    "failed": 0
+  },
+  "snapshot_resources": {
+    "available_physical_gib": 6.528114318847656,
+    "total_physical_gib": 31.78112030029297,
+    "commit_used_fraction": 0.9130057023384236,
+    "available_commit_gib": 4.069690704345703
+  },
+  "checkpoint_steps": {
+    "sensitivity_tau003_v1__E1_heat__hardic_layer_s0": 4500,
+    "sensitivity_tau003_v1__E3_fisher__hardic_layer_s0": 4000,
+    "sensitivity_tau003_v1__E1_heat__hardic_layer_s1": 4000,
+    "sensitivity_tau003_v1__E3_fisher__hardic_layer_s1": 4000,
+    "sensitivity_tau003_v1__E1_heat__hardic_layer_s2": 4000,
+    "sensitivity_tau003_v1__E3_fisher__hardic_layer_s2": 4000,
+    "sensitivity_tau03_v1__E1_heat__hardic_layer_s0": 4000,
+    "sensitivity_tau03_v1__E3_fisher__hardic_layer_s0": 4000,
+    "sensitivity_tau03_v1__E1_heat__hardic_layer_s1": 4000,
+    "sensitivity_tau03_v1__E3_fisher__hardic_layer_s1": 3500,
+    "sensitivity_tau03_v1__E1_heat__hardic_layer_s2": 3500,
+    "sensitivity_tau03_v1__E3_fisher__hardic_layer_s2": 3500,
+    "final_soap64_v1__E1_heat__vanilla_s0": 3500,
+    "final_soap64_v1__E1_heat__hardic_s0": 3500,
+    "final_soap64_v1__E1_heat__hardic_layer_s0": 3500,
+    "final_soap64_v1__E3_fisher__vanilla_s0": 3500,
+    "final_soap64_v1__E3_fisher__hardic_s0": 3500,
+    "final_soap64_v1__E3_fisher__hardic_layer_s0": 3000,
+    "final_soap64_v1__E1_heat__vanilla_s1": 3000
+  },
+  "engineering_gate_sha256": "bb7250d65bfee8b44858c2ae734e540eee0bf7d26e2d5a68bbc2b7d40ff6e898",
+  "real_training_started": true,
+  "batch_completed": false,
+  "note": "这是启动后推进证据快照，不是实时状态或实验完成证明；Windows venv launcher与实际解释器PID不同。"
+}

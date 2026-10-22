@@ -1,0 +1,12 @@
+{
+  "reference_records": 14,
+  "bib_entries": 13,
+  "duplicate_keys": 0,
+  "missing_core_bib_entries": 0,
+  "local_evidence_hashes_verified": 13,
+  "abstract_only": [
+    "Favini2002Wentzell"
+  ],
+  "status": "PASS",
+  "scope": "文献条目结构、键与已存来源哈希核验；不代表全部文献逐字通读或发表保证"
+}
