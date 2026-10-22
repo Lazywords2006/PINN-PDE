@@ -1,6 +1,6 @@
 # R33 筛选结果（2026-10-17）
 
-最新完成状态见文末“修订 5 完整结果”；详细全种子、残差和成本分析见 [第一阶段分析](STAGE5_ANALYSIS_20261022.md)。下文各历史阶段保留其当时记录，旧判据不改。
+最新完成状态见 [修订6完成态（2026-10-23，UTC+8）](#r33-complete-20261023)。Stage6科学结果入口采用complete_v2及其限定复核；下文旧日期段、旧判据和失败均保留，不能把旧“未启动”当作当前状态。
 
 按 [SCREEN_PROTOCOL.md](SCREEN_PROTOCOL.md) 执行，未改协议、未追加调参。30 个 run（3 个方程 × 5 种方法 × 2 个种子），云端 4 核并行，15:20–16:12 JST。每个 run 约 6–7 分钟。表格由 `python3 screen.py report` 生成（`runs/screen_report.md`）。只有 2 个种子、小预算（Adam 4000 + L-BFGS ≤500），结论只用于决定下一步，不是论文证据。
 
@@ -237,3 +237,23 @@ E3 上只低 1.5 倍，低于 3 倍。E1 上因 PirateNet 数据不全，用因�
 独立残差另报；例如 E1 新初值 vanilla 的 PDE RMS 中位数低于校正方法，而体误差更大。不能把某一残差分量等同于解误差。实际 L-BFGS 内部迭代 1951–3000、closure 3196–3751，不能把名义上限当作实际调用相等。18:54 调低工作进程优先级及末尾低并发影响墙钟；本批不用于宣称固定比例开销或速度优势。
 
 全库现有 **176 个 JSON**：原 130 + 修订 4 小预算 24 + 本轮 22；`pirate` 为 12、`final_ic_v1` 为 18，`soap1e3/soap3e3/ic1000` 仍各零。全种子表、逐时刻体/迹指标、残差与成本证据见 [完整分析](STAGE5_ANALYSIS_20261022.md) 和 [机器可读汇总](validation/stage5_analysis_20261022/analysis_evidence.json)。下一步建议初稿与来源核查、12 次 τ 灵敏度优先，18 次 SOAP64 另行决定；当前只分析，未将建议注册或开跑。
+
+<a id="r33-complete-20261023"></a>
+
+## 修订6完成态与结果入口（2026-10-23，UTC+8）
+
+此段为完成态追加，不改上面各日期的结果、投入门或失败记录。预注册提交为bfe89e3a07f1bb3bcc8e049d8d3d7ff95b4a647a；Stage6 30/30于06:29:36完成，runner91632实际HANDLE exit0。全部单attempt、exit0，原21/后9的恢复谱系保留；全库206份JSON、488个raw文件。当前无训练，不执行Run，不启动旧42/322批次。
+
+科学结果以 [complete_v2完整分析](validation/stage6_analysis_20261022/complete_v2/STAGE6_ANALYSIS_20261022.md) 和 [V2_FOLLOWUP](manuscript/integrity/stage6_analysis_20261023/V2_FOLLOWUP.md) 为入口。v2的3份CSV与科学值/配置/判据同v1，仅更正图表展示；本状态整理未重新聚合结果。
+
+| 完成态指标 | E1 | E3 | 解释 |
+|---|---:|---:|---|
+| 同批SOAP64 hardic / hardic+layer 三种子中位数比 | 300.07035 | 30.82806 | 仅同批固定SOAP64内叠加 |
+| SOAP64 hardic+layer主误差≤0.01 | 3/3 | 3/3 | 两问题均满足S6-SOAP，不改原B-1/B-2 |
+| τ三档最大/最小中位数比 | 1.71581 | 1.43027 | 只作灵敏度，不选择最优τ |
+
+主指标仍是五个指定时刻最大体相对L²的三种子中位数，不是连续时间上确界。Adam与τ=0.1主线不变；τ=0.1及历史Adam与本机新批次存在环境差异。S6-SOAP是本项目局部叠加判据，不是普适发表门槛；不据此宣称普遍胜过现代强基线。原A-1和G2失败、E4对vanilla无优势及其旧表面权重缺失、A-2在E1/E3均通过均保留。
+
+运行、退出和完整产物的分层证据见 [完成归档](validation/stage6_20261022/completion_archive_20261023/archive_manifest.json) 及 [613断言复现核对](manuscript/process/reproducibility_complete_20261023/REPRODUCIBILITY_COMPLETE_CN.md)。工程110项回归不等于科学改进；历史130次生产全日志仍缺失，新30份日志不能补齐历史记录。
+
+完整初稿 [complete_v1](manuscript/drafts/complete_v1.md) 已冻结，SHA-256为8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3，正文11434汉字；[Phase4b](manuscript/process/complete_v1/writer_phase4b.md) 已保存。全稿integrity/evaluator正在进行；正式五视角评审、人工署名核验及最终交付尚未完成，本段不构成全稿通过或录用判断。

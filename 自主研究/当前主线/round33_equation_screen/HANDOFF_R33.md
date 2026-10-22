@@ -1,8 +1,8 @@
 # R33 交接文档（2026-10-22 JST 写，从云端会话转到用户本机 i7-14600K）
 
-接手的人（或新的 Claude 会话）先读完本文，再读 `SCREEN_PROTOCOL.md`（含修订 1、2、3）、`SCREEN_REPORT.md`、`E4_PROTOCOL.md`、`RELATED_WORK.md`、`PAPER_PLAN.md`。仓库 `lazywords2006/pinn-pde`，分支 `claude/current-content-progress-e0d951-k5lc11`。目录 `自主研究/当前主线/round33_equation_screen/`（下称 R33 目录）。
+接手的人（或新的 Claude 会话）先读完本文，再读 `SCREEN_PROTOCOL.md`（含修订 1–6）、`SCREEN_REPORT.md`、`E4_PROTOCOL.md`、`RELATED_WORK.md`、`PAPER_PLAN.md`。仓库 `lazywords2006/pinn-pde`，分支 `claude/current-content-progress-e0d951-k5lc11`。目录 `自主研究/当前主线/round33_equation_screen/`（下称 R33 目录）。
 
-**最新执行状态以第 12 节及协议修订 5 为准：第一阶段 22/22 已完成，第二阶段未启动。第 2–11 节的运行状态按各自日期作历史记录；不要照抄旧命令重复恢复已完成任务或启动旧 42 个基线。** 新记录采用明确标注的 UTC+8；本机硬件实查为 i7-14650HX，原标题是历史交接描述。
+**最新执行状态见 [第13节：Stage6与完整初稿完成态](#r33-complete-20261023)（2026-10-23，UTC+8）：Stage6 30/30完成，当前无训练；全稿核验与正式评审仍未完成。前文运行状态按各自历史时点保留，规则与最新协议继续适用；不按旧命令重跑，旧42/322批次不启动。** 新记录采用明确标注的UTC+8；本机硬件实查为i7-14650HX，原标题是历史交接描述。
 
 ## 0. 用户与规则
 
@@ -159,3 +159,17 @@
 - 论文可按“被测一维问题上的经典角点层修正、同架构消融与适用范围”组织初稿。建议优先补经典来源和 12 次 τ 灵敏度；18 次固定 SOAP64 是否加入另行决定。两个建议均未开跑，须另追加并提交协议后执行；旧 42/322 批次仍不启动。
 
 本轮分析只读训练产物，没有改 `problems.py`、`pinn1d.py` 或 `SCREEN_PROTOCOL.md`，不需要为文档整理重复训练或重跑全部测试。复现汇总使用 D 盘独立分析环境 `D:\CodexRuntime\venvs\r33-analysis`，未改专用训练环境。
+
+<a id="r33-complete-20261023"></a>
+
+## 13. Stage6与完整初稿完成态（2026-10-23，UTC+8）
+
+本节更新接手状态，不覆盖前文日期记录、协议或失败。修订6先提交预注册 bfe89e3a07f1bb3bcc8e049d8d3d7ff95b4a647a；Stage6全部30项于06:29:36完成，runner91632真实HANDLE exit0。30项均单attempt、exit0，原21与后9的恢复源码谱系保留；全库现为206份JSON、488个raw文件。当前无训练，禁止照前文旧命令Run；旧42基线及322调参草案不启动。
+
+- 科学来源改读 [complete_v2完整分析](validation/stage6_analysis_20261022/complete_v2/STAGE6_ANALYSIS_20261022.md) 与 [V2_FOLLOWUP限定独立复核](manuscript/integrity/stage6_analysis_20261023/V2_FOLLOWUP.md)。v2只修正图形展示，3份CSV及科学值/配置/判据与v1一致，不是新增训练结果。原始运行完成态仍读 [冻结归档](validation/stage6_20261022/completion_archive_20261023/archive_manifest.json)。
+- 同批SOAP64内，H=hardic、HL=hardic+layer；E1/E3的H/HL三种子中位数比分别300.07035/30.82806，HL均3/3≤0.01，满足本批S6-SOAP叠加判据。该局部判据不替代旧B-1/B-2，不是普适发表门槛，也不证明胜过所有现代强基线。旧A-1/G2失败、E4对vanilla无优势、A-2两个问题通过均保留。
+- τ跨0.03/0.1/0.3的最大/最小中位数比为E1 1.71581、E3 1.43027；只报告灵敏度，不按结果选参。Adam及τ=0.1主线不变；历史τ=0.1/Adam与本机新批次的环境混杂继续披露。
+- 运行/复现材料读 [613断言限定核对](manuscript/process/reproducibility_complete_20261023/REPRODUCIBILITY_COMPLETE_CN.md) 及其机器记录。该报告绑定完成态v1、证据层分明；110项工程回归不等于科学改进。历史130次生产全日志仍缺失，不能由新30份日志补齐；真实人工署名核验仍pending。
+- 最新完整初稿为 [manuscript/drafts/complete_v1.md](manuscript/drafts/complete_v1.md)，于07:00:28冻结，SHA-256为8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3，六章正文按冻结统计口径共11434汉字；[冻结清单](manuscript/process/complete_v1/FROZEN_DELIVERY_MANIFEST.json) 与 [Phase4b材料](manuscript/process/complete_v1/writer_phase4b.md) 已保存。全稿integrity/evaluator正在进行，正式五视角评审和最终交付尚未完成；不得写成审查通过、可投稿定稿或录用。
+
+接手后的当前工作是围绕该冻结完整稿完成既定核验/评审并保留记录，不再执行第3、4、10–12节中已过时的“建议训练/待启动”事项。本轮仅更新项目导航与完成状态，不改论文正文、科学协议或原始数据。

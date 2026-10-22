@@ -2,7 +2,7 @@
 
 本计划根据已保存数据和本机复核收窄论点，替代 2026-10-20 的计划。实验协议、原始结果和旧判定保留原样。此前“常规 PINN 有误差下限”“优势随错配普遍增大”等措辞超出证据，不再作为论文主张。
 
-最新状态：修订 5 第一阶段已完成 22/22，A-2 在 E1/E3 均满足；新初值全种子分析见 [STAGE5_ANALYSIS_20261022.md](STAGE5_ANALYSIS_20261022.md)。下面第七、八节保留此前草案与启动记录，当前后续安排以第九节为准。
+最新状态见 [第十节：Stage6完成与冻结完整初稿](#r33-complete-20261023)（2026-10-23，UTC+8）：30/30完成，完整初稿complete_v1已冻结；全稿integrity/evaluator正在进行，正式五视角评审与最终交付尚未完成。下文各旧日期安排保留为历史，不触发新训练。
 
 ## 一、当前判断
 
@@ -85,3 +85,17 @@ E4 完整预算为筛选失败之后追加的探索：对 hardic/RBA 达到探�
 5. 以上耗时是规划区间，不是已运行或保证；为了前台流畅降低并发时会变化。第二阶段未获授权、未开跑，执行前另行追加并提交协议。
 
 本批实际计数已记录，但墙钟受优先级、并发负载及 PirateNet 云端历史影响，不用于声称固定百分比开销。独立 PDE 残差与解误差不总同序，要联同初值/边界残差解释；目前没有因此改变配置或选择指标。
+
+<a id="r33-complete-20261023"></a>
+
+## 十、Stage6完成与冻结完整初稿（2026-10-23，UTC+8）
+
+本节更新第七–九节的后续安排，旧日期段及其未启动/失败记录原样保留。修订6预注册bfe89e3a07f1bb3bcc8e049d8d3d7ff95b4a647a后，有限30项已于06:29:36全部完成；runner91632真实HANDLE exit0，各任务均单attempt、exit0，保留原21/后9的恢复谱系。全库206份JSON、488个raw文件；当前无训练，不Run，不启动旧42个基线或322次调参草案。
+
+1. 科学材料已采用 [complete_v2](validation/stage6_analysis_20261022/complete_v2/STAGE6_ANALYSIS_20261022.md) 及 [V2_FOLLOWUP限定复核](manuscript/integrity/stage6_analysis_20261023/V2_FOLLOWUP.md)。三份CSV、科学值、配置及判据与v1相同，只修正展示。固定同批SOAP64的hardic/hardic+layer中位数比为E1 300.07035、E3 30.82806，修正组均3/3≤0.01，满足S6-SOAP局部叠加判据；不替代旧B-1/B-2，不扩写为一般方法排名或发表门槛。
+2. τ三档跨档最大/最小中位数比为E1 1.71581、E3 1.43027；仅作灵敏度描述，不据此选参。Adam及τ=0.1主线保持，历史默认与本机新批次的环境混杂继续披露。A-1/G2失败、E4负面及历史表面分支缺失、A-2两个问题通过均继续进入论文范围边界。
+3. 最新完整初稿为 [complete_v1.md](manuscript/drafts/complete_v1.md)，07:00:28冻结；SHA-256为8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3，按 [冻结统计口径](manuscript/process/complete_v1/word_counts.json) 六章正文11434汉字。[Phase4b材料](manuscript/process/complete_v1/writer_phase4b.md) 和 [冻结交付清单](manuscript/process/complete_v1/FROZEN_DELIVERY_MANIFEST.json) 已保存；这是完整初稿冻结，不是独立全文评审通过或投稿最终稿。
+4. 全稿integrity/evaluator正在进行，正式五视角评审及最终交付尚未完成；待这些既定流程完成后再据其实际结论记录状态。真实人工署名及责任核验仍pending，不能写录用保证。本轮不写论文正文，不增加实验计划。
+5. 复现入口为 [613断言完成态核对](manuscript/process/reproducibility_complete_20261023/REPRODUCIBILITY_COMPLETE_CN.md) 和 [完成归档](validation/stage6_20261022/completion_archive_20261023/archive_manifest.json)，分清真实进程退出、保存产物/数值验收、工程回归与科学效果。历史130次生产全日志仍缺失，不能用新30份补齐；110项工程回归不等于科学改进。
+
+当前下一步仅是完成冻结全稿的既定核验、正式评审及有记录的最终交付，不再把早期“待补τ/SOAP、待写初稿”的规划当作仍需开跑的任务。
