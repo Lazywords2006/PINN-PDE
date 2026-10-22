@@ -1,0 +1,8 @@
+{
+  "checked_utc": "2026-10-22T21:27:00.853351+00:00",
+  "scope": "Exact Git index bytes checked against frozen full-validation hashes; not a new numerical evaluation",
+  "files": 63,
+  "matched": 63,
+  "all_match": true,
+  "archive_manifest_sha256": "320b64f3603752e00a7d6ee09e805e07b91794814f718aab616bbab6c4da3081"
+}

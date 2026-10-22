@@ -1,0 +1,450 @@
+{
+  "archived_utc": "2026-10-22T21:26:51.053054+00:00",
+  "scope": "21 completed and recomputed original Stage6 tasks only; other9 still running, not final30 acceptance",
+  "status_observation_sha256": "b94e8e1ba795b426352647c8cfce1bb071c49c6df66adc762c58e7d309f9b6db",
+  "jobs": [
+    [
+      "sensitivity_tau003_v1",
+      "E1_heat",
+      "hardic+layer",
+      0
+    ],
+    [
+      "sensitivity_tau003_v1",
+      "E3_fisher",
+      "hardic+layer",
+      0
+    ],
+    [
+      "sensitivity_tau003_v1",
+      "E1_heat",
+      "hardic+layer",
+      1
+    ],
+    [
+      "sensitivity_tau003_v1",
+      "E3_fisher",
+      "hardic+layer",
+      1
+    ],
+    [
+      "sensitivity_tau003_v1",
+      "E1_heat",
+      "hardic+layer",
+      2
+    ],
+    [
+      "sensitivity_tau003_v1",
+      "E3_fisher",
+      "hardic+layer",
+      2
+    ],
+    [
+      "sensitivity_tau03_v1",
+      "E1_heat",
+      "hardic+layer",
+      0
+    ],
+    [
+      "sensitivity_tau03_v1",
+      "E3_fisher",
+      "hardic+layer",
+      0
+    ],
+    [
+      "sensitivity_tau03_v1",
+      "E1_heat",
+      "hardic+layer",
+      1
+    ],
+    [
+      "sensitivity_tau03_v1",
+      "E3_fisher",
+      "hardic+layer",
+      1
+    ],
+    [
+      "sensitivity_tau03_v1",
+      "E1_heat",
+      "hardic+layer",
+      2
+    ],
+    [
+      "sensitivity_tau03_v1",
+      "E3_fisher",
+      "hardic+layer",
+      2
+    ],
+    [
+      "final_soap64_v1",
+      "E1_heat",
+      "vanilla",
+      0
+    ],
+    [
+      "final_soap64_v1",
+      "E1_heat",
+      "hardic",
+      0
+    ],
+    [
+      "final_soap64_v1",
+      "E1_heat",
+      "hardic+layer",
+      0
+    ],
+    [
+      "final_soap64_v1",
+      "E3_fisher",
+      "vanilla",
+      0
+    ],
+    [
+      "final_soap64_v1",
+      "E3_fisher",
+      "hardic",
+      0
+    ],
+    [
+      "final_soap64_v1",
+      "E3_fisher",
+      "hardic+layer",
+      0
+    ],
+    [
+      "final_soap64_v1",
+      "E1_heat",
+      "vanilla",
+      1
+    ],
+    [
+      "final_soap64_v1",
+      "E1_heat",
+      "hardic",
+      1
+    ],
+    [
+      "final_soap64_v1",
+      "E1_heat",
+      "hardic+layer",
+      1
+    ]
+  ],
+  "files": [
+    {
+      "path": "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s0.json",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s0.json",
+      "sha256": "ebef540110c3af5dcd8dad13cc356a1cb3d9a6b6f09dc3d76c5e38d787e935ba"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s0.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s0.pt",
+      "sha256": "8e4960c2c22dccfccff383f2e8395bda92f6b2928099e00b6fcec945e08942a8"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s0.model.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s0.model.pt",
+      "sha256": "17fe345945d152928f79a2c90ccdefb88dd2c0391a333338ebca79a22b26b8d5"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s0.json",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s0.json",
+      "sha256": "0d317478d362d5f972b85d354f1d58b827ba2ccba0975ff2b0cfb334b880bae9"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s0.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s0.pt",
+      "sha256": "aaeee1d219cd5cd918cb36015a4dee270e565b939d6aee1d4d169111cd8a2eca"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s0.model.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s0.model.pt",
+      "sha256": "339de776a7daf15d6f5638ae7c9de3755fc87772fe1bfff6360ed025ecee0251"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s1.json",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s1.json",
+      "sha256": "48a4a19a8d869ec0092b9649c69c7a7add1ad1ef6a04e81676c6f88084a5a1c8"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s1.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s1.pt",
+      "sha256": "94f36ee6dd03b306fdfa2932f1ef2e5ba55fd7a14c168c7aee9384d9d6d59dc0"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s1.model.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s1.model.pt",
+      "sha256": "2fcf5b1ba29cf1515f91ce83787e501852aaa1fcca7ea28614dea18ce7f73e86"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s1.json",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s1.json",
+      "sha256": "4d7cd6a83ff1603b408a8cf4d19943c2ecc3c11a6833f4fdba5e20dc68cb35d8"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s1.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s1.pt",
+      "sha256": "a2d194c05a677c0d1f50e28fac1b6d9069555dede15678165a785fe47d8b8499"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s1.model.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s1.model.pt",
+      "sha256": "c3d1e230b5f7a286031e752d4fb92bf887cc67c6726f0fa4ff4c8c24dff9d674"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s2.json",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s2.json",
+      "sha256": "c477f005b287a623369820591d09194067fa19c587351dff93096c0ad664cd43"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s2.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s2.pt",
+      "sha256": "bdcae9e8c5a509882e886af78a95f7f69ba7f4e58e34359e817b61eb981e4e18"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s2.model.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s2.model.pt",
+      "sha256": "53e4f8f46a6b49b53679497019dc6c92e2d0934e302747cd5e4a56b3687ced77"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s2.json",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s2.json",
+      "sha256": "b97cb4edb94381f9ef1411d93d918240ca8ce66c5a4bddadacd73affd9e07540"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s2.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s2.pt",
+      "sha256": "6e45fd4b18946e23fa5d8f7cd44ad7a5b4eb7392597f4808260252fd2a3fd22a"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s2.model.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s2.model.pt",
+      "sha256": "53d373c28b543c5ffbf47c48233a1b9af74974392c3a6236f9bbd14c132d3fd5"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s0.json",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s0.json",
+      "sha256": "3f9a1898ef84c8d60bd4309c44b9934d252d348badf93e88bc8c30e170110b5f"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s0.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s0.pt",
+      "sha256": "a73d992a384986ce59e14602316a5ec504bdce8ded9d1db487f655876b3a87bc"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s0.model.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s0.model.pt",
+      "sha256": "75aae3bf66c1b5add8bc352ab8d64784e94f4438dd669f37340d76d4e6cc9f4a"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s0.json",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s0.json",
+      "sha256": "6621347001cd06bf3fd3434d48cd72f28875fd0d2c63146468dd3b547b4c2fb9"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s0.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s0.pt",
+      "sha256": "fdcd29a521aa92fd8b71f40a2efa5e70a5a886aef05bdbd055728f4095a7152d"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s0.model.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s0.model.pt",
+      "sha256": "71b2d92e6b4820e1a12ea8afb257962599b4a7ca36d09618904db018a5960f8a"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s1.json",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s1.json",
+      "sha256": "f83b25dc08eed28649ed4bc15dadbff1bcc227343b0b0fe2adcbda5e9e69ad14"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s1.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s1.pt",
+      "sha256": "092b931520e755b3cf6972f776d0a07d766e3c2438ca86c1c2210e863707d217"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s1.model.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s1.model.pt",
+      "sha256": "215cee5e3a0e99b54f7a19336d361d4e8430dd03fe5163c59abf38c955bbc553"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s1.json",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s1.json",
+      "sha256": "cf5b44b24ff27e854022580ca38d0d657ac18d2697b337edd4cd9c7a5ab78de8"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s1.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s1.pt",
+      "sha256": "fe5ff9fd22dd55f289543dca6afe3d9f875489d190d3841c48baccdc3a379f00"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s1.model.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s1.model.pt",
+      "sha256": "1428fd146e2fbc2e6e3defdbb84c05db5b6c621c89075e3bd373fa5463990154"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s2.json",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s2.json",
+      "sha256": "acf203912f2de93d506e07e04c2a06e7cf49b3eb5e3523f5ef215fb6eca58157"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s2.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s2.pt",
+      "sha256": "3744a50b1df1b59c1867af35fc17b3a15d0b8d9bae78a094285f27488d633795"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s2.model.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s2.model.pt",
+      "sha256": "63f54a65e91156c71b358015d8aa841e36c4bf8252e20bce4c3cf6fd3d481998"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s2.json",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s2.json",
+      "sha256": "42d02f299efe2e75370e986f2a8594b0f597d5e1fe31120a8f40c56386130ae0"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s2.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s2.pt",
+      "sha256": "6fbe73127ff38a325e3362be6d2f86eecaa748cbe2f8bf9b91daf9a6af10a4a7"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s2.model.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s2.model.pt",
+      "sha256": "ad064826045cf247e2632721eb333731388719a0389adc85e711d9a388ac48c6"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/vanilla_s0.json",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E1_heat/vanilla_s0.json",
+      "sha256": "82f16eabe78c0a0aedb2c705df9dc521e6ddd3c0565c8153b62d27085b4d6b71"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/vanilla_s0.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E1_heat/vanilla_s0.pt",
+      "sha256": "727f570f58334cf956809ed88b9df29408404def86dcfaaa331d5972a3c66e75"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/vanilla_s0.model.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E1_heat/vanilla_s0.model.pt",
+      "sha256": "17335e310d9d2eaddb9ecb152b931fbe0005170c4563be9a330be06772849086"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/hardic_s0.json",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E1_heat/hardic_s0.json",
+      "sha256": "725214efbfa6fab4ee55c1ec9a161d1d81142cb594c8462e5c06f98196b69421"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/hardic_s0.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E1_heat/hardic_s0.pt",
+      "sha256": "603fb3a88a7bcf740d814636ca53e950daab5c48c813c9462f1be5ddf6b33c65"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/hardic_s0.model.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E1_heat/hardic_s0.model.pt",
+      "sha256": "5b5aba7e1db7a26a373bf6fc20c9fb10b0b73e5a5c858e63de5c83eef12ca799"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/hardic_layer_s0.json",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E1_heat/hardic_layer_s0.json",
+      "sha256": "92a371db9fcdd4257963d095dd3da5bd9ad3fcaebcab362535c434b1f49bbd49"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/hardic_layer_s0.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E1_heat/hardic_layer_s0.pt",
+      "sha256": "118fdff2a301facc50954a42ae53383141ec723a27663a9dcd7c78caeeb1b40a"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/hardic_layer_s0.model.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E1_heat/hardic_layer_s0.model.pt",
+      "sha256": "6163e1a2cb4f61ad6c3fba943bcb4af452b7938b64b1677888f57caf39d29f6b"
+    },
+    {
+      "path": "runs/final_soap64_v1/E3_fisher/vanilla_s0.json",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E3_fisher/vanilla_s0.json",
+      "sha256": "24f9b71f6669453a58b42eb550daf436da9740d53a6c58851ace680e45d89ed9"
+    },
+    {
+      "path": "runs/final_soap64_v1/E3_fisher/vanilla_s0.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E3_fisher/vanilla_s0.pt",
+      "sha256": "cb49f6678e192abdc5a8d70c791ecb19c5c6bb989156491663706719a9b5814a"
+    },
+    {
+      "path": "runs/final_soap64_v1/E3_fisher/vanilla_s0.model.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E3_fisher/vanilla_s0.model.pt",
+      "sha256": "ce94eafbc87d3a8fc8d2c007fbddb297088fe14fde1112cc76d8ca162bff5263"
+    },
+    {
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_s0.json",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E3_fisher/hardic_s0.json",
+      "sha256": "d69cedc42e821520d8e900f64769812354e2d2ad668ef50ec0607ab7d1a65851"
+    },
+    {
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_s0.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E3_fisher/hardic_s0.pt",
+      "sha256": "508462d5901c5b6403a52c39bb991135e2d22b33a8286542810899ce6b3b045d"
+    },
+    {
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_s0.model.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E3_fisher/hardic_s0.model.pt",
+      "sha256": "a817bba1a6654ffacefdc0d939f4a89657cb344faa956edaa112f1adb5078ade"
+    },
+    {
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_layer_s0.json",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E3_fisher/hardic_layer_s0.json",
+      "sha256": "f903c8a1bab9f697304bbc2d4f0436b047a4b0ab3e0babf1213063c4851bb6e4"
+    },
+    {
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_layer_s0.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E3_fisher/hardic_layer_s0.pt",
+      "sha256": "5986023eb78fce3be367efeceab95185d498b44b4e5e1f44f6ce1566b7267ae1"
+    },
+    {
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_layer_s0.model.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E3_fisher/hardic_layer_s0.model.pt",
+      "sha256": "e6ce214dafa09dfe0a4365c096818cf67a276d9920413347bcbf6cb9f63efce0"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/vanilla_s1.json",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E1_heat/vanilla_s1.json",
+      "sha256": "d66322be0938d344911894fbe90d1c19109a0167dd38dde0637ae3dec9a00dcc"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/vanilla_s1.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E1_heat/vanilla_s1.pt",
+      "sha256": "c12065f13d45b0d50ce49b0acebff4f690fb43319fb235dc888293e048a8c359"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/vanilla_s1.model.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E1_heat/vanilla_s1.model.pt",
+      "sha256": "06d247a2fcaa02d2330426087c96a673d1ac01076b01bcff7f3f9434b982195f"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/hardic_s1.json",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E1_heat/hardic_s1.json",
+      "sha256": "8cbe169e0f7ae95b84dd68b808f1ca360ffd5e9204e676d01545e661eab1e5a3"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/hardic_s1.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E1_heat/hardic_s1.pt",
+      "sha256": "2fd699439a2a300787498b213a24c289e385a829f33d0d93f93e9a6456c88b3f"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/hardic_s1.model.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E1_heat/hardic_s1.model.pt",
+      "sha256": "2194c7af985f06bb0b297296ab62eff643e05c008b2e61bd2d2938a14cb1026a"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/hardic_layer_s1.json",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E1_heat/hardic_layer_s1.json",
+      "sha256": "4e730e8b2d73baa2ee3f098335c9e34107a7e74b707723eee950b666990926a1"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/hardic_layer_s1.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E1_heat/hardic_layer_s1.pt",
+      "sha256": "d15c8e623829b1f3e2a6d1948e37a3720c95c08742e087dd94f635b1497c71f4"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/hardic_layer_s1.model.pt",
+      "repository_path": "自主研究/当前主线/round33_equation_screen/runs/final_soap64_v1/E1_heat/hardic_layer_s1.model.pt",
+      "sha256": "85a9a721f12f1e87c745cb8b19a78e0a87d711649d6f782fbd15b498d02cd153"
+    }
+  ]
+}
