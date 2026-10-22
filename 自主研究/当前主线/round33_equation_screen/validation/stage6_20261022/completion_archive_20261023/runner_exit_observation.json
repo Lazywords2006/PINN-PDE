@@ -1,0 +1,13 @@
+{
+  "source": "Native Windows process HANDLE observation in exec session 55894; event transcribed from tool output",
+  "attached_utc": "2026-10-22T21:44:56.584796+00:00",
+  "pid": 91632,
+  "creation_filetime_utc": 134371761295446802,
+  "command_line_verified": true,
+  "observed_exit_utc": "2026-10-22T22:29:36.327882+00:00",
+  "handle_signaled": true,
+  "exit_code": 0,
+  "runner_status_phase_at_observation": "completed",
+  "completed_count": 30,
+  "scope": "runner exit observation; individual task exit evidence is preserved in task attempts and logs; not a new numerical validation"
+}

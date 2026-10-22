@@ -1,0 +1,294 @@
+{
+  "created_utc": "2026-10-22T22:32:14.202403+00:00",
+  "archive_scope": "immutable completed Stage6 runtime/validation/log snapshot",
+  "prereg_commit": "bfe89e3a07f1bb3bcc8e049d8d3d7ff95b4a647a",
+  "completed_tasks": 30,
+  "all_single_attempt_exit0": true,
+  "all_complete_and_recomputed": true,
+  "source_lineage_job_counts": [
+    21,
+    9
+  ],
+  "old398_unchanged_in_completion_report": true,
+  "new_raw_files": {
+    "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s0.json": "ebef540110c3af5dcd8dad13cc356a1cb3d9a6b6f09dc3d76c5e38d787e935ba",
+    "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s0.pt": "8e4960c2c22dccfccff383f2e8395bda92f6b2928099e00b6fcec945e08942a8",
+    "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s0.model.pt": "17fe345945d152928f79a2c90ccdefb88dd2c0391a333338ebca79a22b26b8d5",
+    "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s0.json": "0d317478d362d5f972b85d354f1d58b827ba2ccba0975ff2b0cfb334b880bae9",
+    "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s0.pt": "aaeee1d219cd5cd918cb36015a4dee270e565b939d6aee1d4d169111cd8a2eca",
+    "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s0.model.pt": "339de776a7daf15d6f5638ae7c9de3755fc87772fe1bfff6360ed025ecee0251",
+    "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s1.json": "48a4a19a8d869ec0092b9649c69c7a7add1ad1ef6a04e81676c6f88084a5a1c8",
+    "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s1.pt": "94f36ee6dd03b306fdfa2932f1ef2e5ba55fd7a14c168c7aee9384d9d6d59dc0",
+    "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s1.model.pt": "2fcf5b1ba29cf1515f91ce83787e501852aaa1fcca7ea28614dea18ce7f73e86",
+    "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s1.json": "4d7cd6a83ff1603b408a8cf4d19943c2ecc3c11a6833f4fdba5e20dc68cb35d8",
+    "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s1.pt": "a2d194c05a677c0d1f50e28fac1b6d9069555dede15678165a785fe47d8b8499",
+    "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s1.model.pt": "c3d1e230b5f7a286031e752d4fb92bf887cc67c6726f0fa4ff4c8c24dff9d674",
+    "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s2.json": "c477f005b287a623369820591d09194067fa19c587351dff93096c0ad664cd43",
+    "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s2.pt": "bdcae9e8c5a509882e886af78a95f7f69ba7f4e58e34359e817b61eb981e4e18",
+    "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s2.model.pt": "53e4f8f46a6b49b53679497019dc6c92e2d0934e302747cd5e4a56b3687ced77",
+    "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s2.json": "b97cb4edb94381f9ef1411d93d918240ca8ce66c5a4bddadacd73affd9e07540",
+    "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s2.pt": "6e45fd4b18946e23fa5d8f7cd44ad7a5b4eb7392597f4808260252fd2a3fd22a",
+    "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s2.model.pt": "53d373c28b543c5ffbf47c48233a1b9af74974392c3a6236f9bbd14c132d3fd5",
+    "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s0.json": "3f9a1898ef84c8d60bd4309c44b9934d252d348badf93e88bc8c30e170110b5f",
+    "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s0.pt": "a73d992a384986ce59e14602316a5ec504bdce8ded9d1db487f655876b3a87bc",
+    "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s0.model.pt": "75aae3bf66c1b5add8bc352ab8d64784e94f4438dd669f37340d76d4e6cc9f4a",
+    "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s0.json": "6621347001cd06bf3fd3434d48cd72f28875fd0d2c63146468dd3b547b4c2fb9",
+    "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s0.pt": "fdcd29a521aa92fd8b71f40a2efa5e70a5a886aef05bdbd055728f4095a7152d",
+    "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s0.model.pt": "71b2d92e6b4820e1a12ea8afb257962599b4a7ca36d09618904db018a5960f8a",
+    "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s1.json": "f83b25dc08eed28649ed4bc15dadbff1bcc227343b0b0fe2adcbda5e9e69ad14",
+    "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s1.pt": "092b931520e755b3cf6972f776d0a07d766e3c2438ca86c1c2210e863707d217",
+    "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s1.model.pt": "215cee5e3a0e99b54f7a19336d361d4e8430dd03fe5163c59abf38c955bbc553",
+    "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s1.json": "cf5b44b24ff27e854022580ca38d0d657ac18d2697b337edd4cd9c7a5ab78de8",
+    "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s1.pt": "fe5ff9fd22dd55f289543dca6afe3d9f875489d190d3841c48baccdc3a379f00",
+    "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s1.model.pt": "1428fd146e2fbc2e6e3defdbb84c05db5b6c621c89075e3bd373fa5463990154",
+    "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s2.json": "acf203912f2de93d506e07e04c2a06e7cf49b3eb5e3523f5ef215fb6eca58157",
+    "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s2.pt": "3744a50b1df1b59c1867af35fc17b3a15d0b8d9bae78a094285f27488d633795",
+    "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s2.model.pt": "63f54a65e91156c71b358015d8aa841e36c4bf8252e20bce4c3cf6fd3d481998",
+    "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s2.json": "42d02f299efe2e75370e986f2a8594b0f597d5e1fe31120a8f40c56386130ae0",
+    "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s2.pt": "6fbe73127ff38a325e3362be6d2f86eecaa748cbe2f8bf9b91daf9a6af10a4a7",
+    "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s2.model.pt": "ad064826045cf247e2632721eb333731388719a0389adc85e711d9a388ac48c6",
+    "runs/final_soap64_v1/E1_heat/vanilla_s0.json": "82f16eabe78c0a0aedb2c705df9dc521e6ddd3c0565c8153b62d27085b4d6b71",
+    "runs/final_soap64_v1/E1_heat/vanilla_s0.pt": "727f570f58334cf956809ed88b9df29408404def86dcfaaa331d5972a3c66e75",
+    "runs/final_soap64_v1/E1_heat/vanilla_s0.model.pt": "17335e310d9d2eaddb9ecb152b931fbe0005170c4563be9a330be06772849086",
+    "runs/final_soap64_v1/E1_heat/hardic_s0.json": "725214efbfa6fab4ee55c1ec9a161d1d81142cb594c8462e5c06f98196b69421",
+    "runs/final_soap64_v1/E1_heat/hardic_s0.pt": "603fb3a88a7bcf740d814636ca53e950daab5c48c813c9462f1be5ddf6b33c65",
+    "runs/final_soap64_v1/E1_heat/hardic_s0.model.pt": "5b5aba7e1db7a26a373bf6fc20c9fb10b0b73e5a5c858e63de5c83eef12ca799",
+    "runs/final_soap64_v1/E1_heat/hardic_layer_s0.json": "92a371db9fcdd4257963d095dd3da5bd9ad3fcaebcab362535c434b1f49bbd49",
+    "runs/final_soap64_v1/E1_heat/hardic_layer_s0.pt": "118fdff2a301facc50954a42ae53383141ec723a27663a9dcd7c78caeeb1b40a",
+    "runs/final_soap64_v1/E1_heat/hardic_layer_s0.model.pt": "6163e1a2cb4f61ad6c3fba943bcb4af452b7938b64b1677888f57caf39d29f6b",
+    "runs/final_soap64_v1/E3_fisher/vanilla_s0.json": "24f9b71f6669453a58b42eb550daf436da9740d53a6c58851ace680e45d89ed9",
+    "runs/final_soap64_v1/E3_fisher/vanilla_s0.pt": "cb49f6678e192abdc5a8d70c791ecb19c5c6bb989156491663706719a9b5814a",
+    "runs/final_soap64_v1/E3_fisher/vanilla_s0.model.pt": "ce94eafbc87d3a8fc8d2c007fbddb297088fe14fde1112cc76d8ca162bff5263",
+    "runs/final_soap64_v1/E3_fisher/hardic_s0.json": "d69cedc42e821520d8e900f64769812354e2d2ad668ef50ec0607ab7d1a65851",
+    "runs/final_soap64_v1/E3_fisher/hardic_s0.pt": "508462d5901c5b6403a52c39bb991135e2d22b33a8286542810899ce6b3b045d",
+    "runs/final_soap64_v1/E3_fisher/hardic_s0.model.pt": "a817bba1a6654ffacefdc0d939f4a89657cb344faa956edaa112f1adb5078ade",
+    "runs/final_soap64_v1/E3_fisher/hardic_layer_s0.json": "f903c8a1bab9f697304bbc2d4f0436b047a4b0ab3e0babf1213063c4851bb6e4",
+    "runs/final_soap64_v1/E3_fisher/hardic_layer_s0.pt": "5986023eb78fce3be367efeceab95185d498b44b4e5e1f44f6ce1566b7267ae1",
+    "runs/final_soap64_v1/E3_fisher/hardic_layer_s0.model.pt": "e6ce214dafa09dfe0a4365c096818cf67a276d9920413347bcbf6cb9f63efce0",
+    "runs/final_soap64_v1/E1_heat/vanilla_s1.json": "d66322be0938d344911894fbe90d1c19109a0167dd38dde0637ae3dec9a00dcc",
+    "runs/final_soap64_v1/E1_heat/vanilla_s1.pt": "c12065f13d45b0d50ce49b0acebff4f690fb43319fb235dc888293e048a8c359",
+    "runs/final_soap64_v1/E1_heat/vanilla_s1.model.pt": "06d247a2fcaa02d2330426087c96a673d1ac01076b01bcff7f3f9434b982195f",
+    "runs/final_soap64_v1/E1_heat/hardic_s1.json": "8cbe169e0f7ae95b84dd68b808f1ca360ffd5e9204e676d01545e661eab1e5a3",
+    "runs/final_soap64_v1/E1_heat/hardic_s1.pt": "2fd699439a2a300787498b213a24c289e385a829f33d0d93f93e9a6456c88b3f",
+    "runs/final_soap64_v1/E1_heat/hardic_s1.model.pt": "2194c7af985f06bb0b297296ab62eff643e05c008b2e61bd2d2938a14cb1026a",
+    "runs/final_soap64_v1/E1_heat/hardic_layer_s1.json": "4e730e8b2d73baa2ee3f098335c9e34107a7e74b707723eee950b666990926a1",
+    "runs/final_soap64_v1/E1_heat/hardic_layer_s1.pt": "d15c8e623829b1f3e2a6d1948e37a3720c95c08742e087dd94f635b1497c71f4",
+    "runs/final_soap64_v1/E1_heat/hardic_layer_s1.model.pt": "85a9a721f12f1e87c745cb8b19a78e0a87d711649d6f782fbd15b498d02cd153",
+    "runs/final_soap64_v1/E3_fisher/vanilla_s1.json": "1c2d58513c0061de25e1092a6d94583d91800059c8cf06b0a16f71dbabf53b8f",
+    "runs/final_soap64_v1/E3_fisher/vanilla_s1.pt": "1ba40ab23b689af5eb68b7e3eba0887bf11b16334ddfb1bacccca93ee26ae9ce",
+    "runs/final_soap64_v1/E3_fisher/vanilla_s1.model.pt": "093a1185cac9df400d39e1c0392b71786e09df5cd193bb6f52bbd4dd474e5c73",
+    "runs/final_soap64_v1/E3_fisher/hardic_s1.json": "e3b9e51ca304e6bc01addf79287f69dd10dbfb88751b2fa5dfdb06069c9bb291",
+    "runs/final_soap64_v1/E3_fisher/hardic_s1.pt": "eae2507d196c10601adb5a72c23cee7a8d63e6f581a46ff768b7cb3ae692a13f",
+    "runs/final_soap64_v1/E3_fisher/hardic_s1.model.pt": "b386b05d7a11add6f2a873e562e0d8aea2f40cf743dc9346c15c29c529efad8f",
+    "runs/final_soap64_v1/E3_fisher/hardic_layer_s1.json": "edc20e50a83823b640067fb9543471b1ef9eb1a695bc715af7a60631c7421315",
+    "runs/final_soap64_v1/E3_fisher/hardic_layer_s1.pt": "95f0b8f5d230028dfe8ecc1a7202492aa49936b07ef4b41946eebfbc54ae550d",
+    "runs/final_soap64_v1/E3_fisher/hardic_layer_s1.model.pt": "af31ee52316c51323831a65c3b10108c577f2e3d9fd0d88d34ed061772b4ec64",
+    "runs/final_soap64_v1/E1_heat/vanilla_s2.json": "1fc7d160593625af552da4382ab975d6ac8ee2270841442d19b3c4aff99729d2",
+    "runs/final_soap64_v1/E1_heat/vanilla_s2.pt": "1f467aab469bcf3e0af47769057d66c810bc330f414156be71857e9fca6be76e",
+    "runs/final_soap64_v1/E1_heat/vanilla_s2.model.pt": "40ebafa898ca6cacf16c3620f0e00a0af4207934978c1555fcf9a72790bf692f",
+    "runs/final_soap64_v1/E1_heat/hardic_s2.json": "767850b79096e1ea3c152f308d533da9bc3f0d37cc0bc8bc8d8b913eeecb0189",
+    "runs/final_soap64_v1/E1_heat/hardic_s2.pt": "d6c43cff268d7d00c1ce041d299f95b183d5e963c8c83fc61c9dfbca962cd544",
+    "runs/final_soap64_v1/E1_heat/hardic_s2.model.pt": "18b0fbf63e158de21a35cc7133e5d9967228b49708642fadf7922c79ecbc9206",
+    "runs/final_soap64_v1/E1_heat/hardic_layer_s2.json": "882b30c8aee85a99ebaa69bb687c3ab3038125cf338a9581efeafe04cf804675",
+    "runs/final_soap64_v1/E1_heat/hardic_layer_s2.pt": "0c3c461adbd4ca9e56e5697959506a97d741088a10de1003db7cfb817f758486",
+    "runs/final_soap64_v1/E1_heat/hardic_layer_s2.model.pt": "cae7e714432a6888d3187a4840252b5b33b6859ba09e54d9d92608fe5e859152",
+    "runs/final_soap64_v1/E3_fisher/vanilla_s2.json": "6e32ac6d0aee2ff284bee5e38e3e3490c3e63cecdaeb02a8678554905173d8f5",
+    "runs/final_soap64_v1/E3_fisher/vanilla_s2.pt": "72f3431e9e5502f552c5239d51086ad77e0ffbc4859ad9c7ceba5059e46bf3c6",
+    "runs/final_soap64_v1/E3_fisher/vanilla_s2.model.pt": "28e024fddbb94464b780ef219f6919fc1a8fdc9aed63b9ea59ab44826bad43ab",
+    "runs/final_soap64_v1/E3_fisher/hardic_s2.json": "ce002143971d04f3805e2e3a88e9cc89e17a025c34ac2ef577dd12e335a791f3",
+    "runs/final_soap64_v1/E3_fisher/hardic_s2.pt": "96648752698793c300f17a6c4326e19bd77f14acc9221966ee722b8b0111d613",
+    "runs/final_soap64_v1/E3_fisher/hardic_s2.model.pt": "de83b7d9a3943f1144fb6df644b70c1404eded026a079c8460bbd2844050f44b",
+    "runs/final_soap64_v1/E3_fisher/hardic_layer_s2.json": "d19fa0a8602da7c2e127f2bc46f60ee276177dfe13f0c94813461d5dd1950d0f",
+    "runs/final_soap64_v1/E3_fisher/hardic_layer_s2.pt": "daa88f3980b57a968225b76aa96afcb84bc07b6a2a06d4eed29a103b3ec630f3",
+    "runs/final_soap64_v1/E3_fisher/hardic_layer_s2.model.pt": "da050a285a00925142747803d3fb7063513eab0500af4a9cd6b28a121b5356f3"
+  },
+  "archived_files": {
+    "final_runtime_status.json": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\status.json",
+      "sha256": "02e0a6d8124649ff256f0cfa35bd16b4b3fe54f30b6a6ca975e1d4434d62a0e7",
+      "bytes": 283718
+    },
+    "results_validation.json": {
+      "source_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_20261022\\results_validation.json",
+      "sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf",
+      "bytes": 136426
+    },
+    "summary.json": {
+      "source_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_20261022\\summary.json",
+      "sha256": "61e691a4a439843e134e590bcf7673b29326001cf4e7681cfe91c2388d25f69d",
+      "bytes": 231766
+    },
+    "engineering_gate.json": {
+      "source_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_20261022\\engineering_gate.json",
+      "sha256": "4572088adf9eb3010c4d483b6ae71a82087dd5bd41b35dcb38e0687f5666d6e3",
+      "bytes": 43337
+    },
+    "task_plan.json": {
+      "source_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_20261022\\task_plan.json",
+      "sha256": "d377215bf5879a9cd2ac3a56dd92660a492fa36011d588752f94227627fb0cc9",
+      "bytes": 71655
+    },
+    "worker_logs/sensitivity_tau003_v1__E1_heat__hardic_layer_s0__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\sensitivity_tau003_v1__E1_heat__hardic_layer_s0__attempt1.log",
+      "sha256": "f6ed7444557c1e0a45d15c9507f66342f778f6616aaf1f5f7b2cb74f0f18a797",
+      "bytes": 1184
+    },
+    "worker_logs/sensitivity_tau003_v1__E3_fisher__hardic_layer_s0__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\sensitivity_tau003_v1__E3_fisher__hardic_layer_s0__attempt1.log",
+      "sha256": "5507bb2c9ee00f8fa1c2884ab20cdc437eb1e5561f0eb614d43936a7961ded8e",
+      "bytes": 1190
+    },
+    "worker_logs/sensitivity_tau003_v1__E1_heat__hardic_layer_s1__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\sensitivity_tau003_v1__E1_heat__hardic_layer_s1__attempt1.log",
+      "sha256": "267547e815cf3eadf3810cac65e4a05e81a5d6977e321e8b63166c00d189e418",
+      "bytes": 1184
+    },
+    "worker_logs/sensitivity_tau003_v1__E3_fisher__hardic_layer_s1__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\sensitivity_tau003_v1__E3_fisher__hardic_layer_s1__attempt1.log",
+      "sha256": "433b21083ebc39756fe7aee98694addaa57291915b2a9a24ceb1d142cc8157a2",
+      "bytes": 1190
+    },
+    "worker_logs/sensitivity_tau003_v1__E1_heat__hardic_layer_s2__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\sensitivity_tau003_v1__E1_heat__hardic_layer_s2__attempt1.log",
+      "sha256": "17514404c131aa61078ee4368cc4524547c8f75434e4eab7024acdcfe2f74fd8",
+      "bytes": 1184
+    },
+    "worker_logs/sensitivity_tau003_v1__E3_fisher__hardic_layer_s2__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\sensitivity_tau003_v1__E3_fisher__hardic_layer_s2__attempt1.log",
+      "sha256": "d8e7a0d63116eebcd315fb8065d5336a32710ca0a3d9195561ee175696d5cf67",
+      "bytes": 1190
+    },
+    "worker_logs/sensitivity_tau03_v1__E1_heat__hardic_layer_s0__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\sensitivity_tau03_v1__E1_heat__hardic_layer_s0__attempt1.log",
+      "sha256": "f88cb08b63e06de55f18472b9eefe7882f5d977ceaf5be35444a492d3757dd9f",
+      "bytes": 1180
+    },
+    "worker_logs/sensitivity_tau03_v1__E3_fisher__hardic_layer_s0__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\sensitivity_tau03_v1__E3_fisher__hardic_layer_s0__attempt1.log",
+      "sha256": "9de4b3a9b085f8afee9705a304f92a4e1e8abd33e1cc86a4856df32070758c19",
+      "bytes": 1186
+    },
+    "worker_logs/sensitivity_tau03_v1__E1_heat__hardic_layer_s1__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\sensitivity_tau03_v1__E1_heat__hardic_layer_s1__attempt1.log",
+      "sha256": "fb22d3b60bf24f0cfba2887bf78f542efa8c331c6db76c82f6643266f7fe86b7",
+      "bytes": 1180
+    },
+    "worker_logs/sensitivity_tau03_v1__E3_fisher__hardic_layer_s1__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\sensitivity_tau03_v1__E3_fisher__hardic_layer_s1__attempt1.log",
+      "sha256": "728fa018027c570671acf78e4828cb04d9b6f715704c3951bbcd93d2a0cfeb32",
+      "bytes": 1186
+    },
+    "worker_logs/sensitivity_tau03_v1__E1_heat__hardic_layer_s2__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\sensitivity_tau03_v1__E1_heat__hardic_layer_s2__attempt1.log",
+      "sha256": "ef251d55e01eb54d358fc1652f4a51f39c20892d34cf5957100977c9ba60d5b9",
+      "bytes": 1180
+    },
+    "worker_logs/sensitivity_tau03_v1__E3_fisher__hardic_layer_s2__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\sensitivity_tau03_v1__E3_fisher__hardic_layer_s2__attempt1.log",
+      "sha256": "01fc8fd34b765bf524101b26e3fab9bf1730135f85adfc761f656fbc14c06fac",
+      "bytes": 1186
+    },
+    "worker_logs/final_soap64_v1__E1_heat__vanilla_s0__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\final_soap64_v1__E1_heat__vanilla_s0__attempt1.log",
+      "sha256": "66e42c38dc281184907ab4432f8969da7797e6bd53b4214e57e45c80f5e2a501",
+      "bytes": 1161
+    },
+    "worker_logs/final_soap64_v1__E1_heat__hardic_s0__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\final_soap64_v1__E1_heat__hardic_s0__attempt1.log",
+      "sha256": "1f88b5166914b99f7d3d6ba06fa55e5319bff2bebe894a0663728f841e96f1ac",
+      "bytes": 1158
+    },
+    "worker_logs/final_soap64_v1__E1_heat__hardic_layer_s0__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\final_soap64_v1__E1_heat__hardic_layer_s0__attempt1.log",
+      "sha256": "4acb644724c9ad720b8fc3b006611b66b2654610ad4d8669d5146e0093740051",
+      "bytes": 1176
+    },
+    "worker_logs/final_soap64_v1__E3_fisher__vanilla_s0__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\final_soap64_v1__E3_fisher__vanilla_s0__attempt1.log",
+      "sha256": "7372dd52bcfd11dfbb95f8f7539b9217173609ff5fb82c0c9799f7515e17dbed",
+      "bytes": 1167
+    },
+    "worker_logs/final_soap64_v1__E3_fisher__hardic_s0__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\final_soap64_v1__E3_fisher__hardic_s0__attempt1.log",
+      "sha256": "44e868653094473e1185a76705060d3f189e3a8fef530d88af6b67963d661210",
+      "bytes": 1164
+    },
+    "worker_logs/final_soap64_v1__E3_fisher__hardic_layer_s0__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\final_soap64_v1__E3_fisher__hardic_layer_s0__attempt1.log",
+      "sha256": "621a0dd1078089ad585fab96c79f4e1173c78fefa61a4bce02bdddee071f1636",
+      "bytes": 1182
+    },
+    "worker_logs/final_soap64_v1__E1_heat__vanilla_s1__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\final_soap64_v1__E1_heat__vanilla_s1__attempt1.log",
+      "sha256": "16a4512824876ae6f76b4823b40239cc723af1eccffcbfbad53c8cf90aada969",
+      "bytes": 1161
+    },
+    "worker_logs/final_soap64_v1__E1_heat__hardic_s1__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\final_soap64_v1__E1_heat__hardic_s1__attempt1.log",
+      "sha256": "7c17a10215c76313f4dfc09c6dcdad15d3a3de4d870a9af62667cc3c3198e885",
+      "bytes": 1158
+    },
+    "worker_logs/final_soap64_v1__E1_heat__hardic_layer_s1__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\final_soap64_v1__E1_heat__hardic_layer_s1__attempt1.log",
+      "sha256": "780f1e19adca721c83d04002ed04982c408467bf48524d045da9549074c90b2c",
+      "bytes": 1176
+    },
+    "worker_logs/final_soap64_v1__E3_fisher__vanilla_s1__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\final_soap64_v1__E3_fisher__vanilla_s1__attempt1.log",
+      "sha256": "a832f0fea6f99261f8fc6c04c86fee7a45fa6ea66fa5f273db895e9b8e40d014",
+      "bytes": 1166
+    },
+    "worker_logs/final_soap64_v1__E3_fisher__hardic_s1__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\final_soap64_v1__E3_fisher__hardic_s1__attempt1.log",
+      "sha256": "e046d349ee00641023a6a0907c87aa1d7a34195470742b0eb79adf032733e1f6",
+      "bytes": 1163
+    },
+    "worker_logs/final_soap64_v1__E3_fisher__hardic_layer_s1__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\final_soap64_v1__E3_fisher__hardic_layer_s1__attempt1.log",
+      "sha256": "9d8d98f6abaf43c4e17a66e2cd5f9693eeb7258360d6578a01f78ab4c282032e",
+      "bytes": 1181
+    },
+    "worker_logs/final_soap64_v1__E1_heat__vanilla_s2__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\final_soap64_v1__E1_heat__vanilla_s2__attempt1.log",
+      "sha256": "2f29669f905e5addea213f59ff0c248b7e1e8c060add7f0d1eea86245a2f7603",
+      "bytes": 1160
+    },
+    "worker_logs/final_soap64_v1__E1_heat__hardic_s2__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\final_soap64_v1__E1_heat__hardic_s2__attempt1.log",
+      "sha256": "930c537da7a25d7d2aa59454f4b7de0bb70adf411bce96df6f9e546b04949d3b",
+      "bytes": 1157
+    },
+    "worker_logs/final_soap64_v1__E1_heat__hardic_layer_s2__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\final_soap64_v1__E1_heat__hardic_layer_s2__attempt1.log",
+      "sha256": "aa0ecf03cc60856c6dd1ca34e681d9de28020f85c5eb87b8b437963c00bf5ced",
+      "bytes": 1175
+    },
+    "worker_logs/final_soap64_v1__E3_fisher__vanilla_s2__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\final_soap64_v1__E3_fisher__vanilla_s2__attempt1.log",
+      "sha256": "a4007004e92ba5c2a438106780d9800dc37f50c1f363bf7a38d16b64f681c284",
+      "bytes": 1166
+    },
+    "worker_logs/final_soap64_v1__E3_fisher__hardic_s2__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\final_soap64_v1__E3_fisher__hardic_s2__attempt1.log",
+      "sha256": "88bd36c2a60a31619f86c7d951293ccc89241db2a3c1ceed163e001cbe37d802",
+      "bytes": 1163
+    },
+    "worker_logs/final_soap64_v1__E3_fisher__hardic_layer_s2__attempt1.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\logs\\final_soap64_v1__E3_fisher__hardic_layer_s2__attempt1.log",
+      "sha256": "22b5e7434e974b2931fbaab177856224370525b643ebcf9d5efd23b0a40f2002",
+      "bytes": 1180
+    },
+    "runner_logs/runner_20261023_045529_487.stdout.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\runner_20261023_045529_487.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "runner_logs/runner_20261023_045529_487.stderr.log": {
+      "source_path": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\runner_20261023_045529_487.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  "runner_exit_observation_sha256": "a16db0365d14d801456c9c5b4f4badf7826e1b6c8ced51634c5f1d648732a369",
+  "root_status_may_be_mutable_archive_is_frozen": true
+}
