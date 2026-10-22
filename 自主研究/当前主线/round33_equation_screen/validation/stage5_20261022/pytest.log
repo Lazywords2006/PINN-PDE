@@ -1,0 +1,9 @@
+.......................................................................  [100%]
+============================== warnings summary ===============================
+test_screen.py::test_layer_shifts_boundary_residual_by_c_delta[E1_heat]
+  E:\PINN-PDE\自主研究\当前主线\round33_equation_screen\test_screen.py:58: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+  Consider using tensor.detach() first. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\python_variable_methods.cpp:821.)
+    assert float(vals["hardic+layer"] - vals["hardic"]) == pytest.approx(p.c * p.mismatch(), rel=1e-3)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+71 passed, 1 warning in 37.03s

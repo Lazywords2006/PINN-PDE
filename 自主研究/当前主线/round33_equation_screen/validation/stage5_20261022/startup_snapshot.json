@@ -1,0 +1,294 @@
+{
+  "started_utc": "2026-10-22T05:51:32.515000+00:00",
+  "review_deadline_unix": 1792821092.5150006,
+  "authorized_tasks": 22,
+  "phase2_authorized": false,
+  "prereg_commit": "2b67dcb",
+  "code_commit": "ea12d0e1ec70de13425b9ad9c413d99fe7b317d0",
+  "phase": "pirate",
+  "updated_utc": "2026-10-22T05:56:33.153618+00:00",
+  "runner_pid": 63812,
+  "progress": [
+    {
+      "job": [
+        "pirate",
+        "E1_heat",
+        "hardic",
+        0
+      ],
+      "state": "adam",
+      "adam_step": 16500,
+      "lbfgs_budget_used": 0,
+      "resumed_at": [
+        "adam:1000",
+        "adam:14000"
+      ],
+      "checkpoint_modified": 1792597968.022904
+    },
+    {
+      "job": [
+        "pirate",
+        "E1_heat",
+        "hardic+layer",
+        0
+      ],
+      "state": "adam",
+      "adam_step": 16000,
+      "lbfgs_budget_used": 0,
+      "resumed_at": [
+        "adam:1000",
+        "adam:13500"
+      ],
+      "checkpoint_modified": 1792597955.9674158
+    },
+    {
+      "job": [
+        "pirate",
+        "E1_heat",
+        "hardic",
+        1
+      ],
+      "state": "adam",
+      "adam_step": 16500,
+      "lbfgs_budget_used": 0,
+      "resumed_at": [
+        "adam:1000",
+        "adam:14000"
+      ],
+      "checkpoint_modified": 1792597971.8363087
+    },
+    {
+      "job": [
+        "pirate",
+        "E1_heat",
+        "hardic+layer",
+        1
+      ],
+      "state": "adam",
+      "adam_step": 16000,
+      "lbfgs_budget_used": 0,
+      "resumed_at": [
+        "adam:1000",
+        "adam:13500"
+      ],
+      "checkpoint_modified": 1792597964.090111
+    },
+    {
+      "job": [
+        "final_ic_v1",
+        "E1_heat_cos",
+        "vanilla",
+        0
+      ],
+      "state": "pending_or_before_first_checkpoint"
+    },
+    {
+      "job": [
+        "final_ic_v1",
+        "E1_heat_cos",
+        "hardic",
+        0
+      ],
+      "state": "pending_or_before_first_checkpoint"
+    },
+    {
+      "job": [
+        "final_ic_v1",
+        "E1_heat_cos",
+        "hardic+layer",
+        0
+      ],
+      "state": "pending_or_before_first_checkpoint"
+    },
+    {
+      "job": [
+        "final_ic_v1",
+        "E3_fisher_cos",
+        "vanilla",
+        0
+      ],
+      "state": "pending_or_before_first_checkpoint"
+    },
+    {
+      "job": [
+        "final_ic_v1",
+        "E3_fisher_cos",
+        "hardic",
+        0
+      ],
+      "state": "pending_or_before_first_checkpoint"
+    },
+    {
+      "job": [
+        "final_ic_v1",
+        "E3_fisher_cos",
+        "hardic+layer",
+        0
+      ],
+      "state": "pending_or_before_first_checkpoint"
+    },
+    {
+      "job": [
+        "final_ic_v1",
+        "E1_heat_cos",
+        "vanilla",
+        1
+      ],
+      "state": "pending_or_before_first_checkpoint"
+    },
+    {
+      "job": [
+        "final_ic_v1",
+        "E1_heat_cos",
+        "hardic",
+        1
+      ],
+      "state": "pending_or_before_first_checkpoint"
+    },
+    {
+      "job": [
+        "final_ic_v1",
+        "E1_heat_cos",
+        "hardic+layer",
+        1
+      ],
+      "state": "pending_or_before_first_checkpoint"
+    },
+    {
+      "job": [
+        "final_ic_v1",
+        "E3_fisher_cos",
+        "vanilla",
+        1
+      ],
+      "state": "pending_or_before_first_checkpoint"
+    },
+    {
+      "job": [
+        "final_ic_v1",
+        "E3_fisher_cos",
+        "hardic",
+        1
+      ],
+      "state": "pending_or_before_first_checkpoint"
+    },
+    {
+      "job": [
+        "final_ic_v1",
+        "E3_fisher_cos",
+        "hardic+layer",
+        1
+      ],
+      "state": "pending_or_before_first_checkpoint"
+    },
+    {
+      "job": [
+        "final_ic_v1",
+        "E1_heat_cos",
+        "vanilla",
+        2
+      ],
+      "state": "pending_or_before_first_checkpoint"
+    },
+    {
+      "job": [
+        "final_ic_v1",
+        "E1_heat_cos",
+        "hardic",
+        2
+      ],
+      "state": "pending_or_before_first_checkpoint"
+    },
+    {
+      "job": [
+        "final_ic_v1",
+        "E1_heat_cos",
+        "hardic+layer",
+        2
+      ],
+      "state": "pending_or_before_first_checkpoint"
+    },
+    {
+      "job": [
+        "final_ic_v1",
+        "E3_fisher_cos",
+        "vanilla",
+        2
+      ],
+      "state": "pending_or_before_first_checkpoint"
+    },
+    {
+      "job": [
+        "final_ic_v1",
+        "E3_fisher_cos",
+        "hardic",
+        2
+      ],
+      "state": "pending_or_before_first_checkpoint"
+    },
+    {
+      "job": [
+        "final_ic_v1",
+        "E3_fisher_cos",
+        "hardic+layer",
+        2
+      ],
+      "state": "pending_or_before_first_checkpoint"
+    }
+  ],
+  "results_written": 0,
+  "batch_pid": 74888,
+  "batch_command": [
+    "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+    "-u",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\screen.py",
+    "run",
+    "--eqs",
+    "E1_heat",
+    "--methods",
+    "hardic,hardic+layer",
+    "--seeds",
+    "0,1",
+    "--workers",
+    "4",
+    "--tag",
+    "pirate",
+    "--set",
+    "width=64",
+    "--set",
+    "depth=4",
+    "--set",
+    "adam_steps=20000",
+    "--set",
+    "lr0=0.001",
+    "--set",
+    "lr1=1e-05",
+    "--set",
+    "nf=4096",
+    "--set",
+    "nb=256",
+    "--set",
+    "n0=256",
+    "--set",
+    "lbfgs_iters=3000",
+    "--set",
+    "lbfgs_chunk=50",
+    "--set",
+    "nf_fixed=8192",
+    "--set",
+    "nb_fixed=512",
+    "--set",
+    "n0_fixed=512",
+    "--set",
+    "tau=0.1",
+    "--set",
+    "w_ic=1",
+    "--set",
+    "t_refine=0",
+    "--set",
+    "optimizer=adam",
+    "--set",
+    "arch=pirate"
+  ],
+  "snapshot_note": "启动后的只读快照，实时状态以D盘status.json为准；不是完成结果"
+}
