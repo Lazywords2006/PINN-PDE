@@ -1,0 +1,277 @@
+{
+  "范围": "目的性写作选读，非系统综述；各版本引言/方法/相关实验/结论",
+  "检索日": "2026-10-22 Asia/Shanghai",
+  "记录": [
+    {
+      "编号": "P1",
+      "题名": "Physics-informed neural networks for the heat equation with dynamic (Wentzell) boundary conditions",
+      "作者": [
+        "Muhammad Awais"
+      ],
+      "期刊": "Open Journal of Mathematical Sciences",
+      "卷": "10",
+      "期": null,
+      "页码或文章号": "526-536",
+      "出版日期记录": {
+        "date-parts": [
+          [
+            2026,
+            5,
+            9
+          ]
+        ]
+      },
+      "纸本日期记录": {
+        "date-parts": [
+          [
+            2026,
+            5,
+            9
+          ]
+        ]
+      },
+      "DOI": "10.30538/oms2026.0303",
+      "元数据来源": "https://api.crossref.org/works/10.30538/oms2026.0303",
+      "读取版本": "publisher PDF 2026",
+      "原文URL": "https://pisrt.org/psrpress/j/oms/2026/physics-informed-neural-networks-for-the-heat-equation-with-dynamic-wentzell-boundary-conditions.pdf",
+      "重点读取": "1,3-4,7-9; Tables1-4",
+      "Crossref元数据已取得且DOI匹配": true,
+      "完整逐页通读核查": false,
+      "版本提示": "出版社PDF日期May7与Crossref May9不同，引用只写一致的年份2026"
+    },
+    {
+      "编号": "P2",
+      "题名": "Semi-analytic PINN methods for boundary layer problems in a rectangular domain",
+      "作者": [
+        "Gung-Min Gie",
+        "Youngjoon Hong",
+        "Chang-Yeol Jung",
+        "Tselmuun Munkhjin"
+      ],
+      "期刊": "Journal of Computational and Applied Mathematics",
+      "卷": "450",
+      "期": null,
+      "页码或文章号": "115989",
+      "出版日期记录": {
+        "date-parts": [
+          [
+            2024,
+            11
+          ]
+        ]
+      },
+      "纸本日期记录": {
+        "date-parts": [
+          [
+            2024,
+            11
+          ]
+        ]
+      },
+      "DOI": "10.1016/j.cam.2024.115989",
+      "元数据来源": "https://api.crossref.org/works/10.1016/j.cam.2024.115989",
+      "读取版本": "arxiv:2312.06278v1",
+      "原文URL": "https://arxiv.org/html/2312.06278v1",
+      "重点读取": "1-4; Tables1-2; Figures3.1-3.6",
+      "Crossref元数据已取得且DOI匹配": true,
+      "完整逐页通读核查": false,
+      "版本提示": "arxiv v1 作者列表与正式4人列表不同，正文阅读不冒称期刊最终版逐图复核"
+    },
+    {
+      "编号": "P3",
+      "题名": "Singular layer physics-informed neural network method for convection-dominated boundary layer problems in two dimensions",
+      "作者": [
+        "Gung-Min Gie",
+        "Youngjoon Hong",
+        "Chang-Yeol Jung",
+        "Dongseok Lee"
+      ],
+      "期刊": "Journal of Computational and Applied Mathematics",
+      "卷": "474",
+      "期": null,
+      "页码或文章号": "116918",
+      "出版日期记录": {
+        "date-parts": [
+          [
+            2026,
+            3
+          ]
+        ]
+      },
+      "纸本日期记录": {
+        "date-parts": [
+          [
+            2026,
+            3
+          ]
+        ]
+      },
+      "DOI": "10.1016/j.cam.2025.116918",
+      "元数据来源": "https://api.crossref.org/works/10.1016/j.cam.2025.116918",
+      "读取版本": "arxiv:2312.03295v2",
+      "原文URL": "https://arxiv.org/html/2312.03295v2",
+      "重点读取": "1-5; Table1; Figures4.3-4.4",
+      "Crossref元数据已取得且DOI匹配": true,
+      "完整逐页通读核查": false
+    },
+    {
+      "编号": "P4",
+      "题名": "Exact imposition of boundary conditions with distance functions in physics-informed deep neural networks",
+      "作者": [
+        "N. Sukumar",
+        "Ankit Srivastava"
+      ],
+      "期刊": "Computer Methods in Applied Mechanics and Engineering",
+      "卷": "389",
+      "期": null,
+      "页码或文章号": "114333",
+      "出版日期记录": {
+        "date-parts": [
+          [
+            2022,
+            2
+          ]
+        ]
+      },
+      "纸本日期记录": {
+        "date-parts": [
+          [
+            2022,
+            2
+          ]
+        ]
+      },
+      "DOI": "10.1016/j.cma.2021.114333",
+      "元数据来源": "https://api.crossref.org/works/10.1016/j.cma.2021.114333",
+      "读取版本": "arxiv:2104.08426v2 accepted author manuscript",
+      "原文URL": "https://arxiv.org/pdf/2104.08426v2",
+      "重点读取": "1; constraint construction;9-12; Figures16-17",
+      "Crossref元数据已取得且DOI匹配": true,
+      "完整逐页通读核查": false,
+      "本地全文": {
+        "路径": "D:\\CodexRuntime\\runs\\r33_literature_writing_20261022\\hard_bc_proxy.pdf",
+        "SHA256": "de6dcaead2eb08e773494ccc777878f34199fcd550c0d69af6da1c507a5a3a65",
+        "PDF页数": 50
+      }
+    },
+    {
+      "编号": "P5",
+      "题名": "Residual-based attention in physics-informed neural networks",
+      "作者": [
+        "Sokratis J. Anagnostopoulos",
+        "Juan Diego Toscano",
+        "Nikolaos Stergiopulos",
+        "George Em Karniadakis"
+      ],
+      "期刊": "Computer Methods in Applied Mechanics and Engineering",
+      "卷": "421",
+      "期": null,
+      "页码或文章号": "116805",
+      "出版日期记录": {
+        "date-parts": [
+          [
+            2024,
+            3
+          ]
+        ]
+      },
+      "纸本日期记录": {
+        "date-parts": [
+          [
+            2024,
+            3
+          ]
+        ]
+      },
+      "DOI": "10.1016/j.cma.2024.116805",
+      "元数据来源": "https://api.crossref.org/works/10.1016/j.cma.2024.116805",
+      "读取版本": "arxiv:2307.00379v2; states updated to match publication",
+      "原文URL": "https://arxiv.org/pdf/2307.00379v2",
+      "重点读取": "1-4; Tables1-6; cost appendix",
+      "Crossref元数据已取得且DOI匹配": true,
+      "完整逐页通读核查": false,
+      "本地全文": {
+        "路径": "D:\\CodexRuntime\\runs\\r33_literature_writing_20261022\\rba.pdf",
+        "SHA256": "d8db5f61fc6b14471afa5043172cf6f3cd884ab7c6566b80a4002177add73855",
+        "PDF页数": 30
+      }
+    },
+    {
+      "编号": "P6",
+      "题名": "Respecting causality for training physics-informed neural networks",
+      "作者": [
+        "Sifan Wang",
+        "Shyam Sankaran",
+        "Paris Perdikaris"
+      ],
+      "期刊": "Computer Methods in Applied Mechanics and Engineering",
+      "卷": "421",
+      "期": null,
+      "页码或文章号": "116813",
+      "出版日期记录": {
+        "date-parts": [
+          [
+            2024,
+            3
+          ]
+        ]
+      },
+      "纸本日期记录": {
+        "date-parts": [
+          [
+            2024,
+            3
+          ]
+        ]
+      },
+      "DOI": "10.1016/j.cma.2024.116813",
+      "元数据来源": "https://api.crossref.org/works/10.1016/j.cma.2024.116813",
+      "读取版本": "arxiv:2203.07404v1; formal title differs",
+      "原文URL": "https://arxiv.org/html/2203.07404v1",
+      "重点读取": "1-6; Table1; cost/hyperparameter appendix",
+      "Crossref元数据已取得且DOI匹配": true,
+      "完整逐页通读核查": false,
+      "本地全文": {
+        "路径": "D:\\CodexRuntime\\runs\\r33_literature_writing_20261022\\causal_final.pdf",
+        "SHA256": "ac6bae92b77a01e8a291c7fd532171b6e734fce74c5b2b1cb353ff7df58eb964",
+        "PDF页数": 35
+      },
+      "版本提示": "OSTI托管文件仍是2022预印本，运行文件名含final不表示最终版；正式题名另按期刊核对"
+    },
+    {
+      "编号": "P7",
+      "题名": "Energy Dissipation Rate Guided Adaptive Sampling for Physics-Informed Neural Networks: Resolving Surface-Bulk Dynamics in Allen-Cahn Systems",
+      "作者": [
+        "Chunyan Li",
+        "Wenkai Yu",
+        "Qi Wang"
+      ],
+      "期刊": "International Journal of Numerical Analysis and Modeling",
+      "卷": "23",
+      "期": "4",
+      "页码或文章号": "576-604",
+      "出版日期记录": {
+        "date-parts": [
+          [
+            2026,
+            5,
+            29
+          ]
+        ]
+      },
+      "纸本日期记录": null,
+      "DOI": "10.4208/ijnam2026-1025",
+      "元数据来源": "https://api.crossref.org/works/10.4208/ijnam2026-1025",
+      "读取版本": "journal final 23(4),576-604",
+      "原文URL": "https://www.math.ualberta.ca/ijnam/Volume-23-2026/No-4-26/2026-04-06.pdf",
+      "重点读取": "1-4; Tables1-3; appendix",
+      "Crossref元数据已取得且DOI匹配": true,
+      "完整逐页通读核查": false,
+      "本地全文": {
+        "路径": "D:\\CodexRuntime\\runs\\r33_literature_writing_20261022\\edras_final.pdf",
+        "SHA256": "4081c0a7e106d1a5b15edaac9aa2da624e0f72c36d66d372cf3fb3cf07279749",
+        "PDF页数": 29
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "type": "目的性叙述选读；不作系统综述、PRISMA计数或全部近邻覆盖声明",
+  "date": "2026-10-22",
+  "timezone": "Asia/Shanghai",
+  "discovery": [
+    {
+      "query": "OpenAlex: PINN singular boundary layer",
+      "returned_papers": 17,
+      "result_id": "9acbcc0e-645a-4131-b684-7c711c72f0b2"
+    },
+    {
+      "query": "SciSpace: method-paper evidence and writing",
+      "returned_papers": 10,
+      "result_id": null
+    },
+    {
+      "query": "OpenAlex: Respecting causality physics informed",
+      "returned_papers": 20,
+      "result_id": "31b0c6aa-b5d6-4c03-87f2-51307d4b57a2"
+    }
+  ],
+  "web_queries": [
+    "\"Residual-based attention\" \"physics-informed\" journal 2024",
+    "\"Exact imposition of boundary conditions\" \"114333\"",
+    "\"Respecting causality for training physics-informed neural networks\"",
+    "\"Semi-analytic PINN methods\" \"rectangular\" DOI",
+    "\"Singular layer physics-informed neural network method\" journal DOI",
+    "\"Energy Dissipation Rate Guided Adaptive Sampling\" journal"
+  ],
+  "included_papers": 7,
+  "rationale": "同类动态边界方程、解析校正、硬约束、权重模块与训练机制；有可取得的原文方法/实验/讨论",
+  "excluded_from_core": "综述、仅二手摘要及无关领域结果不计入七篇；未对全部检索命中做系统逐级筛查",
+  "sources": "期刊主站/作者稿和Crossref核对；正文阅读版本与正式元数据分开",
+  "execution": "无新训练、无超参数搜索，旧协议/结果与停止规则不变"
+}
