@@ -185,6 +185,22 @@ class AnalysisTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "完整性绑定"):
             p.validate_plot_input(audit)
 
+    def test_orphan_interval_remains_in_batch_time_not_runner_time(self):
+        audit = a.summarize(self.synthetic_records_for_aggregation_only(),
+                            {"runtime_status": {"total_runner_wall_seconds": 1000,
+                                                "batch_elapsed_seconds": 4000,
+                                                "runner_wall_timing_note": "observer-bound recovery"}})
+        self.assertEqual(audit["costs"]["local_batch_elapsed_seconds"], 4000)
+        self.assertEqual(audit["costs"]["local_runner_elapsed_seconds"], 1000)
+        self.assertEqual(audit["costs"]["runner_wall_timing_note"], "observer-bound recovery")
+        self.assertEqual(audit["costs"]["local_attempt_wall_seconds_sum"], 3150)
+
+    def test_missing_batch_time_is_not_fabricated_from_attempts(self):
+        audit = a.summarize(self.synthetic_records_for_aggregation_only(),
+                            {"runtime_status": {"total_runner_wall_seconds": 1000}})
+        self.assertIsNone(audit["costs"]["local_batch_elapsed_seconds"])
+        self.assertIsNone(audit["costs"]["runner_wall_timing_note"])
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

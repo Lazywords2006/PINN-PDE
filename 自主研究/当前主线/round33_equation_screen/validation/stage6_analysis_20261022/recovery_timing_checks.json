@@ -1,0 +1,14 @@
+{
+  "stage6_scientific_results": "PENDING",
+  "seconds": 1.44,
+  "passed": 26,
+  "tests": 26,
+  "full_runner_torch_regression": "PENDING",
+  "sha256": {
+    "test_analysis.py": "3931fa149c1d257a24c57f2315c33c3d5ce4346ca41eecf78c2ccaace5bb0cd6",
+    "analyze_stage6.py": "acaaf30c5da5b12ff90869f9410ca4ba5b10c16716095f811a4494a47e903295",
+    "recovery_timing_tests.log": "371a2ad656b5f5e8f20cb44f4f0a216e971a9687c50ec3060671cf332f4d981e"
+  },
+  "scope": "Analysis-only accounting and interpretation update; no scientific threshold or raw results changed",
+  "recorded_utc": "2026-10-22T18:44:38.2867858Z"
+}

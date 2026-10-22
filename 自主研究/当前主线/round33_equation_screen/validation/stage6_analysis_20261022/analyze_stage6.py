@@ -305,8 +305,10 @@ def summarize(records, metadata):
                         "trajectory_seconds_min": min(values), "trajectory_seconds_median": median(values),
                         "trajectory_seconds_max": max(values)}
     costs["local_runner_elapsed_seconds"] = state["total_runner_wall_seconds"]
+    costs["local_batch_elapsed_seconds"] = state.get("batch_elapsed_seconds")
+    costs["runner_wall_timing_note"] = state.get("runner_wall_timing_note")
     costs["local_attempt_wall_seconds_sum"] = sum(a.get("wall_seconds", 0) for r in new_rows for a in r["attempts"])
-    costs["interpretation"] = "云端与本机分开描述；进程轨迹耗时总和不是并行批次墙钟；不计算跨环境速度倍数。"
+    costs["interpretation"] = "云端与本机分开描述；进程轨迹耗时总和不是并行批次墙钟。整批历时与状态记录的运行器会话累计时间分别报告，调度器退出后至恢复的间隔不计入后者；未保存的整批历时留空，不用进程时间之和补造。不计算跨环境速度倍数。"
     return {"analysis_state": "complete", "generated_local": now(), "prereg_commit": PREREG,
             "new_task_count": 30, "default_comparison_records": 36, "tau_records": 18,
             "records": [records[j] for j in OLD_JOBS + JOBS], "default_groups": defaults,
@@ -364,13 +366,13 @@ def report(audit):
              f"S6-SOAP：**{audit['S6_SOAP']['conclusion']}**。该判据只描述本批固定配置，不是论文发表门槛。", "",
              "所有新任务、所有种子和所有 τ 档均报告；主配置保持 τ=0.1，没有倒选 τ 或优化器。原 A-1、G2 失败和 E4 负面结果保留。", "",
              "## 数据核验与范围", "", "旧 398 个文件逐一 hash 不变；新增 30 项共 90 个原始文件均与完整模型验证报告绑定。原 N64/GL200 与加密 N96/GL400 的序列容差为 rtol=1e-5、atol=1e-9。独立残差沿用固定检验点；本分析只聚合既有报告，不追加模型诊断。", "",
-             "默认 Adam 来自历史云端 confirm，固定 SOAP64 来自本机本批；误差可按已固定指标并列，硬件/环境和墙钟不能混为等墙钟或速度收益。旧残差和未保存的实际调用留空。", "",
+             "默认 Adam 来自历史云端 confirm，固定 SOAP64 来自本机本批；误差按已固定指标并列，但这不是隔离运行环境差异的优化器因果比较。不能把全部精度差异归因于优化器，也不能混为等墙钟或速度收益。同一本机环境内的 SOAP 三臂叠加判据另行判断。旧残差和未保存的实际调用留空。", "",
              "## 默认配置六臂对照", "", "每个方程给出 Adam/SOAP64 × 普通 PINN/硬初值/硬初值加校正的三个真实报告种子。没有调参后主表。", "",
              table(["方程", "tag", "方法", "来源", "seed0", "seed1", "seed2", "中位数", "最小–最大", "≤1e-2"],
                    [[r["eq"], r["tag"], r["method"], r["training_location"], *map(number, r["seeds"]),
                      number(r["median"]), f"{number(r['min'])}–{number(r['max'])}", f"{r['under_1e2']}/3"]
                     for r in audit["default_groups"]]), "", "![默认六臂全部种子和中位数](default_six_arms.png)", "",
-             "## τ 灵敏度（不选参）", "", "τ=0.03/0.3 为本机新增，τ=0.1 只读复用历史云端 confirm。各档保持完整预算与种子集合。跨档 max/min 是中位数之比，不是置信区间或稳健性达标线。", "",
+             "## τ 灵敏度（不选参）", "", "τ=0.03/0.3 为本机新增，τ=0.1 只读复用历史云端 confirm。各档保持完整预算与种子集合；与τ=0.1的差异同时包含运行环境差异，不能视为完全隔离环境后的τ因果效应。跨档 max/min 是中位数之比，不是置信区间或稳健性达标线。", "",
              table(["方程", "τ", "来源", "seed0", "seed1", "seed2", "中位数", "范围", "中位数/τ=0.1"],
                    [[r["eq"], r["tau"], r["training_location"], *map(number, r["seeds"]), number(r["median"]),
                      f"{number(r['min'])}–{number(r['max'])}", number(r["median_over_tau01"])] for r in audit["tau_groups"]]), "",
@@ -395,7 +397,7 @@ def report(audit):
                    [[name, value["count"], number(value["trajectory_seconds_sum"]), number(value["trajectory_seconds_min"]),
                      number(value["trajectory_seconds_median"]), number(value["trajectory_seconds_max"])]
                     for name, value in audit["costs"].items() if isinstance(value, dict)]), "",
-             f"本机运行器累计墙钟：{number(audit['costs']['local_runner_elapsed_seconds'])} 秒；本机所有尝试墙钟之和：{number(audit['costs']['local_attempt_wall_seconds_sum'])} 秒。两者口径不同，未相互替代。失败历史、每次命令、PID、恢复标记保存在 analysis_evidence.json。", "",
+             f"本机整批历时：{number(audit['costs']['local_batch_elapsed_seconds'])} 秒；按状态记录的运行器会话累计时间：{number(audit['costs']['local_runner_elapsed_seconds'])} 秒；本机所有尝试墙钟之和：{number(audit['costs']['local_attempt_wall_seconds_sum'])} 秒。三者口径不同，未相互替代。恢复计时原注：{audit['costs']['runner_wall_timing_note'] or '未保存/不适用'}。失败历史、每次命令、PID、恢复标记保存在 analysis_evidence.json。", "",
              "## 文件与限制", "", "all_new_runs.csv 含 30 行；default_six_arms.csv 含 36 行；tau_sensitivity.csv 含 18 行。PNG 为 300 dpi，PDF 为矢量；所有点对应真实种子，短横线为中位数，竖线为种子最小–最大范围，均不是 CI。τ=.1 与默认 Adam 的来源差异在图中明确标示。", "",
              "三种子样本不足以支持统计显著性或普遍优势。固定五个输出时刻和均匀检验时间点不能证明 t→0 的机制。S6-SOAP 无论正负均保留，不替代原 B-1/B-2/G2；没有构造新的发表达标线。"]
     return "\n".join(lines) + "\n"

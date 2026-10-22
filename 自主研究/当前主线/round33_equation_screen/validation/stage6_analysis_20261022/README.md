@@ -34,6 +34,8 @@ $env:XDG_CACHE_HOME='D:\CodexRuntime\cache\xdg'
 
 旧默认组未保存的 heldout 残差和实际 closure 以空值明确标注，不补算。云端与本机墙钟分别描述，不计算速度倍数；并行进程耗时总和不冒充批次墙钟。S6-SOAP 是本批预注册判据，不是发表标准；原 A-1/G2/E4 负面证据保留。
 
+历史云端与本机的运行环境差异也限制精度归因：Adam/SOAP六臂跨环境比较及τ=.1与新τ档的比较只作固定指标下的描述，不能将全部差异归因于优化器或τ。同批本机SOAP三臂的S6-SOAP另行判断。恢复后报告分列`local_batch_elapsed_seconds`（含调度器退出后训练继续的间隔）、按状态保存的运行器会话累计时间和所有attempt时间之和；缺失批次时间留空，不由进程时间合计推造。此处只更正计时和解释口径，科学判据、指标和原始结果不改。新增相关检查后分析工具共26项测试通过，原始日志和源哈希见`recovery_timing_checks.json`；不等于正在等待的完整runner/Torch回归或30项数据验收。
+
 正式文件不覆盖：已有 `analysis_evidence.json` 时拒绝再次发布。确需重出版本，使用 `--output` 指定本目录内的新子目录。构建先放 `D:\CodexRuntime\runs\r33_stage6_analysis_20261022`，所有输入复查后发布，JSON 最后作为完成标记。
 
 测试使用标准库 unittest 和合成最小输入，只检查门/聚合边界；不会生成模拟论文图。执行：在本目录运行 `D:\CodexRuntime\venvs\r33-analysis\Scripts\python.exe -m unittest test_analysis -v`。完整数据到齐后的 PNG/PDF 尚须实际渲染并目视确认标签与布局，当前仅验证模板、字体与阻断逻辑。
