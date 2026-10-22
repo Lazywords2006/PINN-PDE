@@ -1,0 +1,112 @@
+diff --git "a/\350\207\252\344\270\273\347\240\224\347\251\266/\345\275\223\345\211\215\344\270\273\347\272\277/round33_equation_screen/validation/.gitattributes" "b/\350\207\252\344\270\273\347\240\224\347\251\266/\345\275\223\345\211\215\344\270\273\347\272\277/round33_equation_screen/validation/.gitattributes"
+index 878dd04..958b7ce 100644
+--- "a/\350\207\252\344\270\273\347\240\224\347\251\266/\345\275\223\345\211\215\344\270\273\347\272\277/round33_equation_screen/validation/.gitattributes"
++++ "b/\350\207\252\344\270\273\347\240\224\347\251\266/\345\275\223\345\211\215\344\270\273\347\272\277/round33_equation_screen/validation/.gitattributes"
+@@ -14,3 +14,4 @@ stage6_analysis_20261022/*.py -text whitespace=blank-at-eol,blank-at-eof,space-b
+ # Frozen completed-run snapshots and published analysis packages bind exact bytes.
+ stage6_20261022/completion_archive_20261023/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+ stage6_analysis_20261022/complete_v1/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
++stage6_analysis_20261022/complete_v2/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+diff --git "a/\350\207\252\344\270\273\347\240\224\347\251\266/\345\275\223\345\211\215\344\270\273\347\272\277/round33_equation_screen/validation/stage6_analysis_20261022/analyze_stage6.py" "b/\350\207\252\344\270\273\347\240\224\347\251\266/\345\275\223\345\211\215\344\270\273\347\272\277/round33_equation_screen/validation/stage6_analysis_20261022/analyze_stage6.py"
+index 114cb37..79b874d 100644
+--- "a/\350\207\252\344\270\273\347\240\224\347\251\266/\345\275\223\345\211\215\344\270\273\347\272\277/round33_equation_screen/validation/stage6_analysis_20261022/analyze_stage6.py"
++++ "b/\350\207\252\344\270\273\347\240\224\347\251\266/\345\275\223\345\211\215\344\270\273\347\272\277/round33_equation_screen/validation/stage6_analysis_20261022/analyze_stage6.py"
+@@ -366,19 +366,23 @@ def report(audit):
+              f"S6-SOAP：**{audit['S6_SOAP']['conclusion']}**。该判据只描述本批固定配置，不是论文发表门槛。", "",
+              "所有新任务、所有种子和所有 τ 档均报告；主配置保持 τ=0.1，没有倒选 τ 或优化器。原 A-1、G2 失败和 E4 负面结果保留。", "",
+              "## 数据核验与范围", "", "旧 398 个文件逐一 hash 不变；新增 30 项共 90 个原始文件均与完整模型验证报告绑定。原 N64/GL200 与加密 N96/GL400 的序列容差为 rtol=1e-5、atol=1e-9。独立残差沿用固定检验点；本分析只聚合既有报告，不追加模型诊断。", "",
++             "主指标为 t={0.05, 0.1, 0.25, 0.5, 1} 五个固定评价时刻的体相对 L² 误差最大值，不是连续时间上的上确界。", "",
+              "默认 Adam 来自历史云端 confirm，固定 SOAP64 来自本机本批；误差按已固定指标并列，但这不是隔离运行环境差异的优化器因果比较。不能把全部精度差异归因于优化器，也不能混为等墙钟或速度收益。同一本机环境内的 SOAP 三臂叠加判据另行判断。旧残差和未保存的实际调用留空。", "",
+-             "## 默认配置六臂对照", "", "每个方程给出 Adam/SOAP64 × 普通 PINN/硬初值/硬初值加校正的三个真实报告种子。没有调参后主表。", "",
++             "## 默认配置六臂对照", "", "每个方程给出 Adam→L-BFGS / SOAP64→L-BFGS × 普通 PINN/硬初值/硬初值加校正的三个真实报告种子。没有调参后主表。", "",
+              table(["方程", "tag", "方法", "来源", "seed0", "seed1", "seed2", "中位数", "最小–最大", "≤1e-2"],
+                    [[r["eq"], r["tag"], r["method"], r["training_location"], *map(number, r["seeds"]),
+                      number(r["median"]), f"{number(r['min'])}–{number(r['max'])}", f"{r['under_1e2']}/3"]
+                     for r in audit["default_groups"]]), "", "![默认六臂全部种子和中位数](default_six_arms.png)", "",
++             "图注：最终误差对应 Adam→L-BFGS 或 SOAP64→L-BFGS 完整训练路线。纵轴为 t={0.05, 0.1, 0.25, 0.5, 1} 五个固定评价时刻的最大体相对 L² 误差，非连续时间上确界。历史云端与本机来源分别标示。", "",
+              "## τ 灵敏度（不选参）", "", "τ=0.03/0.3 为本机新增，τ=0.1 只读复用历史云端 confirm。各档保持完整预算与种子集合；与τ=0.1的差异同时包含运行环境差异，不能视为完全隔离环境后的τ因果效应。跨档 max/min 是中位数之比，不是置信区间或稳健性达标线。", "",
+              table(["方程", "τ", "来源", "seed0", "seed1", "seed2", "中位数", "范围", "中位数/τ=0.1"],
+                    [[r["eq"], r["tau"], r["training_location"], *map(number, r["seeds"]), number(r["median"]),
+                      f"{number(r['min'])}–{number(r['max'])}", number(r["median_over_tau01"])] for r in audit["tau_groups"]]), "",
+              table(["方程", "跨 τ 最大/最小中位数", "主 τ"],
+                    [[r["eq"], number(r["across_tau_max_over_min_median"]), r["main_tau_unchanged"]] for r in audit["tau_summary"]]),
+-             "", "![τ三档全部种子和中位数](tau_sensitivity.png)", "", "## S6-SOAP 预注册判定", "",
++             "", "![τ三档全部种子和中位数](tau_sensitivity.png)", "",
++             "图注：全部 τ 档采用 Adam→L-BFGS，主配置仍为 τ=0.1。纵轴为 t={0.05, 0.1, 0.25, 0.5, 1} 五个固定评价时刻的最大体相对 L² 误差，非连续时间上确界。τ=0.1 与其余两档的运行环境不同，图中差异不作隔离环境后的因果解释。", "",
++             "## S6-SOAP 预注册判定", "",
+              audit["S6_SOAP"]["rule"], "",
+              table(["方程", "hardic中位数", "修正中位数", "比值", "修正≤1e-2", "判定"],
+                    [[r["eq"], number(r["hardic_median"]), number(r["layer_median"]), number(r["hardic_over_layer"]),
+diff --git "a/\350\207\252\344\270\273\347\240\224\347\251\266/\345\275\223\345\211\215\344\270\273\347\272\277/round33_equation_screen/validation/stage6_analysis_20261022/plot_stage6.py" "b/\350\207\252\344\270\273\347\240\224\347\251\266/\345\275\223\345\211\215\344\270\273\347\272\277/round33_equation_screen/validation/stage6_analysis_20261022/plot_stage6.py"
+index b89c3ba..fc00539 100644
+--- "a/\350\207\252\344\270\273\347\240\224\347\251\266/\345\275\223\345\211\215\344\270\273\347\272\277/round33_equation_screen/validation/stage6_analysis_20261022/plot_stage6.py"
++++ "b/\350\207\252\344\270\273\347\240\224\347\251\266/\345\275\223\345\211\215\344\270\273\347\272\277/round33_equation_screen/validation/stage6_analysis_20261022/plot_stage6.py"
+@@ -31,7 +31,7 @@ def font_setup():
+     font_manager.fontManager.addfont(str(selected))
+     name = font_manager.FontProperties(fname=str(selected)).get_name()
+     glyphs = ft2font.FT2Font(str(selected)).get_charmap()
+-    required = "最大体相对误差普通硬初值校正历史云端本机种子中位数范围默认配置灵敏度三档不选参"
++    required = "最大体相对误差普通硬初值校正历史云端本机种子中位数范围默认配置灵敏度三档不选参五个固定评价时刻连续时间上确界路线→"
+     missing = [ch for ch in set(required) if ord(ch) not in glyphs]
+     if missing:
+         raise RuntimeError(f"中文字体缺字：{missing}")
+@@ -74,7 +74,7 @@ def draw_group(ax, x, row, color):
+     for offset, marker, value in zip((-.13, 0, .13), SEED_MARKERS, values):
+         ax.scatter([x + offset], [value], marker=marker, s=43, color=color,
+                    edgecolors="white", linewidths=.5, zorder=4)
+-    ax.hlines(row["median"], x - .24, x + .24, color="#202020", lw=2.0, zorder=5)
++    ax.hlines(row["median"], x - .24, x + .24, color="#202020", lw=2.0, zorder=3)
+ 
+ 
+ def finish_axes(ax, rows):
+@@ -91,7 +91,7 @@ def finish_axes(ax, rows):
+     ax.yaxis.grid(True, color="#EBEBEB", linewidth=.7, linestyle="--", zorder=0)
+     ax.set_axisbelow(True)
+     ax.tick_params(direction="out", length=3, width=.8)
+-    ax.set_ylabel("最大体相对 L² 误差")
++    ax.set_ylabel("五时刻最大体相对 L² 误差")
+     ax.margins(y=.25)
+     return scale
+ 
+@@ -128,6 +128,11 @@ def render(audit, output):
+     metadata = {"font": font, "matplotlib": matplotlib.__version__, "png_dpi": 300,
+                 "pdf_vector": True, "confidence_intervals": False, "synthetic_data": False,
+                 "reference_line": 1e-2, "reference_line_is_publication_threshold": False,
++                "evaluation_times": [.05, .1, .25, .5, 1.],
++                "maximum_scope": "五个固定评价时刻的最大值，非连续时间上确界",
++                "zorder": {"range": 2, "median": 3, "seed_points": 4},
++                "training_routes": {"default_confirm": "Adam→L-BFGS",
++                                    "default_stage6": "SOAP64→L-BFGS", "tau": "Adam→L-BFGS"},
+                 "template": "plot-from-data/bar_grouped_hatch：保留分组、配色、网格与导出参数；改为种子散点+中位数/范围。",
+                 "figures": []}
+     fig, axes = plt.subplots(1, 2, figsize=(12.8, 5.6))
+@@ -145,15 +150,17 @@ def render(audit, output):
+         ax.axvspan(3.5, 6.5, color="#FFF5ED", zorder=0)
+         ax.set_xticks([0, 1, 2, 4, 5, 6], [NAMES[m] for m in METHODS] * 2, fontsize=9)
+         ax.set_xlim(-.6, 6.6)
+-        ax.text(1, -.22, "Adam（历史云端 confirm）", transform=ax.get_xaxis_transform(), ha="center", fontsize=10)
+-        ax.text(5, -.22, "SOAP64（本机 stage6）", transform=ax.get_xaxis_transform(), ha="center", fontsize=10)
++        ax.text(1, -.20, "Adam→L-BFGS\n（历史云端 confirm）", transform=ax.get_xaxis_transform(), ha="center", va="top", fontsize=10)
++        ax.text(5, -.20, "SOAP64→L-BFGS\n（本机 stage6）", transform=ax.get_xaxis_transform(), ha="center", va="top", fontsize=10)
+         ax.set_title(eq)
+         scales.append(finish_axes(ax, rows))
++    fig.text(.5, .025, "评价时刻 t={0.05, 0.1, 0.25, 0.5, 1}；最大值仅针对这五个固定时刻（非连续时间上确界）。",
++             ha="center", fontsize=9)
+     metadata["figures"].append({"files": save(fig, output, "default_six_arms"), "seed_points": 36,
+                                 "medians": 12, "y_scales": scales, "training_location_labels": True})
+     fig, axes = plt.subplots(1, 2, figsize=(11.5, 5.5))
+     fig.subplots_adjust(left=.085, right=.98, bottom=.22, top=.76, wspace=.28)
+-    fig.suptitle("τ 灵敏度：三档全部报告，主配置保持 0.1", y=.98, fontsize=14)
++    fig.suptitle("τ 灵敏度：Adam→L-BFGS；三档全部报告，主配置保持 0.1", y=.98, fontsize=14)
+     legend(fig)
+     scales = []
+     for ax, eq in zip(axes, EQUATIONS):
+@@ -166,6 +173,8 @@ def render(audit, output):
+         ax.set_xlim(-.5, 2.5)
+         ax.set_title(eq)
+         scales.append(finish_axes(ax, rows))
++    fig.text(.5, .025, "评价时刻 t={0.05, 0.1, 0.25, 0.5, 1}；最大值仅针对这五个固定时刻（非连续时间上确界）。",
++             ha="center", fontsize=9)
+     metadata["figures"].append({"files": save(fig, output, "tau_sensitivity"), "seed_points": 18,
+                                 "medians": 6, "y_scales": scales, "training_location_labels": True})
+     return metadata

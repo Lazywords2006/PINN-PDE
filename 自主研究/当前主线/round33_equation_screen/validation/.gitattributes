@@ -14,3 +14,4 @@ stage6_analysis_20261022/*.py -text whitespace=blank-at-eol,blank-at-eof,space-b
 # Frozen completed-run snapshots and published analysis packages bind exact bytes.
 stage6_20261022/completion_archive_20261023/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 stage6_analysis_20261022/complete_v1/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+stage6_analysis_20261022/complete_v2/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

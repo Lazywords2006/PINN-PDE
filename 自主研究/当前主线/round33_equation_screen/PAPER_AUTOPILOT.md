@@ -4,6 +4,7 @@
 
 ## 当前阶段
 
+- **完成态独立复核已结束，正在冻结完整稿。** Stage6 v1独立核对覆盖3个CSV共3780单元格、54个展示行、48个独立分析记录及600个保存的复算值，数值与预注册判定一致；完成态复现补充613项断言通过，见`manuscript/process/reproducibility_complete_20261023/`。这些分别是数值/保存证据核对，不能替代全稿审查。完整稿正文约11434汉字，作者尚在绑定图表并生成真实Phase4b。图表v1的三项展示问题（种子遮挡、完整训练路线、五时刻指标名称）在`complete_v2/`另存修正，待限定独立复核后使用；三CSV和科学判据保持原值。旧130项完整生产日志缺失等限制仍保留。五视角正式审稿和最终完整性核验尚未完成，当前没有训练任务。
 - **06:29:36第二阶段全部完成，06:30正式分析成功。** 持有身份绑定HANDLE的只读观察会话55894记录runner91632真实exit0；最终30/30 completed，每项attempt1/exit0、全部`complete_and_recomputed=true`，validation与summary逐结果一致，旧398不变。原21/后9源码谱系保留，整批22891.5735秒，runner会话9286.0973秒。`validation/stage6_20261022/completion_archive_20261023/`新建39个完成态归档文件，含30个生产日志、最终status/验证/summary/gate/plan和退出观测；90新原始文件哈希已核对。没有活动训练队列，**不要重新Run或新增实验**。
 - **完整分析在`validation/stage6_analysis_20261022/complete_v1/`。** 正式门及绘图真实运行成功：30新记录、36默认对照行、18τ行、48独立分析记录、488raw哈希。S6-SOAP满足预注册叠加判据，E1/E3的H/HL中位数比分别约300.07/30.828、HL均3/3≤.01；τ跨档中位数max/min为1.7158/1.4303。τ=.1和Adam主配置不变、零HPO，旧A1/G2/E4负面保留。root已查看两PNG，独立数据/PNG/PDF复核由`r33_working_integrity`进行，图表不可提前称最终PASS。writer正在另存`drafts/complete_v1.md`及真实Phase4b，整合N01–N04；`r33_method_review`在另建完成态复现补充。五正式审稿人和evaluator保持原盲承诺，等完整v1及审前核验后再进入正式评审。
 - **05:36实时观察与05:37材料整理：** 当前仍21 completed / 9 running / 0 failed，runner 91632的新鲜status持续更新，9个checkpoint仅stat检查均在94秒内更新，提交内存约82.9%。原21的63个已验收文件已由`0ccc65a`提交推送，Git索引内容与验收SHA为63/63一致，未包含后9。新增`manuscript/process/reproducibility_recovery_20261023/`绑定48个来源、区分21/9源码谱系及工程/数值验收，旧复现时点证据不覆盖。`PROCESS_RECORD_WORKING_20261023.md`是待完成过程记录，未虚构最终审稿/完整性PASS。待30/30后在新目录刷新最终复现材料。

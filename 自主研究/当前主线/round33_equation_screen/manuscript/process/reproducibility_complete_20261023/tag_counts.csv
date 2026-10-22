@@ -1,0 +1,15 @@
+﻿tag,scope,json_records,base_pt,full_model_pt,raw_files
+screen,historical,30,30,0,60
+confirm,historical,24,24,0,48
+causal1,historical,6,6,0,12
+causal10,historical,6,6,0,12
+pirate,historical,12,12,4,28
+axis,historical,36,36,0,72
+e4screen,historical,8,8,0,16
+e4confirm,historical,12,12,0,24
+final_ic_v1,historical,18,18,18,54
+preflight4_adam,historical,12,12,12,36
+preflight4_soap64,historical,12,12,12,36
+sensitivity_tau003_v1,stage6_new,6,6,6,18
+sensitivity_tau03_v1,stage6_new,6,6,6,18
+final_soap64_v1,stage6_new,18,18,18,54

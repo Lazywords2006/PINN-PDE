@@ -1,0 +1,16 @@
+{
+  "analysis_state": "complete",
+  "output": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2",
+  "new_task_count": 30,
+  "S6_SOAP": "满足本批叠加判据",
+  "artifacts": [
+    "all_new_runs.csv",
+    "default_six_arms.csv",
+    "default_six_arms.pdf",
+    "default_six_arms.png",
+    "STAGE6_ANALYSIS_20261022.md",
+    "tau_sensitivity.csv",
+    "tau_sensitivity.pdf",
+    "tau_sensitivity.png"
+  ]
+}

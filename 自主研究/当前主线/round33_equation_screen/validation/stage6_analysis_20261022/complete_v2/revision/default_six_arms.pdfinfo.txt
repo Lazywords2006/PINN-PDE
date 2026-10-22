@@ -1,0 +1,17 @@
+Creator:         Matplotlib v3.11.2, https://matplotlib.org
+Producer:        Matplotlib pdf backend v3.11.2
+CreationDate:    Fri Oct 23 06:50:34 2026 �й���׼ʱ��
+Custom Metadata: no
+Metadata Stream: no
+Tagged:          no
+UserProperties:  no
+Suspects:        no
+Form:            none
+JavaScript:      no
+Pages:           1
+Encrypted:       no
+Page size:       893.017 x 401.737 pts
+Page rot:        0
+File size:       50784 bytes
+Optimized:       no
+PDF version:     1.4

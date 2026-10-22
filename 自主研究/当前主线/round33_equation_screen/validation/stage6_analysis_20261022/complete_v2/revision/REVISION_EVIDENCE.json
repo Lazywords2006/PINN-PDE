@@ -1,0 +1,403 @@
+{
+  "schema": "r33_stage6_presentation_revision_v1",
+  "created_utc": "2026-10-22T22:55:35.920868+00:00",
+  "status": "READY_FOR_INDEPENDENT_TARGETED_REVIEW",
+  "revision": "complete_v2",
+  "baseline": "complete_v1",
+  "baseline_commit": "7d3857ea93d28c620af51dbc3fdf88e581adae0d",
+  "review_source": "manuscript\\integrity\\stage6_analysis_20261023\\INDEPENDENT_STAGE6_ANALYSIS_REVIEW.md",
+  "review_source_sha256": "10139292faa6450a680c47ad7965f38afe82f969ee362e8a026af64be0ebbbef",
+  "addressed_findings": [
+    "S6-F01",
+    "S6-F02",
+    "S6-F03"
+  ],
+  "complete_v1_preserved_sha256": {
+    "all_new_runs.csv": "7b4784091953a3f62307e9ee6a8e41bc11b4dc3e652355ef6403e8c808e44fb5",
+    "analysis_evidence.json": "7cfe0282f0ba1757caf8bba7ceeb17a7fd8854598572d74706aa168533d9cc59",
+    "default_six_arms.csv": "cc3f3803811a9f5f0b3d99af0c2023b9f8aaf4c4d57b679f2ee7fed5ffcd51e2",
+    "default_six_arms.pdf": "24af550aff8e8026fe26e476bd3a5eb4b889423b80b4e132e354c5449472ab28",
+    "default_six_arms.png": "466f2ce2dbab02d8c17df029bd99648f5c5735254404ce0e28fcd3cc768a8c4a",
+    "STAGE6_ANALYSIS_20261022.md": "1fcf34c866f23597640b7c1c3abfcc4bee09f8197f6948af3bfbf128c871be10",
+    "tau_sensitivity.csv": "509d29b90d56f2fca00c1377df44d7fd8818b67f1fcfc13d2da83a643e02ea16",
+    "tau_sensitivity.pdf": "e934d5e728a5c45ea930db60f3e8294d62b7c824da7b51edfbcd8547ae556bdd",
+    "tau_sensitivity.png": "a2c558fb4067be9acdb4d0a6baa38a2159672eab0a94e8cf69f66b652f37030b"
+  },
+  "complete_v2_formal_sha256": {
+    "all_new_runs.csv": "7b4784091953a3f62307e9ee6a8e41bc11b4dc3e652355ef6403e8c808e44fb5",
+    "analysis_evidence.json": "28753d87bf7cbc2af53d24eedd01927a50907abcfd42dfbaf50173005e8fea38",
+    "default_six_arms.csv": "cc3f3803811a9f5f0b3d99af0c2023b9f8aaf4c4d57b679f2ee7fed5ffcd51e2",
+    "default_six_arms.pdf": "24b2cd0c947fedfc9daf22dd80935a7d04115dd52542d95fec0be58a3d406361",
+    "default_six_arms.png": "2bef60d297d954b53730b9a3523d353ce489ab01b3b470c4b3a2ae182da5d874",
+    "STAGE6_ANALYSIS_20261022.md": "9ad203ff32b974864d3bec2c5e4f55ee8e57e9afacf350e8e7b4c9e4b07c6685",
+    "tau_sensitivity.csv": "509d29b90d56f2fca00c1377df44d7fd8818b67f1fcfc13d2da83a643e02ea16",
+    "tau_sensitivity.pdf": "05f3f3e28e7900de6e696111f671f4ee518a0da118451907f2610f48b4641dd9",
+    "tau_sensitivity.png": "ec4f697e34b44bb2edfb4bf793280446a6354358e57582e4a77f0d5cf0d0b70a"
+  },
+  "csv_checks": {
+    "all_new_runs.csv": {
+      "byte_identical_to_v1": true,
+      "sha256": "7b4784091953a3f62307e9ee6a8e41bc11b4dc3e652355ef6403e8c808e44fb5",
+      "rows": 30,
+      "columns": 45
+    },
+    "default_six_arms.csv": {
+      "byte_identical_to_v1": true,
+      "sha256": "cc3f3803811a9f5f0b3d99af0c2023b9f8aaf4c4d57b679f2ee7fed5ffcd51e2",
+      "rows": 36,
+      "columns": 45
+    },
+    "tau_sensitivity.csv": {
+      "byte_identical_to_v1": true,
+      "sha256": "509d29b90d56f2fca00c1377df44d7fd8818b67f1fcfc13d2da83a643e02ea16",
+      "rows": 18,
+      "columns": 45
+    }
+  },
+  "identical_analysis_fields": [
+    "S6_SOAP",
+    "analysis_state",
+    "costs",
+    "default_comparison_records",
+    "default_groups",
+    "evidence",
+    "new_task_count",
+    "prereg_commit",
+    "preserved_negative_findings",
+    "records",
+    "scope",
+    "tau_groups",
+    "tau_records",
+    "tau_summary"
+  ],
+  "permitted_changed_metadata_fields": [
+    "analysis_code_sha256",
+    "figure_metadata",
+    "generated_local",
+    "output_sha256"
+  ],
+  "record_count": 48,
+  "default_groups": 12,
+  "tau_groups": 6,
+  "all_report_table_lines_unchanged": true,
+  "B1_B2_G2_statement_unchanged": true,
+  "analyzer_AST_identical_except_report_function": true,
+  "gate_sha256_unchanged": "4572088adf9eb3010c4d483b6ae71a82087dd5bd41b35dcb38e0687f5666d6e3",
+  "all_12_gate_bound_sources_unchanged": true,
+  "gate_bound_source_sha256": {
+    "pinn1d.py": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+    "problems.py": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+    "screen.py": "26eb4a06e67350098d7099f2411ecdd2ad5cdf0f314c8f7080b800ae24e67695",
+    "run_artifacts.py": "bd463ae18d21ef71b9a630fbd77426c1a8c616b77b2ba30cebdb80d104ae3a90",
+    "soap_baseline.py": "76ce746f81fe006b3782ee413383de6852a033299504ffd5cde0dd8292557ac2",
+    "stage5_support.py": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf",
+    "third_party/soap_official.py": "6b2328e53fb3cb58cf18b21e706f6f17e7f7dcac83c8abb1053fa74d6e0ca592",
+    "stage6_runner.py": "a2fd8483ed9faa72b25ec6977441522d7897bc6a06b52321a698db4801952e18",
+    "run_stage6.ps1": "4aea35d292fdb6a33331783d810fec5d3ea88b2e892e2acca0fdec23777c06db",
+    "test_stage6_runner.py": "5294632eb59732564d22407369a7a9a9402a40a0d2292159a4a4602f002a3ed7",
+    "SCREEN_PROTOCOL.md": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+    "validation/stage6_20261022/soap_upstream_blob.json": "cb9a6689ab864c2ceea5de92b72ff8db3174a5edf623006257868918c45f6fb5"
+  },
+  "source_sha256_before": {
+    "validation\\stage6_analysis_20261022\\plot_stage6.py": "1a38eb9618949eb94e998e1aa990b4d173bfcbae0246c63b862aa7732c6286fa",
+    "validation\\stage6_analysis_20261022\\analyze_stage6.py": "5eee1bd327426cbba355e76f60d87d24d1d822eb4c76347302cdde9b57b19dc1",
+    "validation\\.gitattributes": "827ee903a943b7300ef677beac4d6f2782eca60b2a8773740987fbe34a2856bb"
+  },
+  "source_sha256_after": {
+    "validation\\stage6_analysis_20261022\\analyze_stage6.py": "a7b0086b6e27517fadcd042e3ee4b5b903f2b60b3d33f286c64eaf70627512eb",
+    "validation\\stage6_analysis_20261022\\plot_stage6.py": "50201b187b6b4357d02fe1e608179e91b4baf4a9e01b6c00f2a81bc1f3269f1f",
+    "validation\\.gitattributes": "93441fe7c7011727a3a42c22e0d82ea66e5600a4214bd3408faea7625dcd604a"
+  },
+  "analysis_tests": {
+    "passed": 26,
+    "failed": 0,
+    "log_sha256": "d5160f2adb0e2db052668e9e531c3e5c249fe364982d1d6b6521cd2dd72e7101"
+  },
+  "visual_checks": [
+    {
+      "figure": "default_six_arms",
+      "png_sha256": "2bef60d297d954b53730b9a3523d353ce489ab01b3b470c4b3a2ae182da5d874",
+      "png_identical_to_original_resolution_viewed_preview": true,
+      "pdf_sha256": "24b2cd0c947fedfc9daf22dd80935a7d04115dd52542d95fec0be58a3d406361",
+      "pdf_pages": 1,
+      "actual_pdf_render": "revision\\visual_checks\\default_six_arms_pdf_render.png",
+      "pdf_render_sha256": "61471c5f54fe30954f015dd2deb31555179bf681cefeee56679bd708a2b8c7c8",
+      "required_route_metric_and_time_text_extracted": true,
+      "author_visual_review": "PASS: original PNG and actual PDF rendering; readable labels and seed markers, no missing glyphs, overlaps or clipping"
+    },
+    {
+      "figure": "tau_sensitivity",
+      "png_sha256": "ec4f697e34b44bb2edfb4bf793280446a6354358e57582e4a77f0d5cf0d0b70a",
+      "png_identical_to_original_resolution_viewed_preview": true,
+      "pdf_sha256": "05f3f3e28e7900de6e696111f671f4ee518a0da118451907f2610f48b4641dd9",
+      "pdf_pages": 1,
+      "actual_pdf_render": "revision\\visual_checks\\tau_sensitivity_pdf_render.png",
+      "pdf_render_sha256": "677a04a8635fef7cc1f4fba8f163a409f7556d31ac81dec4030d5e1ac1ad7bd9",
+      "required_route_metric_and_time_text_extracted": true,
+      "author_visual_review": "PASS: original PNG and actual PDF rendering; readable labels and seed markers, no missing glyphs, overlaps or clipping"
+    }
+  ],
+  "all_18_actual_data_group_layer_checks": [
+    {
+      "tag": "confirm",
+      "eq": "E1_heat",
+      "method": "vanilla",
+      "tau": 0.1,
+      "range_zorder": 2,
+      "median_zorder": 3,
+      "seed_zorders": [
+        4,
+        4,
+        4
+      ],
+      "seed_values_unchanged": true
+    },
+    {
+      "tag": "confirm",
+      "eq": "E1_heat",
+      "method": "hardic",
+      "tau": 0.1,
+      "range_zorder": 2,
+      "median_zorder": 3,
+      "seed_zorders": [
+        4,
+        4,
+        4
+      ],
+      "seed_values_unchanged": true
+    },
+    {
+      "tag": "confirm",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "tau": 0.1,
+      "range_zorder": 2,
+      "median_zorder": 3,
+      "seed_zorders": [
+        4,
+        4,
+        4
+      ],
+      "seed_values_unchanged": true
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E1_heat",
+      "method": "vanilla",
+      "tau": 0.1,
+      "range_zorder": 2,
+      "median_zorder": 3,
+      "seed_zorders": [
+        4,
+        4,
+        4
+      ],
+      "seed_values_unchanged": true
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E1_heat",
+      "method": "hardic",
+      "tau": 0.1,
+      "range_zorder": 2,
+      "median_zorder": 3,
+      "seed_zorders": [
+        4,
+        4,
+        4
+      ],
+      "seed_values_unchanged": true
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "tau": 0.1,
+      "range_zorder": 2,
+      "median_zorder": 3,
+      "seed_zorders": [
+        4,
+        4,
+        4
+      ],
+      "seed_values_unchanged": true
+    },
+    {
+      "tag": "confirm",
+      "eq": "E3_fisher",
+      "method": "vanilla",
+      "tau": 0.1,
+      "range_zorder": 2,
+      "median_zorder": 3,
+      "seed_zorders": [
+        4,
+        4,
+        4
+      ],
+      "seed_values_unchanged": true
+    },
+    {
+      "tag": "confirm",
+      "eq": "E3_fisher",
+      "method": "hardic",
+      "tau": 0.1,
+      "range_zorder": 2,
+      "median_zorder": 3,
+      "seed_zorders": [
+        4,
+        4,
+        4
+      ],
+      "seed_values_unchanged": true
+    },
+    {
+      "tag": "confirm",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "tau": 0.1,
+      "range_zorder": 2,
+      "median_zorder": 3,
+      "seed_zorders": [
+        4,
+        4,
+        4
+      ],
+      "seed_values_unchanged": true
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E3_fisher",
+      "method": "vanilla",
+      "tau": 0.1,
+      "range_zorder": 2,
+      "median_zorder": 3,
+      "seed_zorders": [
+        4,
+        4,
+        4
+      ],
+      "seed_values_unchanged": true
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E3_fisher",
+      "method": "hardic",
+      "tau": 0.1,
+      "range_zorder": 2,
+      "median_zorder": 3,
+      "seed_zorders": [
+        4,
+        4,
+        4
+      ],
+      "seed_values_unchanged": true
+    },
+    {
+      "tag": "final_soap64_v1",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "tau": 0.1,
+      "range_zorder": 2,
+      "median_zorder": 3,
+      "seed_zorders": [
+        4,
+        4,
+        4
+      ],
+      "seed_values_unchanged": true
+    },
+    {
+      "tag": "sensitivity_tau003_v1",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "tau": 0.03,
+      "range_zorder": 2,
+      "median_zorder": 3,
+      "seed_zorders": [
+        4,
+        4,
+        4
+      ],
+      "seed_values_unchanged": true
+    },
+    {
+      "tag": "confirm",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "tau": 0.1,
+      "range_zorder": 2,
+      "median_zorder": 3,
+      "seed_zorders": [
+        4,
+        4,
+        4
+      ],
+      "seed_values_unchanged": true
+    },
+    {
+      "tag": "sensitivity_tau03_v1",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "tau": 0.3,
+      "range_zorder": 2,
+      "median_zorder": 3,
+      "seed_zorders": [
+        4,
+        4,
+        4
+      ],
+      "seed_values_unchanged": true
+    },
+    {
+      "tag": "sensitivity_tau003_v1",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "tau": 0.03,
+      "range_zorder": 2,
+      "median_zorder": 3,
+      "seed_zorders": [
+        4,
+        4,
+        4
+      ],
+      "seed_values_unchanged": true
+    },
+    {
+      "tag": "confirm",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "tau": 0.1,
+      "range_zorder": 2,
+      "median_zorder": 3,
+      "seed_zorders": [
+        4,
+        4,
+        4
+      ],
+      "seed_values_unchanged": true
+    },
+    {
+      "tag": "sensitivity_tau03_v1",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "tau": 0.3,
+      "range_zorder": 2,
+      "median_zorder": 3,
+      "seed_zorders": [
+        4,
+        4,
+        4
+      ],
+      "seed_values_unchanged": true
+    }
+  ],
+  "git_blob_integrity_sha256": "c40d82aa5d911d6fc1ff608cbb2ab94f895e1cb13a0302d57a5b0a968be95ba4",
+  "git_blob_files_checked": 27,
+  "presentation_diff_sha256": "420e803c17fbf220be459e18a63c403929abbca467f656c66cb6c5760f1bc7aa",
+  "version_mapping_sha256": "981fe5b48be12714c4a512d3e318fa996ae5449796cca9a4588696831ec13c6a",
+  "verification_script_sha256": "1a5609184a5badeb1f57e6c4b17bfeb88ffb5875dc2e8cf8ab60402ddc4001bf",
+  "limits": [
+    "Author rendering and equivalence checks, awaiting independent targeted review",
+    "No new training, model reload, protocol changes or statistical decision changes"
+  ]
+}

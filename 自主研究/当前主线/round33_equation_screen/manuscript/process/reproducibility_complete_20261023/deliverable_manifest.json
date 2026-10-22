@@ -1,0 +1,30 @@
+{
+  "schema": "r33_reproducibility_complete_deliverables_v1",
+  "scope": "only this supplemental output directory; no self hash",
+  "files": {
+    "check_completion.py": {
+      "sha256": "59d1bec1b99c95b814319b255e7741429d3932210be60cd8c6ad605ecc3cae81",
+      "bytes": 28470
+    },
+    "completion_checks.json": {
+      "sha256": "7cf4796b0e458d694ad1f0ab564c800f5d75a8d19bc992dedfe622ded629e73d",
+      "bytes": 183966
+    },
+    "input_hashes.json": {
+      "sha256": "5fe0933bd72cc54fa23419ae31ad16ae96b28c9c413e5fa0f29ea2fb6af8b382",
+      "bytes": 123043
+    },
+    "REPRODUCIBILITY_COMPLETE_CN.md": {
+      "sha256": "94362713c389d03ae2dc7ade3ce86238a2302c149b263d2969a4db35da5ed594",
+      "bytes": 16604
+    },
+    "tag_counts.csv": {
+      "sha256": "8e566c006a4226e5533b1f70da0fd956fd2f1de68f31bf5b22c217a21f6197b0",
+      "bytes": 543
+    },
+    "task_inventory.csv": {
+      "sha256": "8401eb314e0bd3b79263a4d86148f35fbed1180587dd76af304d2ae9c9db3ef2",
+      "bytes": 13999
+    }
+  }
+}

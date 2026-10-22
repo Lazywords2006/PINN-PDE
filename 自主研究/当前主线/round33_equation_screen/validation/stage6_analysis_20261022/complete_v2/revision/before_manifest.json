@@ -1,0 +1,37 @@
+{
+  "created_utc": "2026-10-22T22:48:02.999378+00:00",
+  "baseline_commit": "7d3857ea93d28c620af51dbc3fdf88e581adae0d",
+  "complete_v1_sha256": {
+    "all_new_runs.csv": "7b4784091953a3f62307e9ee6a8e41bc11b4dc3e652355ef6403e8c808e44fb5",
+    "analysis_evidence.json": "7cfe0282f0ba1757caf8bba7ceeb17a7fd8854598572d74706aa168533d9cc59",
+    "default_six_arms.csv": "cc3f3803811a9f5f0b3d99af0c2023b9f8aaf4c4d57b679f2ee7fed5ffcd51e2",
+    "default_six_arms.pdf": "24af550aff8e8026fe26e476bd3a5eb4b889423b80b4e132e354c5449472ab28",
+    "default_six_arms.png": "466f2ce2dbab02d8c17df029bd99648f5c5735254404ce0e28fcd3cc768a8c4a",
+    "STAGE6_ANALYSIS_20261022.md": "1fcf34c866f23597640b7c1c3abfcc4bee09f8197f6948af3bfbf128c871be10",
+    "tau_sensitivity.csv": "509d29b90d56f2fca00c1377df44d7fd8818b67f1fcfc13d2da83a643e02ea16",
+    "tau_sensitivity.pdf": "e934d5e728a5c45ea930db60f3e8294d62b7c824da7b51edfbcd8547ae556bdd",
+    "tau_sensitivity.png": "a2c558fb4067be9acdb4d0a6baa38a2159672eab0a94e8cf69f66b652f37030b"
+  },
+  "source_sha256_before": {
+    "validation\\stage6_analysis_20261022\\plot_stage6.py": "1a38eb9618949eb94e998e1aa990b4d173bfcbae0246c63b862aa7732c6286fa",
+    "validation\\stage6_analysis_20261022\\analyze_stage6.py": "5eee1bd327426cbba355e76f60d87d24d1d822eb4c76347302cdde9b57b19dc1",
+    "validation\\.gitattributes": "827ee903a943b7300ef677beac4d6f2782eca60b2a8773740987fbe34a2856bb"
+  },
+  "review_source": "manuscript\\integrity\\stage6_analysis_20261023\\INDEPENDENT_STAGE6_ANALYSIS_REVIEW.md",
+  "review_sha256": "10139292faa6450a680c47ad7965f38afe82f969ee362e8a026af64be0ebbbef",
+  "gate_sha256": "4572088adf9eb3010c4d483b6ae71a82087dd5bd41b35dcb38e0687f5666d6e3",
+  "gate_bound_source_sha256": {
+    "pinn1d.py": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+    "problems.py": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+    "screen.py": "26eb4a06e67350098d7099f2411ecdd2ad5cdf0f314c8f7080b800ae24e67695",
+    "run_artifacts.py": "bd463ae18d21ef71b9a630fbd77426c1a8c616b77b2ba30cebdb80d104ae3a90",
+    "soap_baseline.py": "76ce746f81fe006b3782ee413383de6852a033299504ffd5cde0dd8292557ac2",
+    "stage5_support.py": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf",
+    "third_party/soap_official.py": "6b2328e53fb3cb58cf18b21e706f6f17e7f7dcac83c8abb1053fa74d6e0ca592",
+    "stage6_runner.py": "a2fd8483ed9faa72b25ec6977441522d7897bc6a06b52321a698db4801952e18",
+    "run_stage6.ps1": "4aea35d292fdb6a33331783d810fec5d3ea88b2e892e2acca0fdec23777c06db",
+    "test_stage6_runner.py": "5294632eb59732564d22407369a7a9a9402a40a0d2292159a4a4602f002a3ed7",
+    "SCREEN_PROTOCOL.md": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+    "validation/stage6_20261022/soap_upstream_blob.json": "cb9a6689ab864c2ceea5de92b72ff8db3174a5edf623006257868918c45f6fb5"
+  }
+}

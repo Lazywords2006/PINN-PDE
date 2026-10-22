@@ -31,7 +31,7 @@ def font_setup():
     font_manager.fontManager.addfont(str(selected))
     name = font_manager.FontProperties(fname=str(selected)).get_name()
     glyphs = ft2font.FT2Font(str(selected)).get_charmap()
-    required = "最大体相对误差普通硬初值校正历史云端本机种子中位数范围默认配置灵敏度三档不选参"
+    required = "最大体相对误差普通硬初值校正历史云端本机种子中位数范围默认配置灵敏度三档不选参五个固定评价时刻连续时间上确界路线→"
     missing = [ch for ch in set(required) if ord(ch) not in glyphs]
     if missing:
         raise RuntimeError(f"中文字体缺字：{missing}")
@@ -74,7 +74,7 @@ def draw_group(ax, x, row, color):
     for offset, marker, value in zip((-.13, 0, .13), SEED_MARKERS, values):
         ax.scatter([x + offset], [value], marker=marker, s=43, color=color,
                    edgecolors="white", linewidths=.5, zorder=4)
-    ax.hlines(row["median"], x - .24, x + .24, color="#202020", lw=2.0, zorder=5)
+    ax.hlines(row["median"], x - .24, x + .24, color="#202020", lw=2.0, zorder=3)
 
 
 def finish_axes(ax, rows):
@@ -91,7 +91,7 @@ def finish_axes(ax, rows):
     ax.yaxis.grid(True, color="#EBEBEB", linewidth=.7, linestyle="--", zorder=0)
     ax.set_axisbelow(True)
     ax.tick_params(direction="out", length=3, width=.8)
-    ax.set_ylabel("最大体相对 L² 误差")
+    ax.set_ylabel("五时刻最大体相对 L² 误差")
     ax.margins(y=.25)
     return scale
 
@@ -128,6 +128,11 @@ def render(audit, output):
     metadata = {"font": font, "matplotlib": matplotlib.__version__, "png_dpi": 300,
                 "pdf_vector": True, "confidence_intervals": False, "synthetic_data": False,
                 "reference_line": 1e-2, "reference_line_is_publication_threshold": False,
+                "evaluation_times": [.05, .1, .25, .5, 1.],
+                "maximum_scope": "五个固定评价时刻的最大值，非连续时间上确界",
+                "zorder": {"range": 2, "median": 3, "seed_points": 4},
+                "training_routes": {"default_confirm": "Adam→L-BFGS",
+                                    "default_stage6": "SOAP64→L-BFGS", "tau": "Adam→L-BFGS"},
                 "template": "plot-from-data/bar_grouped_hatch：保留分组、配色、网格与导出参数；改为种子散点+中位数/范围。",
                 "figures": []}
     fig, axes = plt.subplots(1, 2, figsize=(12.8, 5.6))
@@ -145,15 +150,17 @@ def render(audit, output):
         ax.axvspan(3.5, 6.5, color="#FFF5ED", zorder=0)
         ax.set_xticks([0, 1, 2, 4, 5, 6], [NAMES[m] for m in METHODS] * 2, fontsize=9)
         ax.set_xlim(-.6, 6.6)
-        ax.text(1, -.22, "Adam（历史云端 confirm）", transform=ax.get_xaxis_transform(), ha="center", fontsize=10)
-        ax.text(5, -.22, "SOAP64（本机 stage6）", transform=ax.get_xaxis_transform(), ha="center", fontsize=10)
+        ax.text(1, -.20, "Adam→L-BFGS\n（历史云端 confirm）", transform=ax.get_xaxis_transform(), ha="center", va="top", fontsize=10)
+        ax.text(5, -.20, "SOAP64→L-BFGS\n（本机 stage6）", transform=ax.get_xaxis_transform(), ha="center", va="top", fontsize=10)
         ax.set_title(eq)
         scales.append(finish_axes(ax, rows))
+    fig.text(.5, .025, "评价时刻 t={0.05, 0.1, 0.25, 0.5, 1}；最大值仅针对这五个固定时刻（非连续时间上确界）。",
+             ha="center", fontsize=9)
     metadata["figures"].append({"files": save(fig, output, "default_six_arms"), "seed_points": 36,
                                 "medians": 12, "y_scales": scales, "training_location_labels": True})
     fig, axes = plt.subplots(1, 2, figsize=(11.5, 5.5))
     fig.subplots_adjust(left=.085, right=.98, bottom=.22, top=.76, wspace=.28)
-    fig.suptitle("τ 灵敏度：三档全部报告，主配置保持 0.1", y=.98, fontsize=14)
+    fig.suptitle("τ 灵敏度：Adam→L-BFGS；三档全部报告，主配置保持 0.1", y=.98, fontsize=14)
     legend(fig)
     scales = []
     for ax, eq in zip(axes, EQUATIONS):
@@ -166,6 +173,8 @@ def render(audit, output):
         ax.set_xlim(-.5, 2.5)
         ax.set_title(eq)
         scales.append(finish_axes(ax, rows))
+    fig.text(.5, .025, "评价时刻 t={0.05, 0.1, 0.25, 0.5, 1}；最大值仅针对这五个固定时刻（非连续时间上确界）。",
+             ha="center", fontsize=9)
     metadata["figures"].append({"files": save(fig, output, "tau_sensitivity"), "seed_points": 18,
                                 "medians": 6, "y_scales": scales, "training_location_labels": True})
     return metadata
