@@ -1,0 +1,31 @@
+{
+  "frozen_local": "2026-10-23T07:00:28.840848+08:00",
+  "draft_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "phase4b_sha256": "cd80d19c774eab1945cde39cd78bf81d866010056e3c873bfe359ae1728b25fe",
+  "draft_body_cjk": 11434,
+  "writer_decision": "accept",
+  "scope": "作者完整初稿交付冻结；不是独立全文审查或投稿通过。后续改稿另存版本，不覆盖本稿和本清单。",
+  "files": {
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_v1.md": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\bind_v2_figures.py": "35449bc2a107dd499598382ac4e97bd1159f2c479295ac296e8a02d635d86cf7",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\citation_contexts.json": "e06a6a0e70f0acbe7ab5b890f51be14bb7576cf9a1754bc8c1089c7a1530479a",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\citation_contexts.md": "22384a4c18558cb9d1939ffbede9100e7ee9b318f3d79038f4f2990b81cad034",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\compose_complete.py": "8585feaf84610ac242efde6282a7252279f785733cb18311aee257bad7d92795",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\delivery_readback.json": "730d84bf8a267bb4f3073050025be2b8c92af9a840451acb538c94f05ea456c6",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\draft_state.json": "f664d571d0360a184d8dd339656dc9aded7a85529da8a1677aaa5d6d386c29ee",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\final_structure_checks.json": "32ebcd6f1be95423de432d42b4064c9260b9ab0789ad00533844ee1bb74d2431",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\finalize_writer_evidence.py": "12fa5345a48f7d1cbd89ca238eed67fd3c23cc86f7bb9166886281c60fbbdb61",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\freeze_writer_delivery.py": "06628b4a8370e5d29c450d3cb7ba59a78f78919a870aae87f8028d0fda1c3b24",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\numeric_checks.json": "05c5f47e61c30e31826d763301a7c43d7b10717d6d8559a1cd3faa9f975e7a91",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\paragraph_audit.json": "372c90ac52f2ecc88c98ec2bda6a5ab8f5ab6f2434fccc62b6cba549c011411a",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\phase4b_checks.json": "4f7d17fb554751aa4e14eb42b9486baf45a1d0a83a267cbcf0068170707cac3d",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\protected_after.json": "3d282225058470d8c68a8f5444cb81bbc1ed73fe1cc140a965fc6e39d9c4089b",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\protected_before.json": "3d282225058470d8c68a8f5444cb81bbc1ed73fe1cc140a965fc6e39d9c4089b",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\RESPONSES_AND_UNRESOLVED_CN.md": "6718cb14869c214d57e07fcf099fb219d7f7f81386a532a3d19ce8f1eda78b57",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\source_checks.json": "a0015b8b0aed898a66908905999df975dd42581afa04a475a7014f6722957cd2",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\v2_binding_checks.json": "a615c0b6ce3af15863120ab1c65bcab9299a4c8834f91f68176cb2ab04043304",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\word_counts.json": "88da3d2ef17a2f69c143b6c40d66873ac98ef4786847dfe50d66b4d3df973df3",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\writer_phase4b.md": "cd80d19c774eab1945cde39cd78bf81d866010056e3c873bfe359ae1728b25fe",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\writing_quality_checks.json": "c132263bd079dc5d08cad090b853821a0fe2141360b8d28045466f8a7fd710fb"
+  }
+}

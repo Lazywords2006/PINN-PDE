@@ -1,0 +1,46 @@
+{
+  "draft_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "generated_local": "2026-10-23T06:38:33.413747+08:00",
+  "body_cjk": 11434,
+  "counts": {
+    "1 引言与相关工作": {
+      "actual_cjk": 1695,
+      "target_cjk": 1800,
+      "deviation_percent": -5.83,
+      "within_15_percent": true
+    },
+    "2 方程、相容性与修正构造": {
+      "actual_cjk": 2180,
+      "target_cjk": 2200,
+      "deviation_percent": -0.91,
+      "within_15_percent": true
+    },
+    "3 实验设计与复现方法": {
+      "actual_cjk": 2245,
+      "target_cjk": 2000,
+      "deviation_percent": 12.25,
+      "within_15_percent": true
+    },
+    "4 数值结果": {
+      "actual_cjk": 2762,
+      "target_cjk": 2500,
+      "deviation_percent": 10.48,
+      "within_15_percent": true
+    },
+    "5 讨论与局限": {
+      "actual_cjk": 1789,
+      "target_cjk": 1700,
+      "deviation_percent": 5.24,
+      "within_15_percent": true
+    },
+    "6 结论": {
+      "actual_cjk": 763,
+      "target_cjk": 800,
+      "deviation_percent": -4.63,
+      "within_15_percent": true
+    }
+  },
+  "protected_unchanged": 53,
+  "phase4b_pending": false,
+  "stage6_display_version": "complete_v2"
+}

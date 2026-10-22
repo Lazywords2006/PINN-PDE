@@ -1,0 +1,37 @@
+{
+  "draft_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "phase4b_sha256": "cd80d19c774eab1945cde39cd78bf81d866010056e3c873bfe359ae1728b25fe",
+  "full_draft_in_phase4b_exact": true,
+  "bound_json_artifacts": [
+    "citation_contexts.json",
+    "draft_state.json",
+    "final_structure_checks.json",
+    "numeric_checks.json",
+    "paragraph_audit.json",
+    "phase4b_checks.json",
+    "source_checks.json",
+    "v2_binding_checks.json",
+    "word_counts.json",
+    "writing_quality_checks.json"
+  ],
+  "script_AST_parse_passed": true,
+  "body_cjk": 11434,
+  "all_six_section_quotas_met": true,
+  "main_sections": 6,
+  "main_tables": 8,
+  "all_markdown_tables": 13,
+  "references": 13,
+  "figures": 4,
+  "independently_reaggregated_raw_JSON": 206,
+  "new_group_mappings": 18,
+  "prose_numeric_checks": 26,
+  "old_protected_files_unchanged_reused_finalizer_check": 53,
+  "targeted_stage6_v2_findings_closed": [
+    "S6-F01",
+    "S6-F02",
+    "S6-F03"
+  ],
+  "whole_manuscript_independent_review_passed": false,
+  "final_render_by_writer": false,
+  "scope": "最终回读仅检查本稿/本过程目录；既有原始数据检查及图版限定复核保留原范围，不重复全库扫描。"
+}

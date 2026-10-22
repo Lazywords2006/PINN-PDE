@@ -1,0 +1,155 @@
+{
+  "review_completed_utc": "2026-10-22T22:58:02.181968+00:00",
+  "status": "PASS_LIMITED_STAGE6_V2_FOLLOWUP",
+  "scope": "Only S6-F01/F02/F03 closure and v1-to-v2 presentation/data identity; no manuscript verdict",
+  "v1_frozen_commit": "7d3857ea93d28c620af51dbc3fdf88e581adae0d",
+  "v1_nine_formal_assets_match_prior_review_and_git_blob": true,
+  "v1_two_review_reports_unchanged": true,
+  "v2_analysis_evidence_sha256": "28753d87bf7cbc2af53d24eedd01927a50907abcfd42dfbaf50173005e8fea38",
+  "author_revision_manifest_sha256": "fe8a476155bf4a5c899d85495eaabd9ec9b6c5906849509a9311b2c4e8c8f737",
+  "CSV_byte_identity": {
+    "all_new_runs.csv": {
+      "identical": true,
+      "sha256": "7b4784091953a3f62307e9ee6a8e41bc11b4dc3e652355ef6403e8c808e44fb5"
+    },
+    "default_six_arms.csv": {
+      "identical": true,
+      "sha256": "cc3f3803811a9f5f0b3d99af0c2023b9f8aaf4c4d57b679f2ee7fed5ffcd51e2"
+    },
+    "tau_sensitivity.csv": {
+      "identical": true,
+      "sha256": "509d29b90d56f2fca00c1377df44d7fd8818b67f1fcfc13d2da83a643e02ea16"
+    }
+  },
+  "scientific_fields_identical": true,
+  "changed_top_level_evidence_keys": [
+    "analysis_code_sha256",
+    "figure_metadata",
+    "generated_local",
+    "output_sha256"
+  ],
+  "records_identical": 48,
+  "default_groups_identical": 12,
+  "tau_groups_identical": 6,
+  "raw_hash_entries_identical": 488,
+  "all_markdown_tables_byte_text_identical": true,
+  "analysis_AST_except_report_unchanged": true,
+  "plot_input_validation_AST_unchanged": true,
+  "S6_SOAP_unchanged": {
+    "per_equation": [
+      {
+        "eq": "E1_heat",
+        "hardic_median": 0.04430485131984485,
+        "layer_median": 0.00014764821423072187,
+        "hardic_over_layer": 300.0703499915824,
+        "ratio_undefined_zero_denominator": false,
+        "ratio_ge3": true,
+        "layer_under_1e2": 3,
+        "at_least_two_of_three": true,
+        "passed": true
+      },
+      {
+        "eq": "E3_fisher",
+        "hardic_median": 0.002494763101516382,
+        "layer_median": 8.092506824861077e-05,
+        "hardic_over_layer": 30.828062990965837,
+        "ratio_undefined_zero_denominator": false,
+        "ratio_ge3": true,
+        "layer_under_1e2": 3,
+        "at_least_two_of_three": true,
+        "passed": true
+      }
+    ],
+    "joint_passed": true,
+    "conclusion": "满足本批叠加判据",
+    "rule": "两个方程均需 hardic 中位数至少为修正组 3 倍，且修正组至少 2/3 主误差≤1e-2。",
+    "not_a_publication_threshold": true
+  },
+  "tau_summary_unchanged": [
+    {
+      "eq": "E1_heat",
+      "across_tau_max_over_min_median": 1.7158122472919974,
+      "main_tau_unchanged": 0.1,
+      "tau_selected_from_results": false
+    },
+    {
+      "eq": "E3_fisher",
+      "across_tau_max_over_min_median": 1.4302686790148533,
+      "main_tau_unchanged": 0.1,
+      "tau_selected_from_results": false
+    }
+  ],
+  "findings": [
+    {
+      "id": "S6-F01",
+      "status": "CLOSED",
+      "evidence": "median zorder=3, scatter=4, range=2; seed outlines intact in both PNGs and both PDF renders."
+    },
+    {
+      "id": "S6-F02",
+      "status": "CLOSED",
+      "evidence": "Default group labels and report caption state Adam→L-BFGS and SOAP64→L-BFGS; tau title and caption state Adam→L-BFGS."
+    },
+    {
+      "id": "S6-F03",
+      "status": "CLOSED",
+      "evidence": "Both y axes state five-time maximum; both image footers and report captions list t={0.05,0.1,0.25,0.5,1} and explicitly exclude a continuous-time supremum."
+    }
+  ],
+  "new_findings": [],
+  "visual_review": {
+    "PNG_inspected": [
+      "default_six_arms.png",
+      "tau_sensitivity.png"
+    ],
+    "PDF_inspected": [
+      "default_six_arms.pdf",
+      "tau_sensitivity.pdf"
+    ],
+    "PDF_previews": [
+      "D:/CodexRuntime/runs/r33_integrity_working_20261023/stage6_v2_default_six_arms_pdf.png",
+      "D:/CodexRuntime/runs/r33_integrity_working_20261023/stage6_v2_tau_sensitivity_pdf.png"
+    ],
+    "labels_captions_and_seed_shapes_readable": true,
+    "font_missing_or_clipping_seen": false,
+    "environment_nonCI_reference_line_and_main_tau_labels_preserved": true
+  },
+  "protected_snapshot_sha256": {
+    "validation/stage6_analysis_20261022/complete_v1/STAGE6_ANALYSIS_20261022.md": "1fcf34c866f23597640b7c1c3abfcc4bee09f8197f6948af3bfbf128c871be10",
+    "validation/stage6_analysis_20261022/complete_v1/all_new_runs.csv": "7b4784091953a3f62307e9ee6a8e41bc11b4dc3e652355ef6403e8c808e44fb5",
+    "validation/stage6_analysis_20261022/complete_v1/analysis_evidence.json": "7cfe0282f0ba1757caf8bba7ceeb17a7fd8854598572d74706aa168533d9cc59",
+    "validation/stage6_analysis_20261022/complete_v1/default_six_arms.csv": "cc3f3803811a9f5f0b3d99af0c2023b9f8aaf4c4d57b679f2ee7fed5ffcd51e2",
+    "validation/stage6_analysis_20261022/complete_v1/default_six_arms.pdf": "24af550aff8e8026fe26e476bd3a5eb4b889423b80b4e132e354c5449472ab28",
+    "validation/stage6_analysis_20261022/complete_v1/default_six_arms.png": "466f2ce2dbab02d8c17df029bd99648f5c5735254404ce0e28fcd3cc768a8c4a",
+    "validation/stage6_analysis_20261022/complete_v1/tau_sensitivity.csv": "509d29b90d56f2fca00c1377df44d7fd8818b67f1fcfc13d2da83a643e02ea16",
+    "validation/stage6_analysis_20261022/complete_v1/tau_sensitivity.pdf": "e934d5e728a5c45ea930db60f3e8294d62b7c824da7b51edfbcd8547ae556bdd",
+    "validation/stage6_analysis_20261022/complete_v1/tau_sensitivity.png": "a2c558fb4067be9acdb4d0a6baa38a2159672eab0a94e8cf69f66b652f37030b",
+    "validation/stage6_analysis_20261022/complete_v2/STAGE6_ANALYSIS_20261022.md": "9ad203ff32b974864d3bec2c5e4f55ee8e57e9afacf350e8e7b4c9e4b07c6685",
+    "validation/stage6_analysis_20261022/complete_v2/all_new_runs.csv": "7b4784091953a3f62307e9ee6a8e41bc11b4dc3e652355ef6403e8c808e44fb5",
+    "validation/stage6_analysis_20261022/complete_v2/analysis_evidence.json": "28753d87bf7cbc2af53d24eedd01927a50907abcfd42dfbaf50173005e8fea38",
+    "validation/stage6_analysis_20261022/complete_v2/default_six_arms.csv": "cc3f3803811a9f5f0b3d99af0c2023b9f8aaf4c4d57b679f2ee7fed5ffcd51e2",
+    "validation/stage6_analysis_20261022/complete_v2/default_six_arms.pdf": "24b2cd0c947fedfc9daf22dd80935a7d04115dd52542d95fec0be58a3d406361",
+    "validation/stage6_analysis_20261022/complete_v2/default_six_arms.png": "2bef60d297d954b53730b9a3523d353ce489ab01b3b470c4b3a2ae182da5d874",
+    "validation/stage6_analysis_20261022/complete_v2/tau_sensitivity.csv": "509d29b90d56f2fca00c1377df44d7fd8818b67f1fcfc13d2da83a643e02ea16",
+    "validation/stage6_analysis_20261022/complete_v2/tau_sensitivity.pdf": "05f3f3e28e7900de6e696111f671f4ee518a0da118451907f2610f48b4641dd9",
+    "validation/stage6_analysis_20261022/complete_v2/tau_sensitivity.png": "ec4f697e34b44bb2edfb4bf793280446a6354358e57582e4a77f0d5cf0d0b70a",
+    "manuscript/integrity/stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.md": "10139292faa6450a680c47ad7965f38afe82f969ee362e8a026af64be0ebbbef",
+    "manuscript/integrity/stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json": "dfa53c5fede4ff78540e9feda39bd91c615b3536951102fe484ada1ab199f256",
+    "validation/stage6_analysis_20261022/analyze_stage6.py": "a7b0086b6e27517fadcd042e3ee4b5b903f2b60b3d33f286c64eaf70627512eb",
+    "validation/stage6_analysis_20261022/plot_stage6.py": "50201b187b6b4357d02fe1e608179e91b4baf4a9e01b6c00f2a81bc1f3269f1f",
+    "validation/stage6_analysis_20261022/complete_v2/revision/REVISION_EVIDENCE.json": "fe8a476155bf4a5c899d85495eaabd9ec9b6c5906849509a9311b2c4e8c8f737",
+    "validation/stage6_analysis_20261022/complete_v2/VERSION_MAPPING.md": "981fe5b48be12714c4a512d3e318fa996ae5449796cca9a4588696831ec13c6a"
+  },
+  "protected_files_checked": 24,
+  "before_after_hashes_equal": true,
+  "scope_limits": {
+    "old_488_raw_files_rehashed": false,
+    "model_inference": false,
+    "torch_imported": false,
+    "training_started": 0,
+    "core_tests_rerun": false,
+    "mutable_full_manuscript_read": false,
+    "full_manuscript_pass_claimed": false
+  },
+  "audit_script_sha256": "94d68bdb141c4e162defcf5daf1be523e57d5628f2111095af89d8fe2c802858"
+}

@@ -1,0 +1,10 @@
+{
+  "draft_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "scope": "作者语体与结构检查，不是AI文本检测或独立评审",
+  "body_em_dash_count": 0,
+  "body_semicolons": 8,
+  "flagged_english_terms_found": [],
+  "stale_stage6_pending_phrases": [],
+  "manual_register_judgment": "正式中文数值PDE语体；数学保证、描述性结果、机制限制和待作者确认事项分层陈述。",
+  "manual_paragraph_judgment_ref": "paragraph_audit.json"
+}

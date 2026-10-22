@@ -1,0 +1,57 @@
+{
+  "draft_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "phase4b_sha256": "cd80d19c774eab1945cde39cd78bf81d866010056e3c873bfe359ae1728b25fe",
+  "phase4a_sha256": "fe3431ff641f0594f7eed3ffbc63d62c09532c8d38913d412d5efc7f5be93c8b",
+  "full_draft_embedded_exactly": true,
+  "structural_lint": true,
+  "scores": {
+    "D1": {
+      "name": "section_completeness",
+      "score": "pass",
+      "evidence": "六个正文编号章节、全部大纲小节、双语摘要、13条参考文献、四图、八张正文表及附录均已写入。第4.5/4.6由真实30项完整验收结果补齐，正文不含MATERIAL GAP。署名/单位/基金/COI等非科学信息明确待作者确认。Stage6图版三项限定复核已关闭；本完整稿的独立审查与最终渲染尚未完成，不被当作文本缺口或既成通过。"
+    },
+    "D2": {
+      "name": "citation_density",
+      "score": "pass",
+      "evidence": "13条题录保持原核验文本，18处非题录引用上下文逐项保留来源支持范围。已有事实和方法背景引用相应文献，项目结果/协议/推导以E编号定位；新增数字由206份原JSON及正式分析复核。自包含公式推导保留E02，未新增无来源的外部事实。作者上下文判断不等于重新通读13篇原文或独立引用审查通过。"
+    },
+    "D3": {
+      "name": "argument_blueprint_fidelity",
+      "score": "pass",
+      "evidence": "按照OUTLINE_AND_EVIDENCE保留相容性定义、局部证明、同构造比较、新初值、架构叠加、参数轴、τ、SOAP与残差成本顺序。三个研究问题现在均有相应结果及限制；A-1/G2失败、E2/E1筛选历史、弱错配、不利种子和E4缺失仍在。已完成补证据只关闭材料缺口，不升级经典工具首创、早时间机制或普遍优势主张。"
+    },
+    "D4": {
+      "name": "total_word_count",
+      "score": "pass",
+      "evidence": "按配置统计正文11434汉字，相对11000目标偏差3.95%，在9900至12100内。摘要、英文摘要、表行、图题、公式、参考文献、声明和附录不计；标题、表题与表注按原口径计入。实际计数见word_counts.json。"
+    },
+    "D5": {
+      "name": "per_section_word_count",
+      "score": "pass",
+      "evidence": "六节均在各自配额±15%范围内，见下表。新增篇幅来自完整τ和SOAP结果、成本分层及其解释和结论，没有用重复背景填补数额。"
+    },
+    "D6": {
+      "name": "paragraph_structure",
+      "score": "pass",
+      "evidence": "按作者逐段语义复核，86个纳入段中69个具备主题、依据、解释与衔接功能，占80.23%。引言首段和结论末段按契约豁免，8个表题不作论述段；17个数学定义/引导短段仍计入分母并从严记为非完整TEEL。公式证明和数据段的判断保存在paragraph_audit.json，未把“存在引用”自动等同TEEL。章节按分析、实验、结果与限制衔接，比例为作者自核而非独立评分。"
+    },
+    "D7": {
+      "name": "register_consistency",
+      "score": "pass",
+      "evidence": "中文正文使用数值PDE和科学机器学习术语，英文摘要与中文结果、范围和保留限制对应。统一区分Adam/SOAP之后的L-BFGS、五时刻最大误差与连续时间最大误差、实现调用记录与真实优化器计数。N01–N04和完整AI参与范围已落实，未宣称统计显著、普遍最优、固定加速或投稿通过。"
+    }
+  },
+  "condition_order": [
+    "F1",
+    "F4",
+    "F2",
+    "F3",
+    "F0"
+  ],
+  "fired_conditions": [
+    "F0"
+  ],
+  "writer_decision": "accept",
+  "independent_review_accepted": false,
+  "final_render_performed": false
+}

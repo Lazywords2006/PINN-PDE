@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-10-22T23:00:38.343999+00:00",
+  "stage": "evaluator_phase6b",
+  "draft_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "input_sha256": {
+    "process\\evaluator_contract.json": "7859f1caa5ad9dc10c5a8a21eeda79a547ee8e235ba7380ae234065432fb1996",
+    "process\\evaluator_phase6a.md": "d3a8ade262b6dc667bc2dab58213f66aca16ab651d5d29aea4878b3200174c99",
+    "process\\writer_phase4a.md": "fe3431ff641f0594f7eed3ffbc63d62c09532c8d38913d412d5efc7f5be93c8b",
+    "process\\complete_v1\\writer_phase4b.md": "cd80d19c774eab1945cde39cd78bf81d866010056e3c873bfe359ae1728b25fe"
+  },
+  "packet_sha256": "ac87c611cf37183ad7fbcc130dc12c6b4fb774f754744c4987a571a2d1b4ffa1",
+  "review_started": false
+}
