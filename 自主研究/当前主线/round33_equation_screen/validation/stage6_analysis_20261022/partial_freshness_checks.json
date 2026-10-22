@@ -1,0 +1,27 @@
+{
+  "recorded_utc": "2026-10-22T17:46:27.191568+00:00",
+  "scope": "partial持久化快照过期提示，未修改正式聚合/科学判据/训练代码",
+  "command": "D:\\CodexRuntime\\venvs\\r33-analysis\\Scripts\\python.exe -m unittest test_analysis -v",
+  "working_directory": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022",
+  "tests": 24,
+  "test_duration_seconds": 4.012,
+  "exit_code": 0,
+  "test_result": "OK",
+  "evidence_location": "当前任务工具执行记录，session 70287及其完成输出；本文件是摘要，不冒充完整原始日志",
+  "source_sha256": {
+    "analyze_stage6.py": "fd378664517a98f15724a1e3b9972f279c86fc6903b872488cd068b4442bba79",
+    "test_analysis.py": "81d5b9d43080278911c2b9b866e3f6c39cf1e8415d3306643e9129c5279059a1",
+    "plot_stage6.py": "1a38eb9618949eb94e998e1aa990b4d173bfcbae0246c63b862aa7732c6286fa"
+  },
+  "live_partial_check": {
+    "generated_local": "2026-10-23T01:44:13.122746+08:00",
+    "runner_updated_utc": "2026-10-22T17:08:47.269772+00:00",
+    "timestamp_status": "stale",
+    "age_seconds": 2125.865499,
+    "runner_identity_verified": false,
+    "counts_scope": "persisted_status_snapshot_not_live_process_count",
+    "saved_json_count": 0,
+    "final_criteria_evaluated": false,
+    "status_sha256": "834ae2f4123a1298a25b02f906b4df69f1b1723e74b0491dc4a2db0128b6dc89"
+  }
+}

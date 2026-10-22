@@ -76,6 +76,25 @@ class AnalysisTests(unittest.TestCase):
         result = a.soap_judgment({"median": .03}, {"median": .01, "under_1e2": 2})
         self.assertTrue(result["passed"])
 
+    def test_stale_snapshot_is_not_live_progress(self):
+        observed = a.datetime(2026, 10, 23, 2, tzinfo=a.timezone.utc)
+        result = a.snapshot_freshness({"updated_utc": "2026-10-23T01:00:00Z"}, observed)
+        self.assertEqual(result["timestamp_status"], "stale")
+        self.assertEqual(result["age_seconds"], 3600)
+        self.assertFalse(result["runner_identity_verified"])
+
+    def test_recent_snapshot_does_not_verify_process(self):
+        observed = a.datetime(2026, 10, 23, 2, tzinfo=a.timezone.utc)
+        result = a.snapshot_freshness({"updated_utc": "2026-10-23T02:00:00+00:00"}, observed)
+        self.assertEqual(result["timestamp_status"], "recent_snapshot")
+        self.assertFalse(result["runner_identity_verified"])
+
+    def test_bad_or_future_timestamp_cannot_imply_freshness(self):
+        observed = a.datetime(2026, 10, 23, 2, tzinfo=a.timezone.utc)
+        for value in (None, "invalid", "2026-10-23T02:00:00"):
+            self.assertEqual(a.snapshot_freshness({"updated_utc": value}, observed)["timestamp_status"], "unknown_timestamp")
+        self.assertEqual(a.snapshot_freshness({"updated_utc": "2026-10-23T03:00:00Z"}, observed)["timestamp_status"], "clock_inconsistent")
+
     def test_soap_ratio_alone_is_not_enough(self):
         result = a.soap_judgment({"median": .1}, {"median": .02, "under_1e2": 1})
         self.assertFalse(result["passed"])

@@ -99,11 +99,32 @@ def old_integrity(root=ROOT):
     return manifest, sha(path)
 
 
+def snapshot_freshness(state, observed=None):
+    """Describe a saved snapshot; freshness never proves process identity."""
+    observed = observed or datetime.now(timezone.utc)
+    updated = state.get("updated_utc")
+    age = None
+    try:
+        stamp = datetime.fromisoformat(updated.replace("Z", "+00:00"))
+        if stamp.tzinfo is None:
+            raise ValueError("timestamp has no timezone")
+        age = (observed - stamp).total_seconds()
+    except (AttributeError, TypeError, ValueError):
+        status = "unknown_timestamp"
+    else:
+        status = "clock_inconsistent" if age < -5 else "stale" if age > 120 else "recent_snapshot"
+    return {"timestamp_status": status, "age_seconds": age,
+            "stale_warning_after_seconds": 120, "runner_identity_verified": False,
+            "notice": "这里只检查保存时间；即使快照较新，也不能据此确认PID身份、进程存活或批准重启。"}
+
+
 def partial_status(root=ROOT, stage=STAGE, runtime=RUNTIME):
     state_path = Path(runtime) / "status.json"
-    state = read(state_path) if state_path.exists() else {"phase": "not_started", "tasks": []}
+    state_raw = state_path.read_bytes() if state_path.exists() else None
+    state = json.loads(state_raw.decode("utf-8-sig")) if state_raw is not None else {"phase": "not_started", "tasks": []}
     validation_path = Path(stage) / "results_validation.json"
-    validation = read(validation_path) if validation_path.exists() else {"results": [], "complete": False}
+    validation_raw = validation_path.read_bytes() if validation_path.exists() else None
+    validation = json.loads(validation_raw.decode("utf-8-sig")) if validation_raw is not None else {"results": [], "complete": False}
     rows = state.get("tasks", [])
     counts = {key: sum(r.get("state") == key for r in rows) for key in ("queued", "running", "completed", "failed")}
     return {"analysis_state": "partial", "generated_local": now(), "prereg_commit": PREREG,
@@ -112,10 +133,13 @@ def partial_status(root=ROOT, stage=STAGE, runtime=RUNTIME):
             "validator_reported_count": len(validation.get("results", [])),
             "validator_reported_complete": validation.get("complete", False),
             "runner_pid": state.get("runner_pid"), "runner_updated_utc": state.get("updated_utc"),
+            "count_scope": "persisted_status_snapshot_not_live_process_count",
+            "snapshot_freshness": snapshot_freshness(state),
             "resources": state.get("resources"), "stop_dispatch_reason": state.get("stop_dispatch_reason"),
             "final_criteria_evaluated": False,
-            "notice": "PARTIAL：仅报告运行/落盘/验证状态；不计算最终效果判据、不生成正式分析图。",
-            "input_sha256": {str(p): sha(p) for p in (state_path, validation_path) if p.exists()}}
+            "notice": "PARTIAL：任务数量是保存的状态快照，不是实时进程统计。必须核对更新时间、进程身份及恢复监督记录；不能据此重启队列。不计算最终效果判据，不生成正式分析图。",
+            "input_sha256": {str(p): hashlib.sha256(raw).hexdigest() for p, raw in
+                             ((state_path, state_raw), (validation_path, validation_raw)) if raw is not None}}
 
 
 def completion_gate(root=ROOT, stage=STAGE, runtime=RUNTIME):
