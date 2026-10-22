@@ -260,6 +260,7 @@ def test_existing_result_is_revalidated_and_never_dispatched(monkeypatch, tmp_pa
     job = s.ALL_JOBS[0]
     path = tmp_path / "result.json"
     path.write_text("{}")
+    monkeypatch.setattr(s, "HERE", tmp_path)
     monkeypatch.setattr(s, "ALL_JOBS", [job])
     monkeypatch.setattr(s, "out_path", lambda *args: path)
     called = []
@@ -278,6 +279,7 @@ def test_partial_bundle_without_checkpoint_rejected(monkeypatch, tmp_path):
     job = s.ALL_JOBS[0]
     path = tmp_path / "result.json"
     path.with_suffix(".pt").write_bytes(b"partial")
+    monkeypatch.setattr(s, "HERE", tmp_path)
     monkeypatch.setattr(s, "ALL_JOBS", [job])
     monkeypatch.setattr(s, "out_path", lambda *args: path)
     with pytest.raises(ValueError, match="不完整结果"):

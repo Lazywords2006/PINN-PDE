@@ -1,0 +1,60 @@
+...............................FF....................................... [ 88%]
+.........                                                                [100%]
+================================== FAILURES ===================================
+__________ test_existing_result_is_revalidated_and_never_dispatched ___________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001B544AF4FB0>
+tmp_path = WindowsPath('D:/CodexRuntime/temp/r33-stage6-recovery-final/test_existing_result_is_revali0')
+
+    def test_existing_result_is_revalidated_and_never_dispatched(monkeypatch, tmp_path):
+        job = s.ALL_JOBS[0]
+        path = tmp_path / "result.json"
+        path.write_text("{}")
+        monkeypatch.setattr(s, "ALL_JOBS", [job])
+        monkeypatch.setattr(s, "out_path", lambda *args: path)
+        called = []
+    
+        def load(path, **kwargs):
+            called.append(kwargs)
+            return None, {}, "complete"
+    
+        monkeypatch.setattr(s, "load_result", load)
+>       rows = s.existing_identity_checks(tmp_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_stage6_runner.py:272: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+runtime = WindowsPath('D:/CodexRuntime/temp/r33-stage6-recovery-final/test_existing_result_is_revali0')
+
+    def existing_identity_checks(runtime):
+        expected_paths = {out_path(*job).resolve() for job in ALL_JOBS}
+        for tag in {job[0] for job in ALL_JOBS}:
+            for path in (HERE / "runs" / tag).rglob("*.json"):
+                if path.resolve() not in expected_paths:
+>                   raise ValueError(f"新 tag 出现未注册结果：{path}")
+E                   ValueError: 新 tag 出现未注册结果：E:\PINN-PDE\自主研究\当前主线\round33_equation_screen\runs\sensitivity_tau003_v1\E1_heat\hardic_layer_s0.json
+
+stage6_runner.py:503: ValueError
+_______________ test_partial_bundle_without_checkpoint_rejected _______________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001B544AF44D0>
+tmp_path = WindowsPath('D:/CodexRuntime/temp/r33-stage6-recovery-final/test_partial_bundle_without_ch0')
+
+    def test_partial_bundle_without_checkpoint_rejected(monkeypatch, tmp_path):
+        job = s.ALL_JOBS[0]
+        path = tmp_path / "result.json"
+        path.with_suffix(".pt").write_bytes(b"partial")
+        monkeypatch.setattr(s, "ALL_JOBS", [job])
+        monkeypatch.setattr(s, "out_path", lambda *args: path)
+>       with pytest.raises(ValueError, match="不完整结果"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: '不完整结果'
+E         Actual message: '新 tag 出现未注册结果：E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\sensitivity_tau003_v1\\E1_heat\\hardic_layer_s0.json'
+
+test_stage6_runner.py:283: AssertionError
+=========================== short test summary info ===========================
+FAILED test_stage6_runner.py::test_existing_result_is_revalidated_and_never_dispatched
+FAILED test_stage6_runner.py::test_partial_bundle_without_checkpoint_rejected
+2 failed, 79 passed in 13.06s

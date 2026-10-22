@@ -1,0 +1,100 @@
+{
+  "schema": "r33_stage6_fixture_isolation_independent_review_v1",
+  "reviewed_local": "2026-10-23T04:36:11+08:00",
+  "decision": "FIXTURE_ISOLATION_ACCEPTED_RUNTIME_RECOVERY_PENDING",
+  "blocking_findings": [],
+  "recovery_dispatch_authorized": false,
+  "scope": "two HERE-to-tmp_path test isolation additions only",
+  "code_change": {
+    "file": "test_stage6_runner.py",
+    "added_lines": 2,
+    "production_code_changed": false,
+    "assertions_changed": false,
+    "ast_otherwise_identical": true,
+    "tests": [
+      "test_existing_result_is_revalidated_and_never_dispatched",
+      "test_partial_bundle_without_checkpoint_rejected"
+    ]
+  },
+  "source_hashes": {
+    "before_test": "16844c7d45cbbd4b357e51140433b64b1ee13b7aa76e0f07d1117496b32b9c63",
+    "after_test": "6fcd2d482d5cd0fad8abdacdbe10fbfa8b632f941f9ecbc5b55f860760a894a6",
+    "runner": "fba758ebe71f1c6dead8acc7cd062c15284a7f908e0ad51038aed6755da8600b",
+    "other_gate_sources_checked": 11,
+    "other_source_mismatches": 0,
+    "before_snapshot_hash_mismatches": 0
+  },
+  "isolation_audit": {
+    "direct_scan_functions": 3,
+    "all_direct_scans_here_isolated": true,
+    "other_run_tests_scanner_mocked": true,
+    "other_prevalidation_helpers_do_not_scan_runs": true,
+    "production_unknown_result_rejection_verified": true
+  },
+  "independent_tests": {
+    "tests": 5,
+    "passed": 5,
+    "failed": 0,
+    "seconds": 0.28,
+    "torch_imported": false,
+    "full_regression_executed_by_reviewer": false,
+    "scope": [
+      "two actual fixed test bodies with guarded rglob",
+      "production unknown JSON rejection",
+      "two pre-fix failure reproductions using synthetic temporary files only"
+    ],
+    "directory": "D:/CodexRuntime/runs/r33_stage6_20261022/independent_fixture_review_20261023_0435",
+    "log_sha256": "08893cd61d53e5b060bff2eaec1aa46e86dfba154115e993453edcfe09ff571d",
+    "junit_sha256": "30cc686510ac542dde204cac36a1e5d8aaa680dd308275f1af683e99a0d56e0b",
+    "harness_sha256": "984cf821cb84f5ac75799105801b072e8a2cf8538e781fa76830e80a3ab7bfd6"
+  },
+  "full_regression": {
+    "first": {
+      "tests": 81,
+      "passed": 79,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0,
+      "status": "FAILED_HISTORY_PRESERVED",
+      "log_sha256": "3347dc704abc66c00def1dcfad5e2207885cc735362a45726bd4bee081b850ef",
+      "junit_sha256": "71bee10bd4f7b645d9facaa004f55949964feffca37df60d1abd33e9eaa9602d"
+    },
+    "attempt2": {
+      "executor": "root agent",
+      "tests": 81,
+      "passed": 81,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 6.1,
+      "exit_code": 0,
+      "status": "PASS_REVIEWED_LOG_AND_XML",
+      "independently_rerun": false,
+      "log_sha256": "f7dcc47583199ff2d6e4439452c410e4b8a8dbe21e66dc4e50b22b1086cc6a76",
+      "junit_sha256": "6cf52fc66bcd116d1c0aad9efb8d3f79ebd2ad9347eda5749ed42c2e9a47ecce"
+    }
+  },
+  "runtime": {
+    "source": "root report at 04:33; not independently remeasured in this narrow review",
+    "zero_exit_events_reported": 34,
+    "original_workers_remaining_reported": 4,
+    "journal_closed": false,
+    "journal_archived_by_reviewer": false,
+    "active_checkpoint_contents_read": false,
+    "original_21_accepted": false,
+    "new_gate_executed_by_reviewer": false,
+    "new_training_dispatched_by_reviewer": false,
+    "training_killed_by_reviewer": false,
+    "final_30_accepted": false
+  },
+  "remaining_requirements": [
+    "all original HANDLE exits and completed observer",
+    "all original locks released",
+    "old21 complete bundle/budget/reference validation",
+    "recovery evidence and new gate bound to current test hash",
+    "remaining nine fixed jobs only after recovery gates"
+  ],
+  "scientific_acceptance": "NOT_EVALUATED",
+  "old_398_reaudited": false,
+  "project_sources_modified_by_reviewer": false
+}

@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "source": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\independent_fixture_review_20261023_0435\\pytest.log",
+      "archive": "validation\\stage6_recovery_20261023\\regression_fixture_repair\\independent_test_evidence\\pytest.log",
+      "sha256": "08893cd61d53e5b060bff2eaec1aa46e86dfba154115e993453edcfe09ff571d"
+    },
+    {
+      "source": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\independent_fixture_review_20261023_0435\\pytest.xml",
+      "archive": "validation\\stage6_recovery_20261023\\regression_fixture_repair\\independent_test_evidence\\pytest.xml",
+      "sha256": "30cc686510ac542dde204cac36a1e5d8aaa680dd308275f1af683e99a0d56e0b"
+    },
+    {
+      "source": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\independent_fixture_review_20261023_0435\\independent_fixture_checks.py",
+      "archive": "validation\\stage6_recovery_20261023\\regression_fixture_repair\\independent_test_evidence\\independent_fixture_checks.py",
+      "sha256": "984cf821cb84f5ac75799105801b072e8a2cf8538e781fa76830e80a3ab7bfd6"
+    }
+  ],
+  "scope": "closed independent test evidence; no training"
+}

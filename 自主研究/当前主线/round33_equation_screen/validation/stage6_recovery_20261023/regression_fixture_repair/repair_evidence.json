@@ -1,0 +1,57 @@
+{
+  "schema": "r33_stage6_test_fixture_isolation_repair_v1",
+  "verified_utc": "2026-10-22T20:34:41.622369+00:00",
+  "scope": "Only two HERE=tmp_path lines added to test_stage6_runner.py; no production or scientific source changes",
+  "before_manifest_sha256": "6c19850b284a977777c12523964b872c4d2d5fd186db8b9c6d038006e8f7aeed",
+  "before_test_sha256": "16844c7d45cbbd4b357e51140433b64b1ee13b7aa76e0f07d1117496b32b9c63",
+  "after_test_sha256": "6fcd2d482d5cd0fad8abdacdbe10fbfa8b632f941f9ecbc5b55f860760a894a6",
+  "runner_sha256_unchanged": "fba758ebe71f1c6dead8acc7cd062c15284a7f908e0ad51038aed6755da8600b",
+  "v1_v2_artifacts_unchanged": true,
+  "all_other_v2_bound_sources_unchanged": true,
+  "first_full_torch_regression": {
+    "tests": 81,
+    "failures": 2,
+    "errors": 0,
+    "skipped": 0
+  },
+  "targeted_no_torch_scan_guard": {
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "root_second_full_torch_regression": {
+    "tests": 81,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "root_second_full_logs_sha256": {
+    "pytest_final_attempt2.log": "f7dcc47583199ff2d6e4439452c410e4b8a8dbe21e66dc4e50b22b1086cc6a76",
+    "pytest_final_attempt2.xml": "6cf52fc66bcd116d1c0aad9efb8d3f79ebd2ad9347eda5749ed42c2e9a47ecce"
+  },
+  "related_fixtures_reviewed": [
+    "two direct identity-check tests now isolate HERE",
+    "six recovery artifact-loss cases already isolate HERE",
+    "outer-exception run test mocks existing_identity_checks",
+    "old-result prevalidation run test mocks existing_identity_checks",
+    "prevalidation helper test does not scan HERE/runs"
+  ],
+  "git_diff_check_passed": true,
+  "training_started": false,
+  "new_gate_started": false,
+  "training_terminated": false,
+  "committed_by_repair_agent": false,
+  "artifact_sha256": {
+    "after\\test_stage6_runner.py": "6fcd2d482d5cd0fad8abdacdbe10fbfa8b632f941f9ecbc5b55f860760a894a6",
+    "before\\pytest_final.log": "3347dc704abc66c00def1dcfad5e2207885cc735362a45726bd4bee081b850ef",
+    "before\\pytest_final.xml": "71bee10bd4f7b645d9facaa004f55949964feffca37df60d1abd33e9eaa9602d",
+    "before\\test_stage6_runner.py": "16844c7d45cbbd4b357e51140433b64b1ee13b7aa76e0f07d1117496b32b9c63",
+    "before_manifest.json": "6c19850b284a977777c12523964b872c4d2d5fd186db8b9c6d038006e8f7aeed",
+    "fixture_checks.py": "7082d6197edc32d2db313a344592f80ef581282635d7a8a2f8d4916d87ad8a59",
+    "fixture_isolation.diff": "f5978e3f8375d173a12d900dd0cae641476779f3402e3236736c7703aff44e19",
+    "REVIEW.md": "6bf4538ef9819ba16f8136f767df9db4303c3f5dca4af49093b245f41342b0a6",
+    "targeted.log": "9c95993f3d9725c82f3d336adac44ffd8b04f8d17717eda56dced32a286db96a",
+    "targeted.xml": "edaa64324357a2ca135d8afc123d58b4dfd0bbce07e6d30b231c72c2e99b0366"
+  }
+}
