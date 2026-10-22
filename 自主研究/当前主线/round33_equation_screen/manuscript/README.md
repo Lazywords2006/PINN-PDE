@@ -1,14 +1,14 @@
 # R33 论文材料
 
-当前是有明确缺口的工作稿，尚未交付完整初稿、未投稿。30次修订6实验于2026-10-23 00:08（UTC+8）启动；最新进度以 `D:\CodexRuntime\runs\r33_stage6_20261022\status.json` 为准。
+当前是有明确缺口的工作稿，尚未交付完整初稿、未投稿。30次修订6实验于2026-10-23 00:08（UTC+8）启动。01:08调度器写入状态时退出，21个训练进程仍在运行，恢复状态见上级`PAPER_AUTOPILOT.md`及`validation/stage6_recovery_20261023/`。`D:\CodexRuntime\runs\r33_stage6_20261022\status.json`必须结合更新时间、实际进程身份和独立监督记录阅读；旧状态文件不能证明调度器仍活着，不能据此重复启动。
 
 ## 阅读顺序
 
-1. `drafts/initial_working.md`：当前正文，原始/新初值、架构叠加和负面结果已经写入；第4.5、4.6节等待τ灵敏度和SOAP64完整数据。作者身份、单位、基金和利益冲突尚待作者提供，不替作者声明。
+1. `drafts/working_revised1.md`：当前修订正文，原始/新初值、架构叠加和负面结果已经写入，新增完整筛选表、实际实现配置及解析示意图；第4.5、4.6节等待τ灵敏度和SOAP64完整数据。正文10129汉字，冻结SHA256见独立复核报告。`drafts/initial_working.md`保留原版。作者身份、单位、基金和利益冲突尚待作者提供，不替作者声明。
 2. `research/MATH_SOURCE_AUDIT.md`：局部层推导、缩放、渐近、初始导数迭代极限及保证范围。
 3. `research/CITATION_CONTEXT.md`、`REFERENCES_VERIFIED.json`、`references.bib`：13条正文文献及1条备选、实际阅读版本、上下文和题录更正。
 4. `process/writer_data_evidence.json`、`working_tables.md`：176个历史结果的独立重聚合与逐文件哈希；不包含正在运行的30项预测结果。
-5. `integrity/`：独立核验记录。工作稿预审与完整稿最终审查分开存放，不能相互替代。
+5. `integrity/working_20261023/REVISED1_FOLLOWUP_CN.md`：F01–F05关闭复核，六旧表、完整筛选及解析图核对正确；历史全生产链与机制因果证据仍有限制。工作稿预审与完整稿最终审查分开存放，不能相互替代。
 
 `PAPER_CONFIGURATION.json` 与 `OUTLINE_AND_EVIDENCE.md` 固定文章范围及正文计数口径。`process/writer_phase4a.md` 和 `evaluator_phase6a.md` 是在对应稿件可见之前形成的标准承诺；当前 writer Phase4b 自评明确记录数据及篇幅未完整，不能当作审查通过。
 
