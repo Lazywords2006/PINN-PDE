@@ -1,0 +1,4431 @@
+{
+  "draft_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "definition": "正文含至少25汉字的论述段按句号分为主张单元；包括事实、定义、数学性质、比较及适用边界。短公式引导不作主张，公式全由C覆盖。双语摘要、附录执行与声明另纳入；表格全由C逐单元覆盖。建议/限制若入选按其实际是否被当成既成结果核对。",
+  "denominator": 410,
+  "random_seed": 20261023,
+  "random_sample_count": 123,
+  "selected_count": 212,
+  "coverage": 0.5170731707317073,
+  "disposition_counts": {
+    "VERIFIED": 198,
+    "VERIFIED_AS_LIMITATION_OR_PROPOSAL": 2,
+    "DECLARED_PENDING_NOT_EMPIRICAL_VERIFICATION": 9,
+    "SUPPORTED_AI_ROLE_DISCLOSURE": 3
+  },
+  "major_distortion_count": 0,
+  "unverifiable_asserted_empirical_claim_count": 0,
+  "declared_pending_excluded_from_verified_count": 9,
+  "items": [
+    {
+      "id": "E005",
+      "line": 23,
+      "section": "1 引言与相关工作",
+      "claim": "物理信息神经网络通过自动微分构造方程残差，并将其与初边值数据共同纳入训练目标[2]。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [
+        "2",
+        "3"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=2]",
+        "REFERENCES_AND_CITATIONS.json#references[number=3]"
+      ],
+      "reason": "PINN残差训练背景及Awais硬初值/制造解结构有原文支持；不把不同问题结果作直接排名。"
+    },
+    {
+      "id": "E006",
+      "line": 23,
+      "section": "1 引言与相关工作",
+      "claim": "这一框架可以用于动态边界问题，但边界含时间导数并不自动消除初始相容性的要求。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [
+        "2",
+        "3"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=2]",
+        "REFERENCES_AND_CITATIONS.json#references[number=3]"
+      ],
+      "reason": "PINN残差训练背景及Awais硬初值/制造解结构有原文支持；不把不同问题结果作直接排名。"
+    },
+    {
+      "id": "E007",
+      "line": 23,
+      "section": "1 引言与相关工作",
+      "claim": "Awais 已在动态边界热方程上研究硬初值随机特征与线性最小二乘求解，并以光滑制造解验证其表现[3]。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [
+        "2",
+        "3"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=2]",
+        "REFERENCES_AND_CITATIONS.json#references[number=3]"
+      ],
+      "reason": "PINN残差训练背景及Awais硬初值/制造解结构有原文支持；不把不同问题结果作直接排名。"
+    },
+    {
+      "id": "E008",
+      "line": 23,
+      "section": "1 引言与相关工作",
+      "claim": "其两端边界设置及法向通量符号与本文不同，误差数值不适合作为直接排名依据。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [
+        "2",
+        "3"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=2]",
+        "REFERENCES_AND_CITATIONS.json#references[number=3]"
+      ],
+      "reason": "PINN残差训练背景及Awais硬初值/制造解结构有原文支持；不把不同问题结果作直接排名。"
+    },
+    {
+      "id": "E009",
+      "line": 23,
+      "section": "1 引言与相关工作",
+      "claim": "该先例说明本研究需要把问题限定为所测非相容初值及具体修正，而非宣称首次进行动态边界神经求解。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [
+        "2",
+        "3"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=2]",
+        "REFERENCES_AND_CITATIONS.json#references[number=3]"
+      ],
+      "reason": "PINN残差训练背景及Awais硬初值/制造解结构有原文支持；不把不同问题结果作直接排名。"
+    },
+    {
+      "id": "E010",
+      "line": 25,
+      "section": "1 引言与相关工作",
+      "claim": "动态边界下的采样与时间训练也已有专门研究。",
+      "paragraph_evidence_tags": [
+        "E01"
+      ],
+      "paragraph_literature_refs": [
+        "4"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=4]"
+      ],
+      "reason": "Li原文一维周期与二维动态边界已区分；wIC和早期采样被写为相关线索而非本稿已执行实验。"
+    },
+    {
+      "id": "E011",
+      "line": 25,
+      "section": "1 引言与相关工作",
+      "claim": "Li等提出能量耗散率引导的自适应采样，在二维动态边界 Allen–Cahn 模型上考察体与表面的演化[4]。",
+      "paragraph_evidence_tags": [
+        "E01"
+      ],
+      "paragraph_literature_refs": [
+        "4"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=4]"
+      ],
+      "reason": "Li原文一维周期与二维动态边界已区分；wIC和早期采样被写为相关线索而非本稿已执行实验。"
+    },
+    {
+      "id": "E012",
+      "line": 25,
+      "section": "1 引言与相关工作",
+      "claim": "该工作的一维表格对应周期边界，不能将其中误差比直接移用为动态边界提升幅度。",
+      "paragraph_evidence_tags": [
+        "E01"
+      ],
+      "paragraph_literature_refs": [
+        "4"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=4]"
+      ],
+      "reason": "Li原文一维周期与二维动态边界已区分；wIC和早期采样被写为相关线索而非本稿已执行实验。"
+    },
+    {
+      "id": "E013",
+      "line": 25,
+      "section": "1 引言与相关工作",
+      "claim": "本文历史计划中的初值加权与早期时间采样只受其部分设置启发，尚未形成结果，更不是该多网络与自适应采样流程的完整复现。",
+      "paragraph_evidence_tags": [
+        "E01"
+      ],
+      "paragraph_literature_refs": [
+        "4"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=4]"
+      ],
+      "reason": "Li原文一维周期与二维动态边界已区分；wIC和早期采样被写为相关线索而非本稿已执行实验。"
+    },
+    {
+      "id": "E014",
+      "line": 25,
+      "section": "1 引言与相关工作",
+      "claim": "明确这种关系有助于把相关研究的启发与本项目实际运行的比较区分开来。",
+      "paragraph_evidence_tags": [
+        "E01"
+      ],
+      "paragraph_literature_refs": [
+        "4"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=4]"
+      ],
+      "reason": "Li原文一维周期与二维动态边界已区分；wIC和早期采样被写为相关线索而非本稿已执行实验。"
+    },
+    {
+      "id": "E016",
+      "line": 27,
+      "section": "1 引言与相关工作",
+      "claim": "硬初值表达式能够使网络在初始时刻等于给定函数，但这项代数性质并没有同时指定初始角点的时空导数。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "函数值约束不蕴含导数相容；差值由体/边界算子定义，未从该代数事实推出误差必降。"
+    },
+    {
+      "id": "E019",
+      "line": 27,
+      "section": "1 引言与相关工作",
+      "claim": "本文以该差为修正幅度，并通过局部模型构造允许不同趋近路径具有不同导数极限的表达式。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "函数值约束不蕴含导数相容；差值由体/边界算子定义，未从该代数事实推出误差必降。"
+    },
+    {
+      "id": "E021",
+      "line": 29,
+      "section": "1 引言与相关工作",
+      "claim": "从解析角度看，用显式奇异函数分离初边值不相容项具有既有数值研究基础。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [
+        "5",
+        "6"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=5]",
+        "REFERENCES_AND_CITATIONS.json#references[number=6]"
+      ],
+      "reason": "Dirichlet角点积分修正与距离函数硬边界各有原文支持；稿件明确都不是本动态边界公式或性能保证。"
+    },
+    {
+      "id": "E022",
+      "line": 29,
+      "section": "1 引言与相关工作",
+      "claim": "Chen等在一维非线性演化问题中构造低阶角点修正，并用热方程角点函数的时间积分处理一阶不相容[5]。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [
+        "5",
+        "6"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=5]",
+        "REFERENCES_AND_CITATIONS.json#references[number=6]"
+      ],
+      "reason": "Dirichlet角点积分修正与距离函数硬边界各有原文支持；稿件明确都不是本动态边界公式或性能保证。"
+    },
+    {
+      "id": "E023",
+      "line": 29,
+      "section": "1 引言与相关工作",
+      "claim": "该研究采用 Dirichlet 数据，其函数不等于本文动态边界层，因而本文仍须重新给出边界缩放、变换公式和初始极限。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [
+        "5",
+        "6"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=5]",
+        "REFERENCES_AND_CITATIONS.json#references[number=6]"
+      ],
+      "reason": "Dirichlet角点积分修正与距离函数硬边界各有原文支持；稿件明确都不是本动态边界公式或性能保证。"
+    },
+    {
+      "id": "E024",
+      "line": 29,
+      "section": "1 引言与相关工作",
+      "claim": "将已知约束预先写入神经试函数也有成熟先例，例如距离函数构造能够精确施加几何边界约束[6]。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [
+        "5",
+        "6"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=5]",
+        "REFERENCES_AND_CITATIONS.json#references[number=6]"
+      ],
+      "reason": "Dirichlet角点积分修正与距离函数硬边界各有原文支持；稿件明确都不是本动态边界公式或性能保证。"
+    },
+    {
+      "id": "E025",
+      "line": 29,
+      "section": "1 引言与相关工作",
+      "claim": "这些工作支持结构化表达式的设计方向，不直接保证本文组合的训练误差更低。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [
+        "5",
+        "6"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=5]",
+        "REFERENCES_AND_CITATIONS.json#references[number=6]"
+      ],
+      "reason": "Dirichlet角点积分修正与距离函数硬边界各有原文支持；稿件明确都不是本动态边界公式或性能保证。"
+    },
+    {
+      "id": "E026",
+      "line": 31,
+      "section": "1 引言与相关工作",
+      "claim": "解析层与神经网络的结合也不能作为本研究的首创主张。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [
+        "7",
+        "8"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=7]",
+        "REFERENCES_AND_CITATIONS.json#references[number=8]"
+      ],
+      "reason": "空间奇异摄动层及所读时变例的兼容/无时间层条件有原文支持；未扩展为全部SL-PINN结论。"
+    },
+    {
+      "id": "E027",
+      "line": 31,
+      "section": "1 引言与相关工作",
+      "claim": "Gie等的 SL-PINN 已将解析边界层和空间角点校正嵌入神经近似，矩形域研究中的抛物型层属于空间奇异摄动结构[7]。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [
+        "7",
+        "8"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=7]",
+        "REFERENCES_AND_CITATIONS.json#references[number=8]"
+      ],
+      "reason": "空间奇异摄动层及所读时变例的兼容/无时间层条件有原文支持；未扩展为全部SL-PINN结论。"
+    },
+    {
+      "id": "E028",
+      "line": 31,
+      "section": "1 引言与相关工作",
+      "claim": "后续工作在一个时变例中同时使用初值因子和空间层修正，但该例明确假设时间方向无层并要求数据相容[8]。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [
+        "7",
+        "8"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=7]",
+        "REFERENCES_AND_CITATIONS.json#references[number=8]"
+      ],
+      "reason": "空间奇异摄动层及所读时变例的兼容/无时间层条件有原文支持；未扩展为全部SL-PINN结论。"
+    },
+    {
+      "id": "E029",
+      "line": 31,
+      "section": "1 引言与相关工作",
+      "claim": "这些局部事实提示本文应区分空间边界层与初始时间角点结构，同时也不能据少量选读概括所有 SL-PINN 工作的研究范围。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [
+        "7",
+        "8"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=7]",
+        "REFERENCES_AND_CITATIONS.json#references[number=8]"
+      ],
+      "reason": "空间奇异摄动层及所读时变例的兼容/无时间层条件有原文支持；未扩展为全部SL-PINN结论。"
+    },
+    {
+      "id": "E030",
+      "line": 31,
+      "section": "1 引言与相关工作",
+      "claim": "本文关注的是下述动态边界导数错配组合及其实际适用性。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [
+        "7",
+        "8"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=7]",
+        "REFERENCES_AND_CITATIONS.json#references[number=8]"
+      ],
+      "reason": "空间奇异摄动层及所读时变例的兼容/无时间层条件有原文支持；未扩展为全部SL-PINN结论。"
+    },
+    {
+      "id": "E031",
+      "line": 33,
+      "section": "1 引言与相关工作",
+      "claim": "训练改进构成另一组必要比较。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03"
+      ],
+      "paragraph_literature_refs": [
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=9]",
+        "REFERENCES_AND_CITATIONS.json#references[number=10]",
+        "REFERENCES_AND_CITATIONS.json#references[number=11]",
+        "REFERENCES_AND_CITATIONS.json#references[number=12]"
+      ],
+      "reason": "四类方法仅说明本研究固定对照动机；各自本地差异在方法和附录披露，不挪用外文性能数字。"
+    },
+    {
+      "id": "E032",
+      "line": 33,
+      "section": "1 引言与相关工作",
+      "claim": "残差注意力利用归一化残差历史调整逐点权重[9]，因果训练通过先前时段残差控制后续时段的权重[10]。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03"
+      ],
+      "paragraph_literature_refs": [
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=9]",
+        "REFERENCES_AND_CITATIONS.json#references[number=10]",
+        "REFERENCES_AND_CITATIONS.json#references[number=11]",
+        "REFERENCES_AND_CITATIONS.json#references[number=12]"
+      ],
+      "reason": "四类方法仅说明本研究固定对照动机；各自本地差异在方法和附录披露，不挪用外文性能数字。"
+    },
+    {
+      "id": "E033",
+      "line": 33,
+      "section": "1 引言与相关工作",
+      "claim": "PirateNets 引入可学习残差连接及物理或数据引导的输出层初始化[11]，SOAP 则在 Shampoo 预条件器的特征向量坐标中使用 Adam 式更新[12]。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03"
+      ],
+      "paragraph_literature_refs": [
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=9]",
+        "REFERENCES_AND_CITATIONS.json#references[number=10]",
+        "REFERENCES_AND_CITATIONS.json#references[number=11]",
+        "REFERENCES_AND_CITATIONS.json#references[number=12]"
+      ],
+      "reason": "四类方法仅说明本研究固定对照动机；各自本地差异在方法和附录披露，不挪用外文性能数字。"
+    },
+    {
+      "id": "E034",
+      "line": 33,
+      "section": "1 引言与相关工作",
+      "claim": "这些方法改变的环节不同，因此本文先在相同架构内比较加与不加修正，再讨论固定架构和优化器的叠加。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03"
+      ],
+      "paragraph_literature_refs": [
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=9]",
+        "REFERENCES_AND_CITATIONS.json#references[number=10]",
+        "REFERENCES_AND_CITATIONS.json#references[number=11]",
+        "REFERENCES_AND_CITATIONS.json#references[number=12]"
+      ],
+      "reason": "四类方法仅说明本研究固定对照动机；各自本地差异在方法和附录披露，不挪用外文性能数字。"
+    },
+    {
+      "id": "E035",
+      "line": 33,
+      "section": "1 引言与相关工作",
+      "claim": "有限默认配置的比较用于确定本文构造的效果范围，不代表充分调参后的方法族整体排名。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03"
+      ],
+      "paragraph_literature_refs": [
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json#references[number=9]",
+        "REFERENCES_AND_CITATIONS.json#references[number=10]",
+        "REFERENCES_AND_CITATIONS.json#references[number=11]",
+        "REFERENCES_AND_CITATIONS.json#references[number=12]"
+      ],
+      "reason": "四类方法仅说明本研究固定对照动机；各自本地差异在方法和附录披露，不挪用外文性能数字。"
+    },
+    {
+      "id": "E040",
+      "line": 35,
+      "section": "1 引言与相关工作",
+      "claim": "前两项通过原初值、预先固定的新初值与参数轴比较回答。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03",
+        "E04",
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "三个研究问题是作者研究组织；Stage6仅30既定任务，任务表和48条分析记录不混作新增训练数。"
+    },
+    {
+      "id": "E041",
+      "line": 35,
+      "section": "1 引言与相关工作",
+      "claim": "架构叠加使用 PirateNet 变体，优化器叠加与衰减参数敏感性则使用修订6全部三十项完整结果；主配置和判断规则均保持事前定义。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03",
+        "E04",
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "三个研究问题是作者研究组织；Stage6仅30既定任务，任务表和48条分析记录不混作新增训练数。"
+    },
+    {
+      "id": "E043",
+      "line": 37,
+      "section": "1 引言与相关工作",
+      "claim": "具体而言，本文推导所用半直线层及组合函数族的初始导数迭代极限，考察其在五个固定观测时刻的解误差及所用架构与优化器内的叠加性，并用新初值、参数轴和反例限定结论。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E02",
+        "E03"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "贡献限定自包含构造与经验评测；经典层工具不主张首创，误差不充当早期机制证明。"
+    },
+    {
+      "id": "E049",
+      "line": 65,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "若要求所有必要导数连续延伸到角点，且两个方程在那里同时成立，则同一个初始时间导数必须既等于前者又等于后者。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "在导数连续且两方程在角点成立的假设下a=b是必要条件；δ非零的矛盾结论成立，未声称误差下界。"
+    },
+    {
+      "id": "E050",
+      "line": 65,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "因此，错配非零排除了这一兼容的连续导数要求。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "在导数连续且两方程在角点成立的假设下a=b是必要条件；δ非零的矛盾结论成立，未声称误差下界。"
+    },
+    {
+      "id": "E051",
+      "line": 65,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "这里的错配没有改变初始函数值，也没有把边界处的解定义为两个数值。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "在导数连续且两方程在角点成立的假设下a=b是必要条件；δ非零的矛盾结论成立，未声称误差下界。"
+    },
+    {
+      "id": "E052",
+      "line": 65,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "它指出的是指定初值与演化算子之间的导数约束冲突，不能据此推出某类有限预算训练的正误差下界。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "在导数连续且两方程在角点成立的假设下a=b是必要条件；δ非零的矛盾结论成立，未声称误差下界。"
+    },
+    {
+      "id": "E062",
+      "line": 88,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "对时间作 Laplace 变换，零初值将变换方程化为二阶常系数常微分方程。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "Laplace推导对半直线辅助问题适用，主分支及衰减边界唯一确定指数形式。"
+    },
+    {
+      "id": "E070",
+      "line": 125,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "由于容量为正，该式给出时间导数的非负性，并将其上界限制在余误差函数以内。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "积分核非负且exp(-βz)≤1给出0≤Q≤erfc，时间积分给出0≤w≤t；不是由有限数值点推断。"
+    },
+    {
+      "id": "E071",
+      "line": 125,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "时间积分进一步得到层函数介于零和时间之间，因而初值的零延拓具有直接控制。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "积分核非负且exp(-βz)≤1给出0≤Q≤erfc，时间积分给出0≤w≤t；不是由有限数值点推断。"
+    },
+    {
+      "id": "E072",
+      "line": 125,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "这些性质由积分表示推导，不依赖网络训练或有限采样的数值实验。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "积分核非负且exp(-βz)≤1给出0≤Q≤erfc，时间积分给出0≤w≤t；不是由有限数值点推断。"
+    },
+    {
+      "id": "E074",
+      "line": 141,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "层函数在正时间内的这些恒等式属于代数核查，不能由数值训练误差替代。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "w_t=w_yy=Q和w_y=C(Q-erfc)代入辅助边界得到C；独立数值只作代数检查的辅助。"
+    },
+    {
+      "id": "E075",
+      "line": 141,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "独立数学审查已核对缩放、符号及标准变换出处，并以高精度微分、数值反变换和积分作交叉检查。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "w_t=w_yy=Q和w_y=C(Q-erfc)代入辅助边界得到C；独立数值只作代数检查的辅助。"
+    },
+    {
+      "id": "E076",
+      "line": 141,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "有限点数值检查仅辅助排查实现问题，恒等式成立的依据仍是这里的推导。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "w_t=w_yy=Q和w_y=C(Q-erfc)代入辅助边界得到C；独立数值只作代数检查的辅助。"
+    },
+    {
+      "id": "E077",
+      "line": 149,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "则边界时间导数等于该函数，空间导数等于容量乘以其与一之差。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "边界E(t)小时间展开与式10一致，余项阶次来自erfc及指数级数。"
+    },
+    {
+      "id": "E079",
+      "line": 157,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "因而将层函数在初始时刻连续延拓为零，不改变任何位置的初始函数值，同时允许边界与固定内部点具有不同的初始导数极限。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "Q在边界与固定内点的不同极限成立；w连续为零与导数迭代极限不同不矛盾。"
+    },
+    {
+      "id": "E080",
+      "line": 157,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "这是本文构造需要的局部性质。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "Q在边界与固定内点的不同极限成立；w连续为零与导数迭代极限不同不矛盾。"
+    },
+    {
+      "id": "E082",
+      "line": 165,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "直接计算式（7）中的正指数可能使两个极端量先被分别求值。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "erfcx重写由平方展开抵消大正指数，保持数学等价但不承诺所有相消都消失。"
+    },
+    {
+      "id": "E083",
+      "line": 173,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "该改写避免显式形成较大的正指数，与式（8）的数学表达保持一致，但不自动消除闭式中小时间差值的相消。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "源码time clamp存在；解析连续延拓与浮点逐位零被区分，稿件不夸大稳定性。"
+    },
+    {
+      "id": "E090",
+      "line": 185,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "**命题1（初值与初始导数迭代极限）。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "命题标签与声明均限定给定函数族和角点C1网络假设，无训练收敛含义。"
+    },
+    {
+      "id": "E091",
+      "line": 185,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "** 在上述假设下，式（12）通过连续延拓满足初值，并且",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "命题标签与声明均限定给定函数族和角点C1网络假设，无训练收敛含义。"
+    },
+    {
+      "id": "E092",
+      "line": 193,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "** 由式（7b）及其时间积分，有层函数在初始时刻连续趋于零，所以式（12）的初始值为给定函数。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "两条路径的网络极限相同；层在边界贡献δ、固定内点贡献0，差恰为δ。"
+    },
+    {
+      "id": "E093",
+      "line": 193,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "对时间求导，网络项为网络输出加时间乘其导数，层项为衰减因子乘以时间导数与衰减余项之和。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "两条路径的网络极限相同；层在边界贡献δ、固定内点贡献0，差恰为δ。"
+    },
+    {
+      "id": "E094",
+      "line": 193,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "在边界，式（10）使层项极限等于错配。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "两条路径的网络极限相同；层在边界贡献δ、固定内点贡献0，差恰为δ。"
+    },
+    {
+      "id": "E095",
+      "line": 193,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "对任何固定内部点，式（7）的时间导数和层函数都趋于零。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "两条路径的网络极限相同；层在边界贡献δ、固定内点贡献0，差恰为δ。"
+    },
+    {
+      "id": "E096",
+      "line": 193,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "网络连续性保证两个迭代极限的背景部分相同，作差即得式（12a）。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "两条路径的网络极限相同；层在边界贡献δ、固定内点贡献0，差恰为δ。"
+    },
+    {
+      "id": "E097",
+      "line": 195,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "命题说明函数族显式具有指定的初始导数极限差。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "背景初始斜率未被tN强制等于体算子；稿件准确指出条件性与剩余项未证光滑。"
+    },
+    {
+      "id": "E098",
+      "line": 195,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "只有当网络进一步学到体算子要求的内部初始斜率时，边界初始斜率才对应式（3）的另一数值。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "背景初始斜率未被tN强制等于体算子；稿件准确指出条件性与剩余项未证光滑。"
+    },
+    {
+      "id": "E099",
+      "line": 195,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "表达式没有单独强制该背景斜率，也没有证明剩余项光滑。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "背景初始斜率未被tN强制等于体算子；稿件准确指出条件性与剩余项未证光滑。"
+    },
+    {
+      "id": "E100",
+      "line": 195,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "因此，这项结构性质需要与实际残差、求解误差和适用性评测分开陈述。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "背景初始斜率未被tN强制等于体算子；稿件准确指出条件性与剩余项未证光滑。"
+    },
+    {
+      "id": "E104",
+      "line": 215,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "本文只将初始函数值视为硬约束，其余条件仍通过损失拟合。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks",
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json"
+      ],
+      "reason": "加衰减产生式13/14余项，反应和另一端仍拟合；硬约束只给初值。"
+    },
+    {
+      "id": "E105",
+      "line": 217,
+      "section": "2 方程、相容性与修正构造",
+      "claim": "衰减参数也使该构造具有明确的适用性问题。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E04"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "τ并非局部模型唯一给定，0.1为固定实验选择，后续三档不是最优性证明。"
+    },
+    {
+      "id": "E116",
+      "line": 232,
+      "section": "3 实验设计与复现方法",
+      "claim": "其用途是决定继续投入的对象。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E05",
+        "E10"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md"
+      ],
+      "reason": "B2原门槛重算2.88580/1.33105/3.27818；只有E3通过，E1后续确认的选择过程保留。"
+    },
+    {
+      "id": "E117",
+      "line": 232,
+      "section": "3 实验设计与复现方法",
+      "claim": "附录B列出全部三十次筛选及原门槛：三个方程的较好基线与较好候选之比分别为2.88580、1.33105、3.27818，原筛选只有 Fisher–KPP 方程入选。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E05",
+        "E10"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md"
+      ],
+      "reason": "B2原门槛重算2.88580/1.33105/3.27818；只有E3通过，E1后续确认的选择过程保留。"
+    },
+    {
+      "id": "E121",
+      "line": 232,
+      "section": "3 实验设计与复现方法",
+      "claim": "两种子筛选统计与正式三种子主表分开呈现。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E05",
+        "E10"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md"
+      ],
+      "reason": "B2原门槛重算2.88580/1.33105/3.27818；只有E3通过，E1后续确认的选择过程保留。"
+    },
+    {
+      "id": "E123",
+      "line": 234,
+      "section": "3 实验设计与复现方法",
+      "claim": "因果训练和 PirateNet 的强基线门、小预算优化器检查以及体表耦合扩展均保留原判据。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03",
+        "E04"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "A-1/G2失败不由后续成功追改；100/101仅小预算，三倍是协议投入规则。"
+    },
+    {
+      "id": "E124",
+      "line": 234,
+      "section": "3 实验设计与复现方法",
+      "claim": "研究目标收窄以后，新初值和架构续跑按新增协议补齐。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03",
+        "E04"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "A-1/G2失败不由后续成功追改；100/101仅小预算，三倍是协议投入规则。"
+    },
+    {
+      "id": "E126",
+      "line": 234,
+      "section": "3 实验设计与复现方法",
+      "claim": "项目中的三倍门槛是决定实验投入和归纳某项预注册比较的规则，不是方法普遍有效或论文发表的判断标准。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03",
+        "E04"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "A-1/G2失败不由后续成功追改；100/101仅小预算，三倍是协议投入规则。"
+    },
+    {
+      "id": "E129",
+      "line": 238,
+      "section": "3 实验设计与复现方法",
+      "claim": "初值软损失只用于普通网络及残差注意力基线，硬初值类通过表达式施加该条件。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json",
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md"
+      ],
+      "reason": "4×64 tanh、初始化、float64及完整预算与冻结训练源码和配置一致；记录终值字段解释见附录。"
+    },
+    {
+      "id": "E130",
+      "line": 238,
+      "section": "3 实验设计与复现方法",
+      "claim": "这是方法差异的一部分，不将不同约束方式产生的总损失数值直接作统一精度排名。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json",
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md"
+      ],
+      "reason": "4×64 tanh、初始化、float64及完整预算与冻结训练源码和配置一致；记录终值字段解释见附录。"
+    },
+    {
+      "id": "E132",
+      "line": 240,
+      "section": "3 实验设计与复现方法",
+      "claim": "普通网络、硬初值及修正方法在 Adam 阶段每步重采样4096个体点、每端256个边界点和256个初值点，L-BFGS 另取固定点集，体点8192个、每端512个、初值512个。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E05",
+        "E10"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json"
+      ],
+      "reason": "硬初值与soft variants的表达式、损失项处理由训练分支支持，未误称所有方法初值都精确。"
+    },
+    {
+      "id": "E133",
+      "line": 240,
+      "section": "3 实验设计与复现方法",
+      "claim": "未加注意力或因果权重时，各类均方残差的外部系数为一，硬初值类不再加入初值损失。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E05",
+        "E10"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json"
+      ],
+      "reason": "硬初值与soft variants的表达式、损失项处理由训练分支支持，未误称所有方法初值都精确。"
+    },
+    {
+      "id": "E134",
+      "line": 240,
+      "section": "3 实验设计与复现方法",
+      "claim": "RBA本地变体的有效点集与权重见下段及表2脚注，不能套用上述 L-BFGS 点数。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E05",
+        "E10"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json"
+      ],
+      "reason": "硬初值与soft variants的表达式、损失项处理由训练分支支持，未误称所有方法初值都精确。"
+    },
+    {
+      "id": "E136",
+      "line": 242,
+      "section": "3 实验设计与复现方法",
+      "claim": "残差注意力按归一化残差历史更新逐点权重[9]。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E10"
+      ],
+      "paragraph_literature_refs": [
+        "9",
+        "10"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json",
+        "REFERENCES_AND_CITATIONS.json#references[number=9]",
+        "REFERENCES_AND_CITATIONS.json#references[number=10]"
+      ],
+      "reason": "RBA较小固定采点、四分量逐点权重和顺序已明确；因果32箱按各分量独立累积。"
+    },
+    {
+      "id": "E139",
+      "line": 242,
+      "section": "3 实验设计与复现方法",
+      "claim": "权重初始化为一，在每次 Adam 网络参数更新后，使用本次更新前已计算的残差更新权重。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E10"
+      ],
+      "paragraph_literature_refs": [
+        "9",
+        "10"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json",
+        "REFERENCES_AND_CITATIONS.json#references[number=9]",
+        "REFERENCES_AND_CITATIONS.json#references[number=10]"
+      ],
+      "reason": "RBA较小固定采点、四分量逐点权重和顺序已明确；因果32箱按各分量独立累积。"
+    },
+    {
+      "id": "E140",
+      "line": 242,
+      "section": "3 实验设计与复现方法",
+      "claim": "此实现不等同于原文全部训练配置，其与所读版本的差异见附录C。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E10"
+      ],
+      "paragraph_literature_refs": [
+        "9",
+        "10"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json",
+        "REFERENCES_AND_CITATIONS.json#references[number=9]",
+        "REFERENCES_AND_CITATIONS.json#references[number=10]"
+      ],
+      "reason": "RBA较小固定采点、四分量逐点权重和顺序已明确；因果32箱按各分量独立累积。"
+    },
+    {
+      "id": "E141",
+      "line": 242,
+      "section": "3 实验设计与复现方法",
+      "claim": "因果权重由先前时段的残差确定[10]，本文将其叠加于硬初值，分32个时间箱，固定使用ε为1或10，两档分别训练，体与两端边界三个分量各自计算因果权重，并在原强基线判定中取对基线有利的一档。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E10"
+      ],
+      "paragraph_literature_refs": [
+        "9",
+        "10"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json",
+        "REFERENCES_AND_CITATIONS.json#references[number=9]",
+        "REFERENCES_AND_CITATIONS.json#references[number=10]"
+      ],
+      "reason": "RBA较小固定采点、四分量逐点权重和顺序已明确；因果32箱按各分量独立累积。"
+    },
+    {
+      "id": "E144",
+      "line": 244,
+      "section": "3 实验设计与复现方法",
+      "claim": "实现省略了原方法的物理信息最小二乘初始化，因此全文明确标注这一差异。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03"
+      ],
+      "paragraph_literature_refs": [
+        "11"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json",
+        "REFERENCES_AND_CITATIONS.json#references[number=11]"
+      ],
+      "reason": "PirateNet本地块、Fourier和α设置可追溯，省略least-squares初始化的差异已披露。"
+    },
+    {
+      "id": "E146",
+      "line": 244,
+      "section": "3 实验设计与复现方法",
+      "claim": "续跑只补充剩余调用，没有为这些种子附加新的训练额度。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03"
+      ],
+      "paragraph_literature_refs": [
+        "11"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json",
+        "REFERENCES_AND_CITATIONS.json#references[number=11]"
+      ],
+      "reason": "PirateNet本地块、Fourier和α设置可追溯，省略least-squares初始化的差异已披露。"
+    },
+    {
+      "id": "E150",
+      "line": 246,
+      "section": "3 实验设计与复现方法",
+      "claim": "SOAP 首次调用仅初始化，20000次调用对应的19999次更新由冻结实现推得，不额外补偿。",
+      "paragraph_evidence_tags": [
+        "E04",
+        "E13"
+      ],
+      "paragraph_literature_refs": [
+        "12"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json",
+        "REFERENCES_AND_CITATIONS.json#references[number=12]"
+      ],
+      "reason": "SOAP64固定上游实现、dtype调整和L-BFGS后段披露；语义19999更新与20000梯度调用未混淆。"
+    },
+    {
+      "id": "E152",
+      "line": 246,
+      "section": "3 实验设计与复现方法",
+      "claim": "两类实验均已完成，不进行超参数搜索或结果倒选。",
+      "paragraph_evidence_tags": [
+        "E04",
+        "E13"
+      ],
+      "paragraph_literature_refs": [
+        "12"
+      ],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json",
+        "REFERENCES_AND_CITATIONS.json#references[number=12]"
+      ],
+      "reason": "SOAP64固定上游实现、dtype调整和L-BFGS后段披露；语义19999更新与20000梯度调用未混淆。"
+    },
+    {
+      "id": "E155",
+      "line": 264,
+      "section": "3 实验设计与复现方法",
+      "claim": "该运算先在每个种子内部取时刻最大值，再对种子取中位数，既不等于先取逐时刻中位数后的最大值，也不等于配对比值的中位数。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03",
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "先每seed跨五时刻max，再组median，再作median比；未使用配对比中位数或显著性检验。"
+    },
+    {
+      "id": "E160",
+      "line": 268,
+      "section": "3 实验设计与复现方法",
+      "claim": "训练前比较两种空间分辨率，在全部指定时刻满足协议容差后才用于误差评估。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "Chebyshev/Radau、边界节点与N64/96复算记录支持指定五时刻，未证明任意早时刻精度。"
+    },
+    {
+      "id": "E162",
+      "line": 268,
+      "section": "3 实验设计与复现方法",
+      "claim": "训练结果的常规误差采用参考分辨率64和200个求积点，新产物还以96和400的设置重算。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "Chebyshev/Radau、边界节点与N64/96复算记录支持指定五时刻，未证明任意早时刻精度。"
+    },
+    {
+      "id": "E163",
+      "line": 268,
+      "section": "3 实验设计与复现方法",
+      "claim": "这些验证针对已报告时刻，不构成任意早期时间的参考解准确性证明。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "Chebyshev/Radau、边界节点与N64/96复算记录支持指定五时刻，未证明任意早时刻精度。"
+    },
+    {
+      "id": "E165",
+      "line": 270,
+      "section": "3 实验设计与复现方法",
+      "claim": "时间在10⁻⁴至1之间均匀取样，分别报告体方程、左端、右端动态边界和初值残差的均方根及最大绝对值。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "独立体8192、每端1024、初值1024及固定采样区间与保存验证匹配；各分量未被不当合并。"
+    },
+    {
+      "id": "E168",
+      "line": 272,
+      "section": "3 实验设计与复现方法",
+      "claim": "产物核验保留结果、权重与配置的对应关系。",
+      "paragraph_evidence_tags": [
+        "E4",
+        "E03",
+        "E05",
+        "E09",
+        "E12",
+        "E13",
+        "E15"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/historical_execution_scope.json",
+        "../working_20261023/HISTORICAL_EXECUTION_SCOPE.md",
+        "RECOVERY_APPENDIX_CHECK.json",
+        "NUMERIC_VERIFICATION.json#new_task_attempts",
+        "NUMERIC_VERIFICATION.json#runner_exit",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "130+24+22旧复算及30新任务有对应记录；历史日志缺口和20个E4表面权重缺失并未被闭合。"
+    },
+    {
+      "id": "E169",
+      "line": 272,
+      "section": "3 实验设计与复现方法",
+      "claim": "历史176项已有130＋24＋22份保存模型复算记录，绑定398文件，部分原始生产日志仍不完备。",
+      "paragraph_evidence_tags": [
+        "E4",
+        "E03",
+        "E05",
+        "E09",
+        "E12",
+        "E13",
+        "E15"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/historical_execution_scope.json",
+        "../working_20261023/HISTORICAL_EXECUTION_SCOPE.md",
+        "RECOVERY_APPENDIX_CHECK.json",
+        "NUMERIC_VERIFICATION.json#new_task_attempts",
+        "NUMERIC_VERIFICATION.json#runner_exit",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "130+24+22旧复算及30新任务有对应记录；历史日志缺口和20个E4表面权重缺失并未被闭合。"
+    },
+    {
+      "id": "E170",
+      "line": 272,
+      "section": "3 实验设计与复现方法",
+      "claim": "第二阶段三十项全部通过完整产物、预算、参考加密及残差复算，新增90文件，共206份独立运行记录。",
+      "paragraph_evidence_tags": [
+        "E4",
+        "E03",
+        "E05",
+        "E09",
+        "E12",
+        "E13",
+        "E15"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/historical_execution_scope.json",
+        "../working_20261023/HISTORICAL_EXECUTION_SCOPE.md",
+        "RECOVERY_APPENDIX_CHECK.json",
+        "NUMERIC_VERIFICATION.json#new_task_attempts",
+        "NUMERIC_VERIFICATION.json#runner_exit",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "130+24+22旧复算及30新任务有对应记录；历史日志缺口和20个E4表面权重缺失并未被闭合。"
+    },
+    {
+      "id": "E171",
+      "line": 272,
+      "section": "3 实验设计与复现方法",
+      "claim": "本文只读重聚合全部结果JSON，未重复模型加载。",
+      "paragraph_evidence_tags": [
+        "E4",
+        "E03",
+        "E05",
+        "E09",
+        "E12",
+        "E13",
+        "E15"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/historical_execution_scope.json",
+        "../working_20261023/HISTORICAL_EXECUTION_SCOPE.md",
+        "RECOVERY_APPENDIX_CHECK.json",
+        "NUMERIC_VERIFICATION.json#new_task_attempts",
+        "NUMERIC_VERIFICATION.json#runner_exit",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "130+24+22旧复算及30新任务有对应记录；历史日志缺口和20个E4表面权重缺失并未被闭合。"
+    },
+    {
+      "id": "E172",
+      "line": 272,
+      "section": "3 实验设计与复现方法",
+      "claim": "工程恢复分别保留原21与后9的源码来源，全部任务各一次attempt、退出码零；恢复和计时范围见附录D。",
+      "paragraph_evidence_tags": [
+        "E4",
+        "E03",
+        "E05",
+        "E09",
+        "E12",
+        "E13",
+        "E15"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/historical_execution_scope.json",
+        "../working_20261023/HISTORICAL_EXECUTION_SCOPE.md",
+        "RECOVERY_APPENDIX_CHECK.json",
+        "NUMERIC_VERIFICATION.json#new_task_attempts",
+        "NUMERIC_VERIFICATION.json#runner_exit",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "130+24+22旧复算及30新任务有对应记录；历史日志缺口和20个E4表面权重缺失并未被闭合。"
+    },
+    {
+      "id": "E173",
+      "line": 272,
+      "section": "3 实验设计与复现方法",
+      "claim": "E4缺少历史表面网络权重，表面变量不作为可重建定量证据。",
+      "paragraph_evidence_tags": [
+        "E4",
+        "E03",
+        "E05",
+        "E09",
+        "E12",
+        "E13",
+        "E15"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/historical_execution_scope.json",
+        "../working_20261023/HISTORICAL_EXECUTION_SCOPE.md",
+        "RECOVERY_APPENDIX_CHECK.json",
+        "NUMERIC_VERIFICATION.json#new_task_attempts",
+        "NUMERIC_VERIFICATION.json#runner_exit",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "130+24+22旧复算及30新任务有对应记录；历史日志缺口和20个E4表面权重缺失并未被闭合。"
+    },
+    {
+      "id": "E174",
+      "line": 272,
+      "section": "3 实验设计与复现方法",
+      "claim": "当前数值一致性与全历史生产链完整性据此分别判断。",
+      "paragraph_evidence_tags": [
+        "E4",
+        "E03",
+        "E05",
+        "E09",
+        "E12",
+        "E13",
+        "E15"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/historical_execution_scope.json",
+        "../working_20261023/HISTORICAL_EXECUTION_SCOPE.md",
+        "RECOVERY_APPENDIX_CHECK.json",
+        "NUMERIC_VERIFICATION.json#new_task_attempts",
+        "NUMERIC_VERIFICATION.json#runner_exit",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "130+24+22旧复算及30新任务有对应记录；历史日志缺口和20个E4表面权重缺失并未被闭合。"
+    },
+    {
+      "id": "E178",
+      "line": 278,
+      "section": "4 数值结果",
+      "claim": "两个问题中，修正组均有三个种子的主误差不超过百分之一，因此满足原确认阶段的联合条件。",
+      "paragraph_evidence_tags": [
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "两个原问题与较好H/RBA基线的median比和3/3绝对阈值由旧组值支持，限定原确认规则。"
+    },
+    {
+      "id": "E181",
+      "line": 293,
+      "section": "4 数值结果",
+      "claim": "RBA四类残差均带逐点权重，进入 L-BFGS 后冻结。",
+      "paragraph_evidence_tags": [
+        "E10"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "表2注说明逐seed值、median及固定阈值；表格与旧稿哈希绑定相同，没有筛掉差种子。"
+    },
+    {
+      "id": "E182",
+      "line": 293,
+      "section": "4 数值结果",
+      "claim": "原JSON仍含通用的 `nf_fixed`、`nb_fixed`、`n0_fixed` 字段，但源码的RBA分支复用 `fixed_adam`，这些通用字段不决定该分支的有效点数。",
+      "paragraph_evidence_tags": [
+        "E10"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "表2注说明逐seed值、median及固定阈值；表格与旧稿哈希绑定相同，没有筛掉差种子。"
+    },
+    {
+      "id": "E188",
+      "line": 299,
+      "section": "4 数值结果",
+      "claim": "表3给出新初值下三种构造的十八次完整训练。",
+      "paragraph_evidence_tags": [
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "新初值组级H/HL比2.69、7.34；重新训练任务而不是单网络未知初值泛化。"
+    },
+    {
+      "id": "E192",
+      "line": 299,
+      "section": "4 数值结果",
+      "claim": "新初值实验没有事前规定三倍通过线，因此本文直接描述收益大小与逐种子变化，不用原确认阶段门槛对这一组实验重新分类。",
+      "paragraph_evidence_tags": [
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "新初值组级H/HL比2.69、7.34；重新训练任务而不是单网络未知初值泛化。"
+    },
+    {
+      "id": "E193",
+      "line": 312,
+      "section": "4 数值结果",
+      "claim": "新反应扩散初值的种子零由约5.2185×10⁻⁴变为5.4048×10⁻⁴，体误差增加约3.57%，同时右端迹误差下降。",
+      "paragraph_evidence_tags": [
+        "E03",
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "新E3 seed0退化3.5698074596311136%，方向与数值正确，未以组中位数掩盖个别反例。"
+    },
+    {
+      "id": "E194",
+      "line": 312,
+      "section": "4 数值结果",
+      "claim": "该组中位数改善主要伴随原来较差的两个种子误差减小，不能写成逐种子一致收益。",
+      "paragraph_evidence_tags": [
+        "E03",
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "新E3 seed0退化3.5698074596311136%，方向与数值正确，未以组中位数掩盖个别反例。"
+    },
+    {
+      "id": "E195",
+      "line": 312,
+      "section": "4 数值结果",
+      "claim": "两个不同指标在同一种子上给出不同变化方向，也说明体误差和边界迹应独立报告。",
+      "paragraph_evidence_tags": [
+        "E03",
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "新E3 seed0退化3.5698074596311136%，方向与数值正确，未以组中位数掩盖个别反例。"
+    },
+    {
+      "id": "E202",
+      "line": 322,
+      "section": "4 数值结果",
+      "claim": "两个问题均满足原架构叠加判据。",
+      "paragraph_evidence_tags": [
+        "E03",
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "Pirate同实现内22.61/5.52及6/6配对下降由原始保存值支持，只作架构内叠加结论。"
+    },
+    {
+      "id": "E204",
+      "line": 333,
+      "section": "4 数值结果",
+      "claim": "跨架构强基线比较仍存在不同结论。",
+      "paragraph_evidence_tags": [
+        "E03"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "跨架构最好基线12.51/1.47，第二问题不足3，因此A-1仍失败。"
+    },
+    {
+      "id": "E205",
+      "line": 333,
+      "section": "4 数值结果",
+      "claim": "热方程上，两档因果训练与 PirateNet 硬初值中较好的基线为因果训练，其与普通多层感知机修正方法的中位数比约12.51。",
+      "paragraph_evidence_tags": [
+        "E03"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "跨架构最好基线12.51/1.47，第二问题不足3，因此A-1仍失败。"
+    },
+    {
+      "id": "E206",
+      "line": 333,
+      "section": "4 数值结果",
+      "claim": "反应扩散问题的最好基线为 PirateNet 硬初值，该比值仅约1.47。",
+      "paragraph_evidence_tags": [
+        "E03"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "跨架构最好基线12.51/1.47，第二问题不足3，因此A-1仍失败。"
+    },
+    {
+      "id": "E207",
+      "line": 333,
+      "section": "4 数值结果",
+      "claim": "因此，原要求两个问题都至少达到三倍的强基线判据仍未满足。",
+      "paragraph_evidence_tags": [
+        "E03"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "跨架构最好基线12.51/1.47，第二问题不足3，因此A-1仍失败。"
+    },
+    {
+      "id": "E208",
+      "line": 333,
+      "section": "4 数值结果",
+      "claim": "架构内叠加和跨架构排名回答不同问题，不能以其中一项的正面结果覆盖另一项的不满足。",
+      "paragraph_evidence_tags": [
+        "E03"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "跨架构最好基线12.51/1.47，第二问题不足3，因此A-1仍失败。"
+    },
+    {
+      "id": "E209",
+      "line": 337,
+      "section": "4 数值结果",
+      "claim": "表5把默认参数与新增参数轴一起列出，共八个点。",
+      "paragraph_evidence_tags": [
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "八参数点6通过2不通过，全部layer组达绝对阈值；不利点由相对改善比判别。"
+    },
+    {
+      "id": "E214",
+      "line": 352,
+      "section": "4 数值结果",
+      "claim": "弱储库强度点的比值约0.723，对应修正误差约增加38.35%。",
+      "paragraph_evidence_tags": [
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "弱κ=.1比约.723、逆比退化38.35%；κ=3比5.01小于默认5.92，反驳普遍单调收益。"
+    },
+    {
+      "id": "E215",
+      "line": 352,
+      "section": "4 数值结果",
+      "claim": "另一方面，储库强度从一增加到三时，错配增大，但中位数比由5.92降至5.01。",
+      "paragraph_evidence_tags": [
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "弱κ=.1比约.723、逆比退化38.35%；κ=3比5.01小于默认5.92，反驳普遍单调收益。"
+    },
+    {
+      "id": "E216",
+      "line": 352,
+      "section": "4 数值结果",
+      "claim": "由此不能建立收益随错配幅度普遍单调增加的关系。",
+      "paragraph_evidence_tags": [
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "弱κ=.1比约.723、逆比退化38.35%；κ=3比5.01小于默认5.92，反驳普遍单调收益。"
+    },
+    {
+      "id": "E217",
+      "line": 352,
+      "section": "4 数值结果",
+      "claim": "容量或储库强度改变还会改变完整动力学与参考解，参数轴没有独立操控错配而固定其他机制，其结果应作为适用范围观察。",
+      "paragraph_evidence_tags": [
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "弱κ=.1比约.723、逆比退化38.35%；κ=3比5.01小于默认5.92，反驳普遍单调收益。"
+    },
+    {
+      "id": "E219",
+      "line": 356,
+      "section": "4 数值结果",
+      "claim": "新增两档共十二次训练全部完成，主档复用既有六次结果。",
+      "paragraph_evidence_tags": [
+        "E04",
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "六组tau median、四个相对主档比及max/min比按冻结48记录再聚合完全对应。"
+    },
+    {
+      "id": "E230",
+      "line": 375,
+      "section": "4 数值结果",
+      "claim": "主参数继续由事前协议决定，未开展超参数搜索。",
+      "paragraph_evidence_tags": [
+        "E04",
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "历史主τ与本机两档环境不同；局部三档小误差不构成连续参数稳健或纯τ因果结论。"
+    },
+    {
+      "id": "E231",
+      "line": 379,
+      "section": "4 数值结果",
+      "claim": "表7给出两条训练路线的六臂默认配置，均在第一阶段后使用L-BFGS。",
+      "paragraph_evidence_tags": [
+        "E04",
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md"
+      ],
+      "reason": "SOAP同批H/HL比300.07/30.83，两组3/3达阈值与6/6改善；仅S6-SOAP固定叠加门通过。"
+    },
+    {
+      "id": "E232",
+      "line": 379,
+      "section": "4 数值结果",
+      "claim": "同批本机SOAP64内，热方程硬初值及修正组中位数分别为4.43049×10⁻²与1.47648×10⁻⁴，比值300.07；反应扩散问题分别为2.49476×10⁻³与8.09251×10⁻⁵，比值30.83。",
+      "paragraph_evidence_tags": [
+        "E04",
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md"
+      ],
+      "reason": "SOAP同批H/HL比300.07/30.83，两组3/3达阈值与6/6改善；仅S6-SOAP固定叠加门通过。"
+    },
+    {
+      "id": "E233",
+      "line": 379,
+      "section": "4 数值结果",
+      "claim": "两方程修正组均为三个种子的主误差不超过百分之一，且六个配对种子均改善，因此满足事前S6-SOAP的联合叠加条件。",
+      "paragraph_evidence_tags": [
+        "E04",
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md"
+      ],
+      "reason": "SOAP同批H/HL比300.07/30.83，两组3/3达阈值与6/6改善；仅S6-SOAP固定叠加门通过。"
+    },
+    {
+      "id": "E234",
+      "line": 379,
+      "section": "4 数值结果",
+      "claim": "该条件要求两个方程均达到三倍中位数比、修正组至少两个种子达到绝对阈值，其用途不延伸为发表门槛。",
+      "paragraph_evidence_tags": [
+        "E04",
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md"
+      ],
+      "reason": "SOAP同批H/HL比300.07/30.83，两组3/3达阈值与6/6改善；仅S6-SOAP固定叠加门通过。"
+    },
+    {
+      "id": "E235",
+      "line": 402,
+      "section": "4 数值结果",
+      "claim": "中位数比需要结合逐种子值理解。",
+      "paragraph_evidence_tags": [
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "E1 SOAP-layer seed1=2.97685e-3，另外两值约1e-4；普通SOAP达阈值1/3与0/3，数值及限制正确。"
+    },
+    {
+      "id": "E237",
+      "line": 402,
+      "section": "4 数值结果",
+      "claim": "普通SOAP64网络在热方程上仅一个种子达到绝对阈值，反应扩散问题则没有达到。",
+      "paragraph_evidence_tags": [
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "E1 SOAP-layer seed1=2.97685e-3，另外两值约1e-4；普通SOAP达阈值1/3与0/3，数值及限制正确。"
+    },
+    {
+      "id": "E240",
+      "line": 404,
+      "section": "4 数值结果",
+      "claim": "完整S6-SOAP满足条件不会追改G2失败，也不会改变此前跨架构强基线A-1未满足的结论。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03",
+        "E04",
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "完整预算、种子与小预算G2不同；后续成功没有回改G2或A-1。"
+    },
+    {
+      "id": "E242",
+      "line": 404,
+      "section": "4 数值结果",
+      "claim": "所有新增任务的损失、独立残差及实际调用在附录D所列数据表中完整提供。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03",
+        "E04",
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "完整预算、种子与小预算G2不同；后续成功没有回改G2或A-1。"
+    },
+    {
+      "id": "E256",
+      "line": 423,
+      "section": "4 数值结果",
+      "claim": "四种口径分别保存，不能相互填补或当作跨环境速度倍数。",
+      "paragraph_evidence_tags": [
+        "E13",
+        "E15"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "RECOVERY_APPENDIX_CHECK.json",
+        "NUMERIC_VERIFICATION.json#new_task_attempts",
+        "NUMERIC_VERIFICATION.json#runner_exit"
+      ],
+      "reason": "1880–3000迭代、3211–3771闭包与四种计时分别重算；孤儿区间不补作runner活跃时间。"
+    },
+    {
+      "id": "E258",
+      "line": 429,
+      "section": "5 讨论与局限",
+      "claim": "其动机来自式（3）与式（10）的配合：层项不改变初始函数值，却能在角点附近提供不同于光滑背景的导数结构。",
+      "paragraph_evidence_tags": [
+        "E02",
+        "E03",
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159"
+      ],
+      "reason": "函数结构与观察到的组级收益均有证据；未声称已验证完整渐近式或唯一优化机制。"
+    },
+    {
+      "id": "E262",
+      "line": 431,
+      "section": "5 讨论与局限",
+      "claim": "半直线层满足一个明确的辅助问题，这是可通过代数和数值微分检查的性质。",
+      "paragraph_evidence_tags": [
+        "E02",
+        "E03"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks",
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159"
+      ],
+      "reason": "辅助问题恒等式、有限域余项与训练误差属于不同论据，三者未互相冒充。"
+    },
+    {
+      "id": "E265",
+      "line": 431,
+      "section": "5 讨论与局限",
+      "claim": "三者之间没有自动的逻辑等价关系，因此本文不把局部模型的精确性转述为全局精确求解，也不由某次训练结果反推全域误差定理。",
+      "paragraph_evidence_tags": [
+        "E02",
+        "E03"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks",
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159"
+      ],
+      "reason": "辅助问题恒等式、有限域余项与训练误差属于不同论据，三者未互相冒充。"
+    },
+    {
+      "id": "E266",
+      "line": 435,
+      "section": "5 讨论与局限",
+      "claim": "筛选范围包含未进入主确认实验的 Allen–Cahn 问题，热方程也未达到原筛选三倍门槛而由后续协议扩展进入确认，这意味着主文的两个问题已经过选择。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md"
+      ],
+      "reason": "E1筛选失败后协议扩展与E2未入选均披露；选择过程和负例限制代表性。"
+    },
+    {
+      "id": "E270",
+      "line": 437,
+      "section": "5 讨论与局限",
+      "claim": "体表耦合扩展具有不同的边界交换结构，并使用另一个常通量层构造。",
+      "paragraph_evidence_tags": [
+        "E09",
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/historical_execution_scope.json",
+        "../working_20261023/HISTORICAL_EXECUTION_SCOPE.md"
+      ],
+      "reason": "E4约.838是体/迹可核的数据范围，不宣称优于vanilla或统计等价，也不是第三成功主例。"
+    },
+    {
+      "id": "E271",
+      "line": 437,
+      "section": "5 讨论与局限",
+      "claim": "其小预算筛选没有满足原条件，随后完整预算运行按新增协议作为探索性实验进行。",
+      "paragraph_evidence_tags": [
+        "E09",
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/historical_execution_scope.json",
+        "../working_20261023/HISTORICAL_EXECUTION_SCOPE.md"
+      ],
+      "reason": "E4约.838是体/迹可核的数据范围，不宣称优于vanilla或统计等价，也不是第三成功主例。"
+    },
+    {
+      "id": "E272",
+      "line": 437,
+      "section": "5 讨论与局限",
+      "claim": "完整预算下，修正相对硬初值及残差注意力的比较满足探索条件，但相对普通网络的中位数比约0.838，未显示额外收益。",
+      "paragraph_evidence_tags": [
+        "E09",
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/historical_execution_scope.json",
+        "../working_20261023/HISTORICAL_EXECUTION_SCOPE.md"
+      ],
+      "reason": "E4约.838是体/迹可核的数据范围，不宣称优于vanilla或统计等价，也不是第三成功主例。"
+    },
+    {
+      "id": "E273",
+      "line": 437,
+      "section": "5 讨论与局限",
+      "claim": "这一结果限制跨边界机制的推广，不能作为第三个成功主算例。",
+      "paragraph_evidence_tags": [
+        "E09",
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/historical_execution_scope.json",
+        "../working_20261023/HISTORICAL_EXECUTION_SCOPE.md"
+      ],
+      "reason": "E4约.838是体/迹可核的数据范围，不宣称优于vanilla或统计等价，也不是第三成功主例。"
+    },
+    {
+      "id": "E274",
+      "line": 437,
+      "section": "5 讨论与局限",
+      "claim": "三个种子也不足以证明修正与普通网络统计等价。",
+      "paragraph_evidence_tags": [
+        "E09",
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/historical_execution_scope.json",
+        "../working_20261023/HISTORICAL_EXECUTION_SCOPE.md"
+      ],
+      "reason": "E4约.838是体/迹可核的数据范围，不宣称优于vanilla或统计等价，也不是第三成功主例。"
+    },
+    {
+      "id": "E280",
+      "line": 443,
+      "section": "5 讨论与局限",
+      "claim": "即使一个组内三个配对种子都改善，也不能据此给出总体成功概率或宣称统计显著。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03",
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159",
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md"
+      ],
+      "reason": "每配置3种子且筛选复用种子；仅描述统计，无法支撑显著性、总体成功率或独立外部复现。"
+    },
+    {
+      "id": "E282",
+      "line": 443,
+      "section": "5 讨论与局限",
+      "claim": "历史筛选复用了部分报告种子，因此后续结果更适合被称为完整预算补证据，而不是严格独立的外部重复验证。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03",
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159",
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md"
+      ],
+      "reason": "每配置3种子且筛选复用种子；仅描述统计，无法支撑显著性、总体成功率或独立外部复现。"
+    },
+    {
+      "id": "E284",
+      "line": 445,
+      "section": "5 讨论与局限",
+      "claim": "参考解的分辨率核查能够支持已报告五时刻上的数值比较，但没有覆盖任意接近零的时间。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "最早报告时间.05，当前参考核查没有覆盖任意t→0；早时机制诊断被保留为未来工作。"
+    },
+    {
+      "id": "E287",
+      "line": 445,
+      "section": "5 讨论与局限",
+      "claim": "进一步机制分析需要先验证早期参考解，再在预定时空区域比较导数、残差和误差，而不是根据当前曲线事后选择最有利的展示窗口。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "最早报告时间.05，当前参考核查没有覆盖任意t→0；早时机制诊断被保留为未来工作。"
+    },
+    {
+      "id": "E288",
+      "line": 447,
+      "section": "5 讨论与局限",
+      "claim": "训练配置的可追溯性不等于充分公平调参。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03",
+        "E04"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json",
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159"
+      ],
+      "reason": "固定实现差异与无共享调参预算已披露；相同步数上限不代表同成本或最优方法排名。"
+    },
+    {
+      "id": "E289",
+      "line": 447,
+      "section": "5 讨论与局限",
+      "claim": "本文没有为全部方法开展同规模超参数搜索，RBA本地变体的体、两端边界及初值固定点集均较少，且权重初始化和更新次序不同于所读原文算法，PirateNet 省略了一项初始化，SOAP 使用规定的双精度适配版本。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03",
+        "E04"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json",
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159"
+      ],
+      "reason": "固定实现差异与无共享调参预算已披露；相同步数上限不代表同成本或最优方法排名。"
+    },
+    {
+      "id": "E290",
+      "line": 447,
+      "section": "5 讨论与局限",
+      "claim": "相同的梯度调用上限和名义 L-BFGS 上限也不保证相同的运行时间、内部迭代或计算成本。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03",
+        "E04"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json",
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159"
+      ],
+      "reason": "固定实现差异与无共享调参预算已披露；相同步数上限不代表同成本或最优方法排名。"
+    },
+    {
+      "id": "E291",
+      "line": 447,
+      "section": "5 讨论与局限",
+      "claim": "因此，本文的比较适合说明所列配置的具体表现及同架构叠加效果，不能作为所有实现、预算与最佳调参情形的方法排名。",
+      "paragraph_evidence_tags": [
+        "E01",
+        "E03",
+        "E04"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json",
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159"
+      ],
+      "reason": "固定实现差异与无共享调参预算已披露；相同步数上限不代表同成本或最优方法排名。"
+    },
+    {
+      "id": "E292",
+      "line": 449,
+      "section": "5 讨论与局限",
+      "claim": "历史Adam确认与本机SOAP64的环境及软件版本不同，六臂跨组精度差不能单独归因于优化器，成本也不能作等墙钟比较。",
+      "paragraph_evidence_tags": [
+        "E03",
+        "E04",
+        "E13",
+        "E16"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "环境混杂明确列出；S6判据在SOAP批内比较，未把跨Adam/SOAP差当纯优化器效果。"
+    },
+    {
+      "id": "E293",
+      "line": 449,
+      "section": "5 讨论与局限",
+      "claim": "τ主档为历史云端、另两档为本机，同样混合参数与环境变化。",
+      "paragraph_evidence_tags": [
+        "E03",
+        "E04",
+        "E13",
+        "E16"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "环境混杂明确列出；S6判据在SOAP批内比较，未把跨Adam/SOAP差当纯优化器效果。"
+    },
+    {
+      "id": "E294",
+      "line": 449,
+      "section": "5 讨论与局限",
+      "claim": "S6-SOAP已满足的判据只比较同批本机SOAP64内的硬初值与修正组；它支持该固定实现中的叠加性，未隔离不同优化器的总体贡献。",
+      "paragraph_evidence_tags": [
+        "E03",
+        "E04",
+        "E13",
+        "E16"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "环境混杂明确列出；S6判据在SOAP批内比较，未把跨Adam/SOAP差当纯优化器效果。"
+    },
+    {
+      "id": "E295",
+      "line": 449,
+      "section": "5 讨论与局限",
+      "claim": "图2上下排的新旧初值还分别训练于不同环境，跨排变化不能归于初值这一单一因素。",
+      "paragraph_evidence_tags": [
+        "E03",
+        "E04",
+        "E13",
+        "E16"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "环境混杂明确列出；S6判据在SOAP批内比较，未把跨Adam/SOAP差当纯优化器效果。"
+    },
+    {
+      "id": "E296",
+      "line": 453,
+      "section": "5 讨论与局限",
+      "claim": "已完成的灵敏度和固定SOAP64对照补足了两个预先安排的经验问题，也留下了新的可检验边界。",
+      "paragraph_evidence_tags": [
+        "E04",
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED_AS_LIMITATION_OR_PROPOSAL",
+      "support": [
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159"
+      ],
+      "reason": "未来同环境独立种子和高维验证是研究建议，不作为已经执行的结果。"
+    },
+    {
+      "id": "E297",
+      "line": 453,
+      "section": "5 讨论与局限",
+      "claim": "后续同环境复现实验可把τ和优化器的变化与硬件、软件差异分开，按事前规则增加独立种子，估计收益分布而非继续比较最小误差。",
+      "paragraph_evidence_tags": [
+        "E04",
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED_AS_LIMITATION_OR_PROPOSAL",
+      "support": [
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159"
+      ],
+      "reason": "未来同环境独立种子和高维验证是研究建议，不作为已经执行的结果。"
+    },
+    {
+      "id": "E301",
+      "line": 455,
+      "section": "5 讨论与局限",
+      "claim": "初值精确满足、边界余项、反应项耦合和训练路径都可能影响最终误差，而当前参数轴无法把它们完全分离。",
+      "paragraph_evidence_tags": [
+        "E02",
+        "E03",
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "提出区分错配、残差及训练路径的设计需求；明确当前尚未识别唯一机制。"
+    },
+    {
+      "id": "E302",
+      "line": 455,
+      "section": "5 讨论与局限",
+      "claim": "后续可先提出能够独立改变错配或控制其他动力学的对照，再确定观察量与分析规则。",
+      "paragraph_evidence_tags": [
+        "E02",
+        "E03",
+        "E05"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "提出区分错配、残差及训练路径的设计需求；明确当前尚未识别唯一机制。"
+    },
+    {
+      "id": "E306",
+      "line": 459,
+      "section": "6 结论",
+      "claim": "导数错配由已知初值、体算子和边界算子计算，半直线层的变换表达式、局部方程及边界性质通过直接推导核查。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "结论重复已证局部性质及剩余项限制，未从初值硬满足外推全域准确性。"
+    },
+    {
+      "id": "E308",
+      "line": 459,
+      "section": "6 结论",
+      "claim": "衰减、反应项及有限区间另一端仍留下需要训练的余项，所以解析保证只对应明确写出的局部性质和初值约束。",
+      "paragraph_evidence_tags": [
+        "E02"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "结论重复已证局部性质及剩余项限制，未从初值硬满足外推全域准确性。"
+    },
+    {
+      "id": "E310",
+      "line": 461,
+      "section": "6 结论",
+      "claim": "PirateNet本地变体内的比较保留了组级改善，完整SOAP64对照则在两个方程上均满足既定叠加判据。",
+      "paragraph_evidence_tags": [
+        "E03",
+        "E05",
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159"
+      ],
+      "reason": "四个原/新问题group median均改善，Pirate和SOAP叠加限定其固定实现，新初值独立重训。"
+    },
+    {
+      "id": "E312",
+      "line": 461,
+      "section": "6 结论",
+      "claim": "新初值任务分别重训，不能解释为一个训练后的网络对未知初值直接泛化。",
+      "paragraph_evidence_tags": [
+        "E03",
+        "E05",
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159"
+      ],
+      "reason": "四个原/新问题group median均改善，Pirate和SOAP叠加限定其固定实现，新初值独立重训。"
+    },
+    {
+      "id": "E317",
+      "line": 465,
+      "section": "6 结论",
+      "claim": "负面结果规定了经验结论的边界。",
+      "paragraph_evidence_tags": [
+        "E03",
+        "E05",
+        "E09",
+        "E12"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/historical_execution_scope.json",
+        "../working_20261023/HISTORICAL_EXECUTION_SCOPE.md"
+      ],
+      "reason": "个别seed退化、弱错配、A-1/G2/E4和表面权重缺口完整保留，没有把失败改成新成功规则。"
+    },
+    {
+      "id": "E321",
+      "line": 467,
+      "section": "6 结论",
+      "claim": "完整产物与来源链使上述比较可以逐项检查，但工程恢复、数值复算和机制解释仍有不同职责。",
+      "paragraph_evidence_tags": [
+        "E02",
+        "E03",
+        "E13",
+        "E15"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../drafts/complete_v1.md:272",
+        "../../drafts/complete_v1.md:425",
+        "../../drafts/complete_v1.md:558",
+        "../../../SCREEN_PROTOCOL.md:159",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "完整产物指上文限定体/迹和新任务；后句保留早时机制待证，未由复算推断因果。"
+    },
+    {
+      "id": "E325",
+      "line": 9,
+      "section": "摘要/附录/声明",
+      "claim": "初值与动态边界要求的初始时间导数不一致，使一维抛物问题的角点分析区别于仅约束初始函数值的处理。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "中英文摘要倍数与43项独立计算对应；限定三个种子、五时刻、局部性质，不把修正等同全域精确解。"
+    },
+    {
+      "id": "E326",
+      "line": 9,
+      "section": "摘要/附录/声明",
+      "claim": "本文由初值和方程算子计算导数错配，在硬初值表达式中加入半直线热方程动态边界层及固定指数衰减因子。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "中英文摘要倍数与43项独立计算对应；限定三个种子、五时刻、局部性质，不把修正等同全域精确解。"
+    },
+    {
+      "id": "E327",
+      "line": 9,
+      "section": "摘要/附录/声明",
+      "claim": "Laplace变换与直接微分说明层函数的初始值、局部方程及边界性质，并区分局部模型的精确性与完整有限区间问题的训练余项。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "中英文摘要倍数与43项独立计算对应；限定三个种子、五时刻、局部性质，不把修正等同全域精确解。"
+    },
+    {
+      "id": "E328",
+      "line": 9,
+      "section": "摘要/附录/声明",
+      "claim": "两类一维问题采用三个随机种子，以五个预定时刻的最大体相对误差为主指标。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "中英文摘要倍数与43项独立计算对应；限定三个种子、五时刻、局部性质，不把修正等同全域精确解。"
+    },
+    {
+      "id": "E329",
+      "line": 9,
+      "section": "摘要/附录/声明",
+      "claim": "在默认Adam加L-BFGS路线下，原初值上硬初值与修正组的误差中位数比分别为34.83和5.92，两个事前固定新初值分别训练后的比值为2.69和7.34。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "中英文摘要倍数与43项独立计算对应；限定三个种子、五时刻、局部性质，不把修正等同全域精确解。"
+    },
+    {
+      "id": "E330",
+      "line": 9,
+      "section": "摘要/附录/声明",
+      "claim": "PirateNet本地变体内的比值为22.61和5.52。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "中英文摘要倍数与43项独立计算对应；限定三个种子、五时刻、局部性质，不把修正等同全域精确解。"
+    },
+    {
+      "id": "E331",
+      "line": 9,
+      "section": "摘要/附录/声明",
+      "claim": "同批固定SOAP64加L-BFGS对照中，比值为300.07和30.83，两方程修正组均有三个种子达到既定绝对误差阈值，满足该批叠加判据。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "中英文摘要倍数与43项独立计算对应；限定三个种子、五时刻、局部性质，不把修正等同全域精确解。"
+    },
+    {
+      "id": "E332",
+      "line": 9,
+      "section": "摘要/附录/声明",
+      "claim": "三个衰减档位的中位数最大最小比为1.72和1.43，主参数保持0.1。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "中英文摘要倍数与43项独立计算对应；限定三个种子、五时刻、局部性质，不把修正等同全域精确解。"
+    },
+    {
+      "id": "E333",
+      "line": 9,
+      "section": "摘要/附录/声明",
+      "claim": "研究同时保留个别种子退化、弱错配点及体表耦合扩展的负面结果。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "中英文摘要倍数与43项独立计算对应；限定三个种子、五时刻、局部性质，不把修正等同全域精确解。"
+    },
+    {
+      "id": "E334",
+      "line": 9,
+      "section": "摘要/附录/声明",
+      "claim": "数据支持被测配置内的经验改善和有限叠加性，未证明初始角点机制的唯一性、普遍优化器优势或任意初值泛化。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "中英文摘要倍数与43项独立计算对应；限定三个种子、五时刻、局部性质，不把修正等同全域精确解。"
+    },
+    {
+      "id": "E335",
+      "line": 9,
+      "section": "摘要/附录/声明",
+      "claim": "历史与新增批次的环境差异也限制跨组精度和成本的因果解释。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "中英文摘要倍数与43项独立计算对应；限定三个种子、五时刻、局部性质，不把修正等同全域精确解。"
+    },
+    {
+      "id": "E336",
+      "line": 15,
+      "section": "摘要/附录/声明",
+      "claim": "A mismatch between the initial time derivatives required by a parabolic equation and its dynamic boundary condition motivates a targeted correction to hard-initial-condition physics-informed neural networks",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "英文摘要与中文范围和关键数字一致；separate retraining、mixed environments及negative outcomes没有遗漏。"
+    },
+    {
+      "id": "E337",
+      "line": 15,
+      "section": "摘要/附录/声明",
+      "claim": "For one-dimensional problems, the mismatch is computed from the prescribed initial profile and differential operators",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "英文摘要与中文范围和关键数字一致；separate retraining、mixed environments及negative outcomes没有遗漏。"
+    },
+    {
+      "id": "E338",
+      "line": 15,
+      "section": "摘要/附录/声明",
+      "claim": "A half-line heat-equation layer with a dynamic boundary condition is added to the hard-initial-condition representation with a fixed exponential decay factor",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "英文摘要与中文范围和关键数字一致；separate retraining、mixed environments及negative outcomes没有遗漏。"
+    },
+    {
+      "id": "E339",
+      "line": 15,
+      "section": "摘要/附录/声明",
+      "claim": "A Laplace-transform construction and direct differentiation distinguish the exact local layer problem from the residual terms of the full finite-interval problem",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "英文摘要与中文范围和关键数字一致；separate retraining、mixed environments及negative outcomes没有遗漏。"
+    },
+    {
+      "id": "E340",
+      "line": 15,
+      "section": "摘要/附录/声明",
+      "claim": "Experiments use three seeds and the maximum relative volume error over five prescribed times",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "英文摘要与中文范围和关键数字一致；separate retraining、mixed environments及negative outcomes没有遗漏。"
+    },
+    {
+      "id": "E341",
+      "line": 15,
+      "section": "摘要/附录/声明",
+      "claim": "Under the default Adam plus L-BFGS route, the ratios of the median errors of the hard-initial-condition baseline to the corrected method are 34.83 and 5.92 for the original profiles, and 2.69 and 7.34 for two prespecified alternative profiles trained separately",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "英文摘要与中文范围和关键数字一致；separate retraining、mixed environments及negative outcomes没有遗漏。"
+    },
+    {
+      "id": "E342",
+      "line": 15,
+      "section": "摘要/附录/声明",
+      "claim": "Within the local PirateNet variant, the ratios are 22.61 and 5.52. Within the same local batch using fixed SOAP64 plus L-BFGS, the ratios are 300.07 and 30.83; all three corrected runs satisfy the absolute-error threshold for both equations, meeting the preregistered stacking criterion",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "英文摘要与中文范围和关键数字一致；separate retraining、mixed environments及negative outcomes没有遗漏。"
+    },
+    {
+      "id": "E343",
+      "line": 15,
+      "section": "摘要/附录/声明",
+      "claim": "Across three decay settings, the ratios of the largest to the smallest median errors are 1.72 and 1.43, while the main decay parameter remains 0.1. An adverse seed, a weak-mismatch setting, and a bulk-surface extension delimit the observed benefits",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "英文摘要与中文范围和关键数字一致；separate retraining、mixed environments及negative outcomes没有遗漏。"
+    },
+    {
+      "id": "E344",
+      "line": 15,
+      "section": "摘要/附录/声明",
+      "claim": "These results support empirical improvement and limited stacking within the tested configurations",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "英文摘要与中文范围和关键数字一致；separate retraining、mixed environments及negative outcomes没有遗漏。"
+    },
+    {
+      "id": "E345",
+      "line": 15,
+      "section": "摘要/附录/声明",
+      "claim": "They do not establish a unique corner mechanism, universal optimizer superiority, or generalization to arbitrary initial conditions",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "英文摘要与中文范围和关键数字一致；separate retraining、mixed environments及negative outcomes没有遗漏。"
+    },
+    {
+      "id": "E346",
+      "line": 15,
+      "section": "摘要/附录/声明",
+      "claim": "Environmental differences between historical and new batches also limit causal interpretations of cross-group accuracy and cost.",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../working_20261023/independent_math_evidence.json",
+        "../../research/MATH_SOURCE_AUDIT.md",
+        "NUMERIC_VERIFICATION.json#formula_blocks"
+      ],
+      "reason": "英文摘要与中文范围和关键数字一致；separate retraining、mixed environments及negative outcomes没有遗漏。"
+    },
+    {
+      "id": "E348",
+      "line": 497,
+      "section": "摘要/附录/声明",
+      "claim": "Favini等仅用于其出版社摘要可支持的经典研究背景，不引述未读证明；部分期刊条目的核心方法核验采用可访问作者稿。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json"
+      ],
+      "reason": "13题录不变；Favini只摘要、作者稿/正式版及RBA/SOAP版本的范围明确。"
+    },
+    {
+      "id": "E349",
+      "line": 497,
+      "section": "摘要/附录/声明",
+      "claim": "RBA期刊题录的发表年为2024，本次所读缓存为arXiv:2307.00379v2，修订日期2026-08-22，并另核对2023年的v1核心公式与Algorithm 1；两版范围差异及本地实现见附录C。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json"
+      ],
+      "reason": "13题录不变；Favini只摘要、作者稿/正式版及RBA/SOAP版本的范围明确。"
+    },
+    {
+      "id": "E350",
+      "line": 497,
+      "section": "摘要/附录/声明",
+      "claim": "SOAP明确引用八作者的arXiv第2版，不将其题名和作者与ICLR终稿混合。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "REFERENCES_AND_CITATIONS.json"
+      ],
+      "reason": "13题录不变；Favini只摘要、作者稿/正式版及RBA/SOAP版本的范围明确。"
+    },
+    {
+      "id": "E352",
+      "line": 517,
+      "section": "摘要/附录/声明",
+      "claim": "新旧表格单元可以回指到相应原始JSON，数字映射保存在E14。",
+      "paragraph_evidence_tags": [
+        "E14"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/historical_execution_scope.json",
+        "../working_20261023/HISTORICAL_EXECUTION_SCOPE.md",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "206结果与488产物证据链来自前序独立复核哈希复绑定；当前预审未自称再扫206或重跑模型。"
+    },
+    {
+      "id": "E358",
+      "line": 556,
+      "section": "摘要/附录/声明",
+      "claim": "对于因果训练，时间箱编号为min(floor(32t),31)。",
+      "paragraph_evidence_tags": [
+        "E10"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../../../pinn1d.py",
+        "../../../problems.py",
+        "../../../third_party/soap_official.py",
+        "../working_20261023/revised1_followup.json",
+        "../stage6_analysis_20261023/INDEPENDENT_STAGE6_ANALYSIS_REVIEW.json"
+      ],
+      "reason": "分量内32箱mean、空箱count clamp、累计指数stopgrad与代码一致；不能合并分量后再权重。"
+    },
+    {
+      "id": "E361",
+      "line": 558,
+      "section": "摘要/附录/声明",
+      "claim": "历史复算来源分别为130项既有模型审查、24项小预算模型复核及22项第一阶段新增模型复核，包含原设置和加密设置的体、迹误差记录。",
+      "paragraph_evidence_tags": [
+        "E4",
+        "E12",
+        "E12"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/historical_execution_scope.json",
+        "../working_20261023/HISTORICAL_EXECUTION_SCOPE.md"
+      ],
+      "reason": "176保存复算和398绑定成立；63/71测试各1warning、旧源不同及20缺表面PT均准确保留。"
+    },
+    {
+      "id": "E362",
+      "line": 558,
+      "section": "摘要/附录/声明",
+      "claim": "独立补查对398个结果与权重文件核对当前哈希，而未重新运行176个模型。",
+      "paragraph_evidence_tags": [
+        "E4",
+        "E12",
+        "E12"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/historical_execution_scope.json",
+        "../working_20261023/HISTORICAL_EXECUTION_SCOPE.md"
+      ],
+      "reason": "176保存复算和398绑定成立；63/71测试各1warning、旧源不同及20缺表面PT均准确保留。"
+    },
+    {
+      "id": "E363",
+      "line": 558,
+      "section": "摘要/附录/声明",
+      "claim": "部分历史生产进程的逐次退出码和完整警告信息未留存，两个已保存测试日志分别记录63项与71项测试通过、各有1条张量转标量的测试断言警告，不能改称全历史零警告。",
+      "paragraph_evidence_tags": [
+        "E4",
+        "E12",
+        "E12"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/historical_execution_scope.json",
+        "../working_20261023/HISTORICAL_EXECUTION_SCOPE.md"
+      ],
+      "reason": "176保存复算和398绑定成立；63/71测试各1warning、旧源不同及20缺表面PT均准确保留。"
+    },
+    {
+      "id": "E364",
+      "line": 558,
+      "section": "摘要/附录/声明",
+      "claim": "旧130项的训练源码哈希与当前源码不同，也不能倒称全部历史运行均由当前代码完成。",
+      "paragraph_evidence_tags": [
+        "E4",
+        "E12",
+        "E12"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/historical_execution_scope.json",
+        "../working_20261023/HISTORICAL_EXECUTION_SCOPE.md"
+      ],
+      "reason": "176保存复算和398绑定成立；63/71测试各1warning、旧源不同及20缺表面PT均准确保留。"
+    },
+    {
+      "id": "E365",
+      "line": 558,
+      "section": "摘要/附录/声明",
+      "claim": "E4中20项历史模型缺少表面权重，仍只支持体与迹。",
+      "paragraph_evidence_tags": [
+        "E4",
+        "E12",
+        "E12"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/historical_execution_scope.json",
+        "../working_20261023/HISTORICAL_EXECUTION_SCOPE.md"
+      ],
+      "reason": "176保存复算和398绑定成立；63/71测试各1warning、旧源不同及20缺表面PT均准确保留。"
+    },
+    {
+      "id": "E366",
+      "line": 558,
+      "section": "摘要/附录/声明",
+      "claim": "上述范围和逐结果映射见E12所指补充审查。",
+      "paragraph_evidence_tags": [
+        "E4",
+        "E12",
+        "E12"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/historical_execution_scope.json",
+        "../working_20261023/HISTORICAL_EXECUTION_SCOPE.md"
+      ],
+      "reason": "176保存复算和398绑定成立；63/71测试各1warning、旧源不同及20缺表面PT均准确保留。"
+    },
+    {
+      "id": "E369",
+      "line": 562,
+      "section": "摘要/附录/声明",
+      "claim": "`layer` 表示普通网络加解析层、初值仍采用软损失；`hardic+layer` 为式（12）。",
+      "paragraph_evidence_tags": [
+        "E1",
+        "E3",
+        "E2",
+        "E01",
+        "E05",
+        "E10"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md"
+      ],
+      "reason": "3×5×2=30筛选、E2系数与定义一致，2样本median为均值且不并入正式三种子。"
+    },
+    {
+      "id": "E371",
+      "line": 562,
+      "section": "摘要/附录/声明",
+      "claim": "本表不合并进正式三种子表，也不从两个样本估计总体概率。",
+      "paragraph_evidence_tags": [
+        "E1",
+        "E3",
+        "E2",
+        "E01",
+        "E05",
+        "E10"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md"
+      ],
+      "reason": "3×5×2=30筛选、E2系数与定义一致，2样本median为均值且不并入正式三种子。"
+    },
+    {
+      "id": "E378",
+      "line": 594,
+      "section": "摘要/附录/声明",
+      "claim": "本次复核仅是文件和统计重聚合，不等同重新训练。",
+      "paragraph_evidence_tags": [
+        "E3",
+        "E1",
+        "E2",
+        "E01",
+        "E10"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "../../../SCREEN_PROTOCOL.md",
+        "../../../E4_PROTOCOL.md"
+      ],
+      "reason": "B2参考/vanilla条件都满足、仅E3比达3；E1修订1扩大预算不是追改原入选。"
+    },
+    {
+      "id": "E382",
+      "line": 611,
+      "section": "摘要/附录/声明",
+      "claim": "第二阶段三个tag分别为`sensitivity_tau003_v1`、`sensitivity_tau03_v1`与`final_soap64_v1`，对应6、6与18项。",
+      "paragraph_evidence_tags": [
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "RECOVERY_APPENDIX_CHECK.json",
+        "NUMERIC_VERIFICATION.json#new_task_attempts",
+        "NUMERIC_VERIFICATION.json#runner_exit"
+      ],
+      "reason": "三tag6+6+18=30，默认36和tau18共享6故48unique；全部验收字段与CSV科学内容核过。"
+    },
+    {
+      "id": "E383",
+      "line": 611,
+      "section": "摘要/附录/声明",
+      "claim": "全部三十项完成并通过完整模型重载、预算与身份、N64/GL200和N96/GL400、四类独立残差的既定验收。",
+      "paragraph_evidence_tags": [
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "RECOVERY_APPENDIX_CHECK.json",
+        "NUMERIC_VERIFICATION.json#new_task_attempts",
+        "NUMERIC_VERIFICATION.json#runner_exit"
+      ],
+      "reason": "三tag6+6+18=30，默认36和tau18共享6故48unique；全部验收字段与CSV科学内容核过。"
+    },
+    {
+      "id": "E384",
+      "line": 611,
+      "section": "摘要/附录/声明",
+      "claim": "正式分析仅聚合保存的复算报告，本作者进一步重聚合原始JSON，没有再次重载模型、训练或积分参考解。",
+      "paragraph_evidence_tags": [
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "RECOVERY_APPENDIX_CHECK.json",
+        "NUMERIC_VERIFICATION.json#new_task_attempts",
+        "NUMERIC_VERIFICATION.json#runner_exit"
+      ],
+      "reason": "三tag6+6+18=30，默认36和tau18共享6故48unique；全部验收字段与CSV科学内容核过。"
+    },
+    {
+      "id": "E385",
+      "line": 611,
+      "section": "摘要/附录/声明",
+      "claim": "完整输出为[全部新增30项](E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/validation/stage6_analysis_20261022/complete_v2/all_new_runs.csv)、[默认六臂36行](E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/validation/stage6_analysis_20261022/complete_v2/default_six_arms.csv)及[τ三档18行](E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/validation/stage6_analysis_20261022/complete_v2/tau_sensitivity.csv)。",
+      "paragraph_evidence_tags": [
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "RECOVERY_APPENDIX_CHECK.json",
+        "NUMERIC_VERIFICATION.json#new_task_attempts",
+        "NUMERIC_VERIFICATION.json#runner_exit"
+      ],
+      "reason": "三tag6+6+18=30，默认36和tau18共享6故48unique；全部验收字段与CSV科学内容核过。"
+    },
+    {
+      "id": "E386",
+      "line": 611,
+      "section": "摘要/附录/声明",
+      "claim": "CSV保留五时刻体/迹序列、四分量残差的RMS与max_abs、损失、实际L-BFGS计数、环境、逐次尝试时间及来源哈希。",
+      "paragraph_evidence_tags": [
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "RECOVERY_APPENDIX_CHECK.json",
+        "NUMERIC_VERIFICATION.json#new_task_attempts",
+        "NUMERIC_VERIFICATION.json#runner_exit"
+      ],
+      "reason": "三tag6+6+18=30，默认36和tau18共享6故48unique；全部验收字段与CSV科学内容核过。"
+    },
+    {
+      "id": "E387",
+      "line": 611,
+      "section": "摘要/附录/声明",
+      "claim": "两张比较表共享六个历史默认记录，合计48个独立分析记录，不能按54行推算训练次数。",
+      "paragraph_evidence_tags": [
+        "E13"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding",
+        "RECOVERY_APPENDIX_CHECK.json",
+        "NUMERIC_VERIFICATION.json#new_task_attempts",
+        "NUMERIC_VERIFICATION.json#runner_exit"
+      ],
+      "reason": "三tag6+6+18=30，默认36和tau18共享6故48unique；全部验收字段与CSV科学内容核过。"
+    },
+    {
+      "id": "E388",
+      "line": 613,
+      "section": "摘要/附录/声明",
+      "claim": "原runner的状态替换故障中断了编排，原21项计算继续执行。",
+      "paragraph_evidence_tags": [
+        "E15"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "RECOVERY_APPENDIX_CHECK.json",
+        "NUMERIC_VERIFICATION.json#new_task_attempts",
+        "NUMERIC_VERIFICATION.json#runner_exit"
+      ],
+      "reason": "42绑定HANDLE退出与110工程tests本次读事件/JUnit复核；21/9不同编排Gate而训练科学源不变。"
+    },
+    {
+      "id": "E389",
+      "line": 613,
+      "section": "摘要/附录/声明",
+      "claim": "监督器按绑定身份的HANDLE确认42个launcher/worker零退出后，修复版runner重新验证完整结果并派发原计划剩余9项。",
+      "paragraph_evidence_tags": [
+        "E15"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "RECOVERY_APPENDIX_CHECK.json",
+        "NUMERIC_VERIFICATION.json#new_task_attempts",
+        "NUMERIC_VERIFICATION.json#runner_exit"
+      ],
+      "reason": "42绑定HANDLE退出与110工程tests本次读事件/JUnit复核；21/9不同编排Gate而训练科学源不变。"
+    },
+    {
+      "id": "E390",
+      "line": 613,
+      "section": "摘要/附录/声明",
+      "claim": "两组都保持各一次attempt，没有因工程恢复更改方程、训练函数、协议、任务预算或参数。",
+      "paragraph_evidence_tags": [
+        "E15"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "RECOVERY_APPENDIX_CHECK.json",
+        "NUMERIC_VERIFICATION.json#new_task_attempts",
+        "NUMERIC_VERIFICATION.json#runner_exit"
+      ],
+      "reason": "42绑定HANDLE退出与110工程tests本次读事件/JUnit复核；21/9不同编排Gate而训练科学源不变。"
+    },
+    {
+      "id": "E391",
+      "line": 613,
+      "section": "摘要/附录/声明",
+      "claim": "原21的训练来源归原Gate，后9归新Gate，两层哈希同时保存在`runtime_status.source_lineage`和逐次attempt记录。",
+      "paragraph_evidence_tags": [
+        "E15"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "RECOVERY_APPENDIX_CHECK.json",
+        "NUMERIC_VERIFICATION.json#new_task_attempts",
+        "NUMERIC_VERIFICATION.json#runner_exit"
+      ],
+      "reason": "42绑定HANDLE退出与110工程tests本次读事件/JUnit复核；21/9不同编排Gate而训练科学源不变。"
+    },
+    {
+      "id": "E392",
+      "line": 613,
+      "section": "摘要/附录/声明",
+      "claim": "新Gate的110项通过属于工程回归，不替代三十项科学验收。",
+      "paragraph_evidence_tags": [
+        "E15"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "RECOVERY_APPENDIX_CHECK.json",
+        "NUMERIC_VERIFICATION.json#new_task_attempts",
+        "NUMERIC_VERIFICATION.json#runner_exit"
+      ],
+      "reason": "42绑定HANDLE退出与110工程tests本次读事件/JUnit复核；21/9不同编排Gate而训练科学源不变。"
+    },
+    {
+      "id": "E393",
+      "line": 613,
+      "section": "摘要/附录/声明",
+      "claim": "最终runner 91632在2026-10-23 06:29:36（UTC+8）由HANDLE观测到退出码0，退出证据和最终状态另行归档。",
+      "paragraph_evidence_tags": [
+        "E15"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "RECOVERY_APPENDIX_CHECK.json",
+        "NUMERIC_VERIFICATION.json#new_task_attempts",
+        "NUMERIC_VERIFICATION.json#runner_exit"
+      ],
+      "reason": "42绑定HANDLE退出与110工程tests本次读事件/JUnit复核；21/9不同编排Gate而训练科学源不变。"
+    },
+    {
+      "id": "E394",
+      "line": 615,
+      "section": "摘要/附录/声明",
+      "claim": "成本分为整批历时、runner会话累计、attempt墙钟和记录内训练轨迹四层。",
+      "paragraph_evidence_tags": [
+        "E4",
+        "E12",
+        "E13",
+        "E15"
+      ],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "VERIFIED",
+      "support": [
+        "../working_20261023/historical_execution_scope.json",
+        "../working_20261023/HISTORICAL_EXECUTION_SCOPE.md",
+        "RECOVERY_APPENDIX_CHECK.json",
+        "NUMERIC_VERIFICATION.json#new_task_attempts",
+        "NUMERIC_VERIFICATION.json#runner_exit",
+        "NUMERIC_VERIFICATION.json#quantitative_claim_checks",
+        "NUMERIC_VERIFICATION.json#old_table_block_checks",
+        "NUMERIC_VERIFICATION.json#new_table_rows",
+        "NUMERIC_VERIFICATION.json#evidence_binding"
+      ],
+      "reason": "四层计时不混用，398+90=488和176+30=206一致；历史日志及E4缺口仍保留。"
+    },
+    {
+      "id": "E399",
+      "line": 619,
+      "section": "摘要/附录/声明",
+      "claim": "作者姓名、单位、通讯作者与作者贡献：待作者确认。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "DECLARED_PENDING_NOT_EMPIRICAL_VERIFICATION",
+      "support": [
+        "../../drafts/complete_v1.md:619",
+        "../../drafts/complete_v1.md:621",
+        "../../drafts/complete_v1.md:623"
+      ],
+      "reason": "作者、基金、COI、开放许可均明确待确认；未把缺失资料推断为无资助/无冲突/已公开。"
+    },
+    {
+      "id": "E400",
+      "line": 619,
+      "section": "摘要/附录/声明",
+      "claim": "资金来源与基金编号：待作者确认，不推断无资助。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "DECLARED_PENDING_NOT_EMPIRICAL_VERIFICATION",
+      "support": [
+        "../../drafts/complete_v1.md:619",
+        "../../drafts/complete_v1.md:621",
+        "../../drafts/complete_v1.md:623"
+      ],
+      "reason": "作者、基金、COI、开放许可均明确待确认；未把缺失资料推断为无资助/无冲突/已公开。"
+    },
+    {
+      "id": "E401",
+      "line": 619,
+      "section": "摘要/附录/声明",
+      "claim": "利益冲突：待作者确认，不代作无利益冲突声明。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "DECLARED_PENDING_NOT_EMPIRICAL_VERIFICATION",
+      "support": [
+        "../../drafts/complete_v1.md:619",
+        "../../drafts/complete_v1.md:621",
+        "../../drafts/complete_v1.md:623"
+      ],
+      "reason": "作者、基金、COI、开放许可均明确待确认；未把缺失资料推断为无资助/无冲突/已公开。"
+    },
+    {
+      "id": "E402",
+      "line": 619,
+      "section": "摘要/附录/声明",
+      "claim": "数据可用性：本地原始结果、权重、协议、代码与复算记录已保存；公开仓库、许可与永久标识待作者确认，不声称已经公开发布。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "DECLARED_PENDING_NOT_EMPIRICAL_VERIFICATION",
+      "support": [
+        "../../drafts/complete_v1.md:619",
+        "../../drafts/complete_v1.md:621",
+        "../../drafts/complete_v1.md:623"
+      ],
+      "reason": "作者、基金、COI、开放许可均明确待确认；未把缺失资料推断为无资助/无冲突/已公开。"
+    },
+    {
+      "id": "E403",
+      "line": 619,
+      "section": "摘要/附录/声明",
+      "claim": "研究对象为数学方程与计算实验，不包含本文采集的人类受试者数据，正式投稿声明格式待按目标期刊核对。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "DECLARED_PENDING_NOT_EMPIRICAL_VERIFICATION",
+      "support": [
+        "../../drafts/complete_v1.md:619",
+        "../../drafts/complete_v1.md:621",
+        "../../drafts/complete_v1.md:623"
+      ],
+      "reason": "作者、基金、COI、开放许可均明确待确认；未把缺失资料推断为无资助/无冲突/已公开。"
+    },
+    {
+      "id": "E404",
+      "line": 621,
+      "section": "摘要/附录/声明",
+      "claim": "依据用户提出的研究方向、约束和授权，自动AI代理参与了实验任务编排、运行器及产物管理代码的检查与工程修复、计算任务的执行与监测、既有及新增数据的聚合和复核、文献题录与相关原文核对、方法推导检查、图表生成、初稿起草以及内部自动审查和逐项修订。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "SUPPORTED_AI_ROLE_DISCLOSURE",
+      "support": [
+        "../../drafts/complete_v1.md:619",
+        "../../drafts/complete_v1.md:621",
+        "../../drafts/complete_v1.md:623"
+      ],
+      "reason": "AI参与涵盖实际研究执行、分析、代码、写作及内部审查，与当前过程可见职责相符；不是仅润色。"
+    },
+    {
+      "id": "E405",
+      "line": 621,
+      "section": "摘要/附录/声明",
+      "claim": "AI参与包含实质性的研究执行与分析辅助，并不限于语言润色。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "SUPPORTED_AI_ROLE_DISCLOSURE",
+      "support": [
+        "../../drafts/complete_v1.md:619",
+        "../../drafts/complete_v1.md:621",
+        "../../drafts/complete_v1.md:623"
+      ],
+      "reason": "AI参与涵盖实际研究执行、分析、代码、写作及内部审查，与当前过程可见职责相符；不是仅润色。"
+    },
+    {
+      "id": "E406",
+      "line": 621,
+      "section": "摘要/附录/声明",
+      "claim": "协议、源码、日志、原始结果、模型产物和哈希清单分别保存，以区分数学推导、有限数值核查、已执行计算和未证实解释。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "SUPPORTED_AI_ROLE_DISCLOSURE",
+      "support": [
+        "../../drafts/complete_v1.md:619",
+        "../../drafts/complete_v1.md:621",
+        "../../drafts/complete_v1.md:623"
+      ],
+      "reason": "AI参与涵盖实际研究执行、分析、代码、写作及内部审查，与当前过程可见职责相符；不是仅润色。"
+    },
+    {
+      "id": "E407",
+      "line": 623,
+      "section": "摘要/附录/声明",
+      "claim": "自动代理之间的独立核查属于内部自动审查，不等同于人类作者已全面复核、外部同行评审或期刊录用。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "DECLARED_PENDING_NOT_EMPIRICAL_VERIFICATION",
+      "support": [
+        "../../drafts/complete_v1.md:619",
+        "../../drafts/complete_v1.md:621",
+        "../../drafts/complete_v1.md:623"
+      ],
+      "reason": "人类最终复核和工具细节明确未完成；不把多代理检查冒充外部同行或系统综述流程。"
+    },
+    {
+      "id": "E408",
+      "line": 623,
+      "section": "摘要/附录/声明",
+      "claim": "尚未记录人类作者对全部代码、数据、参考文献、解释和最终文稿完成逐项核验。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "DECLARED_PENDING_NOT_EMPIRICAL_VERIFICATION",
+      "support": [
+        "../../drafts/complete_v1.md:619",
+        "../../drafts/complete_v1.md:621",
+        "../../drafts/complete_v1.md:623"
+      ],
+      "reason": "人类最终复核和工具细节明确未完成；不把多代理检查冒充外部同行或系统综述流程。"
+    },
+    {
+      "id": "E409",
+      "line": 623,
+      "section": "摘要/附录/声明",
+      "claim": "正式署名作者须确认各自贡献、核实文稿并确认提交责任；AI工具名称、版本和使用日期等信息仍待本人核实，不预先声明这些确认已经完成。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "DECLARED_PENDING_NOT_EMPIRICAL_VERIFICATION",
+      "support": [
+        "../../drafts/complete_v1.md:619",
+        "../../drafts/complete_v1.md:621",
+        "../../drafts/complete_v1.md:623"
+      ],
+      "reason": "人类最终复核和工具细节明确未完成；不把多代理检查冒充外部同行或系统综述流程。"
+    },
+    {
+      "id": "E410",
+      "line": 623,
+      "section": "摘要/附录/声明",
+      "claim": "本研究不是系统综述，辅助文献核对不被写成系统检索或双人筛选流程。",
+      "paragraph_evidence_tags": [],
+      "paragraph_literature_refs": [],
+      "selected": true,
+      "status": "DECLARED_PENDING_NOT_EMPIRICAL_VERIFICATION",
+      "support": [
+        "../../drafts/complete_v1.md:619",
+        "../../drafts/complete_v1.md:621",
+        "../../drafts/complete_v1.md:623"
+      ],
+      "reason": "人类最终复核和工具细节明确未完成；不把多代理检查冒充外部同行或系统综述流程。"
+    }
+  ],
+  "scope": "Sampled claims read and reasoned manually. Limitation/proposal/definition and explicit pending disclosures are classified by type rather than called verified experiments."
+}

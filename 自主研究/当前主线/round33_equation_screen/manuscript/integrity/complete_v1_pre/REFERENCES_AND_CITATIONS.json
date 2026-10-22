@@ -1,0 +1,1025 @@
+{
+  "draft_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "A0_api_attempt": "S2_METADATA_TRIAGE.json (HTTP 429; no API result was treated as verification)",
+  "references": [
+    {
+      "number": 1,
+      "key": "Favini2002Wentzell",
+      "bibliographic_entry": "Favini, Angelo; Goldstein, Gisèle Ruiz; Goldstein, Jerome A.; Romanelli, Silvia. [The heat equation with generalized Wentzell boundary condition](https://doi.org/10.1007/s00028-002-8077-y). Journal of Evolution Equations, 2002, 2(1): 1-19.",
+      "status": "VERIFIED",
+      "metadata_fields_checked": [
+        "title",
+        "authors",
+        "publication_year_or_version_date",
+        "venue",
+        "volume_issue_pages_or_article_number",
+        "DOI_or_arXiv_or_official_URL"
+      ],
+      "query": "\"The heat equation with generalized Wentzell boundary condition\" Favini Goldstein Romanelli",
+      "primary_result_urls": [
+        "https://digitalcommons.memphis.edu/facpubs/5884/",
+        "https://doi.org/10.1007/s00028-002-8077-y"
+      ],
+      "read_version": "出版社题录与摘要；未取得全文",
+      "method_passage_locations": [],
+      "source_cache": null,
+      "source_cache_sha256": null,
+      "source_cache_current_match": null,
+      "current_entry_equal_independently_checked_revised1": true,
+      "context_reason": "经典广义Wentzell热算子半群研究背景与摘要一致；不得用于本稿非线性方程的适定性定理。",
+      "scope": "题录存在性与本稿实际相关语境，不声称整篇逐页精读；Favini仅摘要背景。",
+      "supplemental_v1": null
+    },
+    {
+      "number": 2,
+      "key": "Raissi2019PINN",
+      "bibliographic_entry": "Raissi, Maziar; Perdikaris, Paris; Karniadakis, George Em. [Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations](https://doi.org/10.1016/j.jcp.2018.10.045). Journal of Computational Physics, 2019, 378: 686-707.",
+      "status": "VERIFIED",
+      "metadata_fields_checked": [
+        "title",
+        "authors",
+        "publication_year_or_version_date",
+        "venue",
+        "volume_issue_pages_or_article_number",
+        "DOI_or_arXiv_or_official_URL"
+      ],
+      "query": "\"Physics-informed neural networks\" \"686-707\" Raissi Perdikaris Karniadakis",
+      "primary_result_urls": [
+        "https://www.sciencedirect.com/science/article/pii/S0021999118307125",
+        "https://doi.org/10.1016/j.jcp.2018.10.045"
+      ],
+      "read_version": "2017 Part I 作者稿；正式2019题录由Crossref核对",
+      "method_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Raissi2019PINN.txt",
+          "文本行起": 148,
+          "文本行止": 156,
+          "PDF页": 4
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Raissi2019PINN.txt",
+          "文本行起": 197,
+          "文本行止": 227,
+          "PDF页": 5
+        }
+      ],
+      "source_cache": "D:\\CodexRuntime\\runs\\r33_source_audit_20261022\\pinn2017.pdf",
+      "source_cache_sha256": "2a8db6776a110a4f36bd1e36af79cf31a2e74baa5af8f7ee3d9286a75fdc400d",
+      "source_cache_current_match": true,
+      "current_entry_equal_independently_checked_revised1": true,
+      "context_reason": "正文的自动微分残差与初边数据联合目标由实际方法段支持，未将作者稿冒称正式终稿。",
+      "scope": "题录存在性与本稿实际相关语境，不声称整篇逐页精读；Favini仅摘要背景。",
+      "supplemental_v1": null
+    },
+    {
+      "number": 3,
+      "key": "Awais2026Wentzell",
+      "bibliographic_entry": "Awais, Muhammad. [Physics-informed neural networks for the heat equation with dynamic (Wentzell) boundary conditions](https://doi.org/10.30538/oms2026.0303). Open Journal of Mathematical Sciences, 2026, 10: 526-536.",
+      "status": "VERIFIED",
+      "metadata_fields_checked": [
+        "title",
+        "authors",
+        "publication_year_or_version_date",
+        "venue",
+        "volume_issue_pages_or_article_number",
+        "DOI_or_arXiv_or_official_URL"
+      ],
+      "query": "\"Physics-informed neural networks for the heat equation with dynamic\" Awais",
+      "primary_result_urls": [
+        "https://pisrt.org/psrpress/j/oms/2026/physics-informed-neural-networks-for-the-heat-equation-with-dynamic-wentzell-boundary-conditions.pdf",
+        "https://doi.org/10.30538/oms2026.0303"
+      ],
+      "read_version": "2026出版社PDF",
+      "method_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Awais2026Wentzell.txt",
+          "文本行起": 78,
+          "文本行止": 97,
+          "PDF页": 2
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Awais2026Wentzell.txt",
+          "文本行起": 183,
+          "文本行止": 194,
+          "PDF页": 4
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Awais2026Wentzell.txt",
+          "文本行起": 205,
+          "文本行止": 241,
+          "PDF页": 4
+        }
+      ],
+      "source_cache": "D:\\CodexRuntime\\runs\\r33_source_audit_20261022\\awais.pdf",
+      "source_cache_sha256": "5a9fa79fb935842d810e28383a49b7af7767f7b53ed84082d4774d85cdbf7579",
+      "source_cache_current_match": true,
+      "current_entry_equal_independently_checked_revised1": true,
+      "context_reason": "硬初值随机特征、仅求输出系数、线性最小二乘、两端动态边界及相反通量号均核到正文。两种制造解与R33非相容设置不能直接排名。",
+      "scope": "题录存在性与本稿实际相关语境，不声称整篇逐页精读；Favini仅摘要背景。",
+      "supplemental_v1": null
+    },
+    {
+      "number": 4,
+      "key": "Li2026EDRAS",
+      "bibliographic_entry": "Li, Chunyan; Yu, Wenkai; Wang, Qi. [Energy Dissipation Rate Guided Adaptive Sampling for Physics-Informed Neural Networks: Resolving Surface-Bulk Dynamics in Allen-Cahn Systems](https://doi.org/10.4208/ijnam2026-1025). International Journal of Numerical Analysis and Modeling, 2026, 23(4): 576-604.",
+      "status": "VERIFIED",
+      "metadata_fields_checked": [
+        "title",
+        "authors",
+        "publication_year_or_version_date",
+        "venue",
+        "volume_issue_pages_or_article_number",
+        "DOI_or_arXiv_or_official_URL"
+      ],
+      "query": "\"Energy Dissipation Rate Guided Adaptive Sampling\" Li Yu Wang",
+      "primary_result_urls": [
+        "https://doi.org/10.4208/ijnam2026-1025"
+      ],
+      "read_version": "2026正式期刊PDF",
+      "method_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Li2026EDRAS.txt",
+          "文本行起": 511,
+          "文本行止": 537,
+          "PDF页": 10
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Li2026EDRAS.txt",
+          "文本行起": 621,
+          "文本行止": 630,
+          "PDF页": 12
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Li2026EDRAS.txt",
+          "文本行起": 774,
+          "文本行止": 788,
+          "PDF页": 15
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Li2026EDRAS.txt",
+          "文本行起": 855,
+          "文本行止": 864,
+          "PDF页": 17
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Li2026EDRAS.txt",
+          "文本行起": 1025,
+          "文本行止": 1029,
+          "PDF页": 20
+        }
+      ],
+      "source_cache": "D:\\CodexRuntime\\runs\\r33_literature_writing_20261022\\edras_final.pdf",
+      "source_cache_sha256": "4081c0a7e106d1a5b15edaac9aa2da624e0f72c36d66d372cf3fb3cf07279749",
+      "source_cache_current_match": true,
+      "current_entry_equal_independently_checked_revised1": true,
+      "context_reason": "一维表1是周期边界，二维段落才包含动态边界；初值权重1000和首段0.01在原文存在。稿件没有挪用其提升倍数。",
+      "scope": "题录存在性与本稿实际相关语境，不声称整篇逐页精读；Favini仅摘要背景。",
+      "supplemental_v1": null
+    },
+    {
+      "number": 5,
+      "key": "Chen2011Corner",
+      "bibliographic_entry": "Chen, Qingshan; Qin, Zhen; Temam, Roger. [Numerical Resolution Near t=0 of Nonlinear Evolution Equations in the Presence of Corner Singularities in Space Dimension 1](https://doi.org/10.4208/cicp.110909.160310s). Communications in Computational Physics, 2011, 9(3): 568-586.",
+      "status": "VERIFIED",
+      "metadata_fields_checked": [
+        "title",
+        "authors",
+        "publication_year_or_version_date",
+        "venue",
+        "volume_issue_pages_or_article_number",
+        "DOI_or_arXiv_or_official_URL"
+      ],
+      "query": "\"Numerical Resolution Near t=0\" Chen Qin Temam 568 586",
+      "primary_result_urls": [
+        "https://global-sci.com/cicp/article/download/5794/11524",
+        "https://doi.org/10.4208/cicp.110909.160310s"
+      ],
+      "read_version": "arXiv 1011.4549v1，首页另载2011正式发表信息",
+      "method_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Chen2011Corner.txt",
+          "文本行起": 128,
+          "文本行止": 170,
+          "PDF页": 3
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Chen2011Corner.txt",
+          "文本行起": 193,
+          "文本行止": 215,
+          "PDF页": 4
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Chen2011Corner.txt",
+          "文本行起": 254,
+          "文本行止": 286,
+          "PDF页": 5
+        }
+      ],
+      "source_cache": "D:\\CodexRuntime\\runs\\r33_source_audit_20261022\\chen_corner.pdf",
+      "source_cache_sha256": "c9cc92e2f74c1ac89d7d67967aebe32f0f097d1364c4e52503026b0166cd41ee",
+      "source_cache_current_match": true,
+      "current_entry_equal_independently_checked_revised1": true,
+      "context_reason": "S0为erfc角点函数，S1为其时间积分；Dirichlet初边值问题的低阶不相容修正与稿件定位一致。它不是动态边界w的现成公式。",
+      "scope": "题录存在性与本稿实际相关语境，不声称整篇逐页精读；Favini仅摘要背景。",
+      "supplemental_v1": null
+    },
+    {
+      "number": 6,
+      "key": "Sukumar2022Distance",
+      "bibliographic_entry": "Sukumar, N.; Srivastava, Ankit. [Exact imposition of boundary conditions with distance functions in physics-informed deep neural networks](https://doi.org/10.1016/j.cma.2021.114333). Computer Methods in Applied Mechanics and Engineering, 2022, 389: 114333.",
+      "status": "VERIFIED",
+      "metadata_fields_checked": [
+        "title",
+        "authors",
+        "publication_year_or_version_date",
+        "venue",
+        "volume_issue_pages_or_article_number",
+        "DOI_or_arXiv_or_official_URL"
+      ],
+      "query": "\"Exact imposition of boundary conditions with distance functions\" Sukumar Srivastava 114333",
+      "primary_result_urls": [
+        "https://arxiv.org/abs/2104.08426",
+        "https://doi.org/10.1016/j.cma.2021.114333"
+      ],
+      "read_version": "arXiv 2104.08426v2 接受作者稿",
+      "method_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Sukumar2022Distance.txt",
+          "文本行起": 817,
+          "文本行止": 820,
+          "PDF页": 12
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Sukumar2022Distance.txt",
+          "文本行起": 904,
+          "文本行止": 945,
+          "PDF页": 13
+        }
+      ],
+      "source_cache": "D:\\CodexRuntime\\runs\\r33_literature_writing_20261022\\hard_bc_proxy.pdf",
+      "source_cache_sha256": "de6dcaead2eb08e773494ccc777878f34199fcd550c0d69af6da1c507a5a3a65",
+      "source_cache_current_match": true,
+      "current_entry_equal_independently_checked_revised1": true,
+      "context_reason": "距离函数、试函数结构精确满足几何边界约束的说法成立；稿件未据此推断tN角点修正的误差保证。",
+      "scope": "题录存在性与本稿实际相关语境，不声称整篇逐页精读；Favini仅摘要背景。",
+      "supplemental_v1": null
+    },
+    {
+      "number": 7,
+      "key": "Gie2024Rectangular",
+      "bibliographic_entry": "Gie, Gung-Min; Hong, Youngjoon; Jung, Chang-Yeol; Munkhjin, Tselmuun. [Semi-analytic PINN methods for boundary layer problems in a rectangular domain](https://doi.org/10.1016/j.cam.2024.115989). Journal of Computational and Applied Mathematics, 2024, 450: 115989.",
+      "status": "VERIFIED",
+      "metadata_fields_checked": [
+        "title",
+        "authors",
+        "publication_year_or_version_date",
+        "venue",
+        "volume_issue_pages_or_article_number",
+        "DOI_or_arXiv_or_official_URL"
+      ],
+      "query": "\"Semi-analytic PINN methods for boundary layer problems in a rectangular domain\"",
+      "primary_result_urls": [
+        "https://arxiv.org/abs/2312.06278",
+        "https://doi.org/10.1016/j.cam.2024.115989"
+      ],
+      "read_version": "arXiv 2312.06278v1，正式2024题录另核",
+      "method_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Gie2024Rectangular.txt",
+          "文本行起": 439,
+          "文本行止": 448,
+          "PDF页": 9
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Gie2024Rectangular.txt",
+          "文本行起": 901,
+          "文本行止": 952,
+          "PDF页": 18
+        }
+      ],
+      "source_cache": "D:\\CodexRuntime\\runs\\r33_source_audit_20261022\\slrect.pdf",
+      "source_cache_sha256": "2dbea574d2b61ea1b3f63bf874a97a7889ab9825d5040ac309ffcdbee524c145",
+      "source_cache_current_match": true,
+      "current_entry_equal_independently_checked_revised1": true,
+      "context_reason": "空间抛物型层、普通层和空间角点修正以及神经表示均有正文依据；并非初始时间角点层。",
+      "scope": "题录存在性与本稿实际相关语境，不声称整篇逐页精读；Favini仅摘要背景。",
+      "supplemental_v1": null
+    },
+    {
+      "number": 8,
+      "key": "Gie2026SingularLayer",
+      "bibliographic_entry": "Gie, Gung-Min; Hong, Youngjoon; Jung, Chang-Yeol; Lee, Dongseok. [Singular layer physics-informed neural network method for convection-dominated boundary layer problems in two dimensions](https://doi.org/10.1016/j.cam.2025.116918). Journal of Computational and Applied Mathematics, 2026, 474: 116918.",
+      "status": "VERIFIED",
+      "metadata_fields_checked": [
+        "title",
+        "authors",
+        "publication_year_or_version_date",
+        "venue",
+        "volume_issue_pages_or_article_number",
+        "DOI_or_arXiv_or_official_URL"
+      ],
+      "query": "\"Singular layer physics-informed neural network method\" Gie Hong Jung Lee 116918",
+      "primary_result_urls": [
+        "https://arxiv.org/abs/2312.03295",
+        "https://doi.org/10.1016/j.cam.2025.116918"
+      ],
+      "read_version": "arXiv 2312.03295v2（2024作者稿），正式2026卷年另核",
+      "method_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Gie2026SingularLayer.txt",
+          "文本行起": 646,
+          "文本行止": 687,
+          "PDF页": 15
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Gie2026SingularLayer.txt",
+          "文本行起": 825,
+          "文本行止": 831,
+          "PDF页": 17
+        }
+      ],
+      "source_cache": "D:\\CodexRuntime\\runs\\r33_source_audit_20261022\\sl2d.pdf",
+      "source_cache_sha256": "b4c1dca06abf4bd26539dccd9a2d0f37dd6f04bc386a38ca14fda91de56b0870",
+      "source_cache_current_match": true,
+      "current_entry_equal_independently_checked_revised1": true,
+      "context_reason": "所读时变例确实有初值因子、空间修正，并明确排除该例时间层、要求相容数据；稿件没有概括整个SL-PINN文献。",
+      "scope": "题录存在性与本稿实际相关语境，不声称整篇逐页精读；Favini仅摘要背景。",
+      "supplemental_v1": null
+    },
+    {
+      "number": 9,
+      "key": "Anagnostopoulos2024RBA",
+      "bibliographic_entry": "Anagnostopoulos, Sokratis J.; Toscano, Juan Diego; Stergiopulos, Nikolaos; Karniadakis, George Em. [Residual-based attention in physics-informed neural networks](https://doi.org/10.1016/j.cma.2024.116805). Computer Methods in Applied Mechanics and Engineering, 2024, 421: 116805.",
+      "status": "VERIFIED",
+      "metadata_fields_checked": [
+        "title",
+        "authors",
+        "publication_year_or_version_date",
+        "venue",
+        "volume_issue_pages_or_article_number",
+        "DOI_or_arXiv_or_official_URL"
+      ],
+      "query": "\"Residual-based attention in physics-informed neural networks\" 116805 Anagnostopoulos",
+      "primary_result_urls": [
+        "https://www.sciencedirect.com/science/article/pii/S0045782524000616",
+        "https://doi.org/10.1016/j.cma.2024.116805"
+      ],
+      "read_version": "arXiv 2307.00379v2实际修订2026-08-22；另外独立读2023 v1式9及算法1",
+      "method_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Anagnostopoulos2024RBA.txt",
+          "文本行起": 208,
+          "文本行止": 245,
+          "PDF页": 5
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Anagnostopoulos2024RBA.txt",
+          "文本行起": 256,
+          "文本行止": 286,
+          "PDF页": 6
+        }
+      ],
+      "source_cache": "D:\\CodexRuntime\\runs\\r33_literature_writing_20261022\\rba.pdf",
+      "source_cache_sha256": "d8db5f61fc6b14471afa5043172cf6f3cd884ab7c6566b80a4002177add73855",
+      "source_cache_current_match": true,
+      "current_entry_equal_independently_checked_revised1": true,
+      "context_reason": "归一化残差历史更新在v1/v2均成立。版本间算法适用项有变化，本地又采用λ初值1及更新后调整λ；应明确本地变体，见F01/F03。",
+      "scope": "题录存在性与本稿实际相关语境，不声称整篇逐页精读；Favini仅摘要背景。",
+      "supplemental_v1": {
+        "PDF": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\RBA_v1.pdf",
+        "sha256": "a663d21aefbcabac209e8a371b2abb5280f88118466f60554db8de361136645f",
+        "文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\RBA_v1.txt",
+        "行": [
+          217,
+          284
+        ],
+        "位置": "§2.2，公式(9)，Algorithm 1；PDF第6–7页"
+      }
+    },
+    {
+      "number": 10,
+      "key": "Wang2024Causality",
+      "bibliographic_entry": "Wang, Sifan; Sankaran, Shyam; Perdikaris, Paris. [Respecting causality for training physics-informed neural networks](https://doi.org/10.1016/j.cma.2024.116813). Computer Methods in Applied Mechanics and Engineering, 2024, 421: 116813.",
+      "status": "VERIFIED",
+      "metadata_fields_checked": [
+        "title",
+        "authors",
+        "publication_year_or_version_date",
+        "venue",
+        "volume_issue_pages_or_article_number",
+        "DOI_or_arXiv_or_official_URL"
+      ],
+      "query": "\"Respecting causality for training physics-informed neural networks\" 116813",
+      "primary_result_urls": [
+        "https://www.sciencedirect.com/science/article/pii/S0045782524000690",
+        "https://doi.org/10.1016/j.cma.2024.116813"
+      ],
+      "read_version": "arXiv 2203.07404v1（2022）；正式2024题录另核",
+      "method_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Wang2024Causality.txt",
+          "文本行起": 368,
+          "文本行止": 399,
+          "PDF页": 6
+        }
+      ],
+      "source_cache": "D:\\CodexRuntime\\runs\\r33_literature_writing_20261022\\causal_final.pdf",
+      "source_cache_sha256": "ac6bae92b77a01e8a291c7fd532171b6e734fce74c5b2b1cb353ff7df58eb964",
+      "source_cache_current_match": true,
+      "current_entry_equal_independently_checked_revised1": true,
+      "context_reason": "过去时段损失的累计指数权重与正文概述一致。本地分32箱、固定ε且无原完整退火流程，需要在复现表明确。",
+      "scope": "题录存在性与本稿实际相关语境，不声称整篇逐页精读；Favini仅摘要背景。",
+      "supplemental_v1": null
+    },
+    {
+      "number": 11,
+      "key": "Wang2024PirateNets",
+      "bibliographic_entry": "Wang, Sifan; Li, Bowen; Chen, Yuhan; Perdikaris, Paris. [PirateNets: Physics-informed Deep Learning with Residual Adaptive Networks](https://jmlr.org/papers/v25/24-0313.html). Journal of Machine Learning Research, 2024, 25(402): 1-51.",
+      "status": "VERIFIED",
+      "metadata_fields_checked": [
+        "title",
+        "authors",
+        "publication_year_or_version_date",
+        "venue",
+        "volume_issue_pages_or_article_number",
+        "DOI_or_arXiv_or_official_URL"
+      ],
+      "query": "\"PirateNets\" \"25(402)\"",
+      "primary_result_urls": [
+        "https://www.jmlr.org/papers/v25/24-0313.html"
+      ],
+      "read_version": "JMLR 25(402), 2024 正式PDF",
+      "method_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Wang2024PirateNets.txt",
+          "文本行起": 665,
+          "文本行止": 711,
+          "PDF页": 12
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Wang2024PirateNets.txt",
+          "文本行起": 723,
+          "文本行止": 764,
+          "PDF页": 13
+        }
+      ],
+      "source_cache": "D:\\CodexRuntime\\runs\\r33_source_audit_20261022\\piratenets.pdf",
+      "source_cache_sha256": "ae681416b1a8ad46eea93c36094074d83bc4bb6eda9b247b8f031990ba5b10de",
+      "source_cache_current_match": true,
+      "current_entry_equal_independently_checked_revised1": true,
+      "context_reason": "Fourier特征、三层门控块、α初始0和最小二乘输出层初始化均在正式正文；稿件已经明确省略初始化，不冒称官方完整复现。",
+      "scope": "题录存在性与本稿实际相关语境，不声称整篇逐页精读；Favini仅摘要背景。",
+      "supplemental_v1": null
+    },
+    {
+      "number": 12,
+      "key": "Vyas2024SOAP",
+      "bibliographic_entry": "Vyas, Nikhil; Morwani, Depen; Zhao, Rosie; Kwun, Mujin; Shapira, Itai; Brandfonbrener, David; Janson, Lucas; Kakade, Sham. [SOAP: Improving and Stabilizing Shampoo using Adam](https://arxiv.org/abs/2409.11321v2). arXiv:2409.11321v2，初次提交2024，v2修订于2025-01-31.",
+      "status": "VERIFIED",
+      "metadata_fields_checked": [
+        "title",
+        "authors",
+        "publication_year_or_version_date",
+        "venue",
+        "volume_issue_pages_or_article_number",
+        "DOI_or_arXiv_or_official_URL"
+      ],
+      "query": "\"SOAP: Improving and Stabilizing Shampoo using Adam\" \"2409.11321v2\"",
+      "primary_result_urls": [
+        "https://arxiv.org/abs/2409.11321v2"
+      ],
+      "read_version": "arXiv 2409.11321v2，2025-01-31，八作者",
+      "method_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Vyas2024SOAP.txt",
+          "文本行起": 311,
+          "文本行止": 359,
+          "PDF页": 5
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Vyas2024SOAP.txt",
+          "文本行起": 373,
+          "文本行止": 379,
+          "PDF页": 6
+        }
+      ],
+      "source_cache": "D:\\CodexRuntime\\runs\\r33_source_audit_20261022\\soap_v2.pdf",
+      "source_cache_sha256": "d6f33bb71eab0f046d911b60800846fd3332f1dcf5f2f1434ab444ab89d0b22a",
+      "source_cache_current_match": true,
+      "current_entry_equal_independently_checked_revised1": true,
+      "context_reason": "在Shampoo特征向量坐标中执行Adam式更新由算法3支持；不把语言模型上的结果迁移为本PDE的性能证据。题名/八作者/v2日期与arXiv一致。",
+      "scope": "题录存在性与本稿实际相关语境，不声称整篇逐页精读；Favini仅摘要背景。",
+      "supplemental_v1": null
+    },
+    {
+      "number": 13,
+      "key": "NISTDLMF",
+      "bibliographic_entry": "National Institute of Standards and Technology. [NIST Digital Library of Mathematical Functions](https://dlmf.nist.gov/7.14.E4). 在线参考，§7.2.2、§7.6.1、§7.14.4，访问日期2026-10-22.",
+      "status": "VERIFIED",
+      "metadata_fields_checked": [
+        "title",
+        "authors",
+        "publication_year_or_version_date",
+        "venue",
+        "volume_issue_pages_or_article_number",
+        "DOI_or_arXiv_or_official_URL"
+      ],
+      "query": "site:dlmf.nist.gov/7.14 \"7.14.4\"",
+      "primary_result_urls": [
+        "https://dlmf.nist.gov/7.14.E4"
+      ],
+      "read_version": "官方DLMF网页和公式7.14.4",
+      "method_passage_locations": [],
+      "source_cache": "D:\\CodexRuntime\\runs\\r33_source_audit_20261022\\dlmf_7_14.html",
+      "source_cache_sha256": "bf7ab99127ae9c4ffabb8743b5e40ec50aaa77cc4b2218cc06b08e25e57e0831",
+      "source_cache_current_match": true,
+      "current_entry_equal_independently_checked_revised1": true,
+      "context_reason": "令DLMF的(a,b,c)=(β²,s,y²/4)，再乘exp(βy)，得到Q的Laplace变换；Re(s)>0及正容量满足公式范围。只支持反演步骤。",
+      "scope": "题录存在性与本稿实际相关语境，不声称整篇逐页精读；Favini仅摘要背景。",
+      "supplemental_v1": null
+    }
+  ],
+  "reference_count": 13,
+  "verified_count": 13,
+  "missing_or_mismatched_count": 0,
+  "ghost_body_citations": [],
+  "uncited_reference_entries": [],
+  "citation_context_denominator": 18,
+  "checked_contexts": [
+    {
+      "id": "B01",
+      "reference": 1,
+      "line": 21,
+      "context": "动态边界条件将边界上的时间演化纳入抛物初边值问题，广义 Wentzell 热方程的算子和半群分析已有经典研究[1]。本文考虑其中一类一维模型：体方程与边界方程共同决定解的演化，而给定初始函数不一定同时满足二者在初始角点对时间导数的要求。本文的具体问题是，在严格保留初始函数值的神经网络表达式中，显式加入由这一导数错配确定的局部解析项，是否能改善所测固定配置下的解误差。研究对象、比较方法和评价时刻均由实验协议限定，结论不延伸到未测试的方程或训练设置。[E01]",
+      "status": "VERIFIED",
+      "source_key": "Favini2002Wentzell",
+      "source_urls": [
+        "https://digitalcommons.memphis.edu/facpubs/5884/",
+        "https://doi.org/10.1007/s00028-002-8077-y"
+      ],
+      "source_passage_locations": [],
+      "reason": "经典广义Wentzell热算子半群研究背景与摘要一致；不得用于本稿非线性方程的适定性定理。"
+    },
+    {
+      "id": "B02",
+      "reference": 2,
+      "line": 23,
+      "context": "物理信息神经网络通过自动微分构造方程残差，并将其与初边值数据共同纳入训练目标[2]。这一框架可以用于动态边界问题，但边界含时间导数并不自动消除初始相容性的要求。Awais 已在动态边界热方程上研究硬初值随机特征与线性最小二乘求解，并以光滑制造解验证其表现[3]。其两端边界设置及法向通量符号与本文不同，误差数值不适合作为直接排名依据。该先例说明本研究需要把问题限定为所测非相容初值及具体修正，而非宣称首次进行动态边界神经求解。",
+      "status": "VERIFIED",
+      "source_key": "Raissi2019PINN",
+      "source_urls": [
+        "https://www.sciencedirect.com/science/article/pii/S0021999118307125",
+        "https://doi.org/10.1016/j.jcp.2018.10.045"
+      ],
+      "source_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Raissi2019PINN.txt",
+          "文本行起": 148,
+          "文本行止": 156,
+          "PDF页": 4
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Raissi2019PINN.txt",
+          "文本行起": 197,
+          "文本行止": 227,
+          "PDF页": 5
+        }
+      ],
+      "reason": "正文的自动微分残差与初边数据联合目标由实际方法段支持，未将作者稿冒称正式终稿。"
+    },
+    {
+      "id": "B03",
+      "reference": 3,
+      "line": 23,
+      "context": "物理信息神经网络通过自动微分构造方程残差，并将其与初边值数据共同纳入训练目标[2]。这一框架可以用于动态边界问题，但边界含时间导数并不自动消除初始相容性的要求。Awais 已在动态边界热方程上研究硬初值随机特征与线性最小二乘求解，并以光滑制造解验证其表现[3]。其两端边界设置及法向通量符号与本文不同，误差数值不适合作为直接排名依据。该先例说明本研究需要把问题限定为所测非相容初值及具体修正，而非宣称首次进行动态边界神经求解。",
+      "status": "VERIFIED",
+      "source_key": "Awais2026Wentzell",
+      "source_urls": [
+        "https://pisrt.org/psrpress/j/oms/2026/physics-informed-neural-networks-for-the-heat-equation-with-dynamic-wentzell-boundary-conditions.pdf",
+        "https://doi.org/10.30538/oms2026.0303"
+      ],
+      "source_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Awais2026Wentzell.txt",
+          "文本行起": 78,
+          "文本行止": 97,
+          "PDF页": 2
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Awais2026Wentzell.txt",
+          "文本行起": 183,
+          "文本行止": 194,
+          "PDF页": 4
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Awais2026Wentzell.txt",
+          "文本行起": 205,
+          "文本行止": 241,
+          "PDF页": 4
+        }
+      ],
+      "reason": "硬初值随机特征、仅求输出系数、线性最小二乘、两端动态边界及相反通量号均核到正文。两种制造解与R33非相容设置不能直接排名。"
+    },
+    {
+      "id": "B04",
+      "reference": 4,
+      "line": 25,
+      "context": "动态边界下的采样与时间训练也已有专门研究。Li等提出能量耗散率引导的自适应采样，在二维动态边界 Allen–Cahn 模型上考察体与表面的演化[4]。该工作的一维表格对应周期边界，不能将其中误差比直接移用为动态边界提升幅度。本文历史计划中的初值加权与早期时间采样只受其部分设置启发，尚未形成结果，更不是该多网络与自适应采样流程的完整复现。明确这种关系有助于把相关研究的启发与本项目实际运行的比较区分开来。[E01]",
+      "status": "VERIFIED",
+      "source_key": "Li2026EDRAS",
+      "source_urls": [
+        "https://doi.org/10.4208/ijnam2026-1025"
+      ],
+      "source_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Li2026EDRAS.txt",
+          "文本行起": 511,
+          "文本行止": 537,
+          "PDF页": 10
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Li2026EDRAS.txt",
+          "文本行起": 621,
+          "文本行止": 630,
+          "PDF页": 12
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Li2026EDRAS.txt",
+          "文本行起": 774,
+          "文本行止": 788,
+          "PDF页": 15
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Li2026EDRAS.txt",
+          "文本行起": 855,
+          "文本行止": 864,
+          "PDF页": 17
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Li2026EDRAS.txt",
+          "文本行起": 1025,
+          "文本行止": 1029,
+          "PDF页": 20
+        }
+      ],
+      "reason": "一维表1是周期边界，二维段落才包含动态边界；初值权重1000和首段0.01在原文存在。稿件没有挪用其提升倍数。"
+    },
+    {
+      "id": "B05",
+      "reference": 5,
+      "line": 29,
+      "context": "从解析角度看，用显式奇异函数分离初边值不相容项具有既有数值研究基础。Chen等在一维非线性演化问题中构造低阶角点修正，并用热方程角点函数的时间积分处理一阶不相容[5]。该研究采用 Dirichlet 数据，其函数不等于本文动态边界层，因而本文仍须重新给出边界缩放、变换公式和初始极限。将已知约束预先写入神经试函数也有成熟先例，例如距离函数构造能够精确施加几何边界约束[6]。这些工作支持结构化表达式的设计方向，不直接保证本文组合的训练误差更低。",
+      "status": "VERIFIED",
+      "source_key": "Chen2011Corner",
+      "source_urls": [
+        "https://global-sci.com/cicp/article/download/5794/11524",
+        "https://doi.org/10.4208/cicp.110909.160310s"
+      ],
+      "source_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Chen2011Corner.txt",
+          "文本行起": 128,
+          "文本行止": 170,
+          "PDF页": 3
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Chen2011Corner.txt",
+          "文本行起": 193,
+          "文本行止": 215,
+          "PDF页": 4
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Chen2011Corner.txt",
+          "文本行起": 254,
+          "文本行止": 286,
+          "PDF页": 5
+        }
+      ],
+      "reason": "S0为erfc角点函数，S1为其时间积分；Dirichlet初边值问题的低阶不相容修正与稿件定位一致。它不是动态边界w的现成公式。"
+    },
+    {
+      "id": "B06",
+      "reference": 6,
+      "line": 29,
+      "context": "从解析角度看，用显式奇异函数分离初边值不相容项具有既有数值研究基础。Chen等在一维非线性演化问题中构造低阶角点修正，并用热方程角点函数的时间积分处理一阶不相容[5]。该研究采用 Dirichlet 数据，其函数不等于本文动态边界层，因而本文仍须重新给出边界缩放、变换公式和初始极限。将已知约束预先写入神经试函数也有成熟先例，例如距离函数构造能够精确施加几何边界约束[6]。这些工作支持结构化表达式的设计方向，不直接保证本文组合的训练误差更低。",
+      "status": "VERIFIED",
+      "source_key": "Sukumar2022Distance",
+      "source_urls": [
+        "https://arxiv.org/abs/2104.08426",
+        "https://doi.org/10.1016/j.cma.2021.114333"
+      ],
+      "source_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Sukumar2022Distance.txt",
+          "文本行起": 817,
+          "文本行止": 820,
+          "PDF页": 12
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Sukumar2022Distance.txt",
+          "文本行起": 904,
+          "文本行止": 945,
+          "PDF页": 13
+        }
+      ],
+      "reason": "距离函数、试函数结构精确满足几何边界约束的说法成立；稿件未据此推断tN角点修正的误差保证。"
+    },
+    {
+      "id": "B07",
+      "reference": 7,
+      "line": 31,
+      "context": "解析层与神经网络的结合也不能作为本研究的首创主张。Gie等的 SL-PINN 已将解析边界层和空间角点校正嵌入神经近似，矩形域研究中的抛物型层属于空间奇异摄动结构[7]。后续工作在一个时变例中同时使用初值因子和空间层修正，但该例明确假设时间方向无层并要求数据相容[8]。这些局部事实提示本文应区分空间边界层与初始时间角点结构，同时也不能据少量选读概括所有 SL-PINN 工作的研究范围。本文关注的是下述动态边界导数错配组合及其实际适用性。",
+      "status": "VERIFIED",
+      "source_key": "Gie2024Rectangular",
+      "source_urls": [
+        "https://arxiv.org/abs/2312.06278",
+        "https://doi.org/10.1016/j.cam.2024.115989"
+      ],
+      "source_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Gie2024Rectangular.txt",
+          "文本行起": 439,
+          "文本行止": 448,
+          "PDF页": 9
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Gie2024Rectangular.txt",
+          "文本行起": 901,
+          "文本行止": 952,
+          "PDF页": 18
+        }
+      ],
+      "reason": "空间抛物型层、普通层和空间角点修正以及神经表示均有正文依据；并非初始时间角点层。"
+    },
+    {
+      "id": "B08",
+      "reference": 8,
+      "line": 31,
+      "context": "解析层与神经网络的结合也不能作为本研究的首创主张。Gie等的 SL-PINN 已将解析边界层和空间角点校正嵌入神经近似，矩形域研究中的抛物型层属于空间奇异摄动结构[7]。后续工作在一个时变例中同时使用初值因子和空间层修正，但该例明确假设时间方向无层并要求数据相容[8]。这些局部事实提示本文应区分空间边界层与初始时间角点结构，同时也不能据少量选读概括所有 SL-PINN 工作的研究范围。本文关注的是下述动态边界导数错配组合及其实际适用性。",
+      "status": "VERIFIED",
+      "source_key": "Gie2026SingularLayer",
+      "source_urls": [
+        "https://arxiv.org/abs/2312.03295",
+        "https://doi.org/10.1016/j.cam.2025.116918"
+      ],
+      "source_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Gie2026SingularLayer.txt",
+          "文本行起": 646,
+          "文本行止": 687,
+          "PDF页": 15
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Gie2026SingularLayer.txt",
+          "文本行起": 825,
+          "文本行止": 831,
+          "PDF页": 17
+        }
+      ],
+      "reason": "所读时变例确实有初值因子、空间修正，并明确排除该例时间层、要求相容数据；稿件没有概括整个SL-PINN文献。"
+    },
+    {
+      "id": "B09",
+      "reference": 9,
+      "line": 33,
+      "context": "训练改进构成另一组必要比较。残差注意力利用归一化残差历史调整逐点权重[9]，因果训练通过先前时段残差控制后续时段的权重[10]。PirateNets 引入可学习残差连接及物理或数据引导的输出层初始化[11]，SOAP 则在 Shampoo 预条件器的特征向量坐标中使用 Adam 式更新[12]。这些方法改变的环节不同，因此本文先在相同架构内比较加与不加修正，再讨论固定架构和优化器的叠加。有限默认配置的比较用于确定本文构造的效果范围，不代表充分调参后的方法族整体排名。[E01,E03]",
+      "status": "VERIFIED",
+      "source_key": "Anagnostopoulos2024RBA",
+      "source_urls": [
+        "https://www.sciencedirect.com/science/article/pii/S0045782524000616",
+        "https://doi.org/10.1016/j.cma.2024.116805"
+      ],
+      "source_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Anagnostopoulos2024RBA.txt",
+          "文本行起": 208,
+          "文本行止": 245,
+          "PDF页": 5
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Anagnostopoulos2024RBA.txt",
+          "文本行起": 256,
+          "文本行止": 286,
+          "PDF页": 6
+        }
+      ],
+      "reason": "本稿242、598至607行及附录A明确本地RBA的采点、四分量加权、初始化、更新顺序及版本差异；当前引用仅支持归一化残差历史注意力思想。"
+    },
+    {
+      "id": "B10",
+      "reference": 10,
+      "line": 33,
+      "context": "训练改进构成另一组必要比较。残差注意力利用归一化残差历史调整逐点权重[9]，因果训练通过先前时段残差控制后续时段的权重[10]。PirateNets 引入可学习残差连接及物理或数据引导的输出层初始化[11]，SOAP 则在 Shampoo 预条件器的特征向量坐标中使用 Adam 式更新[12]。这些方法改变的环节不同，因此本文先在相同架构内比较加与不加修正，再讨论固定架构和优化器的叠加。有限默认配置的比较用于确定本文构造的效果范围，不代表充分调参后的方法族整体排名。[E01,E03]",
+      "status": "VERIFIED",
+      "source_key": "Wang2024Causality",
+      "source_urls": [
+        "https://www.sciencedirect.com/science/article/pii/S0045782524000690",
+        "https://doi.org/10.1016/j.cma.2024.116813"
+      ],
+      "source_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Wang2024Causality.txt",
+          "文本行起": 368,
+          "文本行止": 399,
+          "PDF页": 6
+        }
+      ],
+      "reason": "累计早时段损失构造因果权重由原文算法支持；本稿明确32箱、固定ε和本地实现，不声称完整调参复现。"
+    },
+    {
+      "id": "B11",
+      "reference": 11,
+      "line": 33,
+      "context": "训练改进构成另一组必要比较。残差注意力利用归一化残差历史调整逐点权重[9]，因果训练通过先前时段残差控制后续时段的权重[10]。PirateNets 引入可学习残差连接及物理或数据引导的输出层初始化[11]，SOAP 则在 Shampoo 预条件器的特征向量坐标中使用 Adam 式更新[12]。这些方法改变的环节不同，因此本文先在相同架构内比较加与不加修正，再讨论固定架构和优化器的叠加。有限默认配置的比较用于确定本文构造的效果范围，不代表充分调参后的方法族整体排名。[E01,E03]",
+      "status": "VERIFIED",
+      "source_key": "Wang2024PirateNets",
+      "source_urls": [
+        "https://www.jmlr.org/papers/v25/24-0313.html"
+      ],
+      "source_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Wang2024PirateNets.txt",
+          "文本行起": 665,
+          "文本行止": 711,
+          "PDF页": 12
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Wang2024PirateNets.txt",
+          "文本行起": 723,
+          "文本行止": 764,
+          "PDF页": 13
+        }
+      ],
+      "reason": "Fourier特征、三层门控块、α初始0和最小二乘输出层初始化均在正式正文；稿件已经明确省略初始化，不冒称官方完整复现。"
+    },
+    {
+      "id": "B12",
+      "reference": 12,
+      "line": 33,
+      "context": "训练改进构成另一组必要比较。残差注意力利用归一化残差历史调整逐点权重[9]，因果训练通过先前时段残差控制后续时段的权重[10]。PirateNets 引入可学习残差连接及物理或数据引导的输出层初始化[11]，SOAP 则在 Shampoo 预条件器的特征向量坐标中使用 Adam 式更新[12]。这些方法改变的环节不同，因此本文先在相同架构内比较加与不加修正，再讨论固定架构和优化器的叠加。有限默认配置的比较用于确定本文构造的效果范围，不代表充分调参后的方法族整体排名。[E01,E03]",
+      "status": "VERIFIED",
+      "source_key": "Vyas2024SOAP",
+      "source_urls": [
+        "https://arxiv.org/abs/2409.11321v2"
+      ],
+      "source_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Vyas2024SOAP.txt",
+          "文本行起": 311,
+          "文本行止": 359,
+          "PDF页": 5
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Vyas2024SOAP.txt",
+          "文本行起": 373,
+          "文本行止": 379,
+          "PDF页": 6
+        }
+      ],
+      "reason": "在Shampoo特征向量坐标中执行Adam式更新由算法3支持；不把语言模型上的结果迁移为本PDE的性能证据。题名/八作者/v2日期与arXiv一致。"
+    },
+    {
+      "id": "B13",
+      "reference": 13,
+      "line": 98,
+      "context": "其中平方根选取实部为正的分支。式（6）展示了边界容量如何进入时间响应，也给出了闭式反变换需要满足的目标。NIST 数学函数数字图书馆的式7.14.4提供所需余误差函数 Laplace 积分[13]。取其中参数为容量倒数的平方、变换变量及距离平方的四分之一，再乘相应空间指数，得到下面时间导数的变换。经典积分公式支持的是这一步反演，边界模型、错配系数及其与网络的组合仍由本文推导。[E02]",
+      "status": "VERIFIED",
+      "source_key": "NISTDLMF",
+      "source_urls": [
+        "https://dlmf.nist.gov/7.14.E4"
+      ],
+      "source_passage_locations": [],
+      "reason": "令DLMF的(a,b,c)=(β²,s,y²/4)，再乘exp(βy)，得到Q的Laplace变换；Re(s)>0及正容量满足公式范围。只支持反演步骤。"
+    },
+    {
+      "id": "B14",
+      "reference": 9,
+      "line": 242,
+      "context": "残差注意力按归一化残差历史更新逐点权重[9]。本文明确使用RBA本地变体：完整预算下，整个 Adam 点集固定为体4096个、每端256个及初值256个，并在 L-BFGS 继续复用。体、左边界、右边界及初值四类残差分别使用逐点权重，L-BFGS 冻结这些权重。权重初始化为一，在每次 Adam 网络参数更新后，使用本次更新前已计算的残差更新权重。此实现不等同于原文全部训练配置，其与所读版本的差异见附录C。因果权重由先前时段的残差确定[10]，本文将其叠加于硬初值，分32个时间箱，固定使用ε为1或10，两档分别训练，体与两端边界三个分量各自计算因果权重，并在原强基线判定中取对基线有利的一档。本文不将有限配置比较推广为充分公平调参后的最优排名。[E01,E10]",
+      "status": "VERIFIED",
+      "source_key": "Anagnostopoulos2024RBA",
+      "source_urls": [
+        "https://www.sciencedirect.com/science/article/pii/S0045782524000616",
+        "https://doi.org/10.1016/j.cma.2024.116805"
+      ],
+      "source_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Anagnostopoulos2024RBA.txt",
+          "文本行起": 208,
+          "文本行止": 245,
+          "PDF页": 5
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Anagnostopoulos2024RBA.txt",
+          "文本行起": 256,
+          "文本行止": 286,
+          "PDF页": 6
+        }
+      ],
+      "reason": "本稿242、598至607行及附录A明确本地RBA的采点、四分量加权、初始化、更新顺序及版本差异；当前引用仅支持归一化残差历史注意力思想。"
+    },
+    {
+      "id": "B15",
+      "reference": 10,
+      "line": 242,
+      "context": "残差注意力按归一化残差历史更新逐点权重[9]。本文明确使用RBA本地变体：完整预算下，整个 Adam 点集固定为体4096个、每端256个及初值256个，并在 L-BFGS 继续复用。体、左边界、右边界及初值四类残差分别使用逐点权重，L-BFGS 冻结这些权重。权重初始化为一，在每次 Adam 网络参数更新后，使用本次更新前已计算的残差更新权重。此实现不等同于原文全部训练配置，其与所读版本的差异见附录C。因果权重由先前时段的残差确定[10]，本文将其叠加于硬初值，分32个时间箱，固定使用ε为1或10，两档分别训练，体与两端边界三个分量各自计算因果权重，并在原强基线判定中取对基线有利的一档。本文不将有限配置比较推广为充分公平调参后的最优排名。[E01,E10]",
+      "status": "VERIFIED",
+      "source_key": "Wang2024Causality",
+      "source_urls": [
+        "https://www.sciencedirect.com/science/article/pii/S0045782524000690",
+        "https://doi.org/10.1016/j.cma.2024.116813"
+      ],
+      "source_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Wang2024Causality.txt",
+          "文本行起": 368,
+          "文本行止": 399,
+          "PDF页": 6
+        }
+      ],
+      "reason": "累计早时段损失构造因果权重由原文算法支持；本稿明确32箱、固定ε和本地实现，不声称完整调参复现。"
+    },
+    {
+      "id": "B16",
+      "reference": 11,
+      "line": 244,
+      "context": "架构叠加采用 PirateNets 的自适应残差连接思路[11]，使用本文实际实现的变体：随机 Fourier 嵌入、3个宽度为64的门控残差块及初始为零的自适应跳连权重。实现省略了原方法的物理信息最小二乘初始化，因此全文明确标注这一差异。四个历史未完成的热方程任务从原检查点继续至原定总预算，其余既有结果只读复用。续跑只补充剩余调用，没有为这些种子附加新的训练额度。复现声明只涵盖已核实的任务身份和本机恢复，不承诺跨硬件训练轨迹逐位相同。[E01,E03]",
+      "status": "VERIFIED",
+      "source_key": "Wang2024PirateNets",
+      "source_urls": [
+        "https://www.jmlr.org/papers/v25/24-0313.html"
+      ],
+      "source_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Wang2024PirateNets.txt",
+          "文本行起": 665,
+          "文本行止": 711,
+          "PDF页": 12
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Wang2024PirateNets.txt",
+          "文本行起": 723,
+          "文本行止": 764,
+          "PDF页": 13
+        }
+      ],
+      "reason": "Fourier特征、三层门控块、α初始0和最小二乘输出层初始化均在正式正文；稿件已经明确省略初始化，不冒称官方完整复现。"
+    },
+    {
+      "id": "B17",
+      "reference": 12,
+      "line": 246,
+      "context": "修订6另外固定两类实验。其一在原问题上使用三个衰减参数档位，主配置的数据只读复用，另两个档位各进行完整三种子训练。结果不用于更换主参数。其二依据 SOAP 的特征向量坐标更新思想[12]，将 Adam 阶段替换为官方更新语义的双精度适配实现，固定一个学习率档位，其余共享预算与三种构造一致。SOAP 首次调用仅初始化，20000次调用对应的19999次更新由冻结实现推得，不额外补偿。调用字段由完成循环后的配置值写入，并非独立逐步观测；损失和L-BFGS计数口径见附录A。两类实验均已完成，不进行超参数搜索或结果倒选。[E04,E13]",
+      "status": "VERIFIED",
+      "source_key": "Vyas2024SOAP",
+      "source_urls": [
+        "https://arxiv.org/abs/2409.11321v2"
+      ],
+      "source_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Vyas2024SOAP.txt",
+          "文本行起": 311,
+          "文本行止": 359,
+          "PDF页": 5
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Vyas2024SOAP.txt",
+          "文本行起": 373,
+          "文本行止": 379,
+          "PDF页": 6
+        }
+      ],
+      "reason": "在Shampoo特征向量坐标中执行Adam式更新由算法3支持；不把语言模型上的结果迁移为本PDE的性能证据。题名/八作者/v2日期与arXiv一致。"
+    },
+    {
+      "id": "B18",
+      "reference": 9,
+      "line": 598,
+      "context": "文献[9]的期刊题录保留2024年。实际阅读缓存为arXiv:2307.00379v2（2026-08-22），其公式（12）和Algorithm 1用于核查按归一化残差历史累积逐点权重的核心表述。另对arXiv v1（2023）的公式（9）与Algorithm 1作版本交叉核对。阅读较新的作者稿不能写成已逐字核对2024年出版PDF。[E10]",
+      "status": "VERIFIED",
+      "source_key": "Anagnostopoulos2024RBA",
+      "source_urls": [
+        "https://www.sciencedirect.com/science/article/pii/S0045782524000616",
+        "https://doi.org/10.1016/j.cma.2024.116805"
+      ],
+      "source_passage_locations": [
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Anagnostopoulos2024RBA.txt",
+          "文本行起": 208,
+          "文本行止": 245,
+          "PDF页": 5
+        },
+        {
+          "本次提取文本": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Anagnostopoulos2024RBA.txt",
+          "文本行起": 256,
+          "文本行止": 286,
+          "PDF页": 6
+        }
+      ],
+      "reason": "本稿242、598至607行及附录A明确本地RBA的采点、四分量加权、初始化、更新顺序及版本差异；当前引用仅支持归一化残差历史注意力思想。"
+    }
+  ],
+  "checked_context_count": 18,
+  "coverage": 1.0,
+  "reuse": "Prior independent full-text passage checks were rebound to unchanged source-cache hashes and unchanged bibliography. All 18 current citation contexts were read again; current primary-source searches checked existence and metadata."
+}

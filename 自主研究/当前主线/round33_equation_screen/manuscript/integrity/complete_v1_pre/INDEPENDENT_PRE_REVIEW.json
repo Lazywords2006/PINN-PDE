@@ -1,0 +1,188 @@
+{
+  "utc": "2026-10-22T23:23:18.303382+00:00",
+  "draft": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_v1.md",
+  "draft_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "verdict": "PASS WITH NOTES — 可进入正式初稿评审；不是最终冻结通过",
+  "coverage": {
+    "A_references": {
+      "required": 1.0,
+      "checked": 13,
+      "denominator": 13,
+      "coverage": 1.0,
+      "status": "PASS"
+    },
+    "B_citation_context": {
+      "required": 0.3,
+      "checked": 18,
+      "denominator": 18,
+      "coverage": 1.0,
+      "status": "PASS"
+    },
+    "C_numbers_tables": {
+      "required": 1.0,
+      "tables_checked": 13,
+      "tables_denominator": 13,
+      "numeric_lines_checked": 117,
+      "numeric_lines_denominator": 117,
+      "formula_blocks_checked": 22,
+      "formula_blocks_denominator": 22,
+      "key_arithmetic_checks": 43,
+      "coverage": 1.0,
+      "status": "PASS_IN_DECLARED_SOURCE_SCOPE"
+    },
+    "D_public_originality": {
+      "required": 0.3,
+      "checked": 29,
+      "denominator": 88,
+      "coverage": 0.32954545454545453,
+      "sections_covered": 6,
+      "status": "PASS_LIMITED_PUBLIC_SEARCH",
+      "self_plagiarism_status": "PENDING_AUTHOR_IDENTITY"
+    },
+    "E_claims": {
+      "required": 0.3,
+      "minimum": 10,
+      "checked": 212,
+      "denominator": 410,
+      "coverage": 0.5170731707317073,
+      "status": "PASS_WITH_EXPLICIT_PENDING_DISCLOSURES"
+    }
+  },
+  "hard_error_count": 0,
+  "major_distortion_count": 0,
+  "mandatory_text_correction_count": 0,
+  "failure_modes": [
+    {
+      "mode": 1,
+      "name": "实现错误通过自审",
+      "status": "INSUFFICIENT EVIDENCE",
+      "scope": "全历史生产执行链；不是本稿数值映射不成立",
+      "evidence": "176份旧保存复算与398产物前序独立绑定、本轮证据哈希复绑定；30新任务复算与退出来源完整；旧部分逐worker数值退出码、完整警告及旧验证脚本版本不齐，旧130训练源也不同。",
+      "draft_disclosure_lines": [
+        272,
+        439,
+        558,
+        615
+      ],
+      "resolution": "保留限制进入初稿评审，不转CLEAR，不宣称全部历史零警告/全部当前源码重放。"
+    },
+    {
+      "mode": 2,
+      "name": "引用幻觉",
+      "status": "CLEAR",
+      "scope": "13参考文献及本稿18语境",
+      "evidence": "13实查元数据、12缓存源哈希复绑定、18语境逐项核对；0缺失/错配/幽灵引用。"
+    },
+    {
+      "mode": 3,
+      "name": "实验结果幻觉",
+      "status": "CLEAR",
+      "scope": "冻结稿已报告结果及所指保存记录",
+      "evidence": "13表、43关键数值重算、70问题/结果行、48Stage6分析记录及206运行的既有证据链对应；未将计划或未运行实验填入结果。"
+    },
+    {
+      "mode": 4,
+      "name": "捷径或混杂被当作机制",
+      "status": "INSUFFICIENT EVIDENCE",
+      "scope": "唯一角点因果机制、纯优化器/纯τ效应",
+      "evidence": "三种子、混合环境、最早观测.05和参数改变完整动力学不足以识别唯一机制；稿件429/445/449/455明确不作这类主张。",
+      "resolution": "维持描述性有限配置结论；因果识别为未来工作，不伪造CLEAR。"
+    },
+    {
+      "mode": 5,
+      "name": "把缺陷包装成洞见",
+      "status": "CLEAR",
+      "scope": "当前发现与文字解释",
+      "evidence": "E4缺表面权重、RBA本地差异、screen失败、弱κ退化、新E3 seed0退化、A-1/G2失败均保留；未以缺陷创造成功结论。"
+    },
+    {
+      "mode": 6,
+      "name": "方法流程编造",
+      "status": "CLEAR",
+      "scope": "已执行计算、内部自动审查与声明的真实性",
+      "evidence": "协议与任务来源、恢复21+9、42退出、110工程测试、作者自核和AI角色分开；623明确未完成人类最终核验且不是系统综述。"
+    },
+    {
+      "mode": 7,
+      "name": "管线固化既定框架",
+      "status": "CLEAR",
+      "scope": "本稿当前论证与决策记录",
+      "evidence": "不追改筛选/强基线门，不用新结果倒选τ或主优化器；结论收窄为经典构造的有限经验评测，保留反例与边界。"
+    }
+  ],
+  "primary_research_compliance": {
+    "mode": "primary_research",
+    "PRISMA_trAIce": "NOT_APPLICABLE (not a systematic review or evidence synthesis)",
+    "RAISE_principles_only": {
+      "transparency": {
+        "status": "WARN",
+        "evidence": "AI承担实质研究执行已披露；实验、复算、作者自核与内部自动评审不同身份已区分。",
+        "pending": "作者身份/贡献、AI工具名称版本日期、基金/利益冲突与最终人类确认待补。"
+      },
+      "reproducibility": {
+        "status": "WARN",
+        "evidence": "本地代码、协议、配置、模型、原始结果及哈希证据可追溯，Stage6新任务完整；历史体/迹保存复算有绑定。",
+        "pending": "历史逐进程日志缺口、20个E4表面权重、公共仓库/许可/永久标识未完成，不称全面公开复现通过。"
+      },
+      "human_oversight": {
+        "status": "WARN",
+        "evidence": "623明确未记录人类逐项最终复核，不把内部自动审查当人类确认。"
+      },
+      "fit_for_purpose": {
+        "status": "PASS_SCOPED",
+        "evidence": "原始计算研究和有限配置描述性目标一致，未伪装临床、人类受试者或系统综述。"
+      }
+    },
+    "semantics": "按非系统综述模式的principles-only warn-only执行；警告必须保留，不能视作投稿声明全部完成。"
+  },
+  "gate_scope": {
+    "stage": "Stage 2.5 pre-review, frozen complete_v1",
+    "five_phase_verdict": "PASS WITH NOTES",
+    "may_enter_independent_formal_review": true,
+    "final_publication_or_stage5_clearance": false,
+    "protocol_basis": [
+      {
+        "path": "SCREEN_PROTOCOL.md",
+        "lines": [
+          121,
+          127
+        ],
+        "meaning": "保留旧130结果；明确20个旧E4缺表面权重只作为未复核历史记录，不用于正式可完整复现的表面定量主张。"
+      },
+      {
+        "path": "SCREEN_PROTOCOL.md",
+        "lines": [
+          155,
+          159
+        ],
+        "meaning": "176/398旧产物与新任务来源隔离；目标是复核后形成保留负面、实现差异的可审阅初稿，进入独立视角审查，不是期刊录用。"
+      },
+      {
+        "path": "C:/Users/LazyM/.codex/skills/academic-pipeline/SKILL.md",
+        "lines": [
+          168,
+          170
+        ],
+        "meaning": "最终门另核；INSUFFICIENT仍保留，不得用授权转PASS；允许协议范围内明确披露的未解决限制。"
+      }
+    ],
+    "explicit_limit": "原科学协议没有逐字豁免“全部历史逐worker退出码/完整警告缺失”的条款。本次允许进入正式初稿评审是基于已保存模型数值复算、协议的有限初稿目标和稿件的明确披露作出的阶段性范围判断，不是给历史执行链补发通过或无条件放行最终冻结。最终Stage4.5仍须独立重核、明确哪些主张依赖该缺口；若要求全历史执行链或表面变量定量保证，现有证据不足。",
+    "mandatory_corrections_before_stage3": [],
+    "notes_to_preserve": [
+      "Mode1历史执行链INSUFFICIENT",
+      "Mode4唯一机制与跨环境因果INSUFFICIENT",
+      "D自我抄袭待作者身份",
+      "作者/基金/COI/公开数据许可/工具细节/最终人类核验待补"
+    ]
+  },
+  "scope_reuse": "176旧任务与30新任务的已完成独立核验通过证据哈希复绑定。此脚本重聚合经核验保存值并与本稿逐单元对应；没有将作者自核当作独立验证，也没有重扫488原产物。",
+  "input_unchanged": true,
+  "operations": {
+    "raw_json_scans_this_task": 0,
+    "weight_hash_scans_this_task": 0,
+    "torch_imports": 0,
+    "model_loads": 0,
+    "training_runs": 0,
+    "reference_integrations": 0
+  }
+}

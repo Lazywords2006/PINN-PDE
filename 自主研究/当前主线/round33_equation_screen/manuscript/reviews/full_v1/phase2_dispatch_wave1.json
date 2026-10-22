@@ -1,0 +1,94 @@
+{
+  "recorded_at": "2026-10-23T07:29:52.477901+08:00",
+  "event": "phase2_first_wave_dispatched",
+  "roles": [
+    "method",
+    "domain",
+    "da"
+  ],
+  "status": "in_progress",
+  "remaining_roles": [
+    "eic",
+    "perspective"
+  ],
+  "draft_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "pre_integrity_report_sha256": "527646e31a1934ae6af15c572812cb66f291945729cd05c9de7a3f97ef8604ac",
+  "pre_integrity_scope": "PASS WITH NOTES; 初稿评审入口，不代表最终冻结或全部历史执行链通过",
+  "input_manifest": "inputs/manifest.json",
+  "input_hashes": {
+    "method": "d0dc2b1949116c45bc7c33eeaa18addf3d6b06b97a1b8567b47912b98a6f4612",
+    "domain": "0810fb884f7bd41a46259dec3a7285150084c54ddc0016d50e2f965c3bf94365",
+    "da": "48f622cc5656eeb3ae6a0f635a98e937761165f04b16bfdd65ffa9cfa36ef2d5"
+  },
+  "phase1_reused": true,
+  "phase1_rewritten": false,
+  "cross_review_reading_allowed": false,
+  "training_started": false,
+  "pre_manifest_checks": [
+    {
+      "path": "CLAIM_REGISTRY.json",
+      "sha256": "06cf98c96d37216cf95681534eaee0789703810adbc76acffbac6154070ca069",
+      "bytes": 154999
+    },
+    {
+      "path": "CLAIM_VERIFICATION.json",
+      "sha256": "32fc6f1f1c0e7b0bd65f8ab6cd98d88c31ab517d08d6cde4f6b33f1821857840",
+      "bytes": 178989
+    },
+    {
+      "path": "FINAL_INPUT_BINDINGS.json",
+      "sha256": "94893e0c46ac7aeab662d3274359c3e09a973132c6b85c1ab117d4e03a199183",
+      "bytes": 12461
+    },
+    {
+      "path": "INDEPENDENT_PRE_REVIEW.json",
+      "sha256": "6b6012e5adb365550f5d6c75542e72022ac6724c53c163204fb4fb99c26448d3",
+      "bytes": 8322
+    },
+    {
+      "path": "INDEPENDENT_PRE_REVIEW.md",
+      "sha256": "527646e31a1934ae6af15c572812cb66f291945729cd05c9de7a3f97ef8604ac",
+      "bytes": 8168
+    },
+    {
+      "path": "INPUT_BINDINGS.json",
+      "sha256": "e437f5de8146a5406dfba4786a0d6478cbbce99bf8d13f8cb91f10da85ea2b0e",
+      "bytes": 7433
+    },
+    {
+      "path": "INVENTORY.json",
+      "sha256": "e023b5695ef1a2b07bada29478197ac114b9242ecb0bb331e6f1d40f432408f7",
+      "bytes": 149571
+    },
+    {
+      "path": "NUMERIC_LINE_COVERAGE.json",
+      "sha256": "b791b5d0c264fb391a3c2fe2711e8236959335738421bcf98cf8568f1ff5269c",
+      "bytes": 124068
+    },
+    {
+      "path": "NUMERIC_VERIFICATION.json",
+      "sha256": "9c939d195e66fe3140ea9cb5e556951ddc50bee1ad413870509332c03251052e",
+      "bytes": 56404
+    },
+    {
+      "path": "ORIGINALITY_CHECKS.json",
+      "sha256": "c5315920c827799171bbc7d1a09007b6c0cb720352424d33330d25181568ee97",
+      "bytes": 38096
+    },
+    {
+      "path": "RECOVERY_APPENDIX_CHECK.json",
+      "sha256": "2e629d7c2f163f39f709019d8fd869aa927c20dab46f6a9548f0f88376c18faf",
+      "bytes": 3387
+    },
+    {
+      "path": "REFERENCES_AND_CITATIONS.json",
+      "sha256": "42a575d6128808e960ff2e50a6fc0f04cb5f26befb752e94547dfd1023c0339c",
+      "bytes": 56289
+    },
+    {
+      "path": "S2_METADATA_TRIAGE.json",
+      "sha256": "f8e30cda350319a6a2fa9c49df98818dc3ede3d350842eca06a0a7d416b21ca5",
+      "bytes": 905
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-22T23:08:50.333486+00:00",
+  "url": "https://api.semanticscholar.org/graph/v1/paper/batch?fields=title,authors,year,venue,externalIds,url",
+  "ids": [
+    "DOI:10.1007/s00028-002-8077-y",
+    "DOI:10.1016/j.jcp.2018.10.045",
+    "DOI:10.30538/oms2026.0303",
+    "DOI:10.4208/ijnam2026-1025",
+    "DOI:10.4208/cicp.110909.160310s",
+    "DOI:10.1016/j.cma.2021.114333",
+    "DOI:10.1016/j.cam.2024.115989",
+    "DOI:10.1016/j.cam.2025.116918",
+    "DOI:10.1016/j.cma.2024.116805",
+    "DOI:10.1016/j.cma.2024.116813",
+    "ARXIV:2402.14356",
+    "ARXIV:2409.11321"
+  ],
+  "scope": "A0 metadata triage; final existence/meta independently checked using primary publisher/arXiv/NIST and preserved Crossref records",
+  "error": "HTTP Error 429: ",
+  "fallback": "13 references searched and primary URLs checked individually; no missing API response counted as verified"
+}

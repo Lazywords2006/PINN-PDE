@@ -1,0 +1,10 @@
+{
+  "recorded_utc": "2026-10-22T23:21:43.908861+00:00",
+  "attempt": "cua.createBrowserTab iab file URL for generated offline HTML",
+  "outcome": "REJECTED_BY_BROWSER_URL_SECURITY_POLICY",
+  "reason": "file protocol is not permitted; only http and https accepted by this surface",
+  "workarounds_attempted": false,
+  "browser_visual_verification": "not completed",
+  "safe_verification_retained": "Existing static HTML content/resource/MathML checks and actual PDF page renders; no local server, alternate browser or protocol workaround used.",
+  "scope": "Does not invalidate checked PDF layout or scientific content; do not claim HTML was visually inspected in a browser."
+}
