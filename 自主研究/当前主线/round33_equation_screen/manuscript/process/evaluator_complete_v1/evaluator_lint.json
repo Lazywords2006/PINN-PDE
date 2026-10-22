@@ -1,0 +1,29 @@
+{
+  "checks": {
+    "sections_in_order": true,
+    "five_dimensions": true,
+    "seven_conditions": true,
+    "one_decision": true,
+    "required_revisions_empty": true,
+    "raw_hashes_match": true,
+    "all_362_table_checks_match": true,
+    "body_count_matches": true,
+    "writer_paragraph_texts_match": true,
+    "packet_frozen": true,
+    "draft_frozen": true,
+    "original_inputs_frozen": true,
+    "D1_precommitted_trigger_tokens_present": true,
+    "D2_precommitted_trigger_tokens_present": true,
+    "D3_precommitted_trigger_tokens_present": true,
+    "D4_precommitted_trigger_tokens_present": true,
+    "D5_precommitted_trigger_tokens_present": true,
+    "decision_derives_from_highest_severity": true
+  },
+  "all_checks_pass": true,
+  "output_sha256": {
+    "evaluator_phase6b.md": "4e062d9085ae05609bbcfc479cebbdaebca2793c31c589aa2c3750836250ab1c",
+    "evaluator_scoring.json": "295ee0e9efe38fd961c894f250d827771ab403e4495a779cbcf4416496069f4c",
+    "evaluator_evidence.json": "d427031d56ae58e1f5afa5fe3220b123a43ff2e70614760cee9d93b8b2fc34e4",
+    "check_evaluator_evidence.py": "583ff32b14558e4536d0f5cac454ee1de177b448504374e4b72c21eb50284df4"
+  }
+}

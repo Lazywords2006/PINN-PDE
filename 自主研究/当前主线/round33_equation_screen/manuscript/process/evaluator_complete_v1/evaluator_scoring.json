@@ -1,0 +1,39 @@
+{
+  "contract_id": "academic_paper/evaluator_full/v1",
+  "baseline_version": "v3.6.6",
+  "review_round": 1,
+  "phase6a_redefined": false,
+  "packet_sha256": "ac87c611cf37183ad7fbcc130dc12c6b4fb774f754744c4987a571a2d1b4ffa1",
+  "draft_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "dimension_scores": {
+    "D1": {"name": "originality", "priority": "high", "score": "pass"},
+    "D2": {"name": "methodological_rigor", "priority": "mandatory", "score": "pass"},
+    "D3": {"name": "evidence_sufficiency", "priority": "mandatory", "score": "pass"},
+    "D4": {"name": "argument_coherence", "priority": "high", "score": "pass"},
+    "D5": {"name": "writing_quality", "priority": "normal", "score": "pass"}
+  },
+  "failure_conditions": {
+    "F1": {"severity": 90, "fired": false},
+    "F2": {"severity": 70, "fired": false},
+    "F3": {"severity": 60, "fired": false},
+    "F6": {"severity": 55, "fired": false},
+    "F4": {"severity": 50, "fired": false},
+    "F5": {"severity": 95, "fired": false},
+    "F0": {"severity": 10, "fired": true}
+  },
+  "highest_triggered_condition": "F0",
+  "evaluator_decision": "accept",
+  "required_revisions": [],
+  "scope": "完整证据可追溯初稿的in-pair contract gate；不是期刊录用、全历史生产验收、人类作者全面核验或最终渲染通过。",
+  "verification": {
+    "packet_lines_read": 954,
+    "raw_files_hashed": 488,
+    "raw_json_reaggregated": 206,
+    "table_numeric_or_count_checks": 362,
+    "body_cjk_count": 11434,
+    "training_runs": 0,
+    "model_loads": 0,
+    "reference_integrations": 0,
+    "other_reviewer_reports_read": 0
+  }
+}

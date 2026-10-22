@@ -1,0 +1,12 @@
+{
+  "checked_utc": "2026-10-22T23:17:00.909451+00:00",
+  "structural_pass": true,
+  "report_sha256": "4e062d9085ae05609bbcfc479cebbdaebca2793c31c589aa2c3750836250ab1c",
+  "draft_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "dimensions": 5,
+  "conditions": 7,
+  "unique_fired": "F0",
+  "derived_decision": "accept",
+  "trigger_consistency": "Root read all five dimensional explanations against the saved Phase6a; report explicitly quotes and denies corresponding warn/block triggers. Structural check does not replace scientific judgment.",
+  "scope": "Frozen first-round Phase6b structural and precedence check; full-paper pre-integrity and five-reviewer panel remain separate."
+}

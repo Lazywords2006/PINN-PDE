@@ -1,0 +1,35 @@
+{
+  "created_utc": "2026-10-22T23:17:29.159438+00:00",
+  "status": "prepared_not_dispatched_waiting_pre_integrity",
+  "draft_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "contract_sha256": "5c57f4b63df625c2b5ec47f9bb1b7bdff651fef89f3144b4d0ef37094971e406",
+  "panel_size": 5,
+  "packets": {
+    "eic": {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\full_v1\\inputs\\eic_phase2_input.md",
+      "sha256": "9de9db03146ced6d103136e585694a753ae5b5a2d2b64ad822ff09051b23981a",
+      "phase1_sha256": "d4dc4bad17304a6f33f685be6b8363535fd76f88f74cb0ea4d7476fa2a665e61"
+    },
+    "method": {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\full_v1\\inputs\\method_phase2_input.md",
+      "sha256": "d0dc2b1949116c45bc7c33eeaa18addf3d6b06b97a1b8567b47912b98a6f4612",
+      "phase1_sha256": "03ee0428b9cf0038b4b143b649c49a8e667303e384f14639d898bea55d1f3f16"
+    },
+    "domain": {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\full_v1\\inputs\\domain_phase2_input.md",
+      "sha256": "0810fb884f7bd41a46259dec3a7285150084c54ddc0016d50e2f965c3bf94365",
+      "phase1_sha256": "7b302b6ca8f2b86792524fb195badb0949c36bd1cff3fcb185ac47782d2d98c1"
+    },
+    "perspective": {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\full_v1\\inputs\\perspective_phase2_input.md",
+      "sha256": "c128d002efb7ce3b8b6fcb7a603d949c4c5ba9e352ac0b2693b1d20e343d197c",
+      "phase1_sha256": "9b6045b17d6b6fd7ae6221bfc90521415372b6b2c03fcd5792dab811933d3817"
+    },
+    "da": {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\full_v1\\inputs\\da_phase2_input.md",
+      "sha256": "48f622cc5656eeb3ae6a0f635a98e937761165f04b16bfdd65ffa9cfa36ef2d5",
+      "phase1_sha256": "50aba57f3d8d204dd91a92f004ab61d92c44d0169216558259ba1d2a9753caf5"
+    }
+  },
+  "packet_final_newline_normalized_before_dispatch": true
+}
