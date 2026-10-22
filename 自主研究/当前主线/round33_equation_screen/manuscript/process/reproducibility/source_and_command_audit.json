@@ -1,0 +1,1032 @@
+{
+  "schema": "r33_reproducibility_source_and_command_snapshot_v1",
+  "captured_local": "2026-10-23T02:57:22.061528+08:00",
+  "status": "在途复现材料；最终30/30后再次核对并定稿",
+  "source_files": {
+    "SCREEN_PROTOCOL.md": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\SCREEN_PROTOCOL.md",
+      "sha256": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+      "bytes": 26934
+    },
+    "pinn1d.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\pinn1d.py",
+      "sha256": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+      "bytes": 19390
+    },
+    "problems.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\problems.py",
+      "sha256": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+      "bytes": 8940
+    },
+    "screen.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\screen.py",
+      "sha256": "26eb4a06e67350098d7099f2411ecdd2ad5cdf0f314c8f7080b800ae24e67695",
+      "bytes": 6923
+    },
+    "run_artifacts.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\run_artifacts.py",
+      "sha256": "bd463ae18d21ef71b9a630fbd77426c1a8c616b77b2ba30cebdb80d104ae3a90",
+      "bytes": 7101
+    },
+    "soap_baseline.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\soap_baseline.py",
+      "sha256": "76ce746f81fe006b3782ee413383de6852a033299504ffd5cde0dd8292557ac2",
+      "bytes": 2326
+    },
+    "stage5_support.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage5_support.py",
+      "sha256": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf",
+      "bytes": 3322
+    },
+    "stage6_runner.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py",
+      "sha256": "fba758ebe71f1c6dead8acc7cd062c15284a7f908e0ad51038aed6755da8600b",
+      "bytes": 55067
+    },
+    "test_stage6_runner.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\test_stage6_runner.py",
+      "sha256": "16844c7d45cbbd4b357e51140433b64b1ee13b7aa76e0f07d1117496b32b9c63",
+      "bytes": 42578
+    },
+    "run_stage6.ps1": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\run_stage6.ps1",
+      "sha256": "4aea35d292fdb6a33331783d810fec5d3ea88b2e892e2acca0fdec23777c06db",
+      "bytes": 2011
+    },
+    "run_stage5.ps1": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\run_stage5.ps1",
+      "sha256": "a146ef8d8b4f74898bdc0ce7094ba302cd0c0b97c657f57f3cc06dd8177b92d6",
+      "bytes": 2000
+    },
+    "run_preflight.ps1": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\run_preflight.ps1",
+      "sha256": "6441bbedf2bcc398e64490af7b1a12f83835fde81da8ed54cca2db6cf112e1d7",
+      "bytes": 1553
+    },
+    "validation/stage5_analysis_20261022/analysis_evidence.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage5_analysis_20261022\\analysis_evidence.json",
+      "sha256": "9953f34410cfba34efa1927311a819b0cb82460d6ec30d3c92f9a538c29fea28",
+      "bytes": 75513
+    },
+    "validation/feasibility_review_20261021/existing_data_review.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\feasibility_review_20261021\\existing_data_review.json",
+      "sha256": "341e7ec3ba3961552544996bcf776126f39bf9a874749ed32a53d124b6d1f08e",
+      "bytes": 129070
+    },
+    "validation/resolution_20261022/preflight_review.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\resolution_20261022\\preflight_review.json",
+      "sha256": "54585f55ded47c7424fdadd190b163df9d346d819e8139647230daae3860cbb9",
+      "bytes": 48391
+    },
+    "validation/resolution_20261022/validate_preflight.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\resolution_20261022\\validate_preflight.py",
+      "sha256": "6be64a44dfdbe461f8fb2fc1049cfa836c1473161f6681d3962ad7ca72a90890",
+      "bytes": 9008
+    },
+    "validation/stage5_20261022/pirate_validation.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage5_20261022\\pirate_validation.json",
+      "sha256": "2b5d8775b499bcc1bf2c97e6a648c0ee48da16fe8f39b7a9f08831013589a4e3",
+      "bytes": 9348
+    },
+    "validation/stage5_20261022/ic_validation.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage5_20261022\\ic_validation.json",
+      "sha256": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317",
+      "bytes": 40593
+    },
+    "validation/stage5_20261022/completion.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage5_20261022\\completion.json",
+      "sha256": "69c31e189ca3709f3c7c50a5b45926b93eaee1e17e9446083f170cd3589d1f64",
+      "bytes": 1208
+    },
+    "validation/stage6_20261022/engineering_gate.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_20261022\\engineering_gate.json",
+      "sha256": "bb7250d65bfee8b44858c2ae734e540eee0bf7d26e2d5a68bbc2b7d40ff6e898",
+      "bytes": 6846
+    },
+    "validation/stage6_20261022/task_plan.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_20261022\\task_plan.json",
+      "sha256": "d377215bf5879a9cd2ac3a56dd92660a492fa36011d588752f94227627fb0cc9",
+      "bytes": 71655
+    },
+    "validation/stage6_20261022/soap_upstream_blob.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_20261022\\soap_upstream_blob.json",
+      "sha256": "cb9a6689ab864c2ceea5de92b72ff8db3174a5edf623006257868918c45f6fb5",
+      "bytes": 19901
+    },
+    "validation/stage6_recovery_20261023/RECOVERY_ROUTE.md": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\RECOVERY_ROUTE.md",
+      "sha256": "9d18db30417753a3442e4f35856114a262862f077d68b160db123156362c89ff",
+      "bytes": 9257
+    },
+    "validation/stage6_recovery_20261023/INDEPENDENT_RECOVERY_REVIEW.md": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\INDEPENDENT_RECOVERY_REVIEW.md",
+      "sha256": "7e54eef1626ec97101f7d8dd866bb0171bc1d53e51ac27cad4abd6ab16f5c70f",
+      "bytes": 8594
+    },
+    "validation/stage6_recovery_20261023/v2/engineering_repair_evidence.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\v2\\engineering_repair_evidence.json",
+      "sha256": "9fdbd6af6bbed3ea3fef1542928a6fd7fab73773a9321c445d6dd84f67beffe8",
+      "bytes": 4523
+    },
+    "validation/stage6_recovery_20261023/v2/INDEPENDENT_RECOVERY_REVIEW.md": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\v2\\INDEPENDENT_RECOVERY_REVIEW.md",
+      "sha256": "8c6331142bb6b39853c5a35dd1c299e0e2bfeda1528c817823dab623a9491bf1",
+      "bytes": 7569
+    },
+    "validation/stage6_recovery_20261023/v2/INDEPENDENT_RECOVERY_REVIEW.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\v2\\INDEPENDENT_RECOVERY_REVIEW.json",
+      "sha256": "4bcac5b03b322df85831ef1c26ce8e06470815fc9de1a048fb156243fe79bd2e",
+      "bytes": 4741
+    },
+    "validation/stage6_recovery_20261023/incident_snapshot_20261023_013453_945/snapshot_manifest.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\snapshot_manifest.json",
+      "sha256": "d9bcc4ca6cdd8dc03ec940486a5d70c1e3f4d88a22d614847c36fb098cd738b4",
+      "bytes": 8532
+    },
+    "validation/stage6_analysis_20261022/README.md": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\README.md",
+      "sha256": "7cdcb4734f0234422889cda08bf459a120d997f7fa936d2be17e22a03db8877a",
+      "bytes": 5132
+    },
+    "validation/stage6_analysis_20261022/analyze_stage6.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\analyze_stage6.py",
+      "sha256": "5eee1bd327426cbba355e76f60d87d24d1d822eb4c76347302cdde9b57b19dc1",
+      "bytes": 30854
+    },
+    "validation/stage6_analysis_20261022/plot_stage6.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\plot_stage6.py",
+      "sha256": "1a38eb9618949eb94e998e1aa990b4d173bfcbae0246c63b862aa7732c6286fa",
+      "bytes": 9085
+    },
+    "manuscript/render_manuscript.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\render_manuscript.py",
+      "sha256": "c48735c16e1f8bc9da0e1ce9e4ead252de3fd6febe831ed1538a9ab35ed88000",
+      "bytes": 9094
+    },
+    "manuscript/README.md": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\README.md",
+      "sha256": "c08c44dbc61b84e94dd3b426f389093c9ca61d9679f5d2f3ed9a44234cfe40c5",
+      "bytes": 3710
+    },
+    "manuscript/process/writer_data_evidence.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\writer_data_evidence.json",
+      "sha256": "14b467ef12c57c354cc79b2715d8d8fa39d0605f9636d8cf272c9e0245967fe1",
+      "bytes": 323870
+    },
+    "manuscript/integrity/working_20261023/HISTORICAL_EXECUTION_SCOPE.md": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\integrity\\working_20261023\\HISTORICAL_EXECUTION_SCOPE.md",
+      "sha256": "515a2c56615eabd1543eb45dcbb7f558ba243b3b96ed4b824236df82b9aac3e6",
+      "bytes": 11446
+    },
+    "manuscript/integrity/working_20261023/historical_execution_scope.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\integrity\\working_20261023\\historical_execution_scope.json",
+      "sha256": "8707592f06a1a36056ae533da7195bb220e5fea768e26104a2214002a0319ab5",
+      "bytes": 634448
+    },
+    "manuscript/integrity/working_20261023/REVISED1_FOLLOWUP_CN.md": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\integrity\\working_20261023\\REVISED1_FOLLOWUP_CN.md",
+      "sha256": "3c60b47b92e28113062c70e36c707b2e96ca57404c2f3da3c19fd7f4baf3e7fc",
+      "bytes": 11211
+    },
+    "manuscript/integrity/working_20261023/revised1_followup.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\integrity\\working_20261023\\revised1_followup.json",
+      "sha256": "f116e9c47b6fb9b4c654d2a414dcaac7a7cb2af6b280376efa91f691546c2fb6",
+      "bytes": 77124
+    },
+    "manuscript/drafts/working_revised1.md": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\working_revised1.md",
+      "sha256": "7ca430d7911dda4507469099e493dc2563ef48dff0157b4df862e4ab8f3b3635",
+      "bytes": 64101
+    }
+  },
+  "cli_static_audit": {
+    "stage6_runner.py": {
+      "source_sha256": "fba758ebe71f1c6dead8acc7cd062c15284a7f908e0ad51038aed6755da8600b",
+      "declarations": [
+        {
+          "line": 985,
+          "call": "add_argument",
+          "names": [
+            "--gate"
+          ],
+          "options": {
+            "action": "store_true"
+          }
+        },
+        {
+          "line": 986,
+          "call": "add_argument",
+          "names": [
+            "--run"
+          ],
+          "options": {
+            "action": "store_true"
+          }
+        },
+        {
+          "line": 987,
+          "call": "add_argument",
+          "names": [
+            "--plan"
+          ],
+          "options": {
+            "action": "store_true"
+          }
+        },
+        {
+          "line": 988,
+          "call": "add_argument",
+          "names": [
+            "--status"
+          ],
+          "options": {
+            "action": "store_true"
+          }
+        },
+        {
+          "line": 989,
+          "call": "add_argument",
+          "names": [
+            "--worker"
+          ],
+          "options": {
+            "nargs": 4,
+            "metavar": [
+              "TAG",
+              "EQ",
+              "METHOD",
+              "SEED"
+            ]
+          }
+        },
+        {
+          "line": 990,
+          "call": "add_argument",
+          "names": [
+            "--runtime"
+          ],
+          "options": {
+            "type": "Path",
+            "default": "DEFAULT_RUNTIME"
+          }
+        },
+        {
+          "line": 991,
+          "call": "add_argument",
+          "names": [
+            "--workers"
+          ],
+          "options": {
+            "type": "int",
+            "default": 24
+          }
+        },
+        {
+          "line": 992,
+          "call": "add_argument",
+          "names": [
+            "--resource-review-note"
+          ],
+          "options": {
+            "help": "达到 48 小时门后，记录资源复盘结论并开启下一检查窗口"
+          }
+        },
+        {
+          "line": 993,
+          "call": "add_argument",
+          "names": [
+            "--recovery-manifest"
+          ],
+          "options": {
+            "type": "Path",
+            "help": "仅用于 --gate；绑定原门/状态与已结束的孤儿进程 HANDLE 观察，不启动训练"
+          }
+        },
+        {
+          "line": 995,
+          "call": "add_argument",
+          "names": [
+            "--retry-failed-job"
+          ],
+          "options": {
+            "action": "append",
+            "default": [],
+            "help": "仅用于 --run；明确允许重试具有已知失败证据的指定 task id，未知退出仍拒绝"
+          }
+        },
+        {
+          "line": 997,
+          "call": "add_argument",
+          "names": [
+            "--set"
+          ],
+          "options": {
+            "dest": "overrides",
+            "action": "append",
+            "default": []
+          }
+        }
+      ]
+    },
+    "screen.py": {
+      "source_sha256": "26eb4a06e67350098d7099f2411ecdd2ad5cdf0f314c8f7080b800ae24e67695",
+      "declarations": [
+        {
+          "line": 153,
+          "call": "add_parser",
+          "names": [
+            "run"
+          ],
+          "options": {}
+        },
+        {
+          "line": 154,
+          "call": "add_argument",
+          "names": [
+            "--eqs"
+          ],
+          "options": {}
+        },
+        {
+          "line": 155,
+          "call": "add_argument",
+          "names": [
+            "--methods"
+          ],
+          "options": {}
+        },
+        {
+          "line": 156,
+          "call": "add_argument",
+          "names": [
+            "--seeds"
+          ],
+          "options": {
+            "default": "0,1"
+          }
+        },
+        {
+          "line": 157,
+          "call": "add_argument",
+          "names": [
+            "--workers"
+          ],
+          "options": {
+            "type": "int",
+            "default": 4
+          }
+        },
+        {
+          "line": 158,
+          "call": "add_argument",
+          "names": [
+            "--set"
+          ],
+          "options": {
+            "action": "append"
+          }
+        },
+        {
+          "line": 159,
+          "call": "add_argument",
+          "names": [
+            "--tag"
+          ],
+          "options": {
+            "default": "screen"
+          }
+        },
+        {
+          "line": 160,
+          "call": "add_parser",
+          "names": [
+            "report"
+          ],
+          "options": {}
+        },
+        {
+          "line": 161,
+          "call": "add_argument",
+          "names": [
+            "--tag"
+          ],
+          "options": {
+            "default": "screen"
+          }
+        }
+      ]
+    },
+    "validation/stage6_analysis_20261022/analyze_stage6.py": {
+      "source_sha256": "5eee1bd327426cbba355e76f60d87d24d1d822eb4c76347302cdde9b57b19dc1",
+      "declarations": [
+        {
+          "line": 445,
+          "call": "add_argument",
+          "names": [
+            "--partial"
+          ],
+          "options": {
+            "action": "store_true"
+          }
+        },
+        {
+          "line": 446,
+          "call": "add_argument",
+          "names": [
+            "--final"
+          ],
+          "options": {
+            "action": "store_true"
+          }
+        },
+        {
+          "line": 447,
+          "call": "add_argument",
+          "names": [
+            "--output"
+          ],
+          "options": {
+            "type": "Path",
+            "default": "OUT"
+          }
+        }
+      ]
+    },
+    "manuscript/render_manuscript.py": {
+      "source_sha256": "c48735c16e1f8bc9da0e1ce9e4ead252de3fd6febe831ed1538a9ab35ed88000",
+      "declarations": [
+        {
+          "line": 165,
+          "call": "add_argument",
+          "names": [
+            "source"
+          ],
+          "options": {
+            "type": "Path"
+          }
+        },
+        {
+          "line": 166,
+          "call": "add_argument",
+          "names": [
+            "--output"
+          ],
+          "options": {
+            "required": true,
+            "type": "Path"
+          }
+        },
+        {
+          "line": 167,
+          "call": "add_argument",
+          "names": [
+            "--label"
+          ],
+          "options": {
+            "required": true
+          }
+        },
+        {
+          "line": 168,
+          "call": "add_argument",
+          "names": [
+            "--pdf"
+          ],
+          "options": {
+            "action": "store_true"
+          }
+        }
+      ]
+    }
+  },
+  "powershell_cli_static_audit": {
+    "wrappers": [
+      {
+        "parser_errors": 0,
+        "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\run_preflight.ps1",
+        "source_sha256": "6441bbedf2bcc398e64490af7b1a12f83835fde81da8ed54cca2db6cf112e1d7",
+        "parameters": [
+          {
+            "attributes": [
+              "[ValidateRange(1,10)]",
+              "[int]"
+            ],
+            "name": "Workers",
+            "default": "8"
+          }
+        ]
+      },
+      {
+        "parser_errors": 0,
+        "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\run_stage5.ps1",
+        "source_sha256": "a146ef8d8b4f74898bdc0ce7094ba302cd0c0b97c657f57f3cc06dd8177b92d6",
+        "parameters": [
+          {
+            "attributes": [
+              "[ValidateSet('Gate','Run','Status','Plan')]",
+              "[string]"
+            ],
+            "name": "Action",
+            "default": "'Run'"
+          }
+        ]
+      },
+      {
+        "parser_errors": 0,
+        "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\run_stage6.ps1",
+        "source_sha256": "4aea35d292fdb6a33331783d810fec5d3ea88b2e892e2acca0fdec23777c06db",
+        "parameters": [
+          {
+            "attributes": [
+              "[ValidateSet('Gate','Run','Status','Plan')]",
+              "[string]"
+            ],
+            "name": "Action",
+            "default": "'Status'"
+          },
+          {
+            "attributes": [
+              "[ValidateRange(1,24)]",
+              "[int]"
+            ],
+            "name": "Workers",
+            "default": "24"
+          }
+        ]
+      }
+    ],
+    "scope": "Static AST parsing only; wrappers and documented training/final commands were not executed.",
+    "documentation_blocks": [
+      {
+        "index": 1,
+        "parser_errors": 0,
+        "executed": false
+      },
+      {
+        "index": 2,
+        "parser_errors": 0,
+        "executed": false
+      },
+      {
+        "index": 3,
+        "parser_errors": 0,
+        "executed": false
+      },
+      {
+        "index": 4,
+        "parser_errors": 0,
+        "executed": false
+      }
+    ]
+  },
+  "plan_cli_audit": {
+    "plan_tasks": 30,
+    "exact_expected_job_set": true,
+    "job_checks": [
+      {
+        "job": [
+          "sensitivity_tau003_v1",
+          "E1_heat",
+          "hardic+layer",
+          0
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "sensitivity_tau003_v1",
+          "E3_fisher",
+          "hardic+layer",
+          0
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "sensitivity_tau003_v1",
+          "E1_heat",
+          "hardic+layer",
+          1
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "sensitivity_tau003_v1",
+          "E3_fisher",
+          "hardic+layer",
+          1
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "sensitivity_tau003_v1",
+          "E1_heat",
+          "hardic+layer",
+          2
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "sensitivity_tau003_v1",
+          "E3_fisher",
+          "hardic+layer",
+          2
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "sensitivity_tau03_v1",
+          "E1_heat",
+          "hardic+layer",
+          0
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "sensitivity_tau03_v1",
+          "E3_fisher",
+          "hardic+layer",
+          0
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "sensitivity_tau03_v1",
+          "E1_heat",
+          "hardic+layer",
+          1
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "sensitivity_tau03_v1",
+          "E3_fisher",
+          "hardic+layer",
+          1
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "sensitivity_tau03_v1",
+          "E1_heat",
+          "hardic+layer",
+          2
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "sensitivity_tau03_v1",
+          "E3_fisher",
+          "hardic+layer",
+          2
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E1_heat",
+          "vanilla",
+          0
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E1_heat",
+          "hardic",
+          0
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E1_heat",
+          "hardic+layer",
+          0
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E3_fisher",
+          "vanilla",
+          0
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E3_fisher",
+          "hardic",
+          0
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E3_fisher",
+          "hardic+layer",
+          0
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E1_heat",
+          "vanilla",
+          1
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E1_heat",
+          "hardic",
+          1
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E1_heat",
+          "hardic+layer",
+          1
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E3_fisher",
+          "vanilla",
+          1
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E3_fisher",
+          "hardic",
+          1
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E3_fisher",
+          "hardic+layer",
+          1
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E1_heat",
+          "vanilla",
+          2
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E1_heat",
+          "hardic",
+          2
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E1_heat",
+          "hardic+layer",
+          2
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E3_fisher",
+          "vanilla",
+          2
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E3_fisher",
+          "hardic",
+          2
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E3_fisher",
+          "hardic+layer",
+          2
+        ],
+        "argv_matches_declared_interface": true,
+        "override_fields": 27,
+        "all_serialized_overrides_match_frozen_config": true
+      }
+    ],
+    "worker_commands_executed": false,
+    "source": "validation/stage6_20261022/task_plan.json"
+  },
+  "counts": {
+    "existing_result_records": 176,
+    "existing_tag_counts": {
+      "screen": 30,
+      "confirm": 24,
+      "causal1": 6,
+      "causal10": 6,
+      "pirate": 12,
+      "axis": 36,
+      "e4screen": 8,
+      "e4confirm": 12,
+      "final_ic_v1": 18,
+      "preflight4_adam": 12,
+      "preflight4_soap64": 12
+    },
+    "existing_manifest_files": 398,
+    "new_planned_records": 30,
+    "new_complete_bundle_expected_files": 90,
+    "eventual_expected_manifest_files": 488,
+    "new_counts_are_plan_not_acceptance": true
+  },
+  "environment_metadata_only": {
+    "r33-torch214": {
+      "path": "D:\\CodexRuntime\\venvs\\r33-torch214",
+      "pyvenv_cfg": "home = C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\r\ninclude-system-site-packages = false\r\nversion = 3.12.6\r\nexecutable = C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\r\ncommand = C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m venv D:\\CodexRuntime\\venvs\\r33-torch214\r\n",
+      "pyvenv_cfg_sha256": "d15a99f25c072131a47f56055115f2f7df810336289d40e69aff141b02cf2ac7",
+      "installed_distribution_metadata": {
+        "mpmath": "1.3.0",
+        "numpy": "2.5.3",
+        "pytest": "9.1.1",
+        "scipy": "1.18.1",
+        "torch": "2.14.1"
+      },
+      "packages_imported_for_version_check": false
+    },
+    "r33-analysis": {
+      "path": "D:\\CodexRuntime\\venvs\\r33-analysis",
+      "pyvenv_cfg": "home = C:\\Users\\LazyM\\AppData\\Local\\Programs\\Python\\Python312\r\ninclude-system-site-packages = false\r\nversion = 3.12.6\r\nexecutable = D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe\r\ncommand = D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -m venv D:\\CodexRuntime\\venvs\\r33-analysis\r\n",
+      "pyvenv_cfg_sha256": "97daf655396410a438cab985da2d95a98f263f7a528bfccdbc624e23b9cec5be",
+      "installed_distribution_metadata": {
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.4",
+        "PyMuPDF": "1.26.7",
+        "pypandoc_binary": "1.17"
+      },
+      "packages_imported_for_version_check": false
+    }
+  },
+  "engineering_gate_runtime_environment": {
+    "python": "3.12.6",
+    "torch": "2.14.1+cpu",
+    "numpy": "2.5.3"
+  },
+  "recovery_v2_snapshot": {
+    "overall": "STATIC_AND_LIGHTWEIGHT_FIX_VERIFIED_FULL_REGRESSION_AND_RUNTIME_PENDING",
+    "full_regression_status": "PENDING_RESOURCE_HEADROOM",
+    "recovery_dispatch_allowed": false,
+    "scientific_acceptance": "NOT_EVALUATED"
+  },
+  "formal_outputs_observed": {
+    "validation/stage6_20261022/results_validation.json": {
+      "exists_at_snapshot": false,
+      "sha256": null
+    },
+    "validation/stage6_20261022/summary.json": {
+      "exists_at_snapshot": false,
+      "sha256": null
+    },
+    "validation/stage6_analysis_20261022/analysis_evidence.json": {
+      "exists_at_snapshot": false,
+      "sha256": null
+    },
+    "manuscript/drafts/complete_v1.md": {
+      "exists_at_snapshot": false,
+      "sha256": null
+    }
+  },
+  "frozen_working_draft_unchanged": true,
+  "frozen_working_draft_sha256": "7ca430d7911dda4507469099e493dc2563ef48dff0157b4df862e4ab8f3b3635",
+  "operations": {
+    "training_runs": 0,
+    "model_loads": 0,
+    "reference_integrations": 0,
+    "dependency_installs": 0,
+    "torch_imported": false,
+    "formal_aggregation_runs": 0,
+    "render_runs": 0,
+    "read_only_partial_runs": 1
+  },
+  "side_effect_boundaries": {
+    "writes": "仅manuscript/process/reproducibility当前目录",
+    "modified_scientific_or_training_sources": false,
+    "old_398_rehashed_in_this_document_task": false,
+    "note": "旧398来源由已有独立哈希核验支持；本次核清单计数和来源hash，不重复读取全部权重。"
+  },
+  "source_files_changed_during_collection": [],
+  "static_revisions": [
+    {
+      "captured_local": "2026-10-23T03:05:38.094317+08:00",
+      "purpose": "N04文义修订与分析report新源码绑定",
+      "source": "validation/stage6_analysis_20261022/analyze_stage6.py",
+      "previous_source_sha256": "acaaf30c5da5b12ff90869f9410ca4ba5b10c16716095f811a4494a47e903295",
+      "current_source_sha256": "5eee1bd327426cbba355e76f60d87d24d1d822eb4c76347302cdde9b57b19dc1",
+      "cli_declarations_unchanged_except_line_numbers": true,
+      "original_partial_snapshot_captured_local": "2026-10-23T02:57:22.061528+08:00",
+      "original_partial_snapshot_source_sha256": "acaaf30c5da5b12ff90869f9410ca4ba5b10c16716095f811a4494a47e903295",
+      "partial_rerun": false,
+      "training_runs": 0,
+      "torch_imported": false,
+      "scope": "仅更新源文件哈希和静态CLI/文义检查；原状态及命令实测快照保持原时点，不冒充当前实测。"
+    }
+  ]
+}

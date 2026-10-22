@@ -1,0 +1,46 @@
+{
+  "exit_code": 0,
+  "torch_in_sys_modules": false,
+  "partial_output": {
+    "analysis_state": "partial",
+    "generated_local": "2026-10-23T02:57:23.308832+08:00",
+    "prereg_commit": "bfe89e3a07f1bb3bcc8e049d8d3d7ff95b4a647a",
+    "required_tasks": 30,
+    "runner_phase": "running",
+    "counts": {
+      "queued": 9,
+      "running": 21,
+      "completed": 0,
+      "failed": 0
+    },
+    "saved_json_count": 0,
+    "validator_reported_count": 0,
+    "validator_reported_complete": false,
+    "runner_pid": 42100,
+    "runner_updated_utc": "2026-10-22T17:08:47.269772+00:00",
+    "count_scope": "persisted_status_snapshot_not_live_process_count",
+    "snapshot_freshness": {
+      "timestamp_status": "stale",
+      "age_seconds": 6516.049604,
+      "stale_warning_after_seconds": 120,
+      "runner_identity_verified": false,
+      "notice": "这里只检查保存时间；即使快照较新，也不能据此确认PID身份、进程存活或批准重启。"
+    },
+    "resources": {
+      "available_physical_gib": 5.586269378662109,
+      "total_physical_gib": 31.78112030029297,
+      "commit_used_fraction": 0.9205170022318462,
+      "available_commit_gib": 3.718303680419922
+    },
+    "stop_dispatch_reason": null,
+    "final_criteria_evaluated": false,
+    "notice": "PARTIAL：任务数量是保存的状态快照，不是实时进程统计。必须核对更新时间、进程身份及恢复监督记录；不能据此重启队列。不计算最终效果判据，不生成正式分析图。",
+    "input_sha256": {
+      "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\status.json": "834ae2f4123a1298a25b02f906b4df69f1b1723e74b0491dc4a2db0128b6dc89"
+    }
+  },
+  "captured_local": "2026-10-23T02:57:22.061528+08:00",
+  "source_sha256": "acaaf30c5da5b12ff90869f9410ca4ba5b10c16716095f811a4494a47e903295",
+  "execution_note": "runpy以__main__和--partial执行同一CLI路线，捕获stdout并检查Torch未导入；未执行--final。",
+  "stderr": ""
+}

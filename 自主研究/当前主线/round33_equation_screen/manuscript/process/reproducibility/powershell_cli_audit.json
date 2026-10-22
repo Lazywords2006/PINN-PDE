@@ -1,0 +1,80 @@
+{
+  "wrappers": [
+    {
+      "parser_errors": 0,
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\run_preflight.ps1",
+      "source_sha256": "6441bbedf2bcc398e64490af7b1a12f83835fde81da8ed54cca2db6cf112e1d7",
+      "parameters": [
+        {
+          "attributes": [
+            "[ValidateRange(1,10)]",
+            "[int]"
+          ],
+          "name": "Workers",
+          "default": "8"
+        }
+      ]
+    },
+    {
+      "parser_errors": 0,
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\run_stage5.ps1",
+      "source_sha256": "a146ef8d8b4f74898bdc0ce7094ba302cd0c0b97c657f57f3cc06dd8177b92d6",
+      "parameters": [
+        {
+          "attributes": [
+            "[ValidateSet('Gate','Run','Status','Plan')]",
+            "[string]"
+          ],
+          "name": "Action",
+          "default": "'Run'"
+        }
+      ]
+    },
+    {
+      "parser_errors": 0,
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\run_stage6.ps1",
+      "source_sha256": "4aea35d292fdb6a33331783d810fec5d3ea88b2e892e2acca0fdec23777c06db",
+      "parameters": [
+        {
+          "attributes": [
+            "[ValidateSet('Gate','Run','Status','Plan')]",
+            "[string]"
+          ],
+          "name": "Action",
+          "default": "'Status'"
+        },
+        {
+          "attributes": [
+            "[ValidateRange(1,24)]",
+            "[int]"
+          ],
+          "name": "Workers",
+          "default": "24"
+        }
+      ]
+    }
+  ],
+  "scope": "Static AST parsing only; wrappers and documented training/final commands were not executed.",
+  "documentation_blocks": [
+    {
+      "index": 1,
+      "parser_errors": 0,
+      "executed": false
+    },
+    {
+      "index": 2,
+      "parser_errors": 0,
+      "executed": false
+    },
+    {
+      "index": 3,
+      "parser_errors": 0,
+      "executed": false
+    },
+    {
+      "index": 4,
+      "parser_errors": 0,
+      "executed": false
+    }
+  ]
+}

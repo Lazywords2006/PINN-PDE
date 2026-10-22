@@ -1,0 +1,51 @@
+{
+  "captured_local": "2026-10-23T02:57:22.061528+08:00",
+  "documents": [
+    {
+      "file": "REPRODUCIBILITY_CN.md",
+      "sha256": "8d6fdf4155caf714dab5d1ff958e9c4a8cca7913a02d6ecd2978423b57788b17",
+      "local_links": 11,
+      "all_local_link_targets_exist": true,
+      "code_fences_paired": true,
+      "table_columns_consistent": true
+    },
+    {
+      "file": "DATA_DICTIONARY_CN.md",
+      "sha256": "3ce7f10ac606791a0b2ac063fc329e29d54dcbc5cc80b9eeadeabe9cf04c0422",
+      "local_links": 0,
+      "all_local_link_targets_exist": true,
+      "code_fences_paired": true,
+      "table_columns_consistent": true
+    },
+    {
+      "file": "AI_USE_STATEMENT_N03_CN.md",
+      "sha256": "16cc0d0906916e0271b56f2486a1f248ae4255075ff3a53c6792a395d65454db",
+      "local_links": 0,
+      "all_local_link_targets_exist": true,
+      "code_fences_paired": true,
+      "table_columns_consistent": true
+    }
+  ],
+  "all_30_worker_argv_checked_statically": true,
+  "partial_cli_exit_code": 0,
+  "partial_cli_did_not_import_torch": true,
+  "powershell_wrappers_parsed": 3,
+  "documentation_command_blocks_parsed_not_executed": 4,
+  "frozen_draft_unchanged": true,
+  "source_snapshot_stable_during_collection": true,
+  "state": "文档与有限命令/来源检查完成；非训练或完整研究验收",
+  "n04_static_revision": {
+    "captured_local": "2026-10-23T03:05:38.094317+08:00",
+    "purpose": "N04文义修订与分析report新源码绑定",
+    "source": "validation/stage6_analysis_20261022/analyze_stage6.py",
+    "previous_source_sha256": "acaaf30c5da5b12ff90869f9410ca4ba5b10c16716095f811a4494a47e903295",
+    "current_source_sha256": "5eee1bd327426cbba355e76f60d87d24d1d822eb4c76347302cdde9b57b19dc1",
+    "cli_declarations_unchanged_except_line_numbers": true,
+    "original_partial_snapshot_captured_local": "2026-10-23T02:57:22.061528+08:00",
+    "original_partial_snapshot_source_sha256": "acaaf30c5da5b12ff90869f9410ca4ba5b10c16716095f811a4494a47e903295",
+    "partial_rerun": false,
+    "training_runs": 0,
+    "torch_imported": false,
+    "scope": "仅更新源文件哈希和静态CLI/文义检查；原状态及命令实测快照保持原时点，不冒充当前实测。"
+  }
+}
