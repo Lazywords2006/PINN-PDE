@@ -23,6 +23,15 @@ def _cos(x):
     return torch.cos(x)
 
 
+def _sin(x):
+    """sin for the same NumPy/Torch inputs as _cos; used only by explicit new IC cases."""
+    if isinstance(x, (float, int, np.ndarray)):
+        return np.sin(x)
+    import torch
+
+    return torch.sin(x)
+
+
 @dataclass(frozen=True)
 class Problem1D:
     name: str
@@ -59,6 +68,25 @@ PROBLEMS = {
         "E3_fisher", D=0.1, c=0.3,
         R=lambda u: u * (1.0 - u), G=lambda u: 1.0 * (u - 1.0),
         f=lambda x: 0.1 * (1.0 - x**2), f_x=lambda x: -0.2 * x, f_xx=lambda x: -0.2 + 0.0 * x,
+    ),
+}
+
+
+# Amendment 5: opt-in initial-data checks; keep the default equation list unchanged.
+IC_CASES = {
+    "E1_heat_cos": Problem1D(
+        "E1_heat_cos", D=1.0, c=0.3,
+        R=lambda u: 0.0 * u, G=lambda u: 0.3 * u,
+        f=lambda x: 0.5 * _cos(np.pi * x),
+        f_x=lambda x: -0.5 * np.pi * _sin(np.pi * x),
+        f_xx=lambda x: -0.5 * np.pi**2 * _cos(np.pi * x),
+    ),
+    "E3_fisher_cos": Problem1D(
+        "E3_fisher_cos", D=0.1, c=0.3,
+        R=lambda u: u * (1.0 - u), G=lambda u: u - 1.0,
+        f=lambda x: 0.05 * (1.0 + _cos(np.pi * x)),
+        f_x=lambda x: -0.05 * np.pi * _sin(np.pi * x),
+        f_xx=lambda x: -0.05 * np.pi**2 * _cos(np.pi * x),
     ),
 }
 
@@ -107,6 +135,8 @@ BULK_SURFACE = {
 def get_problem(name: str):
     if name in BULK_SURFACE:
         return BULK_SURFACE[name]
+    if name in IC_CASES:
+        return IC_CASES[name]
     return PROBLEMS[name] if name in PROBLEMS else AXES[name]
 
 

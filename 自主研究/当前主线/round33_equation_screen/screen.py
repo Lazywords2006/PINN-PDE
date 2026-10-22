@@ -120,12 +120,12 @@ def cmd_run(a):
 
 def cmd_report(a):
     from pinn1d import METHODS
-    from problems import PROBLEMS, AXES
+    from problems import PROBLEMS, AXES, IC_CASES
 
     root = HERE / "runs" / a.tag
     from problems import BULK_SURFACE
 
-    for eq, prob in {**PROBLEMS, **AXES, **BULK_SURFACE}.items():
+    for eq, prob in {**PROBLEMS, **AXES, **BULK_SURFACE, **IC_CASES}.items():
         if not (root / eq).exists():
             continue
         print(f"\n### {eq}  (delta = {prob.mismatch():+.3f})\n")

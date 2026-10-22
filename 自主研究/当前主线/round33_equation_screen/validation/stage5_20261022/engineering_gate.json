@@ -1,0 +1,87 @@
+{
+  "time_utc": "2026-10-22T05:50:16.648665+00:00",
+  "passed": true,
+  "prereg_commit": "2b67dcb",
+  "tests": 71,
+  "pytest_log_sha256": "71d1d5e23a0cc699564050b64d57dea32a0fc5f01f8d5ad773ed553b3bad6e38",
+  "references": [
+    {
+      "eq": "E1_heat_cos",
+      "delta": -4.434802200544678,
+      "N48_N96_max_abs": 8.663070261150096e-13,
+      "independent_eigen_max_abs": 6.873113189698188e-13,
+      "passed": true
+    },
+    {
+      "eq": "E3_fisher_cos",
+      "delta": 3.2839853113278865,
+      "N48_N96_max_abs": 5.88112891719561e-13,
+      "independent_eigen_max_abs": null,
+      "passed": true
+    }
+  ],
+  "old260_unchanged": true,
+  "checkpoint_checks_readonly": [
+    {
+      "job": [
+        "pirate",
+        "E1_heat",
+        "hardic",
+        0
+      ],
+      "checkpoint": "D:\\CodexRuntime\\runs\\r33_resolution_20261021\\checkpoint_restore\\checkpoints\\pirate__E1_heat__hardic_s0.ckpt",
+      "sha256": "5f9214c61b05fc7c8dd3ef3b7598043acbca9ac1442055935c2a4813db7216ff",
+      "phase": "adam",
+      "step": 16500
+    },
+    {
+      "job": [
+        "pirate",
+        "E1_heat",
+        "hardic+layer",
+        0
+      ],
+      "checkpoint": "D:\\CodexRuntime\\runs\\r33_resolution_20261021\\checkpoint_restore\\checkpoints\\pirate__E1_heat__hardic_layer_s0.ckpt",
+      "sha256": "9bd3df322df9fbd13249ede2cb82e7fb82eb01ee38a26109f11b0aea63752eac",
+      "phase": "adam",
+      "step": 16000
+    },
+    {
+      "job": [
+        "pirate",
+        "E1_heat",
+        "hardic",
+        1
+      ],
+      "checkpoint": "D:\\CodexRuntime\\runs\\r33_resolution_20261021\\checkpoint_restore\\checkpoints\\pirate__E1_heat__hardic_s1.ckpt",
+      "sha256": "2b8f56b484713073e980f017370a5b75303304e2c1e876b701d2fdf128a2e5e2",
+      "phase": "adam",
+      "step": 16500
+    },
+    {
+      "job": [
+        "pirate",
+        "E1_heat",
+        "hardic+layer",
+        1
+      ],
+      "checkpoint": "D:\\CodexRuntime\\runs\\r33_resolution_20261021\\checkpoint_restore\\checkpoints\\pirate__E1_heat__hardic_layer_s1.ckpt",
+      "sha256": "7b449fe6c2b8c88918f9516ba01b67529e48b774305d314a8b334a5a2d0d3183",
+      "phase": "adam",
+      "step": 16000
+    }
+  ],
+  "source_hashes": {
+    "problems.py": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+    "pinn1d.py": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+    "screen.py": "26eb4a06e67350098d7099f2411ecdd2ad5cdf0f314c8f7080b800ae24e67695",
+    "run_artifacts.py": "bd463ae18d21ef71b9a630fbd77426c1a8c616b77b2ba30cebdb80d104ae3a90",
+    "soap_baseline.py": "76ce746f81fe006b3782ee413383de6852a033299504ffd5cde0dd8292557ac2",
+    "stage5_support.py": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf",
+    "stage5_runner.py": "78bf1e916ff8bc628b9d693addaacd937390c01b7dc5c6bdf961ea92ae816546",
+    "run_stage5.ps1": "a146ef8d8b4f74898bdc0ce7094ba302cd0c0b97c657f57f3cc06dd8177b92d6",
+    "test_stage5.py": "c459b3332ec48b6147bcf20837822fc5af07dc3ed04ff4d12aaba590238ef699",
+    "SCREEN_PROTOCOL.md": "208791840c257b27aff5a7aecc2971252e14586ff5b8ae5fbac025584985d21c"
+  },
+  "new_training_started": false
+}

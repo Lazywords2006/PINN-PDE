@@ -410,4 +410,13 @@ def train(p: Problem1D, method: str, cfg: Config, ckpt: str | None = None, ckpt_
         save(lbfgs)
     hist["wall_seconds"] = base_elapsed + time.perf_counter() - seg_start
     hist["adam_seconds"] = state["adam_seconds"]
+    # Observability only: do not change updates, point draws, or stopping rules.
+    lbfgs_counters = lbfgs.state.get(next(iter(model.parameters())), {})
+    hist["adam_gradient_calls"] = cfg.adam_steps
+    hist["lbfgs_budget_used"] = done
+    hist["lbfgs_func_evals"] = int(lbfgs_counters.get("func_evals", 0))
+    hist["lbfgs_n_iter"] = int(lbfgs_counters.get("n_iter", 0))
+    hist["lbfgs_loss_stagnation"] = bool(stopped)
+    hist["lbfgs_stop_reason"] = ("disabled" if cfg.lbfgs_iters == 0 else
+                                  "budget_exhausted" if done >= cfg.lbfgs_iters else "loss_stagnation")
     return model, hist
