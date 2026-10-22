@@ -1,0 +1,704 @@
+[
+  {
+    "key": "Raissi2019PINN",
+    "url": "https://api.crossref.org/works/10.1016%2Fj.jcp.2018.10.045",
+    "sha256": "1aa984fe2561083605ac2da50ff3ba683472f6f2394d5739b8d9c40d7f6528a6",
+    "title": [
+      "Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-8467-4568",
+        "authenticated-orcid": false,
+        "given": "M.",
+        "family": "Raissi",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-2816-3229",
+        "authenticated-orcid": false,
+        "given": "P.",
+        "family": "Perdikaris",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "G.E.",
+        "family": "Karniadakis",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2019,
+          2
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2019,
+          2
+        ]
+      ]
+    },
+    "journal": [
+      "Journal of Computational Physics"
+    ],
+    "volume": "378",
+    "issue": null,
+    "page": "686-707",
+    "article-number": null,
+    "DOI": "10.1016/j.jcp.2018.10.045"
+  },
+  {
+    "key": "Favini2002Wentzell",
+    "url": "https://api.crossref.org/works/10.1007%2Fs00028-002-8077-y",
+    "sha256": "9c403b870fe1ec0ec3ae6c849729b714642a04c10c6a319e328437920595fac5",
+    "title": [
+      "The heat equation with generalized Wentzell boundary condition"
+    ],
+    "author": [
+      {
+        "given": "Angelo",
+        "family": "Favini",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Gis&#x000E8;le Ruiz",
+        "family": "Goldstein",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Jerome A.",
+        "family": "Goldstein",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Silvia",
+        "family": "Romanelli",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2002,
+          3,
+          1
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2002,
+          3,
+          1
+        ]
+      ]
+    },
+    "journal": [
+      "Journal of Evolution Equations"
+    ],
+    "volume": "2",
+    "issue": "1",
+    "page": "1-19",
+    "article-number": null,
+    "DOI": "10.1007/s00028-002-8077-y"
+  },
+  {
+    "key": "Chen2011Corner",
+    "url": "https://api.crossref.org/works/10.4208%2Fcicp.110909.160310s",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "key": "Sukumar2022Distance",
+    "url": "https://api.crossref.org/works/10.1016%2Fj.cma.2021.114333",
+    "sha256": "fd08dbbd757f2119e6d61ee076f126a58793cf71b5a4e35631efd0225b2b8be5",
+    "title": [
+      "Exact imposition of boundary conditions with distance functions in physics-informed deep neural networks"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0001-6744-7673",
+        "authenticated-orcid": false,
+        "given": "N.",
+        "family": "Sukumar",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Ankit",
+        "family": "Srivastava",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2022,
+          2
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2022,
+          2
+        ]
+      ]
+    },
+    "journal": [
+      "Computer Methods in Applied Mechanics and Engineering"
+    ],
+    "volume": "389",
+    "issue": null,
+    "page": "114333",
+    "article-number": "114333",
+    "DOI": "10.1016/j.cma.2021.114333"
+  },
+  {
+    "key": "Gie2024Rectangular",
+    "url": "https://api.crossref.org/works/10.1016%2Fj.cam.2024.115989",
+    "sha256": "0a6913ce71012cf9838dcad75e509c0feadc42359d0d0dc2fb10d42a5ded390f",
+    "title": [
+      "Semi-analytic PINN methods for boundary layer problems in a rectangular domain"
+    ],
+    "author": [
+      {
+        "given": "Gung-Min",
+        "family": "Gie",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Youngjoon",
+        "family": "Hong",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-6047-4107",
+        "authenticated-orcid": false,
+        "given": "Chang-Yeol",
+        "family": "Jung",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Tselmuun",
+        "family": "Munkhjin",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2024,
+          11
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2024,
+          11
+        ]
+      ]
+    },
+    "journal": [
+      "Journal of Computational and Applied Mathematics"
+    ],
+    "volume": "450",
+    "issue": null,
+    "page": "115989",
+    "article-number": "115989",
+    "DOI": "10.1016/j.cam.2024.115989"
+  },
+  {
+    "key": "Gie2026SingularLayer",
+    "url": "https://api.crossref.org/works/10.1016%2Fj.cam.2025.116918",
+    "sha256": "cb2d71255cb5b518a12f1fbbb8a92bf4c35e5cc5dec86cdf878d1c70d94943ae",
+    "title": [
+      "Singular layer physics-informed neural network method for convection-dominated boundary layer problems in two dimensions"
+    ],
+    "author": [
+      {
+        "given": "Gung-Min",
+        "family": "Gie",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-4956-8660",
+        "authenticated-orcid": false,
+        "given": "Youngjoon",
+        "family": "Hong",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Chang-Yeol",
+        "family": "Jung",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Dongseok",
+        "family": "Lee",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2026,
+          3
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2026,
+          3
+        ]
+      ]
+    },
+    "journal": [
+      "Journal of Computational and Applied Mathematics"
+    ],
+    "volume": "474",
+    "issue": null,
+    "page": "116918",
+    "article-number": "116918",
+    "DOI": "10.1016/j.cam.2025.116918"
+  },
+  {
+    "key": "Awais2026Wentzell",
+    "url": "https://api.crossref.org/works/10.30538%2Foms2026.0303",
+    "sha256": "e38170d2ade3d289fadb24ff87b430d2ed583cae987f1df787fec4f87ab7786d",
+    "title": [
+      "Physics-informed neural networks for the heat equation with dynamic (Wentzell) boundary conditions"
+    ],
+    "author": [
+      {
+        "given": "Muhammad",
+        "family": "Awais",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Graduate School of Engineering, Oita University, 700 Dannoharu, Oita-shi, Oita 870-1192, Japan"
+          }
+        ],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      }
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2026,
+          5,
+          9
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2026,
+          5,
+          9
+        ]
+      ]
+    },
+    "journal": [
+      "Open Journal of Mathematical Sciences"
+    ],
+    "volume": "10",
+    "issue": null,
+    "page": "526-536",
+    "article-number": null,
+    "DOI": "10.30538/oms2026.0303"
+  },
+  {
+    "key": "Li2026EDRAS",
+    "url": "https://api.crossref.org/works/10.4208%2Fijnam2026-1025",
+    "sha256": "c296ea58905a26e5fd6d4abf50f24f87a2356b3c84ba88d4e55f20d75d0fadbd",
+    "title": [
+      "Energy Dissipation Rate Guided Adaptive Sampling for Physics-Informed Neural Networks: Resolving Surface-Bulk Dynamics in Allen-Cahn Systems"
+    ],
+    "author": [
+      {
+        "given": "Chunyan",
+        "family": "Li",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/04p491231",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Department of Mathematics, University of Kansas, Lawrence, KS 66045, USA."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-7415-3411",
+        "authenticated-orcid": false,
+        "given": "Wenkai",
+        "family": "Yu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/00q4vv597",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Department of Mathematics, University of Kansas, Lawrence, KS 66045, USA."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Qi",
+        "family": "Wang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/02b6qw903",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Department of Mathematics, University of Kansas, Lawrence, KS 66045, USA."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2026,
+          5,
+          29
+        ]
+      ]
+    },
+    "published-print": null,
+    "journal": [
+      "International Journal of Numerical Analysis and Modeling"
+    ],
+    "volume": "23",
+    "issue": "4",
+    "page": "576-604",
+    "article-number": null,
+    "DOI": "10.4208/ijnam2026-1025"
+  },
+  {
+    "key": "Anagnostopoulos2024RBA",
+    "url": "https://api.crossref.org/works/10.1016%2Fj.cma.2024.116805",
+    "sha256": "54931fd522dddabcc0ca04c0e80e760f963d38c8dc6f3b336567cf2e8ba4b50f",
+    "title": [
+      "Residual-based attention in physics-informed neural networks"
+    ],
+    "author": [
+      {
+        "given": "Sokratis J.",
+        "family": "Anagnostopoulos",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0009-0007-6515-3306",
+        "authenticated-orcid": false,
+        "given": "Juan Diego",
+        "family": "Toscano",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Nikolaos",
+        "family": "Stergiopulos",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "George Em",
+        "family": "Karniadakis",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2024,
+          3
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2024,
+          3
+        ]
+      ]
+    },
+    "journal": [
+      "Computer Methods in Applied Mechanics and Engineering"
+    ],
+    "volume": "421",
+    "issue": null,
+    "page": "116805",
+    "article-number": "116805",
+    "DOI": "10.1016/j.cma.2024.116805"
+  },
+  {
+    "key": "Wang2024Causality",
+    "url": "https://api.crossref.org/works/10.1016%2Fj.cma.2024.116813",
+    "sha256": "a6129d7de802937740f2410569214e284010e332c490a0bb5e317de6ab3ab54a",
+    "title": [
+      "Respecting causality for training physics-informed neural networks"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-7721-6884",
+        "authenticated-orcid": false,
+        "given": "Sifan",
+        "family": "Wang",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-1583-2147",
+        "authenticated-orcid": false,
+        "given": "Shyam",
+        "family": "Sankaran",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-2816-3229",
+        "authenticated-orcid": false,
+        "given": "Paris",
+        "family": "Perdikaris",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2024,
+          3
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2024,
+          3
+        ]
+      ]
+    },
+    "journal": [
+      "Computer Methods in Applied Mechanics and Engineering"
+    ],
+    "volume": "421",
+    "issue": null,
+    "page": "116813",
+    "article-number": "116813",
+    "DOI": "10.1016/j.cma.2024.116813"
+  }
+]

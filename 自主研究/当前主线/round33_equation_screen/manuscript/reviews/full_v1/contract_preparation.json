@@ -1,0 +1,10 @@
+{
+  "baseline_file": "C:\\Users\\LazyM\\.codex\\skills\\shared\\contracts\\reviewer\\full.json",
+  "baseline_sha256": "7319676b1bab7f2c8375e0c0360733bbff1eddc496dc7c819c7dc7ccb9f71c3f",
+  "baseline_fields_unchanged": true,
+  "runtime_added_fields": [
+    "generated_at"
+  ],
+  "panel_size": 5,
+  "phase": "preparing_paper_blind_criteria"
+}

@@ -1,0 +1,81 @@
+{
+  "checked_utc": "2026-10-22T17:03:01.913681+00:00",
+  "contract_sha256": "5c57f4b63df625c2b5ec47f9bb1b7bdff651fef89f3144b4d0ef37094971e406",
+  "metadata_sha256": "8b469d4c7642c4af585a5792bf54fd00d35dafeec4a428fee1e2687ef23d81ff",
+  "review_stage": "phase1_only_no_paper_review_yet",
+  "required_panel_size": 5,
+  "phase1_structurally_usable": 5,
+  "reports": [
+    {
+      "role": "eic",
+      "state": "checked",
+      "sha256": "d4dc4bad17304a6f33f685be6b8363535fd76f88f74cb0ea4d7476fa2a665e61",
+      "structural_pass": true,
+      "failures": [],
+      "paraphrase_covered": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5"
+      ]
+    },
+    {
+      "role": "method",
+      "state": "checked",
+      "sha256": "03ee0428b9cf0038b4b143b649c49a8e667303e384f14639d898bea55d1f3f16",
+      "structural_pass": true,
+      "failures": [],
+      "paraphrase_covered": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5"
+      ]
+    },
+    {
+      "role": "domain",
+      "state": "checked",
+      "sha256": "7b302b6ca8f2b86792524fb195badb0949c36bd1cff3fcb185ac47782d2d98c1",
+      "structural_pass": true,
+      "failures": [],
+      "paraphrase_covered": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5"
+      ]
+    },
+    {
+      "role": "perspective",
+      "state": "checked",
+      "sha256": "9b6045b17d6b6fd7ae6221bfc90521415372b6b2c03fcd5792dab811933d3817",
+      "structural_pass": true,
+      "failures": [],
+      "paraphrase_covered": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5"
+      ]
+    },
+    {
+      "role": "da",
+      "state": "checked",
+      "sha256": "50aba57f3d8d204dd91a92f004ab61d92c44d0169216558259ba1d2a9753caf5",
+      "structural_pass": true,
+      "failures": [],
+      "paraphrase_covered": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5"
+      ]
+    }
+  ],
+  "limits": "仅检查结构；不证明触发条件语义质量或论文通过。盲性由独立调用只提供契约与元数据保证，不由文本扫描推断。"
+}

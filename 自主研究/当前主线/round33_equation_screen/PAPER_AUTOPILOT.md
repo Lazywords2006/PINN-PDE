@@ -6,8 +6,10 @@
 
 - 第一阶段：22/22 已完成，结果归档提交 `958a70a` 已推送。全库 176 次、398 个原始文件，旧数据与阈值保留。
 - 第二阶段：协议修订 6 已先行提交为 `bfe89e3a07f1bb3bcc8e049d8d3d7ff95b4a647a`，并推送成功；12 次 τ 灵敏度和 18 次固定 SOAP64，合计 30 次完整训练，零调参。运行器实现 `46855c4`、测试日志 `e2c8ea8`、PS5 编码修复和重新检查 `7c3edb2` 均先于训练提交。2026-10-23 00:08:04（UTC+8）正式启动；实际 runner PID=42100，venv launcher PID=73808，启动上限24。实时状态以 D 盘 status.json 和实际进程为准，不能重复启动。
-- 写作：使用 academic-pipeline / academic-paper / academic-paper-reviewer 技能。`manuscript/PAPER_CONFIGURATION.json` 固定正文 11000 汉字及分节口径；writer 已完成盲承诺，正在生成有明确缺口的工作稿。`manuscript/research/` 已有经典数学出处、14 条文献核验和逐句引用边界；实验未完不能填造结果。
+- 写作：使用 academic-pipeline / academic-paper / academic-paper-reviewer 技能。`manuscript/PAPER_CONFIGURATION.json` 固定正文 11000 汉字及分节口径；writer 已完成盲承诺和9572汉字的有缺口工作稿，已提交`653957d`（最新推送遇网络连接失败，需后续重试）。`manuscript/research/` 已有经典数学出处、14 条文献核验和逐句引用边界；实验未完不能填造结果。
 - 00:14 快照：19 项运行、11 项排队、0 完成/失败；内存提交约91.4%，已自动暂缓新派发，已有 checkpoint 为500–1000步。这只是历史快照，后续必须读取实时状态。当前没有完整的 stage6 结果表。
+- 00:48快照仍为19运行/11排队/0完成或失败，首批检查点已到5000步；提交内存约91.7%，调度器继续暂缓新派发。运行器未重启。`r33_stage6_engineering` 正只读检查资源和后续L-BFGS内存风险，不改冻结源。
+- 工作稿预审已完成：`manuscript/integrity/working_20261023/WORKING_INTEGRITY_REVIEW_CN.md`，冻结稿SHA为`9783dd11b2756134b5f365e234e1e7ba4590ab6dd11435fc1910c2e85b84e8d9`。32数表行与176历史JSON一致、13引用有实际上下文；F01–F05涉及RBA全点集/本地变体说明、1.36→1.35、完整配置表、全筛选附表及RBA实际阅读版本。writer正在另存`working_revised1.md`及独立响应，原稿不覆盖。预审不是最终PASS，Mode1历史执行链和Mode4机制控制仍有证据限制，Mode6文字漂移待修。
 - 自动续行：本线程 heartbeat 自动化 ID `r33`，每 30 分钟检查并继续工作。状态不变且无行动时安静，阶段完成、异常或最终交付时才通知。目标交付后关闭自动化。
 
 ## 任务分工与文件边界
@@ -19,6 +21,7 @@
 - 当前 writer 为 `r33_writer_blind`，只写 `manuscript/drafts/` 与 `manuscript/process/`；来源代理 `r33_classical_sources` 的四份正式输入已通知 writer。旧 `r33_eic_review` / `r33_method_review` 是上一阶段研究准备度审查，不是本次完整稿件审查通过凭证。
 - `r33_evaluator_blind` 已在未看稿件/数据时完成 Phase6a 五维标准与评分计划；完整稿件就绪后才提供给它做 Phase6b。`r33_stage6_engineering` 目前只准备 `validation/stage6_analysis_20261022/` 的完成态分析，不再改冻结运行器；正式输出必须等30/30验证通过。
 - 审查：冻结稿件后分五视角独立只读审查，不交叉读取彼此意见；编辑综合只引用已有报告。修订与复核另存版本。审查的 Accept 只代表内部可用性，不是期刊录用。
+- 五视角的稿件盲Phase1均已返回并保存`manuscript/reviews/full_v1/`：`r33_full_eic`、`r33_full_method`、`r33_full_domain`、`r33_full_perspective`、`r33_full_da`。仅读契约/元数据，没有看稿件；后续完整v1就绪后才给各自Phase2。先用`reviews/check_precommitments.py`核对结构；契约保持baseline不改。`r33_working_integrity`补查历史执行/复算日志映射，仍禁止训练或改既有预审报告。
 
 ## 工作口径
 

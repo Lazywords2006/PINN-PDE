@@ -1,0 +1,47 @@
+{
+  "checked_utc": "2026-10-22T16:56:04.661702+00:00",
+  "status": "working_preview_only_not_complete_manuscript",
+  "commit": "653957d",
+  "git_byte_checks": [
+    {
+      "path": "自主研究/当前主线/round33_equation_screen/manuscript/drafts/initial_working.md",
+      "git_blob_matches_working_bytes": true,
+      "sha256": "9783dd11b2756134b5f365e234e1e7ba4590ab6dd11435fc1910c2e85b84e8d9"
+    },
+    {
+      "path": "自主研究/当前主线/round33_equation_screen/manuscript/process/writer_data_evidence.json",
+      "git_blob_matches_working_bytes": true,
+      "sha256": "14b467ef12c57c354cc79b2715d8d8fa39d0605f9636d8cf272c9e0245967fe1"
+    },
+    {
+      "path": "自主研究/当前主线/round33_equation_screen/manuscript/process/writer_phase4b.md",
+      "git_blob_matches_working_bytes": true,
+      "sha256": "e80aa70de93af1547f1e700948f34cbe411a02232ada1d59e8ccab457b36bd5b"
+    },
+    {
+      "path": "自主研究/当前主线/round33_equation_screen/manuscript/research/REFERENCES_VERIFIED.json",
+      "git_blob_matches_working_bytes": true,
+      "sha256": "b96fec666db62fa16349183ba3e30a7f716c202517cd119282b9d720bfe26ea7"
+    },
+    {
+      "path": "自主研究/当前主线/round33_equation_screen/manuscript/render_manuscript.py",
+      "git_blob_matches_working_bytes": true,
+      "sha256": "94363440a489932ef9b9de5999a339b7f5eaec1d3e1f7f8f74eb2cdb9e33a2aa"
+    },
+    {
+      "path": "自主研究/当前主线/round33_equation_screen/validation/stage6_analysis_20261022/analyze_stage6.py",
+      "git_blob_matches_working_bytes": true,
+      "sha256": "b2869693cdd47e87d0b5234fe21125207f8234391dc16b73c452a24c40a64e56"
+    }
+  ],
+  "render_report_sha256": "9c1380480bfa34e661cc9cfe9f1607847d9921c24597ae06925225efa669399d",
+  "pdf_sha256": "0e055c9a84c89fc6ab269084f946d42bf68c8fe921158726597e859a63550780",
+  "missing_glyph_warnings": 0,
+  "overfull_box_warnings": 0,
+  "outside_page_blocks": 0,
+  "visual_checks": {
+    "latest_page9": "已目视查看更新后的第9页，问题/方法标签在各自单元格换行，无原先列间重叠。",
+    "scope": "此前版本逐页接触表和第1/6/9/10/14页高分辨率检查已做；本次只对最新第9页复查。正式完整稿仍须重新逐页检查。"
+  },
+  "complete_draft_ready": false
+}
