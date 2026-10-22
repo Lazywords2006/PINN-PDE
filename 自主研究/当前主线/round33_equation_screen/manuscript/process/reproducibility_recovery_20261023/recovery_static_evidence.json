@@ -1,0 +1,318 @@
+{
+  "schema": "r33_recovery_reproducibility_supplement_v1",
+  "checked_local": "2026-10-23T05:37:21.092244+08:00",
+  "scope": "一次轻量静态来源/身份/元数据核对；复用已完成验收证据，未作新数值验证",
+  "sources": {
+    "pinn1d.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\pinn1d.py",
+      "sha256": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+      "bytes": 19390
+    },
+    "problems.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\problems.py",
+      "sha256": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+      "bytes": 8940
+    },
+    "screen.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\screen.py",
+      "sha256": "26eb4a06e67350098d7099f2411ecdd2ad5cdf0f314c8f7080b800ae24e67695",
+      "bytes": 6923
+    },
+    "run_artifacts.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\run_artifacts.py",
+      "sha256": "bd463ae18d21ef71b9a630fbd77426c1a8c616b77b2ba30cebdb80d104ae3a90",
+      "bytes": 7101
+    },
+    "soap_baseline.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\soap_baseline.py",
+      "sha256": "76ce746f81fe006b3782ee413383de6852a033299504ffd5cde0dd8292557ac2",
+      "bytes": 2326
+    },
+    "stage5_support.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage5_support.py",
+      "sha256": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf",
+      "bytes": 3322
+    },
+    "third_party/soap_official.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\third_party\\soap_official.py",
+      "sha256": "6b2328e53fb3cb58cf18b21e706f6f17e7f7dcac83c8abb1053fa74d6e0ca592",
+      "bytes": 19181
+    },
+    "stage6_runner.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py",
+      "sha256": "a2fd8483ed9faa72b25ec6977441522d7897bc6a06b52321a698db4801952e18",
+      "bytes": 56946
+    },
+    "run_stage6.ps1": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\run_stage6.ps1",
+      "sha256": "4aea35d292fdb6a33331783d810fec5d3ea88b2e892e2acca0fdec23777c06db",
+      "bytes": 2011
+    },
+    "test_stage6_runner.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\test_stage6_runner.py",
+      "sha256": "5294632eb59732564d22407369a7a9a9402a40a0d2292159a4a4602f002a3ed7",
+      "bytes": 47304
+    },
+    "SCREEN_PROTOCOL.md": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\SCREEN_PROTOCOL.md",
+      "sha256": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+      "bytes": 26934
+    },
+    "validation/stage6_20261022/soap_upstream_blob.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_20261022\\soap_upstream_blob.json",
+      "sha256": "cb9a6689ab864c2ceea5de92b72ff8db3174a5edf623006257868918c45f6fb5",
+      "bytes": 19901
+    },
+    "validation/stage6_20261022/engineering_gate.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_20261022\\engineering_gate.json",
+      "sha256": "4572088adf9eb3010c4d483b6ae71a82087dd5bd41b35dcb38e0687f5666d6e3",
+      "bytes": 43337
+    },
+    "validation/stage6_20261022/task_plan.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_20261022\\task_plan.json",
+      "sha256": "d377215bf5879a9cd2ac3a56dd92660a492fa36011d588752f94227627fb0cc9",
+      "bytes": 71655
+    },
+    "validation/stage6_20261022/pytest.xml": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_20261022\\pytest.xml",
+      "sha256": "92ce4dcdf885e8b0817065379fd486537ebd9e5b5104195e05f0d8260eb6012d",
+      "bytes": 15114
+    },
+    "validation/stage6_recovery_20261023/RECOVERY_ROUTE.md": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\RECOVERY_ROUTE.md",
+      "sha256": "20db4da69346024f4796465481570abff608aae572fcea348b5cd7366960d842",
+      "bytes": 10519
+    },
+    "validation/stage6_recovery_20261023/recovery_manifest.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\recovery_manifest.json",
+      "sha256": "237609b2ffb7c31f77ac53c1d281bc6e5e03ade97367505e07116835c205c508",
+      "bytes": 2190
+    },
+    "validation/stage6_recovery_20261023/recovery_gate_success/engineering_gate.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\recovery_gate_success\\engineering_gate.json",
+      "sha256": "4572088adf9eb3010c4d483b6ae71a82087dd5bd41b35dcb38e0687f5666d6e3",
+      "bytes": 43337
+    },
+    "validation/stage6_recovery_20261023/recovery_gate_success/archive_manifest.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\recovery_gate_success\\archive_manifest.json",
+      "sha256": "d49512d29aaddbcbe1b3980849f36ee615e24338e3af4e5c607ae99f4aec45c7",
+      "bytes": 1033
+    },
+    "validation/stage6_recovery_20261023/recovery_gate_success/pytest.xml": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\recovery_gate_success\\pytest.xml",
+      "sha256": "92ce4dcdf885e8b0817065379fd486537ebd9e5b5104195e05f0d8260eb6012d",
+      "bytes": 15114
+    },
+    "validation/stage6_recovery_20261023/recovery_dispatch/dispatch_evidence.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\recovery_dispatch\\dispatch_evidence.json",
+      "sha256": "874fa4c1ccff0fe1449702b9aae5bf7f76d295be6f4204253a5ca437f07264b8",
+      "bytes": 19221
+    },
+    "validation/stage6_recovery_20261023/recovery_dispatch/status_observation_20261023_045714.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\recovery_dispatch\\status_observation_20261023_045714.json",
+      "sha256": "b94e8e1ba795b426352647c8cfce1bb071c49c6df66adc762c58e7d309f9b6db",
+      "bytes": 254185
+    },
+    "validation/stage6_recovery_20261023/original21_archive.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\original21_archive.json",
+      "sha256": "320b64f3603752e00a7d6ee09e805e07b91794814f718aab616bbab6c4da3081",
+      "bytes": 21311
+    },
+    "validation/stage6_recovery_20261023/original21_git_blob_checks.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\original21_git_blob_checks.json",
+      "sha256": "d94b3081c3d84f4d6982b7409438d8ff274e8f334b3da04ba485f270323b5429",
+      "bytes": 326
+    },
+    "validation/stage6_recovery_20261023/regression_fixture_repair/INDEPENDENT_REVIEW.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\regression_fixture_repair\\INDEPENDENT_REVIEW.json",
+      "sha256": "0d764627f1ef3a80fa68c62acde8d9db4d34d8d8645e786ba8217e91b7524c06",
+      "bytes": 3826
+    },
+    "validation/stage6_recovery_20261023/timezone_binding_repair/INDEPENDENT_REVIEW.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\timezone_binding_repair\\INDEPENDENT_REVIEW.json",
+      "sha256": "c15cbd8c7c9979420dcbd966b2f2f50313537b1a5b87ad0278cc55a7e93c04cb",
+      "bytes": 4326
+    },
+    "validation/stage6_analysis_20261022/analyze_stage6.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\analyze_stage6.py",
+      "sha256": "5eee1bd327426cbba355e76f60d87d24d1d822eb4c76347302cdde9b57b19dc1",
+      "bytes": 30854
+    },
+    "validation/stage6_analysis_20261022/plot_stage6.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\plot_stage6.py",
+      "sha256": "1a38eb9618949eb94e998e1aa990b4d173bfcbae0246c63b862aa7732c6286fa",
+      "bytes": 9085
+    },
+    "validation/stage6_analysis_20261022/test_analysis.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\test_analysis.py",
+      "sha256": "3931fa149c1d257a24c57f2315c33c3d5ce4346ca41eecf78c2ccaace5bb0cd6",
+      "bytes": 10916
+    },
+    "validation/stage6_analysis_20261022/precompletion_20261023_checks.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\precompletion_20261023_checks.json",
+      "sha256": "cc90d07bfa5f33094a5dcdb537bc65ab4bc82e720f58f72b794d2fe2a5508475",
+      "bytes": 782
+    },
+    "manuscript/drafts/working_revised1.md": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\working_revised1.md",
+      "sha256": "7ca430d7911dda4507469099e493dc2563ef48dff0157b4df862e4ab8f3b3635",
+      "bytes": 64101
+    },
+    "manuscript/process/reproducibility/AI_USE_STATEMENT_N03_CN.md": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\reproducibility\\AI_USE_STATEMENT_N03_CN.md",
+      "sha256": "16cc0d0906916e0271b56f2486a1f248ae4255075ff3a53c6792a395d65454db",
+      "bytes": 2234
+    },
+    "manuscript/process/reproducibility/audit_powershell_cli.ps1": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\reproducibility\\audit_powershell_cli.ps1",
+      "sha256": "b2412ed7930ed0924c3566e1135e2fc9d0b38cff5891156fd4859af56d250995",
+      "bytes": 2135
+    },
+    "manuscript/process/reproducibility/collect_reproducibility_sources.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\reproducibility\\collect_reproducibility_sources.py",
+      "sha256": "993a4e8b89e3203915388868b618c2155e42ccdc2f7c8305572adfc0f881b648",
+      "bytes": 14502
+    },
+    "manuscript/process/reproducibility/DATA_DICTIONARY_CN.md": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\reproducibility\\DATA_DICTIONARY_CN.md",
+      "sha256": "3ce7f10ac606791a0b2ac063fc329e29d54dcbc5cc80b9eeadeabe9cf04c0422",
+      "bytes": 10684
+    },
+    "manuscript/process/reproducibility/powershell_cli_audit.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\reproducibility\\powershell_cli_audit.json",
+      "sha256": "a1f211258858275de8838cd4640cddfd23510dbadce99792df3ae2997ae1c3bb",
+      "bytes": 2092
+    },
+    "manuscript/process/reproducibility/read_only_partial_snapshot.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\reproducibility\\read_only_partial_snapshot.json",
+      "sha256": "ac04f6fbe90016f3055721c1ab57ef618220c8ef0e600abbdde9d4c610b8b914",
+      "bytes": 2015
+    },
+    "manuscript/process/reproducibility/refresh_n04_checks.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\reproducibility\\refresh_n04_checks.py",
+      "sha256": "d0e308c6e666d0af239772754e8acc9a089f60a2305b7f5a7a09af28d9f251a3",
+      "bytes": 4707
+    },
+    "manuscript/process/reproducibility/reproducibility_checks.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\reproducibility\\reproducibility_checks.json",
+      "sha256": "0ff80f2b48eeeb51a34ab9efb69e5f4487a1707320ee76877d728df398870930",
+      "bytes": 2257
+    },
+    "manuscript/process/reproducibility/REPRODUCIBILITY_CN.md": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\reproducibility\\REPRODUCIBILITY_CN.md",
+      "sha256": "8d6fdf4155caf714dab5d1ff958e9c4a8cca7913a02d6ecd2978423b57788b17",
+      "bytes": 21333
+    },
+    "manuscript/process/reproducibility/source_and_command_audit.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\reproducibility\\source_and_command_audit.json",
+      "sha256": "90f70948b38725145d8b12f89db8c6ce3897b5017ad31acd8f92118f1c888342",
+      "bytes": 35018
+    },
+    "validation/stage6_recovery_20261023/completed_exit_observation/events.jsonl": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\completed_exit_observation\\events.jsonl",
+      "sha256": "1b735175683fa1fc399bd2c6da55e49da82d54502c6383bd7201913c6466654a",
+      "bytes": 97049
+    },
+    "validation/stage6_recovery_20261023/observe_orphan_exits.py": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\observe_orphan_exits.py",
+      "sha256": "cd8da5fc954aa99019efab13eae4b77086b462f16672db9a4ce92edf571c7957",
+      "bytes": 10418
+    },
+    "validation/stage6_recovery_20261023/incident_snapshot_20261023_013453_945/runner_20261023_000801_094.stderr.log": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\runner_20261023_000801_094.stderr.log",
+      "sha256": "b077c0c10f64e120c52cc3fc91c48315deddc426b448681bb68cd2119c7afeea",
+      "bytes": 2069
+    },
+    "validation/stage6_recovery_20261023/incident_snapshot_20261023_013453_945/process_inventory.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\process_inventory.json",
+      "sha256": "8e3606ac01cdf6868dc5cd5a97e7094af69678c03ac663f4d1a65159913659d7",
+      "bytes": 161028
+    },
+    "validation/stage6_recovery_20261023/incident_snapshot_20261023_013453_945/status.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\status.json",
+      "sha256": "834ae2f4123a1298a25b02f906b4df69f1b1723e74b0491dc4a2db0128b6dc89",
+      "bytes": 117874
+    },
+    "validation/stage6_recovery_20261023/incident_snapshot_20261023_013453_945/snapshot_manifest.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\snapshot_manifest.json",
+      "sha256": "d9bcc4ca6cdd8dc03ec940486a5d70c1e3f4d88a22d614847c36fb098cd738b4",
+      "bytes": 8532
+    },
+    "validation/stage6_recovery_20261023/incident_snapshot_20261023_013453_945/engineering_gate.json": {
+      "absolute_path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\engineering_gate.json",
+      "sha256": "bb7250d65bfee8b44858c2ae734e540eee0bf7d26e2d5a68bbc2b7d40ff6e898",
+      "bytes": 6846
+    }
+  },
+  "commits": {
+    "352af9c": "352af9c1c8666ae6fca00d682eeb8e440f7d6997",
+    "2a42ded": "2a42ded9850e7f637227b5df44ca88722769ee19",
+    "0ccc65a": "0ccc65ae03ae0ec621ac57abc4e3374b2c3a0dfa"
+  },
+  "checks": {
+    "current_gate_sha256": "4572088adf9eb3010c4d483b6ae71a82087dd5bd41b35dcb38e0687f5666d6e3",
+    "all_12_gate_sources_match_current_files": true,
+    "only_runner_and_test_differ_from_original_gate": [
+      "stage6_runner.py",
+      "test_stage6_runner.py"
+    ],
+    "recovery_manifest_and_7_artifact_hashes_match": true,
+    "reconciled_zero_exit_observations": 42,
+    "gate_pytest_xml_counts": {
+      "tests": 110,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "original21_complete_and_recomputed_in_saved_observation": true,
+    "original21_archive_files": 63,
+    "archive_map_matches_saved_validation_bundles": true,
+    "existing_git_blob_check": "已保存63/63检查及其归档清单哈希匹配；本次未重复读取63原始产物字节",
+    "archive_commit_contains_all_63_paths": true,
+    "archive_and_check_json_equal_committed_bytes": true,
+    "remaining9_source_lineage_and_first_attempts_bound": true,
+    "all_30_configs_match_frozen_plan": true,
+    "original_48_hour_deadline_unchanged": true,
+    "deadline_local": "2026-10-25T00:08:04.374697+08:00",
+    "parsed_ast_without_import": [
+      "stage6_runner.py",
+      "test_stage6_runner.py",
+      "validation/stage6_analysis_20261022/analyze_stage6.py"
+    ],
+    "analysis_cli": [
+      "--partial",
+      "--final",
+      "--output"
+    ],
+    "old_reproducibility_directory_and_frozen_draft_unchanged": true,
+    "all_bound_sources_unchanged_during_check": true
+  },
+  "operations": {
+    "training_runs": 0,
+    "torch_imports": 0,
+    "active_checkpoint_reads": 0,
+    "model_loads": 0,
+    "numerical_recomputations": 0,
+    "gate_runs": 0,
+    "partial_analysis_runs": 0,
+    "final_analysis_runs": 0,
+    "runtime_status_reads": 0,
+    "old398_or_new63_result_files_rehashed": false,
+    "git_operations": "read-only metadata and two committed evidence JSONs"
+  },
+  "final_30_acceptance": "PENDING",
+  "documents": [
+    {
+      "file": "RECOVERY_REPRODUCIBILITY_CN.md",
+      "sha256": "464ad89e8925782d97739c2d089a613ab9ecf8d76af358ce292f998faf549720",
+      "links_exist": true,
+      "table_columns_consistent": true
+    },
+    {
+      "file": "FINAL_REFRESH_FIELDS_CN.md",
+      "sha256": "ac4e9789bafacdb0ae0b648418c7d74daa761d4e2f92115b6173fcc44dbf48e4",
+      "links_exist": true,
+      "table_columns_consistent": true
+    }
+  ]
+}

@@ -4,6 +4,7 @@
 
 ## 当前阶段
 
+- **05:36实时观察与05:37材料整理：** 当前仍21 completed / 9 running / 0 failed，runner 91632的新鲜status持续更新，9个checkpoint仅stat检查均在94秒内更新，提交内存约82.9%。原21的63个已验收文件已由`0ccc65a`提交推送，Git索引内容与验收SHA为63/63一致，未包含后9。新增`manuscript/process/reproducibility_recovery_20261023/`绑定48个来源、区分21/9源码谱系及工程/数值验收，旧复现时点证据不覆盖。`PROCESS_RECORD_WORKING_20261023.md`是待完成过程记录，未虚构最终审稿/完整性PASS。待30/30后在新目录刷新最终复现材料。
 - **最新实际运行：2026-10-23 04:55:29恢复成功。** 原21任务的42个HANDLE全部exit0，监督器04:40:32完整结束，关闭日志及不可变manifest已归档。两处测试目录隔离修复已提交`352af9c`；实际Gate又检出UTC/+08:00同瞬间字符串误拒绝，限定时区比较修复及独立复审已提交`2a42ded`，均已推送。当前完整回归110通过、独立限定31项通过；新Gate `4572088adf9eb3010c4d483b6ae71a82087dd5bd41b35dcb38e0687f5666d6e3`再次110通过，原训练/协议/供应商和旧398未变。失败历史全部保留，不把工程测试写成科研效果。
 - **04:57:14快照为21 completed / 9 running / 0 failed。** 原21的完整bundle、预算、N64/N96复算及既定heldout已通过，全部`complete_and_recomputed=true`；只有原queued的9项新派发，所有30任务attempt数量仍为1，旧21没有重训。实际runner PID **91632**，启动进程 **25644**，上限9；另已核对9组实际launcher/worker。证据在`validation/stage6_recovery_20261023/recovery_dispatch/`。原source lineage为21项、新source lineage为9项，保留原48h期限。**禁止再次启动队列**；后续读取新鲜status并核实当前runner/worker，旧orphan监督器已结束，`read_live_progress.py`只针对旧21，不能用它判断新9是否运行。
 - 当前runner SHA为`a2fd8483ed9faa72b25ec6977441522d7897bc6a06b52321a698db4801952e18`，测试源SHA为`5294632eb59732564d22407369a7a9a9402a40a0d2292159a4a4602f002a3ed7`；活动训练期间不改门禁绑定源。当前分析脚本（含N04解释）已另实跑26项通过，记录于`validation/stage6_analysis_20261022/precompletion_20261023_checks.json`。最终30/30科学汇总、完整稿及五视角正式审稿仍待最后9项验收，不能用21项部分完成冒充整批通过。
