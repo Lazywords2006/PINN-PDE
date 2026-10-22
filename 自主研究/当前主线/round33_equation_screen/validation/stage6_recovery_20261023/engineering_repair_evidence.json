@@ -1,0 +1,97 @@
+{
+  "schema": "r33_stage6_engineering_repair_review_v1",
+  "frozen_utc": "2026-10-22T18:18:38.550781+00:00",
+  "status": "STATIC_REVIEW_READY_FULL_REGRESSION_PENDING",
+  "complete_regression_status": "PENDING_RESOURCE_HEADROOM",
+  "recovery_dispatch_blocked": true,
+  "new_gate_published": false,
+  "training_dispatched_by_repair": false,
+  "training_terminated_by_repair": false,
+  "original_gate_sha256": "bb7250d65bfee8b44858c2ae734e540eee0bf7d26e2d5a68bbc2b7d40ff6e898",
+  "runtime_status_unchanged_since_incident_snapshot": true,
+  "original_scientific_protocol_vendor_sources_unchanged": true,
+  "changed_gate_bound_sources": [
+    "stage6_runner.py",
+    "test_stage6_runner.py"
+  ],
+  "frozen_source_hashes": {
+    "pinn1d.py": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+    "problems.py": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+    "screen.py": "26eb4a06e67350098d7099f2411ecdd2ad5cdf0f314c8f7080b800ae24e67695",
+    "run_artifacts.py": "bd463ae18d21ef71b9a630fbd77426c1a8c616b77b2ba30cebdb80d104ae3a90",
+    "soap_baseline.py": "76ce746f81fe006b3782ee413383de6852a033299504ffd5cde0dd8292557ac2",
+    "stage5_support.py": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf",
+    "third_party/soap_official.py": "6b2328e53fb3cb58cf18b21e706f6f17e7f7dcac83c8abb1053fa74d6e0ca592",
+    "stage6_runner.py": "468423c2e2fc6453c8a1d71eed2d12f0553b980c551a5fb4be133e3215be9b0f",
+    "run_stage6.ps1": "4aea35d292fdb6a33331783d810fec5d3ea88b2e892e2acca0fdec23777c06db",
+    "test_stage6_runner.py": "fa43f9290fb1fa952732bd2af45889f52b473caf1c7eacde4423bf46ee3525bc",
+    "SCREEN_PROTOCOL.md": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+    "validation/stage6_20261022/soap_upstream_blob.json": "cb9a6689ab864c2ceea5de92b72ff8db3174a5edf623006257868918c45f6fb5"
+  },
+  "ast_parse": {
+    "passed": true,
+    "files": [
+      "stage6_runner.py",
+      "test_stage6_runner.py",
+      "validation\\stage6_recovery_20261023\\observe_orphan_exits.py",
+      "validation\\stage6_recovery_20261023\\native_io_checks.py",
+      "validation\\stage6_recovery_20261023\\freeze_repair_evidence.py"
+    ]
+  },
+  "first_full_regression": {
+    "counts": {
+      "tests": 71,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    "passed_count": 70,
+    "accepted_as_pass": false,
+    "source_hashes_file": "pytest_attempt1_hashes.json",
+    "failure": "Open Windows destination replacement was denied despite FILE_SHARE_DELETE; overstrong test assumption corrected",
+    "additional_diagnostic": "Log includes Torch import WMI 0x8007000e stack; run continued. This is not a training-worker OOM attribution."
+  },
+  "current_native_regression": {
+    "counts": {
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "passed_count": 9,
+    "scope": "AST-extracted production I/O, unchanged selected tests, native Windows handles and synthetic checkpoint stub; no Torch import",
+    "full_runner_regression": false,
+    "source_hashes": {
+      "stage6_runner.py": "468423c2e2fc6453c8a1d71eed2d12f0553b980c551a5fb4be133e3215be9b0f",
+      "test_stage6_runner.py": "fa43f9290fb1fa952732bd2af45889f52b473caf1c7eacde4423bf46ee3525bc"
+    }
+  },
+  "observer_event_counts_at_freeze": {
+    "observer_started": 1,
+    "attached": 42,
+    "attachment_complete": 1
+  },
+  "observer_source_sha256": "cd8da5fc954aa99019efab13eae4b77086b462f16672db9a4ce92edf571c7957",
+  "artifact_sha256": {
+    "runner_fix_review.diff": "d8b35fed88b992c12a5dccae3955c9cc0aafa41fb74f91692128ff1238c56516",
+    "native_io_checks.py": "181a3fd058fbec5d149e42c28084f88ff626349907a291ee09876f431689562d",
+    "native_io_freeze.log": "97b2b90f6d5529b7de109c9ad01eb6abe531d839113b2f26b0ec06ca2b465631",
+    "native_io_freeze.xml": "0867b401c7ab92fb0427ace9c91f0c207cdaea2e7e374fea078b875c5093833a",
+    "pytest_attempt1.log": "bf7ffa6c00a7f967010519c055b2aef551894e8c3f612e04561a0ce2307c95b4",
+    "pytest_attempt1.xml": "0bd8940855623c29f14798de33f474071733ef2d30425e519f30ce39224e9ad7",
+    "pytest_attempt1_hashes.json": "e340fb1501fb6c89893c801022c57b1752c2b7e436894d08a46f1d31557d9983",
+    "observe_orphan_exits.py": "cd8da5fc954aa99019efab13eae4b77086b462f16672db9a4ce92edf571c7957",
+    "git_blob_integrity.json": "b9c85241611960f02b44ca9b77c663477b897dabd76484f4b4d4b43223029be1",
+    "RECOVERY_ROUTE.md": "9d18db30417753a3442e4f35856114a262862f077d68b160db123156362c89ff",
+    ".gitattributes": "48747480eddba024928d03be9bf83dc579e5515768647507a767e8187a85c9ab"
+  },
+  "recovery_route": "RECOVERY_ROUTE.md",
+  "required_before_root_recovery": [
+    "Independent review and full current-source regression PASS after resource headroom returns",
+    "All 42 original HANDLE exits recorded as zero, exact identities verified, observer completed",
+    "All original task locks released and all original exit-zero result JSONs present",
+    "Immutable recovery manifest and newly passed gate bound to old source and all evidence",
+    "All prior results validated by unchanged scientific acceptance before dispatching remaining tasks"
+  ],
+  "scientific_acceptance": "NOT_EVALUATED_BY_THIS_REPAIR"
+}

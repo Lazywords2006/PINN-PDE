@@ -1,0 +1,117 @@
+{
+  "captured_local": "2026-10-23T01:34:57.8063265+08:00",
+  "files": [
+    {
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\pinn1d.py",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\sources\\pinn1d.py",
+      "sha256": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+      "matches_original_gate": true
+    },
+    {
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\problems.py",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\sources\\problems.py",
+      "sha256": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+      "matches_original_gate": true
+    },
+    {
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\screen.py",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\sources\\screen.py",
+      "sha256": "26eb4a06e67350098d7099f2411ecdd2ad5cdf0f314c8f7080b800ae24e67695",
+      "matches_original_gate": true
+    },
+    {
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\run_artifacts.py",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\sources\\run_artifacts.py",
+      "sha256": "bd463ae18d21ef71b9a630fbd77426c1a8c616b77b2ba30cebdb80d104ae3a90",
+      "matches_original_gate": true
+    },
+    {
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\soap_baseline.py",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\sources\\soap_baseline.py",
+      "sha256": "76ce746f81fe006b3782ee413383de6852a033299504ffd5cde0dd8292557ac2",
+      "matches_original_gate": true
+    },
+    {
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage5_support.py",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\sources\\stage5_support.py",
+      "sha256": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf",
+      "matches_original_gate": true
+    },
+    {
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\third_party\\soap_official.py",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\sources\\third_party\\soap_official.py",
+      "sha256": "6b2328e53fb3cb58cf18b21e706f6f17e7f7dcac83c8abb1053fa74d6e0ca592",
+      "matches_original_gate": true
+    },
+    {
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\sources\\stage6_runner.py",
+      "sha256": "7a2f55cd271cfd9d4355998d35b66a095a656aa46e260fc8c1dfeb83db2e870b",
+      "matches_original_gate": true
+    },
+    {
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\run_stage6.ps1",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\sources\\run_stage6.ps1",
+      "sha256": "4aea35d292fdb6a33331783d810fec5d3ea88b2e892e2acca0fdec23777c06db",
+      "matches_original_gate": true
+    },
+    {
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\test_stage6_runner.py",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\sources\\test_stage6_runner.py",
+      "sha256": "a45f8d7cc4b84b25d9159e0034943e0985ca5e1509a93d0b767d4b4770f651bc",
+      "matches_original_gate": true
+    },
+    {
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\SCREEN_PROTOCOL.md",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\sources\\SCREEN_PROTOCOL.md",
+      "sha256": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+      "matches_original_gate": true
+    },
+    {
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_20261022\\soap_upstream_blob.json",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\sources\\validation\\stage6_20261022\\soap_upstream_blob.json",
+      "sha256": "cb9a6689ab864c2ceea5de92b72ff8db3174a5edf623006257868918c45f6fb5",
+      "matches_original_gate": true
+    },
+    {
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_20261022\\engineering_gate.json",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\engineering_gate.json",
+      "sha256": "bb7250d65bfee8b44858c2ae734e540eee0bf7d26e2d5a68bbc2b7d40ff6e898"
+    },
+    {
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_20261022\\task_plan.json",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\task_plan.json",
+      "sha256": "d377215bf5879a9cd2ac3a56dd92660a492fa36011d588752f94227627fb0cc9"
+    },
+    {
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_20261022\\pytest.xml",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\pytest.xml",
+      "sha256": "17223ee6b3f53e3766e4acdf92fb9e4b13790904c4ef9bc163fcd4389339bf5b"
+    },
+    {
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_20261022\\pytest.log",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\pytest.log",
+      "sha256": "fea55f9136c01a64f4b856664d9c34c19ddde37634c4fb099a86f347c3c50cb2"
+    },
+    {
+      "source": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\status.json",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\status.json",
+      "sha256": "834ae2f4123a1298a25b02f906b4df69f1b1723e74b0491dc4a2db0128b6dc89"
+    },
+    {
+      "source": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\status.json.42100.tmp",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\status.json.42100.tmp",
+      "sha256": "6a4da038a856103ba9584522eb26b1cc6d3786f401e0ecf29c5375e840d2479b"
+    },
+    {
+      "source": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\runner_20261023_000801_094.stderr.log",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\runner_20261023_000801_094.stderr.log",
+      "sha256": "b077c0c10f64e120c52cc3fc91c48315deddc426b448681bb68cd2119c7afeea"
+    },
+    {
+      "source": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\runner_20261023_000801_094.stdout.log",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\runner_20261023_000801_094.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

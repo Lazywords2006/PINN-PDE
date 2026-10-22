@@ -1,0 +1,88 @@
+Windows fatal exception: code 0x8007000e
+
+Thread 0x000103e8 (most recent call first):
+  File "C:\Users\LazyM\AppData\Local\Programs\Python\Python312\Lib\platform.py", line 327 in _wmi_query
+  File "C:\Users\LazyM\AppData\Local\Programs\Python\Python312\Lib\platform.py", line 775 in _get_machine_win32
+  File "C:\Users\LazyM\AppData\Local\Programs\Python\Python312\Lib\platform.py", line 922 in uname
+  File "C:\Users\LazyM\AppData\Local\Programs\Python\Python312\Lib\platform.py", line 1023 in machine
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\torch\__init__.py", line 268 in _load_dll_libraries
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\torch\__init__.py", line 309 in <module>
+  File "<frozen importlib._bootstrap>", line 488 in _call_with_frames_removed
+  File "<frozen importlib._bootstrap_external>", line 995 in exec_module
+  File "<frozen importlib._bootstrap>", line 935 in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 1331 in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 1360 in _find_and_load
+  File "E:\PINN-PDE\\u81ea\u4e3b\u7814\u7a76\\u5f53\u524d\u4e3b\u7ebf\round33_equation_screen\test_stage6_runner.py", line 14 in <module>
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\_pytest\assertion\rewrite.py", line 188 in exec_module
+  File "<frozen importlib._bootstrap>", line 935 in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 1331 in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 1360 in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1387 in _gcd_import
+  File "C:\Users\LazyM\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90 in import_module
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\_pytest\pathlib.py", line 596 in import_path
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\_pytest\python.py", line 508 in importtestmodule
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\_pytest\python.py", line 561 in _getobj
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\_pytest\python.py", line 290 in obj
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\_pytest\python.py", line 577 in _register_setup_module_fixture
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\_pytest\python.py", line 564 in collect
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\_pytest\runner.py", line 406 in collect
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\_pytest\runner.py", line 361 in from_call
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\_pytest\runner.py", line 408 in pytest_make_collect_report
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\pluggy\_execution.py", line 147 in _multicall
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\pluggy\_manager.py", line 183 in _hookexec
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\pluggy\_caller.py", line 197 in __call__
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\_pytest\runner.py", line 589 in collect_one_node
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\_pytest\main.py", line 895 in _collect_one_node
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\_pytest\main.py", line 1032 in genitems
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\_pytest\main.py", line 869 in perform_collect
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\_pytest\main.py", line 394 in pytest_collection
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\pluggy\_execution.py", line 147 in _multicall
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\pluggy\_manager.py", line 183 in _hookexec
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\pluggy\_caller.py", line 197 in __call__
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\_pytest\main.py", line 383 in _main
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\_pytest\main.py", line 330 in wrap_session
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\_pytest\main.py", line 377 in pytest_cmdline_main
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\pluggy\_execution.py", line 147 in _multicall
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\pluggy\_manager.py", line 183 in _hookexec
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\pluggy\_caller.py", line 197 in __call__
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\_pytest\config\__init__.py", line 229 in _main
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\_pytest\config\__init__.py", line 253 in _console_main
+  File "D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\pytest\__main__.py", line 9 in <module>
+  File "<frozen runpy>", line 88 in _run_code
+  File "<frozen runpy>", line 198 in _run_module_as_main
+.............................................F.........................  [100%]
+================================== FAILURES ===================================
+___________ test_shared_reader_allows_atomic_replacement_while_open ___________
+
+tmp_path = WindowsPath('D:/CodexRuntime/temp/r33-stage6-recovery-pytest-20261023/test_shared_reader_allows_atom0')
+
+    def test_shared_reader_allows_atomic_replacement_while_open(tmp_path):
+        path = tmp_path / "status.json"
+        s.write_json(path, {"version": "old"})
+        with s.open_shared_read(path) as reader:
+>           s.write_json(path, {"version": "new"})
+
+test_stage6_runner.py:433: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('D:/CodexRuntime/temp/r33-stage6-recovery-pytest-20261023/test_shared_reader_allows_atom0/status.json')
+value = {'version': 'new'}
+
+    def write_json(path, value):
+        path = Path(path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        # One writer per process/path under the runner lock. Reuse its failed temp
+        # so permanent denial cannot leave a new full status file on every poll.
+        tmp = path.with_name(path.name + f".{os.getpid()}.tmp")
+        tmp.write_text(json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
+        # Windows readers/AV can briefly deny replacement. Never delete the old
+        # destination or truncate it as a fallback; retain the complete temp on failure.
+        for attempt in range(len(_REPLACE_DELAYS) + 1):
+            try:
+>               os.replace(tmp, path)
+E               PermissionError: [WinError 5] 拒绝访问。: 'D:\\CodexRuntime\\temp\\r33-stage6-recovery-pytest-20261023\\test_shared_reader_allows_atom0\\status.json.72180.tmp' -> 'D:\\CodexRuntime\\temp\\r33-stage6-recovery-pytest-20261023\\test_shared_reader_allows_atom0\\status.json'
+
+stage6_runner.py:78: PermissionError
+=========================== short test summary info ===========================
+FAILED test_stage6_runner.py::test_shared_reader_allows_atomic_replacement_while_open
+1 failed, 70 passed in 30.74s

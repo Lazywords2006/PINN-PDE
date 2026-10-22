@@ -1,0 +1,122 @@
+{
+  "schema": "r33_stage6_independent_recovery_review_v1",
+  "review_date_local": "2026-10-23",
+  "overall": "BLOCKED_V1_STATIC_DEFECT_AND_PENDING_RUNTIME",
+  "recovery_dispatch_allowed": false,
+  "training_started_by_reviewer": false,
+  "training_terminated_by_reviewer": false,
+  "code_modified_by_reviewer": false,
+  "scientific_acceptance": "NOT_EVALUATED",
+  "evidence": {
+    "original_gate_sha256": "bb7250d65bfee8b44858c2ae734e540eee0bf7d26e2d5a68bbc2b7d40ff6e898",
+    "original_runner_pid": 42100,
+    "original_status_updated_utc": "2026-10-23T01:08:47.269772+08:00",
+    "original_counts": {
+      "running": 21,
+      "queued": 9,
+      "completed": 0,
+      "failed": 0
+    },
+    "incident_snapshots_independently_hashed": 20,
+    "incident_hash_mismatches": 0,
+    "old_files_independently_hashed": 398,
+    "old_file_hash_mismatches": 0,
+    "old_manifest_sha256": "9953f34410cfba34efa1927311a819b0cb82460d6ec30d3c92f9a538c29fea28",
+    "v1_runner_sha256": "468423c2e2fc6453c8a1d71eed2d12f0553b980c551a5fb4be133e3215be9b0f",
+    "v1_tests_sha256": "fa43f9290fb1fa952732bd2af45889f52b473caf1c7eacde4423bf46ee3525bc",
+    "repair_artifact_hashes_independently_checked": 11,
+    "repair_artifact_hash_mismatches": 0,
+    "git_blob_byte_check": {
+      "reported_checked": 30,
+      "source": "hash-bound engineering git_blob_integrity.json",
+      "independently_repeated_all_30": false
+    }
+  },
+  "findings": [
+    {
+      "id": "REC-P1-001",
+      "severity": "P1",
+      "status": "OPEN_V1",
+      "source_sha256": "468423c2e2fc6453c8a1d71eed2d12f0553b980c551a5fb4be133e3215be9b0f",
+      "function": "run / new_state",
+      "line_v1": 932,
+      "title": "Gate后旧产物缺失可使已退出任务静默重训",
+      "scope": "independent AST-extracted production functions with stubbed collaborators; no Torch/Popen/training",
+      "reproduction": {
+        "validator_calls": [],
+        "queued_task_ids_at_execute_queue": [
+          "old",
+          "new"
+        ],
+        "original_exit_zero_task_wrongly_queued": true
+      },
+      "required_fix": "Every Run must unconditionally validate full bundles for lineage original_active_jobs and previous completed jobs before any dispatch; missing bundles block rather than queue",
+      "real_duplicate_training_observed": false
+    }
+  ],
+  "tests": {
+    "first_full_regression": {
+      "tests": 71,
+      "passed": 70,
+      "failures": 1,
+      "accepted_as_current_pass": false
+    },
+    "current_native_targeted": {
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS_LIMITED_SCOPE",
+      "scope": "production I/O AST; native Windows handles and synthetic checkpoint stubs; no Torch",
+      "junit_independently_read": true
+    },
+    "independent_counterexample": {
+      "status": "REPRODUCED_V1_DEFECT",
+      "scope": "AST-isolated control flow"
+    },
+    "current_full_runner_regression": {
+      "status": "PENDING_RESOURCE_HEADROOM",
+      "executed_by_reviewer": false
+    },
+    "environment_diagnostic": "First full log includes Torch import WMI 0x8007000e; not attributed to training-worker OOM"
+  },
+  "runtime_monitoring": {
+    "observer_pid": 90488,
+    "attached_handles": 42,
+    "launchers": 21,
+    "actual_workers": 21,
+    "unique_jobs": 21,
+    "process_exit_events_at_engineering_freeze": 0,
+    "observer_completed_at_freeze": false,
+    "status": "ATTACHED_ONLY_NOT_RECOVERED"
+  },
+  "gates_pending": [
+    "REC-P1-001 v2 fix and targeted negative controls",
+    "all 42 actual HANDLE exits zero and observer completed",
+    "all task locks released",
+    "all original 21 full bundles forced validation on every Run",
+    "current full regression PASS",
+    "new recovery-manifest-bound engineering gate",
+    "remaining 9 controlled dispatch",
+    "all 30 final validations"
+  ],
+  "protocol": {
+    "prereg_commit": "bfe89e3a07f1bb3bcc8e049d8d3d7ff95b4a647a",
+    "sha256": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+    "changed": false,
+    "tasks": 30,
+    "tau_tasks": 12,
+    "soap_tasks": 18,
+    "old_files_preserved": 398,
+    "scientific_criteria_changed": false
+  },
+  "revisions": [
+    {
+      "id": "v1",
+      "decision": "BLOCKED",
+      "finding": "REC-P1-001",
+      "full_regression": "PENDING_RESOURCE_HEADROOM",
+      "runtime_recovery": "PENDING"
+    }
+  ]
+}

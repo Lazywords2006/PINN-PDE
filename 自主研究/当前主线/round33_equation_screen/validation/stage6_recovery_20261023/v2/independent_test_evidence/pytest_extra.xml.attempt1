@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="1.365" timestamp="2026-10-23T02:37:34.131386+08:00" hostname="Lazywords"><testcase classname="" name="" time="0.000"><error message="collection failure">D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\pluggy\_caller.py:197: in __call__
+    return self._hookexec(
+D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\pluggy\_manager.py:183: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+D:\CodexRuntime\venvs\r33-torch214\Lib\site-packages\_pytest\python.py:186: in pytest_collect_directory
+    has_pkginit = pkginit.is_file()
+                  ^^^^^^^^^^^^^^^^^
+C:\Users\LazyM\AppData\Local\Programs\Python\Python312\Lib\pathlib.py:892: in is_file
+    return S_ISREG(self.stat().st_mode)
+                   ^^^^^^^^^^^
+C:\Users\LazyM\AppData\Local\Programs\Python\Python312\Lib\pathlib.py:840: in stat
+    return os.stat(self, follow_symlinks=follow_symlinks)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: [WinError 1337] 安全 ID 结构无效。: 'D:\\WpSystem\\__init__.py'</error></testcase></testsuite></testsuites>

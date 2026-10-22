@@ -1,0 +1,120 @@
+{
+  "schema": "r33_stage6_independent_recovery_review_v2",
+  "review_date_local": "2026-10-23",
+  "overall": "STATIC_AND_LIGHTWEIGHT_FIX_VERIFIED_FULL_REGRESSION_AND_RUNTIME_PENDING",
+  "recovery_dispatch_allowed": false,
+  "full_regression_status": "PENDING_RESOURCE_HEADROOM",
+  "scientific_acceptance": "NOT_EVALUATED",
+  "training_started_by_reviewer": false,
+  "training_terminated_by_reviewer": false,
+  "code_modified_by_reviewer": false,
+  "sources": {
+    "runner_sha256": "fba758ebe71f1c6dead8acc7cd062c15284a7f908e0ad51038aed6755da8600b",
+    "test_sha256": "16844c7d45cbbd4b357e51140433b64b1ee13b7aa76e0f07d1117496b32b9c63",
+    "frozen_source_count": 12,
+    "frozen_source_mismatches": 0,
+    "v2_artifacts_checked": 14,
+    "v2_artifact_mismatches": 0,
+    "ast_changed_definitions_from_v1": [
+      "new_state",
+      "run"
+    ],
+    "ast_added_functions": [
+      "prevalidate_results_before_dispatch"
+    ],
+    "other_v1_production_definitions_changed": false,
+    "old_files_rehashed": 398,
+    "old_file_mismatches": 0
+  },
+  "prior_history": {
+    "v1_decision": "BLOCKED_BY_REC-P1-001",
+    "v1_report_unchanged": true,
+    "v1_runner_sha256": "468423c2e2fc6453c8a1d71eed2d12f0553b980c551a5fb4be133e3215be9b0f",
+    "v1_report_markdown_sha256": "7e54eef1626ec97101f7d8dd866bb0171bc1d53e51ac27cad4abd6ab16f5c70f",
+    "v1_report_json_sha256": "89d2ce0710cc176e7f79380a8209eb4e73bc2db52b749a51913c857e5d1b043c",
+    "first_full_regression": {
+      "tests": 71,
+      "passed": 70,
+      "failed": 1,
+      "current_full_pass": false
+    }
+  },
+  "findings": [
+    {
+      "id": "REC-P1-001",
+      "previous_status": "OPEN_V1",
+      "v2_status": "CLOSED_STATIC_AND_LIGHTWEIGHT_TESTED",
+      "fixes": [
+        "unconditional validation of recovery original_active_jobs before dispatch",
+        "previous completed and required_complete_result inherited across new_state",
+        "durable required flag retained through failed preflight and second Run"
+      ],
+      "negative_controls": {
+        "cases": 6,
+        "run_calls_per_case": 2,
+        "popen_calls": 0
+      },
+      "numeric_validator_executed": false,
+      "new_blocking_findings": []
+    }
+  ],
+  "independent_tests": {
+    "run_directory": "D:/CodexRuntime/runs/r33_stage6_20261022/independent_v2_review_20261023_0234",
+    "native_and_preflight": {
+      "tests": 18,
+      "passed": 18,
+      "failed": 0,
+      "seconds": 3.81,
+      "torch_imported": false,
+      "real_training_started": false,
+      "log_sha256": "b6b05389e130a5a4bc866c5295984c2b516f4261f61f249d520c182fcfb46d72",
+      "junit_sha256": "08db48005deaf0cf9cfe352784e0fef97208f14601c5c0c26784c5c0b52e52a8"
+    },
+    "persistence_and_identity_ast": {
+      "tests": 21,
+      "passed": 21,
+      "failed": 0,
+      "seconds": 3.85,
+      "torch_imported": false,
+      "real_training_started": false,
+      "log_sha256": "414de4f1baa22b04b378286112fd1d045155cc93112b3fb5408609726c4e0741",
+      "junit_sha256": "49650859b9de201ff6bb56632c40b77ea712ed23d55145c23402d05450c026f6",
+      "harness_sha256": "ccdcaf175e1e7ecdc9d8114e4c85abf529ffe8c5aa3011c09e9da6dec3facbf5"
+    },
+    "extra_attempt1": {
+      "status": "COLLECTION_ERROR_NOT_PRODUCT_TEST_PASS",
+      "error": "WinError1337 on D:/WpSystem/__init__.py due pytest root collection",
+      "retained": true,
+      "log_sha256": "7e6fa1b6e2c6de3d19ece891177cdfade7cf655b11fb1dbb2cb2aea5225095ee",
+      "junit_sha256": "cb0ebcf1dbf74194dddd07634a98330f2189a9c065d4ab23c28a95374caacc46",
+      "remedy": "explicit rootdir/confcutdir/importlib then same source passed"
+    },
+    "limitations": [
+      "AST-extracted production and test bodies",
+      "synthetic checkpoint serialization",
+      "scientific validator sentinel",
+      "not full Torch/config/numerical validation"
+    ]
+  },
+  "runtime_monitoring": {
+    "checked_local": "2026-10-23T02:39:44.3607419+08:00",
+    "observer_pid": 90488,
+    "attached_count": 42,
+    "attachment_complete": 1,
+    "process_exit_events": 0,
+    "observer_completed": false,
+    "runtime_status_sha256": "834ae2f4123a1298a25b02f906b4df69f1b1723e74b0491dc4a2db0128b6dc89",
+    "runtime_status_stale": true,
+    "status": "ATTACHMENT_EVIDENCE_ONLY_RUNTIME_RECOVERY_PENDING"
+  },
+  "required_before_dispatch": [
+    "42 unique identity-bound HANDLE exits zero and completed observer",
+    "all original locks released",
+    "current frozen-source full Torch regression PASS",
+    "immutable recovery evidence and new engineering gate",
+    "all 21 old full bundles forced revalidation on Run",
+    "remaining nine fixed jobs only; original 48h and scientific criteria preserved"
+  ],
+  "original_protocol_and_training_changed": false,
+  "final_30_of_30_accepted": false
+}

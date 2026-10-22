@@ -3,7 +3,11 @@ from dataclasses import asdict
 from pathlib import Path
 import base64
 import copy
+import errno
+import json
+import os
 import subprocess
+import threading
 
 import numpy as np
 import pytest
@@ -130,7 +134,8 @@ class FakeClock:
 
 
 def queue_fixture(monkeypatch, tmp_path, durations, exits=None, workers=2,
-                  deadline=100, memory=None, validation_error=False, launch_error=False):
+                  deadline=100, memory=None, validation_error=False, launch_error=False,
+                  persist_error_after=None, persist_recovers_at=None, report_error=False):
     clock, children, persisted = FakeClock(), [], []
     state = s.new_state()
     state["tasks"] = state["tasks"][:len(durations)]
@@ -162,8 +167,15 @@ def queue_fixture(monkeypatch, tmp_path, durations, exits=None, workers=2,
 
     def persist(runtime, current):
         persisted.append(copy.deepcopy(current))
+        if (persist_error_after is not None and len(persisted) >= persist_error_after and
+                (persist_recovers_at is None or len(persisted) < persist_recovers_at)):
+            raise PermissionError("simulated permanent status replacement denial")
 
-    monkeypatch.setattr(s, "validation_report", lambda *a, **k: None)
+    def report(*args, **kwargs):
+        if report_error:
+            raise PermissionError("simulated validation report replacement denial")
+
+    monkeypatch.setattr(s, "validation_report", report)
     result = s.execute_queue(tmp_path, state, workers, validate, popen=popen,
                              memory=memory or (lambda: {"available_physical_gib": 20,
                                                        "commit_used_fraction": .4}),
@@ -360,3 +372,524 @@ def test_result_validation_checks_budget_dense_grid_and_soap_accounting(monkeypa
     else:
         with pytest.raises(ValueError):
             validator(job)
+
+
+def test_json_replace_transient_denial_retries_without_truncating_destination(monkeypatch, tmp_path):
+    path = tmp_path / "status.json"
+    path.write_text('{"old": true}', encoding="utf-8")
+    original, calls, delays = s.os.replace, [], []
+
+    def blocked_then_replace(source, target):
+        calls.append(None)
+        if len(calls) < 3:
+            assert json.loads(path.read_text()) == {"old": True}
+            raise PermissionError("transient sharing denial")
+        return original(source, target)
+
+    monkeypatch.setattr(s.os, "replace", blocked_then_replace)
+    monkeypatch.setattr(s.time, "sleep", delays.append)
+    s.write_json(path, {"new": True})
+    assert s.read_json(path) == {"new": True}
+    assert len(calls) == 3 and delays == [.05, .1]
+    assert not list(tmp_path.glob("*.tmp"))
+
+
+def test_json_permanent_denial_is_bounded_and_retains_only_one_complete_temp(monkeypatch, tmp_path):
+    path = tmp_path / "status.json"
+    path.write_text('{"old": true}', encoding="utf-8")
+    calls, delays = [], []
+
+    def denied(*args):
+        calls.append(None)
+        raise PermissionError("permanent denial")
+
+    monkeypatch.setattr(s.os, "replace", denied)
+    monkeypatch.setattr(s.time, "sleep", delays.append)
+    for value in (1, 2, 3):
+        with pytest.raises(PermissionError):
+            s.write_json(path, {"new": value})
+    assert len(calls) == 3 * (len(s._REPLACE_DELAYS) + 1)
+    assert len(delays) == 3 * len(s._REPLACE_DELAYS)
+    assert s.read_json(path) == {"old": True}
+    temps = list(tmp_path.glob("*.tmp"))
+    assert len(temps) == 1 and s.read_json(temps[0]) == {"new": 3}
+
+
+def test_non_sharing_io_failure_is_not_retried(monkeypatch, tmp_path):
+    def no_space(*args):
+        raise OSError(errno.ENOSPC, "full disk")
+
+    monkeypatch.setattr(s.os, "replace", no_space)
+    monkeypatch.setattr(s.time, "sleep", lambda *a: pytest.fail("must not retry unrelated error"))
+    with pytest.raises(OSError) as exc:
+        s.write_json(tmp_path / "status.json", {})
+    assert exc.value.errno == errno.ENOSPC
+
+
+def test_shared_reader_allows_rename_and_preserves_detached_old_bytes(tmp_path):
+    path = tmp_path / "status.json"
+    s.write_json(path, {"version": "old"})
+    with s.open_shared_read(path) as reader:
+        # FILE_SHARE_DELETE enables rename. It does not guarantee MoveFileEx
+        # can replace an existing open destination on this Windows machine.
+        os.rename(path, tmp_path / "detached.json")
+        s.write_json(path, {"version": "new"})
+        assert json.loads(reader.read()) == {"version": "old"}
+    assert s.read_json(path) == {"version": "new"}
+
+
+def test_native_windows_transient_reader_lock_is_retried(tmp_path):
+    from ctypes import wintypes
+    kernel = s.ctypes.WinDLL("kernel32", use_last_error=True)
+    kernel.CreateFileW.argtypes = [wintypes.LPCWSTR, wintypes.DWORD, wintypes.DWORD,
+                                  s.ctypes.c_void_p, wintypes.DWORD, wintypes.DWORD, wintypes.HANDLE]
+    kernel.CreateFileW.restype = wintypes.HANDLE
+    kernel.CloseHandle.argtypes = [wintypes.HANDLE]
+    path = tmp_path / "status.json"
+    s.write_json(path, {"old": True})
+    handle = kernel.CreateFileW(str(path), 0x80000000, 3, None, 3, 0x80, None)
+    assert handle != s.ctypes.c_void_p(-1).value
+    release = threading.Timer(.25, lambda: kernel.CloseHandle(handle))
+    release.start()
+    try:
+        s.write_json(path, {"new": True})
+    finally:
+        release.join()
+    assert s.read_json(path) == {"new": True}
+
+
+def test_checkpoint_load_deserializes_detached_shared_snapshot(monkeypatch, tmp_path):
+    job = s.ALL_JOBS[0]
+    path = s.checkpoint(job, tmp_path)
+    path.parent.mkdir(parents=True)
+    path.write_bytes(b"old checkpoint")
+
+    def load(stream, **kwargs):
+        assert isinstance(stream, s.io.BytesIO) and stream.getvalue() == b"old checkpoint"
+        replacement = path.with_suffix(".replacement")
+        replacement.write_bytes(b"new checkpoint")
+        os.replace(replacement, path)
+        return {"state": {"phase": "adam", "step": 500, "done": 0}, "hist": {}}
+
+    monkeypatch.setattr(s.torch, "load", load)
+    assert s.checkpoint_progress(job, tmp_path)["adam_step"] == 500
+    assert path.read_bytes() == b"new checkpoint"
+
+
+def test_active_checkpoint_progress_never_opens_or_deserializes_file(monkeypatch, tmp_path):
+    job = s.ALL_JOBS[0]
+    path = s.checkpoint(job, tmp_path)
+    path.parent.mkdir(parents=True)
+    path.write_bytes(b"active writer snapshot")
+    monkeypatch.setattr(s, "open_shared_read", lambda *a: pytest.fail("must not open active checkpoint"))
+    monkeypatch.setattr(s.torch, "load", lambda *a, **k: pytest.fail("must not deserialize active checkpoint"))
+    row = s.checkpoint_progress(job, tmp_path, metadata_only=True)
+    assert row["checkpoint_metadata_only"] and row["checkpoint_size_bytes"] == path.stat().st_size
+    assert "phase" not in row and "progress_unavailable_reason" in row
+
+
+def test_checkpoint_held_worker_lock_blocks_read_even_when_caller_requests_parse(monkeypatch, tmp_path):
+    job = s.ALL_JOBS[0]
+    path = s.checkpoint(job, tmp_path)
+    path.parent.mkdir(parents=True)
+    path.write_bytes(b"still active")
+    monkeypatch.setattr(s, "open_shared_read", lambda *a: pytest.fail("must not open locked checkpoint"))
+    with s.worker_lock(job, tmp_path):
+        row = s.checkpoint_progress(job, tmp_path)
+    assert row["checkpoint_metadata_only"] and "phase" not in row
+    assert "持有锁" in row["progress_read_error"]
+
+
+def test_save_status_requests_metadata_only_for_every_running_task(monkeypatch, tmp_path):
+    state = s.new_state()
+    state["tasks"] = state["tasks"][:2]
+    state["tasks"][0]["state"] = "running"
+    state["tasks"][1]["state"] = "failed"
+    calls = []
+
+    def progress(job, runtime, *, metadata_only=False):
+        calls.append((job, metadata_only))
+        return {"checkpoint_metadata_only": metadata_only}
+
+    monkeypatch.setattr(s, "checkpoint_progress", progress)
+    s.save_status(tmp_path, state)
+    assert calls == [(tuple(state["tasks"][0]["job"]), True), (tuple(state["tasks"][1]["job"]), False)]
+
+
+def test_permanent_status_failure_stops_dispatch_and_drains_every_active(monkeypatch, tmp_path):
+    state, children, rows, _, elapsed = queue_fixture(monkeypatch, tmp_path, [8, 12, 20],
+                                                      persist_error_after=2)
+    assert len(children) == len(rows) == 2 and elapsed >= 14
+    assert state["phase"] == "review_required"
+    assert state["stop_dispatch_reason"] == "status_persistence_failure"
+    assert [row["state"] for row in state["tasks"]] == ["completed", "completed", "queued"]
+    assert all(row["pid"] is None and row["attempts"][-1]["exit_code"] == 0 for row in state["tasks"][:2])
+    snapshots = [s.read_json(path) for path in (tmp_path / "emergency").glob("*.json")]
+    assert sum(x["where"] == "worker_exit_during_drain" for x in snapshots) == 2
+    assert any(x["where"] == "queue_final_unpersisted" for x in snapshots)
+    assert state["status_persistence_failures"] <= 3  # retry throttled while polling continues
+
+
+def test_write_recovery_does_not_resume_dispatch_after_persistence_failure(monkeypatch, tmp_path):
+    state, children, _, snapshots, _ = queue_fixture(monkeypatch, tmp_path, [8, 12, 20],
+        persist_error_after=2, persist_recovers_at=3)
+    assert len(children) == 2 and state["phase"] == "review_required"
+    assert snapshots[-1]["stop_dispatch_reason"] == "status_persistence_failure"
+
+
+def test_validation_report_failure_stops_dispatch_and_drains(monkeypatch, tmp_path):
+    state, children, _, _, elapsed = queue_fixture(monkeypatch, tmp_path, [8, 12, 20], report_error=True)
+    assert len(children) == 2 and elapsed >= 14
+    assert state["phase"] == "review_required"
+    assert state["stop_dispatch_reason"] == "engineering_failure"
+    assert state["tasks"][-1]["state"] == "queued"
+    assert all(row["pid"] is None and row["attempts"][-1]["exit_code"] == 0 for row in state["tasks"][:2])
+
+
+def test_final_status_failure_never_claims_completed(monkeypatch, tmp_path):
+    state = s.new_state()
+    state["tasks"] = state["tasks"][:1]
+    state["tasks"][0].update(state="completed", validation={"job": state["tasks"][0]["job"]})
+
+    def denied(*args):
+        raise PermissionError("final denied")
+
+    s.execute_queue(tmp_path, state, 1, None, persist=denied)
+    assert state["phase"] == "review_required"
+    assert state["stop_dispatch_reason"] == "status_persistence_failure"
+
+
+def test_outer_exception_preserves_original_when_emergency_status_also_fails(monkeypatch, tmp_path):
+    monkeypatch.setattr(s, "verify_gate", lambda *a: {"source_hashes": {}})
+    monkeypatch.setattr(s, "check_no_live_workers", lambda *a: None)
+    monkeypatch.setattr(s, "existing_identity_checks", lambda *a: None)
+    monkeypatch.setattr(s, "normal_priority", lambda: None)
+    monkeypatch.setattr(s.torch, "set_num_threads", lambda *a: None)
+    monkeypatch.setattr(s.torch, "set_num_interop_threads", lambda *a: None)
+    monkeypatch.setattr(s, "sha256", lambda *a: "test-gate")
+    monkeypatch.setattr(s, "out_path", lambda *a: tmp_path / "no-result.json")
+    calls = []
+
+    def denied(*args):
+        calls.append(None)
+        if len(calls) == 1:
+            raise ValueError("original persistence error")
+        raise PermissionError("secondary persistence error")
+
+    monkeypatch.setattr(s, "save_status", denied)
+    with pytest.raises(ValueError, match="original persistence error"):
+        s.run(tmp_path, 1)
+    assert len(calls) == 2
+    snapshots = list((tmp_path / "emergency").glob("*.json"))
+    assert len(snapshots) == 1 and "secondary persistence error" in snapshots[0].read_text()
+
+
+def recovery_fixture(monkeypatch, tmp_path):
+    """Synthetic identity/exit evidence only; no process or research model runs."""
+    jobs = s.ALL_JOBS[:2]
+    monkeypatch.setattr(s, "ALL_JOBS", jobs)
+    current = {"pinn1d.py": "training", "SCREEN_PROTOCOL.md": "protocol", "stage6_runner.py": "patched"}
+    original = dict(current, **{"stage6_runner.py": "original"})
+    monkeypatch.setattr(s, "source_hashes", lambda: current)
+    results = tmp_path / "results"
+    results.mkdir()
+    monkeypatch.setattr(s, "out_path", lambda *job: results / (s.task_id(job) + ".json"))
+    s.out_path(*jobs[0]).write_text("{}", encoding="utf-8")
+    prior = s.new_state()
+    row = prior["tasks"][0]
+    command = s.command_for(jobs[0], tmp_path)
+    row.update(state="running", pid=101, command=command,
+               attempts=[{"pid": 101, "command": command, "started_unix": 100.}])
+    prior_gate = {"passed": True, "prereg_commit": s.PREREG, "runtime": str(tmp_path.resolve()),
+                  "source_hashes": original, "tasks": [list(j) for j in jobs]}
+    prior_gate_path, prior_status_path = tmp_path / "prior_gate.json", tmp_path / "prior_status.json"
+    s.write_json(prior_gate_path, prior_gate)
+    s.write_json(prior_status_path, prior)
+    processes, attached, exits = [], [], []
+    for pid, ppid, role in ((101, prior["runner_pid"], "launcher"), (102, 101, "worker")):
+        sampled = {"pid": pid, "ppid": ppid, "creation_filetime_utc": 100000 + pid,
+                   "executable_path": "C:\\synthetic\\python.exe", "command_line": json.dumps(command)}
+        processes.append(sampled)
+        attached.append(dict(sampled, event="attached", utc="1970-01-01T00:02:00+00:00",
+                             argv=command, role=role, job=list(jobs[0])))
+        exits.append({"event": "process_exited", "utc": "1970-01-01T00:03:20+00:00",
+                      "pid": pid, "exit_code": 0, "identity_verified": True, "role": role,
+                      "job": list(jobs[0]), "creation_filetime_utc": sampled["creation_filetime_utc"]})
+    inventory = {"tasks": prior["tasks"], "original_gate_sha256": s.sha256(prior_gate_path),
+                 "original_runner_pid": prior["runner_pid"], "workers": processes}
+    inventory_path = tmp_path / "process_inventory.json"
+    s.write_json(inventory_path, inventory)
+    observer_path = tmp_path / "synthetic_observer.py"
+    observer_path.write_text("# synthetic test source, never executed\n", encoding="utf-8")
+    events = [{"event": "observer_started", "snapshot_sha256": s.sha256(inventory_path),
+               "observer_source_sha256": s.sha256(observer_path),
+               "original_gate_sha256": s.sha256(prior_gate_path)}, *attached, *exits,
+              {"event": "observer_completed", "all_handles_signaled": True}]
+    events_path = tmp_path / "events.jsonl"
+    events_path.write_text("".join(json.dumps(e) + "\n" for e in events), encoding="utf-8")
+    error_path = tmp_path / "runner.stderr.log"
+    error_path.write_text("synthetic WinError 5 fixture\n", encoding="utf-8")
+    incident_path = tmp_path / "snapshot_manifest.json"
+    s.write_json(incident_path, {"files": [{"snapshot": str(prior_gate_path), "sha256": s.sha256(prior_gate_path)}]})
+    paths = dict(prior_gate=prior_gate_path, prior_status=prior_status_path, process_inventory=inventory_path,
+                 observer_events=events_path, observer_source=observer_path, runner_stderr=error_path,
+                 incident_manifest=incident_path)
+    manifest = {"schema": "r33_stage6_recovery_manifest_v1", "incident_id": "synthetic-incident",
+                "artifacts": {key: {"path": str(path), "sha256": s.sha256(path)} for key, path in paths.items()}}
+    manifest_path = tmp_path / "recovery_manifest.json"
+    s.write_json(manifest_path, manifest)
+    return dict(jobs=jobs, current=current, original=original, prior=prior, paths=paths,
+                events=events, manifest=manifest, manifest_path=manifest_path)
+
+
+def bind_changed_events(fixture):
+    path = fixture["paths"]["observer_events"]
+    path.write_text("".join(json.dumps(e) + "\n" for e in fixture["events"]), encoding="utf-8")
+    fixture["manifest"]["artifacts"]["observer_events"]["sha256"] = s.sha256(path)
+    s.write_json(fixture["manifest_path"], fixture["manifest"])
+
+
+def test_recovery_binds_original_sources_exit_observations_and_preserves_deadline(monkeypatch, tmp_path):
+    fixture = recovery_fixture(monkeypatch, tmp_path)
+    lineage = s.recovery_lineage(fixture["manifest_path"], tmp_path)
+    recovered = s.reconcile_recovered_attempts(fixture["prior"], lineage,
+                                              s.sha256(fixture["paths"]["prior_status"]))
+    attempt = recovered["tasks"][0]["attempts"][0]
+    assert attempt["exit_code"] == attempt["worker_exit_code"] == 0
+    assert attempt["source_gate_sha256"] == lineage["prior_gate_sha256"]
+    assert attempt["wall_seconds"] == 100 and attempt["supervision_interrupted"]
+    assert "exit_code" not in fixture["prior"]["tasks"][0]["attempts"][0]
+    assert recovered["source_lineage"][0]["source_hashes"] == fixture["original"]
+    resumed = s.new_state(recovered)
+    assert resumed["review_deadline_unix"] == fixture["prior"]["review_deadline_unix"]
+    assert resumed["failure_history"][0]["reason"] == "runner_permission_error_orphaned_workers"
+    assert resumed["applied_recoveries"] == [lineage["manifest"]["sha256"]]
+    s.require_reviewed_previous_attempts(recovered)
+    assert s.reconcile_recovered_attempts(recovered, lineage, "new-status-hash") is recovered
+
+
+@pytest.mark.parametrize("mutation", ["missing_exit", "duplicate_exit", "command", "creation", "parent",
+                                      "nonzero_exit", "unverified_exit", "missing_complete", "false_complete",
+                                      "missing_result", "scientific_source", "hash_changed"])
+def test_recovery_rejects_incomplete_mismatched_failed_or_changed_evidence(monkeypatch, tmp_path, mutation):
+    fixture = recovery_fixture(monkeypatch, tmp_path)
+    events = fixture["events"]
+    if mutation == "missing_exit":
+        events.pop(-2)
+    elif mutation == "duplicate_exit":
+        events.insert(-1, copy.deepcopy(events[-2]))
+    elif mutation == "command":
+        events[2]["argv"] = ["python", "different args"]
+    elif mutation == "creation":
+        events[2]["creation_filetime_utc"] += 100
+    elif mutation == "parent":
+        events[2]["ppid"] = 999
+    elif mutation == "nonzero_exit":
+        events[-2]["exit_code"] = 259
+    elif mutation == "unverified_exit":
+        events[-2]["identity_verified"] = False
+    elif mutation == "missing_complete":
+        events.pop()
+    elif mutation == "false_complete":
+        events[-1]["all_handles_signaled"] = False
+    elif mutation == "missing_result":
+        s.out_path(*fixture["jobs"][0]).unlink()
+    elif mutation == "scientific_source":
+        fixture["current"]["pinn1d.py"] = "unauthorized change"
+    elif mutation == "hash_changed":
+        fixture["paths"]["observer_source"].write_text("changed", encoding="utf-8")
+    bind_changed_events(fixture)
+    with pytest.raises(ValueError):
+        s.recovery_lineage(fixture["manifest_path"], tmp_path)
+
+
+def test_recovery_manifest_cannot_change_after_gate(monkeypatch, tmp_path):
+    fixture = recovery_fixture(monkeypatch, tmp_path)
+    lineage = s.recovery_lineage(fixture["manifest_path"], tmp_path)
+    s.verify_recovery_bindings(lineage)
+    fixture["manifest_path"].write_text("{}", encoding="utf-8")
+    with pytest.raises(ValueError, match="冻结恢复证据变化"):
+        s.verify_recovery_bindings(lineage)
+
+
+def test_recovery_refuses_to_overwrite_unreviewed_status(monkeypatch, tmp_path):
+    fixture = recovery_fixture(monkeypatch, tmp_path)
+    lineage = s.recovery_lineage(fixture["manifest_path"], tmp_path)
+    with pytest.raises(ValueError, match="status"):
+        s.reconcile_recovered_attempts(fixture["prior"], lineage, "different-status")
+
+
+def test_unknown_exit_never_retries_and_known_failure_requires_explicit_job():
+    prior = s.new_state()
+    row = prior["tasks"][0]
+    row.update(state="running", attempts=[{"pid": 100}])
+    with pytest.raises(ValueError, match="实测退出"):
+        s.require_reviewed_previous_attempts(prior, [row["id"]])
+    row.update(state="failed", attempts=[{"pid": 100, "exit_code": 1}])
+    with pytest.raises(ValueError, match="逐项明确"):
+        s.require_reviewed_previous_attempts(prior)
+    s.require_reviewed_previous_attempts(prior, [row["id"]])
+    with pytest.raises(ValueError, match="没有失败证据"):
+        s.require_reviewed_previous_attempts(prior, [row["id"], "unknown-job"])
+
+
+@pytest.mark.parametrize("invalid_original_bundle", [False, True])
+def test_recovery_validates_old_result_before_any_new_dispatch_and_binds_new_gate(monkeypatch, tmp_path,
+                                                                               invalid_original_bundle):
+    fixture = recovery_fixture(monkeypatch, tmp_path)
+    lineage = s.recovery_lineage(fixture["manifest_path"], tmp_path)
+    (tmp_path / "status.json").write_bytes(fixture["paths"]["prior_status"].read_bytes())
+    validation = tmp_path / "validation"
+    validation.mkdir()
+    monkeypatch.setattr(s, "VALIDATION", validation)
+    gate = {"source_hashes": fixture["current"], "recovery_lineage": lineage}
+    s.write_json(validation / "engineering_gate.json", gate)
+    monkeypatch.setattr(s, "verify_gate", lambda *a: gate)
+    monkeypatch.setattr(s, "existing_identity_checks", lambda *a: None)
+    monkeypatch.setattr(s, "normal_priority", lambda: None)
+    monkeypatch.setattr(s.torch, "set_num_threads", lambda *a: None)
+    monkeypatch.setattr(s.torch, "set_num_interop_threads", lambda *a: None)
+    monkeypatch.setattr(s, "check_old_results", lambda: {"files": 398, "unchanged": True})
+    validated, launched = [], []
+
+    def validate(job):
+        validated.append(job)
+        if invalid_original_bundle:
+            raise ValueError("synthetic original complete-bundle/budget validation failure")
+        return {"job": list(job)}
+
+    monkeypatch.setattr(s, "ResultValidator", lambda: validate)
+
+    class Child:
+        pid = 123
+
+        def poll(self):
+            return 0
+
+    def popen(command, **kwargs):
+        assert validated == [fixture["jobs"][0]]
+        launched.append(command)
+        return Child()
+
+    execute = s.execute_queue
+    clock = FakeClock()
+    monkeypatch.setattr(s, "execute_queue", lambda runtime, state, workers, validator:
+                        execute(runtime, state, workers, validator, popen=popen, sleep=clock.sleep, clock=clock,
+                                memory=lambda: {"available_physical_gib": 20, "commit_used_fraction": .4}))
+    if invalid_original_bundle:
+        with pytest.raises(ValueError, match="original complete-bundle"):
+            s.run(tmp_path, 1)
+        assert not launched
+    else:
+        assert s.run(tmp_path, 1) == 2  # 2-task fixture cannot claim real 30/30 completion.
+        assert len(launched) == 1 and validated == fixture["jobs"]
+        state = s.read_json(tmp_path / "status.json")
+        assert state["tasks"][0]["attempts"][0]["source_gate_sha256"] == lineage["prior_gate_sha256"]
+        assert state["tasks"][1]["attempts"][0]["source_gate_sha256"] == s.sha256(validation / "engineering_gate.json")
+        assert len(state["source_lineage"]) == 2
+        assert state["source_lineage"][1]["jobs"] == [list(fixture["jobs"][1])]
+
+
+@pytest.mark.parametrize("prior_kind", ["recovery", "completed"])
+@pytest.mark.parametrize("removed", ["json", "bundle", "bundle_with_checkpoint"])
+def test_previously_finished_artifact_loss_after_gate_never_dispatches_even_on_second_run(
+        monkeypatch, tmp_path, prior_kind, removed):
+    """Gate is valid first, then files disappear; a checkpoint is not a result.
+
+    The real identity/checkpoint path runs against a minimally valid identity
+    checkpoint. The scientific validator is a complete-bundle sentinel here;
+    its numerical correctness is covered by the existing validator tests.
+    """
+    fixture = recovery_fixture(monkeypatch, tmp_path)
+    job = fixture["jobs"][0]
+    lineage = s.recovery_lineage(fixture["manifest_path"], tmp_path)
+    previous = fixture["prior"]
+    gate = {"source_hashes": fixture["current"]}
+    if prior_kind == "recovery":
+        gate["recovery_lineage"] = lineage
+    else:
+        previous = s.reconcile_recovered_attempts(previous, lineage,
+                                                  s.sha256(fixture["paths"]["prior_status"]))
+        previous["tasks"][0]["state"] = "completed"
+    s.write_json(tmp_path / "status.json", previous)
+    validation = tmp_path / "validation"
+    validation.mkdir()
+    monkeypatch.setattr(s, "VALIDATION", validation)
+    s.write_json(validation / "engineering_gate.json", gate)
+    monkeypatch.setattr(s, "verify_gate", lambda *a: gate)
+    monkeypatch.setattr(s, "normal_priority", lambda: None)
+    monkeypatch.setattr(s.torch, "set_num_threads", lambda *a: None)
+    monkeypatch.setattr(s.torch, "set_num_interop_threads", lambda *a: None)
+    monkeypatch.setattr(s, "check_old_results", lambda: {"files": 398, "unchanged": True})
+    monkeypatch.setattr(s, "HERE", tmp_path)
+
+    result = s.out_path(*job)
+    parts = (result, result.with_suffix(".pt"), result.with_suffix(".model.pt"))
+    for path in parts[1:]:
+        path.write_bytes(b"synthetic complete-bundle sentinel")
+    if removed != "bundle":
+        ckpt = s.checkpoint(job, tmp_path)
+        ckpt.parent.mkdir(parents=True)
+        # This passes the actual unchanged checkpoint identity validator, but
+        # cannot substitute for a result that was required to remain complete.
+        torch.save({"identity": {"problem": s.get_problem(job[1]).name,
+                                 "method": job[2], "config": asdict(s.config(job))}}, ckpt)
+        s.validate_checkpoint(ckpt, s.get_problem(job[1]), job[2], s.config(job))
+    for path in (parts[:1] if removed == "json" else parts):
+        path.unlink()
+    assert s.existing_identity_checks(tmp_path) == ([] if removed == "bundle" else [
+        {"job": list(job), "checkpoint": str(s.checkpoint(job, tmp_path)),
+         "sha256": s.sha256(s.checkpoint(job, tmp_path))}])
+    validated, launched = [], []
+
+    def validate(candidate):
+        validated.append(candidate)
+        if candidate == job and not all(path.is_file() for path in parts):
+            raise ValueError("required prior complete bundle is missing")
+        return {"job": list(candidate)}
+
+    monkeypatch.setattr(s, "ResultValidator", lambda: validate)
+
+    class Child:
+        pid = 123
+
+        def poll(self):
+            return 0
+
+    def popen(command, **kwargs):
+        launched.append(command)
+        return Child()
+
+    execute = s.execute_queue
+    clock = FakeClock()
+    monkeypatch.setattr(s, "execute_queue", lambda runtime, state, workers, validator:
+                        execute(runtime, state, workers, validator, popen=popen, sleep=clock.sleep, clock=clock,
+                                memory=lambda: {"available_physical_gib": 20, "commit_used_fraction": .4}))
+    for _ in range(2):
+        with pytest.raises(ValueError, match="required prior complete bundle"):
+            s.run(tmp_path, 1)
+        assert launched == []
+        persisted = s.read_json(tmp_path / "status.json")
+        assert persisted["tasks"][0]["required_complete_result"] is True
+        assert persisted["phase"] == "review_required"
+    assert validated == [job, job]
+
+
+def test_prevalidation_marks_all_required_jobs_completed_before_queue(monkeypatch, tmp_path):
+    jobs = s.ALL_JOBS[:3]
+    monkeypatch.setattr(s, "ALL_JOBS", jobs)
+    monkeypatch.setattr(s, "out_path", lambda *job: tmp_path / (s.task_id(job) + ".json"))
+    previous = s.new_state()
+    previous["tasks"][0]["state"] = "completed"
+    state = s.new_state(previous)
+    seen = []
+
+    def validate(job):
+        seen.append(job)
+        return {"job": list(job), "complete_and_recomputed": True}
+
+    gate = {"recovery_lineage": {"original_active_jobs": [list(jobs[1])]}}
+    s.prevalidate_results_before_dispatch(state, gate, validate)
+    assert seen == jobs[:2]
+    assert [r["state"] for r in state["tasks"]] == ["completed", "completed", "queued"]
+    assert [r["required_complete_result"] for r in state["tasks"]] == [True, True, False]

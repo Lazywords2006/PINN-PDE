@@ -1,0 +1,41 @@
+{
+  "files": [
+    {
+      "source": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\independent_v2_review_20261023_0234\\pytest.log",
+      "file": "pytest.log",
+      "sha256": "b6b05389e130a5a4bc866c5295984c2b516f4261f61f249d520c182fcfb46d72"
+    },
+    {
+      "source": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\independent_v2_review_20261023_0234\\pytest.xml",
+      "file": "pytest.xml",
+      "sha256": "08db48005deaf0cf9cfe352784e0fef97208f14601c5c0c26784c5c0b52e52a8"
+    },
+    {
+      "source": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\independent_v2_review_20261023_0234\\pytest_extra.log",
+      "file": "pytest_extra.log",
+      "sha256": "414de4f1baa22b04b378286112fd1d045155cc93112b3fb5408609726c4e0741"
+    },
+    {
+      "source": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\independent_v2_review_20261023_0234\\pytest_extra.xml",
+      "file": "pytest_extra.xml",
+      "sha256": "49650859b9de201ff6bb56632c40b77ea712ed23d55145c23402d05450c026f6"
+    },
+    {
+      "source": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\independent_v2_review_20261023_0234\\pytest_extra.log.attempt1",
+      "file": "pytest_extra.log.attempt1",
+      "sha256": "7e6fa1b6e2c6de3d19ece891177cdfade7cf655b11fb1dbb2cb2aea5225095ee"
+    },
+    {
+      "source": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\independent_v2_review_20261023_0234\\pytest_extra.xml.attempt1",
+      "file": "pytest_extra.xml.attempt1",
+      "sha256": "cb0ebcf1dbf74194dddd07634a98330f2189a9c065d4ab23c28a95374caacc46"
+    },
+    {
+      "source": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\independent_v2_review_20261023_0234\\independent_extra_checks.py",
+      "file": "independent_extra_checks.py",
+      "sha256": "ccdcaf175e1e7ecdc9d8114e4c85abf529ffe8c5aa3011c09e9da6dec3facbf5"
+    }
+  ],
+  "recorded_utc": "2026-10-22T18:44:38.1216788Z",
+  "scope": "Byte-identical archive of closed independent test outputs; full Torch regression remains pending"
+}

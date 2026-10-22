@@ -1,0 +1,79 @@
+{
+  "schema": "r33_stage6_engineering_repair_review_v2",
+  "frozen_utc": "2026-10-22T18:31:03.731247+00:00",
+  "status": "STATIC_REVIEW_READY_FULL_REGRESSION_PENDING",
+  "complete_regression_status": "PENDING_RESOURCE_HEADROOM",
+  "recovery_dispatch_blocked": true,
+  "v1_evidence_sha256": "f755449d869e1cc0ed53c1d142c571503f0af197b600f288592da7b0e73613b0",
+  "v1_artifact_hashes_reverified": true,
+  "all_20_incident_snapshots_unchanged": true,
+  "original_gate_sha256": "bb7250d65bfee8b44858c2ae734e540eee0bf7d26e2d5a68bbc2b7d40ff6e898",
+  "original_gate_unchanged": true,
+  "source_hashes": {
+    "pinn1d.py": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+    "problems.py": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+    "screen.py": "26eb4a06e67350098d7099f2411ecdd2ad5cdf0f314c8f7080b800ae24e67695",
+    "run_artifacts.py": "bd463ae18d21ef71b9a630fbd77426c1a8c616b77b2ba30cebdb80d104ae3a90",
+    "soap_baseline.py": "76ce746f81fe006b3782ee413383de6852a033299504ffd5cde0dd8292557ac2",
+    "stage5_support.py": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf",
+    "third_party/soap_official.py": "6b2328e53fb3cb58cf18b21e706f6f17e7f7dcac83c8abb1053fa74d6e0ca592",
+    "stage6_runner.py": "fba758ebe71f1c6dead8acc7cd062c15284a7f908e0ad51038aed6755da8600b",
+    "run_stage6.ps1": "4aea35d292fdb6a33331783d810fec5d3ea88b2e892e2acca0fdec23777c06db",
+    "test_stage6_runner.py": "16844c7d45cbbd4b357e51140433b64b1ee13b7aa76e0f07d1117496b32b9c63",
+    "SCREEN_PROTOCOL.md": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+    "validation/stage6_20261022/soap_upstream_blob.json": "cb9a6689ab864c2ceea5de92b72ff8db3174a5edf623006257868918c45f6fb5"
+  },
+  "only_changed_gate_bound_sources": [
+    "stage6_runner.py",
+    "test_stage6_runner.py"
+  ],
+  "scientific_protocol_vendor_sources_unchanged": true,
+  "repair": "Mandatory prior-result validation before any dispatch, with durable required_complete_result inherited across failed preflight reruns",
+  "negative_controls": {
+    "cases": 6,
+    "run_attempts_per_case": 2,
+    "popen_calls_per_case": 0,
+    "origins": [
+      "gate recovery original_active_jobs",
+      "previous completed"
+    ],
+    "losses": [
+      "JSON removed with valid identity checkpoint",
+      "entire bundle removed",
+      "only valid identity checkpoint remains"
+    ]
+  },
+  "lightweight_regression": {
+    "counts": {
+      "tests": 18,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    "torch_imported": false,
+    "scope": "9 native I/O checks and 9 AST-extracted orchestration checks; synthetic checkpoint serialization and scientific-validator sentinel",
+    "full_torch_regression": false
+  },
+  "ast_parse_passed": true,
+  "git_diff_check_passed": true,
+  "artifact_sha256": {
+    "v2\\frozen_sources\\source_hashes.json": "ea03bd28336774bf42b17ac807759db3187798435c9d822bdc2ac2ffc27c17b2",
+    "v2\\frozen_sources\\stage6_runner.py": "fba758ebe71f1c6dead8acc7cd062c15284a7f908e0ad51038aed6755da8600b",
+    "v2\\frozen_sources\\test_stage6_runner.py": "16844c7d45cbbd4b357e51140433b64b1ee13b7aa76e0f07d1117496b32b9c63",
+    "v1_frozen_sources\\source_hashes.json": "10df1153cf8048aa26059027afa23bbe7fd851088430c90ae56bcf23c36002c0",
+    "v1_frozen_sources\\stage6_runner.py": "468423c2e2fc6453c8a1d71eed2d12f0553b980c551a5fb4be133e3215be9b0f",
+    "v1_frozen_sources\\test_stage6_runner.py": "fa43f9290fb1fa952732bd2af45889f52b473caf1c7eacde4423bf46ee3525bc",
+    "v2\\REVIEW.md": "d336a2f106f8cc82be7f33a264f8351296af495c337df0f97ecbd3415ed6a872",
+    "v2\\preflight_checks.py": "7f42f787ebf2b1860a7e91d3f2f0ed52fea801e5909bd3773d1b8a60c67c7f9c",
+    "v2\\lightweight.log": "9fd262215a4d247f0edc8fe4470e12be57f410119fe7c4500bb06f4a707df207",
+    "v2\\lightweight.xml": "e2558737bd67dce42f58eaf99bcdbda052e574b0a1941b8714f290a1802c7db3",
+    "v2\\runner_fix_review.diff": "73b50d56ef70c0820495bf98cd323f374da7431438097552b436ba84ebf8fb4b",
+    "v2\\v1_to_v2.diff": "a2e42b4a7b403319f7a15733f6c89d7218b4ebf5a1e9c89f11b5474f5ecaaa8f",
+    "v2\\freeze_evidence.py": "21f53e8d9950ab52896ba900443b29fe195c8be3cf34a41b11503b19eb7a1cdb",
+    "v2\\git_blob_integrity.json": "0c9783ad231fb676ed0c7ffa969592fc1bef5ede0a699d678f27856166a53e8a"
+  },
+  "new_gate_published": false,
+  "real_training_started": false,
+  "training_terminated": false,
+  "scientific_acceptance": "NOT_EVALUATED_BY_THIS_REPAIR"
+}

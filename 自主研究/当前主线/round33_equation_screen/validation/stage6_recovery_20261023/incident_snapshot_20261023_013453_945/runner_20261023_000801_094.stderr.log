@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "E:\PINN-PDE\自主研究\当前主线\round33_equation_screen\stage6_runner.py", line 626, in run
+    validated = execute_queue(runtime, state, workers, validator)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\PINN-PDE\自主研究\当前主线\round33_equation_screen\stage6_runner.py", line 593, in execute_queue
+    persist(runtime, state)
+  File "E:\PINN-PDE\自主研究\当前主线\round33_equation_screen\stage6_runner.py", line 495, in save_status
+    write_json(Path(runtime) / "status.json", state)
+  File "E:\PINN-PDE\自主研究\当前主线\round33_equation_screen\stage6_runner.py", line 67, in write_json
+    os.replace(tmp, path)
+PermissionError: [WinError 5] 拒绝访问。: 'D:\\CodexRuntime\\runs\\r33_stage6_20261022\\status.json.42100.tmp' -> 'D:\\CodexRuntime\\runs\\r33_stage6_20261022\\status.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PINN-PDE\自主研究\当前主线\round33_equation_screen\stage6_runner.py", line 679, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "E:\PINN-PDE\自主研究\当前主线\round33_equation_screen\stage6_runner.py", line 672, in main
+    return run(args.runtime, args.workers, args.resource_review_note)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\PINN-PDE\自主研究\当前主线\round33_equation_screen\stage6_runner.py", line 640, in run
+    save_status(runtime, state)
+  File "E:\PINN-PDE\自主研究\当前主线\round33_equation_screen\stage6_runner.py", line 495, in save_status
+    write_json(Path(runtime) / "status.json", state)
+  File "E:\PINN-PDE\自主研究\当前主线\round33_equation_screen\stage6_runner.py", line 67, in write_json
+    os.replace(tmp, path)
+PermissionError: [WinError 5] 拒绝访问。: 'D:\\CodexRuntime\\runs\\r33_stage6_20261022\\status.json.42100.tmp' -> 'D:\\CodexRuntime\\runs\\r33_stage6_20261022\\status.json'

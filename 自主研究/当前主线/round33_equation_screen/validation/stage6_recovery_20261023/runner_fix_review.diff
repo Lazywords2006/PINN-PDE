@@ -1,0 +1,1037 @@
+diff --git "a/\350\207\252\344\270\273\347\240\224\347\251\266/\345\275\223\345\211\215\344\270\273\347\272\277/round33_equation_screen/stage6_runner.py" "b/\350\207\252\344\270\273\347\240\224\347\251\266/\345\275\223\345\211\215\344\270\273\347\272\277/round33_equation_screen/stage6_runner.py"
+index 471b435..c7f2682 100644
+--- "a/\350\207\252\344\270\273\347\240\224\347\251\266/\345\275\223\345\211\215\344\270\273\347\272\277/round33_equation_screen/stage6_runner.py"
++++ "b/\350\207\252\344\270\273\347\240\224\347\251\266/\345\275\223\345\211\215\344\270\273\347\272\277/round33_equation_screen/stage6_runner.py"
+@@ -6,10 +6,12 @@ every config field is serialized through --set, including default-valued fields.
+ from __future__ import annotations
+ 
+ import argparse
++import copy
+ import ctypes
+ from dataclasses import asdict, replace
+ from datetime import datetime, timezone
+ import hashlib
++import io
+ import json
+ import os
+ from pathlib import Path
+@@ -18,6 +20,7 @@ import subprocess
+ import sys
+ import time
+ import traceback
++import uuid
+ import xml.etree.ElementTree as ET
+ 
+ import numpy as np
+@@ -53,6 +56,8 @@ ALL_JOBS = TAU_JOBS + SOAP_JOBS
+ MAX_WORKERS = 24
+ GIB = 1024 ** 3
+ _PROGRESS_CACHE = {}
++_REPLACE_DELAYS = (0.05, 0.1, 0.2, 0.4, 0.8, 0.8, 0.8, 0.8, 0.8)
++ORCHESTRATION_FILES = {"stage6_runner.py", "run_stage6.ps1", "test_stage6_runner.py"}
+ 
+ 
+ def now():
+@@ -62,13 +67,66 @@ def now():
+ def write_json(path, value):
+     path = Path(path)
+     path.parent.mkdir(parents=True, exist_ok=True)
++    # One writer per process/path under the runner lock. Reuse its failed temp
++    # so permanent denial cannot leave a new full status file on every poll.
+     tmp = path.with_name(path.name + f".{os.getpid()}.tmp")
+     tmp.write_text(json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
+-    os.replace(tmp, path)
++    # Windows can temporarily deny replacement. Never delete the old
++    # destination or truncate it as a fallback; retain the complete temp on failure.
++    for attempt in range(len(_REPLACE_DELAYS) + 1):
++        try:
++            os.replace(tmp, path)
++            return
++        except OSError as exc:
++            transient = isinstance(exc, PermissionError) or getattr(exc, "winerror", None) in (5, 32, 33)
++            if not transient or attempt == len(_REPLACE_DELAYS):
++                raise
++            time.sleep(_REPLACE_DELAYS[attempt])
++
++
++def open_shared_read(path):
++    """Use delete-sharing for short Windows reads; replacement may still need retry."""
++    if os.name != "nt":
++        return Path(path).open("rb")
++    import msvcrt
++    from ctypes import wintypes
++    kernel = ctypes.WinDLL("kernel32", use_last_error=True)
++    kernel.CreateFileW.argtypes = [wintypes.LPCWSTR, wintypes.DWORD, wintypes.DWORD,
++                                  ctypes.c_void_p, wintypes.DWORD, wintypes.DWORD, wintypes.HANDLE]
++    kernel.CreateFileW.restype = wintypes.HANDLE
++    kernel.CloseHandle.argtypes = [wintypes.HANDLE]
++    # GENERIC_READ; FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE.
++    handle = kernel.CreateFileW(str(Path(path)), 0x80000000, 7, None, 3, 0x80, None)
++    if handle == ctypes.c_void_p(-1).value:
++        raise ctypes.WinError(ctypes.get_last_error())
++    try:
++        fd = msvcrt.open_osfhandle(handle, os.O_RDONLY | os.O_BINARY)
++    except BaseException:
++        kernel.CloseHandle(handle)
++        raise
++    return os.fdopen(fd, "rb")
+ 
+ 
+ def read_json(path):
+-    return json.loads(Path(path).read_text(encoding="utf-8-sig"))
++    with open_shared_read(path) as handle:
++        return json.loads(handle.read().decode("utf-8-sig"))
++
++
++def emergency_state(runtime, state, where, error):
++    """Independent evidence on a unique path; reporting failure never orphans workers."""
++    payload = {"utc": now(), "where": where, "error": str(error), "state": state}
++    path = Path(runtime) / "emergency" / f"{os.getpid()}_{time.time_ns()}_{uuid.uuid4().hex}.json"
++    try:
++        write_json(path, payload)
++        print(f"EMERGENCY_STATE {path}: {where}: {error}", file=sys.stderr, flush=True)
++    except Exception as exc:
++        # A full disk/permission error may affect both locations. The launcher's
++        # stderr is a separate already-open stream; retain exit observations there.
++        try:
++            print("EMERGENCY_STATE_FALLBACK " + json.dumps(dict(payload, evidence_write_error=repr(exc)),
++                  ensure_ascii=False, allow_nan=False), file=sys.stderr, flush=True)
++        except Exception:
++            pass
+ 
+ 
+ def task_id(job):
+@@ -270,6 +328,173 @@ def check_no_live_workers(runtime):
+             pass
+ 
+ 
++def recovery_lineage(manifest_path, runtime):
++    """Bind a completed HANDLE observation to the original 21 task attempts.
++
++    This does not adopt live workers or infer success from a missing PID. Failed
++    or unknown exits require a separate explicit decision, never an automatic retry.
++    """
++    manifest_path = Path(manifest_path).resolve()
++    manifest = read_json(manifest_path)
++    if manifest.get("schema") != "r33_stage6_recovery_manifest_v1" or not manifest.get("incident_id"):
++        raise ValueError("恢复 manifest 类型或 incident_id 错误")
++    required = {"prior_gate", "prior_status", "process_inventory", "observer_events",
++                "observer_source", "runner_stderr", "incident_manifest"}
++    if set(manifest.get("artifacts", {})) != required:
++        raise ValueError("恢复 manifest 必须完整绑定原门/状态/进程身份/观察日志/源码/故障日志/快照清单")
++    artifacts = copy.deepcopy(manifest["artifacts"])
++    for entry in artifacts.values():
++        path = Path(entry["path"]).resolve()
++        if sha256(path) != entry["sha256"]:
++            raise ValueError(f"恢复证据 hash 不匹配：{path}")
++        entry["path"] = str(path)
++    prior_gate = read_json(artifacts["prior_gate"]["path"])
++    prior = read_json(artifacts["prior_status"]["path"])
++    inventory = read_json(artifacts["process_inventory"]["path"])
++    frozen = read_json(artifacts["incident_manifest"]["path"])
++    for entry in frozen["files"]:
++        if sha256(entry["snapshot"]) != entry["sha256"]:
++            raise ValueError(f"事故原始快照发生变化：{entry['snapshot']}")
++    current_hashes = source_hashes()
++    original_hashes = prior_gate["source_hashes"]
++    if set(current_hashes) != set(original_hashes) or any(
++            current_hashes[name] != value for name, value in original_hashes.items() if name not in ORCHESTRATION_FILES):
++        raise ValueError("恢复仅允许编排源变化；训练/协议/供应商源码必须与原门完全相同")
++    if (prior_gate.get("passed") is not True or prior_gate.get("prereg_commit") != PREREG or
++            prior.get("prereg_commit") != PREREG or prior_gate["tasks"] != [list(j) for j in ALL_JOBS] or
++            Path(prior_gate["runtime"]).resolve() != Path(runtime).resolve()):
++        raise ValueError("恢复原门的协议、任务集合或运行目录不符")
++    tasks = {tuple(row["job"]): row for row in prior["tasks"]}
++    if len(prior["tasks"]) != len(tasks) or set(tasks) != set(ALL_JOBS):
++        raise ValueError("恢复原状态必须包含精确的全部预注册任务")
++    for job, row in tasks.items():
++        if row["id"] != task_id(job) or row["config"] != asdict(config(job)):
++            raise ValueError("恢复原任务身份/完整配置不符")
++    if (inventory["tasks"] != prior["tasks"] or
++            inventory["original_gate_sha256"] != artifacts["prior_gate"]["sha256"] or
++            inventory["original_runner_pid"] != prior["runner_pid"]):
++        raise ValueError("进程身份清单没有绑定原运行状态和原门")
++    with open_shared_read(artifacts["observer_events"]["path"]) as handle:
++        events = [json.loads(line) for line in handle.read().decode("utf-8").splitlines() if line.strip()]
++    starts = [e for e in events if e["event"] == "observer_started"]
++    if (len(starts) != 1 or starts[0]["snapshot_sha256"] != artifacts["process_inventory"]["sha256"] or
++            starts[0]["observer_source_sha256"] != artifacts["observer_source"]["sha256"] or
++            starts[0]["original_gate_sha256"] != artifacts["prior_gate"]["sha256"] or
++            not events or events[-1].get("event") != "observer_completed" or
++            events[-1].get("all_handles_signaled") is not True or
++            any(e["event"] in ("attach_failed", "identity_failed", "observer_error") for e in events)):
++        raise ValueError("HANDLE 观察未完整成功结束或证据绑定不符；禁止推断未知退出")
++    active = {job: row for job, row in tasks.items() if row["state"] == "running"}
++    if not active or any(row["state"] != "queued" for job, row in tasks.items() if job not in active):
++        raise ValueError("此事故恢复要求原状态仅包含 running/queued，其他状态须单独审查")
++    processes = {row["pid"]: row for row in inventory["workers"]}
++    attached_rows = [e for e in events if e["event"] == "attached"]
++    exits_rows = [e for e in events if e["event"] == "process_exited"]
++    attached = {e["pid"]: e for e in attached_rows}
++    exits = {e["pid"]: e for e in exits_rows}
++    if (len(processes) != len(inventory["workers"]) or len(processes) != 2 * len(active) or
++            len(attached_rows) != len(attached) or len(exits_rows) != len(exits) or
++            set(processes) != set(attached) or set(processes) != set(exits)):
++        raise ValueError("每个原任务必须有唯一 launcher/worker 身份与 HANDLE 退出记录")
++    reconciled = []
++    for job, row in active.items():
++        pair = [a for a in attached_rows if tuple(a["job"]) == job]
++        if len(pair) != 2 or {a["role"] for a in pair} != {"launcher", "worker"}:
++            raise ValueError("原任务 launcher/worker 配对不完整")
++        observations = {}
++        for identity in pair:
++            pid, role = identity["pid"], identity["role"]
++            sampled, observed = processes[pid], exits[pid]
++            if ((role == "launcher" and pid != row["pid"]) or
++                    (role == "worker" and identity["ppid"] != row["pid"]) or
++                    identity["ppid"] != sampled["ppid"] or
++                    abs(identity["creation_filetime_utc"] - sampled["creation_filetime_utc"]) > 10 or
++                    identity["command_line"] != sampled["command_line"] or
++                    os.path.normcase(identity["executable_path"]) != os.path.normcase(sampled["executable_path"]) or
++                    identity["argv"][1:] != row["attempts"][-1]["command"][1:] or
++                    observed.get("identity_verified") is not True or observed.get("job") != list(job) or
++                    observed.get("role") != role or
++                    observed.get("creation_filetime_utc") != identity["creation_filetime_utc"]):
++                raise ValueError("恢复进程的完整参数/创建时间/父子关系/退出身份不符")
++            if observed["exit_code"] != 0:
++                raise ValueError(f"原任务真实退出非零，须单独明确处置，禁止静默重跑：{job} {role} {observed['exit_code']}")
++            observations[role] = observed
++        if not out_path(*job).is_file():
++            raise ValueError(f"原任务退出后没有完整结果 JSON；不得自动重跑：{job}")
++        finished = datetime.fromisoformat(observations["launcher"]["utc"]).timestamp()
++        wall = finished - row["attempts"][-1]["started_unix"]
++        if wall < 0:
++            raise ValueError("退出观测时间早于原任务派发")
++        reconciled.append({"job": list(job), "launcher": observations["launcher"],
++                           "worker": observations["worker"], "observed_wall_seconds": wall})
++    return {"schema": "r33_stage6_recovery_lineage_v1", "incident_id": manifest["incident_id"],
++            "manifest": {"path": str(manifest_path), "sha256": sha256(manifest_path)},
++            "artifacts": artifacts, "prior_gate_sha256": artifacts["prior_gate"]["sha256"],
++            "prior_source_hashes": original_hashes, "prior_status_sha256": artifacts["prior_status"]["sha256"],
++            "original_active_jobs": [list(j) for j in active], "reconciled": reconciled,
++            "training_and_protocol_unchanged": True,
++            "scope": "原进程退出身份与编排来源；exit 0 不替代完整 bundle、预算与误差重算。"}
++
++
++def verify_recovery_bindings(lineage):
++    for entry in [lineage["manifest"], *lineage["artifacts"].values()]:
++        if sha256(entry["path"]) != entry["sha256"]:
++            raise ValueError(f"冻结恢复证据变化：{entry['path']}")
++
++
++def reconcile_recovered_attempts(previous, lineage, current_status_sha256):
++    if not lineage or lineage["manifest"]["sha256"] in previous.get("applied_recoveries", []):
++        return previous
++    if current_status_sha256 != lineage["prior_status_sha256"]:
++        raise ValueError("恢复前 status 与已保全事故状态不同；禁止覆盖未经审查的新历史")
++    previous = copy.deepcopy(previous)
++    rows = {tuple(row["job"]): row for row in previous["tasks"]}
++    for observation in lineage["reconciled"]:
++        row = rows[tuple(observation["job"])]
++        attempt = row["attempts"][-1]
++        attempt.update(finished_utc=observation["launcher"]["utc"], exit_code=observation["launcher"]["exit_code"],
++                       worker_exit_code=observation["worker"]["exit_code"],
++                       wall_seconds=observation["observed_wall_seconds"],
++                       wall_seconds_basis="HANDLE signaled exit observed by recovery monitor minus original dispatch time",
++                       source_gate_sha256=lineage["prior_gate_sha256"],
++                       supervision_interrupted=True, recovery_manifest_sha256=lineage["manifest"]["sha256"],
++                       observed_worker_pid=observation["worker"]["pid"])
++    incident = {"utc": now(), "reason": "runner_permission_error_orphaned_workers",
++                "incident_id": lineage["incident_id"], "recovered_exit_observations": len(lineage["reconciled"]),
++                "manifest": lineage["manifest"], "runner_stderr": lineage["artifacts"]["runner_stderr"]}
++    previous.setdefault("failure_history", []).append(incident)
++    previous.setdefault("recovery_incidents", []).append(incident)
++    previous.setdefault("applied_recoveries", []).append(lineage["manifest"]["sha256"])
++    previous.setdefault("source_lineage", []).append({"gate_sha256": lineage["prior_gate_sha256"],
++        "source_hashes": lineage["prior_source_hashes"], "jobs": lineage["original_active_jobs"],
++        "role": "original_workers", "recovery_manifest": lineage["manifest"]})
++    previous["runner_wall_timing_note"] = ("原 runner 退出后的孤儿训练区间不计入 runner 活跃墙钟；"
++                                           "各原 attempt 的墙钟按 HANDLE 退出观测补记，含轮询延迟；批次总历时单列。")
++    return previous
++
++
++def require_reviewed_previous_attempts(previous, retry_failed_jobs=()):
++    """No orphan/failed attempt becomes a fresh training run by resetting state."""
++    retry = set(retry_failed_jobs)
++    if previous is None:
++        if retry:
++            raise ValueError("没有原任务历史，不能指定失败重试")
++        return
++    failed = set()
++    for row in previous.get("tasks", []):
++        for attempt in row.get("attempts", []):
++            if attempt.get("pid") is not None and "exit_code" not in attempt and "launch_error" not in attempt:
++                raise ValueError(f"原 attempt 缺少实测退出；须先恢复监督证据，禁止重复训练：{row['id']}")
++        last = row.get("attempts", [{}])[-1] if row.get("attempts") else {}
++        if (row.get("state") == "failed" or last.get("exit_code", 0) != 0 or
++                last.get("worker_exit_code", 0) != 0 or "launch_error" in last):
++            failed.add(row["id"])
++    if retry - failed:
++        raise ValueError("失败重试参数包含没有失败证据的任务")
++    if failed - retry:
++        raise ValueError("已失败任务须逐项明确 --retry-failed-job 后才能恢复：" + ", ".join(sorted(failed - retry)))
++
++
+ def existing_identity_checks(runtime):
+     expected_paths = {out_path(*job).resolve() for job in ALL_JOBS}
+     for tag in {job[0] for job in ALL_JOBS}:
+@@ -307,6 +532,8 @@ def verify_gate(runtime):
+         raise ValueError("旧 398 文件证据清单变化")
+     if sha256(VALIDATION / "pytest.xml") != evidence["runner_tests"]["junit_sha256"]:
+         raise ValueError("新 runner 测试证据变化")
++    if evidence.get("recovery_lineage"):
++        verify_recovery_bindings(evidence["recovery_lineage"])
+     check_old_results()
+     return evidence
+ 
+@@ -333,12 +560,18 @@ def reference_checks():
+     return rows
+ 
+ 
+-def gate(runtime):
++def gate(runtime, recovery_manifest=None):
+     runtime = Path(runtime).resolve()
+     runtime.mkdir(parents=True, exist_ok=True)
+     check_preregistration()
+     versions = check_runtime()
+     check_no_live_workers(runtime)
++    lineage = recovery_lineage(recovery_manifest, runtime) if recovery_manifest else None
++    old_gate_path = VALIDATION / "engineering_gate.json"
++    if old_gate_path.exists() and (runtime / "status.json").exists() and lineage is None:
++        prior = read_json(runtime / "status.json")
++        if any(row.get("state") == "running" for row in prior.get("tasks", [])):
++            raise ValueError("原状态仍有失去监督的 running 任务；须绑定恢复证据，不得直接覆盖原门")
+     reused, old, vendor = check_reused_tests(), check_old_results(), check_vendor_source()
+     references = reference_checks()
+     identities = existing_identity_checks(runtime)
+@@ -364,6 +597,8 @@ def gate(runtime):
+               "runner_tests": dict(counts, command=command, junit_sha256=sha256(VALIDATION / "pytest.xml")),
+               "existing_identities": identities, "tasks": [list(j) for j in ALL_JOBS],
+               "new_training_started_by_gate": False}
++    if lineage:
++        report["recovery_lineage"] = lineage
+     write_json(VALIDATION / "engineering_gate.json", report)
+     print(json.dumps(report, ensure_ascii=False, indent=2), flush=True)
+     return report
+@@ -381,7 +616,7 @@ def worker(job, arguments, runtime):
+         print(run_one((job[1], job[2], job[3], overrides, job[0])), flush=True)
+ 
+ 
+-def checkpoint_progress(job, runtime):
++def checkpoint_progress(job, runtime, *, metadata_only=False):
+     path = checkpoint(job, runtime)
+     key = str(path.resolve())
+     try:
+@@ -389,12 +624,23 @@ def checkpoint_progress(job, runtime):
+     except FileNotFoundError:
+         _PROGRESS_CACHE.pop(key, None)
+         return {"checkpoint": str(path), "position": "结果已落盘" if out_path(*job).exists() else "尚无首个 checkpoint"}
++    metadata = {"checkpoint": str(path), "checkpoint_modified_unix": stat.st_mtime,
++                "checkpoint_size_bytes": stat.st_size, "checkpoint_metadata_only": True}
++    if metadata_only:
++        return dict(metadata, progress_unavailable_reason="活动任务仅查看 mtime/size；不打开检查点，保护冻结训练写端。")
+     signature = (stat.st_mtime_ns, stat.st_size)
+-    cached = _PROGRESS_CACHE.get(key)
+-    if cached and cached[0] == signature:
+-        return dict(cached[1])
+     try:
+-        raw = torch.load(path, weights_only=False, map_location="cpu")
++        # Never read a live writer's checkpoint. Hold its task lock through the
++        # snapshot/deserialization, so even a late-starting duplicate cannot race.
++        with worker_lock(job, runtime):
++            stat = path.stat()
++            signature = (stat.st_mtime_ns, stat.st_size)
++            cached = _PROGRESS_CACHE.get(key)
++            if cached and cached[0] == signature:
++                return dict(cached[1])
++            with open_shared_read(path) as handle:
++                snapshot = handle.read()
++            raw = torch.load(io.BytesIO(snapshot), weights_only=False, map_location="cpu")
+         state = raw["state"]
+         progress = {"checkpoint": str(path), "phase": state["phase"], "adam_step": state["step"],
+                     "lbfgs_budget_used": state["done"], "saved_elapsed_seconds": state.get("elapsed"),
+@@ -403,7 +649,8 @@ def checkpoint_progress(job, runtime):
+         _PROGRESS_CACHE[key] = (signature, progress)
+         return dict(progress)
+     except (OSError, EOFError, KeyError, RuntimeError) as exc:
+-        return {"checkpoint": str(path), "progress_read_error": str(exc)}
++        return dict(metadata, progress_read_error=str(exc),
++                    progress_unavailable_reason="检查点未解析：任务锁占用或读取失败；不推断训练位置。")
+ 
+ 
+ class ResultValidator:
+@@ -480,6 +727,10 @@ def new_state(previous=None):
+             "review_deadline_unix": previous.get("review_deadline_unix", start + 48 * 3600), "tasks": rows,
+             "failure_history": previous.get("failure_history", []), "resources": None,
+             "resource_reviews": previous.get("resource_reviews", []),
++            "source_lineage": previous.get("source_lineage", []),
++            "recovery_incidents": previous.get("recovery_incidents", []),
++            "applied_recoveries": previous.get("applied_recoveries", []),
++            "runner_wall_timing_note": previous.get("runner_wall_timing_note"),
+             "stop_dispatch_reason": None, "preregistered_tasks": 30}
+ 
+ 
+@@ -487,11 +738,13 @@ def save_status(runtime, state):
+     state["updated_utc"] = now()
+     state["session_wall_seconds"] = time.time() - state["session_started_unix"]
+     state["total_runner_wall_seconds"] = state["prior_runner_wall_seconds"] + state["session_wall_seconds"]
++    state["batch_elapsed_seconds"] = time.time() - datetime.fromisoformat(state["first_started_utc"]).timestamp()
+     state["counts"] = {key: sum(r["state"] == key for r in state["tasks"])
+                        for key in ("queued", "running", "completed", "failed")}
+     for row in state["tasks"]:
+         if row["state"] in ("running", "failed"):
+-            row["progress"] = checkpoint_progress(tuple(row["job"]), runtime)
++            row["progress"] = checkpoint_progress(tuple(row["job"]), runtime,
++                                                  metadata_only=row["state"] == "running")
+     write_json(Path(runtime) / "status.json", state)
+ 
+ 
+@@ -518,6 +771,7 @@ def execute_queue(runtime, state, workers, validator, *, popen=subprocess.Popen,
+         if row["state"] == "completed":
+             validated[row["id"]] = row["validation"]
+     last_dispatch = -float("inf")
++    next_persist_retry = -float("inf")
+ 
+     def stop(reason, error=None):
+         if state["stop_dispatch_reason"] is None:
+@@ -526,19 +780,54 @@ def execute_queue(runtime, state, workers, validator, *, popen=subprocess.Popen,
+             if error:
+                 state["failure_history"].append({"utc": now(), "reason": reason, "error": error})
+ 
++    def persist_safely(where):
++        nonlocal next_persist_retry
++        if where == "queue_poll" and clock() < next_persist_retry:
++            return False
++        try:
++            persist(runtime, state)
++            next_persist_retry = -float("inf")
++            return True
++        except Exception:
++            detail = traceback.format_exc()
++            stop("status_persistence_failure", detail)
++            state["status_persistence_failures"] = state.get("status_persistence_failures", 0) + 1
++            state["last_status_persistence_error"] = detail
++            next_persist_retry = clock() + 30
++            if state["status_persistence_failures"] == 1 or where == "queue_final":
++                emergency_state(runtime, state, where, detail)
++            return False
++
+     while True:
+         for identifier, item in list(active.items()):
+             child, log, row = item
+-            returncode = child.poll()
++            try:
++                returncode = child.poll()
++            except Exception:
++                detail = traceback.format_exc()
++                stop("process_poll_failure", detail)
++                row["poll_error_count"] = row.get("poll_error_count", 0) + 1
++                row["last_poll_error"] = detail
++                if row["poll_error_count"] == 1:
++                    emergency_state(runtime, state, "process_poll_failure", detail)
++                continue
+             if returncode is None:
+                 continue
+-            log.close()
++            try:
++                log.close()
++            except Exception:
++                detail = traceback.format_exc()
++                stop("worker_log_close_failure", detail)
++                emergency_state(runtime, state, "worker_log_close_failure", detail)
+             del active[identifier]
+             row["pid"] = None
+             row["finished_utc"] = now()
+             attempt = row["attempts"][-1]
+             attempt.update(finished_utc=now(), exit_code=returncode,
+                            wall_seconds=clock() - attempt["started_unix"])
++            if state.get("status_persistence_failures"):
++                emergency_state(runtime, state, "worker_exit_during_drain",
++                                f"{identifier}: exit_code={returncode}")
+             try:
+                 if returncode:
+                     raise RuntimeError(f"worker 退出码 {returncode}；查看 {attempt['log']}")
+@@ -573,8 +862,14 @@ def execute_queue(runtime, state, workers, validator, *, popen=subprocess.Popen,
+                     flags = (subprocess.CREATE_NO_WINDOW | subprocess.NORMAL_PRIORITY_CLASS) if os.name == "nt" else 0
+                     attempt = {"started_utc": now(), "started_unix": clock(), "pid": None,
+                                "command": command, "log": str(logpath),
++                               "source_gate_sha256": state.get("current_gate_sha256"),
+                                "resume_checkpoint_present": checkpoint(job, runtime).exists()}
+                     row["attempts"].append(attempt)
++                    for lineage in state.get("source_lineage", []):
++                        if lineage["gate_sha256"] == state.get("current_gate_sha256"):
++                            jobs = lineage.setdefault("jobs", [])
++                            if list(job) not in jobs:
++                                jobs.append(list(job))
+                     try:
+                         child = popen(command, cwd=HERE, env=worker_environment(runtime), stdout=log,
+                                       stderr=subprocess.STDOUT, creationflags=flags)
+@@ -590,25 +885,42 @@ def execute_queue(runtime, state, workers, validator, *, popen=subprocess.Popen,
+                     last_dispatch = clock()
+             except Exception as exc:
+                 stop("engineering_failure", traceback.format_exc())
+-        persist(runtime, state)
++        persist_safely("queue_poll")
+         sleep(2)
+-    state["phase"] = "completed" if all(r["state"] == "completed" for r in state["tasks"]) else "review_required"
+-    persist(runtime, state)
++    state["phase"] = ("completed" if not state["stop_dispatch_reason"] and
++                      all(r["state"] == "completed" for r in state["tasks"]) else "review_required")
++    if not persist_safely("queue_final"):
++        state["phase"] = "review_required"
++        emergency_state(runtime, state, "queue_final_unpersisted", state["last_status_persistence_error"])
+     return validated
+ 
+ 
+-def run(runtime, workers, resource_review_note=None):
++def run(runtime, workers, resource_review_note=None, retry_failed_jobs=()):
+     runtime = Path(runtime).resolve()
+     runtime.mkdir(parents=True, exist_ok=True)
+     normal_priority()
+     torch.set_num_threads(1)
+     torch.set_num_interop_threads(1)
+     with FileLock(runtime / "runner.lock"):
+-        verify_gate(runtime)
++        gate_evidence = verify_gate(runtime)
+         check_no_live_workers(runtime)
+         existing_identity_checks(runtime)
+         previous = read_json(runtime / "status.json") if (runtime / "status.json").exists() else None
++        if gate_evidence.get("recovery_lineage"):
++            if previous is None:
++                raise ValueError("恢复运行缺少已绑定原状态")
++            previous = reconcile_recovered_attempts(previous, gate_evidence["recovery_lineage"],
++                                                   sha256(runtime / "status.json"))
++        require_reviewed_previous_attempts(previous, retry_failed_jobs)
+         state = new_state(previous)
++        if retry_failed_jobs:
++            state["failure_history"].append({"utc": now(), "reason": "explicit_failed_job_retry",
++                                             "task_ids": sorted(set(retry_failed_jobs))})
++        gate_sha = sha256(VALIDATION / "engineering_gate.json")
++        state["current_gate_sha256"] = gate_sha
++        if not any(entry["gate_sha256"] == gate_sha for entry in state["source_lineage"]):
++            state["source_lineage"].append({"gate_sha256": gate_sha, "source_hashes": gate_evidence["source_hashes"],
++                                            "role": "current_orchestration", "jobs": []})
+         if resource_review_note:
+             if not previous or previous.get("stop_dispatch_reason") != "48h_resource_review":
+                 raise ValueError("仅在已达到 48 小时复盘门后使用 --resource-review-note")
+@@ -629,15 +941,22 @@ def run(runtime, workers, resource_review_note=None):
+             report = validation_report(validated, complete)
+             report.update(old_results=old, phase=state["phase"],
+                           total_runner_wall_seconds=state["total_runner_wall_seconds"],
++                          batch_elapsed_seconds=state["batch_elapsed_seconds"],
++                          source_lineage=state["source_lineage"], recovery_incidents=state["recovery_incidents"],
+                           failure_history=state["failure_history"], resources=state["resources"],
+                           task_status=[{k: row[k] for k in ("id", "job", "state", "attempts", "last_error")}
+                                        for row in state["tasks"]])
+             write_json(VALIDATION / "summary.json", report)
+             return 0 if complete else 2
+         except Exception:
++            original_error = traceback.format_exc()
+             state["phase"] = "review_required"
+-            state["failure_history"].append({"utc": now(), "error": traceback.format_exc()})
+-            save_status(runtime, state)
++            state["failure_history"].append({"utc": now(), "error": original_error})
++            try:
++                save_status(runtime, state)
++            except Exception:
++                emergency_state(runtime, state, "run_exception_status_failed",
++                                dict(original=original_error, status_error=traceback.format_exc()))
+             raise
+ 
+ 
+@@ -652,14 +971,22 @@ def main():
+     parser.add_argument("--runtime", type=Path, default=DEFAULT_RUNTIME)
+     parser.add_argument("--workers", type=int, default=24)
+     parser.add_argument("--resource-review-note", help="达到 48 小时门后，记录资源复盘结论并开启下一检查窗口")
++    parser.add_argument("--recovery-manifest", type=Path,
++                        help="仅用于 --gate；绑定原门/状态与已结束的孤儿进程 HANDLE 观察，不启动训练")
++    parser.add_argument("--retry-failed-job", action="append", default=[],
++                        help="仅用于 --run；明确允许重试具有已知失败证据的指定 task id，未知退出仍拒绝")
+     parser.add_argument("--set", dest="overrides", action="append", default=[])
+     args = parser.parse_args()
++    if args.recovery_manifest and not args.gate:
++        parser.error("--recovery-manifest 只能与 --gate 使用")
++    if args.retry_failed_job and not args.run:
++        parser.error("--retry-failed-job 只能与 --run 使用")
+     if args.worker:
+         tag, eq, method, seed = args.worker
+         worker((tag, eq, method, int(seed)), args.overrides, args.runtime)
+     elif args.gate:
+         with FileLock(args.runtime / "runner.lock"):
+-            gate(args.runtime)
++            gate(args.runtime, args.recovery_manifest)
+     elif args.plan:
+         print(json.dumps({"prereg_commit": PREREG, "max_workers": 24, "required_tasks": 30,
+                           "jobs": [{"job": list(j), "config": asdict(config(j)),
+@@ -669,7 +996,7 @@ def main():
+         print(json.dumps(read_json(args.runtime / "status.json") if (args.runtime / "status.json").exists()
+                          else {"phase": "not_started", "required_tasks": 30}, ensure_ascii=False, indent=2))
+     elif args.run:
+-        return run(args.runtime, args.workers, args.resource_review_note)
++        return run(args.runtime, args.workers, args.resource_review_note, args.retry_failed_job)
+     else:
+         parser.error("请选择 --plan、--gate、--run 或 --status；默认不自动训练")
+     return 0
+diff --git "a/\350\207\252\344\270\273\347\240\224\347\251\266/\345\275\223\345\211\215\344\270\273\347\272\277/round33_equation_screen/test_stage6_runner.py" "b/\350\207\252\344\270\273\347\240\224\347\251\266/\345\275\223\345\211\215\344\270\273\347\272\277/round33_equation_screen/test_stage6_runner.py"
+index 632f197..7526d54 100644
+--- "a/\350\207\252\344\270\273\347\240\224\347\251\266/\345\275\223\345\211\215\344\270\273\347\272\277/round33_equation_screen/test_stage6_runner.py"
++++ "b/\350\207\252\344\270\273\347\240\224\347\251\266/\345\275\223\345\211\215\344\270\273\347\272\277/round33_equation_screen/test_stage6_runner.py"
+@@ -3,7 +3,11 @@ from dataclasses import asdict
+ from pathlib import Path
+ import base64
+ import copy
++import errno
++import json
++import os
+ import subprocess
++import threading
+ 
+ import numpy as np
+ import pytest
+@@ -130,7 +134,8 @@ class FakeClock:
+ 
+ 
+ def queue_fixture(monkeypatch, tmp_path, durations, exits=None, workers=2,
+-                  deadline=100, memory=None, validation_error=False, launch_error=False):
++                  deadline=100, memory=None, validation_error=False, launch_error=False,
++                  persist_error_after=None, persist_recovers_at=None, report_error=False):
+     clock, children, persisted = FakeClock(), [], []
+     state = s.new_state()
+     state["tasks"] = state["tasks"][:len(durations)]
+@@ -162,8 +167,15 @@ def queue_fixture(monkeypatch, tmp_path, durations, exits=None, workers=2,
+ 
+     def persist(runtime, current):
+         persisted.append(copy.deepcopy(current))
++        if (persist_error_after is not None and len(persisted) >= persist_error_after and
++                (persist_recovers_at is None or len(persisted) < persist_recovers_at)):
++            raise PermissionError("simulated permanent status replacement denial")
+ 
+-    monkeypatch.setattr(s, "validation_report", lambda *a, **k: None)
++    def report(*args, **kwargs):
++        if report_error:
++            raise PermissionError("simulated validation report replacement denial")
++
++    monkeypatch.setattr(s, "validation_report", report)
+     result = s.execute_queue(tmp_path, state, workers, validate, popen=popen,
+                              memory=memory or (lambda: {"available_physical_gib": 20,
+                                                        "commit_used_fraction": .4}),
+@@ -360,3 +372,419 @@ def test_result_validation_checks_budget_dense_grid_and_soap_accounting(monkeypa
+     else:
+         with pytest.raises(ValueError):
+             validator(job)
++
++
++def test_json_replace_transient_denial_retries_without_truncating_destination(monkeypatch, tmp_path):
++    path = tmp_path / "status.json"
++    path.write_text('{"old": true}', encoding="utf-8")
++    original, calls, delays = s.os.replace, [], []
++
++    def blocked_then_replace(source, target):
++        calls.append(None)
++        if len(calls) < 3:
++            assert json.loads(path.read_text()) == {"old": True}
++            raise PermissionError("transient sharing denial")
++        return original(source, target)
++
++    monkeypatch.setattr(s.os, "replace", blocked_then_replace)
++    monkeypatch.setattr(s.time, "sleep", delays.append)
++    s.write_json(path, {"new": True})
++    assert s.read_json(path) == {"new": True}
++    assert len(calls) == 3 and delays == [.05, .1]
++    assert not list(tmp_path.glob("*.tmp"))
++
++
++def test_json_permanent_denial_is_bounded_and_retains_only_one_complete_temp(monkeypatch, tmp_path):
++    path = tmp_path / "status.json"
++    path.write_text('{"old": true}', encoding="utf-8")
++    calls, delays = [], []
++
++    def denied(*args):
++        calls.append(None)
++        raise PermissionError("permanent denial")
++
++    monkeypatch.setattr(s.os, "replace", denied)
++    monkeypatch.setattr(s.time, "sleep", delays.append)
++    for value in (1, 2, 3):
++        with pytest.raises(PermissionError):
++            s.write_json(path, {"new": value})
++    assert len(calls) == 3 * (len(s._REPLACE_DELAYS) + 1)
++    assert len(delays) == 3 * len(s._REPLACE_DELAYS)
++    assert s.read_json(path) == {"old": True}
++    temps = list(tmp_path.glob("*.tmp"))
++    assert len(temps) == 1 and s.read_json(temps[0]) == {"new": 3}
++
++
++def test_non_sharing_io_failure_is_not_retried(monkeypatch, tmp_path):
++    def no_space(*args):
++        raise OSError(errno.ENOSPC, "full disk")
++
++    monkeypatch.setattr(s.os, "replace", no_space)
++    monkeypatch.setattr(s.time, "sleep", lambda *a: pytest.fail("must not retry unrelated error"))
++    with pytest.raises(OSError) as exc:
++        s.write_json(tmp_path / "status.json", {})
++    assert exc.value.errno == errno.ENOSPC
++
++
++def test_shared_reader_allows_rename_and_preserves_detached_old_bytes(tmp_path):
++    path = tmp_path / "status.json"
++    s.write_json(path, {"version": "old"})
++    with s.open_shared_read(path) as reader:
++        # FILE_SHARE_DELETE enables rename. It does not guarantee MoveFileEx
++        # can replace an existing open destination on this Windows machine.
++        os.rename(path, tmp_path / "detached.json")
++        s.write_json(path, {"version": "new"})
++        assert json.loads(reader.read()) == {"version": "old"}
++    assert s.read_json(path) == {"version": "new"}
++
++
++def test_native_windows_transient_reader_lock_is_retried(tmp_path):
++    from ctypes import wintypes
++    kernel = s.ctypes.WinDLL("kernel32", use_last_error=True)
++    kernel.CreateFileW.argtypes = [wintypes.LPCWSTR, wintypes.DWORD, wintypes.DWORD,
++                                  s.ctypes.c_void_p, wintypes.DWORD, wintypes.DWORD, wintypes.HANDLE]
++    kernel.CreateFileW.restype = wintypes.HANDLE
++    kernel.CloseHandle.argtypes = [wintypes.HANDLE]
++    path = tmp_path / "status.json"
++    s.write_json(path, {"old": True})
++    handle = kernel.CreateFileW(str(path), 0x80000000, 3, None, 3, 0x80, None)
++    assert handle != s.ctypes.c_void_p(-1).value
++    release = threading.Timer(.25, lambda: kernel.CloseHandle(handle))
++    release.start()
++    try:
++        s.write_json(path, {"new": True})
++    finally:
++        release.join()
++    assert s.read_json(path) == {"new": True}
++
++
++def test_checkpoint_load_deserializes_detached_shared_snapshot(monkeypatch, tmp_path):
++    job = s.ALL_JOBS[0]
++    path = s.checkpoint(job, tmp_path)
++    path.parent.mkdir(parents=True)
++    path.write_bytes(b"old checkpoint")
++
++    def load(stream, **kwargs):
++        assert isinstance(stream, s.io.BytesIO) and stream.getvalue() == b"old checkpoint"
++        replacement = path.with_suffix(".replacement")
++        replacement.write_bytes(b"new checkpoint")
++        os.replace(replacement, path)
++        return {"state": {"phase": "adam", "step": 500, "done": 0}, "hist": {}}
++
++    monkeypatch.setattr(s.torch, "load", load)
++    assert s.checkpoint_progress(job, tmp_path)["adam_step"] == 500
++    assert path.read_bytes() == b"new checkpoint"
++
++
++def test_active_checkpoint_progress_never_opens_or_deserializes_file(monkeypatch, tmp_path):
++    job = s.ALL_JOBS[0]
++    path = s.checkpoint(job, tmp_path)
++    path.parent.mkdir(parents=True)
++    path.write_bytes(b"active writer snapshot")
++    monkeypatch.setattr(s, "open_shared_read", lambda *a: pytest.fail("must not open active checkpoint"))
++    monkeypatch.setattr(s.torch, "load", lambda *a, **k: pytest.fail("must not deserialize active checkpoint"))
++    row = s.checkpoint_progress(job, tmp_path, metadata_only=True)
++    assert row["checkpoint_metadata_only"] and row["checkpoint_size_bytes"] == path.stat().st_size
++    assert "phase" not in row and "progress_unavailable_reason" in row
++
++
++def test_checkpoint_held_worker_lock_blocks_read_even_when_caller_requests_parse(monkeypatch, tmp_path):
++    job = s.ALL_JOBS[0]
++    path = s.checkpoint(job, tmp_path)
++    path.parent.mkdir(parents=True)
++    path.write_bytes(b"still active")
++    monkeypatch.setattr(s, "open_shared_read", lambda *a: pytest.fail("must not open locked checkpoint"))
++    with s.worker_lock(job, tmp_path):
++        row = s.checkpoint_progress(job, tmp_path)
++    assert row["checkpoint_metadata_only"] and "phase" not in row
++    assert "持有锁" in row["progress_read_error"]
++
++
++def test_save_status_requests_metadata_only_for_every_running_task(monkeypatch, tmp_path):
++    state = s.new_state()
++    state["tasks"] = state["tasks"][:2]
++    state["tasks"][0]["state"] = "running"
++    state["tasks"][1]["state"] = "failed"
++    calls = []
++
++    def progress(job, runtime, *, metadata_only=False):
++        calls.append((job, metadata_only))
++        return {"checkpoint_metadata_only": metadata_only}
++
++    monkeypatch.setattr(s, "checkpoint_progress", progress)
++    s.save_status(tmp_path, state)
++    assert calls == [(tuple(state["tasks"][0]["job"]), True), (tuple(state["tasks"][1]["job"]), False)]
++
++
++def test_permanent_status_failure_stops_dispatch_and_drains_every_active(monkeypatch, tmp_path):
++    state, children, rows, _, elapsed = queue_fixture(monkeypatch, tmp_path, [8, 12, 20],
++                                                      persist_error_after=2)
++    assert len(children) == len(rows) == 2 and elapsed >= 14
++    assert state["phase"] == "review_required"
++    assert state["stop_dispatch_reason"] == "status_persistence_failure"
++    assert [row["state"] for row in state["tasks"]] == ["completed", "completed", "queued"]
++    assert all(row["pid"] is None and row["attempts"][-1]["exit_code"] == 0 for row in state["tasks"][:2])
++    snapshots = [s.read_json(path) for path in (tmp_path / "emergency").glob("*.json")]
++    assert sum(x["where"] == "worker_exit_during_drain" for x in snapshots) == 2
++    assert any(x["where"] == "queue_final_unpersisted" for x in snapshots)
++    assert state["status_persistence_failures"] <= 3  # retry throttled while polling continues
++
++
++def test_write_recovery_does_not_resume_dispatch_after_persistence_failure(monkeypatch, tmp_path):
++    state, children, _, snapshots, _ = queue_fixture(monkeypatch, tmp_path, [8, 12, 20],
++        persist_error_after=2, persist_recovers_at=3)
++    assert len(children) == 2 and state["phase"] == "review_required"
++    assert snapshots[-1]["stop_dispatch_reason"] == "status_persistence_failure"
++
++
++def test_validation_report_failure_stops_dispatch_and_drains(monkeypatch, tmp_path):
++    state, children, _, _, elapsed = queue_fixture(monkeypatch, tmp_path, [8, 12, 20], report_error=True)
++    assert len(children) == 2 and elapsed >= 14
++    assert state["phase"] == "review_required"
++    assert state["stop_dispatch_reason"] == "engineering_failure"
++    assert state["tasks"][-1]["state"] == "queued"
++    assert all(row["pid"] is None and row["attempts"][-1]["exit_code"] == 0 for row in state["tasks"][:2])
++
++
++def test_final_status_failure_never_claims_completed(monkeypatch, tmp_path):
++    state = s.new_state()
++    state["tasks"] = state["tasks"][:1]
++    state["tasks"][0].update(state="completed", validation={"job": state["tasks"][0]["job"]})
++
++    def denied(*args):
++        raise PermissionError("final denied")
++
++    s.execute_queue(tmp_path, state, 1, None, persist=denied)
++    assert state["phase"] == "review_required"
++    assert state["stop_dispatch_reason"] == "status_persistence_failure"
++
++
++def test_outer_exception_preserves_original_when_emergency_status_also_fails(monkeypatch, tmp_path):
++    monkeypatch.setattr(s, "verify_gate", lambda *a: {"source_hashes": {}})
++    monkeypatch.setattr(s, "check_no_live_workers", lambda *a: None)
++    monkeypatch.setattr(s, "existing_identity_checks", lambda *a: None)
++    monkeypatch.setattr(s, "normal_priority", lambda: None)
++    monkeypatch.setattr(s.torch, "set_num_threads", lambda *a: None)
++    monkeypatch.setattr(s.torch, "set_num_interop_threads", lambda *a: None)
++    monkeypatch.setattr(s, "sha256", lambda *a: "test-gate")
++    monkeypatch.setattr(s, "out_path", lambda *a: tmp_path / "no-result.json")
++    calls = []
++
++    def denied(*args):
++        calls.append(None)
++        if len(calls) == 1:
++            raise ValueError("original persistence error")
++        raise PermissionError("secondary persistence error")
++
++    monkeypatch.setattr(s, "save_status", denied)
++    with pytest.raises(ValueError, match="original persistence error"):
++        s.run(tmp_path, 1)
++    assert len(calls) == 2
++    snapshots = list((tmp_path / "emergency").glob("*.json"))
++    assert len(snapshots) == 1 and "secondary persistence error" in snapshots[0].read_text()
++
++
++def recovery_fixture(monkeypatch, tmp_path):
++    """Synthetic identity/exit evidence only; no process or research model runs."""
++    jobs = s.ALL_JOBS[:2]
++    monkeypatch.setattr(s, "ALL_JOBS", jobs)
++    current = {"pinn1d.py": "training", "SCREEN_PROTOCOL.md": "protocol", "stage6_runner.py": "patched"}
++    original = dict(current, **{"stage6_runner.py": "original"})
++    monkeypatch.setattr(s, "source_hashes", lambda: current)
++    results = tmp_path / "results"
++    results.mkdir()
++    monkeypatch.setattr(s, "out_path", lambda *job: results / (s.task_id(job) + ".json"))
++    s.out_path(*jobs[0]).write_text("{}", encoding="utf-8")
++    prior = s.new_state()
++    row = prior["tasks"][0]
++    command = s.command_for(jobs[0], tmp_path)
++    row.update(state="running", pid=101, command=command,
++               attempts=[{"pid": 101, "command": command, "started_unix": 100.}])
++    prior_gate = {"passed": True, "prereg_commit": s.PREREG, "runtime": str(tmp_path.resolve()),
++                  "source_hashes": original, "tasks": [list(j) for j in jobs]}
++    prior_gate_path, prior_status_path = tmp_path / "prior_gate.json", tmp_path / "prior_status.json"
++    s.write_json(prior_gate_path, prior_gate)
++    s.write_json(prior_status_path, prior)
++    processes, attached, exits = [], [], []
++    for pid, ppid, role in ((101, prior["runner_pid"], "launcher"), (102, 101, "worker")):
++        sampled = {"pid": pid, "ppid": ppid, "creation_filetime_utc": 100000 + pid,
++                   "executable_path": "C:\\synthetic\\python.exe", "command_line": json.dumps(command)}
++        processes.append(sampled)
++        attached.append(dict(sampled, event="attached", utc="1970-01-01T00:02:00+00:00",
++                             argv=command, role=role, job=list(jobs[0])))
++        exits.append({"event": "process_exited", "utc": "1970-01-01T00:03:20+00:00",
++                      "pid": pid, "exit_code": 0, "identity_verified": True, "role": role,
++                      "job": list(jobs[0]), "creation_filetime_utc": sampled["creation_filetime_utc"]})
++    inventory = {"tasks": prior["tasks"], "original_gate_sha256": s.sha256(prior_gate_path),
++                 "original_runner_pid": prior["runner_pid"], "workers": processes}
++    inventory_path = tmp_path / "process_inventory.json"
++    s.write_json(inventory_path, inventory)
++    observer_path = tmp_path / "synthetic_observer.py"
++    observer_path.write_text("# synthetic test source, never executed\n", encoding="utf-8")
++    events = [{"event": "observer_started", "snapshot_sha256": s.sha256(inventory_path),
++               "observer_source_sha256": s.sha256(observer_path),
++               "original_gate_sha256": s.sha256(prior_gate_path)}, *attached, *exits,
++              {"event": "observer_completed", "all_handles_signaled": True}]
++    events_path = tmp_path / "events.jsonl"
++    events_path.write_text("".join(json.dumps(e) + "\n" for e in events), encoding="utf-8")
++    error_path = tmp_path / "runner.stderr.log"
++    error_path.write_text("synthetic WinError 5 fixture\n", encoding="utf-8")
++    incident_path = tmp_path / "snapshot_manifest.json"
++    s.write_json(incident_path, {"files": [{"snapshot": str(prior_gate_path), "sha256": s.sha256(prior_gate_path)}]})
++    paths = dict(prior_gate=prior_gate_path, prior_status=prior_status_path, process_inventory=inventory_path,
++                 observer_events=events_path, observer_source=observer_path, runner_stderr=error_path,
++                 incident_manifest=incident_path)
++    manifest = {"schema": "r33_stage6_recovery_manifest_v1", "incident_id": "synthetic-incident",
++                "artifacts": {key: {"path": str(path), "sha256": s.sha256(path)} for key, path in paths.items()}}
++    manifest_path = tmp_path / "recovery_manifest.json"
++    s.write_json(manifest_path, manifest)
++    return dict(jobs=jobs, current=current, original=original, prior=prior, paths=paths,
++                events=events, manifest=manifest, manifest_path=manifest_path)
++
++
++def bind_changed_events(fixture):
++    path = fixture["paths"]["observer_events"]
++    path.write_text("".join(json.dumps(e) + "\n" for e in fixture["events"]), encoding="utf-8")
++    fixture["manifest"]["artifacts"]["observer_events"]["sha256"] = s.sha256(path)
++    s.write_json(fixture["manifest_path"], fixture["manifest"])
++
++
++def test_recovery_binds_original_sources_exit_observations_and_preserves_deadline(monkeypatch, tmp_path):
++    fixture = recovery_fixture(monkeypatch, tmp_path)
++    lineage = s.recovery_lineage(fixture["manifest_path"], tmp_path)
++    recovered = s.reconcile_recovered_attempts(fixture["prior"], lineage,
++                                              s.sha256(fixture["paths"]["prior_status"]))
++    attempt = recovered["tasks"][0]["attempts"][0]
++    assert attempt["exit_code"] == attempt["worker_exit_code"] == 0
++    assert attempt["source_gate_sha256"] == lineage["prior_gate_sha256"]
++    assert attempt["wall_seconds"] == 100 and attempt["supervision_interrupted"]
++    assert "exit_code" not in fixture["prior"]["tasks"][0]["attempts"][0]
++    assert recovered["source_lineage"][0]["source_hashes"] == fixture["original"]
++    resumed = s.new_state(recovered)
++    assert resumed["review_deadline_unix"] == fixture["prior"]["review_deadline_unix"]
++    assert resumed["failure_history"][0]["reason"] == "runner_permission_error_orphaned_workers"
++    assert resumed["applied_recoveries"] == [lineage["manifest"]["sha256"]]
++    s.require_reviewed_previous_attempts(recovered)
++    assert s.reconcile_recovered_attempts(recovered, lineage, "new-status-hash") is recovered
++
++
++@pytest.mark.parametrize("mutation", ["missing_exit", "duplicate_exit", "command", "creation", "parent",
++                                      "nonzero_exit", "unverified_exit", "missing_complete", "false_complete",
++                                      "missing_result", "scientific_source", "hash_changed"])
++def test_recovery_rejects_incomplete_mismatched_failed_or_changed_evidence(monkeypatch, tmp_path, mutation):
++    fixture = recovery_fixture(monkeypatch, tmp_path)
++    events = fixture["events"]
++    if mutation == "missing_exit":
++        events.pop(-2)
++    elif mutation == "duplicate_exit":
++        events.insert(-1, copy.deepcopy(events[-2]))
++    elif mutation == "command":
++        events[2]["argv"] = ["python", "different args"]
++    elif mutation == "creation":
++        events[2]["creation_filetime_utc"] += 100
++    elif mutation == "parent":
++        events[2]["ppid"] = 999
++    elif mutation == "nonzero_exit":
++        events[-2]["exit_code"] = 259
++    elif mutation == "unverified_exit":
++        events[-2]["identity_verified"] = False
++    elif mutation == "missing_complete":
++        events.pop()
++    elif mutation == "false_complete":
++        events[-1]["all_handles_signaled"] = False
++    elif mutation == "missing_result":
++        s.out_path(*fixture["jobs"][0]).unlink()
++    elif mutation == "scientific_source":
++        fixture["current"]["pinn1d.py"] = "unauthorized change"
++    elif mutation == "hash_changed":
++        fixture["paths"]["observer_source"].write_text("changed", encoding="utf-8")
++    bind_changed_events(fixture)
++    with pytest.raises(ValueError):
++        s.recovery_lineage(fixture["manifest_path"], tmp_path)
++
++
++def test_recovery_manifest_cannot_change_after_gate(monkeypatch, tmp_path):
++    fixture = recovery_fixture(monkeypatch, tmp_path)
++    lineage = s.recovery_lineage(fixture["manifest_path"], tmp_path)
++    s.verify_recovery_bindings(lineage)
++    fixture["manifest_path"].write_text("{}", encoding="utf-8")
++    with pytest.raises(ValueError, match="冻结恢复证据变化"):
++        s.verify_recovery_bindings(lineage)
++
++
++def test_recovery_refuses_to_overwrite_unreviewed_status(monkeypatch, tmp_path):
++    fixture = recovery_fixture(monkeypatch, tmp_path)
++    lineage = s.recovery_lineage(fixture["manifest_path"], tmp_path)
++    with pytest.raises(ValueError, match="status"):
++        s.reconcile_recovered_attempts(fixture["prior"], lineage, "different-status")
++
++
++def test_unknown_exit_never_retries_and_known_failure_requires_explicit_job():
++    prior = s.new_state()
++    row = prior["tasks"][0]
++    row.update(state="running", attempts=[{"pid": 100}])
++    with pytest.raises(ValueError, match="实测退出"):
++        s.require_reviewed_previous_attempts(prior, [row["id"]])
++    row.update(state="failed", attempts=[{"pid": 100, "exit_code": 1}])
++    with pytest.raises(ValueError, match="逐项明确"):
++        s.require_reviewed_previous_attempts(prior)
++    s.require_reviewed_previous_attempts(prior, [row["id"]])
++    with pytest.raises(ValueError, match="没有失败证据"):
++        s.require_reviewed_previous_attempts(prior, [row["id"], "unknown-job"])
++
++
++@pytest.mark.parametrize("invalid_original_bundle", [False, True])
++def test_recovery_validates_old_result_before_any_new_dispatch_and_binds_new_gate(monkeypatch, tmp_path,
++                                                                               invalid_original_bundle):
++    fixture = recovery_fixture(monkeypatch, tmp_path)
++    lineage = s.recovery_lineage(fixture["manifest_path"], tmp_path)
++    (tmp_path / "status.json").write_bytes(fixture["paths"]["prior_status"].read_bytes())
++    validation = tmp_path / "validation"
++    validation.mkdir()
++    monkeypatch.setattr(s, "VALIDATION", validation)
++    gate = {"source_hashes": fixture["current"], "recovery_lineage": lineage}
++    s.write_json(validation / "engineering_gate.json", gate)
++    monkeypatch.setattr(s, "verify_gate", lambda *a: gate)
++    monkeypatch.setattr(s, "existing_identity_checks", lambda *a: None)
++    monkeypatch.setattr(s, "normal_priority", lambda: None)
++    monkeypatch.setattr(s.torch, "set_num_threads", lambda *a: None)
++    monkeypatch.setattr(s.torch, "set_num_interop_threads", lambda *a: None)
++    monkeypatch.setattr(s, "check_old_results", lambda: {"files": 398, "unchanged": True})
++    validated, launched = [], []
++
++    def validate(job):
++        validated.append(job)
++        if invalid_original_bundle:
++            raise ValueError("synthetic original complete-bundle/budget validation failure")
++        return {"job": list(job)}
++
++    monkeypatch.setattr(s, "ResultValidator", lambda: validate)
++
++    class Child:
++        pid = 123
++
++        def poll(self):
++            return 0
++
++    def popen(command, **kwargs):
++        assert validated == [fixture["jobs"][0]]
++        launched.append(command)
++        return Child()
++
++    execute = s.execute_queue
++    clock = FakeClock()
++    monkeypatch.setattr(s, "execute_queue", lambda runtime, state, workers, validator:
++                        execute(runtime, state, workers, validator, popen=popen, sleep=clock.sleep, clock=clock,
++                                memory=lambda: {"available_physical_gib": 20, "commit_used_fraction": .4}))
++    if invalid_original_bundle:
++        with pytest.raises(ValueError, match="original complete-bundle"):
++            s.run(tmp_path, 1)
++        assert not launched
++    else:
++        assert s.run(tmp_path, 1) == 2  # 2-task fixture cannot claim real 30/30 completion.
++        assert len(launched) == 1 and validated == fixture["jobs"]
++        state = s.read_json(tmp_path / "status.json")
++        assert state["tasks"][0]["attempts"][0]["source_gate_sha256"] == lineage["prior_gate_sha256"]
++        assert state["tasks"][1]["attempts"][0]["source_gate_sha256"] == s.sha256(validation / "engineering_gate.json")
++        assert len(state["source_lineage"]) == 2
++        assert state["source_lineage"][1]["jobs"] == [list(fixture["jobs"][1])]

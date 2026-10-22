@@ -1,0 +1,167 @@
+diff --git "a/E:\\PINN-PDE\\\350\207\252\344\270\273\347\240\224\347\251\266\\\345\275\223\345\211\215\344\270\273\347\272\277\\round33_equation_screen\\validation\\stage6_recovery_20261023\\v1_frozen_sources\\stage6_runner.py" "b/E:\\PINN-PDE\\\350\207\252\344\270\273\347\240\224\347\251\266\\\345\275\223\345\211\215\344\270\273\347\272\277\\round33_equation_screen\\stage6_runner.py"
+index c7f2682..716f0ca 100644
+--- "a/E:\\PINN-PDE\\\350\207\252\344\270\273\347\240\224\347\251\266\\\345\275\223\345\211\215\344\270\273\347\272\277\\round33_equation_screen\\validation\\stage6_recovery_20261023\\v1_frozen_sources\\stage6_runner.py"
++++ "b/E:\\PINN-PDE\\\350\207\252\344\270\273\347\240\224\347\251\266\\\345\275\223\345\211\215\344\270\273\347\272\277\\round33_equation_screen\\stage6_runner.py"
+@@ -718,6 +718,8 @@ def new_state(previous=None):
+         prior = prior_rows.get(job, {})
+         rows.append({"job": list(job), "id": task_id(job), "state": "queued", "pid": None,
+                      "config": asdict(config(job)), "attempts": prior.get("attempts", []),
++                     "required_complete_result": (prior.get("required_complete_result", False) or
++                                                  prior.get("state") == "completed"),
+                      "last_error": prior.get("last_error")})
+     start = time.time()
+     return {"phase": "checking", "prereg_commit": PREREG, "runner_pid": os.getpid(),
+@@ -734,6 +736,27 @@ def new_state(previous=None):
+             "stop_dispatch_reason": None, "preregistered_tasks": 30}
+ 
+ 
++def prevalidate_results_before_dispatch(state, gate_evidence, validator):
++    """A previously completed/original recovered job can never become queued.
++
++    Persist the requirement even when validation fails, so a second run cannot
++    erase this protection by reading the failed preflight's reset task states.
++    File existence is only a discovery rule for genuinely unattempted jobs.
++    """
++    required = {tuple(job) for job in gate_evidence.get("recovery_lineage", {}).get("original_active_jobs", [])}
++    rows = {tuple(row["job"]): row for row in state["tasks"]}
++    if required - rows.keys():
++        raise ValueError("恢复门的原活动任务不在当前精确任务集合中")
++    for job in required:
++        rows[job]["required_complete_result"] = True
++    for row in state["tasks"]:
++        job = tuple(row["job"])
++        if row.get("required_complete_result") or out_path(*job).exists():
++            row["validation"] = validator(job)
++            row["state"] = "completed"
++            row["required_complete_result"] = True
++
++
+ def save_status(runtime, state):
+     state["updated_utc"] = now()
+     state["session_wall_seconds"] = time.time() - state["session_started_unix"]
+@@ -929,11 +952,7 @@ def run(runtime, workers, resource_review_note=None, retry_failed_jobs=()):
+             state["review_deadline_unix"] = time.time() + 48 * 3600
+         validator = ResultValidator()
+         try:
+-            for row in state["tasks"]:
+-                job = tuple(row["job"])
+-                if out_path(*job).exists():
+-                    row["validation"] = validator(job)
+-                    row["state"] = "completed"
++            prevalidate_results_before_dispatch(state, gate_evidence, validator)
+             save_status(runtime, state)
+             validated = execute_queue(runtime, state, workers, validator)
+             old = check_old_results()
+diff --git "a/E:\\PINN-PDE\\\350\207\252\344\270\273\347\240\224\347\251\266\\\345\275\223\345\211\215\344\270\273\347\272\277\\round33_equation_screen\\validation\\stage6_recovery_20261023\\v1_frozen_sources\\test_stage6_runner.py" "b/E:\\PINN-PDE\\\350\207\252\344\270\273\347\240\224\347\251\266\\\345\275\223\345\211\215\344\270\273\347\272\277\\round33_equation_screen\\test_stage6_runner.py"
+index 7526d54..b7969bc 100644
+--- "a/E:\\PINN-PDE\\\350\207\252\344\270\273\347\240\224\347\251\266\\\345\275\223\345\211\215\344\270\273\347\272\277\\round33_equation_screen\\validation\\stage6_recovery_20261023\\v1_frozen_sources\\test_stage6_runner.py"
++++ "b/E:\\PINN-PDE\\\350\207\252\344\270\273\347\240\224\347\251\266\\\345\275\223\345\211\215\344\270\273\347\272\277\\round33_equation_screen\\test_stage6_runner.py"
+@@ -788,3 +788,108 @@ def test_recovery_validates_old_result_before_any_new_dispatch_and_binds_new_gat
+         assert state["tasks"][1]["attempts"][0]["source_gate_sha256"] == s.sha256(validation / "engineering_gate.json")
+         assert len(state["source_lineage"]) == 2
+         assert state["source_lineage"][1]["jobs"] == [list(fixture["jobs"][1])]
++
++
++@pytest.mark.parametrize("prior_kind", ["recovery", "completed"])
++@pytest.mark.parametrize("removed", ["json", "bundle", "bundle_with_checkpoint"])
++def test_previously_finished_artifact_loss_after_gate_never_dispatches_even_on_second_run(
++        monkeypatch, tmp_path, prior_kind, removed):
++    """Gate is valid first, then files disappear; a checkpoint is not a result.
++
++    The real identity/checkpoint path runs against a minimally valid identity
++    checkpoint. The scientific validator is a complete-bundle sentinel here;
++    its numerical correctness is covered by the existing validator tests.
++    """
++    fixture = recovery_fixture(monkeypatch, tmp_path)
++    job = fixture["jobs"][0]
++    lineage = s.recovery_lineage(fixture["manifest_path"], tmp_path)
++    previous = fixture["prior"]
++    gate = {"source_hashes": fixture["current"]}
++    if prior_kind == "recovery":
++        gate["recovery_lineage"] = lineage
++    else:
++        previous = s.reconcile_recovered_attempts(previous, lineage,
++                                                  s.sha256(fixture["paths"]["prior_status"]))
++        previous["tasks"][0]["state"] = "completed"
++    s.write_json(tmp_path / "status.json", previous)
++    validation = tmp_path / "validation"
++    validation.mkdir()
++    monkeypatch.setattr(s, "VALIDATION", validation)
++    s.write_json(validation / "engineering_gate.json", gate)
++    monkeypatch.setattr(s, "verify_gate", lambda *a: gate)
++    monkeypatch.setattr(s, "normal_priority", lambda: None)
++    monkeypatch.setattr(s.torch, "set_num_threads", lambda *a: None)
++    monkeypatch.setattr(s.torch, "set_num_interop_threads", lambda *a: None)
++    monkeypatch.setattr(s, "check_old_results", lambda: {"files": 398, "unchanged": True})
++    monkeypatch.setattr(s, "HERE", tmp_path)
++
++    result = s.out_path(*job)
++    parts = (result, result.with_suffix(".pt"), result.with_suffix(".model.pt"))
++    for path in parts[1:]:
++        path.write_bytes(b"synthetic complete-bundle sentinel")
++    if removed != "bundle":
++        ckpt = s.checkpoint(job, tmp_path)
++        ckpt.parent.mkdir(parents=True)
++        # This passes the actual unchanged checkpoint identity validator, but
++        # cannot substitute for a result that was required to remain complete.
++        torch.save({"identity": {"problem": s.get_problem(job[1]).name,
++                                 "method": job[2], "config": asdict(s.config(job))}}, ckpt)
++        s.validate_checkpoint(ckpt, s.get_problem(job[1]), job[2], s.config(job))
++    for path in (parts[:1] if removed == "json" else parts):
++        path.unlink()
++    assert s.existing_identity_checks(tmp_path) == ([] if removed == "bundle" else [
++        {"job": list(job), "checkpoint": str(s.checkpoint(job, tmp_path)),
++         "sha256": s.sha256(s.checkpoint(job, tmp_path))}])
++    validated, launched = [], []
++
++    def validate(candidate):
++        validated.append(candidate)
++        if candidate == job and not all(path.is_file() for path in parts):
++            raise ValueError("required prior complete bundle is missing")
++        return {"job": list(candidate)}
++
++    monkeypatch.setattr(s, "ResultValidator", lambda: validate)
++
++    class Child:
++        pid = 123
++
++        def poll(self):
++            return 0
++
++    def popen(command, **kwargs):
++        launched.append(command)
++        return Child()
++
++    execute = s.execute_queue
++    clock = FakeClock()
++    monkeypatch.setattr(s, "execute_queue", lambda runtime, state, workers, validator:
++                        execute(runtime, state, workers, validator, popen=popen, sleep=clock.sleep, clock=clock,
++                                memory=lambda: {"available_physical_gib": 20, "commit_used_fraction": .4}))
++    for _ in range(2):
++        with pytest.raises(ValueError, match="required prior complete bundle"):
++            s.run(tmp_path, 1)
++        assert launched == []
++        persisted = s.read_json(tmp_path / "status.json")
++        assert persisted["tasks"][0]["required_complete_result"] is True
++        assert persisted["phase"] == "review_required"
++    assert validated == [job, job]
++
++
++def test_prevalidation_marks_all_required_jobs_completed_before_queue(monkeypatch, tmp_path):
++    jobs = s.ALL_JOBS[:3]
++    monkeypatch.setattr(s, "ALL_JOBS", jobs)
++    monkeypatch.setattr(s, "out_path", lambda *job: tmp_path / (s.task_id(job) + ".json"))
++    previous = s.new_state()
++    previous["tasks"][0]["state"] = "completed"
++    state = s.new_state(previous)
++    seen = []
++
++    def validate(job):
++        seen.append(job)
++        return {"job": list(job), "complete_and_recomputed": True}
++
++    gate = {"recovery_lineage": {"original_active_jobs": [list(jobs[1])]}}
++    s.prevalidate_results_before_dispatch(state, gate, validate)
++    assert seen == jobs[:2]
++    assert [r["state"] for r in state["tasks"]] == ["completed", "completed", "queued"]
++    assert [r["required_complete_result"] for r in state["tasks"]] == [True, True, False]

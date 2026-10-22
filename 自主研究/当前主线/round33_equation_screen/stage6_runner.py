@@ -6,10 +6,12 @@ every config field is serialized through --set, including default-valued fields.
 from __future__ import annotations
 
 import argparse
+import copy
 import ctypes
 from dataclasses import asdict, replace
 from datetime import datetime, timezone
 import hashlib
+import io
 import json
 import os
 from pathlib import Path
@@ -18,6 +20,7 @@ import subprocess
 import sys
 import time
 import traceback
+import uuid
 import xml.etree.ElementTree as ET
 
 import numpy as np
@@ -53,6 +56,8 @@ ALL_JOBS = TAU_JOBS + SOAP_JOBS
 MAX_WORKERS = 24
 GIB = 1024 ** 3
 _PROGRESS_CACHE = {}
+_REPLACE_DELAYS = (0.05, 0.1, 0.2, 0.4, 0.8, 0.8, 0.8, 0.8, 0.8)
+ORCHESTRATION_FILES = {"stage6_runner.py", "run_stage6.ps1", "test_stage6_runner.py"}
 
 
 def now():
@@ -62,13 +67,66 @@ def now():
 def write_json(path, value):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
+    # One writer per process/path under the runner lock. Reuse its failed temp
+    # so permanent denial cannot leave a new full status file on every poll.
     tmp = path.with_name(path.name + f".{os.getpid()}.tmp")
     tmp.write_text(json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
-    os.replace(tmp, path)
+    # Windows can temporarily deny replacement. Never delete the old
+    # destination or truncate it as a fallback; retain the complete temp on failure.
+    for attempt in range(len(_REPLACE_DELAYS) + 1):
+        try:
+            os.replace(tmp, path)
+            return
+        except OSError as exc:
+            transient = isinstance(exc, PermissionError) or getattr(exc, "winerror", None) in (5, 32, 33)
+            if not transient or attempt == len(_REPLACE_DELAYS):
+                raise
+            time.sleep(_REPLACE_DELAYS[attempt])
+
+
+def open_shared_read(path):
+    """Use delete-sharing for short Windows reads; replacement may still need retry."""
+    if os.name != "nt":
+        return Path(path).open("rb")
+    import msvcrt
+    from ctypes import wintypes
+    kernel = ctypes.WinDLL("kernel32", use_last_error=True)
+    kernel.CreateFileW.argtypes = [wintypes.LPCWSTR, wintypes.DWORD, wintypes.DWORD,
+                                  ctypes.c_void_p, wintypes.DWORD, wintypes.DWORD, wintypes.HANDLE]
+    kernel.CreateFileW.restype = wintypes.HANDLE
+    kernel.CloseHandle.argtypes = [wintypes.HANDLE]
+    # GENERIC_READ; FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE.
+    handle = kernel.CreateFileW(str(Path(path)), 0x80000000, 7, None, 3, 0x80, None)
+    if handle == ctypes.c_void_p(-1).value:
+        raise ctypes.WinError(ctypes.get_last_error())
+    try:
+        fd = msvcrt.open_osfhandle(handle, os.O_RDONLY | os.O_BINARY)
+    except BaseException:
+        kernel.CloseHandle(handle)
+        raise
+    return os.fdopen(fd, "rb")
 
 
 def read_json(path):
-    return json.loads(Path(path).read_text(encoding="utf-8-sig"))
+    with open_shared_read(path) as handle:
+        return json.loads(handle.read().decode("utf-8-sig"))
+
+
+def emergency_state(runtime, state, where, error):
+    """Independent evidence on a unique path; reporting failure never orphans workers."""
+    payload = {"utc": now(), "where": where, "error": str(error), "state": state}
+    path = Path(runtime) / "emergency" / f"{os.getpid()}_{time.time_ns()}_{uuid.uuid4().hex}.json"
+    try:
+        write_json(path, payload)
+        print(f"EMERGENCY_STATE {path}: {where}: {error}", file=sys.stderr, flush=True)
+    except Exception as exc:
+        # A full disk/permission error may affect both locations. The launcher's
+        # stderr is a separate already-open stream; retain exit observations there.
+        try:
+            print("EMERGENCY_STATE_FALLBACK " + json.dumps(dict(payload, evidence_write_error=repr(exc)),
+                  ensure_ascii=False, allow_nan=False), file=sys.stderr, flush=True)
+        except Exception:
+            pass
 
 
 def task_id(job):
@@ -270,6 +328,173 @@ def check_no_live_workers(runtime):
             pass
 
 
+def recovery_lineage(manifest_path, runtime):
+    """Bind a completed HANDLE observation to the original 21 task attempts.
+
+    This does not adopt live workers or infer success from a missing PID. Failed
+    or unknown exits require a separate explicit decision, never an automatic retry.
+    """
+    manifest_path = Path(manifest_path).resolve()
+    manifest = read_json(manifest_path)
+    if manifest.get("schema") != "r33_stage6_recovery_manifest_v1" or not manifest.get("incident_id"):
+        raise ValueError("恢复 manifest 类型或 incident_id 错误")
+    required = {"prior_gate", "prior_status", "process_inventory", "observer_events",
+                "observer_source", "runner_stderr", "incident_manifest"}
+    if set(manifest.get("artifacts", {})) != required:
+        raise ValueError("恢复 manifest 必须完整绑定原门/状态/进程身份/观察日志/源码/故障日志/快照清单")
+    artifacts = copy.deepcopy(manifest["artifacts"])
+    for entry in artifacts.values():
+        path = Path(entry["path"]).resolve()
+        if sha256(path) != entry["sha256"]:
+            raise ValueError(f"恢复证据 hash 不匹配：{path}")
+        entry["path"] = str(path)
+    prior_gate = read_json(artifacts["prior_gate"]["path"])
+    prior = read_json(artifacts["prior_status"]["path"])
+    inventory = read_json(artifacts["process_inventory"]["path"])
+    frozen = read_json(artifacts["incident_manifest"]["path"])
+    for entry in frozen["files"]:
+        if sha256(entry["snapshot"]) != entry["sha256"]:
+            raise ValueError(f"事故原始快照发生变化：{entry['snapshot']}")
+    current_hashes = source_hashes()
+    original_hashes = prior_gate["source_hashes"]
+    if set(current_hashes) != set(original_hashes) or any(
+            current_hashes[name] != value for name, value in original_hashes.items() if name not in ORCHESTRATION_FILES):
+        raise ValueError("恢复仅允许编排源变化；训练/协议/供应商源码必须与原门完全相同")
+    if (prior_gate.get("passed") is not True or prior_gate.get("prereg_commit") != PREREG or
+            prior.get("prereg_commit") != PREREG or prior_gate["tasks"] != [list(j) for j in ALL_JOBS] or
+            Path(prior_gate["runtime"]).resolve() != Path(runtime).resolve()):
+        raise ValueError("恢复原门的协议、任务集合或运行目录不符")
+    tasks = {tuple(row["job"]): row for row in prior["tasks"]}
+    if len(prior["tasks"]) != len(tasks) or set(tasks) != set(ALL_JOBS):
+        raise ValueError("恢复原状态必须包含精确的全部预注册任务")
+    for job, row in tasks.items():
+        if row["id"] != task_id(job) or row["config"] != asdict(config(job)):
+            raise ValueError("恢复原任务身份/完整配置不符")
+    if (inventory["tasks"] != prior["tasks"] or
+            inventory["original_gate_sha256"] != artifacts["prior_gate"]["sha256"] or
+            inventory["original_runner_pid"] != prior["runner_pid"]):
+        raise ValueError("进程身份清单没有绑定原运行状态和原门")
+    with open_shared_read(artifacts["observer_events"]["path"]) as handle:
+        events = [json.loads(line) for line in handle.read().decode("utf-8").splitlines() if line.strip()]
+    starts = [e for e in events if e["event"] == "observer_started"]
+    if (len(starts) != 1 or starts[0]["snapshot_sha256"] != artifacts["process_inventory"]["sha256"] or
+            starts[0]["observer_source_sha256"] != artifacts["observer_source"]["sha256"] or
+            starts[0]["original_gate_sha256"] != artifacts["prior_gate"]["sha256"] or
+            not events or events[-1].get("event") != "observer_completed" or
+            events[-1].get("all_handles_signaled") is not True or
+            any(e["event"] in ("attach_failed", "identity_failed", "observer_error") for e in events)):
+        raise ValueError("HANDLE 观察未完整成功结束或证据绑定不符；禁止推断未知退出")
+    active = {job: row for job, row in tasks.items() if row["state"] == "running"}
+    if not active or any(row["state"] != "queued" for job, row in tasks.items() if job not in active):
+        raise ValueError("此事故恢复要求原状态仅包含 running/queued，其他状态须单独审查")
+    processes = {row["pid"]: row for row in inventory["workers"]}
+    attached_rows = [e for e in events if e["event"] == "attached"]
+    exits_rows = [e for e in events if e["event"] == "process_exited"]
+    attached = {e["pid"]: e for e in attached_rows}
+    exits = {e["pid"]: e for e in exits_rows}
+    if (len(processes) != len(inventory["workers"]) or len(processes) != 2 * len(active) or
+            len(attached_rows) != len(attached) or len(exits_rows) != len(exits) or
+            set(processes) != set(attached) or set(processes) != set(exits)):
+        raise ValueError("每个原任务必须有唯一 launcher/worker 身份与 HANDLE 退出记录")
+    reconciled = []
+    for job, row in active.items():
+        pair = [a for a in attached_rows if tuple(a["job"]) == job]
+        if len(pair) != 2 or {a["role"] for a in pair} != {"launcher", "worker"}:
+            raise ValueError("原任务 launcher/worker 配对不完整")
+        observations = {}
+        for identity in pair:
+            pid, role = identity["pid"], identity["role"]
+            sampled, observed = processes[pid], exits[pid]
+            if ((role == "launcher" and pid != row["pid"]) or
+                    (role == "worker" and identity["ppid"] != row["pid"]) or
+                    identity["ppid"] != sampled["ppid"] or
+                    abs(identity["creation_filetime_utc"] - sampled["creation_filetime_utc"]) > 10 or
+                    identity["command_line"] != sampled["command_line"] or
+                    os.path.normcase(identity["executable_path"]) != os.path.normcase(sampled["executable_path"]) or
+                    identity["argv"][1:] != row["attempts"][-1]["command"][1:] or
+                    observed.get("identity_verified") is not True or observed.get("job") != list(job) or
+                    observed.get("role") != role or
+                    observed.get("creation_filetime_utc") != identity["creation_filetime_utc"]):
+                raise ValueError("恢复进程的完整参数/创建时间/父子关系/退出身份不符")
+            if observed["exit_code"] != 0:
+                raise ValueError(f"原任务真实退出非零，须单独明确处置，禁止静默重跑：{job} {role} {observed['exit_code']}")
+            observations[role] = observed
+        if not out_path(*job).is_file():
+            raise ValueError(f"原任务退出后没有完整结果 JSON；不得自动重跑：{job}")
+        finished = datetime.fromisoformat(observations["launcher"]["utc"]).timestamp()
+        wall = finished - row["attempts"][-1]["started_unix"]
+        if wall < 0:
+            raise ValueError("退出观测时间早于原任务派发")
+        reconciled.append({"job": list(job), "launcher": observations["launcher"],
+                           "worker": observations["worker"], "observed_wall_seconds": wall})
+    return {"schema": "r33_stage6_recovery_lineage_v1", "incident_id": manifest["incident_id"],
+            "manifest": {"path": str(manifest_path), "sha256": sha256(manifest_path)},
+            "artifacts": artifacts, "prior_gate_sha256": artifacts["prior_gate"]["sha256"],
+            "prior_source_hashes": original_hashes, "prior_status_sha256": artifacts["prior_status"]["sha256"],
+            "original_active_jobs": [list(j) for j in active], "reconciled": reconciled,
+            "training_and_protocol_unchanged": True,
+            "scope": "原进程退出身份与编排来源；exit 0 不替代完整 bundle、预算与误差重算。"}
+
+
+def verify_recovery_bindings(lineage):
+    for entry in [lineage["manifest"], *lineage["artifacts"].values()]:
+        if sha256(entry["path"]) != entry["sha256"]:
+            raise ValueError(f"冻结恢复证据变化：{entry['path']}")
+
+
+def reconcile_recovered_attempts(previous, lineage, current_status_sha256):
+    if not lineage or lineage["manifest"]["sha256"] in previous.get("applied_recoveries", []):
+        return previous
+    if current_status_sha256 != lineage["prior_status_sha256"]:
+        raise ValueError("恢复前 status 与已保全事故状态不同；禁止覆盖未经审查的新历史")
+    previous = copy.deepcopy(previous)
+    rows = {tuple(row["job"]): row for row in previous["tasks"]}
+    for observation in lineage["reconciled"]:
+        row = rows[tuple(observation["job"])]
+        attempt = row["attempts"][-1]
+        attempt.update(finished_utc=observation["launcher"]["utc"], exit_code=observation["launcher"]["exit_code"],
+                       worker_exit_code=observation["worker"]["exit_code"],
+                       wall_seconds=observation["observed_wall_seconds"],
+                       wall_seconds_basis="HANDLE signaled exit observed by recovery monitor minus original dispatch time",
+                       source_gate_sha256=lineage["prior_gate_sha256"],
+                       supervision_interrupted=True, recovery_manifest_sha256=lineage["manifest"]["sha256"],
+                       observed_worker_pid=observation["worker"]["pid"])
+    incident = {"utc": now(), "reason": "runner_permission_error_orphaned_workers",
+                "incident_id": lineage["incident_id"], "recovered_exit_observations": len(lineage["reconciled"]),
+                "manifest": lineage["manifest"], "runner_stderr": lineage["artifacts"]["runner_stderr"]}
+    previous.setdefault("failure_history", []).append(incident)
+    previous.setdefault("recovery_incidents", []).append(incident)
+    previous.setdefault("applied_recoveries", []).append(lineage["manifest"]["sha256"])
+    previous.setdefault("source_lineage", []).append({"gate_sha256": lineage["prior_gate_sha256"],
+        "source_hashes": lineage["prior_source_hashes"], "jobs": lineage["original_active_jobs"],
+        "role": "original_workers", "recovery_manifest": lineage["manifest"]})
+    previous["runner_wall_timing_note"] = ("原 runner 退出后的孤儿训练区间不计入 runner 活跃墙钟；"
+                                           "各原 attempt 的墙钟按 HANDLE 退出观测补记，含轮询延迟；批次总历时单列。")
+    return previous
+
+
+def require_reviewed_previous_attempts(previous, retry_failed_jobs=()):
+    """No orphan/failed attempt becomes a fresh training run by resetting state."""
+    retry = set(retry_failed_jobs)
+    if previous is None:
+        if retry:
+            raise ValueError("没有原任务历史，不能指定失败重试")
+        return
+    failed = set()
+    for row in previous.get("tasks", []):
+        for attempt in row.get("attempts", []):
+            if attempt.get("pid") is not None and "exit_code" not in attempt and "launch_error" not in attempt:
+                raise ValueError(f"原 attempt 缺少实测退出；须先恢复监督证据，禁止重复训练：{row['id']}")
+        last = row.get("attempts", [{}])[-1] if row.get("attempts") else {}
+        if (row.get("state") == "failed" or last.get("exit_code", 0) != 0 or
+                last.get("worker_exit_code", 0) != 0 or "launch_error" in last):
+            failed.add(row["id"])
+    if retry - failed:
+        raise ValueError("失败重试参数包含没有失败证据的任务")
+    if failed - retry:
+        raise ValueError("已失败任务须逐项明确 --retry-failed-job 后才能恢复：" + ", ".join(sorted(failed - retry)))
+
+
 def existing_identity_checks(runtime):
     expected_paths = {out_path(*job).resolve() for job in ALL_JOBS}
     for tag in {job[0] for job in ALL_JOBS}:
@@ -307,6 +532,8 @@ def verify_gate(runtime):
         raise ValueError("旧 398 文件证据清单变化")
     if sha256(VALIDATION / "pytest.xml") != evidence["runner_tests"]["junit_sha256"]:
         raise ValueError("新 runner 测试证据变化")
+    if evidence.get("recovery_lineage"):
+        verify_recovery_bindings(evidence["recovery_lineage"])
     check_old_results()
     return evidence
 
@@ -333,12 +560,18 @@ def reference_checks():
     return rows
 
 
-def gate(runtime):
+def gate(runtime, recovery_manifest=None):
     runtime = Path(runtime).resolve()
     runtime.mkdir(parents=True, exist_ok=True)
     check_preregistration()
     versions = check_runtime()
     check_no_live_workers(runtime)
+    lineage = recovery_lineage(recovery_manifest, runtime) if recovery_manifest else None
+    old_gate_path = VALIDATION / "engineering_gate.json"
+    if old_gate_path.exists() and (runtime / "status.json").exists() and lineage is None:
+        prior = read_json(runtime / "status.json")
+        if any(row.get("state") == "running" for row in prior.get("tasks", [])):
+            raise ValueError("原状态仍有失去监督的 running 任务；须绑定恢复证据，不得直接覆盖原门")
     reused, old, vendor = check_reused_tests(), check_old_results(), check_vendor_source()
     references = reference_checks()
     identities = existing_identity_checks(runtime)
@@ -364,6 +597,8 @@ def gate(runtime):
               "runner_tests": dict(counts, command=command, junit_sha256=sha256(VALIDATION / "pytest.xml")),
               "existing_identities": identities, "tasks": [list(j) for j in ALL_JOBS],
               "new_training_started_by_gate": False}
+    if lineage:
+        report["recovery_lineage"] = lineage
     write_json(VALIDATION / "engineering_gate.json", report)
     print(json.dumps(report, ensure_ascii=False, indent=2), flush=True)
     return report
@@ -381,7 +616,7 @@ def worker(job, arguments, runtime):
         print(run_one((job[1], job[2], job[3], overrides, job[0])), flush=True)
 
 
-def checkpoint_progress(job, runtime):
+def checkpoint_progress(job, runtime, *, metadata_only=False):
     path = checkpoint(job, runtime)
     key = str(path.resolve())
     try:
@@ -389,12 +624,23 @@ def checkpoint_progress(job, runtime):
     except FileNotFoundError:
         _PROGRESS_CACHE.pop(key, None)
         return {"checkpoint": str(path), "position": "结果已落盘" if out_path(*job).exists() else "尚无首个 checkpoint"}
+    metadata = {"checkpoint": str(path), "checkpoint_modified_unix": stat.st_mtime,
+                "checkpoint_size_bytes": stat.st_size, "checkpoint_metadata_only": True}
+    if metadata_only:
+        return dict(metadata, progress_unavailable_reason="活动任务仅查看 mtime/size；不打开检查点，保护冻结训练写端。")
     signature = (stat.st_mtime_ns, stat.st_size)
-    cached = _PROGRESS_CACHE.get(key)
-    if cached and cached[0] == signature:
-        return dict(cached[1])
     try:
-        raw = torch.load(path, weights_only=False, map_location="cpu")
+        # Never read a live writer's checkpoint. Hold its task lock through the
+        # snapshot/deserialization, so even a late-starting duplicate cannot race.
+        with worker_lock(job, runtime):
+            stat = path.stat()
+            signature = (stat.st_mtime_ns, stat.st_size)
+            cached = _PROGRESS_CACHE.get(key)
+            if cached and cached[0] == signature:
+                return dict(cached[1])
+            with open_shared_read(path) as handle:
+                snapshot = handle.read()
+            raw = torch.load(io.BytesIO(snapshot), weights_only=False, map_location="cpu")
         state = raw["state"]
         progress = {"checkpoint": str(path), "phase": state["phase"], "adam_step": state["step"],
                     "lbfgs_budget_used": state["done"], "saved_elapsed_seconds": state.get("elapsed"),
@@ -403,7 +649,8 @@ def checkpoint_progress(job, runtime):
         _PROGRESS_CACHE[key] = (signature, progress)
         return dict(progress)
     except (OSError, EOFError, KeyError, RuntimeError) as exc:
-        return {"checkpoint": str(path), "progress_read_error": str(exc)}
+        return dict(metadata, progress_read_error=str(exc),
+                    progress_unavailable_reason="检查点未解析：任务锁占用或读取失败；不推断训练位置。")
 
 
 class ResultValidator:
@@ -471,6 +718,8 @@ def new_state(previous=None):
         prior = prior_rows.get(job, {})
         rows.append({"job": list(job), "id": task_id(job), "state": "queued", "pid": None,
                      "config": asdict(config(job)), "attempts": prior.get("attempts", []),
+                     "required_complete_result": (prior.get("required_complete_result", False) or
+                                                  prior.get("state") == "completed"),
                      "last_error": prior.get("last_error")})
     start = time.time()
     return {"phase": "checking", "prereg_commit": PREREG, "runner_pid": os.getpid(),
@@ -480,18 +729,45 @@ def new_state(previous=None):
             "review_deadline_unix": previous.get("review_deadline_unix", start + 48 * 3600), "tasks": rows,
             "failure_history": previous.get("failure_history", []), "resources": None,
             "resource_reviews": previous.get("resource_reviews", []),
+            "source_lineage": previous.get("source_lineage", []),
+            "recovery_incidents": previous.get("recovery_incidents", []),
+            "applied_recoveries": previous.get("applied_recoveries", []),
+            "runner_wall_timing_note": previous.get("runner_wall_timing_note"),
             "stop_dispatch_reason": None, "preregistered_tasks": 30}
+
+
+def prevalidate_results_before_dispatch(state, gate_evidence, validator):
+    """A previously completed/original recovered job can never become queued.
+
+    Persist the requirement even when validation fails, so a second run cannot
+    erase this protection by reading the failed preflight's reset task states.
+    File existence is only a discovery rule for genuinely unattempted jobs.
+    """
+    required = {tuple(job) for job in gate_evidence.get("recovery_lineage", {}).get("original_active_jobs", [])}
+    rows = {tuple(row["job"]): row for row in state["tasks"]}
+    if required - rows.keys():
+        raise ValueError("恢复门的原活动任务不在当前精确任务集合中")
+    for job in required:
+        rows[job]["required_complete_result"] = True
+    for row in state["tasks"]:
+        job = tuple(row["job"])
+        if row.get("required_complete_result") or out_path(*job).exists():
+            row["validation"] = validator(job)
+            row["state"] = "completed"
+            row["required_complete_result"] = True
 
 
 def save_status(runtime, state):
     state["updated_utc"] = now()
     state["session_wall_seconds"] = time.time() - state["session_started_unix"]
     state["total_runner_wall_seconds"] = state["prior_runner_wall_seconds"] + state["session_wall_seconds"]
+    state["batch_elapsed_seconds"] = time.time() - datetime.fromisoformat(state["first_started_utc"]).timestamp()
     state["counts"] = {key: sum(r["state"] == key for r in state["tasks"])
                        for key in ("queued", "running", "completed", "failed")}
     for row in state["tasks"]:
         if row["state"] in ("running", "failed"):
-            row["progress"] = checkpoint_progress(tuple(row["job"]), runtime)
+            row["progress"] = checkpoint_progress(tuple(row["job"]), runtime,
+                                                  metadata_only=row["state"] == "running")
     write_json(Path(runtime) / "status.json", state)
 
 
@@ -518,6 +794,7 @@ def execute_queue(runtime, state, workers, validator, *, popen=subprocess.Popen,
         if row["state"] == "completed":
             validated[row["id"]] = row["validation"]
     last_dispatch = -float("inf")
+    next_persist_retry = -float("inf")
 
     def stop(reason, error=None):
         if state["stop_dispatch_reason"] is None:
@@ -526,19 +803,54 @@ def execute_queue(runtime, state, workers, validator, *, popen=subprocess.Popen,
             if error:
                 state["failure_history"].append({"utc": now(), "reason": reason, "error": error})
 
+    def persist_safely(where):
+        nonlocal next_persist_retry
+        if where == "queue_poll" and clock() < next_persist_retry:
+            return False
+        try:
+            persist(runtime, state)
+            next_persist_retry = -float("inf")
+            return True
+        except Exception:
+            detail = traceback.format_exc()
+            stop("status_persistence_failure", detail)
+            state["status_persistence_failures"] = state.get("status_persistence_failures", 0) + 1
+            state["last_status_persistence_error"] = detail
+            next_persist_retry = clock() + 30
+            if state["status_persistence_failures"] == 1 or where == "queue_final":
+                emergency_state(runtime, state, where, detail)
+            return False
+
     while True:
         for identifier, item in list(active.items()):
             child, log, row = item
-            returncode = child.poll()
+            try:
+                returncode = child.poll()
+            except Exception:
+                detail = traceback.format_exc()
+                stop("process_poll_failure", detail)
+                row["poll_error_count"] = row.get("poll_error_count", 0) + 1
+                row["last_poll_error"] = detail
+                if row["poll_error_count"] == 1:
+                    emergency_state(runtime, state, "process_poll_failure", detail)
+                continue
             if returncode is None:
                 continue
-            log.close()
+            try:
+                log.close()
+            except Exception:
+                detail = traceback.format_exc()
+                stop("worker_log_close_failure", detail)
+                emergency_state(runtime, state, "worker_log_close_failure", detail)
             del active[identifier]
             row["pid"] = None
             row["finished_utc"] = now()
             attempt = row["attempts"][-1]
             attempt.update(finished_utc=now(), exit_code=returncode,
                            wall_seconds=clock() - attempt["started_unix"])
+            if state.get("status_persistence_failures"):
+                emergency_state(runtime, state, "worker_exit_during_drain",
+                                f"{identifier}: exit_code={returncode}")
             try:
                 if returncode:
                     raise RuntimeError(f"worker 退出码 {returncode}；查看 {attempt['log']}")
@@ -573,8 +885,14 @@ def execute_queue(runtime, state, workers, validator, *, popen=subprocess.Popen,
                     flags = (subprocess.CREATE_NO_WINDOW | subprocess.NORMAL_PRIORITY_CLASS) if os.name == "nt" else 0
                     attempt = {"started_utc": now(), "started_unix": clock(), "pid": None,
                                "command": command, "log": str(logpath),
+                               "source_gate_sha256": state.get("current_gate_sha256"),
                                "resume_checkpoint_present": checkpoint(job, runtime).exists()}
                     row["attempts"].append(attempt)
+                    for lineage in state.get("source_lineage", []):
+                        if lineage["gate_sha256"] == state.get("current_gate_sha256"):
+                            jobs = lineage.setdefault("jobs", [])
+                            if list(job) not in jobs:
+                                jobs.append(list(job))
                     try:
                         child = popen(command, cwd=HERE, env=worker_environment(runtime), stdout=log,
                                       stderr=subprocess.STDOUT, creationflags=flags)
@@ -590,25 +908,42 @@ def execute_queue(runtime, state, workers, validator, *, popen=subprocess.Popen,
                     last_dispatch = clock()
             except Exception as exc:
                 stop("engineering_failure", traceback.format_exc())
-        persist(runtime, state)
+        persist_safely("queue_poll")
         sleep(2)
-    state["phase"] = "completed" if all(r["state"] == "completed" for r in state["tasks"]) else "review_required"
-    persist(runtime, state)
+    state["phase"] = ("completed" if not state["stop_dispatch_reason"] and
+                      all(r["state"] == "completed" for r in state["tasks"]) else "review_required")
+    if not persist_safely("queue_final"):
+        state["phase"] = "review_required"
+        emergency_state(runtime, state, "queue_final_unpersisted", state["last_status_persistence_error"])
     return validated
 
 
-def run(runtime, workers, resource_review_note=None):
+def run(runtime, workers, resource_review_note=None, retry_failed_jobs=()):
     runtime = Path(runtime).resolve()
     runtime.mkdir(parents=True, exist_ok=True)
     normal_priority()
     torch.set_num_threads(1)
     torch.set_num_interop_threads(1)
     with FileLock(runtime / "runner.lock"):
-        verify_gate(runtime)
+        gate_evidence = verify_gate(runtime)
         check_no_live_workers(runtime)
         existing_identity_checks(runtime)
         previous = read_json(runtime / "status.json") if (runtime / "status.json").exists() else None
+        if gate_evidence.get("recovery_lineage"):
+            if previous is None:
+                raise ValueError("恢复运行缺少已绑定原状态")
+            previous = reconcile_recovered_attempts(previous, gate_evidence["recovery_lineage"],
+                                                   sha256(runtime / "status.json"))
+        require_reviewed_previous_attempts(previous, retry_failed_jobs)
         state = new_state(previous)
+        if retry_failed_jobs:
+            state["failure_history"].append({"utc": now(), "reason": "explicit_failed_job_retry",
+                                             "task_ids": sorted(set(retry_failed_jobs))})
+        gate_sha = sha256(VALIDATION / "engineering_gate.json")
+        state["current_gate_sha256"] = gate_sha
+        if not any(entry["gate_sha256"] == gate_sha for entry in state["source_lineage"]):
+            state["source_lineage"].append({"gate_sha256": gate_sha, "source_hashes": gate_evidence["source_hashes"],
+                                            "role": "current_orchestration", "jobs": []})
         if resource_review_note:
             if not previous or previous.get("stop_dispatch_reason") != "48h_resource_review":
                 raise ValueError("仅在已达到 48 小时复盘门后使用 --resource-review-note")
@@ -617,11 +952,7 @@ def run(runtime, workers, resource_review_note=None):
             state["review_deadline_unix"] = time.time() + 48 * 3600
         validator = ResultValidator()
         try:
-            for row in state["tasks"]:
-                job = tuple(row["job"])
-                if out_path(*job).exists():
-                    row["validation"] = validator(job)
-                    row["state"] = "completed"
+            prevalidate_results_before_dispatch(state, gate_evidence, validator)
             save_status(runtime, state)
             validated = execute_queue(runtime, state, workers, validator)
             old = check_old_results()
@@ -629,15 +960,22 @@ def run(runtime, workers, resource_review_note=None):
             report = validation_report(validated, complete)
             report.update(old_results=old, phase=state["phase"],
                           total_runner_wall_seconds=state["total_runner_wall_seconds"],
+                          batch_elapsed_seconds=state["batch_elapsed_seconds"],
+                          source_lineage=state["source_lineage"], recovery_incidents=state["recovery_incidents"],
                           failure_history=state["failure_history"], resources=state["resources"],
                           task_status=[{k: row[k] for k in ("id", "job", "state", "attempts", "last_error")}
                                        for row in state["tasks"]])
             write_json(VALIDATION / "summary.json", report)
             return 0 if complete else 2
         except Exception:
+            original_error = traceback.format_exc()
             state["phase"] = "review_required"
-            state["failure_history"].append({"utc": now(), "error": traceback.format_exc()})
-            save_status(runtime, state)
+            state["failure_history"].append({"utc": now(), "error": original_error})
+            try:
+                save_status(runtime, state)
+            except Exception:
+                emergency_state(runtime, state, "run_exception_status_failed",
+                                dict(original=original_error, status_error=traceback.format_exc()))
             raise
 
 
@@ -652,14 +990,22 @@ def main():
     parser.add_argument("--runtime", type=Path, default=DEFAULT_RUNTIME)
     parser.add_argument("--workers", type=int, default=24)
     parser.add_argument("--resource-review-note", help="达到 48 小时门后，记录资源复盘结论并开启下一检查窗口")
+    parser.add_argument("--recovery-manifest", type=Path,
+                        help="仅用于 --gate；绑定原门/状态与已结束的孤儿进程 HANDLE 观察，不启动训练")
+    parser.add_argument("--retry-failed-job", action="append", default=[],
+                        help="仅用于 --run；明确允许重试具有已知失败证据的指定 task id，未知退出仍拒绝")
     parser.add_argument("--set", dest="overrides", action="append", default=[])
     args = parser.parse_args()
+    if args.recovery_manifest and not args.gate:
+        parser.error("--recovery-manifest 只能与 --gate 使用")
+    if args.retry_failed_job and not args.run:
+        parser.error("--retry-failed-job 只能与 --run 使用")
     if args.worker:
         tag, eq, method, seed = args.worker
         worker((tag, eq, method, int(seed)), args.overrides, args.runtime)
     elif args.gate:
         with FileLock(args.runtime / "runner.lock"):
-            gate(args.runtime)
+            gate(args.runtime, args.recovery_manifest)
     elif args.plan:
         print(json.dumps({"prereg_commit": PREREG, "max_workers": 24, "required_tasks": 30,
                           "jobs": [{"job": list(j), "config": asdict(config(j)),
@@ -669,7 +1015,7 @@ def main():
         print(json.dumps(read_json(args.runtime / "status.json") if (args.runtime / "status.json").exists()
                          else {"phase": "not_started", "required_tasks": 30}, ensure_ascii=False, indent=2))
     elif args.run:
-        return run(args.runtime, args.workers, args.resource_review_note)
+        return run(args.runtime, args.workers, args.resource_review_note, args.retry_failed_job)
     else:
         parser.error("请选择 --plan、--gate、--run 或 --status；默认不自动训练")
     return 0
