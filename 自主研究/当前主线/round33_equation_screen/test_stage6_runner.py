@@ -1,13 +1,33 @@
 """Runner-only tests: no research training, no mutation of prior artifacts."""
 from dataclasses import asdict
 from pathlib import Path
+import base64
 import copy
+import subprocess
 
 import numpy as np
 import pytest
 import torch
 
 import stage6_runner as s
+
+
+def test_windows_powershell5_reads_bom_and_parses_launcher_without_execution():
+    launcher = s.HERE / "run_stage6.ps1"
+    assert launcher.read_bytes().startswith(b"\xef\xbb\xbf"), "Windows PowerShell 5 中文脚本须保留 UTF-8 BOM"
+    escaped = str(launcher).replace("'", "''")
+    script = ("[Console]::OutputEncoding = New-Object System.Text.UTF8Encoding($false); "
+              "$tokens=$null; $parseErrors=$null; "
+              f"[System.Management.Automation.Language.Parser]::ParseFile('{escaped}', "
+              "[ref]$tokens, [ref]$parseErrors) | Out-Null; "
+              "if ($parseErrors.Count -ne 0) { $parseErrors | ForEach-Object { $_.Message }; exit 1 }; "
+              "Write-Output ('PARSE_OK_PS' + $PSVersionTable.PSVersion.Major)")
+    encoded = base64.b64encode(script.encode("utf-16-le")).decode("ascii")
+    result = subprocess.run(["powershell.exe", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass",
+                             "-EncodedCommand", encoded], stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                            encoding="utf-8", errors="replace", check=False, timeout=30)
+    assert result.returncode == 0, result.stdout
+    assert "PARSE_OK_PS5" in result.stdout, result.stdout
 
 
 def override_args(job):

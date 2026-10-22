@@ -1,5 +1,5 @@
 {
-  "time_utc": "2026-10-22T16:00:10.558319+00:00",
+  "time_utc": "2026-10-22T16:07:02.436700+00:00",
   "passed": true,
   "prereg_commit": "bfe89e3a07f1bb3bcc8e049d8d3d7ff95b4a647a",
   "runtime": "D:\\CodexRuntime\\runs\\r33_stage6_20261022",
@@ -47,8 +47,8 @@
     "stage5_support.py": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf",
     "third_party/soap_official.py": "6b2328e53fb3cb58cf18b21e706f6f17e7f7dcac83c8abb1053fa74d6e0ca592",
     "stage6_runner.py": "7a2f55cd271cfd9d4355998d35b66a095a656aa46e260fc8c1dfeb83db2e870b",
-    "run_stage6.ps1": "be217e09ce415474044ad50e15b83be9bc4102254c5c5be735673b9dc1b73c28",
-    "test_stage6_runner.py": "fcb3f454065f029647ad4eebe0d1507bdb6bc648c598b4fc909d04591e38087b",
+    "run_stage6.ps1": "4aea35d292fdb6a33331783d810fec5d3ea88b2e892e2acca0fdec23777c06db",
+    "test_stage6_runner.py": "a45f8d7cc4b84b25d9159e0034943e0985ca5e1509a93d0b767d4b4770f651bc",
     "SCREEN_PROTOCOL.md": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
     "validation/stage6_20261022/soap_upstream_blob.json": "cb9a6689ab864c2ceea5de92b72ff8db3174a5edf623006257868918c45f6fb5"
   },
@@ -81,7 +81,7 @@
     "passed": true
   },
   "runner_tests": {
-    "tests": 41,
+    "tests": 42,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
@@ -96,7 +96,7 @@
       "--junitxml",
       "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_20261022\\pytest.xml"
     ],
-    "junit_sha256": "fdac366003b6432b637eb23bfc5eeae108bee115a04fcc551ea7730a28f06ea0"
+    "junit_sha256": "17223ee6b3f53e3766e4acdf92fb9e4b13790904c4ef9bc163fcd4389339bf5b"
   },
   "existing_identities": [],
   "tasks": [

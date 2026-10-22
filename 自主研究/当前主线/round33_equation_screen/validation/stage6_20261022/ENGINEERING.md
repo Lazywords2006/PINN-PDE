@@ -49,3 +49,9 @@
 ## 文件范围与证据边界
 
 本次仅新增 `stage6_runner.py`、`run_stage6.ps1`、`test_stage6_runner.py` 及本目录材料。`engineering_gate.json`、`pytest.log`、`pytest.xml` 为本轮检查证据。工程门说明可以开始已注册训练，尚不证明完整训练成功、任何方法效果或论文结论。
+
+## 启动前兼容性修复记录（2026-10-23）
+
+父代理提交运行器后，首次使用系统 `powershell.exe -NoProfile -ExecutionPolicy Bypass -File run_stage6.ps1 -Action Run -Workers 24` 调用时，Windows PowerShell 5 把 UTF-8 无 BOM 的中文字符串按旧编码读取，出现 `ParserError`；这次失败发生在 Python 运行器启动前，未派发任何训练任务。此前仅在当前 PowerShell 宿主解析通过，验证范围未覆盖系统 PowerShell 5。
+
+修复仅将 `run_stage6.ps1` 保存为带 BOM 的 UTF-8，脚本内容和调度行为不变。新增专项测试调用真实 `powershell.exe`，通过其 `Parser.ParseFile` 只读解析启动器并确认版本为 5；该测试不执行启动器、不启动训练。随后重新 Gate，更新启动器和测试源 hash；本次专项测试为 **42 passed**，原 71 项测试继续按源 hash 复用。此前 41 项记录作为首次工程门历史保留。
