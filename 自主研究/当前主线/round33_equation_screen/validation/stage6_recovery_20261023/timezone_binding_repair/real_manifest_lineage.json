@@ -1,0 +1,1029 @@
+{
+  "verified_utc": "2026-10-22T20:46:35.507402+00:00",
+  "passed": true,
+  "scope": "Read-only recovery_lineage identity/source/exit-evidence check; not Gate, Run, complete bundle validation, or scientific acceptance",
+  "manifest_sha256_before_and_after": "237609b2ffb7c31f77ac53c1d281bc6e5e03ade97367505e07116835c205c508",
+  "all_bound_artifacts_unchanged": true,
+  "original_active_jobs": 21,
+  "reconciled_jobs": 21,
+  "verified_zero_exit_observations": 42,
+  "current_source_hashes": {
+    "pinn1d.py": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+    "problems.py": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+    "screen.py": "26eb4a06e67350098d7099f2411ecdd2ad5cdf0f314c8f7080b800ae24e67695",
+    "run_artifacts.py": "bd463ae18d21ef71b9a630fbd77426c1a8c616b77b2ba30cebdb80d104ae3a90",
+    "soap_baseline.py": "76ce746f81fe006b3782ee413383de6852a033299504ffd5cde0dd8292557ac2",
+    "stage5_support.py": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf",
+    "third_party/soap_official.py": "6b2328e53fb3cb58cf18b21e706f6f17e7f7dcac83c8abb1053fa74d6e0ca592",
+    "stage6_runner.py": "a2fd8483ed9faa72b25ec6977441522d7897bc6a06b52321a698db4801952e18",
+    "run_stage6.ps1": "4aea35d292fdb6a33331783d810fec5d3ea88b2e892e2acca0fdec23777c06db",
+    "test_stage6_runner.py": "5294632eb59732564d22407369a7a9a9402a40a0d2292159a4a4602f002a3ed7",
+    "SCREEN_PROTOCOL.md": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+    "validation/stage6_20261022/soap_upstream_blob.json": "cb9a6689ab864c2ceea5de92b72ff8db3174a5edf623006257868918c45f6fb5"
+  },
+  "lineage": {
+    "schema": "r33_stage6_recovery_lineage_v1",
+    "incident_id": "status_replace_winerror5_20261023",
+    "manifest": {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\recovery_manifest.json",
+      "sha256": "237609b2ffb7c31f77ac53c1d281bc6e5e03ade97367505e07116835c205c508"
+    },
+    "artifacts": {
+      "observer_events": {
+        "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\completed_exit_observation\\events.jsonl",
+        "sha256": "1b735175683fa1fc399bd2c6da55e49da82d54502c6383bd7201913c6466654a"
+      },
+      "observer_source": {
+        "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\observe_orphan_exits.py",
+        "sha256": "cd8da5fc954aa99019efab13eae4b77086b462f16672db9a4ce92edf571c7957"
+      },
+      "runner_stderr": {
+        "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\runner_20261023_000801_094.stderr.log",
+        "sha256": "b077c0c10f64e120c52cc3fc91c48315deddc426b448681bb68cd2119c7afeea"
+      },
+      "process_inventory": {
+        "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\process_inventory.json",
+        "sha256": "8e3606ac01cdf6868dc5cd5a97e7094af69678c03ac663f4d1a65159913659d7"
+      },
+      "prior_status": {
+        "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\status.json",
+        "sha256": "834ae2f4123a1298a25b02f906b4df69f1b1723e74b0491dc4a2db0128b6dc89"
+      },
+      "incident_manifest": {
+        "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\snapshot_manifest.json",
+        "sha256": "d9bcc4ca6cdd8dc03ec940486a5d70c1e3f4d88a22d614847c36fb098cd738b4"
+      },
+      "prior_gate": {
+        "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\engineering_gate.json",
+        "sha256": "bb7250d65bfee8b44858c2ae734e540eee0bf7d26e2d5a68bbc2b7d40ff6e898"
+      }
+    },
+    "prior_gate_sha256": "bb7250d65bfee8b44858c2ae734e540eee0bf7d26e2d5a68bbc2b7d40ff6e898",
+    "prior_source_hashes": {
+      "pinn1d.py": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+      "problems.py": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+      "screen.py": "26eb4a06e67350098d7099f2411ecdd2ad5cdf0f314c8f7080b800ae24e67695",
+      "run_artifacts.py": "bd463ae18d21ef71b9a630fbd77426c1a8c616b77b2ba30cebdb80d104ae3a90",
+      "soap_baseline.py": "76ce746f81fe006b3782ee413383de6852a033299504ffd5cde0dd8292557ac2",
+      "stage5_support.py": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf",
+      "third_party/soap_official.py": "6b2328e53fb3cb58cf18b21e706f6f17e7f7dcac83c8abb1053fa74d6e0ca592",
+      "stage6_runner.py": "7a2f55cd271cfd9d4355998d35b66a095a656aa46e260fc8c1dfeb83db2e870b",
+      "run_stage6.ps1": "4aea35d292fdb6a33331783d810fec5d3ea88b2e892e2acca0fdec23777c06db",
+      "test_stage6_runner.py": "a45f8d7cc4b84b25d9159e0034943e0985ca5e1509a93d0b767d4b4770f651bc",
+      "SCREEN_PROTOCOL.md": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+      "validation/stage6_20261022/soap_upstream_blob.json": "cb9a6689ab864c2ceea5de92b72ff8db3174a5edf623006257868918c45f6fb5"
+    },
+    "prior_status_sha256": "834ae2f4123a1298a25b02f906b4df69f1b1723e74b0491dc4a2db0128b6dc89",
+    "original_active_jobs": [
+      [
+        "sensitivity_tau003_v1",
+        "E1_heat",
+        "hardic+layer",
+        0
+      ],
+      [
+        "sensitivity_tau003_v1",
+        "E3_fisher",
+        "hardic+layer",
+        0
+      ],
+      [
+        "sensitivity_tau003_v1",
+        "E1_heat",
+        "hardic+layer",
+        1
+      ],
+      [
+        "sensitivity_tau003_v1",
+        "E3_fisher",
+        "hardic+layer",
+        1
+      ],
+      [
+        "sensitivity_tau003_v1",
+        "E1_heat",
+        "hardic+layer",
+        2
+      ],
+      [
+        "sensitivity_tau003_v1",
+        "E3_fisher",
+        "hardic+layer",
+        2
+      ],
+      [
+        "sensitivity_tau03_v1",
+        "E1_heat",
+        "hardic+layer",
+        0
+      ],
+      [
+        "sensitivity_tau03_v1",
+        "E3_fisher",
+        "hardic+layer",
+        0
+      ],
+      [
+        "sensitivity_tau03_v1",
+        "E1_heat",
+        "hardic+layer",
+        1
+      ],
+      [
+        "sensitivity_tau03_v1",
+        "E3_fisher",
+        "hardic+layer",
+        1
+      ],
+      [
+        "sensitivity_tau03_v1",
+        "E1_heat",
+        "hardic+layer",
+        2
+      ],
+      [
+        "sensitivity_tau03_v1",
+        "E3_fisher",
+        "hardic+layer",
+        2
+      ],
+      [
+        "final_soap64_v1",
+        "E1_heat",
+        "vanilla",
+        0
+      ],
+      [
+        "final_soap64_v1",
+        "E1_heat",
+        "hardic",
+        0
+      ],
+      [
+        "final_soap64_v1",
+        "E1_heat",
+        "hardic+layer",
+        0
+      ],
+      [
+        "final_soap64_v1",
+        "E3_fisher",
+        "vanilla",
+        0
+      ],
+      [
+        "final_soap64_v1",
+        "E3_fisher",
+        "hardic",
+        0
+      ],
+      [
+        "final_soap64_v1",
+        "E3_fisher",
+        "hardic+layer",
+        0
+      ],
+      [
+        "final_soap64_v1",
+        "E1_heat",
+        "vanilla",
+        1
+      ],
+      [
+        "final_soap64_v1",
+        "E1_heat",
+        "hardic",
+        1
+      ],
+      [
+        "final_soap64_v1",
+        "E1_heat",
+        "hardic+layer",
+        1
+      ]
+    ],
+    "reconciled": [
+      {
+        "job": [
+          "sensitivity_tau003_v1",
+          "E1_heat",
+          "hardic+layer",
+          0
+        ],
+        "launcher": {
+          "utc": "2026-10-22T20:25:14.437918+00:00",
+          "event": "process_exited",
+          "pid": 88760,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "launcher",
+          "job": [
+            "sensitivity_tau003_v1",
+            "E1_heat",
+            "hardic+layer",
+            0
+          ],
+          "creation_filetime_utc": 134371588843898324
+        },
+        "worker": {
+          "utc": "2026-10-22T20:25:14.441435+00:00",
+          "event": "process_exited",
+          "pid": 88520,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "worker",
+          "job": [
+            "sensitivity_tau003_v1",
+            "E1_heat",
+            "hardic+layer",
+            0
+          ],
+          "creation_filetime_utc": 134371588844196453
+        },
+        "observed_wall_seconds": 15430.04995727539
+      },
+      {
+        "job": [
+          "sensitivity_tau003_v1",
+          "E3_fisher",
+          "hardic+layer",
+          0
+        ],
+        "launcher": {
+          "utc": "2026-10-22T20:25:58.635379+00:00",
+          "event": "process_exited",
+          "pid": 57280,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "launcher",
+          "job": [
+            "sensitivity_tau003_v1",
+            "E3_fisher",
+            "hardic+layer",
+            0
+          ],
+          "creation_filetime_utc": 134371588904107579
+        },
+        "worker": {
+          "utc": "2026-10-22T20:25:58.638693+00:00",
+          "event": "process_exited",
+          "pid": 69448,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "worker",
+          "job": [
+            "sensitivity_tau003_v1",
+            "E3_fisher",
+            "hardic+layer",
+            0
+          ],
+          "creation_filetime_utc": 134371588904428480
+        },
+        "observed_wall_seconds": 15468.227318763733
+      },
+      {
+        "job": [
+          "sensitivity_tau003_v1",
+          "E1_heat",
+          "hardic+layer",
+          1
+        ],
+        "launcher": {
+          "utc": "2026-10-22T20:25:25.532420+00:00",
+          "event": "process_exited",
+          "pid": 21128,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "launcher",
+          "job": [
+            "sensitivity_tau003_v1",
+            "E1_heat",
+            "hardic+layer",
+            1
+          ],
+          "creation_filetime_utc": 134371588964348560
+        },
+        "worker": {
+          "utc": "2026-10-22T20:25:25.534942+00:00",
+          "event": "process_exited",
+          "pid": 47736,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "worker",
+          "job": [
+            "sensitivity_tau003_v1",
+            "E1_heat",
+            "hardic+layer",
+            1
+          ],
+          "creation_filetime_utc": 134371588964682600
+        },
+        "observed_wall_seconds": 15429.099070072174
+      },
+      {
+        "job": [
+          "sensitivity_tau003_v1",
+          "E3_fisher",
+          "hardic+layer",
+          1
+        ],
+        "launcher": {
+          "utc": "2026-10-22T20:27:15.708235+00:00",
+          "event": "process_exited",
+          "pid": 78708,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "launcher",
+          "job": [
+            "sensitivity_tau003_v1",
+            "E3_fisher",
+            "hardic+layer",
+            1
+          ],
+          "creation_filetime_utc": 134371589024618965
+        },
+        "worker": {
+          "utc": "2026-10-22T20:27:15.711242+00:00",
+          "event": "process_exited",
+          "pid": 18620,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "worker",
+          "job": [
+            "sensitivity_tau003_v1",
+            "E3_fisher",
+            "hardic+layer",
+            1
+          ],
+          "creation_filetime_utc": 134371589024999485
+        },
+        "observed_wall_seconds": 15533.247856140137
+      },
+      {
+        "job": [
+          "sensitivity_tau003_v1",
+          "E1_heat",
+          "hardic+layer",
+          2
+        ],
+        "launcher": {
+          "utc": "2026-10-22T20:27:40.733402+00:00",
+          "event": "process_exited",
+          "pid": 84396,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "launcher",
+          "job": [
+            "sensitivity_tau003_v1",
+            "E1_heat",
+            "hardic+layer",
+            2
+          ],
+          "creation_filetime_utc": 134371589084946037
+        },
+        "worker": {
+          "utc": "2026-10-22T20:27:40.736062+00:00",
+          "event": "process_exited",
+          "pid": 86736,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "worker",
+          "job": [
+            "sensitivity_tau003_v1",
+            "E1_heat",
+            "hardic+layer",
+            2
+          ],
+          "creation_filetime_utc": 134371589085371965
+        },
+        "observed_wall_seconds": 15552.240894317627
+      },
+      {
+        "job": [
+          "sensitivity_tau003_v1",
+          "E3_fisher",
+          "hardic+layer",
+          2
+        ],
+        "launcher": {
+          "utc": "2026-10-22T20:29:24.811980+00:00",
+          "event": "process_exited",
+          "pid": 70336,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "launcher",
+          "job": [
+            "sensitivity_tau003_v1",
+            "E3_fisher",
+            "hardic+layer",
+            2
+          ],
+          "creation_filetime_utc": 134371589145341975
+        },
+        "worker": {
+          "utc": "2026-10-22T20:29:24.814517+00:00",
+          "event": "process_exited",
+          "pid": 24632,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "worker",
+          "job": [
+            "sensitivity_tau003_v1",
+            "E3_fisher",
+            "hardic+layer",
+            2
+          ],
+          "creation_filetime_utc": 134371589145769480
+        },
+        "observed_wall_seconds": 15650.27951836586
+      },
+      {
+        "job": [
+          "sensitivity_tau03_v1",
+          "E1_heat",
+          "hardic+layer",
+          0
+        ],
+        "launcher": {
+          "utc": "2026-10-22T20:29:31.821642+00:00",
+          "event": "process_exited",
+          "pid": 64552,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "launcher",
+          "job": [
+            "sensitivity_tau03_v1",
+            "E1_heat",
+            "hardic+layer",
+            0
+          ],
+          "creation_filetime_utc": 134371589205838737
+        },
+        "worker": {
+          "utc": "2026-10-22T20:29:31.824157+00:00",
+          "event": "process_exited",
+          "pid": 53044,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "worker",
+          "job": [
+            "sensitivity_tau03_v1",
+            "E1_heat",
+            "hardic+layer",
+            0
+          ],
+          "creation_filetime_utc": 134371589206281141
+        },
+        "observed_wall_seconds": 15651.240223884583
+      },
+      {
+        "job": [
+          "sensitivity_tau03_v1",
+          "E3_fisher",
+          "hardic+layer",
+          0
+        ],
+        "launcher": {
+          "utc": "2026-10-22T20:30:57.883035+00:00",
+          "event": "process_exited",
+          "pid": 90068,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "launcher",
+          "job": [
+            "sensitivity_tau03_v1",
+            "E3_fisher",
+            "hardic+layer",
+            0
+          ],
+          "creation_filetime_utc": 134371589266398846
+        },
+        "worker": {
+          "utc": "2026-10-22T20:30:57.885557+00:00",
+          "event": "process_exited",
+          "pid": 88648,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "worker",
+          "job": [
+            "sensitivity_tau03_v1",
+            "E3_fisher",
+            "hardic+layer",
+            0
+          ],
+          "creation_filetime_utc": 134371589266896328
+        },
+        "observed_wall_seconds": 15731.24570274353
+      },
+      {
+        "job": [
+          "sensitivity_tau03_v1",
+          "E1_heat",
+          "hardic+layer",
+          1
+        ],
+        "launcher": {
+          "utc": "2026-10-22T20:30:28.862062+00:00",
+          "event": "process_exited",
+          "pid": 51352,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "launcher",
+          "job": [
+            "sensitivity_tau03_v1",
+            "E1_heat",
+            "hardic+layer",
+            1
+          ],
+          "creation_filetime_utc": 134371589327166004
+        },
+        "worker": {
+          "utc": "2026-10-22T20:30:28.864600+00:00",
+          "event": "process_exited",
+          "pid": 89392,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "worker",
+          "job": [
+            "sensitivity_tau03_v1",
+            "E1_heat",
+            "hardic+layer",
+            1
+          ],
+          "creation_filetime_utc": 134371589327788283
+        },
+        "observed_wall_seconds": 15696.147919416428
+      },
+      {
+        "job": [
+          "sensitivity_tau03_v1",
+          "E3_fisher",
+          "hardic+layer",
+          1
+        ],
+        "launcher": {
+          "utc": "2026-10-22T20:31:45.925153+00:00",
+          "event": "process_exited",
+          "pid": 84548,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "launcher",
+          "job": [
+            "sensitivity_tau03_v1",
+            "E3_fisher",
+            "hardic+layer",
+            1
+          ],
+          "creation_filetime_utc": 134371589389407425
+        },
+        "worker": {
+          "utc": "2026-10-22T20:31:45.927817+00:00",
+          "event": "process_exited",
+          "pid": 62864,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "worker",
+          "job": [
+            "sensitivity_tau03_v1",
+            "E3_fisher",
+            "hardic+layer",
+            1
+          ],
+          "creation_filetime_utc": 134371589390061007
+        },
+        "observed_wall_seconds": 15766.987157821655
+      },
+      {
+        "job": [
+          "sensitivity_tau03_v1",
+          "E1_heat",
+          "hardic+layer",
+          2
+        ],
+        "launcher": {
+          "utc": "2026-10-22T20:31:16.899094+00:00",
+          "event": "process_exited",
+          "pid": 14748,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "launcher",
+          "job": [
+            "sensitivity_tau03_v1",
+            "E1_heat",
+            "hardic+layer",
+            2
+          ],
+          "creation_filetime_utc": 134371589450282502
+        },
+        "worker": {
+          "utc": "2026-10-22T20:31:16.901100+00:00",
+          "event": "process_exited",
+          "pid": 73216,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "worker",
+          "job": [
+            "sensitivity_tau03_v1",
+            "E1_heat",
+            "hardic+layer",
+            2
+          ],
+          "creation_filetime_utc": 134371589450977021
+        },
+        "observed_wall_seconds": 15731.874134540558
+      },
+      {
+        "job": [
+          "sensitivity_tau03_v1",
+          "E3_fisher",
+          "hardic+layer",
+          2
+        ],
+        "launcher": {
+          "utc": "2026-10-22T20:32:26.954134+00:00",
+          "event": "process_exited",
+          "pid": 19360,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "launcher",
+          "job": [
+            "sensitivity_tau03_v1",
+            "E3_fisher",
+            "hardic+layer",
+            2
+          ],
+          "creation_filetime_utc": 134371589511507701
+        },
+        "worker": {
+          "utc": "2026-10-22T20:32:26.956144+00:00",
+          "event": "process_exited",
+          "pid": 19592,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "worker",
+          "job": [
+            "sensitivity_tau03_v1",
+            "E3_fisher",
+            "hardic+layer",
+            2
+          ],
+          "creation_filetime_utc": 134371589512220244
+        },
+        "observed_wall_seconds": 15795.807985544205
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E1_heat",
+          "vanilla",
+          0
+        ],
+        "launcher": {
+          "utc": "2026-10-22T20:25:42.590552+00:00",
+          "event": "process_exited",
+          "pid": 33072,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "launcher",
+          "job": [
+            "final_soap64_v1",
+            "E1_heat",
+            "vanilla",
+            0
+          ],
+          "creation_filetime_utc": 134371589572984519
+        },
+        "worker": {
+          "utc": "2026-10-22T20:25:42.594072+00:00",
+          "event": "process_exited",
+          "pid": 31200,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "worker",
+          "job": [
+            "final_soap64_v1",
+            "E1_heat",
+            "vanilla",
+            0
+          ],
+          "creation_filetime_utc": 134371589573743371
+        },
+        "observed_wall_seconds": 15385.296714782715
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E1_heat",
+          "hardic",
+          0
+        ],
+        "launcher": {
+          "utc": "2026-10-22T20:26:16.655728+00:00",
+          "event": "process_exited",
+          "pid": 53916,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "launcher",
+          "job": [
+            "final_soap64_v1",
+            "E1_heat",
+            "hardic",
+            0
+          ],
+          "creation_filetime_utc": 134371589634316846
+        },
+        "worker": {
+          "utc": "2026-10-22T20:26:16.658803+00:00",
+          "event": "process_exited",
+          "pid": 82424,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "worker",
+          "job": [
+            "final_soap64_v1",
+            "E1_heat",
+            "hardic",
+            0
+          ],
+          "creation_filetime_utc": 134371589635080645
+        },
+        "observed_wall_seconds": 15413.227956056595
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E1_heat",
+          "hardic+layer",
+          0
+        ],
+        "launcher": {
+          "utc": "2026-10-22T20:33:30.983889+00:00",
+          "event": "process_exited",
+          "pid": 86248,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "launcher",
+          "job": [
+            "final_soap64_v1",
+            "E1_heat",
+            "hardic+layer",
+            0
+          ],
+          "creation_filetime_utc": 134371589695905747
+        },
+        "worker": {
+          "utc": "2026-10-22T20:33:30.985899+00:00",
+          "event": "process_exited",
+          "pid": 88076,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "worker",
+          "job": [
+            "final_soap64_v1",
+            "E1_heat",
+            "hardic+layer",
+            0
+          ],
+          "creation_filetime_utc": 134371589696694650
+        },
+        "observed_wall_seconds": 15841.398432731628
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E3_fisher",
+          "vanilla",
+          0
+        ],
+        "launcher": {
+          "utc": "2026-10-22T20:31:35.915124+00:00",
+          "event": "process_exited",
+          "pid": 70580,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "launcher",
+          "job": [
+            "final_soap64_v1",
+            "E3_fisher",
+            "vanilla",
+            0
+          ],
+          "creation_filetime_utc": 134371589757682082
+        },
+        "worker": {
+          "utc": "2026-10-22T20:31:35.917135+00:00",
+          "event": "process_exited",
+          "pid": 76760,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "worker",
+          "job": [
+            "final_soap64_v1",
+            "E3_fisher",
+            "vanilla",
+            0
+          ],
+          "creation_filetime_utc": 134371589758559251
+        },
+        "observed_wall_seconds": 15720.150128364563
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E3_fisher",
+          "hardic",
+          0
+        ],
+        "launcher": {
+          "utc": "2026-10-22T20:32:00.937907+00:00",
+          "event": "process_exited",
+          "pid": 58872,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "launcher",
+          "job": [
+            "final_soap64_v1",
+            "E3_fisher",
+            "hardic",
+            0
+          ],
+          "creation_filetime_utc": 134371590949695132
+        },
+        "worker": {
+          "utc": "2026-10-22T20:32:00.940913+00:00",
+          "event": "process_exited",
+          "pid": 29844,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "worker",
+          "job": [
+            "final_soap64_v1",
+            "E3_fisher",
+            "hardic",
+            0
+          ],
+          "creation_filetime_utc": 134371590951212232
+        },
+        "observed_wall_seconds": 15625.972438335419
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E3_fisher",
+          "hardic+layer",
+          0
+        ],
+        "launcher": {
+          "utc": "2026-10-22T20:33:53.998190+00:00",
+          "event": "process_exited",
+          "pid": 86456,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "launcher",
+          "job": [
+            "final_soap64_v1",
+            "E3_fisher",
+            "hardic+layer",
+            0
+          ],
+          "creation_filetime_utc": 134371591011660879
+        },
+        "worker": {
+          "utc": "2026-10-22T20:33:54.003853+00:00",
+          "event": "process_exited",
+          "pid": 78168,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "worker",
+          "job": [
+            "final_soap64_v1",
+            "E3_fisher",
+            "hardic+layer",
+            0
+          ],
+          "creation_filetime_utc": 134371591012988177
+        },
+        "observed_wall_seconds": 15732.836503744125
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E1_heat",
+          "vanilla",
+          1
+        ],
+        "launcher": {
+          "utc": "2026-10-22T20:29:23.804603+00:00",
+          "event": "process_exited",
+          "pid": 42616,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "launcher",
+          "job": [
+            "final_soap64_v1",
+            "E1_heat",
+            "vanilla",
+            1
+          ],
+          "creation_filetime_utc": 134371591073730189
+        },
+        "worker": {
+          "utc": "2026-10-22T20:29:23.808614+00:00",
+          "event": "process_exited",
+          "pid": 46056,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "worker",
+          "job": [
+            "final_soap64_v1",
+            "E1_heat",
+            "vanilla",
+            1
+          ],
+          "creation_filetime_utc": 134371591075306885
+        },
+        "observed_wall_seconds": 15456.435651302338
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E1_heat",
+          "hardic",
+          1
+        ],
+        "launcher": {
+          "utc": "2026-10-22T20:38:15.117927+00:00",
+          "event": "process_exited",
+          "pid": 90644,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "launcher",
+          "job": [
+            "final_soap64_v1",
+            "E1_heat",
+            "hardic",
+            1
+          ],
+          "creation_filetime_utc": 134371619535140190
+        },
+        "worker": {
+          "utc": "2026-10-22T20:38:15.118931+00:00",
+          "event": "process_exited",
+          "pid": 80056,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "worker",
+          "job": [
+            "final_soap64_v1",
+            "E1_heat",
+            "hardic",
+            1
+          ],
+          "creation_filetime_utc": 134371619536792868
+        },
+        "observed_wall_seconds": 13141.608089208603
+      },
+      {
+        "job": [
+          "final_soap64_v1",
+          "E1_heat",
+          "hardic+layer",
+          1
+        ],
+        "launcher": {
+          "utc": "2026-10-22T20:40:32.173784+00:00",
+          "event": "process_exited",
+          "pid": 58564,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "launcher",
+          "job": [
+            "final_soap64_v1",
+            "E1_heat",
+            "hardic+layer",
+            1
+          ],
+          "creation_filetime_utc": 134371619949484255
+        },
+        "worker": {
+          "utc": "2026-10-22T20:40:32.175297+00:00",
+          "event": "process_exited",
+          "pid": 78200,
+          "exit_code": 0,
+          "identity_verified": true,
+          "role": "worker",
+          "job": [
+            "final_soap64_v1",
+            "E1_heat",
+            "hardic+layer",
+            1
+          ],
+          "creation_filetime_utc": 134371619951427916
+        },
+        "observed_wall_seconds": 13237.23071527481
+      }
+    ],
+    "training_and_protocol_unchanged": true,
+    "scope": "原进程退出身份与编排来源；exit 0 不替代完整 bundle、预算与误差重算。"
+  }
+}

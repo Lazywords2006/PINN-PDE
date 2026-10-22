@@ -651,6 +651,98 @@ def bind_changed_events(fixture):
     s.write_json(fixture["manifest_path"], fixture["manifest"])
 
 
+def timestamp_inventory_fixture():
+    stamp = "2026-10-22T16:08:04.387960+00:00"
+    return [{"pid": 101, "started_utc": stamp, "config": {"width": 64},
+             "attempts": [{"pid": 101, "started_utc": stamp, "command": ["python", "--worker"]}]}]
+
+
+@pytest.mark.parametrize("converted", ["2026-10-23T00:08:04.38796+08:00",
+                                       "2026-10-22T16:08:04.3879600Z",
+                                       "2026-10-22T10:38:04.387960-05:30"])
+def test_recovery_inventory_accepts_only_same_instants_at_explicit_time_paths(converted):
+    prior = timestamp_inventory_fixture()
+    observed = copy.deepcopy(prior)
+    observed[0]["started_utc"] = converted
+    observed[0]["attempts"][0]["started_utc"] = converted
+    assert s.same_recovery_inventory_tasks(observed, prior)
+    assert s.same_recovery_inventory_tasks(prior, observed)
+
+
+@pytest.mark.parametrize("location", ["task", "attempt"])
+@pytest.mark.parametrize("invalid", ["2026-10-22T16:08:04.387960", "2026-02-30T16:08:04.387960+00:00",
+                                     "2026-10-22T16:08:05.387960+00:00", "2026-10-22T16:08:04.3879601+00:00",
+                                     "2026-10-23T00:08:04.387960+08:99", None])
+def test_recovery_inventory_rejects_naive_invalid_or_moved_time(location, invalid):
+    prior = timestamp_inventory_fixture()
+    observed = copy.deepcopy(prior)
+    row = observed[0] if location == "task" else observed[0]["attempts"][0]
+    row["started_utc"] = invalid
+    assert not s.same_recovery_inventory_tasks(observed, prior)
+
+
+@pytest.mark.parametrize("invalid", ["2026-10-22T16:08:04", "2026-02-30T16:08:04+00:00", "invalid"])
+def test_recovery_inventory_does_not_accept_identical_invalid_timestamps(invalid):
+    prior = timestamp_inventory_fixture()
+    prior[0]["started_utc"] = invalid
+    assert not s.same_recovery_inventory_tasks(copy.deepcopy(prior), prior)
+
+
+@pytest.mark.parametrize("mutation", ["pid", "config", "command", "missing", "extra", "type", "other_time_field"])
+def test_recovery_inventory_requires_exact_non_time_values_and_structure(mutation):
+    prior = timestamp_inventory_fixture()
+    observed = copy.deepcopy(prior)
+    if mutation == "pid":
+        observed[0]["pid"] += 1
+    elif mutation == "config":
+        observed[0]["config"]["width"] += 1
+    elif mutation == "command":
+        observed[0]["attempts"][0]["command"][-1] = "--different"
+    elif mutation == "missing":
+        observed[0].pop("started_utc")
+    elif mutation == "extra":
+        observed[0]["ignored"] = "must not be ignored"
+    elif mutation == "type":
+        observed[0]["pid"] = 101.0
+    else:
+        prior[0]["config"]["started_utc"] = "2026-10-22T16:08:04.387960+00:00"
+        observed[0]["config"]["started_utc"] = "2026-10-23T00:08:04.38796+08:00"
+    assert not s.same_recovery_inventory_tasks(observed, prior)
+
+
+@pytest.mark.parametrize("mutation", ["equivalent", "moved_time", "pid", "config"])
+def test_recovery_lineage_binds_timezone_converted_inventory_without_weakening_identity(monkeypatch, tmp_path,
+                                                                                      mutation):
+    fixture = recovery_fixture(monkeypatch, tmp_path)
+    prior = fixture["prior"]
+    stamp = "1970-01-01T00:01:40.000000+00:00"
+    prior["tasks"][0]["started_utc"] = stamp
+    prior["tasks"][0]["attempts"][0]["started_utc"] = stamp
+    s.write_json(fixture["paths"]["prior_status"], prior)
+    inventory = s.read_json(fixture["paths"]["process_inventory"])
+    inventory["tasks"] = copy.deepcopy(prior["tasks"])
+    row = inventory["tasks"][0]
+    row["started_utc"] = row["attempts"][0]["started_utc"] = "1970-01-01T08:01:40+08:00"
+    if mutation == "moved_time":
+        row["attempts"][0]["started_utc"] = "1970-01-01T08:01:40.0000001+08:00"
+    elif mutation == "pid":
+        row["pid"] += 1
+    elif mutation == "config":
+        row["config"]["width"] += 1
+    s.write_json(fixture["paths"]["process_inventory"], inventory)
+    for key in ("prior_status", "process_inventory"):
+        fixture["manifest"]["artifacts"][key]["sha256"] = s.sha256(fixture["paths"][key])
+    fixture["events"][0]["snapshot_sha256"] = s.sha256(fixture["paths"]["process_inventory"])
+    bind_changed_events(fixture)
+    if mutation == "equivalent":
+        lineage = s.recovery_lineage(fixture["manifest_path"], tmp_path)
+        assert lineage["original_active_jobs"] == [list(fixture["jobs"][0])]
+        assert len(lineage["reconciled"]) == 1
+    else:
+        with pytest.raises(ValueError, match="进程身份清单"):
+            s.recovery_lineage(fixture["manifest_path"], tmp_path)
+
+
 def test_recovery_binds_original_sources_exit_observations_and_preserves_deadline(monkeypatch, tmp_path):
     fixture = recovery_fixture(monkeypatch, tmp_path)
     lineage = s.recovery_lineage(fixture["manifest_path"], tmp_path)

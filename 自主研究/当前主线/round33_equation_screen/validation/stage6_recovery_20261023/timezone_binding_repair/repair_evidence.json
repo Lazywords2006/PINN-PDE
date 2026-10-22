@@ -1,0 +1,85 @@
+{
+  "schema": "r33_stage6_timezone_binding_repair_v1",
+  "verified_utc": "2026-10-22T20:49:44.007406+00:00",
+  "status": "CURRENT_SOURCE_FULL_REGRESSION_AND_READONLY_REAL_MANIFEST_PROBE_PASS",
+  "changes": "Only explicit task/attempt started_utc paths compare timezone-equivalent exact instants; all other JSON values/types/structure remain exact",
+  "allowed_time_paths": [
+    "tasks[i].started_utc",
+    "tasks[i].attempts[j].started_utc"
+  ],
+  "fractional_second_precision": "All digits retained, trailing zero normalization only; no time tolerance",
+  "actual_task_count": 30,
+  "actual_difference_count": 42,
+  "all_actual_differences_same_instant": true,
+  "full_torch_regression": {
+    "tests": 110,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "added_test_cases": 29,
+  "real_manifest_probe": {
+    "passed": true,
+    "manifest_sha256_before_and_after": "237609b2ffb7c31f77ac53c1d281bc6e5e03ade97367505e07116835c205c508",
+    "all_bound_artifacts_unchanged": true,
+    "original_active_jobs": 21,
+    "reconciled_jobs": 21,
+    "verified_zero_exit_observations": 42
+  },
+  "source_hashes": {
+    "pinn1d.py": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+    "problems.py": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+    "screen.py": "26eb4a06e67350098d7099f2411ecdd2ad5cdf0f314c8f7080b800ae24e67695",
+    "run_artifacts.py": "bd463ae18d21ef71b9a630fbd77426c1a8c616b77b2ba30cebdb80d104ae3a90",
+    "soap_baseline.py": "76ce746f81fe006b3782ee413383de6852a033299504ffd5cde0dd8292557ac2",
+    "stage5_support.py": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf",
+    "third_party/soap_official.py": "6b2328e53fb3cb58cf18b21e706f6f17e7f7dcac83c8abb1053fa74d6e0ca592",
+    "stage6_runner.py": "a2fd8483ed9faa72b25ec6977441522d7897bc6a06b52321a698db4801952e18",
+    "run_stage6.ps1": "4aea35d292fdb6a33331783d810fec5d3ea88b2e892e2acca0fdec23777c06db",
+    "test_stage6_runner.py": "5294632eb59732564d22407369a7a9a9402a40a0d2292159a4a4602f002a3ed7",
+    "SCREEN_PROTOCOL.md": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+    "validation/stage6_20261022/soap_upstream_blob.json": "cb9a6689ab864c2ceea5de92b72ff8db3174a5edf623006257868918c45f6fb5"
+  },
+  "changed_original_gate_bound_sources": [
+    "stage6_runner.py",
+    "test_stage6_runner.py"
+  ],
+  "all_scientific_protocol_vendor_sources_unchanged": true,
+  "known_preexisting_history_hash_mismatches": [
+    {
+      "report": "engineering_repair_evidence.json",
+      "path": "RECOVERY_ROUTE.md",
+      "recorded_sha256": "9d18db30417753a3442e4f35856114a262862f077d68b160db123156362c89ff",
+      "current_sha256": "a3197bb6fdb6dd60fbd421d713b689d06d26c18360dd39d1a34f94657a39d02e",
+      "already_committed_head": "352af9c1c8666ae6fca00d682eeb8e440f7d6997",
+      "head_blob_sha256": "a3197bb6fdb6dd60fbd421d713b689d06d26c18360dd39d1a34f94657a39d02e"
+    }
+  ],
+  "all_other_v1_v2_fixture_repair_artifacts_match_recorded_hashes": true,
+  "original_gate_failure_log_unchanged": true,
+  "manifest_and_bound_original_evidence_unchanged": true,
+  "git_diff_check_passed": true,
+  "artifact_sha256": {
+    "after\\stage6_runner.py": "a2fd8483ed9faa72b25ec6977441522d7897bc6a06b52321a698db4801952e18",
+    "after\\test_stage6_runner.py": "5294632eb59732564d22407369a7a9a9402a40a0d2292159a4a4602f002a3ed7",
+    "before\\gate_recovery_attempt1.log": "ec8301a644cb0383890da9c5e9f100b3a61fc42f47bb4aa458fce343dbb4dded",
+    "before\\stage6_runner.py": "fba758ebe71f1c6dead8acc7cd062c15284a7f908e0ad51038aed6755da8600b",
+    "before\\test_stage6_runner.py": "6fcd2d482d5cd0fad8abdacdbe10fbfa8b632f941f9ecbc5b55f860760a894a6",
+    "before_manifest.json": "8aac77ed649fd74d37e13d4aad2f72c61575ac86b00644c755922d6665e9e5db",
+    "freeze_evidence.py": "bee772afd7ac5f726890925a386a2651588775afc8e3db7ea1852a97cf688f37",
+    "probe_real_manifest.py": "05bc134de99216f234dc01b707bc249d3566e3715a480149d2c734464db78161",
+    "pytest_attempt1.log": "396407eb91da3ce9132b99068ba46c1314330b426b16fdb8497d5222d4f7db04",
+    "pytest_attempt1.xml": "863294524a575e442038c0d2b7446d45d3d95bca6e1a431586e4c7ff17b578c6",
+    "real_manifest_lineage.json": "99a089401545628531d924f4da1cb63b5bb1cd1a86c1357ecad156d1786790cd",
+    "real_manifest_probe_attempt1.log": "06a204fffa6736f299dc49f9e18a992517562b2cf16dd39804adc497ebda2bcf",
+    "REVIEW.md": "cb3d6abf0c7dba18f6752d16028055049241793b8ce498f07a0f21127d659c8c",
+    "task_binding_differences.json": "8a8e03cf3278729a269b32b725f881b3dd89eacf84720f59bf3a7116a424631e",
+    "timezone_binding.diff": "c16bddaf9b9d79f8c32ad9623ae25d058e6ec4925b1ff720661543ed4e5ace1c",
+    "git_blob_integrity.json": "1ba86203e02a07e60692a995a31ca14d1ac3cdf7d4ff382ebd6d000588df6658"
+  },
+  "gate_invoked": false,
+  "run_invoked": false,
+  "training_started_or_stopped": false,
+  "committed": false,
+  "scientific_acceptance": "NOT_EVALUATED_BY_THIS_REPAIR"
+}

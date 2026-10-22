@@ -1,0 +1,109 @@
+{
+  "schema": "r33_stage6_timezone_binding_independent_review_v1",
+  "decision": "ACCEPT_EXACT_INSTANT_FORMAT_FIX_WITHOUT_IDENTITY_RELAXATION",
+  "blocking_findings": [],
+  "ready_for_root_new_gate_retry": true,
+  "gate_executed_by_reviewer": false,
+  "run_executed_by_reviewer": false,
+  "training_started_or_stopped_by_reviewer": false,
+  "checkpoint_contents_read": false,
+  "scope": "same instant comparison only for two explicitly permitted task/attempt started_utc paths",
+  "sources": {
+    "runner": "a2fd8483ed9faa72b25ec6977441522d7897bc6a06b52321a698db4801952e18",
+    "tests": "5294632eb59732564d22407369a7a9a9402a40a0d2292159a4a4602f002a3ed7",
+    "current_source_hashes_checked": 12,
+    "source_mismatches": 0,
+    "engineering_artifact_hashes_checked": 16,
+    "artifact_mismatches": 0,
+    "changed_existing_runner_functions": [
+      "recovery_lineage"
+    ],
+    "added_runner_functions": [
+      "same_recovery_inventory_tasks"
+    ],
+    "changed_existing_test_functions": [],
+    "science_protocol_vendor_changed": false
+  },
+  "comparison": {
+    "allowed_paths": [
+      "tasks[i].started_utc",
+      "tasks[i].attempts[j].started_utc"
+    ],
+    "explicit_timezone_required": true,
+    "naive_or_invalid_rejected_even_if_identical": true,
+    "fractional_digits_preserved": true,
+    "trailing_zero_normalization_only": true,
+    "tolerance_seconds": 0,
+    "non_time_values_types_structure_exact": true,
+    "actual_raw_differences": 42,
+    "all_actual_differences_within_allowed_paths": true
+  },
+  "independent_validation": {
+    "tests": 31,
+    "passed": 31,
+    "failed": 0,
+    "seconds": 0.36,
+    "torch_imported": false,
+    "full_regression_repeated": false,
+    "extra_negative_controls": [
+      "1e-20 second difference",
+      "unapproved finished_utc timezone rewrite",
+      "attempt pid int-to-float"
+    ],
+    "directory": "D:/CodexRuntime/runs/r33_stage6_20261022/independent_timezone_review_20261023_0450",
+    "log_sha256": "8d0b1a8193b0404dcf95b5d2f6e75e3b67a5b2a489ac08f7230abba95df65c2c",
+    "junit_sha256": "d6e0e059f869c755780edbebcc31178a33d0dbc6e7183f4094a0883e2afcf8ce",
+    "harness_sha256": "a162f335581c0d8e3218e5283b7a6b1b2163a7c75371341666a8fbe8366eb7c8",
+    "real_probe_sha256": "6cc8aa8035ea2abe8c72a2b2f4237ed9ef85e157a8c98c6662cb840cd9b04b55"
+  },
+  "full_torch_regression": {
+    "executor": "engineering agent",
+    "tests": 110,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 4.79,
+    "independently_checked_log_xml_hash": true,
+    "independently_repeated": false,
+    "log_sha256": "396407eb91da3ce9132b99068ba46c1314330b426b16fdb8497d5222d4f7db04",
+    "junit_sha256": "863294524a575e442038c0d2b7446d45d3d95bca6e1a431586e4c7ff17b578c6"
+  },
+  "real_manifest": {
+    "sha256_before_after": "237609b2ffb7c31f77ac53c1d281bc6e5e03ade97367505e07116835c205c508",
+    "artifacts": 7,
+    "all_artifact_hashes_unchanged": true,
+    "original_tasks": 21,
+    "reconciled_pairs": 21,
+    "zero_exit_observations": 42,
+    "raw_task_lists_equal": false,
+    "same_instant_task_binding": true,
+    "result_validator_invoked": false,
+    "scope": "source/identity/exit evidence only, not numerical bundle validation"
+  },
+  "historical_preservation": {
+    "selected_records_rehashed": 11,
+    "mismatches": 0,
+    "before_snapshot_hashes_unchanged": true,
+    "old_failed_gate_log_preserved": true,
+    "mutable_guide_exception": {
+      "path": "RECOVERY_ROUTE.md",
+      "old_v1_sha256": "9d18db30417753a3442e4f35856114a262862f077d68b160db123156362c89ff",
+      "current_sha256": "a3197bb6fdb6dd60fbd421d713b689d06d26c18360dd39d1a34f94657a39d02e",
+      "prior_commit": "352af9c1c8666ae6fca00d682eeb8e440f7d6997",
+      "commit_blob_independently_byte_matched": true,
+      "is_manifest_bound_artifact": false
+    },
+    "all_historical_current_files_claimed_identical": false
+  },
+  "remaining_gates": [
+    "new engineering gate bound to current hashes",
+    "all original 21 full bundle/budget/reference validation",
+    "only remaining nine dispatch after required gates"
+  ],
+  "actual_recovery_dispatch_accepted": false,
+  "original_21_numerically_accepted": false,
+  "final_30_accepted": false,
+  "scientific_acceptance": "NOT_EVALUATED",
+  "old_398_reaudited": false,
+  "project_sources_data_manifest_modified_by_reviewer": false
+}

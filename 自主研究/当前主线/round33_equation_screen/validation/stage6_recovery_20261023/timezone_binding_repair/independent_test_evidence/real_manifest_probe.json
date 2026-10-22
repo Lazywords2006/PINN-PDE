@@ -1,0 +1,19 @@
+{
+  "manifest_sha256_before_and_after": "237609b2ffb7c31f77ac53c1d281bc6e5e03ade97367505e07116835c205c508",
+  "artifact_hashes_before_and_after": {
+    "observer_events": "1b735175683fa1fc399bd2c6da55e49da82d54502c6383bd7201913c6466654a",
+    "observer_source": "cd8da5fc954aa99019efab13eae4b77086b462f16672db9a4ce92edf571c7957",
+    "runner_stderr": "b077c0c10f64e120c52cc3fc91c48315deddc426b448681bb68cd2119c7afeea",
+    "process_inventory": "8e3606ac01cdf6868dc5cd5a97e7094af69678c03ac663f4d1a65159913659d7",
+    "prior_status": "834ae2f4123a1298a25b02f906b4df69f1b1723e74b0491dc4a2db0128b6dc89",
+    "incident_manifest": "d9bcc4ca6cdd8dc03ec940486a5d70c1e3f4d88a22d614847c36fb098cd738b4",
+    "prior_gate": "bb7250d65bfee8b44858c2ae734e540eee0bf7d26e2d5a68bbc2b7d40ff6e898"
+  },
+  "original_active_jobs": 21,
+  "reconciled_jobs": 21,
+  "zero_exit_observations": 42,
+  "raw_task_strings_equal": false,
+  "same_instant_task_binding": true,
+  "torch_imported": false,
+  "scope": "AST-extracted production lineage/config/source/identity; no Gate, Run, checkpoint content or result numerical validation"
+}

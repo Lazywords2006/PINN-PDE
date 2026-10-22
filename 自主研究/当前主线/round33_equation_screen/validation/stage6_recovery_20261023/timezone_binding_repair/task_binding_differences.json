@@ -1,0 +1,263 @@
+{
+  "captured_utc": "2026-10-22T20:43:31.355070+00:00",
+  "recovery_manifest_sha256": "237609b2ffb7c31f77ac53c1d281bc6e5e03ade97367505e07116835c205c508",
+  "prior_status_sha256": "834ae2f4123a1298a25b02f906b4df69f1b1723e74b0491dc4a2db0128b6dc89",
+  "inventory_sha256": "8e3606ac01cdf6868dc5cd5a97e7094af69678c03ac663f4d1a65159913659d7",
+  "task_count": 30,
+  "inventory_task_count": 30,
+  "difference_count": 42,
+  "differences": [
+    {
+      "path": "/tasks/0/attempts/0/started_utc",
+      "prior": "2026-10-22T16:08:04.387960+00:00",
+      "inventory": "2026-10-23T00:08:04.38796+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/0/started_utc",
+      "prior": "2026-10-22T16:08:04.387960+00:00",
+      "inventory": "2026-10-23T00:08:04.38796+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/1/attempts/0/started_utc",
+      "prior": "2026-10-22T16:08:10.408060+00:00",
+      "inventory": "2026-10-23T00:08:10.40806+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/1/started_utc",
+      "prior": "2026-10-22T16:08:10.408060+00:00",
+      "inventory": "2026-10-23T00:08:10.40806+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/2/attempts/0/started_utc",
+      "prior": "2026-10-22T16:08:16.433350+00:00",
+      "inventory": "2026-10-23T00:08:16.43335+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/2/started_utc",
+      "prior": "2026-10-22T16:08:16.433350+00:00",
+      "inventory": "2026-10-23T00:08:16.43335+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/3/attempts/0/started_utc",
+      "prior": "2026-10-22T16:08:22.460379+00:00",
+      "inventory": "2026-10-23T00:08:22.460379+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/3/started_utc",
+      "prior": "2026-10-22T16:08:22.460379+00:00",
+      "inventory": "2026-10-23T00:08:22.460379+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/4/attempts/0/started_utc",
+      "prior": "2026-10-22T16:08:28.492507+00:00",
+      "inventory": "2026-10-23T00:08:28.492507+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/4/started_utc",
+      "prior": "2026-10-22T16:08:28.492507+00:00",
+      "inventory": "2026-10-23T00:08:28.492507+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/5/attempts/0/started_utc",
+      "prior": "2026-10-22T16:08:34.532461+00:00",
+      "inventory": "2026-10-23T00:08:34.532461+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/5/started_utc",
+      "prior": "2026-10-22T16:08:34.532461+00:00",
+      "inventory": "2026-10-23T00:08:34.532461+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/6/attempts/0/started_utc",
+      "prior": "2026-10-22T16:08:40.581417+00:00",
+      "inventory": "2026-10-23T00:08:40.581417+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/6/started_utc",
+      "prior": "2026-10-22T16:08:40.581417+00:00",
+      "inventory": "2026-10-23T00:08:40.581417+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/7/attempts/0/started_utc",
+      "prior": "2026-10-22T16:08:46.637332+00:00",
+      "inventory": "2026-10-23T00:08:46.637332+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/7/started_utc",
+      "prior": "2026-10-22T16:08:46.637332+00:00",
+      "inventory": "2026-10-23T00:08:46.637332+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/8/attempts/0/started_utc",
+      "prior": "2026-10-22T16:08:52.714142+00:00",
+      "inventory": "2026-10-23T00:08:52.714142+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/8/started_utc",
+      "prior": "2026-10-22T16:08:52.714142+00:00",
+      "inventory": "2026-10-23T00:08:52.714142+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/9/attempts/0/started_utc",
+      "prior": "2026-10-22T16:08:58.937995+00:00",
+      "inventory": "2026-10-23T00:08:58.937995+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/9/started_utc",
+      "prior": "2026-10-22T16:08:58.937995+00:00",
+      "inventory": "2026-10-23T00:08:58.937995+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/10/attempts/0/started_utc",
+      "prior": "2026-10-22T16:09:05.024959+00:00",
+      "inventory": "2026-10-23T00:09:05.024959+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/10/started_utc",
+      "prior": "2026-10-22T16:09:05.024959+00:00",
+      "inventory": "2026-10-23T00:09:05.024959+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/11/attempts/0/started_utc",
+      "prior": "2026-10-22T16:09:11.146148+00:00",
+      "inventory": "2026-10-23T00:09:11.146148+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/11/started_utc",
+      "prior": "2026-10-22T16:09:11.146148+00:00",
+      "inventory": "2026-10-23T00:09:11.146148+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/12/attempts/0/started_utc",
+      "prior": "2026-10-22T16:09:17.293837+00:00",
+      "inventory": "2026-10-23T00:09:17.293837+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/12/started_utc",
+      "prior": "2026-10-22T16:09:17.293837+00:00",
+      "inventory": "2026-10-23T00:09:17.293837+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/13/attempts/0/started_utc",
+      "prior": "2026-10-22T16:09:23.427772+00:00",
+      "inventory": "2026-10-23T00:09:23.427772+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/13/started_utc",
+      "prior": "2026-10-22T16:09:23.427772+00:00",
+      "inventory": "2026-10-23T00:09:23.427772+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/14/attempts/0/started_utc",
+      "prior": "2026-10-22T16:09:29.585456+00:00",
+      "inventory": "2026-10-23T00:09:29.585456+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/14/started_utc",
+      "prior": "2026-10-22T16:09:29.585456+00:00",
+      "inventory": "2026-10-23T00:09:29.585456+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/15/attempts/0/started_utc",
+      "prior": "2026-10-22T16:09:35.764995+00:00",
+      "inventory": "2026-10-23T00:09:35.764995+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/15/started_utc",
+      "prior": "2026-10-22T16:09:35.764995+00:00",
+      "inventory": "2026-10-23T00:09:35.764995+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/16/attempts/0/started_utc",
+      "prior": "2026-10-22T16:11:34.965468+00:00",
+      "inventory": "2026-10-23T00:11:34.965468+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/16/started_utc",
+      "prior": "2026-10-22T16:11:34.965468+00:00",
+      "inventory": "2026-10-23T00:11:34.965468+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/17/attempts/0/started_utc",
+      "prior": "2026-10-22T16:11:41.161686+00:00",
+      "inventory": "2026-10-23T00:11:41.161686+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/17/started_utc",
+      "prior": "2026-10-22T16:11:41.161686+00:00",
+      "inventory": "2026-10-23T00:11:41.161686+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/18/attempts/0/started_utc",
+      "prior": "2026-10-22T16:11:47.368951+00:00",
+      "inventory": "2026-10-23T00:11:47.368951+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/18/started_utc",
+      "prior": "2026-10-22T16:11:47.368951+00:00",
+      "inventory": "2026-10-23T00:11:47.368951+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/19/attempts/0/started_utc",
+      "prior": "2026-10-22T16:59:13.509837+00:00",
+      "inventory": "2026-10-23T00:59:13.509837+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/19/started_utc",
+      "prior": "2026-10-22T16:59:13.509837+00:00",
+      "inventory": "2026-10-23T00:59:13.509837+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/20/attempts/0/started_utc",
+      "prior": "2026-10-22T16:59:54.943068+00:00",
+      "inventory": "2026-10-23T00:59:54.943068+08:00",
+      "same_utc_instant": true
+    },
+    {
+      "path": "/tasks/20/started_utc",
+      "prior": "2026-10-22T16:59:54.943068+00:00",
+      "inventory": "2026-10-23T00:59:54.943068+08:00",
+      "same_utc_instant": true
+    }
+  ]
+}

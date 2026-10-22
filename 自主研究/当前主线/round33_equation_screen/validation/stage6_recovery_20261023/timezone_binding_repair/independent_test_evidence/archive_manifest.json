@@ -1,0 +1,25 @@
+{
+  "files": [
+    {
+      "sha256": "8d0b1a8193b0404dcf95b5d2f6e75e3b67a5b2a489ac08f7230abba95df65c2c",
+      "source": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\independent_timezone_review_20261023_0450\\pytest.log",
+      "archive": "validation\\stage6_recovery_20261023\\timezone_binding_repair\\independent_test_evidence\\pytest.log"
+    },
+    {
+      "sha256": "d6e0e059f869c755780edbebcc31178a33d0dbc6e7183f4094a0883e2afcf8ce",
+      "source": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\independent_timezone_review_20261023_0450\\pytest.xml",
+      "archive": "validation\\stage6_recovery_20261023\\timezone_binding_repair\\independent_test_evidence\\pytest.xml"
+    },
+    {
+      "sha256": "a162f335581c0d8e3218e5283b7a6b1b2163a7c75371341666a8fbe8366eb7c8",
+      "source": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\independent_timezone_review_20261023_0450\\independent_timezone_checks.py",
+      "archive": "validation\\stage6_recovery_20261023\\timezone_binding_repair\\independent_test_evidence\\independent_timezone_checks.py"
+    },
+    {
+      "sha256": "6cc8aa8035ea2abe8c72a2b2f4237ed9ef85e157a8c98c6662cb840cd9b04b55",
+      "source": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\independent_timezone_review_20261023_0450\\real_manifest_probe.json",
+      "archive": "validation\\stage6_recovery_20261023\\timezone_binding_repair\\independent_test_evidence\\real_manifest_probe.json"
+    }
+  ],
+  "scope": "closed independent timezone binding test evidence; no training"
+}

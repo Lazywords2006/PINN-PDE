@@ -1,0 +1,51 @@
+{
+  "captured_utc": "2026-10-22T20:43:31.355070+00:00",
+  "files": [
+    {
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\timezone_binding_repair\\before\\stage6_runner.py",
+      "sha256": "fba758ebe71f1c6dead8acc7cd062c15284a7f908e0ad51038aed6755da8600b"
+    },
+    {
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\test_stage6_runner.py",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\timezone_binding_repair\\before\\test_stage6_runner.py",
+      "sha256": "6fcd2d482d5cd0fad8abdacdbe10fbfa8b632f941f9ecbc5b55f860760a894a6"
+    },
+    {
+      "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\gate_recovery_attempt1.log",
+      "snapshot": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\timezone_binding_repair\\before\\gate_recovery_attempt1.log",
+      "sha256": "ec8301a644cb0383890da9c5e9f100b3a61fc42f47bb4aa458fce343dbb4dded"
+    }
+  ],
+  "recovery_manifest_sha256": "237609b2ffb7c31f77ac53c1d281bc6e5e03ade97367505e07116835c205c508",
+  "bound_artifacts": {
+    "observer_events": {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\completed_exit_observation\\events.jsonl",
+      "sha256": "1b735175683fa1fc399bd2c6da55e49da82d54502c6383bd7201913c6466654a"
+    },
+    "observer_source": {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\observe_orphan_exits.py",
+      "sha256": "cd8da5fc954aa99019efab13eae4b77086b462f16672db9a4ce92edf571c7957"
+    },
+    "runner_stderr": {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\runner_20261023_000801_094.stderr.log",
+      "sha256": "b077c0c10f64e120c52cc3fc91c48315deddc426b448681bb68cd2119c7afeea"
+    },
+    "process_inventory": {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\process_inventory.json",
+      "sha256": "8e3606ac01cdf6868dc5cd5a97e7094af69678c03ac663f4d1a65159913659d7"
+    },
+    "prior_status": {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\status.json",
+      "sha256": "834ae2f4123a1298a25b02f906b4df69f1b1723e74b0491dc4a2db0128b6dc89"
+    },
+    "incident_manifest": {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\snapshot_manifest.json",
+      "sha256": "d9bcc4ca6cdd8dc03ec940486a5d70c1e3f4d88a22d614847c36fb098cd738b4"
+    },
+    "prior_gate": {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\incident_snapshot_20261023_013453_945\\engineering_gate.json",
+      "sha256": "bb7250d65bfee8b44858c2ae734e540eee0bf7d26e2d5a68bbc2b7d40ff6e898"
+    }
+  }
+}

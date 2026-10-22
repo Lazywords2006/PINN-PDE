@@ -328,6 +328,44 @@ def check_no_live_workers(runtime):
             pass
 
 
+def same_recovery_inventory_tasks(observed, expected):
+    """Only task/attempt started_utc may differ by timezone rendering.
+
+    Retain every fractional digit: datetime.fromisoformat alone would truncate
+    sub-microsecond changes. All other JSON values and types must match exactly.
+    """
+    def instant(value):
+        if not isinstance(value, str):
+            raise ValueError("timestamp must be text")
+        match = re.fullmatch(r"(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})(?:\.(\d+))?(Z|[+-]\d{2}:\d{2})", value)
+        if not match:
+            raise ValueError("timestamp must have an explicit timezone")
+        seconds, fraction, offset = match.groups()
+        if offset != "Z" and (int(offset[1:3]) > 23 or int(offset[4:6]) > 59):
+            raise ValueError("invalid timezone offset")
+        utc = datetime.fromisoformat(seconds + offset).astimezone(timezone.utc)
+        return utc, (fraction or "").rstrip("0")
+
+    def same(left, right, path=()):
+        timestamp = ((len(path) == 2 and isinstance(path[0], int) and path[1] == "started_utc") or
+                     (len(path) == 4 and isinstance(path[0], int) and path[1] == "attempts" and
+                      isinstance(path[2], int) and path[3] == "started_utc"))
+        if timestamp:
+            try:
+                return instant(left) == instant(right)
+            except (ValueError, OverflowError):
+                return False
+        if type(left) is not type(right):
+            return False
+        if isinstance(left, dict):
+            return left.keys() == right.keys() and all(same(left[k], right[k], path + (k,)) for k in left)
+        if isinstance(left, list):
+            return len(left) == len(right) and all(same(a, b, path + (i,)) for i, (a, b) in enumerate(zip(left, right)))
+        return left == right
+
+    return same(observed, expected)
+
+
 def recovery_lineage(manifest_path, runtime):
     """Bind a completed HANDLE observation to the original 21 task attempts.
 
@@ -370,7 +408,7 @@ def recovery_lineage(manifest_path, runtime):
     for job, row in tasks.items():
         if row["id"] != task_id(job) or row["config"] != asdict(config(job)):
             raise ValueError("恢复原任务身份/完整配置不符")
-    if (inventory["tasks"] != prior["tasks"] or
+    if (not same_recovery_inventory_tasks(inventory["tasks"], prior["tasks"]) or
             inventory["original_gate_sha256"] != artifacts["prior_gate"]["sha256"] or
             inventory["original_runner_pid"] != prior["runner_pid"]):
         raise ValueError("进程身份清单没有绑定原运行状态和原门")

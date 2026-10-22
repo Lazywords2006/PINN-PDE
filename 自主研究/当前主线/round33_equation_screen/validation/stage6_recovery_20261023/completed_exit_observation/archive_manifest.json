@@ -1,0 +1,15 @@
+{
+  "archived_local": "2026-10-23T04:41:02.1476730+08:00",
+  "files": [
+    {
+      "source": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\orphan_observer_20261023_0138\\events.jsonl",
+      "sha256": "1b735175683fa1fc399bd2c6da55e49da82d54502c6383bd7201913c6466654a",
+      "archive": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\completed_exit_observation\\events.jsonl"
+    },
+    {
+      "source": "D:\\CodexRuntime\\runs\\r33_stage6_20261022\\orphan_observer_20261023_0138\\attached.json",
+      "sha256": "969902f1e76001b3962cee00241bcfaf61ddcc9c7e8065ddb8b2b58704f17bae",
+      "archive": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_recovery_20261023\\completed_exit_observation\\attached.json"
+    }
+  ]
+}
