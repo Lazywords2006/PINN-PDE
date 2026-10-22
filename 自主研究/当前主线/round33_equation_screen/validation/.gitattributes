@@ -1,2 +1,8 @@
 # Preserve original diagnostic logs, including pytest traceback whitespace.
 **/*.log -text -whitespace
+# Preserve the byte identity of newly archived stage-5 validation evidence.
+stage5_20261022/completion.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+stage5_20261022/ic_validation.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+stage5_20261022/pirate_validation.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+stage5_20261022/priority_change_20261022.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+stage5_analysis_20261022/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

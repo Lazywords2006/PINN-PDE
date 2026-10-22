@@ -1,0 +1,68 @@
+{
+  "TimeUTC": "2026-10-22T10:54:17.6801343Z",
+  "LocalTime": "2026-10-22T18:54:17.6899000+08:00",
+  "Reason": "用户报告系统卡顿，将本批八个训练工作进程设为低于正常优先级，让前台程序先获得CPU",
+  "Phase": "final_ic_v1",
+  "ResultsWritten": 12,
+  "Changes": [
+    {
+      "PID": 50112,
+      "ParentPID": 82184,
+      "Before": "Normal",
+      "After": "BelowNormal",
+      "CPUSeconds": 8461.65625
+    },
+    {
+      "PID": 84328,
+      "ParentPID": 82184,
+      "Before": "Normal",
+      "After": "BelowNormal",
+      "CPUSeconds": 8464.96875
+    },
+    {
+      "PID": 54932,
+      "ParentPID": 82184,
+      "Before": "Normal",
+      "After": "BelowNormal",
+      "CPUSeconds": 8460.6875
+    },
+    {
+      "PID": 44508,
+      "ParentPID": 82184,
+      "Before": "Normal",
+      "After": "BelowNormal",
+      "CPUSeconds": 8461.625
+    },
+    {
+      "PID": 73252,
+      "ParentPID": 82184,
+      "Before": "Normal",
+      "After": "BelowNormal",
+      "CPUSeconds": 8460.75
+    },
+    {
+      "PID": 84324,
+      "ParentPID": 82184,
+      "Before": "Normal",
+      "After": "BelowNormal",
+      "CPUSeconds": 8461.140625
+    },
+    {
+      "PID": 85480,
+      "ParentPID": 82184,
+      "Before": "Normal",
+      "After": "BelowNormal",
+      "CPUSeconds": 8463.15625
+    },
+    {
+      "PID": 28828,
+      "ParentPID": 82184,
+      "Before": "Normal",
+      "After": "BelowNormal",
+      "CPUSeconds": 8460.09375
+    }
+  ],
+  "ExperimentImpact": "仅改变操作系统调度优先级；训练步数、种子、点数、模型、损失、学习率及判据未改；墙钟包含变更前后的不同调度环境，成本比较需披露",
+  "SourceChanged": false,
+  "ProcessesRestarted": false
+}

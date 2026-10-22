@@ -1,0 +1,756 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>R33 第一阶段结果分析</title><style>
+    body{margin:0;background:#f4f6f8;color:#1f2937;font:16px/1.8 'Microsoft YaHei',sans-serif}
+    main{max-width:1160px;margin:28px auto;background:white;padding:30px 42px;border-radius:12px}
+    h1{font-size:29px}h2{font-size:23px;margin-top:38px;border-bottom:2px solid #dbe4ed;padding-bottom:8px}
+    h3{font-size:19px}p,li{max-width:100%}table{border-collapse:collapse;width:100%;font-size:13px;margin:20px 0;display:block;overflow-x:auto}
+    th,td{padding:9px 11px;border-bottom:1px solid #dbe4ed;white-space:normal}th{background:#eaf1f8;text-align:left}
+    tr:nth-child(even){background:#f8fafc}img{max-width:100%;height:auto}a{color:#1d4ed8}strong{color:#153d63}
+    @media(max-width:700px){main{margin:0;padding:18px}h1{font-size:24px}}@media print{main{margin:0;padding:0}body{background:white}table{display:table;font-size:10px}}
+    </style><main><h1 id="r33">R33 第一阶段结果分析与论文证据整理</h1>
+<p>整理时间：2026-10-22T21:47:11.591101+08:00。本报告由保存结果自动汇总，新增分析为事后描述性分析。</p>
+<p><strong>判断：值得继续完成一篇范围明确的方法论文初稿，并优先补 τ 灵敏度；当前不建议启动大规模调参。</strong> 第一阶段回答了 E1 PirateNet 是否可叠加、换初值后是否仍有收益两项问题，但没有证明任意初值、任意优化器或所有种子上都更好。A-1、G2 和 E4 的负面结论保持原样。</p>
+<h2 id="1">1. 完成状态与数据可信度</h2>
+<p>第一阶段于 2026-10-22 13:51:32 UTC+8 启动、2026-10-22 20:07:28 UTC+8 完成，实测 6.27 小时。四个 PirateNet 按原 checkpoint 续跑、18 个新初值任务完整训练；22/22 完整产物身份/哈希及原设置与 N96/GL400 误差复算均通过。</p>
+<p>本次重新核对全部 176 个结果 JSON 与对应权重，共 398 个原始结果文件；旧 260 文件 SHA256 未变。新增 22 份 JSON 与验证时哈希一致，训练源代码仍匹配开跑工程门。这里复用已通过的模型加载与数值重算，并独立检查哈希、聚合及加密误差容差；没有重复训练。</p>
+<p>新结果原/加密误差序列最大绝对差：体 1.522e-11、迹 2.768e-11。新初值参考解 N48/N96 差分别为 8.663e-13、5.881e-13，E1 独立本征展开差为 6.873e-13。这些参考核验覆盖五个既定时刻，不扩展到 t→0。</p>
+<table>
+<thead>
+<tr>
+<th>tag</th>
+<th>JSON</th>
+<th>base PT</th>
+<th>完整 model PT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>axis</td>
+<td>36</td>
+<td>36</td>
+<td>0</td>
+</tr>
+<tr>
+<td>causal1</td>
+<td>6</td>
+<td>6</td>
+<td>0</td>
+</tr>
+<tr>
+<td>causal10</td>
+<td>6</td>
+<td>6</td>
+<td>0</td>
+</tr>
+<tr>
+<td>confirm</td>
+<td>24</td>
+<td>24</td>
+<td>0</td>
+</tr>
+<tr>
+<td>e4confirm</td>
+<td>12</td>
+<td>12</td>
+<td>0</td>
+</tr>
+<tr>
+<td>e4screen</td>
+<td>8</td>
+<td>8</td>
+<td>0</td>
+</tr>
+<tr>
+<td>final_ic_v1</td>
+<td>18</td>
+<td>18</td>
+<td>18</td>
+</tr>
+<tr>
+<td>pirate</td>
+<td>12</td>
+<td>12</td>
+<td>4</td>
+</tr>
+<tr>
+<td>preflight4_adam</td>
+<td>12</td>
+<td>12</td>
+<td>12</td>
+</tr>
+<tr>
+<td>preflight4_soap64</td>
+<td>12</td>
+<td>12</td>
+<td>12</td>
+</tr>
+<tr>
+<td>screen</td>
+<td>30</td>
+<td>30</td>
+<td>0</td>
+</tr>
+<tr>
+<td>soap1e3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>soap3e3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>ic1000</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>其中 preflight4 的 24 次为独立种子 100/101 的小预算投入检查，不进入正式主表；旧 E4 的 20 个 PT 缺表面分支，表面 v(t) 不列为可复现定量证据。旧三个零结果 tag 仍为空；本轮没有调参结果，也没有可以填写的‘调参后对调参后’表。</p>
+<h2 id="2">2. 主指标、统计口径与全种子对照</h2>
+<p>主指标是每个种子在 t={0.05,0.1,0.25,0.5,1} 五个时刻上的最大体相对 L²，再对种子 0/1/2 取中位数。改善倍数为两方法中位数之比，<strong>不是配对比值的中位数，也不是连续时间最大误差</strong>。小样本仅作描述性比较；不使用显著性措辞或把 3/3 当成总体成功概率。</p>
+<table>
+<thead>
+<tr>
+<th>问题 / 架构</th>
+<th>vanilla ÷ 校正</th>
+<th>hardic ÷ 校正</th>
+<th>配对改善种子</th>
+<th>配对比（s0/s1/s2）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E1_heat / MLP</td>
+<td>45.47</td>
+<td>34.83</td>
+<td>3/3</td>
+<td>13.824 / 21.067 / 133.496</td>
+</tr>
+<tr>
+<td>E3_fisher / MLP</td>
+<td>81.60</td>
+<td>5.92</td>
+<td>3/3</td>
+<td>1.355 / 2.886 / 23.834</td>
+</tr>
+<tr>
+<td>E1_heat / PirateNet 变体</td>
+<td>未在本架构比较</td>
+<td>22.61</td>
+<td>3/3</td>
+<td>11.858 / 84.890 / 22.876</td>
+</tr>
+<tr>
+<td>E3_fisher / PirateNet 变体</td>
+<td>未在本架构比较</td>
+<td>5.52</td>
+<td>3/3</td>
+<td>5.518 / 1.911 / 6.697</td>
+</tr>
+<tr>
+<td>E1_heat_cos / MLP</td>
+<td>12.53</td>
+<td>2.69</td>
+<td>3/3</td>
+<td>2.692 / 3.990 / 2.429</td>
+</tr>
+<tr>
+<td>E3_fisher_cos / MLP</td>
+<td>69.96</td>
+<td>7.34</td>
+<td>2/3</td>
+<td>0.966 / 4.241 / 22.151</td>
+</tr>
+</tbody>
+</table>
+<p>四个 MLP 配置（原/新初值 × E1/E3）的三种子中位数均改善；12 个配对种子中 11 个改善。原初值的两个 PirateNet 配置共 6 个配对种子均改善。这些计数仅描述当前样本，不把相关配置合并成新的统计检验。</p>
+<p><img alt="逐种子误差与中位数" src="逐种子误差.png" /></p>
+<p>图中点为全部种子，短横线为中位数，连线只对应相同种子；纵轴为对数。1e−2 线仅为原协议报告阈值，不是发表标准。</p>
+<h3 id="21">2.1 新初值的完整对照</h3>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>方法</th>
+<th>seed 0</th>
+<th>seed 1</th>
+<th>seed 2</th>
+<th>体误差中位数</th>
+<th>迹误差中位数</th>
+<th>体≤1e−2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E1_heat_cos</td>
+<td>普通 PINN</td>
+<td>1.5219e-02</td>
+<td>1.3820e-02</td>
+<td>1.7728e-02</td>
+<td>1.5219e-02</td>
+<td>1.5005e-02</td>
+<td>0/3</td>
+</tr>
+<tr>
+<td>E1_heat_cos</td>
+<td>硬初值</td>
+<td>3.2704e-03</td>
+<td>3.5871e-03</td>
+<td>3.0063e-03</td>
+<td>3.2704e-03</td>
+<td>3.7079e-03</td>
+<td>3/3</td>
+</tr>
+<tr>
+<td>E1_heat_cos</td>
+<td>硬初值＋校正</td>
+<td>1.2149e-03</td>
+<td>8.9913e-04</td>
+<td>1.2377e-03</td>
+<td>1.2149e-03</td>
+<td>6.6615e-04</td>
+<td>3/3</td>
+</tr>
+<tr>
+<td>E3_fisher_cos</td>
+<td>普通 PINN</td>
+<td>3.7809e-02</td>
+<td>2.5163e-02</td>
+<td>5.5157e-02</td>
+<td>3.7809e-02</td>
+<td>8.1752e-02</td>
+<td>0/3</td>
+</tr>
+<tr>
+<td>E3_fisher_cos</td>
+<td>硬初值</td>
+<td>5.2185e-04</td>
+<td>3.9694e-03</td>
+<td>8.0673e-03</td>
+<td>3.9694e-03</td>
+<td>9.1083e-03</td>
+<td>3/3</td>
+</tr>
+<tr>
+<td>E3_fisher_cos</td>
+<td>硬初值＋校正</td>
+<td>5.4048e-04</td>
+<td>9.3602e-04</td>
+<td>3.6419e-04</td>
+<td>5.4048e-04</td>
+<td>3.1357e-04</td>
+<td>3/3</td>
+</tr>
+</tbody>
+</table>
+<p>E1 新初值：hardic+layer 三个种子均优于 hardic，中位数收益 2.69 倍，低于原初值的 34.83 倍。新初值没有预注册三倍通过门，因此不能把这一结果重新包装成‘达标’或‘失败’；它说明收益随问题配置变化。</p>
+<p>E3 新初值：中位数收益 7.34 倍，但 seed 0 的体误差由 5.2185e−4 变为 5.4048e−4，增加约 3.57%；同种子的迹误差仍下降。seed 1/2 的体误差明显降低。该组收益主要体现为较差种子误差减轻；不能声称逐种子一致改善或已证明训练稳定性的总体提升。</p>
+<h3 id="22-piratenet">2.2 PirateNet 补齐与原判据</h3>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>方法</th>
+<th>seed 0</th>
+<th>seed 1</th>
+<th>seed 2</th>
+<th>中位数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E1_heat</td>
+<td>硬初值</td>
+<td>9.1237e-03</td>
+<td>8.9450e-02</td>
+<td>1.7395e-02</td>
+<td>1.7395e-02</td>
+</tr>
+<tr>
+<td>E1_heat</td>
+<td>硬初值＋校正</td>
+<td>7.6944e-04</td>
+<td>1.0537e-03</td>
+<td>7.6044e-04</td>
+<td>7.6944e-04</td>
+</tr>
+<tr>
+<td>E3_fisher</td>
+<td>硬初值</td>
+<td>5.7394e-04</td>
+<td>3.4149e-04</td>
+<td>6.4031e-04</td>
+<td>5.7394e-04</td>
+</tr>
+<tr>
+<td>E3_fisher</td>
+<td>硬初值＋校正</td>
+<td>1.0402e-04</td>
+<td>1.7868e-04</td>
+<td>9.5611e-05</td>
+<td>1.0402e-04</td>
+</tr>
+</tbody>
+</table>
+<p>A-2 按原规则更新为 E1/E3 均满足：22.61/5.52 倍。只完成了此前缺失的 E1 判定，没有改门槛。PirateNet 名称须注明实际使用的是省略物理信息最小二乘初始化的变体；本机续跑保持原任务身份，不声称跨机器训练轨迹逐位一致。</p>
+<table>
+<thead>
+<tr>
+<th>A-1 问题</th>
+<th>较好因果中位数</th>
+<th>PirateNet hardic 中位数</th>
+<th>最好基线</th>
+<th>最好基线 ÷ MLP校正</th>
+<th>≥3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E1_heat</td>
+<td>1.4763e-02</td>
+<td>1.7395e-02</td>
+<td>causal10</td>
+<td>12.507</td>
+<td>是</td>
+</tr>
+<tr>
+<td>E3_fisher</td>
+<td>1.1088e-03</td>
+<td>5.7394e-04</td>
+<td>pirate</td>
+<td>1.466</td>
+<td>否</td>
+</tr>
+</tbody>
+</table>
+<p>A-1 仍整体不满足，E3 为 1.47 倍；修订 4 的 G2 仍未通过。E4 对 vanilla 的中位数比约 0.838，修正没有显示优势；E3 κ=0.1 的修正误差约高 38%。这些反例必须保留。</p>
+<h2 id="3">3. 时间分布与独立残差</h2>
+<p>下表是各时刻体误差的三种子中位数，与‘各种子先取最大值再取中位数’的主指标不同。</p>
+<table>
+<thead>
+<tr>
+<th>新初值</th>
+<th>方法</th>
+<th>t=0.05</th>
+<th>t=0.1</th>
+<th>t=0.25</th>
+<th>t=0.5</th>
+<th>t=1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E1_heat_cos</td>
+<td>普通 PINN</td>
+<td>6.0946e-03</td>
+<td>8.1441e-03</td>
+<td>1.4476e-02</td>
+<td>1.5219e-02</td>
+<td>1.5171e-02</td>
+</tr>
+<tr>
+<td>E1_heat_cos</td>
+<td>硬初值</td>
+<td>1.4619e-03</td>
+<td>1.9192e-03</td>
+<td>3.1915e-03</td>
+<td>3.0493e-03</td>
+<td>3.2704e-03</td>
+</tr>
+<tr>
+<td>E1_heat_cos</td>
+<td>硬初值＋校正</td>
+<td>4.8884e-04</td>
+<td>3.1757e-04</td>
+<td>1.2149e-03</td>
+<td>3.0354e-04</td>
+<td>6.1937e-04</td>
+</tr>
+<tr>
+<td>E3_fisher_cos</td>
+<td>普通 PINN</td>
+<td>3.7809e-02</td>
+<td>3.1138e-02</td>
+<td>1.5212e-02</td>
+<td>6.9272e-03</td>
+<td>3.0771e-03</td>
+</tr>
+<tr>
+<td>E3_fisher_cos</td>
+<td>硬初值</td>
+<td>3.9694e-03</td>
+<td>3.2698e-03</td>
+<td>1.5684e-03</td>
+<td>8.1887e-04</td>
+<td>3.8047e-04</td>
+</tr>
+<tr>
+<td>E3_fisher_cos</td>
+<td>硬初值＋校正</td>
+<td>5.4048e-04</td>
+<td>3.6419e-04</td>
+<td>1.9236e-04</td>
+<td>1.6476e-04</td>
+<td>4.9394e-05</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="新初值各时刻误差" src="逐时刻误差.png" /></p>
+<p>独立检验点沿用修订 5：固定 RNG 330500，体 8192 点、各边界 1024 点、初值 1024 点；时间均匀分布在 [1e−4,1]。下表是各分量 RMS 的种子中位数，点未参与训练或选参。不同分量没有统一归一化，不直接混成一个排名。</p>
+<table>
+<thead>
+<tr>
+<th>新初值</th>
+<th>方法</th>
+<th>PDE RMS</th>
+<th>左 Neumann RMS</th>
+<th>右动态边界 RMS</th>
+<th>初值 RMS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E1_heat_cos</td>
+<td>普通 PINN</td>
+<td>1.2000e-03</td>
+<td>3.1921e-04</td>
+<td>7.0506e-04</td>
+<td>1.3442e-03</td>
+</tr>
+<tr>
+<td>E1_heat_cos</td>
+<td>硬初值</td>
+<td>8.6070e-03</td>
+<td>3.1867e-04</td>
+<td>1.7971e-03</td>
+<td>0.0000e+00</td>
+</tr>
+<tr>
+<td>E1_heat_cos</td>
+<td>硬初值＋校正</td>
+<td>1.8907e-03</td>
+<td>3.3734e-04</td>
+<td>8.0618e-04</td>
+<td>0.0000e+00</td>
+</tr>
+<tr>
+<td>E3_fisher_cos</td>
+<td>普通 PINN</td>
+<td>1.7452e-03</td>
+<td>4.9809e-04</td>
+<td>1.2014e-03</td>
+<td>2.4086e-03</td>
+</tr>
+<tr>
+<td>E3_fisher_cos</td>
+<td>硬初值</td>
+<td>2.3280e-03</td>
+<td>1.4183e-04</td>
+<td>1.6238e-03</td>
+<td>0.0000e+00</td>
+</tr>
+<tr>
+<td>E3_fisher_cos</td>
+<td>硬初值＋校正</td>
+<td>1.0496e-03</td>
+<td>1.3784e-04</td>
+<td>3.0663e-04</td>
+<td>0.0000e+00</td>
+</tr>
+</tbody>
+</table>
+<p>PDE 残差与解误差并不总同序：E1 新初值的 vanilla 的 PDE RMS 中位数低于修正方法，但其体误差更高且初值不精确。这表明单看 PDE 残差会遗漏初值/边界误差影响，不能把较小训练损失或某个单项残差直接当成更准确的解。当前没有据残差或参考解重新选配置。</p>
+<p>相对 hardic，修正的 PDE RMS 中位数在两个新初值上都降低；右边界也有中位数改善，但 E1 seed 0 的右动态边界 RMS 由 7.8475e−4 升到 8.0618e−4（约 +2.73%）。修正仅精确满足初值，不保证全域 PDE/边界残差处处改善或为零。</p>
+<p>本次五个评价时刻从 0.05 开始；独立残差采用均匀时间点。它们不足以刻画非常薄的 t→0 角点层，也没有证明 δ 为收益的唯一原因。若论文强化机制解释，应先核早期参考解分辨率，再对已保存模型作独立的早期时空诊断。</p>
+<h2 id="4">4. 实际计算量与墙钟解释</h2>
+<p>本机批次墙钟：PirateNet 四次续跑及复核约 2.54 小时；18 次新初值及复核约 3.73 小时。新初值累加进程耗时 26.10 小时，单次 38.2–103.5 分钟、中位数 90.4 分钟；并行进程耗时之和不等于整机完成时间或 CPU 核时。</p>
+<p>18:54 因用户报告卡顿，八个训练进程从 Normal 降为 BelowNormal，模型/训练配置未改。末尾两个任务开始时并发负载较低，其耗时明显短于早期任务。不能由这批异负载墙钟推出固定百分比额外开销、同时间优势或硬件无关速度排名。PirateNet JSON 的 wall_seconds 包含此前云端保存的训练历史，也不能当作本机续跑时长。</p>
+<p>22 个新完成任务均沿用 Adam 20000 调用的总轨迹和 L-BFGS 3000 的名义预算；恢复任务只补剩余 Adam。实际 L-BFGS 内部迭代为 1951–3000，closure 为 3196–3751。下面保留实际计数。名义预算用满不意味着内部 n_iter 恰好等于 3000，也不证明达到全局最优或充分收敛。</p>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>seed</th>
+<th>Adam恢复点</th>
+<th>L-BFGS 内部迭代</th>
+<th>closure</th>
+<th>停止原因</th>
+<th>轨迹墙钟/分钟</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E1_heat / hardic</td>
+<td>0</td>
+<td>adam:1000; adam:14000; adam:16500</td>
+<td>2799</td>
+<td>3472</td>
+<td>budget_exhausted</td>
+<td>454.2</td>
+</tr>
+<tr>
+<td>E1_heat / hardic+layer</td>
+<td>0</td>
+<td>adam:1000; adam:13500; adam:16000</td>
+<td>1951</td>
+<td>3751</td>
+<td>budget_exhausted</td>
+<td>458.3</td>
+</tr>
+<tr>
+<td>E1_heat / hardic</td>
+<td>1</td>
+<td>adam:1000; adam:14000; adam:16500</td>
+<td>3000</td>
+<td>3314</td>
+<td>budget_exhausted</td>
+<td>450.9</td>
+</tr>
+<tr>
+<td>E1_heat / hardic+layer</td>
+<td>1</td>
+<td>adam:1000; adam:13500; adam:16000</td>
+<td>3000</td>
+<td>3379</td>
+<td>budget_exhausted</td>
+<td>452.5</td>
+</tr>
+<tr>
+<td>E1_heat_cos / vanilla</td>
+<td>0</td>
+<td>从头</td>
+<td>3000</td>
+<td>3222</td>
+<td>budget_exhausted</td>
+<td>87.2</td>
+</tr>
+<tr>
+<td>E1_heat_cos / hardic</td>
+<td>0</td>
+<td>从头</td>
+<td>3000</td>
+<td>3232</td>
+<td>budget_exhausted</td>
+<td>85.4</td>
+</tr>
+<tr>
+<td>E1_heat_cos / hardic+layer</td>
+<td>0</td>
+<td>从头</td>
+<td>3000</td>
+<td>3277</td>
+<td>budget_exhausted</td>
+<td>90.2</td>
+</tr>
+<tr>
+<td>E3_fisher_cos / vanilla</td>
+<td>0</td>
+<td>从头</td>
+<td>3000</td>
+<td>3282</td>
+<td>budget_exhausted</td>
+<td>87.3</td>
+</tr>
+<tr>
+<td>E3_fisher_cos / hardic</td>
+<td>0</td>
+<td>从头</td>
+<td>3000</td>
+<td>3261</td>
+<td>budget_exhausted</td>
+<td>86.5</td>
+</tr>
+<tr>
+<td>E3_fisher_cos / hardic+layer</td>
+<td>0</td>
+<td>从头</td>
+<td>2936</td>
+<td>3410</td>
+<td>budget_exhausted</td>
+<td>90.5</td>
+</tr>
+<tr>
+<td>E1_heat_cos / vanilla</td>
+<td>1</td>
+<td>从头</td>
+<td>3000</td>
+<td>3196</td>
+<td>budget_exhausted</td>
+<td>86.9</td>
+</tr>
+<tr>
+<td>E1_heat_cos / hardic</td>
+<td>1</td>
+<td>从头</td>
+<td>3000</td>
+<td>3281</td>
+<td>budget_exhausted</td>
+<td>85.7</td>
+</tr>
+<tr>
+<td>E1_heat_cos / hardic+layer</td>
+<td>1</td>
+<td>从头</td>
+<td>3000</td>
+<td>3287</td>
+<td>budget_exhausted</td>
+<td>99.3</td>
+</tr>
+<tr>
+<td>E3_fisher_cos / vanilla</td>
+<td>1</td>
+<td>从头</td>
+<td>3000</td>
+<td>3216</td>
+<td>budget_exhausted</td>
+<td>96.7</td>
+</tr>
+<tr>
+<td>E3_fisher_cos / hardic</td>
+<td>1</td>
+<td>从头</td>
+<td>3000</td>
+<td>3283</td>
+<td>budget_exhausted</td>
+<td>97.5</td>
+</tr>
+<tr>
+<td>E3_fisher_cos / hardic+layer</td>
+<td>1</td>
+<td>从头</td>
+<td>2694</td>
+<td>3433</td>
+<td>budget_exhausted</td>
+<td>103.5</td>
+</tr>
+<tr>
+<td>E1_heat_cos / vanilla</td>
+<td>2</td>
+<td>从头</td>
+<td>3000</td>
+<td>3225</td>
+<td>budget_exhausted</td>
+<td>96.3</td>
+</tr>
+<tr>
+<td>E1_heat_cos / hardic</td>
+<td>2</td>
+<td>从头</td>
+<td>3000</td>
+<td>3233</td>
+<td>budget_exhausted</td>
+<td>95.9</td>
+</tr>
+<tr>
+<td>E1_heat_cos / hardic+layer</td>
+<td>2</td>
+<td>从头</td>
+<td>3000</td>
+<td>3239</td>
+<td>budget_exhausted</td>
+<td>100.2</td>
+</tr>
+<tr>
+<td>E3_fisher_cos / vanilla</td>
+<td>2</td>
+<td>从头</td>
+<td>3000</td>
+<td>3278</td>
+<td>budget_exhausted</td>
+<td>98.3</td>
+</tr>
+<tr>
+<td>E3_fisher_cos / hardic</td>
+<td>2</td>
+<td>从头</td>
+<td>2604</td>
+<td>3457</td>
+<td>budget_exhausted</td>
+<td>38.2</td>
+</tr>
+<tr>
+<td>E3_fisher_cos / hardic+layer</td>
+<td>2</td>
+<td>从头</td>
+<td>2457</td>
+<td>3555</td>
+<td>budget_exhausted</td>
+<td>40.1</td>
+</tr>
+</tbody>
+</table>
+<p>新初值的共享架构、种子集合、采样规则、优化调用上限均一致，τ=0.1，零调参。损失中初值的处理是方法差别：vanilla 为软损失，hardic 类为解析约束。旧 RBA 的 L-BFGS 固定体点 4096，普通方法 8192，应披露，不能据同一上限声称相同实际计算量。所有损失、逐时刻指标、计数、残差及来源路径见 all_runs.csv；未保存项留空，未补造旧计数。</p>
+<h2 id="5">5. 论文可写内容与证据缺口</h2>
+<table>
+<thead>
+<tr>
+<th>拟写论点</th>
+<th>当前判断</th>
+<th>证据/边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>在被测一维动态边界问题上改善普通 PINN 和硬初值</td>
+<td>支持经验性表述</td>
+<td>四个 MLP 问题/初值配置中位数均改善；逐种子有一个体误差反例</td>
+</tr>
+<tr>
+<td>可叠加到所用 PirateNet 变体</td>
+<td>支持限定表述</td>
+<td>原 E1/E3 均按 A-2 达到三倍，完整三种子</td>
+</tr>
+<tr>
+<td>换初值仍有效</td>
+<td>支持两个预先固定新初值</td>
+<td>训练分别重做；不是一个网络泛化到未训练初值，也不是任意初值保证</td>
+</tr>
+<tr>
+<td>基于经典角点层分析的修正</td>
+<td>可写构造与消融</td>
+<td>完整经典来源逐式对照仍需完成；不称首次或全新数学原理</td>
+</tr>
+<tr>
+<td>对 τ 鲁棒或无参数</td>
+<td>证据不足</td>
+<td>目前 τ 固定 0.1；没有灵敏度结果</td>
+</tr>
+<tr>
+<td>优化器无关或普遍强于现代 PINN</td>
+<td>不支持</td>
+<td>A-1/G2 失败；正式完整 SOAP64 尚未做</td>
+</tr>
+<tr>
+<td>更省计算/稳定性有统计保证</td>
+<td>不支持</td>
+<td>异负载墙钟、实际调用不同；各配置只有三个种子</td>
+</tr>
+<tr>
+<td>已具备正式投稿完成度</td>
+<td>尚未</td>
+<td>需来源、稿件、图表、复现包及目标期刊要求闭合；没有录用保证</td>
+</tr>
+</tbody>
+</table>
+<p>建议结果章节顺序：原初值主表 → 新初值及同架构消融 → PirateNet 叠加 → 参数范围与失败例 → 残差及计算成本。主文保留负面结果入口，附录给全部种子；不把各方程/初值/架构拼成一项胜率或总体统计显著结论。文献定位沿用已整理的七篇原文选读，本轮不声称新增文献核验。</p>
+<p>可直接用于初稿的结果表述：在固定训练预算下，基于经典角点层分析的修正在所测 E1/E3 的原初值和预先指定的新初值中降低了三种子体误差中位数；新初值相对硬初值的比值为 2.69 和 7.34。该修正可叠加到本文采用的 PirateNet 变体，在原 E1/E3 上的比值为 22.61 和 5.52。收益依赖问题和种子，E3 新初值的一个种子体误差略升，弱错配参数点及 E4 存在负面结果。</p>
+<h2 id="6">6. 后续投入建议（草案，未启动）</h2>
+<p>第一优先：整理方法推导出处、主表/附录与明确范围的初稿，同时补 12 次 τ 灵敏度。这一问题直接决定‘固定 τ=0.1 的效果是否过于偶然’，比大规模调参更贴近当前论文缺口。原 E1/E3，hardic+layer，τ∈{0.03,0.3}，种子 0/1/2，完整共享预算；与旧 τ=0.1 全部并列。保持主配置 0.1，不按误差选最佳 τ；因此是敏感性描述，不是专门给候选方法挑配置。若据此换主配置，必须改走所有方法同预算的独立种子调参流程。</p>
+<p>第二优先：只有决定在正文增加优化器叠加论点时，再做 18 次固定 SOAP 官方语义 float64 对照：原 E1/E3 × vanilla/hardic/hardic+layer × 种子 0/1/2，lr0=0.001，其余共享完整预算，零搜索。须用新 tag，不能冒充旧 soap1e3/soap3e3；小预算 G2 失败仍保留。</p>
+<p>τ 批次按本次单任务范围估算，八进程预留约 3–5 小时；SOAP64 尚无本机完整预算实测，保留 4–8 小时规划区间。两者是宽松资源预算，不是性能预测或承诺；若为前台流畅降低并发，时间可能增加。执行前另行追加并提交协议，不能用本分析充当预注册。当前第二阶段未获授权，未运行任何新训练。</p>
+<p>不建议恢复 42 个旧基线或 322 次调参草案；无需为了满足旧强排名主张增加搜索。τ 若高度敏感，先如实写范围；SOAP 若没有叠加收益，也只收窄优化器论点，不删结果、不改原判据。</p>
+<h2 id="7">7. 数据与复现入口</h2>
+<ul>
+<li>汇总代码：analyze_stage5.py（只读原始结果）。</li>
+<li>完整行表：all_runs.csv；覆盖所有 tag，按 tag 区分筛选、正式比较及小预算检查。</li>
+<li>计算与哈希证据：analysis_evidence.json；结束状态归档为 completion_status_snapshot.json，可脱离本机运行目录复算。</li>
+<li>原始本轮复核：validation/stage5_20261022/{pirate_validation,ic_validation,completion}.json。</li>
+<li>图：同目录 300 dpi PNG 及矢量 PDF；图上显示全部种子，没有置信区间或模拟数据。</li>
+<li>操作系统优先级调整：validation/stage5_20261022/priority_change_20261022.json。</li>
+<li>历史协议、数据和判据保留；本报告仅更新完成状态及已注册 A-2 的最终判定。</li>
+</ul></main></html>

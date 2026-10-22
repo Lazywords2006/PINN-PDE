@@ -1,0 +1,52 @@
+{
+  "completed_utc": "2026-10-22T12:07:28.467270+00:00",
+  "authorized_tasks": 22,
+  "validated_new_results": 22,
+  "A2": {
+    "E1_heat": {
+      "per_seed": {
+        "hardic": [
+          0.009123681987203104,
+          0.08944963437482313,
+          0.017395397800583575
+        ],
+        "hardic+layer": [
+          0.0007694418243958871,
+          0.0010537165685440704,
+          0.0007604359713053431
+        ]
+      },
+      "ratio": 22.607814196013127,
+      "A2_passed": true
+    },
+    "E3_fisher": {
+      "per_seed": {
+        "hardic": [
+          0.0005739396678736734,
+          0.0003414864031597988,
+          0.0006403097696715258
+        ],
+        "hardic+layer": [
+          0.00010402096214178666,
+          0.00017867511946876048,
+          9.561133672352554e-05
+        ]
+      },
+      "ratio": 5.517538542773331,
+      "A2_passed": true
+    }
+  },
+  "A2_joint": true,
+  "old260_unchanged": true,
+  "phase2_started": false,
+  "new_IC": [
+    {
+      "eq": "E1_heat_cos",
+      "ratios_hardic_over_layer": 2.69198608493021
+    },
+    {
+      "eq": "E3_fisher_cos",
+      "ratios_hardic_over_layer": 7.344142597433373
+    }
+  ]
+}
