@@ -1,0 +1,40 @@
+{
+  "reviewer": "devils_advocate",
+  "contract_id": "reviewer/reviewer_full/v1",
+  "phase": 2,
+  "scoring_plan_dissent": null,
+  "dimension_scores": {
+    "D1": "pass",
+    "D2": "pass",
+    "D3": "pass",
+    "D4": "warn",
+    "D5": "warn"
+  },
+  "failure_condition_checks": {
+    "F1": false,
+    "F2": false,
+    "F3": false,
+    "F0": true
+  },
+  "failure_checks_scope": "reviewer_local_predicates_only; panel quantifiers unevaluated",
+  "editorial_decision": "accept",
+  "editorial_decision_scope": "reviewer-local contract action for complete draft, not panel verdict or acceptance for publication",
+  "critical_findings": 0,
+  "major_findings": 0,
+  "minor_findings": [
+    "DA-m1",
+    "DA-m2",
+    "DA-m3"
+  ],
+  "required_revisions": [
+    "Define parameter-axis G_kappa and E4 model/correction in manuscript or linked supplement",
+    "Label PirateNet per-seed execution provenance beside Table 4",
+    "Specify t_clip=1e-30 and distinguish ideal analytic limits from clipped autodiff implementation"
+  ],
+  "phase1_preserved": true,
+  "paper_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "input_sha256": "48f622cc5656eeb3ae6a0f635a98e937761165f04b16bfdd65ffa9cfa36ef2d5",
+  "report_sha256": "7f2c13c9df54cc117b6afa5f3307f3e30bee1dc621bf78d5729b15fe120fa5a7",
+  "evidence_sha256": "7e75d5b201a5e5565366e827530b3fb1d49a2cea267cef01b1b597f70218c4e5",
+  "structural_check_errors": []
+}

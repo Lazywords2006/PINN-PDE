@@ -1,0 +1,1019 @@
+{
+  "reviewer": "devils_advocate",
+  "phase": 2,
+  "input_sha256": "48f622cc5656eeb3ae6a0f635a98e937761165f04b16bfdd65ffa9cfa36ef2d5",
+  "paper_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "scope": "Independent raw JSON aggregation, current source excerpts, original protocol, analytic derivation check, four manuscript figures and limited primary literature checks. No model reload, new training, numerical reference integration or other reviewer/evaluator/integrity report reading.",
+  "raw_result_count": 206,
+  "raw_internal_mismatches": [],
+  "tags": {
+    "axis": 36,
+    "causal1": 6,
+    "causal10": 6,
+    "confirm": 24,
+    "e4confirm": 12,
+    "e4screen": 8,
+    "final_ic_v1": 18,
+    "final_soap64_v1": 18,
+    "pirate": 12,
+    "preflight4_adam": 12,
+    "preflight4_soap64": 12,
+    "screen": 30,
+    "sensitivity_tau003_v1": 6,
+    "sensitivity_tau03_v1": 6
+  },
+  "group_ratios": [
+    {
+      "tag": "confirm",
+      "equation": "E1_heat",
+      "baseline_median": 0.04111442933961105,
+      "corrected_median": 0.0011803808202624146,
+      "ratio": 34.831495593490544,
+      "paired_improvements": 3,
+      "corrected_at_threshold": 3
+    },
+    {
+      "tag": "confirm",
+      "equation": "E3_fisher",
+      "baseline_median": 0.0023164347216610604,
+      "corrected_median": 0.00039149789700532856,
+      "ratio": 5.916850995573885,
+      "paired_improvements": 3,
+      "corrected_at_threshold": 3
+    },
+    {
+      "tag": "final_ic_v1",
+      "equation": "E1_heat_cos",
+      "baseline_median": 0.0032703634026256664,
+      "corrected_median": 0.001214851525768734,
+      "ratio": 2.69198608493021,
+      "paired_improvements": 3,
+      "corrected_at_threshold": 3
+    },
+    {
+      "tag": "final_ic_v1",
+      "equation": "E3_fisher_cos",
+      "baseline_median": 0.00396935175978239,
+      "corrected_median": 0.0005404785796465332,
+      "ratio": 7.344142597433373,
+      "paired_improvements": 2,
+      "corrected_at_threshold": 3
+    },
+    {
+      "tag": "pirate",
+      "equation": "E1_heat",
+      "baseline_median": 0.017395397800583575,
+      "corrected_median": 0.0007694418243958871,
+      "ratio": 22.607814196013127,
+      "paired_improvements": 3,
+      "corrected_at_threshold": 3
+    },
+    {
+      "tag": "pirate",
+      "equation": "E3_fisher",
+      "baseline_median": 0.0005739396678736734,
+      "corrected_median": 0.00010402096214178666,
+      "ratio": 5.517538542773331,
+      "paired_improvements": 3,
+      "corrected_at_threshold": 3
+    },
+    {
+      "tag": "final_soap64_v1",
+      "equation": "E1_heat",
+      "baseline_median": 0.04430485131984485,
+      "corrected_median": 0.00014764821423072187,
+      "ratio": 300.0703499915824,
+      "paired_improvements": 3,
+      "corrected_at_threshold": 3
+    },
+    {
+      "tag": "final_soap64_v1",
+      "equation": "E3_fisher",
+      "baseline_median": 0.002494763101516382,
+      "corrected_median": 8.092506824861077e-05,
+      "ratio": 30.828062990965837,
+      "paired_improvements": 3,
+      "corrected_at_threshold": 3
+    },
+    {
+      "tag": "axis",
+      "equation": "E1_c0.03",
+      "baseline_median": 0.032491388302745165,
+      "corrected_median": 0.00026669430351257514,
+      "ratio": 121.830079888501,
+      "paired_improvements": 3,
+      "corrected_at_threshold": 3
+    },
+    {
+      "tag": "axis",
+      "equation": "E1_c0.1",
+      "baseline_median": 0.020575453407654275,
+      "corrected_median": 0.00033207268149919685,
+      "ratio": 61.960692806053785,
+      "paired_improvements": 3,
+      "corrected_at_threshold": 3
+    },
+    {
+      "tag": "axis",
+      "equation": "E1_c1",
+      "baseline_median": 0.0014851223548785631,
+      "corrected_median": 0.000373401065974142,
+      "ratio": 3.9772847220029304,
+      "paired_improvements": 3,
+      "corrected_at_threshold": 3
+    },
+    {
+      "tag": "axis",
+      "equation": "E1_c3",
+      "baseline_median": 0.0008120708786886083,
+      "corrected_median": 0.0004813226154145924,
+      "ratio": 1.6871654326674892,
+      "paired_improvements": 2,
+      "corrected_at_threshold": 3
+    },
+    {
+      "tag": "axis",
+      "equation": "E3_k0.1",
+      "baseline_median": 0.00036433337240608643,
+      "corrected_median": 0.0005040411919197467,
+      "ratio": 0.7228245989547923,
+      "paired_improvements": 2,
+      "corrected_at_threshold": 3
+    },
+    {
+      "tag": "axis",
+      "equation": "E3_k3",
+      "baseline_median": 0.00385368467738048,
+      "corrected_median": 0.0007691987181522947,
+      "ratio": 5.009998829219946,
+      "paired_improvements": 3,
+      "corrected_at_threshold": 3
+    }
+  ],
+  "raw_sources": [
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c0.03\\hardic_layer_s0.json",
+      "sha256": "774c337113743dd2c3333980f1e2e7637b85b887782c0c5cc9b264a15b6057e6"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c0.03\\hardic_layer_s1.json",
+      "sha256": "94e00db28253ce76da7375aa97e9a319ba20e3f46dc0e805a0b9f33442c588cf"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c0.03\\hardic_layer_s2.json",
+      "sha256": "e7fbb589ac1315a354b0c28680d4ff2d5d699028827dcf30525b4c36558c2651"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c0.03\\hardic_s0.json",
+      "sha256": "7098a6f99a606edf29cc65871e15d8934231ae4b524fad98afe2d104a1485251"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c0.03\\hardic_s1.json",
+      "sha256": "2203ca63da09d24199a4696bcde5df0fd706ea6ebb3a8fd4a855280f9e5dc557"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c0.03\\hardic_s2.json",
+      "sha256": "df2604aac0f9d24af358171107b23e59b142769389e3be2fe70658218d3be0d7"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c0.1\\hardic_layer_s0.json",
+      "sha256": "891e8078760f1b070fc1e428a12249d3491f4682780854a4ef2f2210295de10d"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c0.1\\hardic_layer_s1.json",
+      "sha256": "fa4b99e7f30c749c057a6611a6006f61bccc6cb7a56a9627e96509c93d376902"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c0.1\\hardic_layer_s2.json",
+      "sha256": "a4bd771966b2e1c8e3d07105b2372034206f117dc073c183db208bad3b91e3cf"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c0.1\\hardic_s0.json",
+      "sha256": "12e8a316e3daaac2a5416df84c0ca0b6ef5bde8040e25bb6d5918d69b59deda4"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c0.1\\hardic_s1.json",
+      "sha256": "0ab75aa1f9e270f9a2b48306d6b73bd1bcd5a992cfbcfb4a58c5fcdbd6f90852"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c0.1\\hardic_s2.json",
+      "sha256": "767b350a875493533cbb80fdae42f46bc575c8e57954049e2256a55d1ea9f832"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c1\\hardic_layer_s0.json",
+      "sha256": "7ff2be53fa05539cfd7755524085ea6ac8fb0609c0adbd696045bb74f03dccce"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c1\\hardic_layer_s1.json",
+      "sha256": "09f39d177240f390ce9234546527a338141a74ebf2d47ef3ad49925be8045f2a"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c1\\hardic_layer_s2.json",
+      "sha256": "f0cf02c291626717c5648c9169757cbc33419e534cf0fb8e87857b1e3c76ab0e"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c1\\hardic_s0.json",
+      "sha256": "6f71b09f5cb9e67ac27289d759d4d1c3d0618e80bd048560dae2c0d0a4d54f77"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c1\\hardic_s1.json",
+      "sha256": "cd414833f86c31318a0dbfbbee5ee7923a164a4334dd9f8534729b32c2d272db"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c1\\hardic_s2.json",
+      "sha256": "40b1df6c07e2221abf06521b1290302a545ddabcfca7ce777f7e62ba1d46d5c3"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c3\\hardic_layer_s0.json",
+      "sha256": "b2a341b766dc0023581d6dd9cded8b764abc6f34567a8cf9c8d9ebf056460347"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c3\\hardic_layer_s1.json",
+      "sha256": "9e044774255cec961959b3dff29960088ba5d1abd9c68a011594e8f5215b713f"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c3\\hardic_layer_s2.json",
+      "sha256": "363fbf5b16c43cd7845e9ae045ed636cb3c82ae691680d8b0e2633f5673c6367"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c3\\hardic_s0.json",
+      "sha256": "14fcbcf835d8eb08519e245539f2f75b8bf52ab815e71e9533b4a43e366f5c40"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c3\\hardic_s1.json",
+      "sha256": "4f8517744134ddd99aa61ac0bdec6513b96aada617431295cab6f2654c422edc"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E1_c3\\hardic_s2.json",
+      "sha256": "8b008817a1d99460e3f851f3b46442165796883c01c1c2b10226ca5f48c46bc1"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E3_k0.1\\hardic_layer_s0.json",
+      "sha256": "d6a915ced46280da6e1ed70829de786d0cafc7ce56b7ad3e9b90f1b370c6a6b4"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E3_k0.1\\hardic_layer_s1.json",
+      "sha256": "5936e33faced1f14a54df1d89738f69a33c4cffb04cbf2714fdbdb4b607a2237"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E3_k0.1\\hardic_layer_s2.json",
+      "sha256": "f188e2b849aec0cb531a7027b66f40747912fdbbbf84850ecdc72aee4b0db388"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E3_k0.1\\hardic_s0.json",
+      "sha256": "6c2e7eb0c423f47f1d00f8df16db70d3e9d64ffbdd42a87941c07d1297ac8e34"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E3_k0.1\\hardic_s1.json",
+      "sha256": "162fb847b679bcbac76ba3353caed1338570797a6054f1b59e274fa8ee18adcc"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E3_k0.1\\hardic_s2.json",
+      "sha256": "54d9517eb7e4fec6b8ffb3d489be59c1034e76972cff89a2850fd64afbec23f1"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E3_k3\\hardic_layer_s0.json",
+      "sha256": "b64e237313c4c94ffba95cd67b9ec8cf4c1bf4866e5afb9dd744bc452d580dc0"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E3_k3\\hardic_layer_s1.json",
+      "sha256": "9b5cbc24302122edafb249eb3747e0522050878721e84567bd92084621580686"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E3_k3\\hardic_layer_s2.json",
+      "sha256": "dab2585fc9274be936ca1e753519a348eeeb8b85e02a8be6e37fcae3324f1aef"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E3_k3\\hardic_s0.json",
+      "sha256": "9fae065264b21f2a366a79f3e22219b828842cfe9b5a0c301cc4e7196a2fc542"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E3_k3\\hardic_s1.json",
+      "sha256": "c81dce3fd2a3c54ae5de50f9b667c45e910fc9eeddf979c3d3c23ef2d02029da"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\axis\\E3_k3\\hardic_s2.json",
+      "sha256": "c0e08fc0f91a3d916b0865c2c8b2c0ea861ec61552f4aeee515ce07d291e828d"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\causal1\\E1_heat\\hardic_s0.json",
+      "sha256": "dfac2b3f9da3e7a6773907f21b456e9af30a636ec2653a192b401b5a84456575"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\causal1\\E1_heat\\hardic_s1.json",
+      "sha256": "e1434e24783c127557fcbd59667afa6f49ec6258f379ff856de590a5715fcd16"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\causal1\\E1_heat\\hardic_s2.json",
+      "sha256": "ee2c40bba8f5e792d81c5dbea3765140a88536255d6051b6bafdac9a5e7aa8a6"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\causal1\\E3_fisher\\hardic_s0.json",
+      "sha256": "d0c8365c684177605fb9fc0e332b3eef3e6f052122691d7fd6d8a3ac0b996987"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\causal1\\E3_fisher\\hardic_s1.json",
+      "sha256": "7aeb512984e32ba13b93160304d393c015e5d8bb6febb718d9cff4a81c991d09"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\causal1\\E3_fisher\\hardic_s2.json",
+      "sha256": "9b0cb7294338a793a42a5ad1a373b7e5cdff1dd1880d6a89dd03ad174a1f0ac2"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\causal10\\E1_heat\\hardic_s0.json",
+      "sha256": "3a478d4177fbc387996bee72a941f7d43871211494091a7a9a7216ce8b132c95"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\causal10\\E1_heat\\hardic_s1.json",
+      "sha256": "3612c56301f208f1a4ec9655c5e6845922f455793d2d2c5b6b146b0baa5738c8"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\causal10\\E1_heat\\hardic_s2.json",
+      "sha256": "b0cb92df026bf2eef3bece7d1fe82ae538caeb4f90dd24da3b1f1e256bbd00db"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\causal10\\E3_fisher\\hardic_s0.json",
+      "sha256": "98b286cd43532e4ae7530d703a1375e3fd07c18c6d5beb6e12c6796f51c12cd5"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\causal10\\E3_fisher\\hardic_s1.json",
+      "sha256": "468e33264c0646af9b92f05c560cc53c2e563a92bf81ea4ae0509808e00fbe24"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\causal10\\E3_fisher\\hardic_s2.json",
+      "sha256": "0a2bc0c46001479fcd0c4f2328d8c6654870127a5c01dbaf64ebfbb6ff3eb1f2"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E1_heat\\hardic_layer_s0.json",
+      "sha256": "4a41b6cf0502d5ec2c415055de98a187a67b8afb43149e8411f743c35dda256d"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E1_heat\\hardic_layer_s1.json",
+      "sha256": "e8ef01531d02b373101701ab0ce9faecb5f821b53462d4cc2aa0fcb741eb2999"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E1_heat\\hardic_layer_s2.json",
+      "sha256": "3fa1f3d1b59937b1c629ac5ab37de029fd28b4713c7d46e44883c293c82fecbd"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E1_heat\\hardic_s0.json",
+      "sha256": "8f61808b28c3e31701f7b1dd67ec6a312448e3efca706d417f5c2a0cde69630d"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E1_heat\\hardic_s1.json",
+      "sha256": "9f49f254203bc76c5df29c5935d7cc17925e4133933319777f5f948f209d3abf"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E1_heat\\hardic_s2.json",
+      "sha256": "078a6bee8c42f6ddfd21f0425aa604335632a06263f8d38ce52c4cf6075b4415"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E1_heat\\rba_s0.json",
+      "sha256": "0f3d9b701fc4cb8319c8251f5e2059e9103a12160c476eae5a09563279307bdd"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E1_heat\\rba_s1.json",
+      "sha256": "0f8b40ed9fbc8f80939814a9501482e4c7be1fcae63665640d2e2f0a79ecf918"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E1_heat\\rba_s2.json",
+      "sha256": "78764ae9259c3813a3224359b4c6932f4062b8d28594e969eb78bd82dc36bafe"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E1_heat\\vanilla_s0.json",
+      "sha256": "f8161a1e4d2d20f3c2d25240cff7f0e436ac630b57d41ececd24538de445e809"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E1_heat\\vanilla_s1.json",
+      "sha256": "1eb3c310039b3c3d764e892565cc876ec4b4f7fbee95ebe8419e59c065384d0d"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E1_heat\\vanilla_s2.json",
+      "sha256": "cf0049988a56b5e6bb31fe5a7de95b8e7bc33e3b8a998e72fb7a80b4ecbc0a1a"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E3_fisher\\hardic_layer_s0.json",
+      "sha256": "efd3bc986a1b2c06c1a88189be915b1f1734c8844adfaae29c4e008135119c55"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E3_fisher\\hardic_layer_s1.json",
+      "sha256": "a7cacdb032dba46f273c52af3247c07c917ca8dc745e9ab16f67db2f38e0565d"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E3_fisher\\hardic_layer_s2.json",
+      "sha256": "315679180b38be622a34fb3fd7eec568dc059a96474fa7631bbf6bc289b153f7"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E3_fisher\\hardic_s0.json",
+      "sha256": "c7d9deefa1787c9bd9b4c9a8e6b8c6ca0087fc30408171ad5f7ae3f9bb507b49"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E3_fisher\\hardic_s1.json",
+      "sha256": "a8895e36fcebebc72b6a8d8096b317a831583c2a1f34619506f7b5375ea7dca8"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E3_fisher\\hardic_s2.json",
+      "sha256": "6023aecaf8c6bbd600a5b1bf511f195f3b0a95bfd13e47e6df216b8a592565d3"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E3_fisher\\rba_s0.json",
+      "sha256": "c211c478ddd68864a5751d820ee8b736bff19555ffcc1061385dadb98fc85fb1"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E3_fisher\\rba_s1.json",
+      "sha256": "ec730b15d62cba261d51413c01cb82c4515a96f7d9ce85b63abe6abc801bc0da"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E3_fisher\\rba_s2.json",
+      "sha256": "08041cec5d889e1b5ec52c5f7e9b34c0b5c9efde1ccd466979bb90c984b1f452"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E3_fisher\\vanilla_s0.json",
+      "sha256": "2b837f9a6451889c00f746e1bb82ce7346f2ceb2a4503e9deea39d77ebc81b1e"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E3_fisher\\vanilla_s1.json",
+      "sha256": "613f5f0b4a550839da62854e7742cdacf4a3e178b0b28b6750528e55150b237f"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\confirm\\E3_fisher\\vanilla_s2.json",
+      "sha256": "7d0d2cbe79e94792a2a4248d30af46082c6e9f83db04ec366c5fb839b1f6b4c1"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\hardic_layer_s0.json",
+      "sha256": "e3a949e44724aff5ba291bc13fdd681794b9ed230d50978fa48dae8d1e5cf198"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\hardic_layer_s1.json",
+      "sha256": "46320b08f13df432c485c46bb88f6bea985a527c01b486c589ecdbafa4432da9"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\hardic_layer_s2.json",
+      "sha256": "040915ef873c09e84e8c5025c5aecbb1be585682354988fbbc9dba292d000bc1"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\hardic_s0.json",
+      "sha256": "c19b4e1a3cb83d6cd4b2988f56a71028f0dc1e6352abc58c7294afdb16d4a127"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\hardic_s1.json",
+      "sha256": "97b0c76806af01a3765d240a9c4aa355b15fa7783aa53571647cd5d5eb525b6a"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\hardic_s2.json",
+      "sha256": "6be7b90fdabb82604e3622934dbf09a8e8851115b003e51e49b7db038e56dffa"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\rba_s0.json",
+      "sha256": "180094d179ba7ddfdeab693de6f665018481bf84e69dcce0c3f54def0e6f1845"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\rba_s1.json",
+      "sha256": "e296e1d28bba2f610c0c03e9a3dff947d867aadc869c2f1370ce9b1ae16e20b7"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\rba_s2.json",
+      "sha256": "1fd25b854696bd08815253308c969517edb00531a743f24eda65c20049895c86"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\vanilla_s0.json",
+      "sha256": "6da3f205bcc9df65ea64d9bc294dcd12a55417e121e6c2a4de7bcb4d1fd61ce0"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\vanilla_s1.json",
+      "sha256": "4c90beb3d867481703d63e1759f0901bcae1e7e2fba9c195ca7da76bbc02815d"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4confirm\\E4_bulk_surface\\vanilla_s2.json",
+      "sha256": "9207579a92240136f494102c8fb49791b65c1d80907d23bdfc271e7343d03500"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4screen\\E4_bulk_surface\\hardic_layer_s0.json",
+      "sha256": "9b574c5caca1675fbc41451ddd0cef96bbe4be053169f914b7cfa115f5c5d058"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4screen\\E4_bulk_surface\\hardic_layer_s1.json",
+      "sha256": "3dffba08afcd6d725b70437be85503a044a40213f7e7cb410fcff0e9e9d5c4ab"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4screen\\E4_bulk_surface\\hardic_s0.json",
+      "sha256": "cb2236b1edfa65d0b8a348dd7b21f253c04a9bf8a3bd0b6c942d665e29c1f399"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4screen\\E4_bulk_surface\\hardic_s1.json",
+      "sha256": "2b74e48e6e4d283f42113a8d1901d7851b4a8ec59ed80d4af6f0c6fc55f3baee"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4screen\\E4_bulk_surface\\rba_s0.json",
+      "sha256": "424e0438585ac32774a120b0e7e6c10d2611dc165a971f13cab889ece98e6342"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4screen\\E4_bulk_surface\\rba_s1.json",
+      "sha256": "d76e27e4eea8e7d1450099fce1d3c6a18a94908d0f2644a720223bd04ddfd3ec"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4screen\\E4_bulk_surface\\vanilla_s0.json",
+      "sha256": "a49bd7b4ec3329bcc247e61164434c1d64fa69cd8ab14510193d60422795091d"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\e4screen\\E4_bulk_surface\\vanilla_s1.json",
+      "sha256": "01d25c1f6d8ff2c377c33f56a0999626ad67dd591d2c0edbd8087439f87095f7"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_ic_v1\\E1_heat_cos\\hardic_layer_s0.json",
+      "sha256": "4e2a85fa7aabf1364a8a3f5d89bacef31c071b5f54ff85bc5f159e83afcb15bc"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_ic_v1\\E1_heat_cos\\hardic_layer_s1.json",
+      "sha256": "99085dc4a15ba9fb170800466234adaabfd1aadb1e471ce088229b7ee55fe4ee"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_ic_v1\\E1_heat_cos\\hardic_layer_s2.json",
+      "sha256": "c80335fcd7ab5ca214c87a85d212650fa735dfc6f1d0c806cbabe16837409ddd"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_ic_v1\\E1_heat_cos\\hardic_s0.json",
+      "sha256": "a81d426a4c027ee8e1bebda39672b48233ad2f8b2c0f3de9f5f7353137d11825"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_ic_v1\\E1_heat_cos\\hardic_s1.json",
+      "sha256": "5d389a168c305990759bd3abef48411c981b9db10f78a378629fdd7e562756c2"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_ic_v1\\E1_heat_cos\\hardic_s2.json",
+      "sha256": "5f449053f2c7dfdd651a7bdd209028ea058d340cbdb308717d1b8a548dd623c5"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_ic_v1\\E1_heat_cos\\vanilla_s0.json",
+      "sha256": "327d84135844aedc7d5558670ceb44165528c8e19dd15f361f6740d45c3c4407"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_ic_v1\\E1_heat_cos\\vanilla_s1.json",
+      "sha256": "7988199c05b1bd2f39c253b67d2e18afd1d48ebe5f1a588ef1cf8f00fef580e4"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_ic_v1\\E1_heat_cos\\vanilla_s2.json",
+      "sha256": "44d4a8c69a8ce74999b4bc53118fee4ad443d8419e99ca7d7019ef67c899852b"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_ic_v1\\E3_fisher_cos\\hardic_layer_s0.json",
+      "sha256": "2043256e154fdeea1a9471a6b6dbff5cacbaf958899b377289fb785665222d4d"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_ic_v1\\E3_fisher_cos\\hardic_layer_s1.json",
+      "sha256": "ad90cdcc213f3c02c7ae633c653d63920fe7ff545189d338d555c69b949d494d"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_ic_v1\\E3_fisher_cos\\hardic_layer_s2.json",
+      "sha256": "97e1269dbddf9fed52b29f8e7f9d7bd58ddffb2d09f6f572708f26af84e84279"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_ic_v1\\E3_fisher_cos\\hardic_s0.json",
+      "sha256": "24a7d40cb0266b59997b01f632f11388dfbc7f94cff754bd5f50c749b51d0f90"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_ic_v1\\E3_fisher_cos\\hardic_s1.json",
+      "sha256": "b698c52dfdcb5d22fe8fec1324244b10d50a7725c132c205b53e521be29a3998"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_ic_v1\\E3_fisher_cos\\hardic_s2.json",
+      "sha256": "689ecbc63e4506446633460f9d5f1d752591d12085df2f60bb26209f49ecbd09"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_ic_v1\\E3_fisher_cos\\vanilla_s0.json",
+      "sha256": "66ccddc021f2899a4ce71ab4708d5753b0dacb829d87e76e8e16472c0c051a59"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_ic_v1\\E3_fisher_cos\\vanilla_s1.json",
+      "sha256": "bae257be5f38ecc3ade25f4acb7070b85074311599fa4d917d21613171f5c956"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_ic_v1\\E3_fisher_cos\\vanilla_s2.json",
+      "sha256": "89d44af907f4fe5dbc8b3df0885e43fc07dad063568dbddd8eae121ce4b0fea6"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E1_heat\\hardic_layer_s0.json",
+      "sha256": "92a371db9fcdd4257963d095dd3da5bd9ad3fcaebcab362535c434b1f49bbd49"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E1_heat\\hardic_layer_s1.json",
+      "sha256": "4e730e8b2d73baa2ee3f098335c9e34107a7e74b707723eee950b666990926a1"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E1_heat\\hardic_layer_s2.json",
+      "sha256": "882b30c8aee85a99ebaa69bb687c3ab3038125cf338a9581efeafe04cf804675"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E1_heat\\hardic_s0.json",
+      "sha256": "725214efbfa6fab4ee55c1ec9a161d1d81142cb594c8462e5c06f98196b69421"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E1_heat\\hardic_s1.json",
+      "sha256": "8cbe169e0f7ae95b84dd68b808f1ca360ffd5e9204e676d01545e661eab1e5a3"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E1_heat\\hardic_s2.json",
+      "sha256": "767850b79096e1ea3c152f308d533da9bc3f0d37cc0bc8bc8d8b913eeecb0189"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E1_heat\\vanilla_s0.json",
+      "sha256": "82f16eabe78c0a0aedb2c705df9dc521e6ddd3c0565c8153b62d27085b4d6b71"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E1_heat\\vanilla_s1.json",
+      "sha256": "d66322be0938d344911894fbe90d1c19109a0167dd38dde0637ae3dec9a00dcc"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E1_heat\\vanilla_s2.json",
+      "sha256": "1fc7d160593625af552da4382ab975d6ac8ee2270841442d19b3c4aff99729d2"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E3_fisher\\hardic_layer_s0.json",
+      "sha256": "f903c8a1bab9f697304bbc2d4f0436b047a4b0ab3e0babf1213063c4851bb6e4"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E3_fisher\\hardic_layer_s1.json",
+      "sha256": "edc20e50a83823b640067fb9543471b1ef9eb1a695bc715af7a60631c7421315"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E3_fisher\\hardic_layer_s2.json",
+      "sha256": "d19fa0a8602da7c2e127f2bc46f60ee276177dfe13f0c94813461d5dd1950d0f"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E3_fisher\\hardic_s0.json",
+      "sha256": "d69cedc42e821520d8e900f64769812354e2d2ad668ef50ec0607ab7d1a65851"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E3_fisher\\hardic_s1.json",
+      "sha256": "e3b9e51ca304e6bc01addf79287f69dd10dbfb88751b2fa5dfdb06069c9bb291"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E3_fisher\\hardic_s2.json",
+      "sha256": "ce002143971d04f3805e2e3a88e9cc89e17a025c34ac2ef577dd12e335a791f3"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E3_fisher\\vanilla_s0.json",
+      "sha256": "24f9b71f6669453a58b42eb550daf436da9740d53a6c58851ace680e45d89ed9"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E3_fisher\\vanilla_s1.json",
+      "sha256": "1c2d58513c0061de25e1092a6d94583d91800059c8cf06b0a16f71dbabf53b8f"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\final_soap64_v1\\E3_fisher\\vanilla_s2.json",
+      "sha256": "6e32ac6d0aee2ff284bee5e38e3e3490c3e63cecdaeb02a8678554905173d8f5"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\pirate\\E1_heat\\hardic_layer_s0.json",
+      "sha256": "4cf2b4e9a5a78d7a36773bb5ff25593fbdba5af3a0e0cd8229836f74e8cda3fc"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\pirate\\E1_heat\\hardic_layer_s1.json",
+      "sha256": "ac112091862174386215c81f84daa730fa5e5cdcdf23413c6bcd76f18a810d02"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\pirate\\E1_heat\\hardic_layer_s2.json",
+      "sha256": "777f93075dc001a7a94eb91aabc52352926cc500b9eac5abf69e4fa1b65f8eea"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\pirate\\E1_heat\\hardic_s0.json",
+      "sha256": "cb238b721deb7c251c483b3f906de18fdca4da5d9b0e7b5746798eec004486fd"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\pirate\\E1_heat\\hardic_s1.json",
+      "sha256": "bf393806180c3d0f236aa6d5d2519c3d9e5da9b5096783f7296710f4a22aa219"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\pirate\\E1_heat\\hardic_s2.json",
+      "sha256": "7348c0200916ab650c60ab068c755615109810830dbec952de029da43fefca15"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\pirate\\E3_fisher\\hardic_layer_s0.json",
+      "sha256": "c58b016f55cbcc52c2819199b8223cdcd62db4d2c42830236d75e0c0c8ad4da7"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\pirate\\E3_fisher\\hardic_layer_s1.json",
+      "sha256": "06afa6049b97588da267216f626e0b70500bd1a785584fa00d5a25b024e5b3be"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\pirate\\E3_fisher\\hardic_layer_s2.json",
+      "sha256": "42621c24126155ea2e306642025c3fcd2d8c7191239689d4b335008b8a8850de"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\pirate\\E3_fisher\\hardic_s0.json",
+      "sha256": "e479d5bac17515a939c4102a12788cc88f04279a97ee245d08ad69fc3fa420ae"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\pirate\\E3_fisher\\hardic_s1.json",
+      "sha256": "a68a4f9dc455a9d27bfa13c3df720ee37881ce00d2f0ae4be0f149c6dc20d4c4"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\pirate\\E3_fisher\\hardic_s2.json",
+      "sha256": "ce5140425651e1d316241bb2ede43319e62c21be5021785f0bd89e57ec245c9f"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_adam\\E1_heat\\hardic_layer_s100.json",
+      "sha256": "be6e001d0333376a86040b0259ecdb06408fc5b759f90c8d33271225f522f408"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_adam\\E1_heat\\hardic_layer_s101.json",
+      "sha256": "8380c7aad0696ea6447936dfe6255082d8c40854f7282a0d55bf769190cd1aba"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_adam\\E1_heat\\hardic_s100.json",
+      "sha256": "d886523b3e0b78b23d25bd48fa7ff165a22c089f09ca6e13788cfe4b219a5f31"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_adam\\E1_heat\\hardic_s101.json",
+      "sha256": "e05e0502f61ec193ed3d0edd89885ef4371f9a276582608b319a486b6de252bc"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_adam\\E1_heat\\vanilla_s100.json",
+      "sha256": "52c3c1a80766f7220f49863d233353637b52e15e8cca0d14fc731c37c0851322"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_adam\\E1_heat\\vanilla_s101.json",
+      "sha256": "546ea743663a6ffc47b8368c5c5717950e5dcde11095c819cc05f316ba0aa4a2"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_adam\\E3_fisher\\hardic_layer_s100.json",
+      "sha256": "da493634fe43cb1c199b60d38516c5e9af35e721fe1ac134c760804ef26d2e36"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_adam\\E3_fisher\\hardic_layer_s101.json",
+      "sha256": "9114b97465326e7b45638d556551e00acc564f73785660862d6dd164f2a868e5"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_adam\\E3_fisher\\hardic_s100.json",
+      "sha256": "703d9740a93c654cc4e1690eaa8ead69926de1da700718bca54b15875e3bdeb8"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_adam\\E3_fisher\\hardic_s101.json",
+      "sha256": "6a01a22480c15b3f859b6ff41894c9913218f2b6b00663ba458ebb05834cb747"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_adam\\E3_fisher\\vanilla_s100.json",
+      "sha256": "848a2f29a8336729f18a184d6433d0827065608d0f04c6def51d6ca09f543ec3"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_adam\\E3_fisher\\vanilla_s101.json",
+      "sha256": "0127c6b6be6ff108742ef3d7c09218f6abee20b2f7a0ae87ad95f9239e7e722c"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_soap64\\E1_heat\\hardic_layer_s100.json",
+      "sha256": "ae071e7148b632011f663baa69c6f9832abb4493fc5c9eaf8fa43963d2d06f64"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_soap64\\E1_heat\\hardic_layer_s101.json",
+      "sha256": "ff2983393a41d9b3444eb4c34571684eed00aae8021ca1cbefbbcb5a99f1b431"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_soap64\\E1_heat\\hardic_s100.json",
+      "sha256": "357309889ab9add247faa3ac35e924cb0d1a4623c5a06991e72fc7e155074ad7"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_soap64\\E1_heat\\hardic_s101.json",
+      "sha256": "a9a4fa8e88a02645184b8b79446df83fe674e1305b29f7d821aea9d9697f6bdf"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_soap64\\E1_heat\\vanilla_s100.json",
+      "sha256": "8ad264a84ab43f51fedd45e43dea26acde0bea48bb424159441063078d5d00de"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_soap64\\E1_heat\\vanilla_s101.json",
+      "sha256": "f4b6dfee7c17e8b8203aea9ea023f8581db278c4db5e73da6a2da173291e8b06"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_soap64\\E3_fisher\\hardic_layer_s100.json",
+      "sha256": "f5000274296db62cf242490ce6ca167ce8e1f08951636d73441da71e22b5c1da"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_soap64\\E3_fisher\\hardic_layer_s101.json",
+      "sha256": "596d3cfa58e172fdc5caba42d8ee39bdc7cf889effc21cd1524b07bee9768371"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_soap64\\E3_fisher\\hardic_s100.json",
+      "sha256": "6b3a072194d409f81122f0fcb809f45c5f3b141991b2b256240fc5c1add8bbbe"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_soap64\\E3_fisher\\hardic_s101.json",
+      "sha256": "9e1de70e2966927b879a6f4bc472b5491e3348d42ce0eb24a1e8e5534a2c2353"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_soap64\\E3_fisher\\vanilla_s100.json",
+      "sha256": "d7ac4ce080a6ff36b5f7d5b45a239905dceccec562d1a4f7d849837e8ef0d307"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\preflight4_soap64\\E3_fisher\\vanilla_s101.json",
+      "sha256": "81ffbd33a288a49aa9da2dd7ce5f96f9231bbe3fda3200f098cb154b01b9b1b4"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E1_heat\\hardic_layer_s0.json",
+      "sha256": "ed6d8121759550574735e0818e32a64bda24d0277afddbe731cddadc7e5692ff"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E1_heat\\hardic_layer_s1.json",
+      "sha256": "546c549c695dc07d3100697975f3f71eee8669b2b867c90f75dc79b99334e067"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E1_heat\\hardic_s0.json",
+      "sha256": "c5571ada9d49b3f9c3d757753c1e723674c317236838e2b4ded1d146b204fa8f"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E1_heat\\hardic_s1.json",
+      "sha256": "f174be5c3a09161435d3d814fc352f57619572e093555bd11e01502a3b460870"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E1_heat\\layer_s0.json",
+      "sha256": "0c549912e23dd2bfbfc7235ff559514cee45b4fa9937435b0b1101e53524177f"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E1_heat\\layer_s1.json",
+      "sha256": "b030d8cd8c977191691aaaf9ac69dea0e960c49eeb373f8b203f0c64873bf972"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E1_heat\\rba_s0.json",
+      "sha256": "8f3892e7d296f45fab2735d1b132bed259505de1ca656357ad57b24433a252cc"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E1_heat\\rba_s1.json",
+      "sha256": "15ea118db5fd91bc44631b49e8de45ad2eca39208dde78981fc38ddfd4e5f05f"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E1_heat\\vanilla_s0.json",
+      "sha256": "d79ba741adc082a2b567bb14a07abb9c951f72f4961e9e172a8b7ea58fb67752"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E1_heat\\vanilla_s1.json",
+      "sha256": "57c1f5b856df90d2c8d9ec0434901e33e1ef07a067a836f8ef289e3ce83b30f8"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E2_allen_cahn\\hardic_layer_s0.json",
+      "sha256": "fc9dd5573bad2e9fe18a24835e69ae12af75f25aa59284d3756c9e1adf6cd73f"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E2_allen_cahn\\hardic_layer_s1.json",
+      "sha256": "fbf8f25f45d20f9fbd03076d7469041da5b4d42dd5370c48170e39bbeed715f2"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E2_allen_cahn\\hardic_s0.json",
+      "sha256": "076644d3556999d6de22aa8d66da34eef951f043a92381fabe1a6435c576a87f"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E2_allen_cahn\\hardic_s1.json",
+      "sha256": "0a8c1dd307084ac9f31c873677dac330570625e56ecf1ba8e7a28b9db6d6ec90"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E2_allen_cahn\\layer_s0.json",
+      "sha256": "7ad604ed7c0fd0ce438d5c0a563e47f6b3f7349699d456eccb42294d58eb3ba1"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E2_allen_cahn\\layer_s1.json",
+      "sha256": "ad99d15eadc30ab3f6fb82dffb08e38e9597c9588803332811813de152c74689"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E2_allen_cahn\\rba_s0.json",
+      "sha256": "9782bc2c374dcc634356b24d463473655e3deb1773b10fe031c8e7d0b7df51f9"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E2_allen_cahn\\rba_s1.json",
+      "sha256": "8ec6ca254869383940d18b87df82e59965aff694e9afe6424babfe5d7510177b"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E2_allen_cahn\\vanilla_s0.json",
+      "sha256": "fba4aca0898f70516c9efc1d4e7883b57a7b5d13035ff841bae06f30aee681a2"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E2_allen_cahn\\vanilla_s1.json",
+      "sha256": "9a5216e48b07fa6a39a4c42b26b1082a51941eac5812e7ba355a2faa9157584e"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E3_fisher\\hardic_layer_s0.json",
+      "sha256": "3fbff579741eb0e32fda8ca296d99e0a243404c073414f3b0f292c96b709dc94"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E3_fisher\\hardic_layer_s1.json",
+      "sha256": "0d4b1d6a702fee0633545c1b28838296dcab3d0749b4cf8d981f4d4d8efd68dc"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E3_fisher\\hardic_s0.json",
+      "sha256": "1a42405734b1f5f1f8f7fb56cc0eb0cb99e9502369b51a9d91ea7df1379d69fd"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E3_fisher\\hardic_s1.json",
+      "sha256": "065fb1e6dfa418cefe014aa349c4e664374b0e3779bce6b939c0ab5ed5833450"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E3_fisher\\layer_s0.json",
+      "sha256": "3bbcb997a029801b800803f60b0fa85f7b046296cbd39f8becf1a5e1de61bddd"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E3_fisher\\layer_s1.json",
+      "sha256": "5abf53f89143017bb6c3ebcaaf238fbf2ece167890713eebf08e70f0cbe60c2f"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E3_fisher\\rba_s0.json",
+      "sha256": "32a1fa9783985e8ab50ca1535feaa7c119b1034e03843155681c14ad0890efae"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E3_fisher\\rba_s1.json",
+      "sha256": "39731a177c40e81c0e034a6e626befdb594826e658e19aa3f280ab23a7a9c5f3"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E3_fisher\\vanilla_s0.json",
+      "sha256": "10d571b8dc3aa9ff12ea5e311911e131ad1e379164539fc9f4138ada2f2c50e0"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\screen\\E3_fisher\\vanilla_s1.json",
+      "sha256": "6d2637960c88eaa338b1c117061047c4252b63ae1ee02ce640b97c903f9c4792"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\sensitivity_tau003_v1\\E1_heat\\hardic_layer_s0.json",
+      "sha256": "ebef540110c3af5dcd8dad13cc356a1cb3d9a6b6f09dc3d76c5e38d787e935ba"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\sensitivity_tau003_v1\\E1_heat\\hardic_layer_s1.json",
+      "sha256": "48a4a19a8d869ec0092b9649c69c7a7add1ad1ef6a04e81676c6f88084a5a1c8"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\sensitivity_tau003_v1\\E1_heat\\hardic_layer_s2.json",
+      "sha256": "c477f005b287a623369820591d09194067fa19c587351dff93096c0ad664cd43"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\sensitivity_tau003_v1\\E3_fisher\\hardic_layer_s0.json",
+      "sha256": "0d317478d362d5f972b85d354f1d58b827ba2ccba0975ff2b0cfb334b880bae9"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\sensitivity_tau003_v1\\E3_fisher\\hardic_layer_s1.json",
+      "sha256": "4d7cd6a83ff1603b408a8cf4d19943c2ecc3c11a6833f4fdba5e20dc68cb35d8"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\sensitivity_tau003_v1\\E3_fisher\\hardic_layer_s2.json",
+      "sha256": "b97cb4edb94381f9ef1411d93d918240ca8ce66c5a4bddadacd73affd9e07540"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\sensitivity_tau03_v1\\E1_heat\\hardic_layer_s0.json",
+      "sha256": "3f9a1898ef84c8d60bd4309c44b9934d252d348badf93e88bc8c30e170110b5f"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\sensitivity_tau03_v1\\E1_heat\\hardic_layer_s1.json",
+      "sha256": "f83b25dc08eed28649ed4bc15dadbff1bcc227343b0b0fe2adcbda5e9e69ad14"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\sensitivity_tau03_v1\\E1_heat\\hardic_layer_s2.json",
+      "sha256": "acf203912f2de93d506e07e04c2a06e7cf49b3eb5e3523f5ef215fb6eca58157"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\sensitivity_tau03_v1\\E3_fisher\\hardic_layer_s0.json",
+      "sha256": "6621347001cd06bf3fd3434d48cd72f28875fd0d2c63146468dd3b547b4c2fb9"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\sensitivity_tau03_v1\\E3_fisher\\hardic_layer_s1.json",
+      "sha256": "cf5b44b24ff27e854022580ca38d0d657ac18d2697b337edd4cd9c7a5ab78de8"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\runs\\sensitivity_tau03_v1\\E3_fisher\\hardic_layer_s2.json",
+      "sha256": "42d02f299efe2e75370e986f2a8594b0f597d5e1fe31120a8f40c56386130ae0"
+    }
+  ],
+  "code_and_protocol_sources": [
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\pinn1d.py",
+      "sha256": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\problems.py",
+      "sha256": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\SCREEN_PROTOCOL.md",
+      "sha256": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9"
+    }
+  ],
+  "figures_visually_inspected": [
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\analytic_layer.png",
+      "sha256": "32c820a18d9bfbd59024a495426c33fd648b19a080b19478e4fe17875caeee1f"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\history_v2\\historical_comparison.png",
+      "sha256": "433b14dfb1f00bec71752f1ce47e2a643e3ce5867cb101171e0a9fcd08fc41bf"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2\\tau_sensitivity.png",
+      "sha256": "ec4f697e34b44bb2edfb4bf793280446a6354358e57582e4a77f0d5cf0d0b70a"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2\\default_six_arms.png",
+      "sha256": "2bef60d297d954b53730b9a3523d353ce489ab01b3b470c4b3a2ae182da5d874"
+    }
+  ],
+  "primary_web_sources": [
+    "https://dlmf.nist.gov/7.14.E4",
+    "https://arxiv.org/html/2312.06278",
+    "https://arxiv.org/html/2312.03295",
+    "https://arxiv.org/pdf/1011.4549"
+  ],
+  "table2_to_table4_numeric_check": "18 rows, 90 numeric cells: per-seed maximum volume, volume median, trace median; matched displayed precision, relative tolerance 5e-6",
+  "caution": "A file hash is identity evidence, not proof of training provenance or independent model replay; source inspected here is current source, not a claim that all historical runs used these exact bytes."
+}

@@ -1,0 +1,2076 @@
+{
+  "reviewer": "methodology",
+  "scope": "Read-only targeted source and JSON review; no training, checkpoint load, reference integration, other-review reading or 488-file artifact rehash. Current source inspected; no inference that current source generated every historical run.",
+  "input_sha256": "d0dc2b1949116c45bc7c33eeaa18addf3d6b06b97a1b8567b47912b98a6f4612",
+  "manuscript_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "raw_records_checked": 66,
+  "checks_count": 180,
+  "all_targeted_checks_pass": true,
+  "failed_checks": [],
+  "checks": [
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_ic_v1/E1_heat_cos/hardic_layer_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_ic_v1/E1_heat_cos/hardic_layer_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_ic_v1/E1_heat_cos/hardic_layer_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E1_heat_cos/hardic+layer/seed0",
+      "shown": 0.00121485,
+      "actual": 0.001214851525768734,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E1_heat_cos/hardic+layer/seed1",
+      "shown": 0.000899135,
+      "actual": 0.0008991345385171899,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E1_heat_cos/hardic+layer/seed2",
+      "shown": 0.00123768,
+      "actual": 0.0012376829143527742,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E1_heat_cos/hardic+layer/median",
+      "shown": 0.00121485,
+      "actual": 0.001214851525768734,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E1_heat_cos/hardic+layer/trace_median",
+      "shown": 0.000666152,
+      "actual": 0.0006661519863800638,
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_ic_v1/E1_heat_cos/hardic_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_ic_v1/E1_heat_cos/hardic_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_ic_v1/E1_heat_cos/hardic_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E1_heat_cos/hardic/seed0",
+      "shown": 0.00327036,
+      "actual": 0.0032703634026256664,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E1_heat_cos/hardic/seed1",
+      "shown": 0.00358714,
+      "actual": 0.0035871355250205817,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E1_heat_cos/hardic/seed2",
+      "shown": 0.00300627,
+      "actual": 0.0030062701250899698,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E1_heat_cos/hardic/median",
+      "shown": 0.00327036,
+      "actual": 0.0032703634026256664,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E1_heat_cos/hardic/trace_median",
+      "shown": 0.00370789,
+      "actual": 0.003707885679304835,
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_ic_v1/E1_heat_cos/vanilla_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_ic_v1/E1_heat_cos/vanilla_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_ic_v1/E1_heat_cos/vanilla_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E1_heat_cos/vanilla/seed0",
+      "shown": 0.015219,
+      "actual": 0.015219040329412261,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E1_heat_cos/vanilla/seed1",
+      "shown": 0.0138198,
+      "actual": 0.013819767119480202,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E1_heat_cos/vanilla/seed2",
+      "shown": 0.0177275,
+      "actual": 0.017727536539821155,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E1_heat_cos/vanilla/median",
+      "shown": 0.015219,
+      "actual": 0.015219040329412261,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E1_heat_cos/vanilla/trace_median",
+      "shown": 0.0150047,
+      "actual": 0.015004739485267695,
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E3_fisher_cos/hardic+layer/seed0",
+      "shown": 0.000540479,
+      "actual": 0.0005404785796465332,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E3_fisher_cos/hardic+layer/seed1",
+      "shown": 0.00093602,
+      "actual": 0.0009360197745380396,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E3_fisher_cos/hardic+layer/seed2",
+      "shown": 0.00036419,
+      "actual": 0.0003641895625726548,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E3_fisher_cos/hardic+layer/median",
+      "shown": 0.000540479,
+      "actual": 0.0005404785796465332,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E3_fisher_cos/hardic+layer/trace_median",
+      "shown": 0.000313574,
+      "actual": 0.0003135744811934184,
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_ic_v1/E3_fisher_cos/hardic_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_ic_v1/E3_fisher_cos/hardic_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_ic_v1/E3_fisher_cos/hardic_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E3_fisher_cos/hardic/seed0",
+      "shown": 0.00052185,
+      "actual": 0.0005218495552936101,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E3_fisher_cos/hardic/seed1",
+      "shown": 0.00396935,
+      "actual": 0.00396935175978239,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E3_fisher_cos/hardic/seed2",
+      "shown": 0.00806731,
+      "actual": 0.008067307554561207,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E3_fisher_cos/hardic/median",
+      "shown": 0.00396935,
+      "actual": 0.00396935175978239,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E3_fisher_cos/hardic/trace_median",
+      "shown": 0.00910826,
+      "actual": 0.009108258629745052,
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_ic_v1/E3_fisher_cos/vanilla_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_ic_v1/E3_fisher_cos/vanilla_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_ic_v1/E3_fisher_cos/vanilla_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E3_fisher_cos/vanilla/seed0",
+      "shown": 0.0378094,
+      "actual": 0.037809361820952785,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E3_fisher_cos/vanilla/seed1",
+      "shown": 0.0251631,
+      "actual": 0.025163085444255693,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E3_fisher_cos/vanilla/seed2",
+      "shown": 0.055157,
+      "actual": 0.0551570477475704,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E3_fisher_cos/vanilla/median",
+      "shown": 0.0378094,
+      "actual": 0.037809361820952785,
+      "pass": true
+    },
+    {
+      "check": "T3/final_ic_v1/E3_fisher_cos/vanilla/trace_median",
+      "shown": 0.0817521,
+      "actual": 0.08175211195204515,
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T6/sensitivity_tau003_v1/E1_heat/hardic+layer/seed0",
+      "shown": 0.00137334,
+      "actual": 0.001373342177527693,
+      "pass": true
+    },
+    {
+      "check": "T6/sensitivity_tau003_v1/E1_heat/hardic+layer/seed1",
+      "shown": 0.0045109,
+      "actual": 0.004510897476520619,
+      "pass": true
+    },
+    {
+      "check": "T6/sensitivity_tau003_v1/E1_heat/hardic+layer/seed2",
+      "shown": 0.000868078,
+      "actual": 0.0008680775140847393,
+      "pass": true
+    },
+    {
+      "check": "T6/sensitivity_tau003_v1/E1_heat/hardic+layer/median",
+      "shown": 0.00137334,
+      "actual": 0.001373342177527693,
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/confirm/E1_heat/hardic_layer_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/confirm/E1_heat/hardic_layer_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/confirm/E1_heat/hardic_layer_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T6/confirm/E1_heat/hardic+layer/seed0",
+      "shown": 0.00118038,
+      "actual": 0.0011803808202624146,
+      "pass": true
+    },
+    {
+      "check": "T6/confirm/E1_heat/hardic+layer/seed1",
+      "shown": 0.00315664,
+      "actual": 0.003156639825410876,
+      "pass": true
+    },
+    {
+      "check": "T6/confirm/E1_heat/hardic+layer/seed2",
+      "shown": 0.000307983,
+      "actual": 0.0003079832506459695,
+      "pass": true
+    },
+    {
+      "check": "T6/confirm/E1_heat/hardic+layer/median",
+      "shown": 0.00118038,
+      "actual": 0.0011803808202624146,
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T6/sensitivity_tau03_v1/E1_heat/hardic+layer/seed0",
+      "shown": 0.000434868,
+      "actual": 0.00043486807786825594,
+      "pass": true
+    },
+    {
+      "check": "T6/sensitivity_tau03_v1/E1_heat/hardic+layer/seed1",
+      "shown": 0.00315084,
+      "actual": 0.00315083849669971,
+      "pass": true
+    },
+    {
+      "check": "T6/sensitivity_tau03_v1/E1_heat/hardic+layer/seed2",
+      "shown": 0.000800404,
+      "actual": 0.0008004035288215175,
+      "pass": true
+    },
+    {
+      "check": "T6/sensitivity_tau03_v1/E1_heat/hardic+layer/median",
+      "shown": 0.000800404,
+      "actual": 0.0008004035288215175,
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T6/sensitivity_tau003_v1/E3_fisher/hardic+layer/seed0",
+      "shown": 0.000485645,
+      "actual": 0.00048564496718819236,
+      "pass": true
+    },
+    {
+      "check": "T6/sensitivity_tau003_v1/E3_fisher/hardic+layer/seed1",
+      "shown": 0.000862759,
+      "actual": 0.0008627585140725964,
+      "pass": true
+    },
+    {
+      "check": "T6/sensitivity_tau003_v1/E3_fisher/hardic+layer/seed2",
+      "shown": 0.000346121,
+      "actual": 0.00034612095540456286,
+      "pass": true
+    },
+    {
+      "check": "T6/sensitivity_tau003_v1/E3_fisher/hardic+layer/median",
+      "shown": 0.000485645,
+      "actual": 0.00048564496718819236,
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/confirm/E3_fisher/hardic_layer_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/confirm/E3_fisher/hardic_layer_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/confirm/E3_fisher/hardic_layer_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T6/confirm/E3_fisher/hardic+layer/seed0",
+      "shown": 0.000323349,
+      "actual": 0.00032334901581232254,
+      "pass": true
+    },
+    {
+      "check": "T6/confirm/E3_fisher/hardic+layer/seed1",
+      "shown": 0.000802737,
+      "actual": 0.000802737444500833,
+      "pass": true
+    },
+    {
+      "check": "T6/confirm/E3_fisher/hardic+layer/seed2",
+      "shown": 0.000391498,
+      "actual": 0.00039149789700532856,
+      "pass": true
+    },
+    {
+      "check": "T6/confirm/E3_fisher/hardic+layer/median",
+      "shown": 0.000391498,
+      "actual": 0.00039149789700532856,
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T6/sensitivity_tau03_v1/E3_fisher/hardic+layer/seed0",
+      "shown": 0.000339548,
+      "actual": 0.00033954806835502895,
+      "pass": true
+    },
+    {
+      "check": "T6/sensitivity_tau03_v1/E3_fisher/hardic+layer/seed1",
+      "shown": 0.000298499,
+      "actual": 0.0002984994831311682,
+      "pass": true
+    },
+    {
+      "check": "T6/sensitivity_tau03_v1/E3_fisher/hardic+layer/seed2",
+      "shown": 0.000612789,
+      "actual": 0.000612789261971248,
+      "pass": true
+    },
+    {
+      "check": "T6/sensitivity_tau03_v1/E3_fisher/hardic+layer/median",
+      "shown": 0.000339548,
+      "actual": 0.00033954806835502895,
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/confirm/E1_heat/vanilla_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/confirm/E1_heat/vanilla_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/confirm/E1_heat/vanilla_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E1_heat/vanilla/seed0",
+      "shown": 0.0536721,
+      "actual": 0.053672126675583534,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E1_heat/vanilla/seed1",
+      "shown": 0.0325731,
+      "actual": 0.03257310934187709,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E1_heat/vanilla/seed2",
+      "shown": 0.0610169,
+      "actual": 0.061016865700618775,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E1_heat/vanilla/median",
+      "shown": 0.0536721,
+      "actual": 0.053672126675583534,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E1_heat/vanilla/trace_median",
+      "shown": 0.179595,
+      "actual": 0.17959518693637108,
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/confirm/E1_heat/hardic_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/confirm/E1_heat/hardic_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/confirm/E1_heat/hardic_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E1_heat/hardic/seed0",
+      "shown": 0.0163176,
+      "actual": 0.016317588351105947,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E1_heat/hardic/seed1",
+      "shown": 0.0665,
+      "actual": 0.06650003591964747,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E1_heat/hardic/seed2",
+      "shown": 0.0411144,
+      "actual": 0.04111442933961105,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E1_heat/hardic/median",
+      "shown": 0.0411144,
+      "actual": 0.04111442933961105,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E1_heat/hardic/trace_median",
+      "shown": 0.136143,
+      "actual": 0.13614253914343494,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E1_heat/hardic+layer/seed0",
+      "shown": 0.00118038,
+      "actual": 0.0011803808202624146,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E1_heat/hardic+layer/seed1",
+      "shown": 0.00315664,
+      "actual": 0.003156639825410876,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E1_heat/hardic+layer/seed2",
+      "shown": 0.000307983,
+      "actual": 0.0003079832506459695,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E1_heat/hardic+layer/median",
+      "shown": 0.00118038,
+      "actual": 0.0011803808202624146,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E1_heat/hardic+layer/trace_median",
+      "shown": 0.00123606,
+      "actual": 0.0012360616720074765,
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_soap64_v1/E1_heat/vanilla_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_soap64_v1/E1_heat/vanilla_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_soap64_v1/E1_heat/vanilla_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E1_heat/vanilla/seed0",
+      "shown": 0.0391101,
+      "actual": 0.03911008118520428,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E1_heat/vanilla/seed1",
+      "shown": 0.00171431,
+      "actual": 0.0017143052421987695,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E1_heat/vanilla/seed2",
+      "shown": 0.0536686,
+      "actual": 0.0536686232793126,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E1_heat/vanilla/median",
+      "shown": 0.0391101,
+      "actual": 0.03911008118520428,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E1_heat/vanilla/trace_median",
+      "shown": 0.128217,
+      "actual": 0.12821673395156113,
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_soap64_v1/E1_heat/hardic_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_soap64_v1/E1_heat/hardic_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_soap64_v1/E1_heat/hardic_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E1_heat/hardic/seed0",
+      "shown": 0.0132629,
+      "actual": 0.013262857705973682,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E1_heat/hardic/seed1",
+      "shown": 0.0910411,
+      "actual": 0.0910410861872862,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E1_heat/hardic/seed2",
+      "shown": 0.0443049,
+      "actual": 0.04430485131984485,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E1_heat/hardic/median",
+      "shown": 0.0443049,
+      "actual": 0.04430485131984485,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E1_heat/hardic/trace_median",
+      "shown": 0.155155,
+      "actual": 0.15515517347914876,
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_soap64_v1/E1_heat/hardic_layer_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_soap64_v1/E1_heat/hardic_layer_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_soap64_v1/E1_heat/hardic_layer_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E1_heat/hardic+layer/seed0",
+      "shown": 0.000120824,
+      "actual": 0.00012082446202214802,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E1_heat/hardic+layer/seed1",
+      "shown": 0.00297685,
+      "actual": 0.0029768454552935625,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E1_heat/hardic+layer/seed2",
+      "shown": 0.000147648,
+      "actual": 0.00014764821423072187,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E1_heat/hardic+layer/median",
+      "shown": 0.000147648,
+      "actual": 0.00014764821423072187,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E1_heat/hardic+layer/trace_median",
+      "shown": 0.000881853,
+      "actual": 0.0008818529024916132,
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/confirm/E3_fisher/vanilla_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/confirm/E3_fisher/vanilla_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/confirm/E3_fisher/vanilla_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E3_fisher/vanilla/seed0",
+      "shown": 0.0319455,
+      "actual": 0.031945493409060166,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E3_fisher/vanilla/seed1",
+      "shown": 0.0244953,
+      "actual": 0.02449533505673029,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E3_fisher/vanilla/seed2",
+      "shown": 0.0426099,
+      "actual": 0.04260987022687411,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E3_fisher/vanilla/median",
+      "shown": 0.0319455,
+      "actual": 0.031945493409060166,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E3_fisher/vanilla/trace_median",
+      "shown": 0.0816815,
+      "actual": 0.08168146054073745,
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/confirm/E3_fisher/hardic_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/confirm/E3_fisher/hardic_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/confirm/E3_fisher/hardic_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E3_fisher/hardic/seed0",
+      "shown": 0.000437977,
+      "actual": 0.00043797675471647976,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E3_fisher/hardic/seed1",
+      "shown": 0.00231643,
+      "actual": 0.0023164347216610604,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E3_fisher/hardic/seed2",
+      "shown": 0.00933111,
+      "actual": 0.009331111650324013,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E3_fisher/hardic/median",
+      "shown": 0.00231643,
+      "actual": 0.0023164347216610604,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E3_fisher/hardic/trace_median",
+      "shown": 0.00654127,
+      "actual": 0.0065412716628974075,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E3_fisher/hardic+layer/seed0",
+      "shown": 0.000323349,
+      "actual": 0.00032334901581232254,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E3_fisher/hardic+layer/seed1",
+      "shown": 0.000802737,
+      "actual": 0.000802737444500833,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E3_fisher/hardic+layer/seed2",
+      "shown": 0.000391498,
+      "actual": 0.00039149789700532856,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E3_fisher/hardic+layer/median",
+      "shown": 0.000391498,
+      "actual": 0.00039149789700532856,
+      "pass": true
+    },
+    {
+      "check": "T7/confirm/E3_fisher/hardic+layer/trace_median",
+      "shown": 0.000258178,
+      "actual": 0.0002581782829313658,
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_soap64_v1/E3_fisher/vanilla_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_soap64_v1/E3_fisher/vanilla_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_soap64_v1/E3_fisher/vanilla_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E3_fisher/vanilla/seed0",
+      "shown": 0.0190654,
+      "actual": 0.01906538878376058,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E3_fisher/vanilla/seed1",
+      "shown": 0.0214971,
+      "actual": 0.02149706128376317,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E3_fisher/vanilla/seed2",
+      "shown": 0.0257621,
+      "actual": 0.025762112459672564,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E3_fisher/vanilla/median",
+      "shown": 0.0214971,
+      "actual": 0.02149706128376317,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E3_fisher/vanilla/trace_median",
+      "shown": 0.0536129,
+      "actual": 0.05361289922272402,
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E3_fisher/hardic/seed0",
+      "shown": 0.000426,
+      "actual": 0.0004260000321246892,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E3_fisher/hardic/seed1",
+      "shown": 0.00249476,
+      "actual": 0.002494763101516382,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E3_fisher/hardic/seed2",
+      "shown": 0.00428537,
+      "actual": 0.004285371101920529,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E3_fisher/hardic/median",
+      "shown": 0.00249476,
+      "actual": 0.002494763101516382,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E3_fisher/hardic/trace_median",
+      "shown": 0.00603002,
+      "actual": 0.006030017072142866,
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_layer_s0.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_layer_s1.json",
+      "pass": true
+    },
+    {
+      "check": "raw_metric_and_identity",
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_layer_s2.json",
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E3_fisher/hardic+layer/seed0",
+      "shown": 7.71149e-05,
+      "actual": 7.711494165251126e-05,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E3_fisher/hardic+layer/seed1",
+      "shown": 8.34326e-05,
+      "actual": 8.343261317128131e-05,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E3_fisher/hardic+layer/seed2",
+      "shown": 8.09251e-05,
+      "actual": 8.092506824861077e-05,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E3_fisher/hardic+layer/median",
+      "shown": 8.09251e-05,
+      "actual": 8.092506824861077e-05,
+      "pass": true
+    },
+    {
+      "check": "T7/final_soap64_v1/E3_fisher/hardic+layer/trace_median",
+      "shown": 0.000166681,
+      "actual": 0.0001666808661621596,
+      "pass": true
+    }
+  ],
+  "groups": [
+    {
+      "table": "T3",
+      "tag": "final_ic_v1",
+      "eq": "E1_heat_cos",
+      "method": "hardic+layer",
+      "values": [
+        0.001214851525768734,
+        0.0008991345385171899,
+        0.0012376829143527742
+      ],
+      "median": 0.001214851525768734,
+      "env": [
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T3",
+      "tag": "final_ic_v1",
+      "eq": "E1_heat_cos",
+      "method": "hardic",
+      "values": [
+        0.0032703634026256664,
+        0.0035871355250205817,
+        0.0030062701250899698
+      ],
+      "median": 0.0032703634026256664,
+      "env": [
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T3",
+      "tag": "final_ic_v1",
+      "eq": "E1_heat_cos",
+      "method": "vanilla",
+      "values": [
+        0.015219040329412261,
+        0.013819767119480202,
+        0.017727536539821155
+      ],
+      "median": 0.015219040329412261,
+      "env": [
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T3",
+      "tag": "final_ic_v1",
+      "eq": "E3_fisher_cos",
+      "method": "hardic+layer",
+      "values": [
+        0.0005404785796465332,
+        0.0009360197745380396,
+        0.0003641895625726548
+      ],
+      "median": 0.0005404785796465332,
+      "env": [
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T3",
+      "tag": "final_ic_v1",
+      "eq": "E3_fisher_cos",
+      "method": "hardic",
+      "values": [
+        0.0005218495552936101,
+        0.00396935175978239,
+        0.008067307554561207
+      ],
+      "median": 0.00396935175978239,
+      "env": [
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T3",
+      "tag": "final_ic_v1",
+      "eq": "E3_fisher_cos",
+      "method": "vanilla",
+      "values": [
+        0.037809361820952785,
+        0.025163085444255693,
+        0.0551570477475704
+      ],
+      "median": 0.037809361820952785,
+      "env": [
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T6",
+      "tag": "sensitivity_tau003_v1",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "values": [
+        0.001373342177527693,
+        0.004510897476520619,
+        0.0008680775140847393
+      ],
+      "median": 0.001373342177527693,
+      "env": [
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T6",
+      "tag": "confirm",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "values": [
+        0.0011803808202624146,
+        0.003156639825410876,
+        0.0003079832506459695
+      ],
+      "median": 0.0011803808202624146,
+      "env": [
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T6",
+      "tag": "sensitivity_tau03_v1",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "values": [
+        0.00043486807786825594,
+        0.00315083849669971,
+        0.0008004035288215175
+      ],
+      "median": 0.0008004035288215175,
+      "env": [
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T6",
+      "tag": "sensitivity_tau003_v1",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "values": [
+        0.00048564496718819236,
+        0.0008627585140725964,
+        0.00034612095540456286
+      ],
+      "median": 0.00048564496718819236,
+      "env": [
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T6",
+      "tag": "confirm",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "values": [
+        0.00032334901581232254,
+        0.000802737444500833,
+        0.00039149789700532856
+      ],
+      "median": 0.00039149789700532856,
+      "env": [
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T6",
+      "tag": "sensitivity_tau03_v1",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "values": [
+        0.00033954806835502895,
+        0.0002984994831311682,
+        0.000612789261971248
+      ],
+      "median": 0.00033954806835502895,
+      "env": [
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T7",
+      "tag": "confirm",
+      "eq": "E1_heat",
+      "method": "vanilla",
+      "values": [
+        0.053672126675583534,
+        0.03257310934187709,
+        0.061016865700618775
+      ],
+      "median": 0.053672126675583534,
+      "env": [
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T7",
+      "tag": "confirm",
+      "eq": "E1_heat",
+      "method": "hardic",
+      "values": [
+        0.016317588351105947,
+        0.06650003591964747,
+        0.04111442933961105
+      ],
+      "median": 0.04111442933961105,
+      "env": [
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T7",
+      "tag": "confirm",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "values": [
+        0.0011803808202624146,
+        0.003156639825410876,
+        0.0003079832506459695
+      ],
+      "median": 0.0011803808202624146,
+      "env": [
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T7",
+      "tag": "final_soap64_v1",
+      "eq": "E1_heat",
+      "method": "vanilla",
+      "values": [
+        0.03911008118520428,
+        0.0017143052421987695,
+        0.0536686232793126
+      ],
+      "median": 0.03911008118520428,
+      "env": [
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T7",
+      "tag": "final_soap64_v1",
+      "eq": "E1_heat",
+      "method": "hardic",
+      "values": [
+        0.013262857705973682,
+        0.0910410861872862,
+        0.04430485131984485
+      ],
+      "median": 0.04430485131984485,
+      "env": [
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T7",
+      "tag": "final_soap64_v1",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "values": [
+        0.00012082446202214802,
+        0.0029768454552935625,
+        0.00014764821423072187
+      ],
+      "median": 0.00014764821423072187,
+      "env": [
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T7",
+      "tag": "confirm",
+      "eq": "E3_fisher",
+      "method": "vanilla",
+      "values": [
+        0.031945493409060166,
+        0.02449533505673029,
+        0.04260987022687411
+      ],
+      "median": 0.031945493409060166,
+      "env": [
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T7",
+      "tag": "confirm",
+      "eq": "E3_fisher",
+      "method": "hardic",
+      "values": [
+        0.00043797675471647976,
+        0.0023164347216610604,
+        0.009331111650324013
+      ],
+      "median": 0.0023164347216610604,
+      "env": [
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T7",
+      "tag": "confirm",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "values": [
+        0.00032334901581232254,
+        0.000802737444500833,
+        0.00039149789700532856
+      ],
+      "median": 0.00039149789700532856,
+      "env": [
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.13.16",
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T7",
+      "tag": "final_soap64_v1",
+      "eq": "E3_fisher",
+      "method": "vanilla",
+      "values": [
+        0.01906538878376058,
+        0.02149706128376317,
+        0.025762112459672564
+      ],
+      "median": 0.02149706128376317,
+      "env": [
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T7",
+      "tag": "final_soap64_v1",
+      "eq": "E3_fisher",
+      "method": "hardic",
+      "values": [
+        0.0004260000321246892,
+        0.002494763101516382,
+        0.004285371101920529
+      ],
+      "median": 0.002494763101516382,
+      "env": [
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        }
+      ]
+    },
+    {
+      "table": "T7",
+      "tag": "final_soap64_v1",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "values": [
+        7.711494165251126e-05,
+        8.343261317128131e-05,
+        8.092506824861077e-05
+      ],
+      "median": 8.092506824861077e-05,
+      "env": [
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        },
+        {
+          "python": "3.12.6",
+          "torch": "2.14.1+cpu",
+          "numpy": "2.5.3"
+        }
+      ]
+    }
+  ],
+  "soap_same_batch_comparison": [
+    {
+      "eq": "E1_heat",
+      "ratio_of_medians": 300.0703499915824,
+      "paired_ratios": [
+        109.76964005469772,
+        30.58307445063793,
+        300.0703499915824
+      ],
+      "passed_001": 3,
+      "all_paired_configs_equal": true,
+      "all_paired_env_equal": true
+    },
+    {
+      "eq": "E3_fisher",
+      "ratio_of_medians": 30.828062990965837,
+      "paired_ratios": [
+        5.524221674760438,
+        29.901533785053672,
+        52.954803680305766
+      ],
+      "passed_001": 3,
+      "all_paired_configs_equal": true,
+      "all_paired_env_equal": true
+    }
+  ],
+  "sources": [
+    {
+      "path": "pinn1d.py",
+      "sha256": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d"
+    },
+    {
+      "path": "problems.py",
+      "sha256": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e"
+    },
+    {
+      "path": "screen.py",
+      "sha256": "26eb4a06e67350098d7099f2411ecdd2ad5cdf0f314c8f7080b800ae24e67695"
+    },
+    {
+      "path": "stage5_support.py",
+      "sha256": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf"
+    },
+    {
+      "path": "soap_baseline.py",
+      "sha256": "76ce746f81fe006b3782ee413383de6852a033299504ffd5cde0dd8292557ac2"
+    },
+    {
+      "path": "third_party/soap_official.py",
+      "sha256": "6b2328e53fb3cb58cf18b21e706f6f17e7f7dcac83c8abb1053fa74d6e0ca592"
+    },
+    {
+      "path": "SCREEN_PROTOCOL.md",
+      "sha256": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9"
+    }
+  ],
+  "raw_record_provenance": [
+    {
+      "path": "runs/final_ic_v1/E1_heat_cos/hardic_layer_s0.json",
+      "sha256": "4e2a85fa7aabf1364a8a3f5d89bacef31c071b5f54ff85bc5f159e83afcb15bc"
+    },
+    {
+      "path": "runs/final_ic_v1/E1_heat_cos/hardic_layer_s1.json",
+      "sha256": "99085dc4a15ba9fb170800466234adaabfd1aadb1e471ce088229b7ee55fe4ee"
+    },
+    {
+      "path": "runs/final_ic_v1/E1_heat_cos/hardic_layer_s2.json",
+      "sha256": "c80335fcd7ab5ca214c87a85d212650fa735dfc6f1d0c806cbabe16837409ddd"
+    },
+    {
+      "path": "runs/final_ic_v1/E1_heat_cos/hardic_s0.json",
+      "sha256": "a81d426a4c027ee8e1bebda39672b48233ad2f8b2c0f3de9f5f7353137d11825"
+    },
+    {
+      "path": "runs/final_ic_v1/E1_heat_cos/hardic_s1.json",
+      "sha256": "5d389a168c305990759bd3abef48411c981b9db10f78a378629fdd7e562756c2"
+    },
+    {
+      "path": "runs/final_ic_v1/E1_heat_cos/hardic_s2.json",
+      "sha256": "5f449053f2c7dfdd651a7bdd209028ea058d340cbdb308717d1b8a548dd623c5"
+    },
+    {
+      "path": "runs/final_ic_v1/E1_heat_cos/vanilla_s0.json",
+      "sha256": "327d84135844aedc7d5558670ceb44165528c8e19dd15f361f6740d45c3c4407"
+    },
+    {
+      "path": "runs/final_ic_v1/E1_heat_cos/vanilla_s1.json",
+      "sha256": "7988199c05b1bd2f39c253b67d2e18afd1d48ebe5f1a588ef1cf8f00fef580e4"
+    },
+    {
+      "path": "runs/final_ic_v1/E1_heat_cos/vanilla_s2.json",
+      "sha256": "44d4a8c69a8ce74999b4bc53118fee4ad443d8419e99ca7d7019ef67c899852b"
+    },
+    {
+      "path": "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s0.json",
+      "sha256": "2043256e154fdeea1a9471a6b6dbff5cacbaf958899b377289fb785665222d4d"
+    },
+    {
+      "path": "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s1.json",
+      "sha256": "ad90cdcc213f3c02c7ae633c653d63920fe7ff545189d338d555c69b949d494d"
+    },
+    {
+      "path": "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s2.json",
+      "sha256": "97e1269dbddf9fed52b29f8e7f9d7bd58ddffb2d09f6f572708f26af84e84279"
+    },
+    {
+      "path": "runs/final_ic_v1/E3_fisher_cos/hardic_s0.json",
+      "sha256": "24a7d40cb0266b59997b01f632f11388dfbc7f94cff754bd5f50c749b51d0f90"
+    },
+    {
+      "path": "runs/final_ic_v1/E3_fisher_cos/hardic_s1.json",
+      "sha256": "b698c52dfdcb5d22fe8fec1324244b10d50a7725c132c205b53e521be29a3998"
+    },
+    {
+      "path": "runs/final_ic_v1/E3_fisher_cos/hardic_s2.json",
+      "sha256": "689ecbc63e4506446633460f9d5f1d752591d12085df2f60bb26209f49ecbd09"
+    },
+    {
+      "path": "runs/final_ic_v1/E3_fisher_cos/vanilla_s0.json",
+      "sha256": "66ccddc021f2899a4ce71ab4708d5753b0dacb829d87e76e8e16472c0c051a59"
+    },
+    {
+      "path": "runs/final_ic_v1/E3_fisher_cos/vanilla_s1.json",
+      "sha256": "bae257be5f38ecc3ade25f4acb7070b85074311599fa4d917d21613171f5c956"
+    },
+    {
+      "path": "runs/final_ic_v1/E3_fisher_cos/vanilla_s2.json",
+      "sha256": "89d44af907f4fe5dbc8b3df0885e43fc07dad063568dbddd8eae121ce4b0fea6"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s0.json",
+      "sha256": "ebef540110c3af5dcd8dad13cc356a1cb3d9a6b6f09dc3d76c5e38d787e935ba"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s1.json",
+      "sha256": "48a4a19a8d869ec0092b9649c69c7a7add1ad1ef6a04e81676c6f88084a5a1c8"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s2.json",
+      "sha256": "c477f005b287a623369820591d09194067fa19c587351dff93096c0ad664cd43"
+    },
+    {
+      "path": "runs/confirm/E1_heat/hardic_layer_s0.json",
+      "sha256": "4a41b6cf0502d5ec2c415055de98a187a67b8afb43149e8411f743c35dda256d"
+    },
+    {
+      "path": "runs/confirm/E1_heat/hardic_layer_s1.json",
+      "sha256": "e8ef01531d02b373101701ab0ce9faecb5f821b53462d4cc2aa0fcb741eb2999"
+    },
+    {
+      "path": "runs/confirm/E1_heat/hardic_layer_s2.json",
+      "sha256": "3fa1f3d1b59937b1c629ac5ab37de029fd28b4713c7d46e44883c293c82fecbd"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s0.json",
+      "sha256": "3f9a1898ef84c8d60bd4309c44b9934d252d348badf93e88bc8c30e170110b5f"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s1.json",
+      "sha256": "f83b25dc08eed28649ed4bc15dadbff1bcc227343b0b0fe2adcbda5e9e69ad14"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s2.json",
+      "sha256": "acf203912f2de93d506e07e04c2a06e7cf49b3eb5e3523f5ef215fb6eca58157"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s0.json",
+      "sha256": "0d317478d362d5f972b85d354f1d58b827ba2ccba0975ff2b0cfb334b880bae9"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s1.json",
+      "sha256": "4d7cd6a83ff1603b408a8cf4d19943c2ecc3c11a6833f4fdba5e20dc68cb35d8"
+    },
+    {
+      "path": "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s2.json",
+      "sha256": "b97cb4edb94381f9ef1411d93d918240ca8ce66c5a4bddadacd73affd9e07540"
+    },
+    {
+      "path": "runs/confirm/E3_fisher/hardic_layer_s0.json",
+      "sha256": "efd3bc986a1b2c06c1a88189be915b1f1734c8844adfaae29c4e008135119c55"
+    },
+    {
+      "path": "runs/confirm/E3_fisher/hardic_layer_s1.json",
+      "sha256": "a7cacdb032dba46f273c52af3247c07c917ca8dc745e9ab16f67db2f38e0565d"
+    },
+    {
+      "path": "runs/confirm/E3_fisher/hardic_layer_s2.json",
+      "sha256": "315679180b38be622a34fb3fd7eec568dc059a96474fa7631bbf6bc289b153f7"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s0.json",
+      "sha256": "6621347001cd06bf3fd3434d48cd72f28875fd0d2c63146468dd3b547b4c2fb9"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s1.json",
+      "sha256": "cf5b44b24ff27e854022580ca38d0d657ac18d2697b337edd4cd9c7a5ab78de8"
+    },
+    {
+      "path": "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s2.json",
+      "sha256": "42d02f299efe2e75370e986f2a8594b0f597d5e1fe31120a8f40c56386130ae0"
+    },
+    {
+      "path": "runs/confirm/E1_heat/vanilla_s0.json",
+      "sha256": "f8161a1e4d2d20f3c2d25240cff7f0e436ac630b57d41ececd24538de445e809"
+    },
+    {
+      "path": "runs/confirm/E1_heat/vanilla_s1.json",
+      "sha256": "1eb3c310039b3c3d764e892565cc876ec4b4f7fbee95ebe8419e59c065384d0d"
+    },
+    {
+      "path": "runs/confirm/E1_heat/vanilla_s2.json",
+      "sha256": "cf0049988a56b5e6bb31fe5a7de95b8e7bc33e3b8a998e72fb7a80b4ecbc0a1a"
+    },
+    {
+      "path": "runs/confirm/E1_heat/hardic_s0.json",
+      "sha256": "8f61808b28c3e31701f7b1dd67ec6a312448e3efca706d417f5c2a0cde69630d"
+    },
+    {
+      "path": "runs/confirm/E1_heat/hardic_s1.json",
+      "sha256": "9f49f254203bc76c5df29c5935d7cc17925e4133933319777f5f948f209d3abf"
+    },
+    {
+      "path": "runs/confirm/E1_heat/hardic_s2.json",
+      "sha256": "078a6bee8c42f6ddfd21f0425aa604335632a06263f8d38ce52c4cf6075b4415"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/vanilla_s0.json",
+      "sha256": "82f16eabe78c0a0aedb2c705df9dc521e6ddd3c0565c8153b62d27085b4d6b71"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/vanilla_s1.json",
+      "sha256": "d66322be0938d344911894fbe90d1c19109a0167dd38dde0637ae3dec9a00dcc"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/vanilla_s2.json",
+      "sha256": "1fc7d160593625af552da4382ab975d6ac8ee2270841442d19b3c4aff99729d2"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/hardic_s0.json",
+      "sha256": "725214efbfa6fab4ee55c1ec9a161d1d81142cb594c8462e5c06f98196b69421"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/hardic_s1.json",
+      "sha256": "8cbe169e0f7ae95b84dd68b808f1ca360ffd5e9204e676d01545e661eab1e5a3"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/hardic_s2.json",
+      "sha256": "767850b79096e1ea3c152f308d533da9bc3f0d37cc0bc8bc8d8b913eeecb0189"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/hardic_layer_s0.json",
+      "sha256": "92a371db9fcdd4257963d095dd3da5bd9ad3fcaebcab362535c434b1f49bbd49"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/hardic_layer_s1.json",
+      "sha256": "4e730e8b2d73baa2ee3f098335c9e34107a7e74b707723eee950b666990926a1"
+    },
+    {
+      "path": "runs/final_soap64_v1/E1_heat/hardic_layer_s2.json",
+      "sha256": "882b30c8aee85a99ebaa69bb687c3ab3038125cf338a9581efeafe04cf804675"
+    },
+    {
+      "path": "runs/confirm/E3_fisher/vanilla_s0.json",
+      "sha256": "2b837f9a6451889c00f746e1bb82ce7346f2ceb2a4503e9deea39d77ebc81b1e"
+    },
+    {
+      "path": "runs/confirm/E3_fisher/vanilla_s1.json",
+      "sha256": "613f5f0b4a550839da62854e7742cdacf4a3e178b0b28b6750528e55150b237f"
+    },
+    {
+      "path": "runs/confirm/E3_fisher/vanilla_s2.json",
+      "sha256": "7d0d2cbe79e94792a2a4248d30af46082c6e9f83db04ec366c5fb839b1f6b4c1"
+    },
+    {
+      "path": "runs/confirm/E3_fisher/hardic_s0.json",
+      "sha256": "c7d9deefa1787c9bd9b4c9a8e6b8c6ca0087fc30408171ad5f7ae3f9bb507b49"
+    },
+    {
+      "path": "runs/confirm/E3_fisher/hardic_s1.json",
+      "sha256": "a8895e36fcebebc72b6a8d8096b317a831583c2a1f34619506f7b5375ea7dca8"
+    },
+    {
+      "path": "runs/confirm/E3_fisher/hardic_s2.json",
+      "sha256": "6023aecaf8c6bbd600a5b1bf511f195f3b0a95bfd13e47e6df216b8a592565d3"
+    },
+    {
+      "path": "runs/final_soap64_v1/E3_fisher/vanilla_s0.json",
+      "sha256": "24f9b71f6669453a58b42eb550daf436da9740d53a6c58851ace680e45d89ed9"
+    },
+    {
+      "path": "runs/final_soap64_v1/E3_fisher/vanilla_s1.json",
+      "sha256": "1c2d58513c0061de25e1092a6d94583d91800059c8cf06b0a16f71dbabf53b8f"
+    },
+    {
+      "path": "runs/final_soap64_v1/E3_fisher/vanilla_s2.json",
+      "sha256": "6e32ac6d0aee2ff284bee5e38e3e3490c3e63cecdaeb02a8678554905173d8f5"
+    },
+    {
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_s0.json",
+      "sha256": "d69cedc42e821520d8e900f64769812354e2d2ad668ef50ec0607ab7d1a65851"
+    },
+    {
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_s1.json",
+      "sha256": "e3b9e51ca304e6bc01addf79287f69dd10dbfb88751b2fa5dfdb06069c9bb291"
+    },
+    {
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_s2.json",
+      "sha256": "ce002143971d04f3805e2e3a88e9cc89e17a025c34ac2ef577dd12e335a791f3"
+    },
+    {
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_layer_s0.json",
+      "sha256": "f903c8a1bab9f697304bbc2d4f0436b047a4b0ab3e0babf1213063c4851bb6e4"
+    },
+    {
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_layer_s1.json",
+      "sha256": "edc20e50a83823b640067fb9543471b1ef9eb1a695bc715af7a60631c7421315"
+    },
+    {
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_layer_s2.json",
+      "sha256": "d19fa0a8602da7c2e127f2bc46f60ee276177dfe13f0c94813461d5dd1950d0f"
+    }
+  ],
+  "han_count_method": "Body sections 1-6; count U+4E00-U+9FFF; exclude table rows, image links and caption lines starting figure/table number. Top-level numbered section headings are excluded; subsection headings and non-caption prose are included. Section quota baselines were not independently supplied.",
+  "han_counts": [
+    {
+      "section": 1,
+      "han_count": 1688
+    },
+    {
+      "section": 2,
+      "han_count": 2170
+    },
+    {
+      "section": 3,
+      "han_count": 2204
+    },
+    {
+      "section": 4,
+      "han_count": 1606
+    },
+    {
+      "section": 5,
+      "han_count": 1784
+    },
+    {
+      "section": 6,
+      "han_count": 761
+    }
+  ],
+  "han_total": 10213,
+  "primary_math_reference": "https://dlmf.nist.gov/7.14.E4",
+  "math_check": "Substitute a=1/C^2, b=s, c=y^2/4 and multiply by exp(y/C); obtains exp(-y*sqrt(s))/(sqrt(s)*(sqrt(s)+1/C)) for Re(s)>0 and C>0."
+}

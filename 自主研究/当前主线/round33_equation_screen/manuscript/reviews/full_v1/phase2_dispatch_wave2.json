@@ -1,0 +1,40 @@
+{
+  "recorded_at": "2026-10-23T07:42:49.987279+08:00",
+  "roles_dispatched": [
+    "eic",
+    "perspective"
+  ],
+  "all_five_independent_phase2_dispatched": true,
+  "first_wave_reports_completed": [
+    "method",
+    "domain",
+    "da"
+  ],
+  "input_hashes": {
+    "eic": "9de9db03146ced6d103136e585694a753ae5b5a2d2b64ad822ff09051b23981a",
+    "perspective": "c128d002efb7ce3b8b6fcb7a603d949c4c5ba9e352ac0b2693b1d20e343d197c"
+  },
+  "completed_report_hashes": {
+    "method": "7456fa16569c64b41705607889f7a2aed2bde05a6c022f1f668428486fc1c000",
+    "domain": "93dd5ed660068b6ab54d7c1e2a2043d2617052a04cc88fdd2a37829f79faa5ec",
+    "da": "7f2c13c9df54cc117b6afa5f3307f3e30bee1dc621bf78d5729b15fe120fa5a7"
+  },
+  "local_contract_gap_observed": {
+    "roles": [
+      "method",
+      "domain"
+    ],
+    "scores": [
+      "warn",
+      "pass",
+      "pass",
+      "pass",
+      "warn"
+    ],
+    "all_local_conditions_false": true,
+    "action_undefined": true
+  },
+  "contract_and_scores_unchanged": true,
+  "panel_editorial_decision": null,
+  "next": "保留原报告与模板覆盖缺口，待全部报告后按原规则检查；作者先另存必要文字修订，不称五审通过。"
+}
