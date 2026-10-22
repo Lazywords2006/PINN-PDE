@@ -6,7 +6,7 @@
   "prereg_commit": "2b67dcb",
   "code_commit": "ea12d0e1ec70de13425b9ad9c413d99fe7b317d0",
   "phase": "pirate",
-  "updated_utc": "2026-10-22T05:56:33.153618+00:00",
+  "updated_utc": "2026-10-22T05:58:33.355720+00:00",
   "runner_pid": 63812,
   "progress": [
     {
@@ -17,13 +17,14 @@
         0
       ],
       "state": "adam",
-      "adam_step": 16500,
+      "adam_step": 17000,
       "lbfgs_budget_used": 0,
       "resumed_at": [
         "adam:1000",
-        "adam:14000"
+        "adam:14000",
+        "adam:16500"
       ],
-      "checkpoint_modified": 1792597968.022904
+      "checkpoint_modified": 1792648619.225855
     },
     {
       "job": [
@@ -33,13 +34,14 @@
         0
       ],
       "state": "adam",
-      "adam_step": 16000,
+      "adam_step": 16500,
       "lbfgs_budget_used": 0,
       "resumed_at": [
         "adam:1000",
-        "adam:13500"
+        "adam:13500",
+        "adam:16000"
       ],
-      "checkpoint_modified": 1792597955.9674158
+      "checkpoint_modified": 1792648618.745403
     },
     {
       "job": [
@@ -49,13 +51,14 @@
         1
       ],
       "state": "adam",
-      "adam_step": 16500,
+      "adam_step": 17000,
       "lbfgs_budget_used": 0,
       "resumed_at": [
         "adam:1000",
-        "adam:14000"
+        "adam:14000",
+        "adam:16500"
       ],
-      "checkpoint_modified": 1792597971.8363087
+      "checkpoint_modified": 1792648620.6053734
     },
     {
       "job": [
@@ -65,13 +68,14 @@
         1
       ],
       "state": "adam",
-      "adam_step": 16000,
+      "adam_step": 16500,
       "lbfgs_budget_used": 0,
       "resumed_at": [
         "adam:1000",
-        "adam:13500"
+        "adam:13500",
+        "adam:16000"
       ],
-      "checkpoint_modified": 1792597964.090111
+      "checkpoint_modified": 1792648618.9760668
     },
     {
       "job": [
