@@ -1,0 +1,1435 @@
+{
+  "generated_utc": "2026-10-22T19:00:54.417153+00:00",
+  "review_scope": "historical comparison figure v1 only; not final manuscript audit",
+  "status": "DATA_PASS_VISUAL_MINOR_REVISION",
+  "reviewer_actions": {
+    "training_runs_started": 0,
+    "torch_imported": false,
+    "weights_loaded": false,
+    "dependencies_installed": false,
+    "original_data_or_drafts_modified": false
+  },
+  "manifest": {
+    "path": "validation/stage5_analysis_20261022/analysis_evidence.json",
+    "sha256": "9953f34410cfba34efa1927311a819b0cb82460d6ec30d3c92f9a538c29fea28",
+    "entries": 398,
+    "selected_raw_json_matched": 36,
+    "associated_weight_files_byte_hash_matched": 54,
+    "all_398_rehashed_this_followup": false
+  },
+  "raw_checks": {
+    "expected_unique_rows": 36,
+    "actual_unique_rows": 36,
+    "time_points_per_row": 5,
+    "finite_positive_and_within_axis": true,
+    "CSV_matches_raw_exactly": true,
+    "evidence_groups_and_pairs_match_raw_exactly": true
+  },
+  "independent_rows": [
+    {
+      "panel": "a",
+      "tag": "confirm",
+      "equation": "E1_heat",
+      "method": "vanilla",
+      "seed": 0,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.0058252584857016385,
+        0.007645796970789314,
+        0.017468878755247903,
+        0.04223481157830184,
+        0.053672126675583534
+      ],
+      "independent_max_vol": 0.053672126675583534,
+      "source": "runs/confirm/E1_heat/vanilla_s0.json",
+      "sha256": "f8161a1e4d2d20f3c2d25240cff7f0e436ac630b57d41ececd24538de445e809"
+    },
+    {
+      "panel": "a",
+      "tag": "confirm",
+      "equation": "E1_heat",
+      "method": "vanilla",
+      "seed": 1,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.003566647998543778,
+        0.004664008728949161,
+        0.010555474427389383,
+        0.024806746063859686,
+        0.03257310934187709
+      ],
+      "independent_max_vol": 0.03257310934187709,
+      "source": "runs/confirm/E1_heat/vanilla_s1.json",
+      "sha256": "1eb3c310039b3c3d764e892565cc876ec4b4f7fbee95ebe8419e59c065384d0d"
+    },
+    {
+      "panel": "a",
+      "tag": "confirm",
+      "equation": "E1_heat",
+      "method": "vanilla",
+      "seed": 2,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.00673774260128947,
+        0.00882933097053744,
+        0.01989465829321286,
+        0.048296814150060215,
+        0.061016865700618775
+      ],
+      "independent_max_vol": 0.061016865700618775,
+      "source": "runs/confirm/E1_heat/vanilla_s2.json",
+      "sha256": "cf0049988a56b5e6bb31fe5a7de95b8e7bc33e3b8a998e72fb7a80b4ecbc0a1a"
+    },
+    {
+      "panel": "a",
+      "tag": "confirm",
+      "equation": "E1_heat",
+      "method": "hardic",
+      "seed": 0,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.0018718821775975244,
+        0.0023916390634714014,
+        0.005169715656148803,
+        0.013361173382401467,
+        0.016317588351105947
+      ],
+      "independent_max_vol": 0.016317588351105947,
+      "source": "runs/confirm/E1_heat/hardic_s0.json",
+      "sha256": "8f61808b28c3e31701f7b1dd67ec6a312448e3efca706d417f5c2a0cde69630d"
+    },
+    {
+      "panel": "a",
+      "tag": "confirm",
+      "equation": "E1_heat",
+      "method": "hardic",
+      "seed": 1,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.007173325238432118,
+        0.009460746438467952,
+        0.021638615786484912,
+        0.052153589273316044,
+        0.06650003591964747
+      ],
+      "independent_max_vol": 0.06650003591964747,
+      "source": "runs/confirm/E1_heat/hardic_s1.json",
+      "sha256": "9f49f254203bc76c5df29c5935d7cc17925e4133933319777f5f948f209d3abf"
+    },
+    {
+      "panel": "a",
+      "tag": "confirm",
+      "equation": "E1_heat",
+      "method": "hardic",
+      "seed": 2,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.004622960871243012,
+        0.0059018556474001015,
+        0.01323767614027497,
+        0.03263933634110797,
+        0.04111442933961105
+      ],
+      "independent_max_vol": 0.04111442933961105,
+      "source": "runs/confirm/E1_heat/hardic_s2.json",
+      "sha256": "078a6bee8c42f6ddfd21f0425aa604335632a06263f8d38ce52c4cf6075b4415"
+    },
+    {
+      "panel": "a",
+      "tag": "confirm",
+      "equation": "E1_heat",
+      "method": "hardic+layer",
+      "seed": 0,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.000190572743732971,
+        0.00010515545554699454,
+        0.0005319041020166028,
+        0.00020271627636185717,
+        0.0011803808202624146
+      ],
+      "independent_max_vol": 0.0011803808202624146,
+      "source": "runs/confirm/E1_heat/hardic_layer_s0.json",
+      "sha256": "4a41b6cf0502d5ec2c415055de98a187a67b8afb43149e8411f743c35dda256d"
+    },
+    {
+      "panel": "a",
+      "tag": "confirm",
+      "equation": "E1_heat",
+      "method": "hardic+layer",
+      "seed": 1,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.00038278736531574276,
+        0.0004986526240496415,
+        0.0009274823836068022,
+        0.002527582324452039,
+        0.003156639825410876
+      ],
+      "independent_max_vol": 0.003156639825410876,
+      "source": "runs/confirm/E1_heat/hardic_layer_s1.json",
+      "sha256": "e8ef01531d02b373101701ab0ce9faecb5f821b53462d4cc2aa0fcb741eb2999"
+    },
+    {
+      "panel": "a",
+      "tag": "confirm",
+      "equation": "E1_heat",
+      "method": "hardic+layer",
+      "seed": 2,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.0002810029997741889,
+        0.00015452429639224244,
+        0.00010912293950181035,
+        0.00013815056200667817,
+        0.0003079832506459695
+      ],
+      "independent_max_vol": 0.0003079832506459695,
+      "source": "runs/confirm/E1_heat/hardic_layer_s2.json",
+      "sha256": "3fa1f3d1b59937b1c629ac5ab37de029fd28b4713c7d46e44883c293c82fecbd"
+    },
+    {
+      "panel": "b",
+      "tag": "confirm",
+      "equation": "E3_fisher",
+      "method": "vanilla",
+      "seed": 0,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.031945493409060166,
+        0.026821502484822072,
+        0.014276647310873082,
+        0.00688436484357775,
+        0.003039202354294862
+      ],
+      "independent_max_vol": 0.031945493409060166,
+      "source": "runs/confirm/E3_fisher/vanilla_s0.json",
+      "sha256": "2b837f9a6451889c00f746e1bb82ce7346f2ceb2a4503e9deea39d77ebc81b1e"
+    },
+    {
+      "panel": "b",
+      "tag": "confirm",
+      "equation": "E3_fisher",
+      "method": "vanilla",
+      "seed": 1,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.02449533505673029,
+        0.02046046303556264,
+        0.01082302317087408,
+        0.005297754941035106,
+        0.0023055435876778285
+      ],
+      "independent_max_vol": 0.02449533505673029,
+      "source": "runs/confirm/E3_fisher/vanilla_s1.json",
+      "sha256": "613f5f0b4a550839da62854e7742cdacf4a3e178b0b28b6750528e55150b237f"
+    },
+    {
+      "panel": "b",
+      "tag": "confirm",
+      "equation": "E3_fisher",
+      "method": "vanilla",
+      "seed": 2,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.04260987022687411,
+        0.03610869523185854,
+        0.01912100757228448,
+        0.009240238401045165,
+        0.00409051309485583
+      ],
+      "independent_max_vol": 0.04260987022687411,
+      "source": "runs/confirm/E3_fisher/vanilla_s2.json",
+      "sha256": "7d0d2cbe79e94792a2a4248d30af46082c6e9f83db04ec366c5fb839b1f6b4c1"
+    },
+    {
+      "panel": "b",
+      "tag": "confirm",
+      "equation": "E3_fisher",
+      "method": "hardic",
+      "seed": 0,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.00043797675471647976,
+        0.00031574479341888985,
+        0.0002642594015588611,
+        8.640520952791169e-05,
+        6.667116099060488e-05
+      ],
+      "independent_max_vol": 0.00043797675471647976,
+      "source": "runs/confirm/E3_fisher/hardic_s0.json",
+      "sha256": "c7d9deefa1787c9bd9b4c9a8e6b8c6ca0087fc30408171ad5f7ae3f9bb507b49"
+    },
+    {
+      "panel": "b",
+      "tag": "confirm",
+      "equation": "E3_fisher",
+      "method": "hardic",
+      "seed": 1,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.0023164347216610604,
+        0.0021765302647087444,
+        0.0011204826833264524,
+        0.00056395441818493,
+        0.00026551380619061496
+      ],
+      "independent_max_vol": 0.0023164347216610604,
+      "source": "runs/confirm/E3_fisher/hardic_s1.json",
+      "sha256": "a8895e36fcebebc72b6a8d8096b317a831583c2a1f34619506f7b5375ea7dca8"
+    },
+    {
+      "panel": "b",
+      "tag": "confirm",
+      "equation": "E3_fisher",
+      "method": "hardic",
+      "seed": 2,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.009331111650324013,
+        0.007773972982732361,
+        0.004136380613223491,
+        0.0020078769237576316,
+        0.0008760996233025776
+      ],
+      "independent_max_vol": 0.009331111650324013,
+      "source": "runs/confirm/E3_fisher/hardic_s2.json",
+      "sha256": "6023aecaf8c6bbd600a5b1bf511f195f3b0a95bfd13e47e6df216b8a592565d3"
+    },
+    {
+      "panel": "b",
+      "tag": "confirm",
+      "equation": "E3_fisher",
+      "method": "hardic+layer",
+      "seed": 0,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.00032334901581232254,
+        0.00025552023440171903,
+        0.00013439656036349902,
+        0.0001294969036783299,
+        3.609085988445764e-05
+      ],
+      "independent_max_vol": 0.00032334901581232254,
+      "source": "runs/confirm/E3_fisher/hardic_layer_s0.json",
+      "sha256": "efd3bc986a1b2c06c1a88189be915b1f1734c8844adfaae29c4e008135119c55"
+    },
+    {
+      "panel": "b",
+      "tag": "confirm",
+      "equation": "E3_fisher",
+      "method": "hardic+layer",
+      "seed": 1,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.000802737444500833,
+        0.0005415734177509827,
+        0.0003393621401882649,
+        0.00017913309344961824,
+        6.828689727321617e-05
+      ],
+      "independent_max_vol": 0.000802737444500833,
+      "source": "runs/confirm/E3_fisher/hardic_layer_s1.json",
+      "sha256": "a7cacdb032dba46f273c52af3247c07c917ca8dc745e9ab16f67db2f38e0565d"
+    },
+    {
+      "panel": "b",
+      "tag": "confirm",
+      "equation": "E3_fisher",
+      "method": "hardic+layer",
+      "seed": 2,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.00024128306789211282,
+        0.00039149789700532856,
+        0.00012950663621871038,
+        5.965974183785837e-05,
+        4.9383387140874105e-05
+      ],
+      "independent_max_vol": 0.00039149789700532856,
+      "source": "runs/confirm/E3_fisher/hardic_layer_s2.json",
+      "sha256": "315679180b38be622a34fb3fd7eec568dc059a96474fa7631bbf6bc289b153f7"
+    },
+    {
+      "panel": "c",
+      "tag": "final_ic_v1",
+      "equation": "E1_heat_cos",
+      "method": "vanilla",
+      "seed": 0,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.0060945543004799155,
+        0.00814413680305091,
+        0.014476300954192,
+        0.015219040329412261,
+        0.015171087231977704
+      ],
+      "independent_max_vol": 0.015219040329412261,
+      "source": "runs/final_ic_v1/E1_heat_cos/vanilla_s0.json",
+      "sha256": "327d84135844aedc7d5558670ceb44165528c8e19dd15f361f6740d45c3c4407"
+    },
+    {
+      "panel": "c",
+      "tag": "final_ic_v1",
+      "equation": "E1_heat_cos",
+      "method": "vanilla",
+      "seed": 1,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.005145030400808218,
+        0.0070752226140822485,
+        0.01228479446163041,
+        0.013819767119480202,
+        0.013039363365741827
+      ],
+      "independent_max_vol": 0.013819767119480202,
+      "source": "runs/final_ic_v1/E1_heat_cos/vanilla_s1.json",
+      "sha256": "7988199c05b1bd2f39c253b67d2e18afd1d48ebe5f1a588ef1cf8f00fef580e4"
+    },
+    {
+      "panel": "c",
+      "tag": "final_ic_v1",
+      "equation": "E1_heat_cos",
+      "method": "vanilla",
+      "seed": 2,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.006925597678617164,
+        0.00947512890032626,
+        0.016565118337106093,
+        0.017727536539821155,
+        0.01737273716834992
+      ],
+      "independent_max_vol": 0.017727536539821155,
+      "source": "runs/final_ic_v1/E1_heat_cos/vanilla_s2.json",
+      "sha256": "44d4a8c69a8ce74999b4bc53118fee4ad443d8419e99ca7d7019ef67c899852b"
+    },
+    {
+      "panel": "c",
+      "tag": "final_ic_v1",
+      "equation": "E1_heat_cos",
+      "method": "hardic",
+      "seed": 0,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.001461926598965233,
+        0.0019192431208101086,
+        0.003191464249593524,
+        0.0030493312221822055,
+        0.0032703634026256664
+      ],
+      "independent_max_vol": 0.0032703634026256664,
+      "source": "runs/final_ic_v1/E1_heat_cos/hardic_s0.json",
+      "sha256": "a81d426a4c027ee8e1bebda39672b48233ad2f8b2c0f3de9f5f7353137d11825"
+    },
+    {
+      "panel": "c",
+      "tag": "final_ic_v1",
+      "equation": "E1_heat_cos",
+      "method": "hardic",
+      "seed": 1,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.0015995551702648212,
+        0.002039452513216148,
+        0.0034225636636284707,
+        0.0035871355250205817,
+        0.003580165653380625
+      ],
+      "independent_max_vol": 0.0035871355250205817,
+      "source": "runs/final_ic_v1/E1_heat_cos/hardic_s1.json",
+      "sha256": "5d389a168c305990759bd3abef48411c981b9db10f78a378629fdd7e562756c2"
+    },
+    {
+      "panel": "c",
+      "tag": "final_ic_v1",
+      "equation": "E1_heat_cos",
+      "method": "hardic",
+      "seed": 2,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.0011738606354032856,
+        0.0015514393574272262,
+        0.002173077779745441,
+        0.0030062701250899698,
+        0.0027606887111439643
+      ],
+      "independent_max_vol": 0.0030062701250899698,
+      "source": "runs/final_ic_v1/E1_heat_cos/hardic_s2.json",
+      "sha256": "5f449053f2c7dfdd651a7bdd209028ea058d340cbdb308717d1b8a548dd623c5"
+    },
+    {
+      "panel": "c",
+      "tag": "final_ic_v1",
+      "equation": "E1_heat_cos",
+      "method": "hardic+layer",
+      "seed": 0,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.0004888385834861511,
+        0.00031757343286802764,
+        0.001214851525768734,
+        0.00030354328629355264,
+        0.0007325146220119116
+      ],
+      "independent_max_vol": 0.001214851525768734,
+      "source": "runs/final_ic_v1/E1_heat_cos/hardic_layer_s0.json",
+      "sha256": "4e2a85fa7aabf1364a8a3f5d89bacef31c071b5f54ff85bc5f159e83afcb15bc"
+    },
+    {
+      "panel": "c",
+      "tag": "final_ic_v1",
+      "equation": "E1_heat_cos",
+      "method": "hardic+layer",
+      "seed": 1,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.0002322014000176658,
+        0.0002558848247645546,
+        0.0008991345385171899,
+        0.00031008035799430034,
+        0.0006193720009152204
+      ],
+      "independent_max_vol": 0.0008991345385171899,
+      "source": "runs/final_ic_v1/E1_heat_cos/hardic_layer_s1.json",
+      "sha256": "99085dc4a15ba9fb170800466234adaabfd1aadb1e471ce088229b7ee55fe4ee"
+    },
+    {
+      "panel": "c",
+      "tag": "final_ic_v1",
+      "equation": "E1_heat_cos",
+      "method": "hardic+layer",
+      "seed": 2,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.0008431746884968262,
+        0.0005710651902910665,
+        0.0012376829143527742,
+        0.000187962224114558,
+        0.0003707739321257395
+      ],
+      "independent_max_vol": 0.0012376829143527742,
+      "source": "runs/final_ic_v1/E1_heat_cos/hardic_layer_s2.json",
+      "sha256": "c80335fcd7ab5ca214c87a85d212650fa735dfc6f1d0c806cbabe16837409ddd"
+    },
+    {
+      "panel": "d",
+      "tag": "final_ic_v1",
+      "equation": "E3_fisher_cos",
+      "method": "vanilla",
+      "seed": 0,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.037809361820952785,
+        0.03113799646424877,
+        0.015211868814737784,
+        0.006927165438793363,
+        0.0030771243630092347
+      ],
+      "independent_max_vol": 0.037809361820952785,
+      "source": "runs/final_ic_v1/E3_fisher_cos/vanilla_s0.json",
+      "sha256": "66ccddc021f2899a4ce71ab4708d5753b0dacb829d87e76e8e16472c0c051a59"
+    },
+    {
+      "panel": "d",
+      "tag": "final_ic_v1",
+      "equation": "E3_fisher_cos",
+      "method": "vanilla",
+      "seed": 1,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.025163085444255693,
+        0.020752632368014206,
+        0.010330953586655808,
+        0.0048226193550279465,
+        0.0021216604390782807
+      ],
+      "independent_max_vol": 0.025163085444255693,
+      "source": "runs/final_ic_v1/E3_fisher_cos/vanilla_s1.json",
+      "sha256": "bae257be5f38ecc3ade25f4acb7070b85074311599fa4d917d21613171f5c956"
+    },
+    {
+      "panel": "d",
+      "tag": "final_ic_v1",
+      "equation": "E3_fisher_cos",
+      "method": "vanilla",
+      "seed": 2,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.0551570477475704,
+        0.045338691316507675,
+        0.02267884823367658,
+        0.010760310419569341,
+        0.004773747571684117
+      ],
+      "independent_max_vol": 0.0551570477475704,
+      "source": "runs/final_ic_v1/E3_fisher_cos/vanilla_s2.json",
+      "sha256": "89d44af907f4fe5dbc8b3df0885e43fc07dad063568dbddd8eae121ce4b0fea6"
+    },
+    {
+      "panel": "d",
+      "tag": "final_ic_v1",
+      "equation": "E3_fisher_cos",
+      "method": "hardic",
+      "seed": 0,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.0005218495552936101,
+        0.00025842987837071255,
+        0.00024433304996786124,
+        0.0001727547938746455,
+        4.9936310959209063e-05
+      ],
+      "independent_max_vol": 0.0005218495552936101,
+      "source": "runs/final_ic_v1/E3_fisher_cos/hardic_s0.json",
+      "sha256": "24a7d40cb0266b59997b01f632f11388dfbc7f94cff754bd5f50c749b51d0f90"
+    },
+    {
+      "panel": "d",
+      "tag": "final_ic_v1",
+      "equation": "E3_fisher_cos",
+      "method": "hardic",
+      "seed": 1,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.00396935175978239,
+        0.0032698480615846186,
+        0.0015684392790515876,
+        0.000818870277266059,
+        0.00038047387390838255
+      ],
+      "independent_max_vol": 0.00396935175978239,
+      "source": "runs/final_ic_v1/E3_fisher_cos/hardic_s1.json",
+      "sha256": "b698c52dfdcb5d22fe8fec1324244b10d50a7725c132c205b53e521be29a3998"
+    },
+    {
+      "panel": "d",
+      "tag": "final_ic_v1",
+      "equation": "E3_fisher_cos",
+      "method": "hardic",
+      "seed": 2,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.008067307554561207,
+        0.0065496976555243355,
+        0.003271639457820631,
+        0.0015760919897009453,
+        0.0007192510776142352
+      ],
+      "independent_max_vol": 0.008067307554561207,
+      "source": "runs/final_ic_v1/E3_fisher_cos/hardic_s2.json",
+      "sha256": "689ecbc63e4506446633460f9d5f1d752591d12085df2f60bb26209f49ecbd09"
+    },
+    {
+      "panel": "d",
+      "tag": "final_ic_v1",
+      "equation": "E3_fisher_cos",
+      "method": "hardic+layer",
+      "seed": 0,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.0005404785796465332,
+        0.00023282804514632616,
+        0.00019235618153033924,
+        0.0001647643098618624,
+        1.767336293740868e-05
+      ],
+      "independent_max_vol": 0.0005404785796465332,
+      "source": "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s0.json",
+      "sha256": "2043256e154fdeea1a9471a6b6dbff5cacbaf958899b377289fb785665222d4d"
+    },
+    {
+      "panel": "d",
+      "tag": "final_ic_v1",
+      "equation": "E3_fisher_cos",
+      "method": "hardic+layer",
+      "seed": 1,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.0009360197745380396,
+        0.000560279624533281,
+        0.0004144081844889821,
+        0.00020082370641135802,
+        5.427271899067019e-05
+      ],
+      "independent_max_vol": 0.0009360197745380396,
+      "source": "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s1.json",
+      "sha256": "ad90cdcc213f3c02c7ae633c653d63920fe7ff545189d338d555c69b949d494d"
+    },
+    {
+      "panel": "d",
+      "tag": "final_ic_v1",
+      "equation": "E3_fisher_cos",
+      "method": "hardic+layer",
+      "seed": 2,
+      "times": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "vol": [
+        0.0003140217645696375,
+        0.0003641895625726548,
+        0.0001705462748745651,
+        0.00011626335763480662,
+        4.93936736768206e-05
+      ],
+      "independent_max_vol": 0.0003641895625726548,
+      "source": "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s2.json",
+      "sha256": "97e1269dbddf9fed52b29f8e7f9d7bd58ddffb2d09f6f572708f26af84e84279"
+    }
+  ],
+  "independent_groups": [
+    {
+      "panel": "a",
+      "tag": "confirm",
+      "equation": "E1_heat",
+      "method": "vanilla",
+      "seeds": [
+        0.053672126675583534,
+        0.03257310934187709,
+        0.061016865700618775
+      ],
+      "median": 0.053672126675583534,
+      "min": 0.03257310934187709,
+      "max": 0.061016865700618775
+    },
+    {
+      "panel": "a",
+      "tag": "confirm",
+      "equation": "E1_heat",
+      "method": "hardic",
+      "seeds": [
+        0.016317588351105947,
+        0.06650003591964747,
+        0.04111442933961105
+      ],
+      "median": 0.04111442933961105,
+      "min": 0.016317588351105947,
+      "max": 0.06650003591964747
+    },
+    {
+      "panel": "a",
+      "tag": "confirm",
+      "equation": "E1_heat",
+      "method": "hardic+layer",
+      "seeds": [
+        0.0011803808202624146,
+        0.003156639825410876,
+        0.0003079832506459695
+      ],
+      "median": 0.0011803808202624146,
+      "min": 0.0003079832506459695,
+      "max": 0.003156639825410876
+    },
+    {
+      "panel": "b",
+      "tag": "confirm",
+      "equation": "E3_fisher",
+      "method": "vanilla",
+      "seeds": [
+        0.031945493409060166,
+        0.02449533505673029,
+        0.04260987022687411
+      ],
+      "median": 0.031945493409060166,
+      "min": 0.02449533505673029,
+      "max": 0.04260987022687411
+    },
+    {
+      "panel": "b",
+      "tag": "confirm",
+      "equation": "E3_fisher",
+      "method": "hardic",
+      "seeds": [
+        0.00043797675471647976,
+        0.0023164347216610604,
+        0.009331111650324013
+      ],
+      "median": 0.0023164347216610604,
+      "min": 0.00043797675471647976,
+      "max": 0.009331111650324013
+    },
+    {
+      "panel": "b",
+      "tag": "confirm",
+      "equation": "E3_fisher",
+      "method": "hardic+layer",
+      "seeds": [
+        0.00032334901581232254,
+        0.000802737444500833,
+        0.00039149789700532856
+      ],
+      "median": 0.00039149789700532856,
+      "min": 0.00032334901581232254,
+      "max": 0.000802737444500833
+    },
+    {
+      "panel": "c",
+      "tag": "final_ic_v1",
+      "equation": "E1_heat_cos",
+      "method": "vanilla",
+      "seeds": [
+        0.015219040329412261,
+        0.013819767119480202,
+        0.017727536539821155
+      ],
+      "median": 0.015219040329412261,
+      "min": 0.013819767119480202,
+      "max": 0.017727536539821155
+    },
+    {
+      "panel": "c",
+      "tag": "final_ic_v1",
+      "equation": "E1_heat_cos",
+      "method": "hardic",
+      "seeds": [
+        0.0032703634026256664,
+        0.0035871355250205817,
+        0.0030062701250899698
+      ],
+      "median": 0.0032703634026256664,
+      "min": 0.0030062701250899698,
+      "max": 0.0035871355250205817
+    },
+    {
+      "panel": "c",
+      "tag": "final_ic_v1",
+      "equation": "E1_heat_cos",
+      "method": "hardic+layer",
+      "seeds": [
+        0.001214851525768734,
+        0.0008991345385171899,
+        0.0012376829143527742
+      ],
+      "median": 0.001214851525768734,
+      "min": 0.0008991345385171899,
+      "max": 0.0012376829143527742
+    },
+    {
+      "panel": "d",
+      "tag": "final_ic_v1",
+      "equation": "E3_fisher_cos",
+      "method": "vanilla",
+      "seeds": [
+        0.037809361820952785,
+        0.025163085444255693,
+        0.0551570477475704
+      ],
+      "median": 0.037809361820952785,
+      "min": 0.025163085444255693,
+      "max": 0.0551570477475704
+    },
+    {
+      "panel": "d",
+      "tag": "final_ic_v1",
+      "equation": "E3_fisher_cos",
+      "method": "hardic",
+      "seeds": [
+        0.0005218495552936101,
+        0.00396935175978239,
+        0.008067307554561207
+      ],
+      "median": 0.00396935175978239,
+      "min": 0.0005218495552936101,
+      "max": 0.008067307554561207
+    },
+    {
+      "panel": "d",
+      "tag": "final_ic_v1",
+      "equation": "E3_fisher_cos",
+      "method": "hardic+layer",
+      "seeds": [
+        0.0005404785796465332,
+        0.0009360197745380396,
+        0.0003641895625726548
+      ],
+      "median": 0.0005404785796465332,
+      "min": 0.0003641895625726548,
+      "max": 0.0009360197745380396
+    }
+  ],
+  "independent_pairs": [
+    {
+      "panel": "a",
+      "tag": "confirm",
+      "equation": "E1_heat",
+      "seed": 0,
+      "hardic": 0.016317588351105947,
+      "layer": 0.0011803808202624146,
+      "hardic_over_layer": 13.824003297070115,
+      "layer_lower_than_hardic": true
+    },
+    {
+      "panel": "a",
+      "tag": "confirm",
+      "equation": "E1_heat",
+      "seed": 1,
+      "hardic": 0.06650003591964747,
+      "layer": 0.003156639825410876,
+      "hardic_over_layer": 21.066716381236702,
+      "layer_lower_than_hardic": true
+    },
+    {
+      "panel": "a",
+      "tag": "confirm",
+      "equation": "E1_heat",
+      "seed": 2,
+      "hardic": 0.04111442933961105,
+      "layer": 0.0003079832506459695,
+      "hardic_over_layer": 133.49566657724705,
+      "layer_lower_than_hardic": true
+    },
+    {
+      "panel": "b",
+      "tag": "confirm",
+      "equation": "E3_fisher",
+      "seed": 0,
+      "hardic": 0.00043797675471647976,
+      "layer": 0.00032334901581232254,
+      "hardic_over_layer": 1.3545015858984064,
+      "layer_lower_than_hardic": true
+    },
+    {
+      "panel": "b",
+      "tag": "confirm",
+      "equation": "E3_fisher",
+      "seed": 1,
+      "hardic": 0.0023164347216610604,
+      "layer": 0.000802737444500833,
+      "hardic_over_layer": 2.8856692029627333,
+      "layer_lower_than_hardic": true
+    },
+    {
+      "panel": "b",
+      "tag": "confirm",
+      "equation": "E3_fisher",
+      "seed": 2,
+      "hardic": 0.009331111650324013,
+      "layer": 0.00039149789700532856,
+      "hardic_over_layer": 23.834385118541288,
+      "layer_lower_than_hardic": true
+    },
+    {
+      "panel": "c",
+      "tag": "final_ic_v1",
+      "equation": "E1_heat_cos",
+      "seed": 0,
+      "hardic": 0.0032703634026256664,
+      "layer": 0.001214851525768734,
+      "hardic_over_layer": 2.69198608493021,
+      "layer_lower_than_hardic": true
+    },
+    {
+      "panel": "c",
+      "tag": "final_ic_v1",
+      "equation": "E1_heat_cos",
+      "seed": 1,
+      "hardic": 0.0035871355250205817,
+      "layer": 0.0008991345385171899,
+      "hardic_over_layer": 3.9895425782845755,
+      "layer_lower_than_hardic": true
+    },
+    {
+      "panel": "c",
+      "tag": "final_ic_v1",
+      "equation": "E1_heat_cos",
+      "seed": 2,
+      "hardic": 0.0030062701250899698,
+      "layer": 0.0012376829143527742,
+      "hardic_over_layer": 2.4289501698923015,
+      "layer_lower_than_hardic": true
+    },
+    {
+      "panel": "d",
+      "tag": "final_ic_v1",
+      "equation": "E3_fisher_cos",
+      "seed": 0,
+      "hardic": 0.0005218495552936101,
+      "layer": 0.0005404785796465332,
+      "hardic_over_layer": 0.9655323540016957,
+      "layer_lower_than_hardic": false
+    },
+    {
+      "panel": "d",
+      "tag": "final_ic_v1",
+      "equation": "E3_fisher_cos",
+      "seed": 1,
+      "hardic": 0.00396935175978239,
+      "layer": 0.0009360197745380396,
+      "hardic_over_layer": 4.240670835978238,
+      "layer_lower_than_hardic": true
+    },
+    {
+      "panel": "d",
+      "tag": "final_ic_v1",
+      "equation": "E3_fisher_cos",
+      "seed": 2,
+      "hardic": 0.008067307554561207,
+      "layer": 0.0003641895625726548,
+      "hardic_over_layer": 22.15139691970662,
+      "layer_lower_than_hardic": true
+    }
+  ],
+  "paired_improvement_counts": {
+    "confirm": 6,
+    "final_ic_v1": 5
+  },
+  "new_E3_seed0_worsening_percent": 3.5698074596311136,
+  "config_summary": [
+    {
+      "tag": "confirm",
+      "optimizer": "<omitted:default Adam>",
+      "adam_steps": 20000,
+      "lbfgs_iters": 3000,
+      "count": 18
+    },
+    {
+      "tag": "final_ic_v1",
+      "optimizer": "adam",
+      "adam_steps": 20000,
+      "lbfgs_iters": 3000,
+      "count": 18
+    }
+  ],
+  "environment_summary": {
+    "confirm": {
+      "{\"numpy\": \"2.5.3\", \"python\": \"3.13.16\", \"torch\": \"2.14.1+cu130\"}": 18
+    },
+    "final_ic_v1": {
+      "{\"numpy\": \"2.5.3\", \"python\": \"3.12.6\", \"torch\": \"2.14.1+cpu\"}": 18
+    }
+  },
+  "caption_checks": {
+    "five_times": true,
+    "log_axis": true,
+    "seed_symbols": true,
+    "within_seed_pairs_only": true,
+    "median_non_CI": true,
+    "reference_not_publication_standard": true,
+    "environments_named": true,
+    "independent_training_no_causality_no_generalization": true,
+    "paired_results_and_negative_seed": true,
+    "exclusions_and_main_text": true
+  },
+  "figure_asset_sha256": {
+    "manuscript/figures/plot_historical_comparison.py": "2e455bf832eb3857e2b1ed779cb71b67026e338185515e3c9f40dd75c6a3020a",
+    "validation/stage5_analysis_20261022/analysis_evidence.json": "9953f34410cfba34efa1927311a819b0cb82460d6ec30d3c92f9a538c29fea28",
+    "manuscript/figures/history_v1/historical_comparison.pdf": "05adf0c9193499ce2d0d5fb331cbf75f70863db8f2b91bae9d28aaaf78457eea",
+    "manuscript/figures/history_v1/historical_comparison.png": "38f97d8a6e7b868f9958a910a4263c61409b0004036f95df0ae637c3372a5a4a",
+    "manuscript/figures/history_v1/historical_comparison_caption.md": "54553dcab9d8fe6fe2af387feef112f3723e2c761dd701c5e50fd7390fb844a2",
+    "manuscript/figures/history_v1/historical_comparison_data.csv": "a2987b60e0be5448ea04c3d1bcd902e7d3030ff802402f3344655401e031fb60",
+    "manuscript/figures/history_v1/historical_comparison_evidence.json": "08515f8741b3af7ff015ef948e0201d93f2cd5ce2ea71035ddb4e865401843bb",
+    "manuscript/drafts/initial_working.md": "9783dd11b2756134b5f365e234e1e7ba4590ab6dd11435fc1910c2e85b84e8d9",
+    "manuscript/drafts/working_revised1.md": "7ca430d7911dda4507469099e493dc2563ef48dff0157b4df862e4ab8f3b3635"
+  },
+  "associated_weight_sha256": {
+    "runs/confirm/E1_heat/vanilla_s0.pt": "0322c590d50e471bcf1eaba2791f8ba670a1b0b0324779d4e8843447a03815be",
+    "runs/confirm/E1_heat/vanilla_s1.pt": "1681987edac07895f4cfe2d9301f7486bc25991531652c118831e33f68af31cf",
+    "runs/confirm/E1_heat/vanilla_s2.pt": "35db31acf822bca1eec74617deaec9009cd92e4719e63e6602c8130b23007f45",
+    "runs/confirm/E1_heat/hardic_s0.pt": "e9044eaeb1dc78529f6371b6cd017a2051c1f7d7a3eee9320ba60168c648419f",
+    "runs/confirm/E1_heat/hardic_s1.pt": "ef8c393eae023864767a67c10aec1847a8b76cc3bf61800e9266b5679c324f5e",
+    "runs/confirm/E1_heat/hardic_s2.pt": "db04e7d552cb9939b6627deddca90deeab9fff48ac8afd9be8b9582d049cb7a8",
+    "runs/confirm/E1_heat/hardic_layer_s0.pt": "02f6b4463f8084302cfbb793e32382b62c599949b3fa2d708635256f60fc08da",
+    "runs/confirm/E1_heat/hardic_layer_s1.pt": "cbb43585c27a40c5391a479600d66b140eefd6318953fff0ec9bef9e37285da5",
+    "runs/confirm/E1_heat/hardic_layer_s2.pt": "8080c294886af99466c986493cc2e3cfee16fad5fd8ebe6dcf660d0365d1bb5f",
+    "runs/confirm/E3_fisher/vanilla_s0.pt": "6916b8d7f221dc6290faedddf062c20069fdf1c4b351d92ed35c58d1a338311f",
+    "runs/confirm/E3_fisher/vanilla_s1.pt": "64eacb8838f373e91f91011df62823ccd317a91aefa5f86117f20f9ac83778c9",
+    "runs/confirm/E3_fisher/vanilla_s2.pt": "0c1b5a242aea289dad203636cc05053886f777986dbdb083bb2cb84cd9bf1131",
+    "runs/confirm/E3_fisher/hardic_s0.pt": "1fa5af34e474c09afb8eb2769f50d48076170f50a6bf6531986c1b3adf1b9698",
+    "runs/confirm/E3_fisher/hardic_s1.pt": "754bd466703c5309fdf1587526e5e24e2ef3b8b0d2180b12b142c348a8b9963b",
+    "runs/confirm/E3_fisher/hardic_s2.pt": "1cc25dff3071059db6eef5f1530ee878f5697f09f21c8d2566cea94ef7bff653",
+    "runs/confirm/E3_fisher/hardic_layer_s0.pt": "d7211826aadd701a9d89015b81296c7b125ea129951953915133d575aa025788",
+    "runs/confirm/E3_fisher/hardic_layer_s1.pt": "147d8defe63912df8578cca651e30f3da13861b9245c793acdad5957298aec26",
+    "runs/confirm/E3_fisher/hardic_layer_s2.pt": "6768242fbdc0857c3044ff567eb368d3f9d83d10057e6f7413ee4bc244eb8bf3",
+    "runs/final_ic_v1/E1_heat_cos/vanilla_s0.pt": "2637cbace5d17ed6e8765652928c61405c0504cdc58b9b0420d3da06b0e88543",
+    "runs/final_ic_v1/E1_heat_cos/vanilla_s0.model.pt": "e5f5e300503a83fee5ae8d879efece91e3955a5a8b7dde9a81c1562baf474f7a",
+    "runs/final_ic_v1/E1_heat_cos/vanilla_s1.pt": "c67b54f79c491f7030f75c1194a86a6dc72d95a00288cdf1c3a75aedbf590241",
+    "runs/final_ic_v1/E1_heat_cos/vanilla_s1.model.pt": "d5fdf8db33599383beafba3bfdd67607dd5b15f9c33f169b0e4410e75e18f9c5",
+    "runs/final_ic_v1/E1_heat_cos/vanilla_s2.pt": "d693e1461d169bc237c645ab64152a0f584a55246185d17906080599f22d973b",
+    "runs/final_ic_v1/E1_heat_cos/vanilla_s2.model.pt": "814bf9e16db494eed48f83e41294c01685497a579dcbcd2ebcbed2748b220789",
+    "runs/final_ic_v1/E1_heat_cos/hardic_s0.pt": "443be8e390ec291c5436ad88085791b82585acf9e8cc16470036d2cc6ead0d70",
+    "runs/final_ic_v1/E1_heat_cos/hardic_s0.model.pt": "c9d70b13fe71453ccd75612d023fb236286790106878e5510d67a105e91aa3d9",
+    "runs/final_ic_v1/E1_heat_cos/hardic_s1.pt": "4da2786626c66599f0b121737b1b8f4b3df1996a393448f85cf724a5ac49282d",
+    "runs/final_ic_v1/E1_heat_cos/hardic_s1.model.pt": "b9ee92dc1d54205b06f58fbbb5e29c80712abdb8d9d99fb5c6bec5a2dfe33cb4",
+    "runs/final_ic_v1/E1_heat_cos/hardic_s2.pt": "8ef50331a9d847e76107ee35761c69d4f3f5c8125b614bf2e3a096291ba0d132",
+    "runs/final_ic_v1/E1_heat_cos/hardic_s2.model.pt": "592b06905032cc03acacdf1dc045711b136cd286e16582f3f1d73be47477133a",
+    "runs/final_ic_v1/E1_heat_cos/hardic_layer_s0.pt": "31a48796690da11edc28c72895099f18c0a6a11da1a3bfa4653eeed5b29b7613",
+    "runs/final_ic_v1/E1_heat_cos/hardic_layer_s0.model.pt": "d5beb7b71de28f0b776c5c12567efa120068e3c1ad4b2bdb1fbc096c6e95f4d1",
+    "runs/final_ic_v1/E1_heat_cos/hardic_layer_s1.pt": "ed2fe6020da1df706579d5cf8d747a6cb4ec7ddb98a212b364f4a80154bf564d",
+    "runs/final_ic_v1/E1_heat_cos/hardic_layer_s1.model.pt": "8753bb5bc41e5f398f8197a7d07c1443132a0b3a88e754d24555d6de15dec547",
+    "runs/final_ic_v1/E1_heat_cos/hardic_layer_s2.pt": "686c79661f69bbe982059b9ac23831430cd231a9997d36736839af42640978f1",
+    "runs/final_ic_v1/E1_heat_cos/hardic_layer_s2.model.pt": "1df8a5e95203791e0a4ae67586dd81de26f4f26688db9e97255eeaf9e812bcd6",
+    "runs/final_ic_v1/E3_fisher_cos/vanilla_s0.pt": "7039287e481b0676c6d6893cceab3ea38f4bfd40eba33f00e72e80d3e9a73c17",
+    "runs/final_ic_v1/E3_fisher_cos/vanilla_s0.model.pt": "e7d350f8d52d7c8ff6537df5adced52ab92cf1df63a77a402a3f32e9c4b72643",
+    "runs/final_ic_v1/E3_fisher_cos/vanilla_s1.pt": "1b376dba05a196f20b7ee8d2f7e0c67f0d34cdf733cf2ad80db674071c994886",
+    "runs/final_ic_v1/E3_fisher_cos/vanilla_s1.model.pt": "2c976d6c0ca5a7edaea26c1191ca2cb1203efd81538cedba9fb81399a126fb82",
+    "runs/final_ic_v1/E3_fisher_cos/vanilla_s2.pt": "5d37d4d897ad3cfc05219a3af7265b66db795f2a22ce8c7afed84214457a728c",
+    "runs/final_ic_v1/E3_fisher_cos/vanilla_s2.model.pt": "da0912603d35af9341b115260c6a15d7803ff588389085708499b029dc65650f",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_s0.pt": "d3d11c5989e23a427521b8cf88346782047c1bca8fd265ae8d69e72542b61fc7",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_s0.model.pt": "15afdf51c572a8b16230fd1c9f5fe43d509da836d38713c32962e223aeff16d4",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_s1.pt": "90bf92ff1b4339cf30e8c15b7242c33dc6a3a35470de2735811f1847f604a34d",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_s1.model.pt": "553e7a1ae50b199bd9fe9a0544a6c5d7bca55dd9efcd9c10a86f35ddb80700d4",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_s2.pt": "a92ed73e0e26824f71cea373594534ee8a12c207f66352ef9a4705ba4393b2d5",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_s2.model.pt": "c757962acfa00f10968f127dd4f69817b0c01433ffe06486d28eb6c3f0259b17",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s0.pt": "dcabcc9ba3a32209dc9156b689013c6d85fa7d16d548cf03b9ab2c128ebfa973",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s0.model.pt": "0d3ef02dd0a464aec3dce44694647b828954b2743c93b894a46266717749e7bd",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s1.pt": "871a2bdb367c3b67d740e7ed3683508fd7a51e98f47914ff95a3d3d01085a82a",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s1.model.pt": "ffea67801f12744fa468afc509934a1fe2515ba0d7b3a6954d6e3b448ce89b3c",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s2.pt": "d4c9075a822b86ba4b9fb3d5b632a7ecf7ac5da7c950fd8d87f3ee56525b7d9e",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s2.model.pt": "c8d6cbd2347d930b12ad9bbe837749ef1ca5dee9d57166e533ee9cb16964a72f"
+  },
+  "before_after_file_hashes_equal": true,
+  "protected_files_checked": 99,
+  "PNG_dimensions": [
+    3450,
+    2460
+  ],
+  "PDF_visual_render": "D:/CodexRuntime/runs/r33_integrity_working_20261023/historical_comparison_pdf.png",
+  "visual_review": {
+    "PNG_inspected": true,
+    "PDF_render_inspected": true,
+    "font_or_label_clipping_seen": false,
+    "negative_seed_annotation_readable": true,
+    "all_36_points_within_axes": true,
+    "median_marker_occlusion": "12 median markers are crossed by median bars because median zorder=5 exceeds scatter zorder=4; visible in PNG and PDF",
+    "recommendation": "Set median hlines zorder to 3, below scatter zorder 4; keep all values, symbols, annotation and caption unchanged."
+  },
+  "limits": [
+    "This checks extraction, aggregation, source-byte binding and figure presentation. It does not retrain or recompute model predictions.",
+    "Only the selected 36 source JSON and 54 associated weight files were byte checked in this followup, rather than all 398 historical files.",
+    "Historical full exit-code and warning-source binding gaps remain as stated in the prior historical execution-scope review.",
+    "The figure is a 36-run default-Adam-route subset with shared L-BFGS budgets; it is not an Adam-only experiment.",
+    "Three seeds do not establish statistical significance, cross-initial-value generalization, or universal superiority; strong baselines and negative controls remain in the manuscript."
+  ],
+  "audit_script_sha256": "821bde60fa64f0b737f32037d95b638e9644877405b9a517ae75aeed5b58f145",
+  "PDF_page_count": 1,
+  "PDF_page_size_points": [
+    828,
+    590.4
+  ],
+  "findings": [
+    {
+      "id": "V1",
+      "severity": "minor",
+      "file": "manuscript/figures/plot_historical_comparison.py",
+      "line": 108,
+      "title": "Median bars partially obscure seed markers",
+      "observed": "The black median line with zorder 5 crosses the median seed marker in all 12 groups; scatter markers have zorder 4. Visible in PNG and PDF.",
+      "fix": "Change only median hlines zorder from 5 to 3; preserve the scatter zorder 4, underlying data, caption and negative-case annotation."
+    }
+  ],
+  "protected_snapshot_sha256": {
+    "manuscript/figures/plot_historical_comparison.py": "2e455bf832eb3857e2b1ed779cb71b67026e338185515e3c9f40dd75c6a3020a",
+    "validation/stage5_analysis_20261022/analysis_evidence.json": "9953f34410cfba34efa1927311a819b0cb82460d6ec30d3c92f9a538c29fea28",
+    "manuscript/figures/history_v1/historical_comparison.pdf": "05adf0c9193499ce2d0d5fb331cbf75f70863db8f2b91bae9d28aaaf78457eea",
+    "manuscript/figures/history_v1/historical_comparison.png": "38f97d8a6e7b868f9958a910a4263c61409b0004036f95df0ae637c3372a5a4a",
+    "manuscript/figures/history_v1/historical_comparison_caption.md": "54553dcab9d8fe6fe2af387feef112f3723e2c761dd701c5e50fd7390fb844a2",
+    "manuscript/figures/history_v1/historical_comparison_data.csv": "a2987b60e0be5448ea04c3d1bcd902e7d3030ff802402f3344655401e031fb60",
+    "manuscript/figures/history_v1/historical_comparison_evidence.json": "08515f8741b3af7ff015ef948e0201d93f2cd5ce2ea71035ddb4e865401843bb",
+    "manuscript/drafts/initial_working.md": "9783dd11b2756134b5f365e234e1e7ba4590ab6dd11435fc1910c2e85b84e8d9",
+    "manuscript/drafts/working_revised1.md": "7ca430d7911dda4507469099e493dc2563ef48dff0157b4df862e4ab8f3b3635",
+    "runs/confirm/E1_heat/vanilla_s0.json": "f8161a1e4d2d20f3c2d25240cff7f0e436ac630b57d41ececd24538de445e809",
+    "runs/confirm/E1_heat/vanilla_s0.pt": "0322c590d50e471bcf1eaba2791f8ba670a1b0b0324779d4e8843447a03815be",
+    "runs/confirm/E1_heat/vanilla_s1.json": "1eb3c310039b3c3d764e892565cc876ec4b4f7fbee95ebe8419e59c065384d0d",
+    "runs/confirm/E1_heat/vanilla_s1.pt": "1681987edac07895f4cfe2d9301f7486bc25991531652c118831e33f68af31cf",
+    "runs/confirm/E1_heat/vanilla_s2.json": "cf0049988a56b5e6bb31fe5a7de95b8e7bc33e3b8a998e72fb7a80b4ecbc0a1a",
+    "runs/confirm/E1_heat/vanilla_s2.pt": "35db31acf822bca1eec74617deaec9009cd92e4719e63e6602c8130b23007f45",
+    "runs/confirm/E1_heat/hardic_s0.json": "8f61808b28c3e31701f7b1dd67ec6a312448e3efca706d417f5c2a0cde69630d",
+    "runs/confirm/E1_heat/hardic_s0.pt": "e9044eaeb1dc78529f6371b6cd017a2051c1f7d7a3eee9320ba60168c648419f",
+    "runs/confirm/E1_heat/hardic_s1.json": "9f49f254203bc76c5df29c5935d7cc17925e4133933319777f5f948f209d3abf",
+    "runs/confirm/E1_heat/hardic_s1.pt": "ef8c393eae023864767a67c10aec1847a8b76cc3bf61800e9266b5679c324f5e",
+    "runs/confirm/E1_heat/hardic_s2.json": "078a6bee8c42f6ddfd21f0425aa604335632a06263f8d38ce52c4cf6075b4415",
+    "runs/confirm/E1_heat/hardic_s2.pt": "db04e7d552cb9939b6627deddca90deeab9fff48ac8afd9be8b9582d049cb7a8",
+    "runs/confirm/E1_heat/hardic_layer_s0.json": "4a41b6cf0502d5ec2c415055de98a187a67b8afb43149e8411f743c35dda256d",
+    "runs/confirm/E1_heat/hardic_layer_s0.pt": "02f6b4463f8084302cfbb793e32382b62c599949b3fa2d708635256f60fc08da",
+    "runs/confirm/E1_heat/hardic_layer_s1.json": "e8ef01531d02b373101701ab0ce9faecb5f821b53462d4cc2aa0fcb741eb2999",
+    "runs/confirm/E1_heat/hardic_layer_s1.pt": "cbb43585c27a40c5391a479600d66b140eefd6318953fff0ec9bef9e37285da5",
+    "runs/confirm/E1_heat/hardic_layer_s2.json": "3fa1f3d1b59937b1c629ac5ab37de029fd28b4713c7d46e44883c293c82fecbd",
+    "runs/confirm/E1_heat/hardic_layer_s2.pt": "8080c294886af99466c986493cc2e3cfee16fad5fd8ebe6dcf660d0365d1bb5f",
+    "runs/confirm/E3_fisher/vanilla_s0.json": "2b837f9a6451889c00f746e1bb82ce7346f2ceb2a4503e9deea39d77ebc81b1e",
+    "runs/confirm/E3_fisher/vanilla_s0.pt": "6916b8d7f221dc6290faedddf062c20069fdf1c4b351d92ed35c58d1a338311f",
+    "runs/confirm/E3_fisher/vanilla_s1.json": "613f5f0b4a550839da62854e7742cdacf4a3e178b0b28b6750528e55150b237f",
+    "runs/confirm/E3_fisher/vanilla_s1.pt": "64eacb8838f373e91f91011df62823ccd317a91aefa5f86117f20f9ac83778c9",
+    "runs/confirm/E3_fisher/vanilla_s2.json": "7d0d2cbe79e94792a2a4248d30af46082c6e9f83db04ec366c5fb839b1f6b4c1",
+    "runs/confirm/E3_fisher/vanilla_s2.pt": "0c1b5a242aea289dad203636cc05053886f777986dbdb083bb2cb84cd9bf1131",
+    "runs/confirm/E3_fisher/hardic_s0.json": "c7d9deefa1787c9bd9b4c9a8e6b8c6ca0087fc30408171ad5f7ae3f9bb507b49",
+    "runs/confirm/E3_fisher/hardic_s0.pt": "1fa5af34e474c09afb8eb2769f50d48076170f50a6bf6531986c1b3adf1b9698",
+    "runs/confirm/E3_fisher/hardic_s1.json": "a8895e36fcebebc72b6a8d8096b317a831583c2a1f34619506f7b5375ea7dca8",
+    "runs/confirm/E3_fisher/hardic_s1.pt": "754bd466703c5309fdf1587526e5e24e2ef3b8b0d2180b12b142c348a8b9963b",
+    "runs/confirm/E3_fisher/hardic_s2.json": "6023aecaf8c6bbd600a5b1bf511f195f3b0a95bfd13e47e6df216b8a592565d3",
+    "runs/confirm/E3_fisher/hardic_s2.pt": "1cc25dff3071059db6eef5f1530ee878f5697f09f21c8d2566cea94ef7bff653",
+    "runs/confirm/E3_fisher/hardic_layer_s0.json": "efd3bc986a1b2c06c1a88189be915b1f1734c8844adfaae29c4e008135119c55",
+    "runs/confirm/E3_fisher/hardic_layer_s0.pt": "d7211826aadd701a9d89015b81296c7b125ea129951953915133d575aa025788",
+    "runs/confirm/E3_fisher/hardic_layer_s1.json": "a7cacdb032dba46f273c52af3247c07c917ca8dc745e9ab16f67db2f38e0565d",
+    "runs/confirm/E3_fisher/hardic_layer_s1.pt": "147d8defe63912df8578cca651e30f3da13861b9245c793acdad5957298aec26",
+    "runs/confirm/E3_fisher/hardic_layer_s2.json": "315679180b38be622a34fb3fd7eec568dc059a96474fa7631bbf6bc289b153f7",
+    "runs/confirm/E3_fisher/hardic_layer_s2.pt": "6768242fbdc0857c3044ff567eb368d3f9d83d10057e6f7413ee4bc244eb8bf3",
+    "runs/final_ic_v1/E1_heat_cos/vanilla_s0.json": "327d84135844aedc7d5558670ceb44165528c8e19dd15f361f6740d45c3c4407",
+    "runs/final_ic_v1/E1_heat_cos/vanilla_s0.pt": "2637cbace5d17ed6e8765652928c61405c0504cdc58b9b0420d3da06b0e88543",
+    "runs/final_ic_v1/E1_heat_cos/vanilla_s0.model.pt": "e5f5e300503a83fee5ae8d879efece91e3955a5a8b7dde9a81c1562baf474f7a",
+    "runs/final_ic_v1/E1_heat_cos/vanilla_s1.json": "7988199c05b1bd2f39c253b67d2e18afd1d48ebe5f1a588ef1cf8f00fef580e4",
+    "runs/final_ic_v1/E1_heat_cos/vanilla_s1.pt": "c67b54f79c491f7030f75c1194a86a6dc72d95a00288cdf1c3a75aedbf590241",
+    "runs/final_ic_v1/E1_heat_cos/vanilla_s1.model.pt": "d5fdf8db33599383beafba3bfdd67607dd5b15f9c33f169b0e4410e75e18f9c5",
+    "runs/final_ic_v1/E1_heat_cos/vanilla_s2.json": "44d4a8c69a8ce74999b4bc53118fee4ad443d8419e99ca7d7019ef67c899852b",
+    "runs/final_ic_v1/E1_heat_cos/vanilla_s2.pt": "d693e1461d169bc237c645ab64152a0f584a55246185d17906080599f22d973b",
+    "runs/final_ic_v1/E1_heat_cos/vanilla_s2.model.pt": "814bf9e16db494eed48f83e41294c01685497a579dcbcd2ebcbed2748b220789",
+    "runs/final_ic_v1/E1_heat_cos/hardic_s0.json": "a81d426a4c027ee8e1bebda39672b48233ad2f8b2c0f3de9f5f7353137d11825",
+    "runs/final_ic_v1/E1_heat_cos/hardic_s0.pt": "443be8e390ec291c5436ad88085791b82585acf9e8cc16470036d2cc6ead0d70",
+    "runs/final_ic_v1/E1_heat_cos/hardic_s0.model.pt": "c9d70b13fe71453ccd75612d023fb236286790106878e5510d67a105e91aa3d9",
+    "runs/final_ic_v1/E1_heat_cos/hardic_s1.json": "5d389a168c305990759bd3abef48411c981b9db10f78a378629fdd7e562756c2",
+    "runs/final_ic_v1/E1_heat_cos/hardic_s1.pt": "4da2786626c66599f0b121737b1b8f4b3df1996a393448f85cf724a5ac49282d",
+    "runs/final_ic_v1/E1_heat_cos/hardic_s1.model.pt": "b9ee92dc1d54205b06f58fbbb5e29c80712abdb8d9d99fb5c6bec5a2dfe33cb4",
+    "runs/final_ic_v1/E1_heat_cos/hardic_s2.json": "5f449053f2c7dfdd651a7bdd209028ea058d340cbdb308717d1b8a548dd623c5",
+    "runs/final_ic_v1/E1_heat_cos/hardic_s2.pt": "8ef50331a9d847e76107ee35761c69d4f3f5c8125b614bf2e3a096291ba0d132",
+    "runs/final_ic_v1/E1_heat_cos/hardic_s2.model.pt": "592b06905032cc03acacdf1dc045711b136cd286e16582f3f1d73be47477133a",
+    "runs/final_ic_v1/E1_heat_cos/hardic_layer_s0.json": "4e2a85fa7aabf1364a8a3f5d89bacef31c071b5f54ff85bc5f159e83afcb15bc",
+    "runs/final_ic_v1/E1_heat_cos/hardic_layer_s0.pt": "31a48796690da11edc28c72895099f18c0a6a11da1a3bfa4653eeed5b29b7613",
+    "runs/final_ic_v1/E1_heat_cos/hardic_layer_s0.model.pt": "d5beb7b71de28f0b776c5c12567efa120068e3c1ad4b2bdb1fbc096c6e95f4d1",
+    "runs/final_ic_v1/E1_heat_cos/hardic_layer_s1.json": "99085dc4a15ba9fb170800466234adaabfd1aadb1e471ce088229b7ee55fe4ee",
+    "runs/final_ic_v1/E1_heat_cos/hardic_layer_s1.pt": "ed2fe6020da1df706579d5cf8d747a6cb4ec7ddb98a212b364f4a80154bf564d",
+    "runs/final_ic_v1/E1_heat_cos/hardic_layer_s1.model.pt": "8753bb5bc41e5f398f8197a7d07c1443132a0b3a88e754d24555d6de15dec547",
+    "runs/final_ic_v1/E1_heat_cos/hardic_layer_s2.json": "c80335fcd7ab5ca214c87a85d212650fa735dfc6f1d0c806cbabe16837409ddd",
+    "runs/final_ic_v1/E1_heat_cos/hardic_layer_s2.pt": "686c79661f69bbe982059b9ac23831430cd231a9997d36736839af42640978f1",
+    "runs/final_ic_v1/E1_heat_cos/hardic_layer_s2.model.pt": "1df8a5e95203791e0a4ae67586dd81de26f4f26688db9e97255eeaf9e812bcd6",
+    "runs/final_ic_v1/E3_fisher_cos/vanilla_s0.json": "66ccddc021f2899a4ce71ab4708d5753b0dacb829d87e76e8e16472c0c051a59",
+    "runs/final_ic_v1/E3_fisher_cos/vanilla_s0.pt": "7039287e481b0676c6d6893cceab3ea38f4bfd40eba33f00e72e80d3e9a73c17",
+    "runs/final_ic_v1/E3_fisher_cos/vanilla_s0.model.pt": "e7d350f8d52d7c8ff6537df5adced52ab92cf1df63a77a402a3f32e9c4b72643",
+    "runs/final_ic_v1/E3_fisher_cos/vanilla_s1.json": "bae257be5f38ecc3ade25f4acb7070b85074311599fa4d917d21613171f5c956",
+    "runs/final_ic_v1/E3_fisher_cos/vanilla_s1.pt": "1b376dba05a196f20b7ee8d2f7e0c67f0d34cdf733cf2ad80db674071c994886",
+    "runs/final_ic_v1/E3_fisher_cos/vanilla_s1.model.pt": "2c976d6c0ca5a7edaea26c1191ca2cb1203efd81538cedba9fb81399a126fb82",
+    "runs/final_ic_v1/E3_fisher_cos/vanilla_s2.json": "89d44af907f4fe5dbc8b3df0885e43fc07dad063568dbddd8eae121ce4b0fea6",
+    "runs/final_ic_v1/E3_fisher_cos/vanilla_s2.pt": "5d37d4d897ad3cfc05219a3af7265b66db795f2a22ce8c7afed84214457a728c",
+    "runs/final_ic_v1/E3_fisher_cos/vanilla_s2.model.pt": "da0912603d35af9341b115260c6a15d7803ff588389085708499b029dc65650f",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_s0.json": "24a7d40cb0266b59997b01f632f11388dfbc7f94cff754bd5f50c749b51d0f90",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_s0.pt": "d3d11c5989e23a427521b8cf88346782047c1bca8fd265ae8d69e72542b61fc7",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_s0.model.pt": "15afdf51c572a8b16230fd1c9f5fe43d509da836d38713c32962e223aeff16d4",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_s1.json": "b698c52dfdcb5d22fe8fec1324244b10d50a7725c132c205b53e521be29a3998",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_s1.pt": "90bf92ff1b4339cf30e8c15b7242c33dc6a3a35470de2735811f1847f604a34d",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_s1.model.pt": "553e7a1ae50b199bd9fe9a0544a6c5d7bca55dd9efcd9c10a86f35ddb80700d4",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_s2.json": "689ecbc63e4506446633460f9d5f1d752591d12085df2f60bb26209f49ecbd09",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_s2.pt": "a92ed73e0e26824f71cea373594534ee8a12c207f66352ef9a4705ba4393b2d5",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_s2.model.pt": "c757962acfa00f10968f127dd4f69817b0c01433ffe06486d28eb6c3f0259b17",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s0.json": "2043256e154fdeea1a9471a6b6dbff5cacbaf958899b377289fb785665222d4d",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s0.pt": "dcabcc9ba3a32209dc9156b689013c6d85fa7d16d548cf03b9ab2c128ebfa973",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s0.model.pt": "0d3ef02dd0a464aec3dce44694647b828954b2743c93b894a46266717749e7bd",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s1.json": "ad90cdcc213f3c02c7ae633c653d63920fe7ff545189d338d555c69b949d494d",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s1.pt": "871a2bdb367c3b67d740e7ed3683508fd7a51e98f47914ff95a3d3d01085a82a",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s1.model.pt": "ffea67801f12744fa468afc509934a1fe2515ba0d7b3a6954d6e3b448ce89b3c",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s2.json": "97e1269dbddf9fed52b29f8e7f9d7bd58ddffb2d09f6f572708f26af84e84279",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s2.pt": "d4c9075a822b86ba4b9fb3d5b632a7ecf7ac5da7c950fd8d87f3ee56525b7d9e",
+    "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s2.model.pt": "c8d6cbd2347d930b12ad9bbe837749ef1ca5dee9d57166e533ee9cb16964a72f"
+  }
+}
