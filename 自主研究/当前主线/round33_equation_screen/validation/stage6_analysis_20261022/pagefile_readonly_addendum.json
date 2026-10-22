@@ -1,0 +1,18 @@
+{
+  "scope": "只读页文件配置补充；未改Windows设置或运行器",
+  "automatic_managed_pagefile": true,
+  "pagefile_name": "D:\\pagefile.sys",
+  "allocated_mib": 15360,
+  "current_usage_mib": 2388,
+  "peak_usage_mib": 3266,
+  "D_volume_free_bytes": 56314966016,
+  "interpretation": "页文件由系统管理，系统commit上限可能随后增长；不能把当前4GiB余量看作固定全程上限，也不能据此保证L-BFGS峰值安全。保留原队列和检查点，继续按现有门派发。",
+  "read_commands": [
+    "Get-CimInstance Win32_ComputerSystem",
+    "Get-CimInstance Win32_PageFileUsage",
+    "Get-CimInstance Win32_PageFileSetting",
+    "Get-Volume -DriveLetter D"
+  ],
+  "recorded_utc": "2026-10-22T17:19:26.901261+00:00",
+  "observation_time": "本轮写入记录前的工具读取；原采集命令未保存精确秒级时间，不补造时间戳。"
+}

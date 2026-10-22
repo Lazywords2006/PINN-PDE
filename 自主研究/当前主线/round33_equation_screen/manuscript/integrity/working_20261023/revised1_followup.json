@@ -1,0 +1,1705 @@
+{
+  "scope": "working revised1 problem-closure follow-up only; not final complete manuscript integrity PASS or formal five-perspective review",
+  "draft": {
+    "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\working_revised1.md",
+    "bytes": 64101,
+    "sha256": "7ca430d7911dda4507469099e493dc2563ef48dff0157b4df862e4ab8f3b3635"
+  },
+  "expected_draft_sha256": "7ca430d7911dda4507469099e493dc2563ef48dff0157b4df862e4ab8f3b3635",
+  "responses": {
+    "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\working_revised1\\responses.md",
+    "bytes": 3789,
+    "sha256": "69fdb63d24707cd544b1f4734e1b8f077d85ec6f1a47456974f064a9cda13038"
+  },
+  "prior_reports": [
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\integrity\\working_20261023\\WORKING_INTEGRITY_REVIEW_CN.md",
+      "bytes": 22752,
+      "sha256": "c3fc7142381fa35a5c56e249e60837a8b093e6e9ed6764932f3553997e200aff"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\integrity\\working_20261023\\HISTORICAL_EXECUTION_SCOPE.md",
+      "bytes": 11446,
+      "sha256": "515a2c56615eabd1543eb45dcbb7f558ba243b3b96ed4b824236df82b9aac3e6"
+    }
+  ],
+  "all_changed_hunks": [
+    {
+      "change": "replace",
+      "old_lines": [
+        5,
+        5
+      ],
+      "new_lines": [
+        5,
+        5
+      ],
+      "old": [
+        "> 写作状态：材料可见阶段的工作稿，不是冻结完整稿或投稿稿。当前已纳入第一阶段及此前已保存的结果，并使用独立核验的数学与文献材料。第4.5、4.6节等待修订6的完整结果与复核。文中的 E 编号指向文末数据证据映射，不属于外部文献编号。未完成项使用 `MATERIAL GAP` 标记，不以预测填数。"
+      ],
+      "new": [
+        "> 写作状态：材料可见阶段的工作稿修订1，已回应完整性预审F01–F05，尚待独立复核，不是冻结完整稿或投稿稿。当前已纳入第一阶段及此前已保存的结果，并使用独立核验的数学与文献材料。第4.5、4.6节等待修订6的完整结果与复核。文中的 E 编号指向文末数据证据映射，不属于外部文献编号。未完成项使用 `MATERIAL GAP` 标记，不以预测填数。"
+      ],
+      "review_scope": "all changed/new prose and appendix rows inspected against listed source/data evidence"
+    },
+    {
+      "change": "insert",
+      "old_lines": [
+        157,
+        156
+      ],
+      "new_lines": [
+        157,
+        160
+      ],
+      "old": [],
+      "new": [
+        "![Q(y,t)](E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/figures/analytic_layer.png)",
+        "",
+        "图1　半直线辅助层的时间导数 Q=w_t。由式（7）直接计算，取 C=c/√D=0.3（原 E1 设置）。左图给出四个固定时刻的空间剖面；右图给出边界及三个固定内部位置的时间响应。边界处 Q 随 t↓0 趋于1，每个固定 y>0 处则趋于0；极限结论由正文推导证明。此图只展示单位辅助层，不包含幅度δ或衰减因子，不是PINN预测、原有限区间问题的参考解或实验性能证据。 极小尾部可能下溢为浮点零，图上为零不表示正时间的解析函数严格为零。[E11]",
+        ""
+      ],
+      "review_scope": "all changed/new prose and appendix rows inspected against listed source/data evidence"
+    },
+    {
+      "change": "replace",
+      "old_lines": [
+        226,
+        226
+      ],
+      "new_lines": [
+        230,
+        230
+      ],
+      "old": [
+        "实验按筛选、确认及有限补证据先后进行。最初筛选同时涉及热方程、Allen–Cahn 方程和 Fisher–KPP 方程，采用两个种子与较小预算。其用途是决定继续投入的对象。热方程与 Fisher–KPP 方程进入完整预算确认，采用三个报告种子。历史筛选与确认复用了相同编号的部分种子，因此后者不能被表述为种子完全独立的外部验证。本文保留这种历史关系，并将筛选表与正式主表分开呈现。[E01,E05]"
+      ],
+      "new": [
+        "实验按筛选、确认及有限补证据先后进行。最初筛选同时涉及热方程、Allen–Cahn 方程和 Fisher–KPP 方程，采用两个种子与较小预算。其用途是决定继续投入的对象。附录B列出全部三十次筛选及原门槛：三个方程的较好基线与较好候选之比分别为2.88580、1.33105、3.27818，原筛选只有 Fisher–KPP 方程入选。热方程未达三倍，随后在已看到筛选结果、尚未启动确认训练时，按协议修订1与 Fisher–KPP 方程一起进入完整预算三种子确认。这不改变原筛选判定。Allen–Cahn 的普通网络中位数为0.0139493，但收益比未达三倍，未继续主确认。历史筛选与确认复用了相同编号的部分种子，因此后者不能被表述为种子完全独立的外部验证。两种子筛选统计与正式三种子主表分开呈现。[E01,E05,E10]"
+      ],
+      "review_scope": "all changed/new prose and appendix rows inspected against listed source/data evidence"
+    },
+    {
+      "change": "replace",
+      "old_lines": [
+        234,
+        234
+      ],
+      "new_lines": [
+        238,
+        238
+      ],
+      "old": [
+        "完整预算先进行20000次 Adam 梯度调用，学习率从10⁻³指数衰减至10⁻⁵，再使用名义上限3000次的 L-BFGS。Adam 阶段普通方法每步重采样4096个体点、每端256个边界点和256个初值点。L-BFGS 使用固定点集，体点8192个，每端及初值各512个。四类均方残差的权重为一，硬初值类不再加入初值损失。主实验没有针对候选方法或基线搜索网络规模、训练步数或衰减参数。[E01,E05]"
+      ],
+      "new": [
+        "完整预算先进行20000次 Adam 梯度调用，学习率从10⁻³指数衰减至10⁻⁵，再使用名义上限3000次的 L-BFGS。普通网络、硬初值及修正方法在 Adam 阶段每步重采样4096个体点、每端256个边界点和256个初值点，L-BFGS 另取固定点集，体点8192个、每端512个、初值512个。未加注意力或因果权重时，各类均方残差的外部系数为一，硬初值类不再加入初值损失。RBA本地变体的有效点集与权重见下段及表2脚注，不能套用上述 L-BFGS 点数。附录A列出固定实现参数与停止规则，均摘自既有源码、配置及协议，不是本轮新增调参。[E01,E05,E10]"
+      ],
+      "review_scope": "all changed/new prose and appendix rows inspected against listed source/data evidence"
+    },
+    {
+      "change": "replace",
+      "old_lines": [
+        236,
+        236
+      ],
+      "new_lines": [
+        240,
+        240
+      ],
+      "old": [
+        "残差注意力按归一化残差历史更新逐点权重[9]，本文按协议在固定体点上更新，并在 L-BFGS 阶段冻结权重。该基线的固定体点数为4096，少于普通方法的8192。这项实现差异在比较中保留，不能因名义迭代上限一致就称各方法使用了相同实际计算量。因果权重由先前时段的残差确定[10]，本文将其叠加于硬初值，时间分为32段，使用两档已登记参数，并在原强基线判定中取对基线有利的一档。本文不将这两档比较推广为充分公平调参后的最优排名。[E01]"
+      ],
+      "new": [
+        "残差注意力按归一化残差历史更新逐点权重[9]。本文明确使用RBA本地变体：完整预算下，整个 Adam 点集固定为体4096个、每端256个及初值256个，并在 L-BFGS 继续复用。体、左边界、右边界及初值四类残差分别使用逐点权重，L-BFGS 冻结这些权重。权重初始化为一，在每次 Adam 网络参数更新后，使用本次更新前已计算的残差更新权重。此实现不等同于原文全部训练配置，其与所读版本的差异见附录C。因果权重由先前时段的残差确定[10]，本文将其叠加于硬初值，分32个时间箱，固定使用ε为1或10，两档分别训练，体与两端边界三个分量各自计算因果权重，并在原强基线判定中取对基线有利的一档。本文不将有限配置比较推广为充分公平调参后的最优排名。[E01,E10]"
+      ],
+      "review_scope": "all changed/new prose and appendix rows inspected against listed source/data evidence"
+    },
+    {
+      "change": "replace",
+      "old_lines": [
+        266,
+        266
+      ],
+      "new_lines": [
+        270,
+        270
+      ],
+      "old": [
+        "产物核验保留原始结果、权重和配置的对应关系。第一阶段新增二十二个任务已通过重新加载、身份检查以及误差复算。本文对176份结果记录再次只读聚合，文件哈希与既有快照一致，所记录的最大误差均能由逐时刻序列重建。历史体表耦合结果缺失表面网络权重，故其表面变量不纳入正式可复现定量证据。保存完整产物能够检验已报告结果的一致性，但不扩大方法的适用范围。[E03,E05,E09]"
+      ],
+      "new": [
+        "产物核验保留原始结果、权重和配置的对应关系。第一阶段新增二十二个任务已通过重新加载、身份检查以及误差复算。本文对176份结果记录再次只读聚合，文件哈希与既有快照一致，所记录的最大误差均能由逐时刻序列重建。历史体表耦合结果缺失表面网络权重，故其表面变量不纳入正式可复现定量证据。全部176项分别有130＋24＋22份保存模型复算记录，独立补查绑定398个结果与权重文件。该补查核对已有记录及当前哈希，没有重新加载全部模型；历史日志范围见附录A。保存完整产物能够检验已报告结果的一致性，但不扩大方法的适用范围。[E03,E05,E09,E12]"
+      ],
+      "review_scope": "all changed/new prose and appendix rows inspected against listed source/data evidence"
+    },
+    {
+      "change": "replace",
+      "old_lines": [
+        280,
+        280
+      ],
+      "new_lines": [
+        284,
+        284
+      ],
+      "old": [
+        "| E1_heat | rba | 3.97523e-02 | 3.54770e-02 | 1.10461e-02 | 3.54770e-02 | 1.16191e-01 | 0/3 |"
+      ],
+      "new": [
+        "| E1_heat | RBA本地变体 | 3.97523e-02 | 3.54770e-02 | 1.10461e-02 | 3.54770e-02 | 1.16191e-01 | 0/3 |"
+      ],
+      "review_scope": "all changed/new prose and appendix rows inspected against listed source/data evidence"
+    },
+    {
+      "change": "replace",
+      "old_lines": [
+        284,
+        284
+      ],
+      "new_lines": [
+        288,
+        288
+      ],
+      "old": [
+        "| E3_fisher | rba | 1.34967e-02 | 6.03494e-03 | 1.65882e-02 | 1.34967e-02 | 2.29289e-02 | 1/3 |"
+      ],
+      "new": [
+        "| E3_fisher | RBA本地变体 | 1.34967e-02 | 6.03494e-03 | 1.65882e-02 | 1.34967e-02 | 2.29289e-02 | 1/3 |"
+      ],
+      "review_scope": "all changed/new prose and appendix rows inspected against listed source/data evidence"
+    },
+    {
+      "change": "replace",
+      "old_lines": [
+        287,
+        287
+      ],
+      "new_lines": [
+        291,
+        293
+      ],
+      "old": [
+        "相对普通网络的中位数比为45.47和81.60，相对硬初值则为34.83和5.92。两种比较的区别说明，将初始函数硬编码本身已对不同问题产生不同程度的改变，层修正的增益需要在硬初值基础上单独衡量。原反应扩散问题的硬初值种子零已具有较小误差，其配对收益约1.36倍，明显小于该组中位数比。由此不能把组级比值理解为所有种子共同达到的改善幅度。[E05]"
+      ],
+      "new": [
+        "表2注：RBA本地变体在两个优化阶段复用同一完整固定点集，体4096个、每端256个、初值256个；其余表中方法的 L-BFGS 点集为8192、每端512及初值512。RBA四类残差均带逐点权重，进入 L-BFGS 后冻结。原JSON仍含通用的 `nf_fixed`、`nb_fixed`、`n0_fixed` 字段，但源码的RBA分支复用 `fixed_adam`，这些通用字段不决定该分支的有效点数。该差异不能用相同名义步数抵消。[E10]",
+        "",
+        "相对普通网络的中位数比为45.47和81.60，相对硬初值则为34.83和5.92。两种比较的区别说明，将初始函数硬编码本身已对不同问题产生不同程度的改变，层修正的增益需要在硬初值基础上单独衡量。原反应扩散问题的硬初值种子零已具有较小误差，其配对收益约1.35倍，明显小于该组中位数比。由此不能把组级比值理解为所有种子共同达到的改善幅度。[E05]"
+      ],
+      "review_scope": "all changed/new prose and appendix rows inspected against listed source/data evidence"
+    },
+    {
+      "change": "replace",
+      "old_lines": [
+        377,
+        377
+      ],
+      "new_lines": [
+        383,
+        383
+      ],
+      "old": [
+        "筛选范围包含未进入主确认实验的 Allen–Cahn 问题，这意味着主文的两个问题已经过选择。正式结论需要带上这一选择过程，而不能只展示入选方程并将其视为随机抽取的代表。参数轴中弱错配点的退化和新初值个别种子的退化进一步表明，加入解析项并不保证每个问题或每次优化都更好。本文保留这些结果，是为了给出目前能支持的适用范围，而不是把负面比较改写成新的成功标准。[E01,E05]"
+      ],
+      "new": [
+        "筛选范围包含未进入主确认实验的 Allen–Cahn 问题，热方程也未达到原筛选三倍门槛而由后续协议扩展进入确认，这意味着主文的两个问题已经过选择。正式结论需要带上这一选择过程，而不能只展示入选方程并将其视为随机抽取的代表。参数轴中弱错配点的退化和新初值个别种子的退化进一步表明，加入解析项并不保证每个问题或每次优化都更好。本文保留这些结果，是为了给出目前能支持的适用范围，而不是把负面比较改写成新的成功标准。[E01,E05]"
+      ],
+      "review_scope": "all changed/new prose and appendix rows inspected against listed source/data evidence"
+    },
+    {
+      "change": "replace",
+      "old_lines": [
+        389,
+        389
+      ],
+      "new_lines": [
+        395,
+        397
+      ],
+      "old": [
+        "训练配置的可追溯性不等于充分公平调参。本文没有为全部方法开展同规模超参数搜索，残差注意力的固定点集较少，PirateNet 省略了一项初始化，SOAP 使用规定的双精度适配版本。相同的梯度调用上限和名义 L-BFGS 上限也不保证相同的运行时间、内部迭代或计算成本。因此，本文的比较适合说明所列配置的具体表现及同架构叠加效果，不能作为所有实现、预算与最佳调参情形的方法排名。[E01,E03,E04]"
+      ],
+      "new": [
+        "训练配置的可追溯性不等于充分公平调参。本文没有为全部方法开展同规模超参数搜索，RBA本地变体的体、两端边界及初值固定点集均较少，且权重初始化和更新次序不同于所读原文算法，PirateNet 省略了一项初始化，SOAP 使用规定的双精度适配版本。相同的梯度调用上限和名义 L-BFGS 上限也不保证相同的运行时间、内部迭代或计算成本。因此，本文的比较适合说明所列配置的具体表现及同架构叠加效果，不能作为所有实现、预算与最佳调参情形的方法排名。[E01,E03,E04]",
+        "",
+        "历史Adam确认与本机SOAP64的执行环境及软件版本不同，因此六臂跨组精度差也不能单独归因于优化器，不能称为同环境的优化器公平排名。修订6的主要叠加判据只比较同批本机SOAP64内的硬初值与硬初值加层，回答该固定实现中的叠加性。名义预算一致与执行环境不同需要同时披露。[E03,E04]"
+      ],
+      "review_scope": "all changed/new prose and appendix rows inspected against listed source/data evidence"
+    },
+    {
+      "change": "replace",
+      "old_lines": [
+        433,
+        433
+      ],
+      "new_lines": [
+        441,
+        441
+      ],
+      "old": [
+        "题录与阅读版本的对应关系见引用上下文表。Favini等仅用于其出版社摘要可支持的经典研究背景，不引述未读证明；部分期刊条目的核心方法核验采用可访问作者稿。SOAP明确引用八作者的arXiv第2版，不将其题名和作者与ICLR终稿混合。"
+      ],
+      "new": [
+        "题录与阅读版本的对应关系见 `../process/working_revised1/citation_contexts.md`。Favini等仅用于其出版社摘要可支持的经典研究背景，不引述未读证明；部分期刊条目的核心方法核验采用可访问作者稿。RBA期刊题录的发表年为2024，本次所读缓存为arXiv:2307.00379v2，修订日期2026-08-22，并另核对2023年的v1核心公式与Algorithm 1；两版范围差异及本地实现见附录C。SOAP明确引用八作者的arXiv第2版，不将其题名和作者与ICLR终稿混合。"
+      ],
+      "review_scope": "all changed/new prose and appendix rows inspected against listed source/data evidence"
+    },
+    {
+      "change": "insert",
+      "old_lines": [
+        445,
+        444
+      ],
+      "new_lines": [
+        453,
+        455
+      ],
+      "old": [],
+      "new": [
+        "| E10 | 修订1实现、全筛选及引用版本核查 | `../process/working_revised1/source_checks.json`、`numeric_checks.json`、`citation_contexts.md`、`revise_working.py` | 只读重聚合176份旧JSON，其中筛选30份；参考自检复用历史记录；不含新训练 |",
+        "| E11 | 半直线辅助层时间导数示意 | `../figures/analytic_layer.png`、`analytic_layer.pdf`、`analytic_layer_data.csv`、`analytic_layer_evidence.json`、`plot_analytic_layer.py` | 解析辅助函数作图，C=0.3；不是完整PDE解或实验性能证据 |",
+        "| E12 | 历史保存模型复算与日志边界 | `../integrity/working_20261023/HISTORICAL_EXECUTION_SCOPE.md`及`historical_execution_scope.json` | 130＋24＋22项保存复算及398产物当前哈希绑定；本轮补查未重放176模型，不证明全历史零警告 |"
+      ],
+      "review_scope": "all changed/new prose and appendix rows inspected against listed source/data evidence"
+    },
+    {
+      "change": "insert",
+      "old_lines": [
+        447,
+        446
+      ],
+      "new_lines": [
+        458,
+        545
+      ],
+      "old": [],
+      "new": [
+        "",
+        "## 附录A 固定实现参数（工作稿附件，不计正文字数）",
+        "",
+        "以下数值描述实际代码路径及已保存配置。完整预算、筛选预算和待纳入结果的修订6计划分别列明。`nb` 均指每一个端点的点数，硬初值方法不计算初值损失。RBA有效点数以控制流为准，不能仅从JSON的通用 `*_fixed` 字段读取。[E01,E04,E10]",
+        "",
+        "| 项目 | 实际取值或规则 | 对应范围与来源 |",
+        "|---|---|---|",
+        "| 普通MLP | 输入(x,t)；4个隐藏层、每层64、tanh；Xavier normal权重、零偏置；float64 | `pinn1d.py` 的MLP及Model |",
+        "| 随机数与采样 | 网络种子为运行seed，采样生成器种子为1000+seed；体空间与时间均匀抽样，边界时间均匀抽样；原比较 `t_refine=0` | `pinn1d.py` 的train/draw；不包含另行计划的早期加密采样 |",
+        "| 完整预算 Adam | 20000次梯度调用；学习率0.001至0.00001，逐调用指数调度；体4096、每端256、初值256 | 确认、新初值、参数轴和架构叠加对应配置 |",
+        "| 完整预算 L-BFGS | 名义上限3000；普通方法另取固定体8192、每端512、初值512 | RBA例外见下一行；名义上限不同于内部实际迭代 |",
+        "| 完整预算 RBA点集 | Adam开始取一次体4096、每端256、初值256；两个阶段持续复用全部点 | 四类残差都使用逐点权重，L-BFGS冻结权重 |",
+        "| 原筛选预算 | Adam4000次，体2048、每端128、初值256；L-BFGS名义上限500，普通方法固定体4096、每端256、初值512；seed为0和1 | RBA在两个阶段复用体2048、每端128、初值256的整个Adam固定点集 |",
+        "| RBA权重 | 每个分量各自初始化λ=1；γ=0.999、η=0.01；分量内部最大绝对残差的分母下截断为10⁻³⁰⁰ | 每个分量的损失为mean((λr)²)，再对四个分量求和；不是mean(λr²) |",
+        "| RBA更新次序 | 用θₖ和λₖ计算损失，反传并更新网络及学习率，再用已计算的r(θₖ)更新λₖ₊₁ | 不在网络更新后重新计算残差；完整规则见下式 |",
+        "| 因果训练 | ε固定为1或10，32箱；体、左端、右端分别分箱与加权；权重不参与梯度 | `causal1`、`causal10`；不是原文完整退火流程；初值残差如存在则保持普通均方 |",
+        "| PirateNet本地变体 | width64、3残差块；Fourier scale=1.0，B为2×32标准正态矩阵；嵌入为cos(zB)、sin(zB)，不额外乘2π；可学习跳连系数初值0 | 不采用原文物理信息最小二乘输出初始化 |",
+        "| 衰减时间τ | 主参数0.1；修订6另外预定0.03、0.3，主参数旧结果只读复用 | 此表是计划与配置披露，灵敏度完整结果仍待第4.5节 |",
+        "| L-BFGS内部参数 | lr=1，max_iter=50/块，history_size=50，line_search_fn=strong_wolfe，tolerance_grad=10⁻¹⁴，tolerance_change=10⁻¹⁶ | 外部每次调用将名义计数加50，内部可能提前终止 |",
+        "| L-BFGS块间停止 | L_new≥L_prev(1−10⁻⁹)时停止；恢复时也先检查既有相邻块损失；否则到名义预算停止 | `pinn1d.py`；不能用名义预算替代实际迭代/closure计数 |",
+        "| 参考时间积分 | scipy `solve_ivp(method='Radau', rtol=1e-12, atol=1e-13, dense_output=True)` | `problems.py`；空间Chebyshev，左端Neumann消元、右端动态ODE |",
+        "| 参考分辨率与求积 | 原自检N48/N96、最大差≤10⁻⁸；常规评估N64/200点Gauss–Legendre；新产物加密复算N96/400点 | 仅支持预定五时刻，早期连续时间精度未由此验证 |",
+        "| 修订6 SOAP64计划 | `soap_official64`；betas=(0.95,0.95)，shampoo_beta=0.95，预条件频率10，weight_decay=0；学习率0.001至0.00001 | 20000次梯度调用、首次仅初始化即19999次参数更新；完整18次结果仍待第4.6节 |",
+        "",
+        "对RBA的每一残差分量q及其固定点i，本地实现为",
+        "",
+        "\\[",
+        "L_k=\\sum_q\\operatorname{mean}_i[(\\lambda_{q,i}^{(k)}r_{q,i}(\\theta_k))^2],\\qquad",
+        "\\theta_{k+1}=\\operatorname{AdamStep}(\\theta_k,\\nabla_\\theta L_k),",
+        "\\]",
+        "\\[",
+        "\\lambda_{q,i}^{(0)}=1,\\qquad",
+        "\\lambda_{q,i}^{(k+1)}=0.999\\lambda_{q,i}^{(k)}",
+        "+0.01\\frac{|r_{q,i}(\\theta_k)|}{\\max\\{\\max_j|r_{q,j}(\\theta_k)|,10^{-300}\\}}.",
+        "\\]",
+        "",
+        "对于因果训练，时间箱编号为min(floor(32t),31)。每个分量先分别计算箱内均方残差，空箱计数下截断为1，其箱损失为0；第k箱的权重为exp(−ε∑_{j<k}L_j)，以停止梯度的方式乘箱损失后对32箱取平均。三个时变残差分量分别得到上述平均后相加，不能替换成先合并三个分量再计算共同权重。[E10]",
+        "",
+        "历史复算来源分别为130项既有模型审查、24项小预算模型复核及22项第一阶段新增模型复核，包含原设置和加密设置的体、迹误差记录。独立补查对398个结果与权重文件核对当前哈希，而未重新运行176个模型。部分历史生产进程的逐次退出码和完整警告信息未留存，两个已保存测试日志分别记录63项与71项测试通过、各有1条张量转标量的测试断言警告，不能改称全历史零警告。旧130项的训练源码哈希与当前源码不同，也不能倒称全部历史运行均由当前代码完成。E4中20项历史模型缺少表面权重，仍只支持体与迹。上述范围和逐结果映射见E12所指补充审查。[E12]",
+        "",
+        "## 附录B 原始筛选的全部结果与原门槛（工作稿附件，不计正文字数）",
+        "",
+        "本附录覆盖原3方程×5种构造×2种子，共30次既有运行。E1、E3定义见表1；E2为D=0.01、c=0.3、R(u)=u−u³、G(u)=u、f(x)=0.5cos(πx)，左端条件和时间范围不变。筛选预算见附录A。`layer` 表示普通网络加解析层、初值仍采用软损失；`hardic+layer` 为式（12）。各seed列均先在五个预定时刻取最大值，两个种子时中位数等于两值平均。本表不合并进正式三种子表，也不从两个样本估计总体概率。[E01,E05,E10]",
+        "",
+        "表B1　全部原筛选的逐种子最大误差。原文件方法标记 `rba` 在此写为RBA本地变体。",
+        "",
+        "| 问题 | 方法 | 体seed 0 | 体seed 1 | 体中位数 | 迹seed 0 | 迹seed 1 | 迹中位数 |",
+        "|---|---|---:|---:|---:|---:|---:|---:|",
+        "| E1_heat | vanilla | 2.4334957e-01 | 1.8775860e-01 | 2.1555409e-01 | 8.5307696e-01 | 6.2464530e-01 | 7.3886113e-01 |",
+        "| E1_heat | hardic | 3.7803255e-02 | 2.2123814e-02 | 2.9963534e-02 | 1.0710426e-01 | 1.2914974e-01 | 1.1812700e-01 |",
+        "| E1_heat | RBA本地变体 | 7.5862969e-02 | 6.1740135e-02 | 6.8801552e-02 | 2.8112978e-01 | 2.2222895e-01 | 2.5167936e-01 |",
+        "| E1_heat | layer | 2.4726565e-02 | 5.4753470e-02 | 3.9740018e-02 | 1.0422488e-01 | 1.8214708e-01 | 1.4318598e-01 |",
+        "| E1_heat | hardic+layer | 1.1343140e-02 | 9.4230175e-03 | 1.0383079e-02 | 2.3658828e-02 | 1.1997781e-02 | 1.7828304e-02 |",
+        "| E2_allen_cahn | vanilla | 1.5086918e-02 | 1.2811596e-02 | 1.3949257e-02 | 9.5525918e-02 | 8.5559721e-02 | 9.0542819e-02 |",
+        "| E2_allen_cahn | hardic | 1.8866398e-03 | 2.0740537e-03 | 1.9803467e-03 | 1.1958713e-03 | 1.7080099e-03 | 1.4519406e-03 |",
+        "| E2_allen_cahn | RBA本地变体 | 8.2538643e-03 | 5.8087216e-03 | 7.0312930e-03 | 4.2913054e-02 | 1.7001159e-02 | 2.9957107e-02 |",
+        "| E2_allen_cahn | layer | 2.3993588e-03 | 3.7894152e-03 | 3.0943870e-03 | 9.8044067e-03 | 1.5804697e-02 | 1.2804552e-02 |",
+        "| E2_allen_cahn | hardic+layer | 1.9428936e-03 | 1.0327136e-03 | 1.4878036e-03 | 2.8110560e-03 | 1.7173257e-03 | 2.2641908e-03 |",
+        "| E3_fisher | vanilla | 1.5237957e-01 | 6.0711891e-02 | 1.0654573e-01 | 3.7147488e-01 | 1.6315489e-01 | 2.6731489e-01 |",
+        "| E3_fisher | hardic | 4.8022461e-03 | 7.5192610e-03 | 6.1607536e-03 | 4.9330303e-03 | 2.0221362e-02 | 1.2577196e-02 |",
+        "| E3_fisher | RBA本地变体 | 6.5804456e-02 | 4.2459295e-02 | 5.4131875e-02 | 1.3089115e-01 | 5.4567903e-02 | 9.2729529e-02 |",
+        "| E3_fisher | layer | 6.2243674e-02 | 5.1660608e-03 | 3.3704867e-02 | 6.6622102e-02 | 9.4043990e-03 | 3.8013250e-02 |",
+        "| E3_fisher | hardic+layer | 1.7243286e-03 | 2.0343101e-03 | 1.8793193e-03 | 1.6250539e-03 | 1.4155129e-03 | 1.5202834e-03 |",
+        "",
+        "原门槛是同时满足三项：参考N48/N96自检最大差≤10⁻⁸；普通网络体误差中位数>0.01；hardic与RBA中的较低体误差中位数，除以layer与hardic+layer中的较低体误差中位数，所得比值≥3。迹误差不参与该入选规则。这里保留原规则，没有根据完整预算结果调整三倍线。[E01,E10]",
+        "",
+        "表B2　逐方程原筛选门槛。参考列复用2026-10-21已有的自检记录，本次未重新积分参考解；训练指标由原30份JSON重新聚合。",
+        "",
+        "| 问题 | N48/N96历史最大体差 | vanilla体中位数 | 较好基线 | 较好候选 | 基线/候选比 | 原筛选入选 |",
+        "|---|---:|---:|---|---|---:|---|",
+        "| E1_heat | 1.1890489e-12 | 2.1555409e-01 | hardic | hardic+layer | 2.88580 | 否 |",
+        "| E2_allen_cahn | 3.2917052e-10 | 1.3949257e-02 | hardic | hardic+layer | 1.33105 | 否 |",
+        "| E3_fisher | 6.6413541e-13 | 1.0654573e-01 | hardic | hardic+layer | 3.27818 | 是 |",
+        "",
+        "三个方程的参考自检及普通网络门槛均满足，只有E3的收益比满足三倍线。E1原筛选未入选，随后依照已看过筛选结果、确认训练尚未启动时追加的修订1，检验扩大预算后的表现；该新增实验不追改原入选状态。E2未进入主确认。全部原JSON的路径与SHA256、精确值及门槛布尔值见 `../process/working_revised1/numeric_checks.json`。本次复核仅是文件和统计重聚合，不等同重新训练。[E01,E10]",
+        "",
+        "## 附录C RBA题录、阅读版本与本地差异（工作稿附件，不计正文字数）",
+        "",
+        "文献[9]的期刊题录保留2024年。实际阅读缓存为arXiv:2307.00379v2（2026-08-22），其公式（12）和Algorithm 1用于核查按归一化残差历史累积逐点权重的核心表述。另对arXiv v1（2023）的公式（9）与Algorithm 1作版本交叉核对。阅读较新的作者稿不能写成已逐字核对2024年出版PDF。[E10]",
+        "",
+        "| 项目 | arXiv v1（2023） | 所读arXiv v2（2026-08-22） | 本文实际本地变体 |",
+        "|---|---|---|---|",
+        "| 原文展示的加权范围 | PDE残差逐点加权，边界与初值另外构成损失 | 扩展为多个残差损失项的逐点加权 | 本题体、左边界、右动态边界、初值四类残差分别加权 |",
+        "| Algorithm 1的初始权重 | λ₀=0 | λ₀=0；正文另说明首步采用η的选择 | 四类λ₀=1 |",
+        "| Algorithm 1的更新顺序 | 先更新注意力，再更新网络 | 先更新注意力，再更新网络 | 先更新网络，再用本步更新前已计算的残差更新注意力 |",
+        "| 支持的共同引用命题 | 归一化残差历史形成逐点注意力 | 归一化残差历史形成逐点注意力 | 使用该思想；完整点集、损失平方、初始化及次序按附录A披露 |",
+        "",
+        "以上差异说明本文比较对象是披露配置的RBA本地变体，不构成对原文完整网络、边界处理、权重策略及调参结果的严格复现。版本信息与核心公式交叉核查不修改已有运行，也不改变原报告的误差值。[E10]"
+      ],
+      "review_scope": "all changed/new prose and appendix rows inspected against listed source/data evidence"
+    }
+  ],
+  "change_hunk_count": 14,
+  "new_or_replaced_lines": 110,
+  "old_six_main_tables": [
+    {
+      "table": 1,
+      "old_start": 221,
+      "new_start": 225,
+      "data_rows": 2,
+      "all_numeric_cells_unchanged": true,
+      "label_only_change": null
+    },
+    {
+      "table": 2,
+      "old_start": 276,
+      "new_start": 280,
+      "data_rows": 8,
+      "all_numeric_cells_unchanged": true,
+      "label_only_change": "rba -> RBA本地变体"
+    },
+    {
+      "table": 3,
+      "old_start": 295,
+      "new_start": 301,
+      "data_rows": 6,
+      "all_numeric_cells_unchanged": true,
+      "label_only_change": null
+    },
+    {
+      "table": 4,
+      "old_start": 314,
+      "new_start": 320,
+      "data_rows": 4,
+      "all_numeric_cells_unchanged": true,
+      "label_only_change": null
+    },
+    {
+      "table": 5,
+      "old_start": 329,
+      "new_start": 335,
+      "data_rows": 8,
+      "all_numeric_cells_unchanged": true,
+      "label_only_change": null
+    },
+    {
+      "table": 6,
+      "old_start": 354,
+      "new_start": 360,
+      "data_rows": 6,
+      "all_numeric_cells_unchanged": true,
+      "label_only_change": null
+    }
+  ],
+  "Stage6_gaps": [
+    {
+      "line": 350,
+      "text": "[MATERIAL GAP：等待修订6的12次新训练及全部重新加载、加密参考和独立残差核验。此处将并列三个预先固定的衰减参数档位、全部种子、各档中位数及范围，报告相对于主配置的比值和跨档中位数最大最小比。主配置保持0.1，不选择最低误差档，不设置事后的“鲁棒通过线”。]",
+      "unchanged": true
+    },
+    {
+      "line": 354,
+      "text": "[MATERIAL GAP：等待修订6的18次完整训练与数值复核。此处将报告 Adam 与固定 SOAP64 六臂默认配置，并按预先登记的 S6-SOAP 条件描述是否满足本批叠加判据。原小预算 G2 失败不改，不填写旧零结果标签，不将待完成结果解释为优化器无关性。]",
+      "unchanged": true
+    }
+  ],
+  "original_13_bibliography_entries_byte_text_unchanged": true,
+  "screen_raw_rows": [
+    {
+      "path": "runs/screen/E1_heat/hardic_layer_s0.json",
+      "sha256": "ed6d8121759550574735e0818e32a64bda24d0277afddbe731cddadc7e5692ff",
+      "job": [
+        "E1_heat",
+        "hardic+layer",
+        0
+      ],
+      "max_vol": 0.011343140111957058,
+      "max_trace": 0.023658827948464956,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E1_heat/hardic_layer_s1.json",
+      "sha256": "546c549c695dc07d3100697975f3f71eee8669b2b867c90f75dc79b99334e067",
+      "job": [
+        "E1_heat",
+        "hardic+layer",
+        1
+      ],
+      "max_vol": 0.009423017508947409,
+      "max_trace": 0.011997780840870427,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E1_heat/hardic_s0.json",
+      "sha256": "c5571ada9d49b3f9c3d757753c1e723674c317236838e2b4ded1d146b204fa8f",
+      "job": [
+        "E1_heat",
+        "hardic",
+        0
+      ],
+      "max_vol": 0.0378032545130698,
+      "max_trace": 0.10710425540242767,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E1_heat/hardic_s1.json",
+      "sha256": "f174be5c3a09161435d3d814fc352f57619572e093555bd11e01502a3b460870",
+      "job": [
+        "E1_heat",
+        "hardic",
+        1
+      ],
+      "max_vol": 0.022123814142946813,
+      "max_trace": 0.1291497395585494,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E1_heat/layer_s0.json",
+      "sha256": "0c549912e23dd2bfbfc7235ff559514cee45b4fa9937435b0b1101e53524177f",
+      "job": [
+        "E1_heat",
+        "layer",
+        0
+      ],
+      "max_vol": 0.02472656462628811,
+      "max_trace": 0.1042248836770186,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E1_heat/layer_s1.json",
+      "sha256": "b030d8cd8c977191691aaaf9ac69dea0e960c49eeb373f8b203f0c64873bf972",
+      "job": [
+        "E1_heat",
+        "layer",
+        1
+      ],
+      "max_vol": 0.05475347049490037,
+      "max_trace": 0.18214708315187197,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E1_heat/rba_s0.json",
+      "sha256": "8f3892e7d296f45fab2735d1b132bed259505de1ca656357ad57b24433a252cc",
+      "job": [
+        "E1_heat",
+        "rba",
+        0
+      ],
+      "max_vol": 0.07586296939746334,
+      "max_trace": 0.2811297755972745,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E1_heat/rba_s1.json",
+      "sha256": "15ea118db5fd91bc44631b49e8de45ad2eca39208dde78981fc38ddfd4e5f05f",
+      "job": [
+        "E1_heat",
+        "rba",
+        1
+      ],
+      "max_vol": 0.06174013515948823,
+      "max_trace": 0.2222289494606287,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E1_heat/vanilla_s0.json",
+      "sha256": "d79ba741adc082a2b567bb14a07abb9c951f72f4961e9e172a8b7ea58fb67752",
+      "job": [
+        "E1_heat",
+        "vanilla",
+        0
+      ],
+      "max_vol": 0.24334956814789882,
+      "max_trace": 0.8530769619575553,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E1_heat/vanilla_s1.json",
+      "sha256": "57c1f5b856df90d2c8d9ec0434901e33e1ef07a067a836f8ef289e3ce83b30f8",
+      "job": [
+        "E1_heat",
+        "vanilla",
+        1
+      ],
+      "max_vol": 0.1877586047381538,
+      "max_trace": 0.6246453025463868,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E2_allen_cahn/hardic_layer_s0.json",
+      "sha256": "fc9dd5573bad2e9fe18a24835e69ae12af75f25aa59284d3756c9e1adf6cd73f",
+      "job": [
+        "E2_allen_cahn",
+        "hardic+layer",
+        0
+      ],
+      "max_vol": 0.0019428936118749962,
+      "max_trace": 0.0028110559595377906,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E2_allen_cahn/hardic_layer_s1.json",
+      "sha256": "fbf8f25f45d20f9fbd03076d7469041da5b4d42dd5370c48170e39bbeed715f2",
+      "job": [
+        "E2_allen_cahn",
+        "hardic+layer",
+        1
+      ],
+      "max_vol": 0.0010327135917878366,
+      "max_trace": 0.001717325653549255,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E2_allen_cahn/hardic_s0.json",
+      "sha256": "076644d3556999d6de22aa8d66da34eef951f043a92381fabe1a6435c576a87f",
+      "job": [
+        "E2_allen_cahn",
+        "hardic",
+        0
+      ],
+      "max_vol": 0.0018866397598323414,
+      "max_trace": 0.0011958712558882633,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E2_allen_cahn/hardic_s1.json",
+      "sha256": "0a8c1dd307084ac9f31c873677dac330570625e56ecf1ba8e7a28b9db6d6ec90",
+      "job": [
+        "E2_allen_cahn",
+        "hardic",
+        1
+      ],
+      "max_vol": 0.0020740537135795355,
+      "max_trace": 0.0017080099095167056,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E2_allen_cahn/layer_s0.json",
+      "sha256": "7ad604ed7c0fd0ce438d5c0a563e47f6b3f7349699d456eccb42294d58eb3ba1",
+      "job": [
+        "E2_allen_cahn",
+        "layer",
+        0
+      ],
+      "max_vol": 0.0023993587986455415,
+      "max_trace": 0.009804406651122165,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E2_allen_cahn/layer_s1.json",
+      "sha256": "ad99d15eadc30ab3f6fb82dffb08e38e9597c9588803332811813de152c74689",
+      "job": [
+        "E2_allen_cahn",
+        "layer",
+        1
+      ],
+      "max_vol": 0.0037894151691763556,
+      "max_trace": 0.015804696527667972,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E2_allen_cahn/rba_s0.json",
+      "sha256": "9782bc2c374dcc634356b24d463473655e3deb1773b10fe031c8e7d0b7df51f9",
+      "job": [
+        "E2_allen_cahn",
+        "rba",
+        0
+      ],
+      "max_vol": 0.008253864294426563,
+      "max_trace": 0.042913054097046405,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E2_allen_cahn/rba_s1.json",
+      "sha256": "8ec6ca254869383940d18b87df82e59965aff694e9afe6424babfe5d7510177b",
+      "job": [
+        "E2_allen_cahn",
+        "rba",
+        1
+      ],
+      "max_vol": 0.005808721633465431,
+      "max_trace": 0.017001159265019914,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E2_allen_cahn/vanilla_s0.json",
+      "sha256": "fba4aca0898f70516c9efc1d4e7883b57a7b5d13035ff841bae06f30aee681a2",
+      "job": [
+        "E2_allen_cahn",
+        "vanilla",
+        0
+      ],
+      "max_vol": 0.015086917833472518,
+      "max_trace": 0.09552591762608967,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E2_allen_cahn/vanilla_s1.json",
+      "sha256": "9a5216e48b07fa6a39a4c42b26b1082a51941eac5812e7ba355a2faa9157584e",
+      "job": [
+        "E2_allen_cahn",
+        "vanilla",
+        1
+      ],
+      "max_vol": 0.012811595612969635,
+      "max_trace": 0.08555972107833607,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E3_fisher/hardic_layer_s0.json",
+      "sha256": "3fbff579741eb0e32fda8ca296d99e0a243404c073414f3b0f292c96b709dc94",
+      "job": [
+        "E3_fisher",
+        "hardic+layer",
+        0
+      ],
+      "max_vol": 0.001724328564240677,
+      "max_trace": 0.0016250539390173801,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E3_fisher/hardic_layer_s1.json",
+      "sha256": "0d4b1d6a702fee0633545c1b28838296dcab3d0749b4cf8d981f4d4d8efd68dc",
+      "job": [
+        "E3_fisher",
+        "hardic+layer",
+        1
+      ],
+      "max_vol": 0.0020343100821192187,
+      "max_trace": 0.0014155129056379445,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E3_fisher/hardic_s0.json",
+      "sha256": "1a42405734b1f5f1f8f7fb56cc0eb0cb99e9502369b51a9d91ea7df1379d69fd",
+      "job": [
+        "E3_fisher",
+        "hardic",
+        0
+      ],
+      "max_vol": 0.00480224612599068,
+      "max_trace": 0.004933030313365851,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E3_fisher/hardic_s1.json",
+      "sha256": "065fb1e6dfa418cefe014aa349c4e664374b0e3779bce6b939c0ab5ed5833450",
+      "job": [
+        "E3_fisher",
+        "hardic",
+        1
+      ],
+      "max_vol": 0.007519260989774724,
+      "max_trace": 0.02022136160050864,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E3_fisher/layer_s0.json",
+      "sha256": "3bbcb997a029801b800803f60b0fa85f7b046296cbd39f8becf1a5e1de61bddd",
+      "job": [
+        "E3_fisher",
+        "layer",
+        0
+      ],
+      "max_vol": 0.062243674096285506,
+      "max_trace": 0.0666221015800187,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E3_fisher/layer_s1.json",
+      "sha256": "5abf53f89143017bb6c3ebcaaf238fbf2ece167890713eebf08e70f0cbe60c2f",
+      "job": [
+        "E3_fisher",
+        "layer",
+        1
+      ],
+      "max_vol": 0.005166060758779642,
+      "max_trace": 0.009404398981717963,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E3_fisher/rba_s0.json",
+      "sha256": "32a1fa9783985e8ab50ca1535feaa7c119b1034e03843155681c14ad0890efae",
+      "job": [
+        "E3_fisher",
+        "rba",
+        0
+      ],
+      "max_vol": 0.06580445602773358,
+      "max_trace": 0.130891154311518,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E3_fisher/rba_s1.json",
+      "sha256": "39731a177c40e81c0e034a6e626befdb594826e658e19aa3f280ab23a7a9c5f3",
+      "job": [
+        "E3_fisher",
+        "rba",
+        1
+      ],
+      "max_vol": 0.04245929454977482,
+      "max_trace": 0.054567902852315574,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E3_fisher/vanilla_s0.json",
+      "sha256": "10d571b8dc3aa9ff12ea5e311911e131ad1e379164539fc9f4138ada2f2c50e0",
+      "job": [
+        "E3_fisher",
+        "vanilla",
+        0
+      ],
+      "max_vol": 0.15237957308685304,
+      "max_trace": 0.37147487924098294,
+      "screen_config_matches_appendix": true
+    },
+    {
+      "path": "runs/screen/E3_fisher/vanilla_s1.json",
+      "sha256": "6d2637960c88eaa338b1c117061047c4252b63ae1ee02ce640b97c903f9c4792",
+      "job": [
+        "E3_fisher",
+        "vanilla",
+        1
+      ],
+      "max_vol": 0.060711890589844185,
+      "max_trace": 0.1631548925882843,
+      "screen_config_matches_appendix": true
+    }
+  ],
+  "screen_B1_checks": [
+    {
+      "line": 506,
+      "equation": "E1_heat",
+      "method": "vanilla",
+      "displayed": [
+        "2.4334957e-01",
+        "1.8775860e-01",
+        "2.1555409e-01",
+        "8.5307696e-01",
+        "6.2464530e-01",
+        "7.3886113e-01"
+      ],
+      "independent_values": [
+        0.24334956814789882,
+        0.1877586047381538,
+        0.21555408644302632,
+        0.8530769619575553,
+        0.6246453025463868,
+        0.7388611322519711
+      ],
+      "all_6_numeric_cells_match": true,
+      "sources": [
+        "runs/screen/E1_heat/vanilla_s0.json",
+        "runs/screen/E1_heat/vanilla_s1.json"
+      ]
+    },
+    {
+      "line": 507,
+      "equation": "E1_heat",
+      "method": "hardic",
+      "displayed": [
+        "3.7803255e-02",
+        "2.2123814e-02",
+        "2.9963534e-02",
+        "1.0710426e-01",
+        "1.2914974e-01",
+        "1.1812700e-01"
+      ],
+      "independent_values": [
+        0.0378032545130698,
+        0.022123814142946813,
+        0.029963534328008308,
+        0.10710425540242767,
+        0.1291497395585494,
+        0.11812699748048852
+      ],
+      "all_6_numeric_cells_match": true,
+      "sources": [
+        "runs/screen/E1_heat/hardic_s0.json",
+        "runs/screen/E1_heat/hardic_s1.json"
+      ]
+    },
+    {
+      "line": 508,
+      "equation": "E1_heat",
+      "method": "rba",
+      "displayed": [
+        "7.5862969e-02",
+        "6.1740135e-02",
+        "6.8801552e-02",
+        "2.8112978e-01",
+        "2.2222895e-01",
+        "2.5167936e-01"
+      ],
+      "independent_values": [
+        0.07586296939746334,
+        0.06174013515948823,
+        0.06880155227847579,
+        0.2811297755972745,
+        0.2222289494606287,
+        0.2516793625289516
+      ],
+      "all_6_numeric_cells_match": true,
+      "sources": [
+        "runs/screen/E1_heat/rba_s0.json",
+        "runs/screen/E1_heat/rba_s1.json"
+      ]
+    },
+    {
+      "line": 509,
+      "equation": "E1_heat",
+      "method": "layer",
+      "displayed": [
+        "2.4726565e-02",
+        "5.4753470e-02",
+        "3.9740018e-02",
+        "1.0422488e-01",
+        "1.8214708e-01",
+        "1.4318598e-01"
+      ],
+      "independent_values": [
+        0.02472656462628811,
+        0.05475347049490037,
+        0.03974001756059424,
+        0.1042248836770186,
+        0.18214708315187197,
+        0.14318598341444527
+      ],
+      "all_6_numeric_cells_match": true,
+      "sources": [
+        "runs/screen/E1_heat/layer_s0.json",
+        "runs/screen/E1_heat/layer_s1.json"
+      ]
+    },
+    {
+      "line": 510,
+      "equation": "E1_heat",
+      "method": "hardic+layer",
+      "displayed": [
+        "1.1343140e-02",
+        "9.4230175e-03",
+        "1.0383079e-02",
+        "2.3658828e-02",
+        "1.1997781e-02",
+        "1.7828304e-02"
+      ],
+      "independent_values": [
+        0.011343140111957058,
+        0.009423017508947409,
+        0.010383078810452234,
+        0.023658827948464956,
+        0.011997780840870427,
+        0.01782830439466769
+      ],
+      "all_6_numeric_cells_match": true,
+      "sources": [
+        "runs/screen/E1_heat/hardic_layer_s0.json",
+        "runs/screen/E1_heat/hardic_layer_s1.json"
+      ]
+    },
+    {
+      "line": 511,
+      "equation": "E2_allen_cahn",
+      "method": "vanilla",
+      "displayed": [
+        "1.5086918e-02",
+        "1.2811596e-02",
+        "1.3949257e-02",
+        "9.5525918e-02",
+        "8.5559721e-02",
+        "9.0542819e-02"
+      ],
+      "independent_values": [
+        0.015086917833472518,
+        0.012811595612969635,
+        0.013949256723221077,
+        0.09552591762608967,
+        0.08555972107833607,
+        0.09054281935221287
+      ],
+      "all_6_numeric_cells_match": true,
+      "sources": [
+        "runs/screen/E2_allen_cahn/vanilla_s0.json",
+        "runs/screen/E2_allen_cahn/vanilla_s1.json"
+      ]
+    },
+    {
+      "line": 512,
+      "equation": "E2_allen_cahn",
+      "method": "hardic",
+      "displayed": [
+        "1.8866398e-03",
+        "2.0740537e-03",
+        "1.9803467e-03",
+        "1.1958713e-03",
+        "1.7080099e-03",
+        "1.4519406e-03"
+      ],
+      "independent_values": [
+        0.0018866397598323414,
+        0.0020740537135795355,
+        0.0019803467367059385,
+        0.0011958712558882633,
+        0.0017080099095167056,
+        0.0014519405827024844
+      ],
+      "all_6_numeric_cells_match": true,
+      "sources": [
+        "runs/screen/E2_allen_cahn/hardic_s0.json",
+        "runs/screen/E2_allen_cahn/hardic_s1.json"
+      ]
+    },
+    {
+      "line": 513,
+      "equation": "E2_allen_cahn",
+      "method": "rba",
+      "displayed": [
+        "8.2538643e-03",
+        "5.8087216e-03",
+        "7.0312930e-03",
+        "4.2913054e-02",
+        "1.7001159e-02",
+        "2.9957107e-02"
+      ],
+      "independent_values": [
+        0.008253864294426563,
+        0.005808721633465431,
+        0.007031292963945997,
+        0.042913054097046405,
+        0.017001159265019914,
+        0.029957106681033158
+      ],
+      "all_6_numeric_cells_match": true,
+      "sources": [
+        "runs/screen/E2_allen_cahn/rba_s0.json",
+        "runs/screen/E2_allen_cahn/rba_s1.json"
+      ]
+    },
+    {
+      "line": 514,
+      "equation": "E2_allen_cahn",
+      "method": "layer",
+      "displayed": [
+        "2.3993588e-03",
+        "3.7894152e-03",
+        "3.0943870e-03",
+        "9.8044067e-03",
+        "1.5804697e-02",
+        "1.2804552e-02"
+      ],
+      "independent_values": [
+        0.0023993587986455415,
+        0.0037894151691763556,
+        0.0030943869839109486,
+        0.009804406651122165,
+        0.015804696527667972,
+        0.012804551589395068
+      ],
+      "all_6_numeric_cells_match": true,
+      "sources": [
+        "runs/screen/E2_allen_cahn/layer_s0.json",
+        "runs/screen/E2_allen_cahn/layer_s1.json"
+      ]
+    },
+    {
+      "line": 515,
+      "equation": "E2_allen_cahn",
+      "method": "hardic+layer",
+      "displayed": [
+        "1.9428936e-03",
+        "1.0327136e-03",
+        "1.4878036e-03",
+        "2.8110560e-03",
+        "1.7173257e-03",
+        "2.2641908e-03"
+      ],
+      "independent_values": [
+        0.0019428936118749962,
+        0.0010327135917878366,
+        0.0014878036018314165,
+        0.0028110559595377906,
+        0.001717325653549255,
+        0.002264190806543523
+      ],
+      "all_6_numeric_cells_match": true,
+      "sources": [
+        "runs/screen/E2_allen_cahn/hardic_layer_s0.json",
+        "runs/screen/E2_allen_cahn/hardic_layer_s1.json"
+      ]
+    },
+    {
+      "line": 516,
+      "equation": "E3_fisher",
+      "method": "vanilla",
+      "displayed": [
+        "1.5237957e-01",
+        "6.0711891e-02",
+        "1.0654573e-01",
+        "3.7147488e-01",
+        "1.6315489e-01",
+        "2.6731489e-01"
+      ],
+      "independent_values": [
+        0.15237957308685304,
+        0.060711890589844185,
+        0.10654573183834862,
+        0.37147487924098294,
+        0.1631548925882843,
+        0.2673148859146336
+      ],
+      "all_6_numeric_cells_match": true,
+      "sources": [
+        "runs/screen/E3_fisher/vanilla_s0.json",
+        "runs/screen/E3_fisher/vanilla_s1.json"
+      ]
+    },
+    {
+      "line": 517,
+      "equation": "E3_fisher",
+      "method": "hardic",
+      "displayed": [
+        "4.8022461e-03",
+        "7.5192610e-03",
+        "6.1607536e-03",
+        "4.9330303e-03",
+        "2.0221362e-02",
+        "1.2577196e-02"
+      ],
+      "independent_values": [
+        0.00480224612599068,
+        0.007519260989774724,
+        0.0061607535578827016,
+        0.004933030313365851,
+        0.02022136160050864,
+        0.012577195956937246
+      ],
+      "all_6_numeric_cells_match": true,
+      "sources": [
+        "runs/screen/E3_fisher/hardic_s0.json",
+        "runs/screen/E3_fisher/hardic_s1.json"
+      ]
+    },
+    {
+      "line": 518,
+      "equation": "E3_fisher",
+      "method": "rba",
+      "displayed": [
+        "6.5804456e-02",
+        "4.2459295e-02",
+        "5.4131875e-02",
+        "1.3089115e-01",
+        "5.4567903e-02",
+        "9.2729529e-02"
+      ],
+      "independent_values": [
+        0.06580445602773358,
+        0.04245929454977482,
+        0.0541318752887542,
+        0.130891154311518,
+        0.054567902852315574,
+        0.09272952858191678
+      ],
+      "all_6_numeric_cells_match": true,
+      "sources": [
+        "runs/screen/E3_fisher/rba_s0.json",
+        "runs/screen/E3_fisher/rba_s1.json"
+      ]
+    },
+    {
+      "line": 519,
+      "equation": "E3_fisher",
+      "method": "layer",
+      "displayed": [
+        "6.2243674e-02",
+        "5.1660608e-03",
+        "3.3704867e-02",
+        "6.6622102e-02",
+        "9.4043990e-03",
+        "3.8013250e-02"
+      ],
+      "independent_values": [
+        0.062243674096285506,
+        0.005166060758779642,
+        0.03370486742753257,
+        0.0666221015800187,
+        0.009404398981717963,
+        0.038013250280868334
+      ],
+      "all_6_numeric_cells_match": true,
+      "sources": [
+        "runs/screen/E3_fisher/layer_s0.json",
+        "runs/screen/E3_fisher/layer_s1.json"
+      ]
+    },
+    {
+      "line": 520,
+      "equation": "E3_fisher",
+      "method": "hardic+layer",
+      "displayed": [
+        "1.7243286e-03",
+        "2.0343101e-03",
+        "1.8793193e-03",
+        "1.6250539e-03",
+        "1.4155129e-03",
+        "1.5202834e-03"
+      ],
+      "independent_values": [
+        0.001724328564240677,
+        0.0020343100821192187,
+        0.0018793193231799478,
+        0.0016250539390173801,
+        0.0014155129056379445,
+        0.0015202834223276623
+      ],
+      "all_6_numeric_cells_match": true,
+      "sources": [
+        "runs/screen/E3_fisher/hardic_layer_s0.json",
+        "runs/screen/E3_fisher/hardic_layer_s1.json"
+      ]
+    }
+  ],
+  "screen_B2_checks": [
+    {
+      "line": 528,
+      "equation": "E1_heat",
+      "historical_reference_value": 1.1890488593735427e-12,
+      "vanilla_median": 0.21555408644302632,
+      "best_baseline": "hardic",
+      "best_candidate": "hardic+layer",
+      "ratio": 2.8858043818222017,
+      "three_conditions": [
+        true,
+        true,
+        false
+      ],
+      "selected_by_original_gate": false,
+      "display_matches": true,
+      "reference_rerun": false
+    },
+    {
+      "line": 529,
+      "equation": "E2_allen_cahn",
+      "historical_reference_value": 3.2917052417147374e-10,
+      "vanilla_median": 0.013949256723221077,
+      "best_baseline": "hardic",
+      "best_candidate": "hardic+layer",
+      "ratio": 1.3310538664298328,
+      "three_conditions": [
+        true,
+        true,
+        false
+      ],
+      "selected_by_original_gate": false,
+      "display_matches": true,
+      "reference_rerun": false
+    },
+    {
+      "line": 530,
+      "equation": "E3_fisher",
+      "historical_reference_value": 6.641354133307686e-13,
+      "vanilla_median": 0.10654573183834862,
+      "best_baseline": "hardic",
+      "best_candidate": "hardic+layer",
+      "ratio": 3.2781834794622604,
+      "three_conditions": [
+        true,
+        true,
+        true
+      ],
+      "selected_by_original_gate": true,
+      "display_matches": true,
+      "reference_rerun": false
+    }
+  ],
+  "pair_ratio_correction": {
+    "value": 1.3545015858984064,
+    "shown": "1.35",
+    "correct": true
+  },
+  "appendix_A_source_checks": [
+    {
+      "draft_line": 465,
+      "topic": "MLP/float64",
+      "source": "pinn1d.py:21,153-166",
+      "literal_source_checks": 5,
+      "passed": true
+    },
+    {
+      "draft_line": 466,
+      "topic": "seeds/uniform sampling",
+      "source": "pinn1d.py:286-300",
+      "literal_source_checks": 4,
+      "passed": true
+    },
+    {
+      "draft_line": 468,
+      "topic": "ordinary fixed-point exception",
+      "source": "pinn1d.py:385",
+      "literal_source_checks": 1,
+      "passed": true
+    },
+    {
+      "draft_line": 469,
+      "topic": "all RBA points fixed",
+      "source": "pinn1d.py:303,367,385",
+      "literal_source_checks": 2,
+      "passed": true
+    },
+    {
+      "draft_line": 471,
+      "topic": "RBA lambda initialization/loss",
+      "source": "pinn1d.py:304-305,325,378",
+      "literal_source_checks": 3,
+      "passed": true
+    },
+    {
+      "draft_line": 472,
+      "topic": "RBA update order",
+      "source": "pinn1d.py:368-378",
+      "literal_source_checks": 5,
+      "passed": true
+    },
+    {
+      "draft_line": 473,
+      "topic": "causal components",
+      "source": "pinn1d.py:307-322",
+      "literal_source_checks": 5,
+      "passed": true
+    },
+    {
+      "draft_line": 474,
+      "topic": "Pirate Fourier/skip",
+      "source": "pinn1d.py:169-195",
+      "literal_source_checks": 4,
+      "passed": true
+    },
+    {
+      "draft_line": 476,
+      "topic": "L-BFGS parameters",
+      "source": "pinn1d.py:389-390",
+      "literal_source_checks": 2,
+      "passed": true
+    },
+    {
+      "draft_line": 477,
+      "topic": "L-BFGS stop",
+      "source": "pinn1d.py:403-408",
+      "literal_source_checks": 3,
+      "passed": true
+    },
+    {
+      "draft_line": 480,
+      "topic": "SOAP invocation",
+      "source": "pinn1d.py:333-334",
+      "literal_source_checks": 2,
+      "passed": true
+    },
+    {
+      "draft_line": 467,
+      "topic": "full-budget config",
+      "source": "raw confirm/axis/causal1/causal10/pirate/final_ic_v1 configs + stage5/stage6 COMMON",
+      "passed": true
+    },
+    {
+      "draft_line": 470,
+      "topic": "screen budget",
+      "source": "all30 screen JSON config fields checked independently",
+      "passed": true
+    },
+    {
+      "draft_line": 475,
+      "topic": "tau three choices",
+      "source": "SCREEN_PROTOCOL.md:152; stage6_runner.py:79-89",
+      "passed": true
+    },
+    {
+      "draft_line": 478,
+      "topic": "Radau tolerance",
+      "source": "problems.py:157,176 (Reference1D)",
+      "passed": true,
+      "scope": "E1/E2/E3 dynamic-boundary solver; E4 ReferenceBulkSurface has its own atol=1e-14 and is not described by this row"
+    },
+    {
+      "draft_line": 479,
+      "topic": "GL/reference resolution",
+      "source": "screen.py:27-42; audit_existing.py; validate_preflight.py; stage5_runner.py:171-191",
+      "passed": true
+    },
+    {
+      "draft_line": 480,
+      "topic": "SOAP first call skip",
+      "source": "third_party/soap_official.py:139-153; SOAPOfficial64 inherits step; stage6_runner COMMON/protocol",
+      "passed": true
+    }
+  ],
+  "full_budget_raw_config_counts": {
+    "confirm": 24,
+    "axis": 36,
+    "causal1": 6,
+    "causal10": 6,
+    "pirate": 12,
+    "final_ic_v1": 18
+  },
+  "figure1": {
+    "kind": "pure analytic auxiliary Q=w_t; not trained PDE output",
+    "files": [
+      {
+        "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\plot_analytic_layer.py",
+        "bytes": 5876,
+        "sha256": "939dd983a0e825dc09264ff6cc2f8d7d08987c6586a18388b0cad5c26d98006b"
+      },
+      {
+        "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\analytic_layer_caption.md",
+        "bytes": 472,
+        "sha256": "b048f65854c67ef41084abd606da3e0f8cc935829d9a4097431e1de694b33270"
+      },
+      {
+        "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\analytic_layer_data.csv",
+        "bytes": 122244,
+        "sha256": "40215fcfdc0231431f9fa981c6410904605be4621ee89c0100cdc7413c2f5516"
+      },
+      {
+        "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\analytic_layer.png",
+        "bytes": 264187,
+        "sha256": "32c820a18d9bfbd59024a495426c33fd648b19a080b19478e4fe17875caeee1f"
+      },
+      {
+        "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\analytic_layer.pdf",
+        "bytes": 53887,
+        "sha256": "c47c1757e7872c1f08a1215af738caa84321debe3f4e62bdca60ffc85a1147dd"
+      },
+      {
+        "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\analytic_layer_evidence.json",
+        "bytes": 1248,
+        "sha256": "cf1d377b8897b3f753cd36cb949290a0f6f985d08f7b0f320612c2ca43afd850"
+      },
+      {
+        "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\analytic_layer_visual_check.json",
+        "bytes": 870,
+        "sha256": "6221fe28c8933df43d7d589ee97b3c5421d4e5cad9e19393c1b260e0f3a4fb52"
+      }
+    ],
+    "all_hashes_match_evidence_and_visual_check": true,
+    "CSV_rows_independently_checked": 2728,
+    "panel_counts": {
+      "a": 1604,
+      "b": 1124
+    },
+    "mpmath_precision": 60,
+    "maximum_absolute_difference": 2.9015133321491717e-16,
+    "maximum_relative_difference_where_Q_gt_1e_minus300": 2.0736941472290834e-13,
+    "worst_absolute_case": {
+      "csv_line": 1303,
+      "row": {
+        "panel": "a",
+        "C": "0.3",
+        "y": "0.098",
+        "t": "0.1",
+        "Q": "0.36762455886832834"
+      },
+      "high_precision": "0.367624558868328630151333214917",
+      "absolute_error": 2.9015133321491717e-16
+    },
+    "stored_zero_tail_count": 202,
+    "scope_language": {
+      "C": 0.3,
+      "not_delta_scaled": true,
+      "not_decayed": true,
+      "not_PINN_performance": true,
+      "not_full_finite_domain_solution": true,
+      "not_causal_mechanism_evidence": true,
+      "floating_underflow_note_present": true
+    },
+    "visual_check_this_followup": {
+      "original_PNG": "viewed; labels/legend/lines readable, no clipping or misleading performance label",
+      "PDF": "independently rendered first page at150dpi and viewed; no clipping/overlap",
+      "render": {
+        "path": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\revised1_analytic_pdf.png",
+        "bytes": 106235,
+        "sha256": "bd8b0b14e50a046c24b6c97833976cd19f2251cf5c5079e00a4c1bcc5cc51906"
+      }
+    },
+    "prior_evidence_visual_review_field": "pending in generation record, with separate hash-bound completed visual_check record; no fabricated replacement"
+  },
+  "protected_hashes": {
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\integrity\\working_20261023\\historical_execution_scope.json": "8707592f06a1a36056ae533da7195bb220e5fea768e26104a2214002a0319ab5",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\integrity\\working_20261023\\HISTORICAL_EXECUTION_SCOPE.md": "515a2c56615eabd1543eb45dcbb7f558ba243b3b96ed4b824236df82b9aac3e6",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\integrity\\working_20261023\\independent_data_evidence.json": "35a7eb26de35ca1cbd9f9d12b4adb20663847f96920031768abd76378a6fcebb",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\integrity\\working_20261023\\independent_math_evidence.json": "b426279be5ab72bb96d9a014ebe2b68c32d70f0e08c6d7a7b6d48eb5aae009a9",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\integrity\\working_20261023\\independent_metadata_evidence.json": "6b3c5fd531903d7cf96cb9becfdf6b006fcab6e2a4a316980568bf73565198f6",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\integrity\\working_20261023\\working_integrity_review.json": "586bb6fd71960a2a61b7c9dbdc3ab825ce91f569bd941f5aedf46a98fb73f6bc",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\integrity\\working_20261023\\WORKING_INTEGRITY_REVIEW_CN.md": "c3fc7142381fa35a5c56e249e60837a8b093e6e9ed6764932f3553997e200aff",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\working_revised1.md": "7ca430d7911dda4507469099e493dc2563ef48dff0157b4df862e4ab8f3b3635",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\initial_working.md": "9783dd11b2756134b5f365e234e1e7ba4590ab6dd11435fc1910c2e85b84e8d9",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\analytic_layer.pdf": "c47c1757e7872c1f08a1215af738caa84321debe3f4e62bdca60ffc85a1147dd",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\analytic_layer.png": "32c820a18d9bfbd59024a495426c33fd648b19a080b19478e4fe17875caeee1f",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\analytic_layer_caption.md": "b048f65854c67ef41084abd606da3e0f8cc935829d9a4097431e1de694b33270",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\analytic_layer_data.csv": "40215fcfdc0231431f9fa981c6410904605be4621ee89c0100cdc7413c2f5516",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\analytic_layer_evidence.json": "cf1d377b8897b3f753cd36cb949290a0f6f985d08f7b0f320612c2ca43afd850",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\analytic_layer_visual_check.json": "6221fe28c8933df43d7d589ee97b3c5421d4e5cad9e19393c1b260e0f3a4fb52",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\plot_analytic_layer.py": "939dd983a0e825dc09264ff6cc2f8d7d08987c6586a18388b0cad5c26d98006b",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\pinn1d.py": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\problems.py": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\screen.py": "26eb4a06e67350098d7099f2411ecdd2ad5cdf0f314c8f7080b800ae24e67695",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\run_artifacts.py": "bd463ae18d21ef71b9a630fbd77426c1a8c616b77b2ba30cebdb80d104ae3a90",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\soap_baseline.py": "76ce746f81fe006b3782ee413383de6852a033299504ffd5cde0dd8292557ac2",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage5_runner.py": "78bf1e916ff8bc628b9d693addaacd937390c01b7dc5c6bdf961ea92ae816546",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage6_runner.py": "7a2f55cd271cfd9d4355998d35b66a095a656aa46e260fc8c1dfeb83db2e870b",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\SCREEN_PROTOCOL.md": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\third_party\\soap_official.py": "6b2328e53fb3cb58cf18b21e706f6f17e7f7dcac83c8abb1053fa74d6e0ca592"
+  },
+  "models_loaded": 0,
+  "training_started": false,
+  "reference_ODE_rerun": false,
+  "generated_local": "2026-10-23T01:34:10.640449+08:00",
+  "overall": "F01–F05的实质问题已在此冻结工作稿关闭；未发现新的实质性数据/方法错误；科学与历史证据局限继续保留；非最终PASS",
+  "F01_F05_closure": [
+    {
+      "id": "F01",
+      "status": "CLOSED_FOR_REVISED1",
+      "draft_lines": [
+        238,
+        240,
+        284,
+        288,
+        291,
+        395,
+        469,
+        471,
+        472
+      ],
+      "independent_evidence": [
+        "pinn1d.py:303-305,325,367-385,394-396",
+        "confirm raw configs; fixed_adam branch overrides generic *_fixed fields"
+      ],
+      "reason": "完整预算体4096/每端256/初值256整个固定点集在两个阶段复用；四残差逐点平方加权、λ0=1、先网络后注意力、L-BFGS冻结均已真实写明；主表改称RBA本地变体并有脚注，不再泛称相同有效点数或严格原法复现。"
+    },
+    {
+      "id": "F02",
+      "status": "CLOSED_FOR_REVISED1",
+      "draft_lines": [
+        293
+      ],
+      "independent_evidence": [
+        "runs/confirm/E3_fisher/hardic_s0.json#max_vol",
+        "runs/confirm/E3_fisher/hardic_layer_s0.json#max_vol"
+      ],
+      "reason": "本次独立相除为1.3545015858984064，正文1.35正确；六张旧主表无数字改动。"
+    },
+    {
+      "id": "F03",
+      "status": "CLOSED_FOR_REVISED1",
+      "draft_lines": [
+        238,
+        240,
+        465,
+        466,
+        467,
+        468,
+        469,
+        470,
+        471,
+        472,
+        473,
+        474,
+        475,
+        476,
+        477,
+        478,
+        479,
+        480,
+        484,
+        485,
+        486,
+        489,
+        490,
+        491,
+        494
+      ],
+      "independent_evidence": [
+        "pinn1d.py:21,26-53,153-221,258-277,286-325,333-337,368-421",
+        "problems.py:157-176",
+        "stage6_runner.py:43-57,79-89",
+        "third_party/soap_official.py:139-153",
+        "30screen plus102 full-budget raw configs"
+      ],
+      "reason": "17项源码/规则核查支持附录16行配置及展开公式；RBA损失平方、旧残差更新、因果32箱空箱规则、Fourier矩阵与无2π、Radau、L-BFGS块停及SOAP首次仅初始化均与相应代码路径一致。没有把修订6计划写成已完成结果。"
+    },
+    {
+      "id": "F04",
+      "status": "CLOSED_FOR_REVISED1",
+      "draft_lines": [
+        230,
+        383,
+        500,
+        506,
+        507,
+        508,
+        509,
+        510,
+        511,
+        512,
+        513,
+        514,
+        515,
+        516,
+        517,
+        518,
+        519,
+        520,
+        522,
+        524,
+        528,
+        529,
+        530,
+        532
+      ],
+      "independent_evidence": [
+        "30 runs/screen JSON, each bound to prior independent hash",
+        "SCREEN_PROTOCOL.md:43-51,61-70",
+        "existing_data_review.json#参考解核验"
+      ],
+      "reason": "30份原结果覆盖15个方法/方程行、90个数值，全部独立重聚合吻合；3门槛行吻合。E1比2.885804未过原筛选，明确按后续修订1扩展确认；未追认成功。E2比1.331054不通过；E3比3.278183通过。参考列清楚标明复用历史自检，并未新积分。"
+    },
+    {
+      "id": "F05",
+      "status": "CLOSED_FOR_REVISED1",
+      "draft_lines": [
+        441,
+        536,
+        540,
+        541,
+        542,
+        543,
+        545
+      ],
+      "independent_evidence": [
+        "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\RBA_v1.txt:221-231,259-285",
+        "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Anagnostopoulos2024RBA.txt:218-229,256-290",
+        "manuscript/process/working_revised1/citation_contexts.md"
+      ],
+      "reason": "保留2024期刊题录，实际所读v2日期为2026-08-22，另核v1公式9/算法1；PDE单项与多损失项加权范围、λ0=0和先注意力后网络的原算法区别均与缓存正文一致。本地λ0=1与反向次序明确；不冒称出版PDF逐字核查或严格官方复现。"
+    }
+  ],
+  "seven_failure_modes": [
+    {
+      "mode": 1,
+      "name": "实现错误通过自审",
+      "status": "INSUFFICIENT",
+      "scope": "仅针对“完整历史生产链无静默错误/全部退出0且零警告”的宽主张；不是当前数值无来源。",
+      "evidence": "130+24+22保存模型复算已逐项绑定398产物；该历史链补充仍有效。修订稿270、496行正确区分保存复算、当前哈希核对与本轮未重放176模型。旧生产退出码/完整警告及早期源码版本绑定仍不完备；本轮不重复模型评估。"
+    },
+    {
+      "mode": 2,
+      "name": "引用幻觉",
+      "status": "CLEAR",
+      "scope": "修订新增RBA版本说明及原13题录未漂移的范围。",
+      "evidence": "13题录文本逐字未变，既有元数据核验不重复；本轮重新查看v1/v2实际核心段落与算法，支持新增区别。没有将2026作者稿错记为2024出版PDF。"
+    },
+    {
+      "mode": 3,
+      "name": "实验结果幻觉",
+      "status": "CLEAR",
+      "scope": "修订稿已有结果与新增筛选/图示的证据来源。",
+      "evidence": "6旧表数值不漂移，30screen/15行/90值/3门槛行独立匹配；图1为2728点解析Q并有明确非实验图注；Stage6两gap原文保留。本轮模型加载0、训练0。"
+    },
+    {
+      "mode": 4,
+      "name": "捷径依赖",
+      "status": "INSUFFICIENT",
+      "scope": "角点构造是否是唯一实际收益来源、机制因果归因。",
+      "evidence": "稿件继续限定经验改善；图1只证明辅助函数形状，不被当作真实PINN早时刻机制证据。现有消融、参考隔离和误差验证仍不能排除优化路径等替代解释，未新增控制实验。"
+    },
+    {
+      "mode": 5,
+      "name": "将实现错误包装成新见解",
+      "status": "CLEAR",
+      "scope": "当前限定论述。",
+      "evidence": "局部解析图不冒充完整PDE解，经典来源不冒充新颖性；原失败、不利seed、E4及E1筛选失败保留。未发现以配置修正或负面结果包装新机制的新增表述。"
+    },
+    {
+      "mode": 6,
+      "name": "方法描述漂移/方法学虚构",
+      "status": "CLEAR",
+      "scope": "此前F01/F03对应RBA与新增配置描述。",
+      "evidence": "有效点集、四分量权重、损失平方、初始化/更新次序、冻结阶段及本地变体标签现在与实际代码一致；17源码规则检查及132份预算相关配置核对支持。此状态不覆盖所有可能实现分支，也不等于全历史无bug。"
+    },
+    {
+      "mode": 7,
+      "name": "早期框架锁定",
+      "status": "CLEAR",
+      "scope": "原筛选与后续收窄叙事。",
+      "evidence": "E1原2.88580不通过、E2不通过、E3通过如实列出，后续扩展确认不倒改原门槛；G2/A-1/E4不利结果、三种子与选择偏差继续披露。"
+    }
+  ],
+  "optional_editorial_notes": [
+    {
+      "id": "N01",
+      "severity": "optional_editorial_precision",
+      "line": 541,
+      "note": "v2列“正文另说明首步采用η的选择”略笼统。原文更精确为可选在k=1令注意力学习率η*=1，而不是网络学习率η；可改为“另有首步η*=1的可选分支”。当前未给出错误数值，核心F05已关闭。"
+    },
+    {
+      "id": "N02",
+      "severity": "optional_scope_label",
+      "line": 478,
+      "note": "该行Radau atol=1e-13对应其所述左端Neumann消元/右端动态ODE的Reference1D（E1–E3）。E4的ReferenceBulkSurface使用atol=1e-14；建议来源栏直接写“E1–E3的Reference1D”，避免将主问题配置外推到E4。当前核验没有把它当作E4统一设置。"
+    }
+  ],
+  "RBA_followup_source": {
+    "v1_pdf": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\RBA_v1.pdf",
+    "v1_pdf_sha256": "a663d21aefbcabac209e8a371b2abb5280f88118466f60554db8de361136645f",
+    "v1_txt": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\RBA_v1.txt",
+    "v1_lines": [
+      221,
+      285
+    ],
+    "v2_cache": {
+      "path": "D:\\CodexRuntime\\runs\\r33_literature_writing_20261022\\rba.pdf",
+      "sha256": "d8db5f61fc6b14471afa5043172cf6f3cd884ab7c6566b80a4002177add73855"
+    },
+    "v2_txt": "D:\\CodexRuntime\\runs\\r33_integrity_working_20261023\\Anagnostopoulos2024RBA.txt",
+    "v2_lines": [
+      218,
+      290
+    ],
+    "scope": "existing cache body/algorithms reread; no repetition of all13 metadata searches"
+  },
+  "limits_preserved": [
+    "earliest evaluation t=.05 does not prove early-corner mechanism",
+    "3seeds, selection/seed reuse, new initial conditions separately retrained",
+    "20 historical E4 surface branches missing",
+    "mixed environments restrict wall-time and Adam/SOAP cross-group attribution",
+    "two Stage6 MATERIAL GAP sections still unfilled"
+  ],
+  "manual_new_prose_review": "all14 changed hunks/110 new or replaced lines inspected, including appendices, provenance paragraphs and Figure1 caption; no new unsupported empirical or novelty claim found",
+  "protected_files_unchanged": true
+}

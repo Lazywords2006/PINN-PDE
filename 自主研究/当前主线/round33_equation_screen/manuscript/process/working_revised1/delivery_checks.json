@@ -1,0 +1,48 @@
+{
+  "recorded_utc": "2026-10-22T17:35:52.577725+00:00",
+  "scope": "工作稿修订1排版检查，不是完整稿交付或科学审查通过",
+  "source_sha256": "7ca430d7911dda4507469099e493dc2563ef48dff0157b4df862e4ab8f3b3635",
+  "pdf_sha256": "e697a97f4b63a2807a0a70d50b0756f14923358428a22a87549b3917f308420a",
+  "html_sha256": "a2ad63cc91a64afab97489279cea674143556823e16c98efd1820a7b90a4fbc8",
+  "render_manifest": "D:\\CodexRuntime\\runs\\r33_paper_render\\working_revised1_preview\\working_revised1_render.json",
+  "pages": 19,
+  "missing_glyph_warnings": 0,
+  "overfull_box_warnings": 0,
+  "all_pages_within_bounds": true,
+  "visual_review": {
+    "contact_sheet_all_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "full_page_inspection": [
+      5,
+      17,
+      18,
+      19
+    ],
+    "findings": "全19页缩览无明显裁切、重叠或异常空白；单页复查解析图、RBA公式下标、配置表和筛选附表均可读，工作稿标识及两处待补结果保留。",
+    "verdict": "PASS_FOR_WORKING_LAYOUT_ONLY"
+  },
+  "material_gaps_remaining": [
+    "4.5 τ灵敏度完整结果",
+    "4.6 SOAP64完整结果"
+  ],
+  "normalization_note": "只在TeX层将Unicode上下标转成数学表达，源Markdown及科学数值不改。"
+}

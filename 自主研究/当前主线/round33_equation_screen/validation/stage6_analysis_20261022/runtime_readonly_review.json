@@ -1,0 +1,552 @@
+{
+  "schema": "r33_stage6_runtime_readonly_review_v1",
+  "generated_utc": "2026-10-22T17:12:47.982Z",
+  "scope": {
+    "read_only": true,
+    "training_started": false,
+    "model_loaded_for_recompute": false,
+    "source_modified": false,
+    "process_control_performed": false,
+    "tests_rerun": false,
+    "formal_analysis_generated": false
+  },
+  "snapshot": {
+    "captured_local": "2026-10-23T01:02:18.4134899+08:00",
+    "status_updated_utc": "2026-10-23T01:01:59.903368+08:00",
+    "runner_pid": 42100,
+    "phase": "running",
+    "counts": {
+      "queued": 9,
+      "running": 21,
+      "completed": 0,
+      "failed": 0
+    },
+    "dispatch_paused_for_memory": true,
+    "runner_resources": {
+      "available_physical_gib": 5.971652984619141,
+      "total_physical_gib": 31.78112030029297,
+      "commit_used_fraction": 0.9106629569800846,
+      "available_commit_gib": 4.179286956787109
+    },
+    "system_memory": {
+      "committed_bytes": 45840633856,
+      "commit_limit_bytes": 50230845440,
+      "available_mib": 6006,
+      "pages_per_sec": 63,
+      "page_reads_per_sec": 3,
+      "page_writes_per_sec": 0
+    },
+    "derived": {
+      "system_commit_used_fraction": 0.912599289429758,
+      "system_commit_free_gib": 4.088703155517578,
+      "process_tree_count": 64,
+      "actual_training_worker_count": 21,
+      "training_worker_private_gib": 7.84295654296875,
+      "training_worker_working_set_gib": 7.794483184814453,
+      "process_tree_private_gib": 8.116569519042969,
+      "process_tree_working_set_gib": 8.26702880859375,
+      "worker_private_mib_min": 298.46484375,
+      "worker_private_mib_max": 410.265625,
+      "worker_threads_dist": [
+        1,
+        3
+      ],
+      "phases": {
+        "adam": 19,
+        "no_checkpoint": 2
+      },
+      "checkpoint_adam_steps": [
+        6500,
+        6500,
+        6500,
+        6000,
+        6000,
+        6000,
+        6000,
+        6000,
+        6000,
+        6000,
+        6000,
+        6000,
+        6000,
+        6000,
+        5500,
+        6000,
+        5500,
+        5000,
+        5500,
+        null,
+        null
+      ],
+      "per_worker_headroom_mib": 199.37295386904762
+    }
+  },
+  "worker_mapping": [
+    {
+      "job": [
+        "sensitivity_tau003_v1",
+        "E1_heat",
+        "hardic+layer",
+        0
+      ],
+      "launcher_pid": 88760,
+      "worker_pid": 88520,
+      "private_bytes": 387637248,
+      "working_set_bytes": 392773632,
+      "threads": 1,
+      "checkpoint_phase": "adam",
+      "checkpoint_adam_step": 6500,
+      "started_utc": "2026-10-23T00:08:04.38796+08:00"
+    },
+    {
+      "job": [
+        "sensitivity_tau003_v1",
+        "E3_fisher",
+        "hardic+layer",
+        0
+      ],
+      "launcher_pid": 57280,
+      "worker_pid": 69448,
+      "private_bytes": 427376640,
+      "working_set_bytes": 422469632,
+      "threads": 1,
+      "checkpoint_phase": "adam",
+      "checkpoint_adam_step": 6500,
+      "started_utc": "2026-10-23T00:08:10.40806+08:00"
+    },
+    {
+      "job": [
+        "sensitivity_tau003_v1",
+        "E1_heat",
+        "hardic+layer",
+        1
+      ],
+      "launcher_pid": 21128,
+      "worker_pid": 47736,
+      "private_bytes": 427814912,
+      "working_set_bytes": 420536320,
+      "threads": 1,
+      "checkpoint_phase": "adam",
+      "checkpoint_adam_step": 6500,
+      "started_utc": "2026-10-23T00:08:16.43335+08:00"
+    },
+    {
+      "job": [
+        "sensitivity_tau003_v1",
+        "E3_fisher",
+        "hardic+layer",
+        1
+      ],
+      "launcher_pid": 78708,
+      "worker_pid": 18620,
+      "private_bytes": 426786816,
+      "working_set_bytes": 421724160,
+      "threads": 1,
+      "checkpoint_phase": "adam",
+      "checkpoint_adam_step": 6000,
+      "started_utc": "2026-10-23T00:08:22.460379+08:00"
+    },
+    {
+      "job": [
+        "sensitivity_tau003_v1",
+        "E1_heat",
+        "hardic+layer",
+        2
+      ],
+      "launcher_pid": 84396,
+      "worker_pid": 86736,
+      "private_bytes": 318427136,
+      "working_set_bytes": 336945152,
+      "threads": 1,
+      "checkpoint_phase": "adam",
+      "checkpoint_adam_step": 6000,
+      "started_utc": "2026-10-23T00:08:28.492507+08:00"
+    },
+    {
+      "job": [
+        "sensitivity_tau003_v1",
+        "E3_fisher",
+        "hardic+layer",
+        2
+      ],
+      "launcher_pid": 70336,
+      "worker_pid": 24632,
+      "private_bytes": 428580864,
+      "working_set_bytes": 423550976,
+      "threads": 1,
+      "checkpoint_phase": "adam",
+      "checkpoint_adam_step": 6000,
+      "started_utc": "2026-10-23T00:08:34.532461+08:00"
+    },
+    {
+      "job": [
+        "sensitivity_tau03_v1",
+        "E1_heat",
+        "hardic+layer",
+        0
+      ],
+      "launcher_pid": 64552,
+      "worker_pid": 53044,
+      "private_bytes": 428068864,
+      "working_set_bytes": 404623360,
+      "threads": 1,
+      "checkpoint_phase": "adam",
+      "checkpoint_adam_step": 6000,
+      "started_utc": "2026-10-23T00:08:40.581417+08:00"
+    },
+    {
+      "job": [
+        "sensitivity_tau03_v1",
+        "E3_fisher",
+        "hardic+layer",
+        0
+      ],
+      "launcher_pid": 90068,
+      "worker_pid": 88648,
+      "private_bytes": 430194688,
+      "working_set_bytes": 422109184,
+      "threads": 1,
+      "checkpoint_phase": "adam",
+      "checkpoint_adam_step": 6000,
+      "started_utc": "2026-10-23T00:08:46.637332+08:00"
+    },
+    {
+      "job": [
+        "sensitivity_tau03_v1",
+        "E1_heat",
+        "hardic+layer",
+        1
+      ],
+      "launcher_pid": 51352,
+      "worker_pid": 89392,
+      "private_bytes": 312963072,
+      "working_set_bytes": 332476416,
+      "threads": 1,
+      "checkpoint_phase": "adam",
+      "checkpoint_adam_step": 6000,
+      "started_utc": "2026-10-23T00:08:52.714142+08:00"
+    },
+    {
+      "job": [
+        "sensitivity_tau03_v1",
+        "E3_fisher",
+        "hardic+layer",
+        1
+      ],
+      "launcher_pid": 84548,
+      "worker_pid": 62864,
+      "private_bytes": 428007424,
+      "working_set_bytes": 401215488,
+      "threads": 1,
+      "checkpoint_phase": "adam",
+      "checkpoint_adam_step": 6000,
+      "started_utc": "2026-10-23T00:08:58.937995+08:00"
+    },
+    {
+      "job": [
+        "sensitivity_tau03_v1",
+        "E1_heat",
+        "hardic+layer",
+        2
+      ],
+      "launcher_pid": 14748,
+      "worker_pid": 73216,
+      "private_bytes": 345153536,
+      "working_set_bytes": 358096896,
+      "threads": 1,
+      "checkpoint_phase": "adam",
+      "checkpoint_adam_step": 6000,
+      "started_utc": "2026-10-23T00:09:05.024959+08:00"
+    },
+    {
+      "job": [
+        "sensitivity_tau03_v1",
+        "E3_fisher",
+        "hardic+layer",
+        2
+      ],
+      "launcher_pid": 19360,
+      "worker_pid": 19592,
+      "private_bytes": 427982848,
+      "working_set_bytes": 422821888,
+      "threads": 1,
+      "checkpoint_phase": "adam",
+      "checkpoint_adam_step": 6000,
+      "started_utc": "2026-10-23T00:09:11.146148+08:00"
+    },
+    {
+      "job": [
+        "final_soap64_v1",
+        "E1_heat",
+        "vanilla",
+        0
+      ],
+      "launcher_pid": 33072,
+      "worker_pid": 31200,
+      "private_bytes": 425234432,
+      "working_set_bytes": 421064704,
+      "threads": 1,
+      "checkpoint_phase": "adam",
+      "checkpoint_adam_step": 6000,
+      "started_utc": "2026-10-23T00:09:17.293837+08:00"
+    },
+    {
+      "job": [
+        "final_soap64_v1",
+        "E1_heat",
+        "hardic",
+        0
+      ],
+      "launcher_pid": 53916,
+      "worker_pid": 82424,
+      "private_bytes": 416657408,
+      "working_set_bytes": 415059968,
+      "threads": 1,
+      "checkpoint_phase": "adam",
+      "checkpoint_adam_step": 6000,
+      "started_utc": "2026-10-23T00:09:23.427772+08:00"
+    },
+    {
+      "job": [
+        "final_soap64_v1",
+        "E1_heat",
+        "hardic+layer",
+        0
+      ],
+      "launcher_pid": 86248,
+      "worker_pid": 88076,
+      "private_bytes": 410435584,
+      "working_set_bytes": 412073984,
+      "threads": 1,
+      "checkpoint_phase": "adam",
+      "checkpoint_adam_step": 5500,
+      "started_utc": "2026-10-23T00:09:29.585456+08:00"
+    },
+    {
+      "job": [
+        "final_soap64_v1",
+        "E3_fisher",
+        "vanilla",
+        0
+      ],
+      "launcher_pid": 70580,
+      "worker_pid": 76760,
+      "private_bytes": 363294720,
+      "working_set_bytes": 373174272,
+      "threads": 1,
+      "checkpoint_phase": "adam",
+      "checkpoint_adam_step": 6000,
+      "started_utc": "2026-10-23T00:09:35.764995+08:00"
+    },
+    {
+      "job": [
+        "final_soap64_v1",
+        "E3_fisher",
+        "hardic",
+        0
+      ],
+      "launcher_pid": 58872,
+      "worker_pid": 29844,
+      "private_bytes": 425836544,
+      "working_set_bytes": 422285312,
+      "threads": 1,
+      "checkpoint_phase": "adam",
+      "checkpoint_adam_step": 5500,
+      "started_utc": "2026-10-23T00:11:34.965468+08:00"
+    },
+    {
+      "job": [
+        "final_soap64_v1",
+        "E3_fisher",
+        "hardic+layer",
+        0
+      ],
+      "launcher_pid": 86456,
+      "worker_pid": 78168,
+      "private_bytes": 428658688,
+      "working_set_bytes": 411889664,
+      "threads": 1,
+      "checkpoint_phase": "adam",
+      "checkpoint_adam_step": 5000,
+      "started_utc": "2026-10-23T00:11:41.161686+08:00"
+    },
+    {
+      "job": [
+        "final_soap64_v1",
+        "E1_heat",
+        "vanilla",
+        1
+      ],
+      "launcher_pid": 42616,
+      "worker_pid": 46056,
+      "private_bytes": 401068032,
+      "working_set_bytes": 404336640,
+      "threads": 1,
+      "checkpoint_phase": "adam",
+      "checkpoint_adam_step": 5500,
+      "started_utc": "2026-10-23T00:11:47.368951+08:00"
+    },
+    {
+      "job": [
+        "final_soap64_v1",
+        "E1_heat",
+        "hardic",
+        1
+      ],
+      "launcher_pid": 90644,
+      "worker_pid": 80056,
+      "private_bytes": 367923200,
+      "working_set_bytes": 351494144,
+      "threads": 1,
+      "checkpoint_phase": null,
+      "checkpoint_adam_step": null,
+      "started_utc": "2026-10-23T00:59:13.509837+08:00"
+    },
+    {
+      "job": [
+        "final_soap64_v1",
+        "E1_heat",
+        "hardic+layer",
+        1
+      ],
+      "launcher_pid": 58564,
+      "worker_pid": 78200,
+      "private_bytes": 393207808,
+      "working_set_bytes": 398540800,
+      "threads": 3,
+      "checkpoint_phase": null,
+      "checkpoint_adam_step": null,
+      "started_utc": "2026-10-23T00:59:54.943068+08:00"
+    }
+  ],
+  "static_risk": {
+    "dispatch_guard": {
+      "available_physical_gib_min": 4,
+      "commit_used_fraction_max": 0.9,
+      "protects_new_dispatch_only": true
+    },
+    "network_parameters": 12737,
+    "parameter_bytes_float64": 101896,
+    "lbfgs_history_pair_bytes_at_size50": 10189600,
+    "adam_pde_points": 4096,
+    "lbfgs_pde_points": 8192,
+    "one_layer_activation_bytes_adam": 2097152,
+    "one_layer_activation_bytes_lbfgs": 4194304,
+    "lbfgs_peak_measured": false,
+    "safety_at_current_concurrency_established": false,
+    "observed_failed_tasks": 0,
+    "headroom_scenario": "At this snapshot, an average additional ~199.37 MiB committed memory across 21 workers would consume remaining system commit headroom; scenario only, not a measured or predicted peak.",
+    "limitation": "Point-in-time asynchronous process/status/CIM snapshots. Summed working set double-counts shared pages. No full paging trend or OOM log audit."
+  },
+  "completion_interface": {
+    "static_compatibility": "matched",
+    "end_to_end_completed_batch_verified": false,
+    "complete_validation_exists_at_hash_check": false,
+    "summary_exists_at_hash_check": false,
+    "checks": [
+      "runtime status phase completed and exact 30 completed tasks with null row pid",
+      "both reports complete true and validated_count=required_count=30",
+      "identical validation and summary results indexed by exact task",
+      "preregistration and source hash binding",
+      "old 398 manifest sha and individual hashes checked by analysis; summary old_results.unchanged",
+      "exact task plan and new JSON set",
+      "90 bundle file hashes and raw metrics",
+      "heldout component names and 8192/1024 counts",
+      "history counters and N64/N96 tolerance alignment"
+    ]
+  },
+  "frozen_and_analysis_hash_verification": {
+    "checked_local": "2026-10-23T01:09:33.7765360+08:00",
+    "frozen_sources": [
+      {
+        "file": "pinn1d.py",
+        "sha256": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+        "matches_gate": true
+      },
+      {
+        "file": "problems.py",
+        "sha256": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+        "matches_gate": true
+      },
+      {
+        "file": "screen.py",
+        "sha256": "26eb4a06e67350098d7099f2411ecdd2ad5cdf0f314c8f7080b800ae24e67695",
+        "matches_gate": true
+      },
+      {
+        "file": "run_artifacts.py",
+        "sha256": "bd463ae18d21ef71b9a630fbd77426c1a8c616b77b2ba30cebdb80d104ae3a90",
+        "matches_gate": true
+      },
+      {
+        "file": "soap_baseline.py",
+        "sha256": "76ce746f81fe006b3782ee413383de6852a033299504ffd5cde0dd8292557ac2",
+        "matches_gate": true
+      },
+      {
+        "file": "stage5_support.py",
+        "sha256": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf",
+        "matches_gate": true
+      },
+      {
+        "file": "third_party/soap_official.py",
+        "sha256": "6b2328e53fb3cb58cf18b21e706f6f17e7f7dcac83c8abb1053fa74d6e0ca592",
+        "matches_gate": true
+      },
+      {
+        "file": "stage6_runner.py",
+        "sha256": "7a2f55cd271cfd9d4355998d35b66a095a656aa46e260fc8c1dfeb83db2e870b",
+        "matches_gate": true
+      },
+      {
+        "file": "run_stage6.ps1",
+        "sha256": "4aea35d292fdb6a33331783d810fec5d3ea88b2e892e2acca0fdec23777c06db",
+        "matches_gate": true
+      },
+      {
+        "file": "test_stage6_runner.py",
+        "sha256": "a45f8d7cc4b84b25d9159e0034943e0985ca5e1509a93d0b767d4b4770f651bc",
+        "matches_gate": true
+      },
+      {
+        "file": "SCREEN_PROTOCOL.md",
+        "sha256": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+        "matches_gate": true
+      },
+      {
+        "file": "validation/stage6_20261022/soap_upstream_blob.json",
+        "sha256": "cb9a6689ab864c2ceea5de92b72ff8db3174a5edf623006257868918c45f6fb5",
+        "matches_gate": true
+      }
+    ],
+    "analysis_sources": [
+      {
+        "file": "analyze_stage6.py",
+        "sha256": "b2869693cdd47e87d0b5234fe21125207f8234391dc16b73c452a24c40a64e56",
+        "matches_preparation": true
+      },
+      {
+        "file": "plot_stage6.py",
+        "sha256": "1a38eb9618949eb94e998e1aa990b4d173bfcbae0246c63b862aa7732c6286fa",
+        "matches_preparation": true
+      },
+      {
+        "file": "test_analysis.py",
+        "sha256": "d8a4f502274cce0117bcec0020ad6e8d45fa501669b23892c3ab0bfeab51a92b",
+        "matches_preparation": true
+      }
+    ],
+    "complete_validation_exists": false,
+    "final_summary_exists": false
+  },
+  "recovery_policy": {
+    "only_after_confirmed_failure": true,
+    "checkpoint_identity_unchanged": true,
+    "scientific_budget_config_seed_unchanged": true,
+    "retain_attempt_and_failure_history": true,
+    "dispatch_behavior": "A worker nonzero exit or validation failure stops new dispatch and drains other active tasks.",
+    "restart_preconditions": "All existing runner/worker locks released; use same pinned runtime and task set. Choose reduced runtime concurrency based on measured headroom; no duplicate live runner.",
+    "unsaved_work": "Adam work since last atomic checkpoint; at most one 500-step interval or the current LBFGS 50-nominal-iteration chunk, which can include multiple closures. A task before its first checkpoint restarts from its original seed.",
+    "timing": "Saved trajectory time excludes lost unsaved work; runner attempt wall time and failure history preserve overhead. An abrupt OS failure may leave an attempt unfinished and requires explicit interruption annotation."
+  }
+}

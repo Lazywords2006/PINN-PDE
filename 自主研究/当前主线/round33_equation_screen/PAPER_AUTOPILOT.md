@@ -4,6 +4,9 @@
 
 ## 当前阶段
 
+- **01:27–01:33发现调度器故障，恢复处理中：** runner 42100/launcher 73808已退出，日志显示01:08:49原子替换`status.json`时发生Windows `PermissionError [WinError 5]`，异常处理再次写状态也失败。`status.json`的21运行/9排队是01:08:47旧快照，不能据此判断实时进度。01:33实际核对21个训练worker及其venv launcher仍在，checkpoint持续更新；没有重启、终止或重复训练。工程代理正在保全证据、增加写入重试并准备安全接管方案。故障期间**禁止普通重启队列或照旧门禁派发**；先绑定现有进程、保留退出与源版本证据，经工程测试后再由根代理恢复调度。后续以本次修复记录和实际进程为准。
+- 工作稿修订1已冻结为`7ca430d7911dda4507469099e493dc2563ef48dff0157b4df862e4ab8f3b3635`，正文10129汉字；F01–F05经独立复核均关闭。六旧表未漂移，30次筛选全表和2728点解析图已独立核对；仍缺Stage6两节。`REVISED1_FOLLOWUP_CN.md`保留Mode1历史全生产链和Mode4机制因果证据限制，不能当最终PASS。后续完整稿合并N01首步注意力η*=1可选分支、N02Radau容差仅E1–E3的两项编辑建议。19页PDF排版预检通过，源和渲染哈希及目视范围在`process/working_revised1/delivery_checks.json`，D盘预览不是最终交付。
+
 - 第一阶段：22/22 已完成，结果归档提交 `958a70a` 已推送。全库 176 次、398 个原始文件，旧数据与阈值保留。
 - 第二阶段：协议修订 6 已先行提交为 `bfe89e3a07f1bb3bcc8e049d8d3d7ff95b4a647a`，并推送成功；12 次 τ 灵敏度和 18 次固定 SOAP64，合计 30 次完整训练，零调参。运行器实现 `46855c4`、测试日志 `e2c8ea8`、PS5 编码修复和重新检查 `7c3edb2` 均先于训练提交。2026-10-23 00:08:04（UTC+8）正式启动；实际 runner PID=42100，venv launcher PID=73808，启动上限24。实时状态以 D 盘 status.json 和实际进程为准，不能重复启动。
 - 写作：使用 academic-pipeline / academic-paper / academic-paper-reviewer 技能。`manuscript/PAPER_CONFIGURATION.json` 固定正文 11000 汉字及分节口径；writer 已完成盲承诺和9572汉字的有缺口工作稿，已提交`653957d`（最新推送遇网络连接失败，需后续重试）。`manuscript/research/` 已有经典数学出处、14 条文献核验和逐句引用边界；实验未完不能填造结果。

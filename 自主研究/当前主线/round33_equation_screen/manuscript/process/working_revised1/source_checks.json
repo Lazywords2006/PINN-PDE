@@ -1,0 +1,141 @@
+{
+  "draft_sha256": "7ca430d7911dda4507469099e493dc2563ef48dff0157b4df862e4ab8f3b3635",
+  "scope": "F01–F05作者修订自核，待独立复核",
+  "source_sha256": {
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\E4_PROTOCOL.md": "16de99e3f2c03068af6e647e1a8b06c07169b7acee0103705130837a0cc22b2c",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\METHOD_DERIVATION.md": "4f50ce0aae155ce5188704ee7041703dd88b6a1253e56e682d3f4bf75962ce8e",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\SCREEN_PROTOCOL.md": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\integrity\\working_20261023\\HISTORICAL_EXECUTION_SCOPE.md": "515a2c56615eabd1543eb45dcbb7f558ba243b3b96ed4b824236df82b9aac3e6",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\integrity\\working_20261023\\WORKING_INTEGRITY_REVIEW_CN.md": "c3fc7142381fa35a5c56e249e60837a8b093e6e9ed6764932f3553997e200aff",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\assemble_working.py": "46e045d59203f77051dda8ad0920272dc904af0078ac8b07258f7276f1d23ebc",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\build_working_tables.py": "7c68215e3fdc32244361438fbffc6bc2e550541d50a138bce81ac779cc246af3",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\evaluator_phase6a.md": "d3a8ade262b6dc667bc2dab58213f66aca16ab651d5d29aea4878b3200174c99",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\working_tables.md": "10f4039b08b98a7cc1013b74d8f1e278c7226777a992c426696ae3d4eeb8ff97",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\write_phase4b_report.py": "6f8baf51c2f66a8ef0dc58c40282669404c4828b48e3784241abfe3ab1928a14",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\writer_phase4a.md": "fe3431ff641f0594f7eed3ffbc63d62c09532c8d38913d412d5efc7f5be93c8b",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\writer_phase4b.md": "e80aa70de93af1547f1e700948f34cbe411a02232ada1d59e8ccab457b36bd5b",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\research\\CITATION_CONTEXT.md": "c34c326c53aeaec01096c9aab4b9ca2d9e61bf7e707a0e0e536ee00b1a4b7e78",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\research\\MATH_SOURCE_AUDIT.md": "f641ad1b9fc3373480b5601d2b122e11cde425f32874cfc7be888a17b96fb40c",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\research\\verify_layer_math.py": "7c6eab8835954a950d560dfc2784c8cc772ea84ede822fdb80301e9af9542fc2",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\pinn1d.py": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\problems.py": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\screen.py": "26eb4a06e67350098d7099f2411ecdd2ad5cdf0f314c8f7080b800ae24e67695",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\soap_baseline.py": "76ce746f81fe006b3782ee413383de6852a033299504ffd5cde0dd8292557ac2",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage5_support.py": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf"
+  },
+  "F01": {
+    "source": "pinn1d.py:291–305,367–385",
+    "effective_full_points": [
+      4096,
+      256,
+      256,
+      256
+    ],
+    "effective_screen_points": [
+      2048,
+      128,
+      128,
+      256
+    ],
+    "order": "体、左端、右端、初值",
+    "all_four_weighted": true,
+    "lbfgs_reuses_entire_fixed_adam": true,
+    "lbfgs_weights_frozen": true
+  },
+  "F03": {
+    "source": "pinn1d.py:26–53,303–325,337–378,389–421; problems.py:166; SCREEN_PROTOCOL.md修订2/5/6",
+    "rba": {
+      "lambda0": 1,
+      "gamma": 0.999,
+      "eta": 0.01,
+      "denominator_floor": 1e-300,
+      "network_then_weights": true,
+      "residuals_from_pre_update_parameters": true
+    },
+    "causal": {
+      "eps": [
+        1,
+        10
+      ],
+      "chunks": 32,
+      "componentwise": [
+        "pde",
+        "left",
+        "right"
+      ],
+      "detached_weights": true
+    },
+    "tau": {
+      "main": 0.1,
+      "planned_extra": [
+        0.03,
+        0.3
+      ],
+      "results_pending": true
+    },
+    "fourier_scale": 1.0,
+    "radau": {
+      "rtol": 1e-12,
+      "atol": 1e-13
+    },
+    "lbfgs": {
+      "lr": 1.0,
+      "chunk": 50,
+      "history_size": 50,
+      "line_search_fn": "strong_wolfe",
+      "tolerance_grad": 1e-14,
+      "tolerance_change": 1e-16,
+      "relative_block_improvement_stop": 1e-09
+    }
+  },
+  "F05": {
+    "publication_year": 2024,
+    "v2_revision_date": "2026-08-22",
+    "v1_locations": "公式9与Algorithm 1",
+    "v2_locations": "公式12与Algorithm 1",
+    "v1_pdf_sha256": "a663d21aefbcabac209e8a371b2abb5280f88118466f60554db8de361136645f",
+    "v2_pdf_sha256": "d8db5f61fc6b14471afa5043172cf6f3cd884ab7c6566b80a4002177add73855",
+    "v1_text": "D:/CodexRuntime/runs/r33_integrity_working_20261023/RBA_v1.txt",
+    "v2_text": "D:/CodexRuntime/runs/r33_integrity_working_20261023/Anagnostopoulos2024RBA.txt",
+    "check_boundary": "核查既有缓存所列位置；不是出版PDF逐字校勘。"
+  },
+  "retained_limitations": [
+    "L01机制证据不足",
+    "L02三种子和历史选择",
+    "L03缺失E4表面权重",
+    "L04两处Stage6材料缺口",
+    "L05异环境和异负载墙钟不能排名；历史Adam与本机SOAP64跨组精度差不能单独因果归于优化器"
+  ],
+  "parent_supplied_analytic_figure": {
+    "path": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/figures/analytic_layer.png",
+    "caption_source": "manuscript/figures/analytic_layer_caption.md",
+    "caption_sha256": "b048f65854c67ef41084abd606da3e0f8cc935829d9a4097431e1de694b33270",
+    "kind": "analytic_auxiliary_function_illustration",
+    "C": 0.3,
+    "training_runs": 0,
+    "not_full_PDE_solution": true,
+    "not_experimental_evidence": true,
+    "visual_review": "父任务已完成PNG及PDF目视复查，见manuscript/figures/analytic_layer_visual_check.json；作者修订整合文件与明确限定图注。"
+  },
+  "historical_execution_scope": {
+    "source": "manuscript/integrity/working_20261023/HISTORICAL_EXECUTION_SCOPE.md",
+    "saved_replay_groups": [
+      130,
+      24,
+      22
+    ],
+    "files_hashed_by_independent_supplement": 398,
+    "not_replayed_by_current_writer": true,
+    "historical_exit_codes_and_warnings_not_complete": true,
+    "preserved_test_logs": [
+      {
+        "passed": 63,
+        "warnings": 1
+      },
+      {
+        "passed": 71,
+        "warnings": 1
+      }
+    ]
+  }
+}

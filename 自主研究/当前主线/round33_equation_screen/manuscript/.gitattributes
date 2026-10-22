@@ -4,3 +4,4 @@
 **/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 **/*.bib -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 **/*.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+**/*.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

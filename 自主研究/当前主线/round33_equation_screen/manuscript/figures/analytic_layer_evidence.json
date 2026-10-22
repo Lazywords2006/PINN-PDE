@@ -1,0 +1,34 @@
+{
+  "kind": "analytic_auxiliary_function_illustration",
+  "formula": "exp(y/C+t/C^2)*erfc(y/(2sqrt(t))+sqrt(t)/C)",
+  "C": 0.3,
+  "times": [
+    0.0001,
+    0.001,
+    0.01,
+    0.1
+  ],
+  "positions": [
+    0.0,
+    0.01,
+    0.05,
+    0.1
+  ],
+  "rows": 2728,
+  "training_runs": 0,
+  "random_numbers_used": false,
+  "not_full_PDE_solution": true,
+  "not_experimental_evidence": true,
+  "floating_tail_note": "极小erfc尾部可能下溢为浮点零，图示零不宣称解析函数在正时间严格为零。",
+  "all_values_finite_and_in_unit_interval": true,
+  "font": "C:\\Windows\\Fonts\\msyh.ttc",
+  "font_sha256": "d79c55e68b1131eea0cc1c47be4f572d964f28c682e143db2ad09c1e4cb07a3f",
+  "source_sha256": "939dd983a0e825dc09264ff6cc2f8d7d08987c6586a18388b0cad5c26d98006b",
+  "visual_review": "pending",
+  "files": {
+    "analytic_layer.png": "32c820a18d9bfbd59024a495426c33fd648b19a080b19478e4fe17875caeee1f",
+    "analytic_layer.pdf": "c47c1757e7872c1f08a1215af738caa84321debe3f4e62bdca60ffc85a1147dd",
+    "analytic_layer_data.csv": "40215fcfdc0231431f9fa981c6410904605be4621ee89c0100cdc7413c2f5516",
+    "analytic_layer_caption.md": "b048f65854c67ef41084abd606da3e0f8cc935829d9a4097431e1de694b33270"
+  }
+}

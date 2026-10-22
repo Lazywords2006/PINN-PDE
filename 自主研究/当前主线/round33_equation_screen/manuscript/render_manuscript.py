@@ -103,12 +103,17 @@ def render(source, output, label, pdf):
         tex_text = tex.read_text(encoding="utf-8")
         superscript_map = str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾", "0123456789+-=()")
         superscripts = re.findall("[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾]+", tex_text)
+        subscript_map = str.maketrans("₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎ₖ", "0123456789+-=()k")
+        subscripts = re.findall("[₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎ₖ]+", tex_text)
         report["tex_only_glyph_normalization"] = {
             "unicode_minus_to_math_minus": tex_text.count("\u2212"),
-            "superscript_sequences_to_math": len(superscripts)}
+            "superscript_sequences_to_math": len(superscripts),
+            "subscript_sequences_to_math": len(subscripts)}
         tex_text = tex_text.replace("\u2212", r"\ensuremath{-}")
         tex_text = re.sub("[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾]+",
                           lambda m: r"\ensuremath{^{" + m[0].translate(superscript_map) + "}}", tex_text)
+        tex_text = re.sub("[₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎ₖ]+",
+                          lambda m: r"\ensuremath{_{" + m[0].translate(subscript_map) + "}}", tex_text)
         tex_text = re.sub(r"\\texttt\{([^{}]+)\}",
                           lambda m: r"\texttt{" + m[1].replace("/", r"/\allowbreak{}")
                           .replace("+", r"+\allowbreak{}") + "}", tex_text)

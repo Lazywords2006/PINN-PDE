@@ -1,0 +1,17 @@
+{
+  "checked_utc": "2026-10-22T17:13:33.684624+00:00",
+  "checks": [
+    "已目视检查最新PNG全图",
+    "已将PDF第一页渲染后目视检查",
+    "中文/数学标签可读，图例无数据遮挡，刻度与图题无裁切",
+    "两图的Q、C、固定时刻/位置及辅助模型属性与数据和图注一致"
+  ],
+  "scope": "纯解析辅助函数插图；不认证完整PDE解或训练性能",
+  "files": {
+    "analytic_layer.png": "32c820a18d9bfbd59024a495426c33fd648b19a080b19478e4fe17875caeee1f",
+    "analytic_layer.pdf": "c47c1757e7872c1f08a1215af738caa84321debe3f4e62bdca60ffc85a1147dd",
+    "analytic_layer_data.csv": "40215fcfdc0231431f9fa981c6410904605be4621ee89c0100cdc7413c2f5516",
+    "analytic_layer_caption.md": "b048f65854c67ef41084abd606da3e0f8cc935829d9a4097431e1de694b33270"
+  },
+  "passed_for_illustration": true
+}
