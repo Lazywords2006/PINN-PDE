@@ -1,0 +1,26 @@
+{
+  "draft_sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a",
+  "figures": [
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\analytic_layer.png",
+      "sha256": "32c820a18d9bfbd59024a495426c33fd648b19a080b19478e4fe17875caeee1f",
+      "matches_frozen_figure_evidence": true
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\history_v2\\historical_comparison.png",
+      "sha256": "433b14dfb1f00bec71752f1ce47e2a643e3ce5867cb101171e0a9fcd08fc41bf",
+      "matches_frozen_figure_evidence": true
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2\\tau_sensitivity.png",
+      "sha256": "ec4f697e34b44bb2edfb4bf793280446a6354358e57582e4a77f0d5cf0d0b70a",
+      "matches_frozen_figure_evidence": true
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2\\default_six_arms.png",
+      "sha256": "2bef60d297d954b53730b9a3523d353ce489ab01b3b470c4b3a2ae182da5d874",
+      "matches_frozen_figure_evidence": true
+    }
+  ],
+  "scope": "仅核四个已用PNG的文件与既有冻结证据一致；本轮未改图、未重新渲染或宣称视觉复审。"
+}

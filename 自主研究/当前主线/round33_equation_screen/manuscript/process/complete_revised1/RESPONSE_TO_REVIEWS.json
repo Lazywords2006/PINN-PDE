@@ -1,0 +1,1765 @@
+{
+  "draft_sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a",
+  "base_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "generated_local": "2026-10-23T08:09:46.989769+08:00",
+  "tracker_sha256": "3ff9d4159f28a547dd16bc065403f649defa36570ed4f1a7bdc7842bdf58bd78",
+  "old_panel_status": "ABORT / PANEL-SHRUNK: usable=2, panel_size=5; no full-panel editorial decision",
+  "counts": {
+    "mandatory_responded": 14,
+    "mandatory_total": 14,
+    "optional_responded": 11,
+    "optional_total": 11,
+    "responses": 25,
+    "adopted": 21,
+    "partly_adopted": 1,
+    "not_adopted_optional_references": 3,
+    "independently_verified_closed": 0
+  },
+  "responses": [
+    {
+      "编号": "M1",
+      "原审稿编号": "M1",
+      "审稿角色": "方法",
+      "类别": "必修",
+      "问题摘要": "补全时间截断、残差点随机数及抽样顺序",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/method_phase2.md",
+        "起始行": 109,
+        "结束行": 109,
+        "SHA256": "7456fa16569c64b41705607889f7a2aed2bde05a6c022f1f668428486fc1c000",
+        "原文": "- **M1：补全可执行的数值细节。** 第2.3节与第3.4节分别补明时间截断1e−30，以及独立残差使用default_rng(330500)，按体x、体t、左端t、右端t、初值x的顺序抽样。说明两端各1024点。原因是这些细节直接定义稳定求值及复核时的固定点集；修订仅需准确抄录已存在的实现，不需要新训练。"
+      },
+      "原验收条件": [
+        "明确开方前时间截断为1e−30，并能定位到稳定求值说明。",
+        "明确独立残差点使用NumPy default_rng(330500)，按体x、体t、左端t、右端t、初值x依次抽样。",
+        "分别列体8192、左端1024、右端1024、初值1024点，消除两个端点合计1024的歧义。",
+        "答复定位至已有实现或协议的相应来源；不改采样代码、不重新训练。"
+      ],
+      "合并动作组": [
+        "A1"
+      ],
+      "作者答复": "§2.3和附录A均补出t.clamp_min(1e-30)；§3.4列明default_rng(330500)及体x、体t、左端t、右端t、初值x的抽样顺序，数组8192/8192/1024/1024/1024，四残差分量8192/1024/1024/1024。说明两端时间独立，点集未用于训练或选择。只抄录现有实现，没有改代码或重训。",
+      "作者处置": "采纳",
+      "作者修订状态": "RESOLVED",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 173,
+          "label": "§2.3：截断与未截断解析式",
+          "exact_anchor": "该改写避免显式形成较大的正指数，与式（8）等价",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 270,
+          "label": "§3.4：独立点抽样顺序与分量数",
+          "exact_anchor": "独立残差点由NumPy `default_rng(330500)`",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 543,
+          "label": "附录A：时间下界精确常数",
+          "exact_anchor": "| 层函数的时间截断 |",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage5_support.py",
+          "sha256": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf",
+          "detail": "heldout_residuals附近的固定default_rng和抽样顺序；具体值同步保存于source_evidence.json.heldout"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\pinn1d.py",
+          "sha256": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+          "detail": "layer_profile/flux_layer的1e-30截断；Model的E4分支与硬初值表达式"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\source_evidence.json",
+          "sha256": "a10b75a2071a00558c665b6ffab943475307c5c800e4dd73602858d5c0b975fd",
+          "detail": "32份定向JSON核对：E4筛选8+完整12+PirateNet12，含原序列/最大值/中位数/来源SHA"
+        }
+      ],
+      "未采纳部分及理由": null,
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "M2",
+      "原审稿编号": "M2",
+      "审稿角色": "方法",
+      "类别": "必修",
+      "问题摘要": "在表5附近定义两条参数轴",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/method_phase2.md",
+        "起始行": 110,
+        "结束行": 110,
+        "SHA256": "7456fa16569c64b41705607889f7a2aed2bde05a6c022f1f668428486fc1c000",
+        "原文": "- **M2：把参数轴数学定义写在结果附近。** 表5注补充热方程仅改变c且G(u)=0.3u不变；反应扩散轴改变Gκ(u)=κ(u−1)，c=0.3等其余设置固定。原因是目前只有“储库强度”及文件式问题名，读者仍需到代码猜测其进入方程的具体位置。现有源码已明确，无需重新设计实验。"
+      },
+      "原验收条件": [
+        "写明热方程轴仅改变容量c，G(u)=0.3u保持不变。",
+        "写明反应扩散轴Gκ(u)=κ(u−1)，κ取0.1、1、3，c=0.3且其余设置沿用E3。",
+        "表中运行标签与κ对应；读者无需由文件名或错配值反推所改算子。"
+      ],
+      "合并动作组": [
+        "A2"
+      ],
+      "作者答复": "在§3.1指出κ进入边界函数；表5注给出E1只改c且D=1、R=0、G(u)=0.3u和初值不变，E3为Gκ(u)=κ(u−1)、κ∈{0.1,1,3}，D=0.1、c=0.3、R=u(1−u)和初值不变。明确运行名k就是κ；保留表5全部结果，另给错配公式校验。",
+      "作者处置": "采纳",
+      "作者修订状态": "RESOLVED",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 223,
+          "label": "§3.1：参数轴进入边界函数的位置",
+          "exact_anchor": "主实验采用表1的两类方程",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 354,
+          "label": "表5注：两参数轴、固定量、运行标签与错配",
+          "exact_anchor": "表5注：E1仅改变c∈",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\problems.py",
+          "sha256": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+          "detail": "_e1/_e3及BulkSurface的参数、初值和边界函数定义"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\SCREEN_PROTOCOL.md",
+          "sha256": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+          "detail": "修订2第A组A-1/A-2；修订4第5项G2；后续修订保持原判定"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\change_map.json",
+          "sha256": "8cb8f0b460f78ceebfb383c2a07a74e8ccb9b9219f59e666e2dc4695d8974350",
+          "detail": "逐修改前后原文、原行号与新行号"
+        }
+      ],
+      "未采纳部分及理由": null,
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "M3",
+      "原审稿编号": "M3",
+      "审稿角色": "方法",
+      "类别": "必修",
+      "问题摘要": "消除附录A的N04悬空引用",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/method_phase2.md",
+        "起始行": 111,
+        "结束行": 111,
+        "SHA256": "7456fa16569c64b41705607889f7a2aed2bde05a6c022f1f668428486fc1c000",
+        "原文": "- **M3：清理无效内部交叉引用。** 附录A删除或定义“N04”，并把必要字段解释直接接在对应表项之后。该内部标签不影响现有数值，却妨碍独立读者追踪方法说明。"
+      },
+      "原验收条件": [
+        "删除N04或替换为有定义、可跳转的具名附录条目。",
+        "必要的调用及损失字段解释直接列出或精确定位，不以内部编号代替说明。"
+      ],
+      "合并动作组": [
+        "A4"
+      ],
+      "作者答复": "删除未定义的内部编号N04，直接引入调用与损失字段口径；保留完成循环后写入配置计数、末次记录损失不等于终点重评、实际L-BFGS状态计数的既有说明。全文检索确认无N04残留。",
+      "作者处置": "采纳",
+      "作者修订状态": "RESOLVED",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 550,
+          "label": "附录A：删除N04后的直接字段解释",
+          "exact_anchor": "调用与损失字段口径如下：",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\change_map.json",
+          "sha256": "8cb8f0b460f78ceebfb383c2a07a74e8ccb9b9219f59e666e2dc4695d8974350",
+          "detail": "逐修改前后原文、原行号与新行号"
+        }
+      ],
+      "未采纳部分及理由": null,
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "DR1",
+      "原审稿编号": "DR1",
+      "审稿角色": "领域",
+      "类别": "必修",
+      "问题摘要": "补足参数化边界、取值与固定条件",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/domain_phase2.md",
+        "起始行": 93,
+        "结束行": 93,
+        "SHA256": "93dd5ed660068b6ab54d7c1e2a2043d2617052a04cc88fdd2a37829f79faa5ec",
+        "原文": "1. **DR1：补足表5的参数化边界定义。** 在§3.1或表5前写出 `Gκ(u)=κ(u−1)`，注明κ=0.1、1、3时其余条件沿用E3基准；同时注明E1容量轴保持 `G(u)=0.3u`。当前源码明确如此，但完整稿不能要求读者从参数名称推断算子。可用式（3）列出E3的 `δ=(0.02+κ)/0.3+0.02`，与表5的0.42、3.42、10.086667相互校验。这是必要的模型说明修正，不要求新增训练。"
+      },
+      "原验收条件": [
+        "明确Gκ(u)=κ(u−1)，κ=0.1、1、3，其他条件沿用E3基准。",
+        "明确E1容量轴保持G(u)=0.3u。",
+        "参数和表5已有结果相容；如采纳错配公式校验，另按DR-建议1核验，不把可选写法变为新增硬门槛。"
+      ],
+      "合并动作组": [
+        "A2"
+      ],
+      "作者答复": "在§3.1指出κ进入边界函数；表5注给出E1只改c且D=1、R=0、G(u)=0.3u和初值不变，E3为Gκ(u)=κ(u−1)、κ∈{0.1,1,3}，D=0.1、c=0.3、R=u(1−u)和初值不变。明确运行名k就是κ；保留表5全部结果，另给错配公式校验。",
+      "作者处置": "采纳",
+      "作者修订状态": "RESOLVED",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 223,
+          "label": "§3.1：参数轴进入边界函数的位置",
+          "exact_anchor": "主实验采用表1的两类方程",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 354,
+          "label": "表5注：两参数轴、固定量、运行标签与错配",
+          "exact_anchor": "表5注：E1仅改变c∈",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\problems.py",
+          "sha256": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+          "detail": "_e1/_e3及BulkSurface的参数、初值和边界函数定义"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\SCREEN_PROTOCOL.md",
+          "sha256": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+          "detail": "修订2第A组A-1/A-2；修订4第5项G2；后续修订保持原判定"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\change_map.json",
+          "sha256": "8cb8f0b460f78ceebfb383c2a07a74e8ccb9b9219f59e666e2dc4695d8974350",
+          "detail": "逐修改前后原文、原行号与新行号"
+        }
+      ],
+      "未采纳部分及理由": null,
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "DR2",
+      "原审稿编号": "DR2",
+      "审稿角色": "领域",
+      "类别": "必修",
+      "问题摘要": "为E4负面结果补最小可复核科学定义",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/domain_phase2.md",
+        "起始行": 94,
+        "结束行": 94,
+        "SHA256": "93dd5ed660068b6ab54d7c1e2a2043d2617052a04cc88fdd2a37829f79faa5ec",
+        "原文": "2. **DR2：给E4一个最小可复核的科学附录。** 明列 `u_t=Du_xx+R(u)`、`D u_x(1,t)=κ(v−u(1,t))`、`v'=κ(u(1,t)−v)−γv³`，以及左端条件、初值和实际参数；区分独立表面变量v与体解迹。给出其常通量层与式（12）所用动态边界层的差别，并为0.838提供指标、分子/分母、种子汇总口径和精确补充表位置。稿件已诚实披露表面权重缺失，该限制应保留；不应以新生成权重填补历史证据，也无须为文字定义修正重跑实验。当前源码中的模型与层公式足以起草这段补充，但历史使用情况应继续绑定既有记录。"
+      },
+      "原验收条件": [
+        "明列u_t=Du_xx+R(u)、D u_x(1,t)=κ(v−u(1,t))、v′=κ(u(1,t)−v)−γv³，以及左端条件、初值、实际参数，并绑定既有记录来源。",
+        "区分独立表面变量v与体解迹，给出实际常通量层公式，并说明与式（12）动态边界层的区别。",
+        "为0.838提供比较对象、分子分母、体误差指标、先取五时刻最大值再取三种子中位数的口径及精确表/行入口。",
+        "保留表面权重缺失和历史使用范围；不补造表面定量证据、不生成权重补历史缺口、不重训。"
+      ],
+      "合并动作组": [
+        "A3"
+      ],
+      "作者答复": "新增附录E式E1—E4：体PDE、左右端条件、独立表面ODE、初值、D=0.1及κ=γ=V0=1、常通量层U与两分支表达式。明确v不等于u(1,t)，常通量辅助层不含表面反馈，与式12的动态层不同。表E1列完整12次运行的三种子体/迹指标；0.838按vanilla体中位数除以修正组体中位数，先每种子五时刻最大、再三种子中位数。保留20份表面权重缺失与追加探索性质，仅重聚合已有JSON，未补权重或表面定量证据。",
+      "作者处置": "采纳",
+      "作者修订状态": "RESOLVED",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 441,
+          "label": "§5.2：E4负面结果及附录入口",
+          "exact_anchor": "体表耦合扩展具有不同的边界交换结构",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 629,
+          "label": "附录E：式E1—E4和实际配置",
+          "exact_anchor": "## 附录E 体表耦合扩展的模型与完整预算数据",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 645,
+          "label": "附录E：独立v、通量错配与层定义",
+          "exact_anchor": "实际参数为D=0.1、κ=γ=V₀=1。",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 664,
+          "label": "附录E表E1：完整三种子体/迹表",
+          "exact_anchor": "表E1　E4完整预算探索性结果",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 673,
+          "label": "表E1后：0.838的分子、分母与汇总次序",
+          "exact_anchor": "表E1第一行vanilla的体误差中位数",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 675,
+          "label": "附录E：探索性质及20份表面权重缺失",
+          "exact_anchor": "小预算筛选未满足原三倍条件；完整预算是在已见筛选失败后",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\problems.py",
+          "sha256": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+          "detail": "_e1/_e3及BulkSurface的参数、初值和边界函数定义"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\pinn1d.py",
+          "sha256": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+          "detail": "layer_profile/flux_layer的1e-30截断；Model的E4分支与硬初值表达式"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\E4_PROTOCOL.md",
+          "sha256": "16de99e3f2c03068af6e647e1a8b06c07169b7acee0103705130837a0cc22b2c",
+          "detail": "第2—5节、修订1及末尾纠正，原科学模型、追加探索与表面分支缺失"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\source_evidence.json",
+          "sha256": "a10b75a2071a00558c665b6ffab943475307c5c800e4dd73602858d5c0b975fd",
+          "detail": "32份定向JSON核对：E4筛选8+完整12+PirateNet12，含原序列/最大值/中位数/来源SHA"
+        }
+      ],
+      "未采纳部分及理由": null,
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "DR3",
+      "原审稿编号": "DR3",
+      "审稿角色": "领域",
+      "类别": "必修",
+      "问题摘要": "解释N04、A-1、G2并精确化证据入口",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/domain_phase2.md",
+        "起始行": 95,
+        "结束行": 95,
+        "SHA256": "93dd5ed660068b6ab54d7c1e2a2043d2617052a04cc88fdd2a37829f79faa5ec",
+        "原文": "3. **DR3：消除无法解析的内部编号。** 附录A的N04应删除或改为有定义的附录条目/补充表；A-1、G2在首次使用处直接说明其含义并指向相关段落。证据目录入口宜指向明确的科学说明与具体结果行。这是局部可读性和交叉引用修正。"
+      },
+      "原验收条件": [
+        "N04删除或替换成已定义的附录条目/补充表。",
+        "A-1和G2首次使用处给出中文含义及相关段落定位。",
+        "E4入口指向明确科学说明和具体结果行，不能仅指一个目录。"
+      ],
+      "合并动作组": [
+        "A4",
+        "A3"
+      ],
+      "作者答复": "附录A直接说明字段并删除N04；§4.3与§4.6首次提及A-1和G2时给中文名称、比较对象及附录F定位。附录F详细列出两者的原门槛、对象和预算，保留联合不满足。E09改指附录E表E1与E4_PROTOCOL具体节，0.838可直接由表后分子/分母核查。",
+      "作者处置": "采纳",
+      "作者修订状态": "RESOLVED",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 550,
+          "label": "附录A：删除N04后的直接字段解释",
+          "exact_anchor": "调用与损失字段口径如下：",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 335,
+          "label": "§4.3：A-1首处名称与定位",
+          "exact_anchor": "跨架构强基线比较仍存在不同结论。",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 408,
+          "label": "§4.6：G2首处名称与定位",
+          "exact_anchor": "小预算效果判据G2对E1/E3分别检查",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 679,
+          "label": "附录F：A-1对象与联合门槛",
+          "exact_anchor": "跨架构强基线判据A-1见SCREEN_PROTOCOL",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 681,
+          "label": "附录F：G2两项、两方程与原种子/预算",
+          "exact_anchor": "小预算效果判据G2见SCREEN_PROTOCOL",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 514,
+          "label": "E09：科学附录、表E1和协议具体节",
+          "exact_anchor": "| E09 | 体表耦合扩展及权重限制 |",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 673,
+          "label": "表E1后：0.838的分子、分母与汇总次序",
+          "exact_anchor": "表E1第一行vanilla的体误差中位数",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\SCREEN_PROTOCOL.md",
+          "sha256": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+          "detail": "修订2第A组A-1/A-2；修订4第5项G2；后续修订保持原判定"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\E4_PROTOCOL.md",
+          "sha256": "16de99e3f2c03068af6e647e1a8b06c07169b7acee0103705130837a0cc22b2c",
+          "detail": "第2—5节、修订1及末尾纠正，原科学模型、追加探索与表面分支缺失"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\change_map.json",
+          "sha256": "8cb8f0b460f78ceebfb383c2a07a74e8ccb9b9219f59e666e2dc4695d8974350",
+          "detail": "逐修改前后原文、原行号与新行号"
+        }
+      ],
+      "未采纳部分及理由": null,
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "DA-m1",
+      "原审稿编号": "DA-m1",
+      "审稿角色": "反方",
+      "类别": "必修",
+      "问题摘要": "补参数轴与E4方程及替换层项",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/da_phase2.md",
+        "起始行": 105,
+        "结束行": 105,
+        "SHA256": "7f2c13c9df54cc117b6afa5f3307f3e30bee1dc621bf78d5729b15fe120fa5a7",
+        "原文": "| DA-m1 | D4 | §3.1末句、表5和§5.2（L370、L488–499、L584–586）：参数轴的κ未给公式，E4的方程及替换层项未写出。 | 明写 `Gκ(u)=κ(u−1)` 及其余固定量；为E4补一个简短的方程、初值、边界交换及修正表达式定义块，或将其定量比较移到具有这些定义的补充材料并明确链接。无需新增训练，不得将不同E4层写成式（12）原样推广。 |"
+      },
+      "原验收条件": [
+        "写出Gκ(u)=κ(u−1)及其余固定量。",
+        "给E4方程、初值、边界交换与实际修正表达式定义块；或将该定量比较移入包含定义的补充材料并明确链接。",
+        "不把不同E4层表述为式（12）原样推广；不要求新增训练。"
+      ],
+      "合并动作组": [
+        "A2",
+        "A3"
+      ],
+      "作者答复": "表5注补全Gκ与固定量；新增附录E给E4体方程、初值、交换边界、独立v方程及实际U层和硬初值分支。式E3是常通量辅助层，文字明确其不含表面反馈，未称为式12原样推广。§5.2定量结论指向表E1，旧负面结果保留；未新增训练。",
+      "作者处置": "采纳",
+      "作者修订状态": "RESOLVED",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 354,
+          "label": "表5注：两参数轴、固定量、运行标签与错配",
+          "exact_anchor": "表5注：E1仅改变c∈",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 441,
+          "label": "§5.2：E4负面结果及附录入口",
+          "exact_anchor": "体表耦合扩展具有不同的边界交换结构",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 629,
+          "label": "附录E：式E1—E4和实际配置",
+          "exact_anchor": "## 附录E 体表耦合扩展的模型与完整预算数据",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 645,
+          "label": "附录E：独立v、通量错配与层定义",
+          "exact_anchor": "实际参数为D=0.1、κ=γ=V₀=1。",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 664,
+          "label": "附录E表E1：完整三种子体/迹表",
+          "exact_anchor": "表E1　E4完整预算探索性结果",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\problems.py",
+          "sha256": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+          "detail": "_e1/_e3及BulkSurface的参数、初值和边界函数定义"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\pinn1d.py",
+          "sha256": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+          "detail": "layer_profile/flux_layer的1e-30截断；Model的E4分支与硬初值表达式"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\E4_PROTOCOL.md",
+          "sha256": "16de99e3f2c03068af6e647e1a8b06c07169b7acee0103705130837a0cc22b2c",
+          "detail": "第2—5节、修订1及末尾纠正，原科学模型、追加探索与表面分支缺失"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\source_evidence.json",
+          "sha256": "a10b75a2071a00558c665b6ffab943475307c5c800e4dd73602858d5c0b975fd",
+          "detail": "32份定向JSON核对：E4筛选8+完整12+PirateNet12，含原序列/最大值/中位数/来源SHA"
+        }
+      ],
+      "未采纳部分及理由": null,
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "DA-m2",
+      "原审稿编号": "DA-m2",
+      "审稿角色": "反方",
+      "类别": "必修",
+      "问题摘要": "在表4逐种子披露PirateNet执行来源",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/da_phase2.md",
+        "起始行": 106,
+        "结束行": 106,
+        "SHA256": "7f2c13c9df54cc117b6afa5f3307f3e30bee1dc621bf78d5729b15fe120fa5a7",
+        "原文": "| DA-m2 | D5 | §3.2、表4（L391、L471–478）：汇总中位数混合执行来源，而表旁未给逐种子对应。 | 表4注明确E1两方法seed0、1来自历史检查点在本机续跑，seed2保留历史云端结果；E3为历史结果。保留逐种子值和22.61、5.52的描述性比值，注明它们不是统一环境随机重复的分布估计。不要把本项误改为删除种子或重选中位数。 |"
+      },
+      "原验收条件": [
+        "注明E1两方法seed0、1由历史检查点在本机续跑，seed2保留历史云端结果；E3为历史结果。",
+        "保留逐种子数据及22.61、5.52描述性比值，并说明不是统一环境随机重复的分布估计。",
+        "不删除种子、不重选中位数，不把混合来源直接改判为已证明的不公平配对。"
+      ],
+      "合并动作组": [
+        "A5"
+      ],
+      "作者答复": "表4旁逐种子说明：E1两方法seed0/1从历史检查点在本机续完，seed2与E3全部为历史云端结果。同种子来源类别对应，但混合来源的三种子中位数不是统一环境随机重复分布估计。表4全部数值、22.61/5.52及逐种子比较均原样保留；没有删种子或认定已证明不公平配对。",
+      "作者处置": "采纳",
+      "作者修订状态": "RESOLVED",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 333,
+          "label": "表4注：逐种子来源及中位数范围",
+          "exact_anchor": "表4注：E1两方法的seed 0、1",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 322,
+          "label": "§4.3：保留22.61与5.52的描述性比值",
+          "exact_anchor": "表4在相同 PirateNet 变体内比较",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\source_evidence.json",
+          "sha256": "a10b75a2071a00558c665b6ffab943475307c5c800e4dd73602858d5c0b975fd",
+          "detail": "32份定向JSON核对：E4筛选8+完整12+PirateNet12，含原序列/最大值/中位数/来源SHA"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\change_map.json",
+          "sha256": "8cb8f0b460f78ceebfb383c2a07a74e8ccb9b9219f59e666e2dc4695d8974350",
+          "detail": "逐修改前后原文、原行号与新行号"
+        }
+      ],
+      "未采纳部分及理由": null,
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "DA-m3",
+      "原审稿编号": "DA-m3",
+      "审稿角色": "反方",
+      "类别": "必修",
+      "问题摘要": "区分解析连续延拓与截断实现的极限",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/da_phase2.md",
+        "起始行": 107,
+        "结束行": 107,
+        "SHA256": "7f2c13c9df54cc117b6afa5f3307f3e30bee1dc621bf78d5729b15fe120fa5a7",
+        "原文": "| DA-m3 | D5 | §2.3、命题1、附录A（L320、L330–342、L670–689）：时间截断的精确值和理想极限/实现极限区分不足。 | 在实现表写明开方前 `t.clamp_min(1e-30)`；明确命题1对应连续延拓的解析表达式，不能用截断实现t趋零的自动微分极限验证该命题。保留已有浮点初值误差说明，不宣称代码在t=0具有逐位精确性或完全同一的导数极限。无需重写理论或改变已运行代码。 |"
+      },
+      "原验收条件": [
+        "实现表给出开方前t.clamp_min(1e-30)。",
+        "明确命题1对应连续延拓的解析公式，不以截断实现t趋零的自动微分极限核验命题。",
+        "保留浮点初值误差说明，不宣称t=0逐位精确或截断实现与解析公式有完全相同的导数极限。"
+      ],
+      "合并动作组": [
+        "A1"
+      ],
+      "作者答复": "在命题1中明确讨论未截断的解析表达式；§2.3和附录A列精确下界。附录A解释t<1e-30时通过开方变量的时间依赖被固定，外部衰减与背景项仍有导数，不能用该分支的AD极限验证解析迭代极限。原浮点初值误差边界保留，不声称逐位零。",
+      "作者处置": "采纳",
+      "作者修订状态": "RESOLVED",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 185,
+          "label": "§2.3：命题1的解析对象",
+          "exact_anchor": "**命题1（初值与初始导数迭代极限）。**",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 173,
+          "label": "§2.3：截断与未截断解析式",
+          "exact_anchor": "该改写避免显式形成较大的正指数，与式（8）等价",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 543,
+          "label": "附录A：时间下界精确常数",
+          "exact_anchor": "| 层函数的时间截断 |",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 552,
+          "label": "附录A：截断分支自动微分不验证解析极限",
+          "exact_anchor": "时间截断须与解析延拓区分：",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\pinn1d.py",
+          "sha256": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+          "detail": "layer_profile/flux_layer的1e-30截断；Model的E4分支与硬初值表达式"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\change_map.json",
+          "sha256": "8cb8f0b460f78ceebfb383c2a07a74e8ccb9b9219f59e666e2dc4695d8974350",
+          "detail": "逐修改前后原文、原行号与新行号"
+        }
+      ],
+      "未采纳部分及理由": null,
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "EIC-M1",
+      "原审稿编号": "EIC-M1",
+      "审稿角色": "主编角色",
+      "类别": "必修",
+      "问题摘要": "清理内部引用并完整解释既有判据",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/eic_phase2.md",
+        "起始行": 107,
+        "结束行": 107,
+        "SHA256": "fdf6d8bd2f9e27f3f22118ab2050eccbe60b1f15133c6b1300a758955fee6e0e",
+        "原文": "- EIC-M1：删除附录A悬空的“N04”引用，直接以“调用与损失字段口径如下”引出已有解释；在A-1、G2首次进入正文时给出可辨识的中文名称、判定对象和明确的正文或补充材料定位。若保留“G2失败”，应说明对应两项判定及方程范围，避免把多个判断合并成一个未定义标签。原判定与阈值保持其已登记含义。"
+      },
+      "原验收条件": [
+        "删除悬空N04，直接引出已有调用和损失字段口径。",
+        "A-1、G2各给中文名称、判定对象和正文/随稿补充位置。",
+        "保留G2失败时，说明其主候选对强基线及SOAP叠加两项判断与适用方程范围；不修改既有阈值或历史判定。"
+      ],
+      "合并动作组": [
+        "A4"
+      ],
+      "作者答复": "删除N04并直接列字段说明。A-1首次出现处给跨架构强基线名称与附录F入口；G2首次出现处说明主候选对强基线和SOAP内叠加两个目标。附录F列两个方程、种子100/101、4000+500预算、三倍和2/2绝对阈值，明确G2未满足指两方程两项的联合条件，不是四个子判断全失败；完整SOAP对照不追改旧判定。",
+      "作者处置": "采纳",
+      "作者修订状态": "RESOLVED",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 550,
+          "label": "附录A：删除N04后的直接字段解释",
+          "exact_anchor": "调用与损失字段口径如下：",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 335,
+          "label": "§4.3：A-1首处名称与定位",
+          "exact_anchor": "跨架构强基线比较仍存在不同结论。",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 408,
+          "label": "§4.6：G2首处名称与定位",
+          "exact_anchor": "小预算效果判据G2对E1/E3分别检查",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 679,
+          "label": "附录F：A-1对象与联合门槛",
+          "exact_anchor": "跨架构强基线判据A-1见SCREEN_PROTOCOL",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 681,
+          "label": "附录F：G2两项、两方程与原种子/预算",
+          "exact_anchor": "小预算效果判据G2见SCREEN_PROTOCOL",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\SCREEN_PROTOCOL.md",
+          "sha256": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+          "detail": "修订2第A组A-1/A-2；修订4第5项G2；后续修订保持原判定"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\change_map.json",
+          "sha256": "8cb8f0b460f78ceebfb383c2a07a74e8ccb9b9219f59e666e2dc4695d8974350",
+          "detail": "逐修改前后原文、原行号与新行号"
+        }
+      ],
+      "未采纳部分及理由": null,
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "EIC-M2",
+      "原审稿编号": "EIC-M2",
+      "审稿角色": "主编角色",
+      "类别": "必修",
+      "问题摘要": "给出Gκ定义并解释k运行标签",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/eic_phase2.md",
+        "起始行": 108,
+        "结束行": 108,
+        "SHA256": "fdf6d8bd2f9e27f3f22118ab2050eccbe60b1f15133c6b1300a758955fee6e0e",
+        "原文": "- EIC-M2：在§3.1或表5表注写出Gκ(u)=κ(u−1)，注明κ取0.1、1、3，其余参数与原E3相同；明确表中“k”是该κ的运行标记。现有源码已经提供这些信息，无需新增实验。"
+      },
+      "原验收条件": [
+        "明确Gκ(u)=κ(u−1)，κ取0.1、1、3，其余参数与原E3相同。",
+        "明确表中k是κ的运行标记，无需新实验。"
+      ],
+      "合并动作组": [
+        "A2"
+      ],
+      "作者答复": "在§3.1指出κ进入边界函数；表5注给出E1只改c且D=1、R=0、G(u)=0.3u和初值不变，E3为Gκ(u)=κ(u−1)、κ∈{0.1,1,3}，D=0.1、c=0.3、R=u(1−u)和初值不变。明确运行名k就是κ；保留表5全部结果，另给错配公式校验。",
+      "作者处置": "采纳",
+      "作者修订状态": "RESOLVED",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 223,
+          "label": "§3.1：参数轴进入边界函数的位置",
+          "exact_anchor": "主实验采用表1的两类方程",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 354,
+          "label": "表5注：两参数轴、固定量、运行标签与错配",
+          "exact_anchor": "表5注：E1仅改变c∈",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\problems.py",
+          "sha256": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+          "detail": "_e1/_e3及BulkSurface的参数、初值和边界函数定义"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\SCREEN_PROTOCOL.md",
+          "sha256": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+          "detail": "修订2第A组A-1/A-2；修订4第5项G2；后续修订保持原判定"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\change_map.json",
+          "sha256": "8cb8f0b460f78ceebfb383c2a07a74e8ccb9b9219f59e666e2dc4695d8974350",
+          "detail": "逐修改前后原文、原行号与新行号"
+        }
+      ],
+      "未采纳部分及理由": null,
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "R3-1",
+      "原审稿编号": "R3-1",
+      "审稿角色": "相邻视角",
+      "类别": "必修",
+      "问题摘要": "使参数轴和时间求值规则可从稿件恢复",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/perspective_phase2.md",
+        "起始行": 109,
+        "结束行": 109,
+        "SHA256": "656afd5be44f0d80df53b3d70cd77a3bae7f5cd7be94a65016b56c1727980abf",
+        "原文": "| R3-1 | §3.1、表5及§2.3的部分实施定义需要查源码 | 在表5注中明确 `Gκ(u)=κ(u−1)`、`κ∈{0.1,1,3}`、其余参数与初值不变；在附录A加入时间求值截断 `10⁻³⁰`，保持“解析连续延拓”与“浮点实现”区别 | 读者无需由标签或错配值猜测参数轴；实际求值规则可从稿件直接恢复 |"
+      },
+      "原验收条件": [
+        "列Gκ(u)=κ(u−1)、κ∈{0.1,1,3}及其余参数、初值保持不变。",
+        "列时间截断10⁻³⁰，保留解析连续延拓与浮点实现的区别。",
+        "读者无需猜标签或错配值即可确定参数轴及实际求值规则。"
+      ],
+      "合并动作组": [
+        "A2",
+        "A1"
+      ],
+      "作者答复": "表5注完整列κ边界函数、三个取值、固定D/c/反应/初值及k标签；§2.3、命题1与附录A给1e-30下界及未截断解析连续延拓的范围。读者可从稿件恢复参数轴和实际求值规则，不需根据δ或文件名猜测。",
+      "作者处置": "采纳",
+      "作者修订状态": "RESOLVED",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 354,
+          "label": "表5注：两参数轴、固定量、运行标签与错配",
+          "exact_anchor": "表5注：E1仅改变c∈",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 173,
+          "label": "§2.3：截断与未截断解析式",
+          "exact_anchor": "该改写避免显式形成较大的正指数，与式（8）等价",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 185,
+          "label": "§2.3：命题1的解析对象",
+          "exact_anchor": "**命题1（初值与初始导数迭代极限）。**",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 543,
+          "label": "附录A：时间下界精确常数",
+          "exact_anchor": "| 层函数的时间截断 |",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 552,
+          "label": "附录A：截断分支自动微分不验证解析极限",
+          "exact_anchor": "时间截断须与解析延拓区分：",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\problems.py",
+          "sha256": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+          "detail": "_e1/_e3及BulkSurface的参数、初值和边界函数定义"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\pinn1d.py",
+          "sha256": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+          "detail": "layer_profile/flux_layer的1e-30截断；Model的E4分支与硬初值表达式"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\change_map.json",
+          "sha256": "8cb8f0b460f78ceebfb383c2a07a74e8ccb9b9219f59e666e2dc4695d8974350",
+          "detail": "逐修改前后原文、原行号与新行号"
+        }
+      ],
+      "未采纳部分及理由": null,
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "R3-2",
+      "原审稿编号": "R3-2",
+      "审稿角色": "相邻视角",
+      "类别": "必修",
+      "问题摘要": "让E4比较对象和机制变化可直接核查",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/perspective_phase2.md",
+        "起始行": 110,
+        "结束行": 110,
+        "SHA256": "656afd5be44f0d80df53b3d70cd77a3bae7f5cd7be94a65016b56c1727980abf",
+        "原文": "| R3-2 | §5.2的E4是重要反例，但稿件内没有完整问题定义 | 增加短附录，写出体方程、交换通量、独立 `v(t)` 方程及初值、常通量层表达式，明确该层不同于式（12）中的动态边界层；列出已有体误差三种子表或提供精确可定位的原始记录入口 | 读者能明确比较的对象与所变更的机制；保留0.838的负面结论和表面权重缺失边界，不补造表面定量证据 |"
+      },
+      "原验收条件": [
+        "写体方程、交换通量、独立v(t)方程与初值、实际常通量层表达式。",
+        "说明其区别于式（12）动态边界层，并列已有体误差三种子表或精确可定位原始记录入口。",
+        "保留0.838负面结论与表面权重缺失限制，不补造表面证据。"
+      ],
+      "合并动作组": [
+        "A3"
+      ],
+      "作者答复": "新增附录E式E1—E4：体PDE、左右端条件、独立表面ODE、初值、D=0.1及κ=γ=V0=1、常通量层U与两分支表达式。明确v不等于u(1,t)，常通量辅助层不含表面反馈，与式12的动态层不同。表E1列完整12次运行的三种子体/迹指标；0.838按vanilla体中位数除以修正组体中位数，先每种子五时刻最大、再三种子中位数。保留20份表面权重缺失与追加探索性质，仅重聚合已有JSON，未补权重或表面定量证据。",
+      "作者处置": "采纳",
+      "作者修订状态": "RESOLVED",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 441,
+          "label": "§5.2：E4负面结果及附录入口",
+          "exact_anchor": "体表耦合扩展具有不同的边界交换结构",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 629,
+          "label": "附录E：式E1—E4和实际配置",
+          "exact_anchor": "## 附录E 体表耦合扩展的模型与完整预算数据",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 645,
+          "label": "附录E：独立v、通量错配与层定义",
+          "exact_anchor": "实际参数为D=0.1、κ=γ=V₀=1。",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 664,
+          "label": "附录E表E1：完整三种子体/迹表",
+          "exact_anchor": "表E1　E4完整预算探索性结果",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 673,
+          "label": "表E1后：0.838的分子、分母与汇总次序",
+          "exact_anchor": "表E1第一行vanilla的体误差中位数",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 675,
+          "label": "附录E：探索性质及20份表面权重缺失",
+          "exact_anchor": "小预算筛选未满足原三倍条件；完整预算是在已见筛选失败后",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\problems.py",
+          "sha256": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+          "detail": "_e1/_e3及BulkSurface的参数、初值和边界函数定义"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\pinn1d.py",
+          "sha256": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+          "detail": "layer_profile/flux_layer的1e-30截断；Model的E4分支与硬初值表达式"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\E4_PROTOCOL.md",
+          "sha256": "16de99e3f2c03068af6e647e1a8b06c07169b7acee0103705130837a0cc22b2c",
+          "detail": "第2—5节、修订1及末尾纠正，原科学模型、追加探索与表面分支缺失"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\source_evidence.json",
+          "sha256": "a10b75a2071a00558c665b6ffab943475307c5c800e4dd73602858d5c0b975fd",
+          "detail": "32份定向JSON核对：E4筛选8+完整12+PirateNet12，含原序列/最大值/中位数/来源SHA"
+        }
+      ],
+      "未采纳部分及理由": null,
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "R3-3",
+      "原审稿编号": "R3-3",
+      "审稿角色": "相邻视角",
+      "类别": "必修",
+      "问题摘要": "整理工程过程并给分节配额可核对依据",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/perspective_phase2.md",
+        "起始行": 111,
+        "结束行": 111,
+        "SHA256": "656afd5be44f0d80df53b3d70cd77a3bae7f5cd7be94a65016b56c1727980abf",
+        "原文": "| R3-3 | 主文工程过程分散，六节配额无法核验 | 把恢复细节集中到附录D或一个可定位补充说明，在主文保留实际影响比较解释的环境、预算、成本口径；补充六节目标基数与计数口径，再按原±15%核对 | 主文可沿“问题—构造—比较—限制”阅读；分节形式要求有可核对基数，不能靠事后改配额判合格 |"
+      },
+      "原验收条件": [
+        "恢复细节集中到附录D或一个具名补充入口，主文保留影响比较解释的环境、预算、成本口径。",
+        "提供原先六节目标基数及其既有配置来源、统一计数口径、实际逐节数值与±15%核对；总量按已有11000±10%核对。",
+        "不以事后修改目标基数或混用计数口径得到通过；若既有基数仍不能取得，明确标为无法核验而非假填合格。",
+        "正文沿问题、构造、比较和限制组织；配额表、脚本及计数证据可放作者答复或随稿核验附件，不要求进入科研正文。"
+      ],
+      "合并动作组": [
+        "A6"
+      ],
+      "作者答复": "§3.4与§4.7缩短具体恢复过程，历史130+24+22来源、原21/后9和四层计时边界集中到附录D。主文保留预算、环境混杂及解释所必需的区别。核验附件给原PAPER_CONFIGURATION的六章基数、逐章实际值、±15%和总11000±10%，并复现审阅中的不同计数口径；没有修改目标、旧报告或用附录补正文配额。",
+      "作者处置": "采纳",
+      "作者修订状态": "RESOLVED",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 272,
+          "label": "§3.4：来源核验与历史链范围",
+          "exact_anchor": "产物核验保留结果、权重与配置的对应关系。",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 410,
+          "label": "§4.7：预算与四层成本的科学解释",
+          "exact_anchor": "### 4.7 独立残差与计算成本",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 619,
+          "label": "附录D：集中的历史来源、恢复与计时",
+          "exact_anchor": "## 附录D 完整新增数据、恢复与成本口径",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 627,
+          "label": "附录D：成本定义与不支持等时间排名",
+          "exact_anchor": "成本分为整批历时、runner会话累计、attempt墙钟和记录内训练轨迹四层。",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\COUNT_DEFINITION_COMPARISON_CN.md",
+          "sha256": "64b5696a0e2415b8703ccfe2fe3d181661f80121f2817b0e09aed99c5af3d96f",
+          "detail": "原配置、六章目标、实际计数及五种计数口径"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\PAPER_CONFIGURATION.json",
+          "sha256": "fc04c1df49f7eebda29ab5cb1d993587a2cb2c68283367b68380ce3d532b62aa",
+          "detail": "事前六章目标1800/2200/2000/2500/1700/800，总量与分节容差不变"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\word_counts.json",
+          "sha256": "8186c4c51d6e8bd20c7c147c29f1258ad033389bb9b3e5ae33f18c0d104eee59",
+          "detail": "原配置口径六章逐项及总量结果"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\count_definition_comparison.json",
+          "sha256": "7d3d8df34c8afb0580f1244e5ff2ba6f01bcc3750d335aca79e500a6f2e6bc4c",
+          "detail": "各审阅计数的算法重现及逐行分类"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\change_map.json",
+          "sha256": "8cb8f0b460f78ceebfb383c2a07a74e8ccb9b9219f59e666e2dc4695d8974350",
+          "detail": "逐修改前后原文、原行号与新行号"
+        }
+      ],
+      "未采纳部分及理由": null,
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "M-建议1",
+      "原审稿编号": null,
+      "审稿角色": "方法",
+      "类别": "建议",
+      "问题摘要": "给E4负面结果最短方程与配置入口",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/method_phase2.md",
+        "起始行": 112,
+        "结束行": 112,
+        "SHA256": "7456fa16569c64b41705607889f7a2aed2bde05a6c022f1f668428486fc1c000",
+        "原文": "- **可选改进，不作为本轮通过条件：** 为体表耦合负面结果增加一个最短的方程定义与配置入口；将重复的工程/解释边界合并，保留对阅读主张不可缺少的限制。更早时间验证、更多独立种子和同环境τ对照属于未来加强机制或外推主张所需的新设计，不能在当前有限命题下无差别列为强制重训要求。"
+      },
+      "原验收条件": [
+        "若采纳，可共用DR2、DA-m1、R3-2的定义块和精确配置入口。",
+        "答复说明共用位置；该建议本身不额外增加实验或通过门槛。"
+      ],
+      "合并动作组": [
+        "A3"
+      ],
+      "作者答复": "采纳为一个短科学附录：E4的方程、独立v、实际参数、常通量层与配置入口均在附录E；§5.2和E09可直接定位表E1与0.838计算。与DR2共用内容，未另增实验门槛。",
+      "作者处置": "采纳",
+      "作者修订状态": "RESOLVED",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 441,
+          "label": "§5.2：E4负面结果及附录入口",
+          "exact_anchor": "体表耦合扩展具有不同的边界交换结构",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 629,
+          "label": "附录E：式E1—E4和实际配置",
+          "exact_anchor": "## 附录E 体表耦合扩展的模型与完整预算数据",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 664,
+          "label": "附录E表E1：完整三种子体/迹表",
+          "exact_anchor": "表E1　E4完整预算探索性结果",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 514,
+          "label": "E09：科学附录、表E1和协议具体节",
+          "exact_anchor": "| E09 | 体表耦合扩展及权重限制 |",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\E4_PROTOCOL.md",
+          "sha256": "16de99e3f2c03068af6e647e1a8b06c07169b7acee0103705130837a0cc22b2c",
+          "detail": "第2—5节、修订1及末尾纠正，原科学模型、追加探索与表面分支缺失"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\problems.py",
+          "sha256": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+          "detail": "_e1/_e3及BulkSurface的参数、初值和边界函数定义"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\source_evidence.json",
+          "sha256": "a10b75a2071a00558c665b6ffab943475307c5c800e4dd73602858d5c0b975fd",
+          "detail": "32份定向JSON核对：E4筛选8+完整12+PirateNet12，含原序列/最大值/中位数/来源SHA"
+        }
+      ],
+      "未采纳部分及理由": null,
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "M-建议2",
+      "原审稿编号": null,
+      "审稿角色": "方法",
+      "类别": "建议",
+      "问题摘要": "合并重复的工程与解释边界",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/method_phase2.md",
+        "起始行": 112,
+        "结束行": 112,
+        "SHA256": "7456fa16569c64b41705607889f7a2aed2bde05a6c022f1f668428486fc1c000",
+        "原文": "- **可选改进，不作为本轮通过条件：** 为体表耦合负面结果增加一个最短的方程定义与配置入口；将重复的工程/解释边界合并，保留对阅读主张不可缺少的限制。更早时间验证、更多独立种子和同环境τ对照属于未来加强机制或外推主张所需的新设计，不能在当前有限命题下无差别列为强制重训要求。"
+      },
+      "原验收条件": [
+        "保留首次及直接影响主张解释处的限定，减少重复叙述。",
+        "如不压缩，说明具体保留理由；不能为缩字删去负面结果、非置信区间含义或混杂边界。"
+      ],
+      "合并动作组": [
+        "A6"
+      ],
+      "作者答复": "压缩§3.4、§4.7、§4.3和τ讨论的重复过程表述，将完整历史执行与恢复范围集中到附录D，附录A仅保留入口。仍在图注、相应比较和局限段保留直接影响解释的环境混杂、非置信区间和负面结果；这些位置各约束不同主张，不合并删除。",
+      "作者处置": "采纳",
+      "作者修订状态": "RESOLVED",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 272,
+          "label": "§3.4：来源核验与历史链范围",
+          "exact_anchor": "产物核验保留结果、权重与配置的对应关系。",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 410,
+          "label": "§4.7：预算与四层成本的科学解释",
+          "exact_anchor": "### 4.7 独立残差与计算成本",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 619,
+          "label": "附录D：集中的历史来源、恢复与计时",
+          "exact_anchor": "## 附录D 完整新增数据、恢复与成本口径",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 453,
+          "label": "§5.3：跨路线与跨档混杂边界",
+          "exact_anchor": "历史Adam确认与本机SOAP64的环境及软件版本不同",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\change_map.json",
+          "sha256": "8cb8f0b460f78ceebfb383c2a07a74e8ccb9b9219f59e666e2dc4695d8974350",
+          "detail": "逐修改前后原文、原行号与新行号"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\figure_retention_checks.json",
+          "sha256": "da6fe9091a879c1b236768586cba5d036ff1cf8245a91c5a215b5fcc6362fbb6",
+          "detail": "四个PNG与既有冻结哈希一致"
+        }
+      ],
+      "未采纳部分及理由": null,
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "DR-建议1",
+      "原审稿编号": null,
+      "审稿角色": "领域",
+      "类别": "建议",
+      "问题摘要": "用错配公式核对参数轴数值",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/domain_phase2.md",
+        "起始行": 93,
+        "结束行": 93,
+        "SHA256": "93dd5ed660068b6ab54d7c1e2a2043d2617052a04cc88fdd2a37829f79faa5ec",
+        "原文": "1. **DR1：补足表5的参数化边界定义。** 在§3.1或表5前写出 `Gκ(u)=κ(u−1)`，注明κ=0.1、1、3时其余条件沿用E3基准；同时注明E1容量轴保持 `G(u)=0.3u`。当前源码明确如此，但完整稿不能要求读者从参数名称推断算子。可用式（3）列出E3的 `δ=(0.02+κ)/0.3+0.02`，与表5的0.42、3.42、10.086667相互校验。这是必要的模型说明修正，不要求新增训练。"
+      },
+      "原验收条件": [
+        "若采纳，列δ=(0.02+κ)/0.3+0.02，并与0.42、3.42、10.086667相互校验。",
+        "可在作者核验附件给计算并在答复定位；不把该可选呈现方式升为正文必需公式。"
+      ],
+      "合并动作组": [
+        "A2"
+      ],
+      "作者答复": "采纳δ=(0.02+κ)/0.3+0.02并放在表5注；本轮数值核对得到κ=0.1/1/3时δ=0.42/3.42/10.0866666667，与表5显示值一致。只核算现有定义，不据该式建立收益对错配的单调性。",
+      "作者处置": "采纳",
+      "作者修订状态": "RESOLVED",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 354,
+          "label": "表5注：两参数轴、固定量、运行标签与错配",
+          "exact_anchor": "表5注：E1仅改变c∈",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\problems.py",
+          "sha256": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+          "detail": "_e1/_e3及BulkSurface的参数、初值和边界函数定义"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\change_map.json",
+          "sha256": "8cb8f0b460f78ceebfb383c2a07a74e8ccb9b9219f59e666e2dc4695d8974350",
+          "detail": "逐修改前后原文、原行号与新行号"
+        }
+      ],
+      "未采纳部分及理由": null,
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "EIC-建议1",
+      "原审稿编号": null,
+      "审稿角色": "主编角色",
+      "类别": "建议",
+      "问题摘要": "集中重复的工程来源说明",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/eic_phase2.md",
+        "起始行": 110,
+        "结束行": 110,
+        "SHA256": "fdf6d8bd2f9e27f3f22118ab2050eccbe60b1f15133c6b1300a758955fee6e0e",
+        "原文": "建议改善项：适度合并§3.4、§4.7、附录A与D重复的工程来源说明，保留一个完整补充入口；附录A可直接列出时间截断1e−30，方便按文稿重建实现。这些建议不产生新的失败条件。更早时间参考精度、更多独立种子、同环境τ及优化器比较应继续作为强化科学结论的后续设计，而不应在当前结论已明确收窄的情况下被强行解释为本稿中心论证失败。"
+      },
+      "原验收条件": [
+        "适度合并重复记录，保留一个完整可定位补充入口。",
+        "若保留多处说明，指出各处对科学解释的不同作用；不得据此制造新的失败条件。"
+      ],
+      "合并动作组": [
+        "A6"
+      ],
+      "作者答复": "压缩§3.4、§4.7、§4.3和τ讨论的重复过程表述，将完整历史执行与恢复范围集中到附录D，附录A仅保留入口。仍在图注、相应比较和局限段保留直接影响解释的环境混杂、非置信区间和负面结果；这些位置各约束不同主张，不合并删除。",
+      "作者处置": "采纳",
+      "作者修订状态": "RESOLVED",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 272,
+          "label": "§3.4：来源核验与历史链范围",
+          "exact_anchor": "产物核验保留结果、权重与配置的对应关系。",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 410,
+          "label": "§4.7：预算与四层成本的科学解释",
+          "exact_anchor": "### 4.7 独立残差与计算成本",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 619,
+          "label": "附录D：集中的历史来源、恢复与计时",
+          "exact_anchor": "## 附录D 完整新增数据、恢复与成本口径",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 453,
+          "label": "§5.3：跨路线与跨档混杂边界",
+          "exact_anchor": "历史Adam确认与本机SOAP64的环境及软件版本不同",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\change_map.json",
+          "sha256": "8cb8f0b460f78ceebfb383c2a07a74e8ccb9b9219f59e666e2dc4695d8974350",
+          "detail": "逐修改前后原文、原行号与新行号"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\figure_retention_checks.json",
+          "sha256": "da6fe9091a879c1b236768586cba5d036ff1cf8245a91c5a215b5fcc6362fbb6",
+          "detail": "四个PNG与既有冻结哈希一致"
+        }
+      ],
+      "未采纳部分及理由": null,
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "EIC-建议2",
+      "原审稿编号": null,
+      "审稿角色": "主编角色",
+      "类别": "建议",
+      "问题摘要": "在附录A列时间截断常数",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/eic_phase2.md",
+        "起始行": 110,
+        "结束行": 110,
+        "SHA256": "fdf6d8bd2f9e27f3f22118ab2050eccbe60b1f15133c6b1300a758955fee6e0e",
+        "原文": "建议改善项：适度合并§3.4、§4.7、附录A与D重复的工程来源说明，保留一个完整补充入口；附录A可直接列出时间截断1e−30，方便按文稿重建实现。这些建议不产生新的失败条件。更早时间参考精度、更多独立种子、同环境τ及优化器比较应继续作为强化科学结论的后续设计，而不应在当前结论已明确收窄的情况下被强行解释为本稿中心论证失败。"
+      },
+      "原验收条件": [
+        "列1e−30并能对应现有求值实现。",
+        "可通过M1、DA-m3、R3-1的共用修改答复，无需重复加段。"
+      ],
+      "合并动作组": [
+        "A1"
+      ],
+      "作者答复": "附录A实现表新增“层函数的时间截断”一行，给出rt=torch.sqrt(t.clamp_min(1e-30))并说明两类层的使用范围；表后区分截断AD与未截断解析极限。",
+      "作者处置": "采纳",
+      "作者修订状态": "RESOLVED",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 543,
+          "label": "附录A：时间下界精确常数",
+          "exact_anchor": "| 层函数的时间截断 |",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 552,
+          "label": "附录A：截断分支自动微分不验证解析极限",
+          "exact_anchor": "时间截断须与解析延拓区分：",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\pinn1d.py",
+          "sha256": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+          "detail": "layer_profile/flux_layer的1e-30截断；Model的E4分支与硬初值表达式"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\change_map.json",
+          "sha256": "8cb8f0b460f78ceebfb383c2a07a74e8ccb9b9219f59e666e2dc4695d8974350",
+          "detail": "逐修改前后原文、原行号与新行号"
+        }
+      ],
+      "未采纳部分及理由": null,
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "R3-建议1",
+      "原审稿编号": null,
+      "审稿角色": "相邻视角",
+      "类别": "建议",
+      "问题摘要": "说明可靠初值导数与边界参数的输入条件",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/perspective_phase2.md",
+        "起始行": 117,
+        "结束行": 117,
+        "SHA256": "656afd5be44f0d80df53b3d70cd77a3bae7f5cd7be94a65016b56c1727980abf",
+        "原文": "本稿已经显式要求初值有足够导数。其实际构造还依赖一个更具体的使用条件：使用者能够可靠得到 `f′(1)`、`f″(1)` 以及边界算子的参数，从而确定 `δ`。本研究的解析初值满足该条件，但若未来把初值换成带噪观测或离散插值，导数估计的不确定性可能改变修正幅度。建议在适用范围中补一句，说明这种输入链尚未验证；这不是要求本轮新增带噪实验。"
+      },
+      "原验收条件": [
+        "若采纳，指出构造需可靠获得f′(1)、f″(1)及边界算子参数。",
+        "说明本研究解析初值满足条件，带噪观测/离散插值导数不确定性尚未验证；不增设带噪实验。"
+      ],
+      "合并动作组": [
+        "A7"
+      ],
+      "作者答复": "§5.4补出可靠f′(1)、f″(1)及算子参数的输入条件；说明只测试解析初值，带噪观测与离散插值造成的导数估计误差对δ的影响尚未验证。未添加带噪实验或把此条件写成新的已验证结论。",
+      "作者处置": "采纳",
+      "作者修订状态": "RESOLVED",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 457,
+          "label": "§5.4：输入可靠性及目标量限制",
+          "exact_anchor": "构造需要可靠的f′(1)、f″(1)及算子参数。",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\problems.py",
+          "sha256": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+          "detail": "_e1/_e3及BulkSurface的参数、初值和边界函数定义"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\change_map.json",
+          "sha256": "8cb8f0b460f78ceebfb383c2a07a74e8ccb9b9219f59e666e2dc4695d8974350",
+          "detail": "逐修改前后原文、原行号与新行号"
+        }
+      ],
+      "未采纳部分及理由": null,
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "R3-建议2",
+      "原审稿编号": null,
+      "审稿角色": "相邻视角",
+      "类别": "建议",
+      "问题摘要": "说明按使用目的选择误差目标量",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/perspective_phase2.md",
+        "起始行": 119,
+        "结束行": 119,
+        "SHA256": "656afd5be44f0d80df53b3d70cd77a3bae7f5cd7be94a65016b56c1727980abf",
+        "原文": "另一项隐含选择是以体相对误差作为主目标量。动态边界含自身容量，某些使用者可能更关心边界储存、交换通量或体与边界组合误差。稿件已经独立报告迹误差，且没有把体误差排名宣称为所有目标量上的排名，因此当前结论成立于所定义目标。可在讨论中说明：迁移到新的应用前应先确定目标量，再决定是否继续采用相同指标，避免把“主指标”理解为唯一物理精度标准。"
+      },
+      "原验收条件": [
+        "若采纳，说明体相对误差为本研究主目标量，而非所有物理目标上的唯一标准。",
+        "可提示边界储存、交换通量或组合误差需按应用确定；不把现有体误差排名扩张为其他目标量排名。"
+      ],
+      "合并动作组": [
+        "A7"
+      ],
+      "作者答复": "同一新增段说明应用应先确定目标量；本研究的体相对误差和独立迹误差不能代表边界储存、交换通量等全部物理量的精度次序。保留原主指标，不将现有排序外推到未计算目标量。",
+      "作者处置": "采纳",
+      "作者修订状态": "RESOLVED",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 457,
+          "label": "§5.4：输入可靠性及目标量限制",
+          "exact_anchor": "构造需要可靠的f′(1)、f″(1)及算子参数。",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\change_map.json",
+          "sha256": "8cb8f0b460f78ceebfb383c2a07a74e8ccb9b9219f59e666e2dc4695d8974350",
+          "detail": "逐修改前后原文、原行号与新行号"
+        }
+      ],
+      "未采纳部分及理由": null,
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "R3-建议3",
+      "原审稿编号": null,
+      "审稿角色": "相邻视角",
+      "类别": "建议",
+      "问题摘要": "把资源披露整理为紧凑环境和预算表",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/perspective_phase2.md",
+        "起始行": 121,
+        "结束行": 121,
+        "SHA256": "656afd5be44f0d80df53b3d70cd77a3bae7f5cd7be94a65016b56c1727980abf",
+        "原文": "从资源使用角度，现有成本记录足以说明本批计算规模，但不支持修正项的等时间收益或固定额外开销。正文已经承认这一点；建议将资源披露整理为紧凑的环境与预算表，读者更容易估算复现实验的条件。现阶段不需附加真实装置、政策效果或社会影响论证。"
+      },
+      "原验收条件": [
+        "若采纳，环境、预算和成本定义集中可读且来源可定位。",
+        "不据现有记录声称等时间收益或固定额外开销；未采纳可用已有披露位置与保持文字呈现的理由答复。"
+      ],
+      "合并动作组": [
+        "A6"
+      ],
+      "作者答复": "部分采纳：预算已有附录A紧凑表，本轮把历史来源、恢复和四层成本集中到附录D，并在表4直接补逐种子来源；完整CSV保存逐运行环境与调用。暂不另加一个跨来源环境总表，避免重复既有预算表，并保留“历史检查点本机续完”等无法用单一批次标签概括的信息。精度和成本混杂仍在§5.3明确，未主张等时间收益或固定额外开销。",
+      "作者处置": "部分采纳",
+      "作者修订状态": "DELIBERATE_LIMITATION",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 534,
+          "label": "附录A：紧凑预算与采样表",
+          "exact_anchor": "| 完整预算 Adam |",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 333,
+          "label": "表4注：逐种子来源及中位数范围",
+          "exact_anchor": "表4注：E1两方法的seed 0、1",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 623,
+          "label": "附录D：含环境、实际调用的完整数据表入口",
+          "exact_anchor": "第二阶段三个tag分别为",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 627,
+          "label": "附录D：成本定义与不支持等时间排名",
+          "exact_anchor": "成本分为整批历时、runner会话累计、attempt墙钟和记录内训练轨迹四层。",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 453,
+          "label": "§5.3：跨路线与跨档混杂边界",
+          "exact_anchor": "历史Adam确认与本机SOAP64的环境及软件版本不同",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\source_evidence.json",
+          "sha256": "a10b75a2071a00558c665b6ffab943475307c5c800e4dd73602858d5c0b975fd",
+          "detail": "32份定向JSON核对：E4筛选8+完整12+PirateNet12，含原序列/最大值/中位数/来源SHA"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\change_map.json",
+          "sha256": "8cb8f0b460f78ceebfb383c2a07a74e8ccb9b9219f59e666e2dc4695d8974350",
+          "detail": "逐修改前后原文、原行号与新行号"
+        }
+      ],
+      "未采纳部分及理由": "不另新增重复的总表；已有紧凑预算表、具名补充入口与逐记录来源比单一环境标签更精确。该项原验收允许以现有披露和具体理由回应。",
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "R3-建议4",
+      "原审稿编号": null,
+      "审稿角色": "相邻视角",
+      "类别": "建议",
+      "问题摘要": "可选连接解析富集与单位分解有限元",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/perspective_phase2.md",
+        "起始行": 127,
+        "结束行": 127,
+        "SHA256": "656afd5be44f0d80df53b3d70cd77a3bae7f5cd7be94a65016b56c1727980abf",
+        "原文": "- Melenk与Babuška（1996）的[The partition of unity finite element method: Basic theory and applications](https://ivo100.oden.utexas.edu/assets/papers/cmame96.pdf)讨论把已知局部解结构纳入近似空间。可用一两句帮助计算力学读者理解本文的解析富集定位，但不能把该方法的逼近或稳定性理论直接移植成PINN训练保证。"
+      },
+      "原验收条件": [
+        "如加入Melenk与Babuška（1996），核对原文并仅用于已知局部结构纳入近似空间的概念桥接。",
+        "不把其逼近或稳定性理论转成PINN训练保证；不采纳可说明与主线或篇幅的关系。"
+      ],
+      "合并动作组": [
+        "A7"
+      ],
+      "作者答复": "本轮不加入可选的Melenk与Babuška文献。现有§1已将经典局部层和解析富集工具与本工作的具体构造分开，命题1与经验结论的范围也已明确。新增单位分解有限元桥接会扩展相关工作分支而不补当前必修披露缺口；没有阅读新来源后再借其理论作PINN保证的必要。保留现有13条已核对题录。",
+      "作者处置": "不采纳",
+      "作者修订状态": "DELIBERATE_LIMITATION",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 37,
+          "label": "§1：已有解析工具与本工作范围",
+          "exact_anchor": "本文的贡献范围是一个自包含的相容性分析",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 185,
+          "label": "§2.3：命题1的解析对象",
+          "exact_anchor": "**命题1（初值与初始导数迭代极限）。**",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\citation_contexts.json",
+          "sha256": "3d1cd8a7823e9fadbdcada44708c881e0cb3aa4a201ea9f2b47def93dfc973a2",
+          "detail": "13题录与18处外部上下文保持；现有阅读范围与限制保留"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\PAPER_CONFIGURATION.json",
+          "sha256": "fc04c1df49f7eebda29ab5cb1d993587a2cb2c68283367b68380ce3d532b62aa",
+          "detail": "事前六章目标1800/2200/2000/2500/1700/800，总量与分节容差不变"
+        }
+      ],
+      "未采纳部分及理由": "与本轮局部修订及当前有限主张的直接关系较弱；不新增未核对的文献，不声称其具体内容支持本文。",
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "R3-建议5",
+      "原审稿编号": null,
+      "审稿角色": "相邻视角",
+      "类别": "建议",
+      "问题摘要": "可选用计算核验框架组织证据层次",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/perspective_phase2.md",
+        "起始行": 128,
+        "结束行": 128,
+        "SHA256": "656afd5be44f0d80df53b3d70cd77a3bae7f5cd7be94a65016b56c1727980abf",
+        "原文": "- Oberkampf与Trucano（2002）的[Verification and validation in computational fluid dynamics](https://www.sandia.gov/research/publications/details/verification-and-validation-in-computational-fluid-dynamics-2002-03-01/)区分代码核验、数值解核验与模型验证。该框架适合整理本稿已经区分的工程恢复、参考解复算和机制解释；引用它不意味着本文必须开展物理实验验证。"
+      },
+      "原验收条件": [
+        "如加入Oberkampf与Trucano（2002），核对原文并区分代码核验、数值解核验与模型验证。",
+        "引用不增加物理实验要求；不采纳可说明现有证据分层已如何满足原意。"
+      ],
+      "合并动作组": [
+        "A7"
+      ],
+      "作者答复": "本轮不新增Oberkampf与Trucano文献。§3.4、§5.1和附录D已分别限定数值复算、机制解释及历史执行范围，且本文不包含物理观测验证；本轮采用这些具体边界而不扩展为一个新的验证框架综述。没有据此省略已有独立点/参考解检查，也未提出新物理实验要求。",
+      "作者处置": "不采纳",
+      "作者修订状态": "DELIBERATE_LIMITATION",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 272,
+          "label": "§3.4：来源核验与历史链范围",
+          "exact_anchor": "产物核验保留结果、权重与配置的对应关系。",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 431,
+          "label": "§5.1：机制解释边界",
+          "exact_anchor": "### 5.1 局部分析能够解释的范围",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 619,
+          "label": "附录D：集中的历史来源、恢复与计时",
+          "exact_anchor": "## 附录D 完整新增数据、恢复与成本口径",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\citation_contexts.json",
+          "sha256": "3d1cd8a7823e9fadbdcada44708c881e0cb3aa4a201ea9f2b47def93dfc973a2",
+          "detail": "13题录与18处外部上下文保持；现有阅读范围与限制保留"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\change_map.json",
+          "sha256": "8cb8f0b460f78ceebfb383c2a07a74e8ccb9b9219f59e666e2dc4695d8974350",
+          "detail": "逐修改前后原文、原行号与新行号"
+        }
+      ],
+      "未采纳部分及理由": "原建议为可选概念组织；现有具名证据分层足以回应意图，添加新框架需额外原文核查且不改变当前结论。",
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    },
+    {
+      "编号": "R3-建议6",
+      "原审稿编号": null,
+      "审稿角色": "相邻视角",
+      "类别": "建议",
+      "问题摘要": "可选引用后续参数研究设计视角",
+      "原报告位置": {
+        "文件": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/perspective_phase2.md",
+        "起始行": 129,
+        "结束行": 129,
+        "SHA256": "656afd5be44f0d80df53b3d70cd77a3bae7f5cd7be94a65016b56c1727980abf",
+        "原文": "- Morris（1991）的[Factorial Sampling Plans for Preliminary Computational Experiments](https://www.stat.cmu.edu/technometrics/90-00/vol-33-02/v3302161.pdf)可为后续参数效应研究提供设计视角。原方法讨论确定性计算模型；PINN训练还含种子波动，不能把当前三档、跨环境数据直接认定为Morris敏感性分析。建议仅用它帮助说明后续应先定义控制因素与随机变化，再选择实验设计。"
+      },
+      "原验收条件": [
+        "如加入Morris（1991），核对原文并限定为未来控制因素与随机变化的实验设计参考。",
+        "不能把当前三档跨环境数据认定为Morris敏感性分析；不采纳可说明与当前有限主张的距离。"
+      ],
+      "合并动作组": [
+        "A7"
+      ],
+      "作者答复": "本轮不新增Morris文献。§4.5与§5.3已限制三档、三种子及跨环境解释；§5.4把同环境、独立种子和可分离因素设计列为下一步。当前实验没有开展Morris敏感性分析，不借可选引文把三档描述性结果升级为该分析。",
+      "作者处置": "不采纳",
+      "作者修订状态": "DELIBERATE_LIMITATION",
+      "状态含义": "仅表示作者已经落实编辑或说明取舍；不替代独立核验，不回写原清单。",
+      "实际修订位置": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 453,
+          "label": "§5.3：跨路线与跨档混杂边界",
+          "exact_anchor": "历史Adam确认与本机SOAP64的环境及软件版本不同",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+          "line": 459,
+          "label": "§5.4：未来同环境、独立种子研究范围",
+          "exact_anchor": "已完成的灵敏度和固定SOAP64对照补足了两个预先安排的经验问题",
+          "sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a"
+        }
+      ],
+      "作者证据": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\citation_contexts.json",
+          "sha256": "3d1cd8a7823e9fadbdcada44708c881e0cb3aa4a201ea9f2b47def93dfc973a2",
+          "detail": "13题录与18处外部上下文保持；现有阅读范围与限制保留"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\PAPER_CONFIGURATION.json",
+          "sha256": "fc04c1df49f7eebda29ab5cb1d993587a2cb2c68283367b68380ce3d532b62aa",
+          "detail": "事前六章目标1800/2200/2000/2500/1700/800，总量与分节容差不变"
+        }
+      ],
+      "未采纳部分及理由": "后续研究设计尚未展开；保留具体未来方向，不为本轮有限参数结果增加方法名称或未经核对的新文献。",
+      "独立核验状态": "PENDING",
+      "独立核验结果": null,
+      "核验人": null
+    }
+  ],
+  "boundary": "原五份报告、契约、lint与tracker未修改；作者RESOLVED/DELIBERATE_LIMITATION均不等于FULLY_ADDRESSED独立核验。"
+}

@@ -1,0 +1,18 @@
+{
+  "draft_sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a",
+  "checked_local": "2026-10-23T08:03:41.449246+08:00",
+  "five_counting_policies_reproduced": true,
+  "current_body_cjk": 11487,
+  "reference_lines_unchanged": 13,
+  "all_external_citation_contexts": 18,
+  "main_external_citation_contexts": 17,
+  "figure_hashes_retained": 4,
+  "source_status_refreshed_without_rechecking_raw_files": true,
+  "operations": {
+    "training": 0,
+    "model_load": 0,
+    "reference_integration": 0,
+    "render": 0,
+    "git_mutation": 0
+  }
+}

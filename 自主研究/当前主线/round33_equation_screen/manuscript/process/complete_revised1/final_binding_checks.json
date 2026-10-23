@@ -1,0 +1,32 @@
+{
+  "draft_sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a",
+  "response_count": 25,
+  "mandatory_count": 14,
+  "optional_count": 11,
+  "response_location_checks": 84,
+  "unique_response_and_source_files_hash_checked": 20,
+  "all_original_issue_ids_preserved": true,
+  "all_independent_statuses_pending": true,
+  "eight_main_table_blocks_unchanged": true,
+  "all_markdown_tables_valid": 14,
+  "all_referenced_data_codes_mapped": [
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05",
+    "E09",
+    "E10",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E16",
+    "E17"
+  ],
+  "display_math_pairs": 26,
+  "references_preserved": 13,
+  "body_cjk": 11487,
+  "check_scope": "最终只核小型作者响应、引用文件及定位，复用此前原始JSON和图形检查；不重扫数据、不运行训练或渲染。"
+}

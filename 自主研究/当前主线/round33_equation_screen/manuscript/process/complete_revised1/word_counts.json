@@ -1,0 +1,48 @@
+{
+  "base_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "draft_sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a",
+  "definition": "只统计六个编号正文章节内的中文汉字；摘要、英文摘要、表格数据行、图题、参考文献、声明及附录不计。数学符号和公式不计。",
+  "implementation_notes": "完全沿用完整v1口径：含章/节标题、表题及表注；排除表格行、图题、图片路径、显示公式。",
+  "actual_body_cjk": 11487,
+  "target_body_cjk": 11000,
+  "deviation_percent": 4.43,
+  "within_10_percent": true,
+  "sections": {
+    "1 引言与相关工作": {
+      "target_cjk": 1800,
+      "actual_cjk": 1695,
+      "deviation_percent": -5.83,
+      "within_15_percent": true
+    },
+    "2 方程、相容性与修正构造": {
+      "target_cjk": 2200,
+      "actual_cjk": 2190,
+      "deviation_percent": -0.45,
+      "within_15_percent": true
+    },
+    "3 实验设计与复现方法": {
+      "target_cjk": 2000,
+      "actual_cjk": 2187,
+      "deviation_percent": 9.35,
+      "within_15_percent": true
+    },
+    "4 数值结果": {
+      "target_cjk": 2500,
+      "actual_cjk": 2755,
+      "deviation_percent": 10.2,
+      "within_15_percent": true
+    },
+    "5 讨论与局限": {
+      "target_cjk": 1700,
+      "actual_cjk": 1897,
+      "deviation_percent": 11.59,
+      "within_15_percent": true
+    },
+    "6 结论": {
+      "target_cjk": 800,
+      "actual_cjk": 763,
+      "deviation_percent": -4.63,
+      "within_15_percent": true
+    }
+  }
+}

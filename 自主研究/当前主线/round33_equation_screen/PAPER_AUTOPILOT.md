@@ -4,6 +4,7 @@
 
 ## 当前阶段
 
+- **08:10第一轮作者修订冻结，排版预检检出实际问题。** `complete_revised1.md` 为11487汉字、14项必修与11项建议均有答复，SHA256=`5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a`。作者自报解决不代表独立关闭；25项独立核验尚待完成。实际PDF编译因附录E的6个Unicode下标缺字退出1，另有长路径溢出；原失败日志及稿件保留，作者仅另存`complete_revised1a.md`修复排版，不重写旧冻结物或科学内容。常规re-review已经准备，须等1a冻结后逐项核验；最终全稿完整性和交付仍待完成。
 - **07:54五份完整审稿均结束，合约裁决如实中止。** EIC/DA的局部F0为true；method/domain/perspective仅D1 warn，所有本地F为false，模板未覆盖该向量。`phase2_lint.json`实际exit1，合约可用2/5，依规则记录`PANEL-SHRUNK`，没有调用合约综合器、改分、补fallback或缩面板。五份实质意见均保存，未发现CRITICAL/MAJOR科学问题；继续用户已授权的作者修订，随后做常规re-review逐项核验，不能把此步骤写成原面板接受。独立revision_tracker整理完整意见清单与协议异常，writer正在整合最后一份，尚未冻结。
 - **07:43三份审稿完成、另两份已派发，修订准备启动。** method/domain为D1 warn、D2–D4 pass、D5 warn，无本地条件触发，原契约未给该组合动作；DA为D1–D3 pass、D4–D5 warn，本地F0触发。保持原评分和规则，不能宣称五人接受。EIC/perspective独立审原冻结稿；writer按前三份的截断、参数轴、E4、来源表注和交叉引用问题另存`complete_revised1.md`，最后两份到达前不得最终冻结。原30训练与科学结果不改。第二批派发见`reviews/full_v1/phase2_dispatch_wave2.json`。
 - **07:29进入五视角正式审稿。** 原盲承诺保留，完整稿v1及五份输入包已在`aa0ebac`提交推送。独立Phase6b评估D1–D5全部pass，F0=true、accept；完整性预审为PASS WITH NOTES，题录13/13、引用18/18、13表/22公式已核，无本轮强制修订。旧历史执行链与更强机制主张的证据不足保留，不视为最终核验通过。method/domain/DA第一批已真正派发，EIC/perspective待资源槽位，均独立不互读；派发证据见`reviews/full_v1/phase2_dispatch_wave1.json`。PDF已实际渲染检查，HTML仅静态检查，本地浏览器预览被安全策略阻止，未尝试绕过。正式审稿后做必要修订及全新最终核验，无新增训练。

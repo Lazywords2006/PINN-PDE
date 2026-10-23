@@ -1,0 +1,13 @@
+{
+  "draft_sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a",
+  "generated_local": "2026-10-23T08:09:47.005150+08:00",
+  "body_cjk": 11487,
+  "read_reviewers": 5,
+  "pending_reviewers": [],
+  "tracker_items_responded": 25,
+  "author_revision_complete": true,
+  "independent_revision_review_pending": true,
+  "final_integrity_and_render_pending": true,
+  "final_frozen": true,
+  "frozen_local": "2026-10-23T08:10:36.094027+08:00"
+}

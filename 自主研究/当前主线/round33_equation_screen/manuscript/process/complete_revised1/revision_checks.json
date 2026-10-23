@@ -1,0 +1,46 @@
+{
+  "base_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "draft_sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a",
+  "eight_main_tables_unchanged": true,
+  "thirteen_references_unchanged": true,
+  "four_figures_paths_unchanged": true,
+  "all_markdown_tables": 14,
+  "display_math_delimiters_paired": true,
+  "n04_internal_label_removed": true,
+  "e4_table_from_original_json": true,
+  "original_defaults_unchanged": {
+    "tau": 0.1,
+    "first_optimizer": "Adam",
+    "hpo_runs": 0
+  },
+  "reviews_read": {
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\full_v1\\method_phase2.md": "7456fa16569c64b41705607889f7a2aed2bde05a6c022f1f668428486fc1c000",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\full_v1\\domain_phase2.md": "93dd5ed660068b6ab54d7c1e2a2043d2617052a04cc88fdd2a37829f79faa5ec",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\full_v1\\da_phase2.md": "7f2c13c9df54cc117b6afa5f3307f3e30bee1dc621bf78d5729b15fe120fa5a7",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\full_v1\\eic_phase2.md": "fdf6d8bd2f9e27f3f22118ab2050eccbe60b1f15133c6b1300a758955fee6e0e",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\full_v1\\perspective_phase2.md": "656afd5be44f0d80df53b3d70cd77a3bae7f5cd7be94a65016b56c1727980abf"
+  },
+  "remaining_review": null,
+  "final_frozen": true,
+  "original_protected_files_unchanged": 28,
+  "operations": {
+    "training": 0,
+    "model_load": 0,
+    "reference_integration": 0,
+    "git_mutation": 0,
+    "render": 0
+  },
+  "review_tracker_sha256": "3ff9d4159f28a547dd16bc065403f649defa36570ed4f1a7bdc7842bdf58bd78",
+  "mandatory_response_count": 14,
+  "optional_response_count": 11,
+  "independent_closed_count": 0,
+  "new_e4_numeric_rows_checked": 4,
+  "parameter_delta_checks": 3,
+  "all_external_citation_contexts_unchanged": 18,
+  "figure_hashes_unchanged": 4,
+  "original_panel_status_preserved": "ABORT; no editorial decision",
+  "independent_revision_review_pending": true,
+  "final_render_pending": true,
+  "response_location_checks": 84,
+  "all_evidence_codes_mapped": true
+}

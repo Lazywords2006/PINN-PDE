@@ -1,0 +1,133 @@
+{
+  "draft_sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a",
+  "e4_rows": [
+    {
+      "tag": "e4confirm",
+      "method": "vanilla",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "max_vol": [
+        0.0025329985641337183,
+        0.014647206427275116,
+        0.004675169889310211
+      ],
+      "max_trace": [
+        0.0016769913622605187,
+        0.008384704984759891,
+        0.0028042761874149487
+      ],
+      "vol_median": 0.004675169889310211,
+      "trace_median": 0.0028042761874149487,
+      "under_1e2": 2,
+      "sources": [
+        "runs/e4confirm/E4_bulk_surface/vanilla_s0.json",
+        "runs/e4confirm/E4_bulk_surface/vanilla_s1.json",
+        "runs/e4confirm/E4_bulk_surface/vanilla_s2.json"
+      ]
+    },
+    {
+      "tag": "e4confirm",
+      "method": "hardic",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "max_vol": [
+        0.12988729247850572,
+        0.04982738948407484,
+        0.07214318791028707
+      ],
+      "max_trace": [
+        0.09960987845479047,
+        0.03234634807698166,
+        0.04778252123104968
+      ],
+      "vol_median": 0.07214318791028707,
+      "trace_median": 0.04778252123104968,
+      "under_1e2": 0,
+      "sources": [
+        "runs/e4confirm/E4_bulk_surface/hardic_s0.json",
+        "runs/e4confirm/E4_bulk_surface/hardic_s1.json",
+        "runs/e4confirm/E4_bulk_surface/hardic_s2.json"
+      ]
+    },
+    {
+      "tag": "e4confirm",
+      "method": "rba",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "max_vol": [
+        0.10346820949163024,
+        0.04906269061998768,
+        0.014750768793041047
+      ],
+      "max_trace": [
+        0.0762124922790269,
+        0.03248083081066815,
+        0.011543891471858915
+      ],
+      "vol_median": 0.04906269061998768,
+      "trace_median": 0.03248083081066815,
+      "under_1e2": 0,
+      "sources": [
+        "runs/e4confirm/E4_bulk_surface/rba_s0.json",
+        "runs/e4confirm/E4_bulk_surface/rba_s1.json",
+        "runs/e4confirm/E4_bulk_surface/rba_s2.json"
+      ]
+    },
+    {
+      "tag": "e4confirm",
+      "method": "hardic+layer",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "max_vol": [
+        0.007712856651521004,
+        0.0005055689353847629,
+        0.005576309573543175
+      ],
+      "max_trace": [
+        0.005021045197112868,
+        0.0004566362591974933,
+        0.0034955131273425154
+      ],
+      "vol_median": 0.005576309573543175,
+      "trace_median": 0.0034955131273425154,
+      "under_1e2": 3,
+      "sources": [
+        "runs/e4confirm/E4_bulk_surface/hardic_layer_s0.json",
+        "runs/e4confirm/E4_bulk_surface/hardic_layer_s1.json",
+        "runs/e4confirm/E4_bulk_surface/hardic_layer_s2.json"
+      ]
+    }
+  ],
+  "e4_vanilla_over_corrected": 0.8383985551109958,
+  "e3_parameter_axis_delta": [
+    {
+      "kappa": 0.1,
+      "delta": 0.42000000000000004,
+      "table_precision": "0.42"
+    },
+    {
+      "kappa": 1.0,
+      "delta": 3.4200000000000004,
+      "table_precision": "3.42"
+    },
+    {
+      "kappa": 3.0,
+      "delta": 10.086666666666666,
+      "table_precision": "10.086667"
+    }
+  ],
+  "eight_old_main_tables_data_unchanged": true,
+  "reuse_scope": "复用本轮source_evidence中32项定向原JSON的已核数据，以及完整v1已通过的206项数值映射；此步不重新加载模型或重复全库哈希。"
+}

@@ -1,0 +1,80 @@
+{
+  "draft_sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a",
+  "base_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "checked_local": "2026-10-23T08:09:47.000947+08:00",
+  "old_protected_files_unchanged": 28,
+  "protected_file_hashes": {
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_v1.md": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\bind_v2_figures.py": "35449bc2a107dd499598382ac4e97bd1159f2c479295ac296e8a02d635d86cf7",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\citation_contexts.json": "e06a6a0e70f0acbe7ab5b890f51be14bb7576cf9a1754bc8c1089c7a1530479a",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\citation_contexts.md": "22384a4c18558cb9d1939ffbede9100e7ee9b318f3d79038f4f2990b81cad034",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\compose_complete.py": "8585feaf84610ac242efde6282a7252279f785733cb18311aee257bad7d92795",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\delivery_readback.json": "730d84bf8a267bb4f3073050025be2b8c92af9a840451acb538c94f05ea456c6",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\draft_state.json": "f664d571d0360a184d8dd339656dc9aded7a85529da8a1677aaa5d6d386c29ee",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\final_structure_checks.json": "32ebcd6f1be95423de432d42b4064c9260b9ab0789ad00533844ee1bb74d2431",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\finalize_writer_evidence.py": "12fa5345a48f7d1cbd89ca238eed67fd3c23cc86f7bb9166886281c60fbbdb61",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\freeze_writer_delivery.py": "06628b4a8370e5d29c450d3cb7ba59a78f78919a870aae87f8028d0fda1c3b24",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\numeric_checks.json": "05c5f47e61c30e31826d763301a7c43d7b10717d6d8559a1cd3faa9f975e7a91",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\paragraph_audit.json": "372c90ac52f2ecc88c98ec2bda6a5ab8f5ab6f2434fccc62b6cba549c011411a",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\phase4b_checks.json": "4f7d17fb554751aa4e14eb42b9486baf45a1d0a83a267cbcf0068170707cac3d",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\protected_after.json": "3d282225058470d8c68a8f5444cb81bbc1ed73fe1cc140a965fc6e39d9c4089b",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\protected_before.json": "3d282225058470d8c68a8f5444cb81bbc1ed73fe1cc140a965fc6e39d9c4089b",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\RESPONSES_AND_UNRESOLVED_CN.md": "6718cb14869c214d57e07fcf099fb219d7f7f81386a532a3d19ce8f1eda78b57",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\source_checks.json": "a0015b8b0aed898a66908905999df975dd42581afa04a475a7014f6722957cd2",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\v2_binding_checks.json": "a615c0b6ce3af15863120ab1c65bcab9299a4c8834f91f68176cb2ab04043304",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\word_counts.json": "88da3d2ef17a2f69c143b6c40d66873ac98ef4786847dfe50d66b4d3df973df3",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\writer_phase4b.md": "cd80d19c774eab1945cde39cd78bf81d866010056e3c873bfe359ae1728b25fe",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\writing_quality_checks.json": "c132263bd079dc5d08cad090b853821a0fe2141360b8d28045466f8a7fd710fb",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\FROZEN_DELIVERY_MANIFEST.json": "32abdf4d0728293835ad9f962df0732c2fdef24ddf3cde6d654518a6efa1b673",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\PAPER_CONFIGURATION.json": "fc04c1df49f7eebda29ab5cb1d993587a2cb2c68283367b68380ce3d532b62aa",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\OUTLINE_AND_EVIDENCE.md": "8f7ed440aa0e8b66b723bbe3a65e1f6237d94fb839016ccecfbd1a90cc3333d5",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\writer_phase4a.md": "fe3431ff641f0594f7eed3ffbc63d62c09532c8d38913d412d5efc7f5be93c8b",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\writer_contract.json": "bbfa682e31c8c7ca82326546d9a0c9c8c786c65f5a98c85f534709eeedadc4f5",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\working_revised1.md": "7ca430d7911dda4507469099e493dc2563ef48dff0157b4df862e4ab8f3b3635",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\initial_working.md": "9783dd11b2756134b5f365e234e1e7ba4590ab6dd11435fc1910c2e85b84e8d9"
+  },
+  "five_source_and_protocol_hashes_current": {
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\pinn1d.py": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\problems.py": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage5_support.py": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\SCREEN_PROTOCOL.md": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\E4_PROTOCOL.md": "16de99e3f2c03068af6e647e1a8b06c07169b7acee0103705130837a0cc22b2c"
+  },
+  "five_review_files_unchanged": {
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\full_v1\\method_phase2.md": "7456fa16569c64b41705607889f7a2aed2bde05a6c022f1f668428486fc1c000",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\full_v1\\domain_phase2.md": "93dd5ed660068b6ab54d7c1e2a2043d2617052a04cc88fdd2a37829f79faa5ec",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\full_v1\\da_phase2.md": "7f2c13c9df54cc117b6afa5f3307f3e30bee1dc621bf78d5729b15fe120fa5a7",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\full_v1\\eic_phase2.md": "fdf6d8bd2f9e27f3f22118ab2050eccbe60b1f15133c6b1300a758955fee6e0e",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\full_v1\\perspective_phase2.md": "656afd5be44f0d80df53b3d70cd77a3bae7f5cd7be94a65016b56c1727980abf"
+  },
+  "tracker_files_unchanged": {
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\revision1\\REVIEW_ITEMS.json": "3ff9d4159f28a547dd16bc065403f649defa36570ed4f1a7bdc7842bdf58bd78",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\revision1\\REVISION_ROADMAP_CN.md": "213dec21b3ba3ccb2c7e94bb71e5c3fa5b69954a2db887b581291c19c4b41424",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\revision1\\PROTOCOL_EXCEPTION_CN.md": "f49bc0ecb2968ac76d1e366360357ea46f036eb7a7088e9aad3c8d20b6b26a40"
+  },
+  "domain_counting_source": {
+    "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\reviews\\full_v1\\domain_evidence.py",
+    "sha256": "b74ce05a111c5fc0d712a0adf11d8986a1e63d49857850f245104a2ebfa0e80c",
+    "detail": "仅检查78—85行以解释10243计数，未运行该审稿脚本"
+  },
+  "data_checks_reused": {
+    "current_targeted_json_records": 32,
+    "older_complete_v1_json_records": 206,
+    "raw_files_rehashed_at_finalization": 0,
+    "scope": "原本轮采集及完整v1核验仍有效；未进行重复全库扫描。"
+  },
+  "new_numeric_checks": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\numeric_revision_checks.json",
+  "four_figure_hashes_preserved": true,
+  "remaining": [
+    "独立逐项修订核验",
+    "最终完整性与渲染核验",
+    "人类作者最终核验及署名、单位、基金、利益冲突、贡献信息"
+  ],
+  "operations": {
+    "training": 0,
+    "model_load": 0,
+    "reference_integration": 0,
+    "render": 0,
+    "git_mutation": 0
+  }
+}
