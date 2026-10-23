@@ -1,0 +1,32 @@
+{
+  "draft_sha256": "741b88925f6248050c9de3f5fa590f2abf8a8496f4194dd6c35990038a3343ce",
+  "base_sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4",
+  "only_terminology_and_attachment_link_changed": true,
+  "changed_lines": [
+    503,
+    630
+  ],
+  "reverse_replacements_equal_parent": true,
+  "six_body_sections_byte_identical": true,
+  "body_cjk": 11510,
+  "section_cjk": [
+    1695,
+    2190,
+    2210,
+    2755,
+    1897,
+    763
+  ],
+  "all_14_table_blocks_byte_identical": true,
+  "all_display_formula_blocks_byte_identical": true,
+  "external_reference_text_and_contexts_unchanged": true,
+  "four_figures_unchanged": true,
+  "original_25_item_locations_rebound": 84,
+  "parent_candidate_and_frozen_files_unchanged": 22,
+  "earlier_historical_protected_files_unchanged": 58,
+  "writer_model_or_reference_execution": false,
+  "writer_training_calls": 0,
+  "rendered_by_writer": false,
+  "final_integrity_status": "PENDING_INDEPENDENT_FINAL_RECHECK",
+  "final_frozen": true
+}

@@ -1,0 +1,91 @@
+{
+  "base_sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4",
+  "draft_sha256": "741b88925f6248050c9de3f5fa590f2abf8a8496f4194dd6c35990038a3343ce",
+  "configuration_sha256": "fc04c1df49f7eebda29ab5cb1d993587a2cb2c68283367b68380ce3d532b62aa",
+  "definition": "只统计六个编号正文章节内的中文汉字；摘要、英文摘要、表格数据行、图题、参考文献、声明及附录不计。数学符号和公式不计。",
+  "implementation_notes": "含章/节标题、表题及表注；排除表格数据行、图题、图片、显示公式、非六章内容。U+4E00—U+9FFF。",
+  "actual_body_cjk": 11510,
+  "target_body_cjk": 11000,
+  "deviation_percent": 4.64,
+  "within_10_percent": true,
+  "sections": {
+    "1 引言与相关工作": {
+      "target_cjk": 1800,
+      "actual_cjk": 1695,
+      "deviation_percent": -5.83,
+      "within_15_percent": true
+    },
+    "2 方程、相容性与修正构造": {
+      "target_cjk": 2200,
+      "actual_cjk": 2190,
+      "deviation_percent": -0.45,
+      "within_15_percent": true
+    },
+    "3 实验设计与复现方法": {
+      "target_cjk": 2000,
+      "actual_cjk": 2210,
+      "deviation_percent": 10.5,
+      "within_15_percent": true
+    },
+    "4 数值结果": {
+      "target_cjk": 2500,
+      "actual_cjk": 2755,
+      "deviation_percent": 10.2,
+      "within_15_percent": true
+    },
+    "5 讨论与局限": {
+      "target_cjk": 1700,
+      "actual_cjk": 1897,
+      "deviation_percent": 11.59,
+      "within_15_percent": true
+    },
+    "6 结论": {
+      "target_cjk": 800,
+      "actual_cjk": 763,
+      "deviation_percent": -4.63,
+      "within_15_percent": true
+    }
+  },
+  "base_sections": {
+    "1 引言与相关工作": {
+      "target_cjk": 1800,
+      "actual_cjk": 1695,
+      "deviation_percent": -5.83,
+      "within_15_percent": true
+    },
+    "2 方程、相容性与修正构造": {
+      "target_cjk": 2200,
+      "actual_cjk": 2190,
+      "deviation_percent": -0.45,
+      "within_15_percent": true
+    },
+    "3 实验设计与复现方法": {
+      "target_cjk": 2000,
+      "actual_cjk": 2210,
+      "deviation_percent": 10.5,
+      "within_15_percent": true
+    },
+    "4 数值结果": {
+      "target_cjk": 2500,
+      "actual_cjk": 2755,
+      "deviation_percent": 10.2,
+      "within_15_percent": true
+    },
+    "5 讨论与局限": {
+      "target_cjk": 1700,
+      "actual_cjk": 1897,
+      "deviation_percent": 11.59,
+      "within_15_percent": true
+    },
+    "6 结论": {
+      "target_cjk": 800,
+      "actual_cjk": 763,
+      "deviation_percent": -4.63,
+      "within_15_percent": true
+    }
+  },
+  "appendices_used_to_fill_quota": false,
+  "candidate2_parent_sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4",
+  "prior_count_base_sha256": "aef0c10a1bf19e8703a8066e1f0aaef75600b886777424b9f6545677ccc77eb0",
+  "derivation_note": "候选稿2a六章正文逐字相同，原11,510及逐章计数直接复用；唯一术语改动在附录D。"
+}

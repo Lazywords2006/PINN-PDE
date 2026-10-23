@@ -1,0 +1,125 @@
+{
+  "draft_sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4",
+  "base_sha256": "aef0c10a1bf19e8703a8066e1f0aaef75600b886777424b9f6545677ccc77eb0",
+  "generated_local": "2026-10-23T09:12:02.758752+08:00",
+  "scope": "限定数值溯源补充，非新科学实验或重新进行五人panel。",
+  "first_final_integrity_report_preserved": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\integrity\\final_revised1\\FINAL_INTEGRITY_REVIEW_CN.md",
+  "full_v1_status_preserved": "ABORT; usable 2/5; no full-panel editorial decision",
+  "final_integrity_decision": "PENDING_INDEPENDENT_INCREMENTAL_REVIEW",
+  "items": [
+    {
+      "id": "PROV-1",
+      "concern": "当前表格数值缺少本轮可审计重算生产链。",
+      "response": "新增E18及附录D真实206项保存权重体/迹复算：两套设置、五时刻、4120比较和原容差；同时载入报告、逐值摘要和完整清单，不新增训练。",
+      "status": "AUTHOR_ADDRESSED_AWAITING_FINAL_INCREMENTAL_REVIEW",
+      "locations": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\delivery_candidate2.md",
+          "line": 272,
+          "exact_anchor": "产物核验保留结果",
+          "sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\delivery_candidate2.md",
+          "line": 523,
+          "exact_anchor": "| E18 |",
+          "sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\delivery_candidate2.md",
+          "line": 630,
+          "exact_anchor": "2026-10-23另行完成保存权重的实际数值复算",
+          "sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4"
+        }
+      ]
+    },
+    {
+      "id": "PROV-2",
+      "concern": "已有独立点残差和实际退出/警告仍需执行证据。",
+      "response": "补入全部52条已有残差记录、416比较及270子进程和2父进程实际退出0、本次warning为0和stderr为空；只限本次，不追填旧日志。",
+      "status": "AUTHOR_ADDRESSED_AWAITING_FINAL_INCREMENTAL_REVIEW",
+      "locations": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\delivery_candidate2.md",
+          "line": 632,
+          "exact_anchor": "同次补核覆盖全部已有52项独立检验点残差记录",
+          "sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4"
+        }
+      ]
+    },
+    {
+      "id": "PROV-3",
+      "concern": "不能将复用实现误称独立PDE算法验证，不能补造E4缺失分支。",
+      "response": "明确前向与参考解复用冻结项目实现；新检查器独立重载、求积/残差与比较。保留20项E4仅体/迹范围，52残差排除这些模型，旧v不可重建。",
+      "status": "AUTHOR_ADDRESSED_AWAITING_FINAL_INCREMENTAL_REVIEW",
+      "locations": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\delivery_candidate2.md",
+          "line": 634,
+          "exact_anchor": "本次严格重载覆盖110项旧完整模型",
+          "sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\delivery_candidate2.md",
+          "line": 682,
+          "exact_anchor": "小预算筛选未满足原三倍条件；完整预算是在已见筛选失败后按E4_PROTOCOL",
+          "sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4"
+        }
+      ]
+    },
+    {
+      "id": "PROV-4",
+      "concern": "旧“未重载”语句与新事实的时点冲突。",
+      "response": "§3.4、证据映射后与附录D/E仅增加明确阶段指代；旧先前复核事实、训练日志缺口及所有原科学表格、公式、结论保持。",
+      "status": "AUTHOR_ADDRESSED_AWAITING_FINAL_INCREMENTAL_REVIEW",
+      "locations": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\delivery_candidate2.md",
+          "line": 517,
+          "exact_anchor": "| E12 |",
+          "sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\delivery_candidate2.md",
+          "line": 525,
+          "exact_anchor": "原始训练结果仍位于研究根目录",
+          "sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\delivery_candidate2.md",
+          "line": 622,
+          "exact_anchor": "历史复算来源分别为130项既有模型审查",
+          "sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\delivery_candidate2.md",
+          "line": 624,
+          "exact_anchor": "第二阶段三个tag分别为",
+          "sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4"
+        }
+      ]
+    },
+    {
+      "id": "PROV-5",
+      "concern": "补充数值执行不能由作者宣布完整性终审通过。",
+      "response": "首轮最终完整性FAIL与原full_v1 ABORT原件保留；本轮仅提供实际证据。候选稿2最终Mode1/完整性及排版结论由独立核验者另行给出，人类作者声明继续待确认。",
+      "status": "AUTHOR_ADDRESSED_AWAITING_FINAL_INCREMENTAL_REVIEW",
+      "locations": [
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\delivery_candidate2.md",
+          "line": 692,
+          "exact_anchor": "作者姓名、单位、通讯作者与作者贡献：待作者确认",
+          "sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4"
+        },
+        {
+          "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\delivery_candidate2.md",
+          "line": 696,
+          "exact_anchor": "自动代理之间的独立核查属于内部自动审查",
+          "sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4"
+        }
+      ]
+    }
+  ],
+  "change_map_file": "change_map.json",
+  "prior_25_items_bridge": "prior_25_items_location_bridge.json"
+}

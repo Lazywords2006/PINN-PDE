@@ -1,0 +1,25 @@
+{
+  "draft_sha256": "741b88925f6248050c9de3f5fa590f2abf8a8496f4194dd6c35990038a3343ce",
+  "base_sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4",
+  "changes": [
+    {
+      "id": "TERMINOLOGY-01",
+      "reason": "独立最终核验者要求避免将12个配置读作12类不同方程。",
+      "old": "12种方程的参考解均新计算N48、N64与N96",
+      "new": "12个方程、参数或初值配置的参考解均新计算N48、N64与N96",
+      "base_line": 630,
+      "new_line": 630
+    },
+    {
+      "id": "BINDING-01",
+      "reason": "简短引用表链接同步指向本派生稿的哈希和上下文附件。",
+      "old": "../process/delivery_candidate2/citation_contexts.md",
+      "new": "../process/delivery_candidate2a/citation_contexts.md",
+      "base_line": 503,
+      "new_line": 503
+    }
+  ],
+  "scientific_numeric_change": false,
+  "six_body_sections_byte_identical": true,
+  "final_integrity_status": "PENDING_INDEPENDENT_FINAL_RECHECK"
+}

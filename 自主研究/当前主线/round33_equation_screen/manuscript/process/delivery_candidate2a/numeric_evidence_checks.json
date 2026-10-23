@@ -1,0 +1,65 @@
+{
+  "draft_sha256": "741b88925f6248050c9de3f5fa590f2abf8a8496f4194dd6c35990038a3343ce",
+  "scope": "本作者只读解析本次真实执行报告，未自行执行模型或参考解。",
+  "body_trace_records": 206,
+  "body_trace_scalars_checked": 4120,
+  "heldout_records": 52,
+  "heldout_scalars_checked": 416,
+  "actual_child_exits_checked": 270,
+  "all_zero_exit": true,
+  "all_child_stderr_empty": true,
+  "supervisor_exit_checks": {
+    "full": 0,
+    "heldout": 0
+  },
+  "training_calls_in_execution_reports": 0,
+  "writer_training_calls": 0,
+  "rounded_values": {
+    "N64体": [
+      1.7316981182347035e-12,
+      "1.732e-12"
+    ],
+    "N64迹": [
+      2.8278490660227362e-12,
+      "2.828e-12"
+    ],
+    "N96体": [
+      1.845973374159371e-11,
+      "1.846e-11"
+    ],
+    "N96迹": [
+      4.7492676458205096e-11,
+      "4.749e-11"
+    ],
+    "参考自检": [
+      3.2916874781463434e-10,
+      "3.292e-10"
+    ]
+  },
+  "new_report_hashes": {
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\FINAL_NUMERIC_REPORT.md": "7657cbb16ec272ace2044bc1300291593dee2973357ced286384374eaabe307c",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\FINAL_NUMERIC_REPORT.json": "a13bade9cd7ebc72e37e1f07d856f633b9b60508309e73a7c67cdd2fa872be5d",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\README.md": "723fc74549a0ca379b914b3616dc32a8ad6ea3dff942b15b4fa550a7dabfe1b6",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\plan.json": "c3ab15b47313c62f5b50aafff2df1e698e4aff5c8a905bc7654485dabbaf8d5b",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\heldout_plan.json": "032c8890ad5c49a57f30c265bfe46fa649ccafb1b1afa14b5a90f744f793756c",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py": "7cbe64b660606ca66bf63af28f6fc71c4072106a687c8a85a56b3fb7c37b9611",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_heldout.py": "0f95d05c484dddb3be20d8d8de512f0759934234eee278bd0d00505eff7b0433",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\launch_logged.ps1": "5a14485e31da9dce3a15542578462ea355f292bde947b23b61b82f39d32e5e6b",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\evidence\\full\\summary.json": "8bf0b539563d57413851c1d8c6510ee785d5e72e8da91d4230776f8836b7a41a",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\evidence\\heldout\\summary.json": "5993d02a944d80f9cb5952f307649724c530e2ae405e6fb1aca42baffb0f85b5",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\supervisors\\full\\execution.json": "37559e75d6b50a4db1c6b2af10c5b80e2ba760a5695175718b731912d77d769d",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\supervisors\\heldout\\execution.json": "bf5ccbe85384b19313bed28215b4bf30bd17e8e29a1f230789b80d3aa262ec6c",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\FINAL_DELIVERY_SHA256.json": "b8c29c42fc8603b5e0ed865d83b625ac158b0bbf394fd98c7c2b3427a0fe2aae"
+  },
+  "table_blocks_total": 14,
+  "unchanged_table_blocks": 13,
+  "only_changed_table_block": 9,
+  "eight_main_tables_unchanged": true,
+  "all_display_math_unchanged": true,
+  "historical_training_history_reconstructed": false,
+  "final_mode1_decision": "RESERVED_TO_INDEPENDENT_FINAL_REVIEWER",
+  "candidate2_parent_sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4",
+  "derivation_note": "候选稿2的4536项只读比较、270子进程及2父进程核对结果直接复用；本版数值、图表和公式逐字未变。",
+  "all_fourteen_table_blocks_unchanged_from_candidate2": true,
+  "only_changed_table_block_from_candidate2": null
+}

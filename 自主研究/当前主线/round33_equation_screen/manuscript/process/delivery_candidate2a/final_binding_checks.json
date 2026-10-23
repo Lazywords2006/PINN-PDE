@@ -1,0 +1,18 @@
+{
+  "draft_sha256": "741b88925f6248050c9de3f5fa590f2abf8a8496f4194dd6c35990038a3343ce",
+  "all_binding_checks_pass": true,
+  "bound_json_files": [
+    "change_map.json",
+    "word_counts.json",
+    "citation_contexts.json",
+    "figure_retention_checks.json",
+    "numeric_evidence_checks.json",
+    "prior_25_items_location_bridge.json",
+    "RESPONSES_TO_FINAL_PROVENANCE.json",
+    "source_checks.json",
+    "candidate2a_checks.json"
+  ],
+  "parent_candidate_sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4",
+  "manuscript_link_points_to_current_citation_attachment": true,
+  "author_self_check_is_not_final_review_decision": true
+}

@@ -1,0 +1,29 @@
+{
+  "created_local": "2026-10-23T09:14:15.552303+08:00",
+  "draft_sha256": "741b88925f6248050c9de3f5fa590f2abf8a8496f4194dd6c35990038a3343ce",
+  "file_count": 19,
+  "files": {
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\delivery_candidate2a.md": "741b88925f6248050c9de3f5fa590f2abf8a8496f4194dd6c35990038a3343ce",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\bind_and_freeze_candidate2a.py": "f167056c7b8dcf5487c2d118a84656d35de5317cf21f22cb977345545daf37b2",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\build_candidate2a.py": "57db20832cce729a8ef4af8b1be43e444fdad9fbb8486432312001e6b66adc06",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\candidate2a_checks.json": "6eb594d3e81e89e027e0d63b09353c881ef127c546587dbd7d9e6e736c88bfa7",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\change_map.json": "a08a72cb1ada6df25a0afb4bf27a552750ee5d5900de77096b7e9f2ec29e3069",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\citation_contexts.json": "8ca825c6e5027e6e36615eaab428ee08a3139189bdb42d922280c4727e1b01bd",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\citation_contexts.md": "98406a200f2198595a78c1d5767d87fe16ea3f676f5c9757727fd30e0504543c",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\delivery_candidate2_to_candidate2a.diff": "f6f08dde67faa33acd9d08b40fc5258f61c02859a67818b5b499f7b11b8d3048",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\figure_retention_checks.json": "451516119ca4f16284c7537c0b91ec267a0001731b3410f6cb1277c3a3d7710a",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\final_binding_checks.json": "9b09bb4805add8044333392f3b7e7691b3a4fbb6ab5bf3fd342a496579ec3188",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\numeric_evidence_checks.json": "42adc720e79a460267bd1e96a5b8b69fb87239dfe2293ed1f54b24b06d2aa2cd",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\prior_25_items_location_bridge.json": "4c65fcf5c17e91a90bd3d6fe01590673df5eae1d6a812ab5c0626dd7308d1a8d",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\protected_after.json": "1466cda2634ca97a3f9e5f9035a2d473613eebc2c2ddfffca6679819dea02133",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\protected_before.json": "1466cda2634ca97a3f9e5f9035a2d473613eebc2c2ddfffca6679819dea02133",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\RESPONSES_TO_FINAL_PROVENANCE.json": "bbab8f089b6104e380c423f719096f09cce50f4cf2ef17ccbb14f86a17b28ab1",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\RESPONSES_TO_FINAL_PROVENANCE_CN.md": "477564a52e252972e015eb79ad7187e6b336cdfbb71b320da2ddfd07b8be4ca2",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\source_checks.json": "51dbeafe040f8e4eebe781572963493b520b8095cd31489785d84d5da37b6c0f",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\word_counts.json": "9b3d4a38c9dba86e123514fd18614da78ec058659528019c0dea8fce9874f7f6",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\WORD_COUNTS_CN.md": "bf00e02ff35e847d6e881645f8c279447831106383ed21907832e85305934c7e"
+  },
+  "manifest_excludes_itself": true,
+  "final_integrity_status": "PENDING_INDEPENDENT_FINAL_RECHECK",
+  "read_only_future_policy": "本候选与附件已冻结。后续状态另行记录，不覆盖已冻文件。"
+}

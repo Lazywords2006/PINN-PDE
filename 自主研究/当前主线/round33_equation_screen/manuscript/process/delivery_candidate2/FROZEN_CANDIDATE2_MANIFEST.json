@@ -1,0 +1,31 @@
+{
+  "created_local": "2026-10-23T09:12:38.406900+08:00",
+  "draft_sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4",
+  "file_count": 21,
+  "files": {
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\delivery_candidate2.md": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2\\build_candidate2.py": "641dc65837ec542d87f576061a488efbb0860cafc2e433b2c9b1582c7954a7b1",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2\\candidate2_checks.json": "76be31683dccb47f4bd9c9ab999e4296e7a212a5ce20583ed763aaefea4c7e84",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2\\change_map.json": "67e7a346f315e7a6100f81a2eb034ae0a09e58f64cf6412c956c88ef95273745",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2\\check_candidate2.py": "47086aa48517fda93e412d04b249047124d2190394d9fa3cc22bc051039385c5",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2\\citation_contexts.json": "4b6ab12b1ef1f284bcf295b52d1fea7688cc1c3dceee5578109352ab3feb149c",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2\\citation_contexts.md": "59aefbcbd51f0b5d242574dbb1e822185a446ff298a5bdb7f25a919ccf4c2a57",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2\\delivery_candidate_to_candidate2.diff": "9ffff3d52f8bba46bc2a3e3e05887de73f6bb8693f880d9538394a06cdba7da3",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2\\figure_retention_checks.json": "c01868e1cf5e05646fbb71916337d4f706c2e90624e6d29b4e4a814c2de267ce",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2\\final_binding_checks.json": "126a77e6e6b38b660dc18f49b3349482af84aaf97392d37f62d798f3efd129f2",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2\\freeze_candidate2.py": "476f0891dc0b0bebfccb611101c4c9e7d15f5aac69ba135a179c8a0620661810",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2\\numeric_evidence_checks.json": "8443aa938eed06206c27517a03c223f14d6e913b304ef40596ab2cc765fb2edd",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2\\PREPARATION_206_CN.md": "125de20e9d2ad4a6ac48b120ed6e63c1f4b7ba6dde45728fe55b0f1b14806deb",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2\\prior_25_items_location_bridge.json": "a07342cbbeae5914a45012ed08ba3d9d269d40c7961113b82675819ee62d4a7b",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2\\protected_after.json": "23f643c6433d3d001a715204dc4bcc2e40e109fcac89e1f02bb1fa315b7384f2",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2\\protected_before.json": "23f643c6433d3d001a715204dc4bcc2e40e109fcac89e1f02bb1fa315b7384f2",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2\\RESPONSES_TO_FINAL_PROVENANCE.json": "671433ee3f3af672c7fe67bd894496cfda5374a1c27c1eb694e3a1b18eb3d60f",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2\\RESPONSES_TO_FINAL_PROVENANCE_CN.md": "1bc77ead7f915a0b9f98aecd8a04d460b397a68d6512c30669aa14c44c96f185",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2\\source_checks.json": "16eff518be8083063149a1d30efb8f866cff6f5d64000f678c5b9ebfaa08458f",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2\\word_counts.json": "bb93505a7d782d5190222da4b14ce07572f48249f7d67c8bc1d173f8895f4603",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2\\WORD_COUNTS_CN.md": "363aaa47a690dabdc4425ee4bec0eb99b912ea5e7736f53a71396007298ea21c"
+  },
+  "manifest_excludes_itself": true,
+  "final_integrity_status": "PENDING_INDEPENDENT_INCREMENTAL_REVIEW",
+  "read_only_future_policy": "后续修订必须另存，不覆盖此候选或过程清单。"
+}

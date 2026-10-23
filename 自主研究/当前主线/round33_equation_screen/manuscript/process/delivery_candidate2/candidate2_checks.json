@@ -1,0 +1,28 @@
+{
+  "draft_sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4",
+  "base_sha256": "aef0c10a1bf19e8703a8066e1f0aaef75600b886777424b9f6545677ccc77eb0",
+  "generated_local": "2026-10-23T09:12:02.775270+08:00",
+  "whitelisted_replacements": 11,
+  "reverse_replacements_equal_base": true,
+  "body_cjk": 11510,
+  "all_section_quotas_pass": true,
+  "eight_main_tables_byte_identical": true,
+  "thirteen_other_table_blocks_byte_identical": true,
+  "all_display_formula_blocks_byte_identical": true,
+  "thirteen_references_byte_identical": true,
+  "eighteen_external_contexts_byte_identical": true,
+  "four_figures_paths_and_hashes_unchanged": true,
+  "prior_review_items_rebound": 25,
+  "old_protected_files_unchanged": 58,
+  "operations": {
+    "training": 0,
+    "model_load": 0,
+    "reference_solve": 0,
+    "render": 0,
+    "source_mutation": 0,
+    "git_mutation": 0
+  },
+  "final_integrity_status": "PENDING_INDEPENDENT_INCREMENTAL_REVIEW",
+  "render_status": "PENDING_PARENT_COORDINATION",
+  "final_frozen": true
+}

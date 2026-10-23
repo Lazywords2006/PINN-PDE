@@ -1,0 +1,19 @@
+{
+  "draft_sha256": "59d1db8fd5c8c468783e98ba6db1bcde0e49e7f923e82afa6e2d9e6dbf383cd4",
+  "bound_json_files": [
+    "change_map.json",
+    "word_counts.json",
+    "citation_contexts.json",
+    "figure_retention_checks.json",
+    "numeric_evidence_checks.json",
+    "prior_25_items_location_bridge.json",
+    "RESPONSES_TO_FINAL_PROVENANCE.json",
+    "source_checks.json",
+    "candidate2_checks.json"
+  ],
+  "all_binding_checks_pass": true,
+  "body_cjk": 11510,
+  "protected_old_files": 58,
+  "final_integrity_not_preclaimed": true,
+  "freeze_scope": "冻结本候选与作者过程证据，最终独立增量核验和排版另行记录。"
+}

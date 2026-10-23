@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-10-23T01:15:45.976801+00:00",
+  "checks": [
+    {
+      "manifest": "process/delivery_candidate2/FROZEN_CANDIDATE2_MANIFEST.json",
+      "sha256": "e7e2e0edfd06a2660cf336bce1dab13ab0e5453bc8f3b977ae3f9045e9883dbc",
+      "checked": 21,
+      "errors": []
+    },
+    {
+      "manifest": "process/delivery_candidate2a/DELIVERY_BINDING_INDEX.json",
+      "sha256": "f304f32b5cd25ed8dff94ec2853123f582ac1aec9a8178882f8a08aa9da12df4",
+      "checked": 21,
+      "errors": []
+    }
+  ],
+  "all_match": true
+}
