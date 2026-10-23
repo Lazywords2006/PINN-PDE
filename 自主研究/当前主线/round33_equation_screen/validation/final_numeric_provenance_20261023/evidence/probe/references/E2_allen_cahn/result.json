@@ -1,0 +1,13 @@
+{
+  "eq": "E2_allen_cahn",
+  "selfcheck_max_abs": 3.2916874781463434e-10,
+  "reference_pass": true,
+  "arrays_sha256": "976d0a9f46c6762983c28b5583a5f0fa715962ae03b1e2c40e846dcf9629cc9d",
+  "n": [
+    48,
+    64,
+    96
+  ],
+  "selfcheck_grid_points": 401,
+  "surface_reference_evaluated": false
+}

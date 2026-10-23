@@ -1,0 +1,13 @@
+{
+  "eq": "E1_c1",
+  "selfcheck_max_abs": 1.1713408021307714e-12,
+  "reference_pass": true,
+  "arrays_sha256": "485ea3bcc1752da350174d8dc4d4f6cb15295a325aa6ad21a8904f7efb0c8f4c",
+  "n": [
+    48,
+    64,
+    96
+  ],
+  "selfcheck_grid_points": 401,
+  "surface_reference_evaluated": false
+}

@@ -1,0 +1,10 @@
+{
+  "created_utc": "2026-10-23T01:05:41.217791+00:00",
+  "manifest_sha256": "b8c29c42fc8603b5e0ed865d83b625ac158b0bbf394fd98c7c2b3427a0fe2aae",
+  "expected_files": 2300,
+  "disk_and_index_checked": 2300,
+  "total_bytes": 194982694,
+  "all_match": true,
+  "errors": [],
+  "scope": "Exact archival copy and Git index verification only; no scientific PASS assigned here."
+}

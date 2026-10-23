@@ -1,0 +1,83 @@
+{
+  "created_utc": "2026-10-23T01:02:59.828413+00:00",
+  "scope": "2026-10-23 independent execution from saved weights; not reconstructed training history",
+  "body_trace_result_count": 206,
+  "body_trace_scalar_comparisons": 4120,
+  "heldout_result_count": 52,
+  "heldout_scalar_comparisons": 416,
+  "actual_reference_processes": 12,
+  "actual_model_processes": 258,
+  "all_child_actual_returncodes_zero": true,
+  "supervisor_actual_returncodes": {
+    "full": 0,
+    "heldout": 0
+  },
+  "warning_count": 0,
+  "nonempty_child_stderr": [],
+  "nonempty_supervisor_stderr": [],
+  "source_hashes_unchanged": true,
+  "original_488_hashes_unchanged": true,
+  "evidence_manifest_mismatches": {
+    "probe": {},
+    "full": {},
+    "heldout": {}
+  },
+  "restore_status_counts": {
+    "legacy_complete": 110,
+    "legacy_bulk_only": 20,
+    "complete": 76
+  },
+  "body_trace_recomputation_pass": true,
+  "heldout_recomputation_pass": true,
+  "reference_N48_N96_worst_max_abs": 3.2916874781463434e-10,
+  "body_trace_max_abs_differences": {
+    "n64_gl200": {
+      "vol": 1.7316981182347035e-12,
+      "trace": 2.8278490660227362e-12
+    },
+    "n96_gl400": {
+      "vol": 1.845973374159371e-11,
+      "trace": 4.7492676458205096e-11
+    }
+  },
+  "heldout_max_abs_differences": {
+    "pde": {
+      "rms": 0.0,
+      "max_abs": 0.0
+    },
+    "left_neumann": {
+      "rms": 0.0,
+      "max_abs": 0.0
+    },
+    "right_dynamic": {
+      "rms": 0.0,
+      "max_abs": 0.0
+    },
+    "initial": {
+      "rms": 0.0,
+      "max_abs": 0.0
+    }
+  },
+  "elapsed_seconds": {
+    "full": 351.9388093999878,
+    "heldout": 89.84630159998778
+  },
+  "input_manifest_sha256": "c3ab15b47313c62f5b50aafff2df1e698e4aff5c8a905bc7654485dabbaf8d5b",
+  "heldout_plan_sha256": "032c8890ad5c49a57f30c265bfe46fa649ccafb1b1afa14b5a90f744f793756c",
+  "evidence_summaries_sha256": {
+    "probe": "feef1c7e7a5601c5707d4c65bfff985f85c2f76e2fd447d31e69f526e94c0835",
+    "full": "8bf0b539563d57413851c1d8c6510ee785d5e72e8da91d4230776f8836b7a41a",
+    "heldout": "5993d02a944d80f9cb5952f307649724c530e2ae405e6fb1aca42baffb0f85b5"
+  },
+  "producer_sha256": {
+    "recompute_saved_models.py": "7cbe64b660606ca66bf63af28f6fc71c4072106a687c8a85a56b3fb7c37b9611",
+    "recompute_heldout.py": "0f95d05c484dddb3be20d8d8de512f0759934234eee278bd0d00505eff7b0433",
+    "launch_logged.ps1": "5a14485e31da9dce3a15542578462ea355f292bde947b23b61b82f39d32e5e6b"
+  },
+  "excluded": [
+    "20 legacy E4 surface predictions and surface/exchange residuals",
+    "old training exit codes, warnings, source binding and optimization trajectories",
+    "new training, hyperparameter selection, universal scientific advantage claims"
+  ],
+  "final_manuscript_integrity_decision": "reserved to independent final reviewer; numerical match is not full Mode1 acceptance"
+}

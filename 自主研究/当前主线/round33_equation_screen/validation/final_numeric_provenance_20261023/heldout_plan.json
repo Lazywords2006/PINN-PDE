@@ -1,0 +1,3586 @@
+{
+  "created_utc": "2026-10-23T00:53:47.225676+00:00",
+  "scope": "2026-10-23 saved-weight recomputation of existing 52 heldout diagnostics only",
+  "parent_plan_sha256": "c3ab15b47313c62f5b50aafff2df1e698e4aff5c8a905bc7654485dabbaf8d5b",
+  "source_sha256": {
+    "recompute_heldout.py": "0f95d05c484dddb3be20d8d8de512f0759934234eee278bd0d00505eff7b0433",
+    "recompute_saved_models.py": "7cbe64b660606ca66bf63af28f6fc71c4072106a687c8a85a56b3fb7c37b9611",
+    "heldout_source_records/pirate_validation.json": "2b5d8775b499bcc1bf2c97e6a648c0ee48da16fe8f39b7a9f08831013589a4e3",
+    "heldout_source_records/ic_validation.json": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317",
+    "heldout_source_records/results_validation.json": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+  },
+  "original_report_sha256": {
+    "validation/stage5_20261022/pirate_validation.json": "2b5d8775b499bcc1bf2c97e6a648c0ee48da16fe8f39b7a9f08831013589a4e3",
+    "validation/stage5_20261022/ic_validation.json": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317",
+    "validation/stage6_20261022/completion_archive_20261023/results_validation.json": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+  },
+  "definition_sources": [
+    "frozen_source/stage5_support.py:42",
+    "frozen_source/pinn1d.py:258",
+    "frozen_source/SCREEN_PROTOCOL.md amendments 5-6"
+  ],
+  "points": {
+    "numpy_generator": "default_rng",
+    "seed": 330500,
+    "ordered_draws": [
+      [
+        "x_bulk",
+        "uniform",
+        0,
+        1,
+        8192
+      ],
+      [
+        "t_bulk",
+        "uniform",
+        0.0001,
+        1,
+        8192
+      ],
+      [
+        "t_left",
+        "uniform",
+        0.0001,
+        1,
+        1024
+      ],
+      [
+        "t_right",
+        "uniform",
+        0.0001,
+        1,
+        1024
+      ],
+      [
+        "x_initial",
+        "uniform",
+        0,
+        1,
+        1024
+      ]
+    ],
+    "body_chunk_size": 1024
+  },
+  "formulas": {
+    "pde": "u_t - D*u_xx - R(u)",
+    "left_neumann": "u_x(0,t)",
+    "right_dynamic": "c*u_t(1,t) + D*u_x(1,t) + G(u(1,t))",
+    "initial": "u(x,0)-f(x)"
+  },
+  "aggregation": {
+    "rms": "sqrt(mean(residual**2))",
+    "max_abs": "max(abs(residual))"
+  },
+  "comparison_tolerance": {
+    "rtol": 1e-05,
+    "atol": 1e-09
+  },
+  "counts": [
+    {
+      "path": "validation/stage5_20261022/pirate_validation.json",
+      "count": 4,
+      "with_heldout": 4
+    },
+    {
+      "path": "validation/stage5_20261022/ic_validation.json",
+      "count": 18,
+      "with_heldout": 18
+    },
+    {
+      "path": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "count": 30,
+      "with_heldout": 30
+    }
+  ],
+  "jobs": [
+    {
+      "key": "job_131",
+      "path": "runs/pirate/E1_heat/hardic_s0.json",
+      "eq": "E1_heat",
+      "method": "hardic",
+      "seed": 0,
+      "tag": "pirate",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "pirate",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/pirate/E1_heat/hardic_s0.json": "cb238b721deb7c251c483b3f906de18fdca4da5d9b0e7b5746798eec004486fd",
+        "runs/pirate/E1_heat/hardic_s0.pt": "5af32cb1437f75ea341f651d47d7f54cfc7f96b682ee44c8eb899d393d7acbfe",
+        "runs/pirate/E1_heat/hardic_s0.model.pt": "188e7c767fa70c4fa2610624dd65d779ab2487e49d729f3ac2f60e50ab04bc6f"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.005861148013928181,
+          "max_abs": 0.4620170257827404,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 8.442283842556937e-05,
+          "max_abs": 0.00021263376931500086,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00011173149063432594,
+          "max_abs": 0.0006952396326385113,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/pirate_validation.json",
+      "record_source_sha256": "2b5d8775b499bcc1bf2c97e6a648c0ee48da16fe8f39b7a9f08831013589a4e3"
+    },
+    {
+      "key": "job_128",
+      "path": "runs/pirate/E1_heat/hardic_layer_s0.json",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "seed": 0,
+      "tag": "pirate",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "pirate",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/pirate/E1_heat/hardic_layer_s0.json": "4cf2b4e9a5a78d7a36773bb5ff25593fbdba5af3a0e0cd8229836f74e8cda3fc",
+        "runs/pirate/E1_heat/hardic_layer_s0.pt": "755630a924fc91a9473494beb17633bd9d5ff6dba7f7484910bb5031875ebf97",
+        "runs/pirate/E1_heat/hardic_layer_s0.model.pt": "889200e864e9b3c6cc83c0972835ae034b65fa089800ae084c0e26cdd3428aeb"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0007912628841441777,
+          "max_abs": 0.017832220722018732,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00010138888428616965,
+          "max_abs": 0.0002491394521427423,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00016018038425632034,
+          "max_abs": 0.002181379228326591,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/pirate_validation.json",
+      "record_source_sha256": "2b5d8775b499bcc1bf2c97e6a648c0ee48da16fe8f39b7a9f08831013589a4e3"
+    },
+    {
+      "key": "job_132",
+      "path": "runs/pirate/E1_heat/hardic_s1.json",
+      "eq": "E1_heat",
+      "method": "hardic",
+      "seed": 1,
+      "tag": "pirate",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "pirate",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/pirate/E1_heat/hardic_s1.json": "bf393806180c3d0f236aa6d5d2519c3d9e5da9b5096783f7296710f4a22aa219",
+        "runs/pirate/E1_heat/hardic_s1.pt": "7d92e847c600e356d562fd1b0cabbdfc7835507f588f7444a8f8f50bb64b6f1d",
+        "runs/pirate/E1_heat/hardic_s1.model.pt": "4568cf3daef651945dbb1bd672430d5215855b0bf0073f2073bad12cef90732a"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.012590479990322194,
+          "max_abs": 0.9737031159933363,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.0001495968427627401,
+          "max_abs": 0.0006437239344069734,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.01474371308322138,
+          "max_abs": 0.41305962957454634,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/pirate_validation.json",
+      "record_source_sha256": "2b5d8775b499bcc1bf2c97e6a648c0ee48da16fe8f39b7a9f08831013589a4e3"
+    },
+    {
+      "key": "job_129",
+      "path": "runs/pirate/E1_heat/hardic_layer_s1.json",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "seed": 1,
+      "tag": "pirate",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "pirate",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/pirate/E1_heat/hardic_layer_s1.json": "ac112091862174386215c81f84daa730fa5e5cdcdf23413c6bcd76f18a810d02",
+        "runs/pirate/E1_heat/hardic_layer_s1.pt": "01751c2511970d8466b6f328ecb94c9f1565f09a75a13168fad7bd5e9eed8cd6",
+        "runs/pirate/E1_heat/hardic_layer_s1.model.pt": "609918743f11290f9df69f10b2aca7b82936e546309f9ec19931a299ad39a57b"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0008402531095254038,
+          "max_abs": 0.019294632345697282,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.0001620507960296854,
+          "max_abs": 0.0009380885485628219,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00023419373714998008,
+          "max_abs": 0.006129574391267628,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/pirate_validation.json",
+      "record_source_sha256": "2b5d8775b499bcc1bf2c97e6a648c0ee48da16fe8f39b7a9f08831013589a4e3"
+    },
+    {
+      "key": "job_098",
+      "path": "runs/final_ic_v1/E1_heat_cos/vanilla_s0.json",
+      "eq": "E1_heat_cos",
+      "method": "vanilla",
+      "seed": 0,
+      "tag": "final_ic_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_ic_v1/E1_heat_cos/vanilla_s0.json": "327d84135844aedc7d5558670ceb44165528c8e19dd15f361f6740d45c3c4407",
+        "runs/final_ic_v1/E1_heat_cos/vanilla_s0.pt": "2637cbace5d17ed6e8765652928c61405c0504cdc58b9b0420d3da06b0e88543",
+        "runs/final_ic_v1/E1_heat_cos/vanilla_s0.model.pt": "e5f5e300503a83fee5ae8d879efece91e3955a5a8b7dde9a81c1562baf474f7a"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0016895942013899117,
+          "max_abs": 0.07546364918565152,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.0003956466953403888,
+          "max_abs": 0.0018176013527261003,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00034427029873276485,
+          "max_abs": 0.003136117232223762,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0013442416280366864,
+          "max_abs": 0.006726489267814273,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/ic_validation.json",
+      "record_source_sha256": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317"
+    },
+    {
+      "key": "job_095",
+      "path": "runs/final_ic_v1/E1_heat_cos/hardic_s0.json",
+      "eq": "E1_heat_cos",
+      "method": "hardic",
+      "seed": 0,
+      "tag": "final_ic_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_ic_v1/E1_heat_cos/hardic_s0.json": "a81d426a4c027ee8e1bebda39672b48233ad2f8b2c0f3de9f5f7353137d11825",
+        "runs/final_ic_v1/E1_heat_cos/hardic_s0.pt": "443be8e390ec291c5436ad88085791b82585acf9e8cc16470036d2cc6ead0d70",
+        "runs/final_ic_v1/E1_heat_cos/hardic_s0.model.pt": "c9d70b13fe71453ccd75612d023fb236286790106878e5510d67a105e91aa3d9"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.004359571014692774,
+          "max_abs": 0.1973903439396234,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.0003186687314543961,
+          "max_abs": 0.0014339002716404863,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0007847507687357007,
+          "max_abs": 0.01164255801881589,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/ic_validation.json",
+      "record_source_sha256": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317"
+    },
+    {
+      "key": "job_092",
+      "path": "runs/final_ic_v1/E1_heat_cos/hardic_layer_s0.json",
+      "eq": "E1_heat_cos",
+      "method": "hardic+layer",
+      "seed": 0,
+      "tag": "final_ic_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_ic_v1/E1_heat_cos/hardic_layer_s0.json": "4e2a85fa7aabf1364a8a3f5d89bacef31c071b5f54ff85bc5f159e83afcb15bc",
+        "runs/final_ic_v1/E1_heat_cos/hardic_layer_s0.pt": "31a48796690da11edc28c72895099f18c0a6a11da1a3bfa4653eeed5b29b7613",
+        "runs/final_ic_v1/E1_heat_cos/hardic_layer_s0.model.pt": "d5beb7b71de28f0b776c5c12567efa120068e3c1ad4b2bdb1fbc096c6e95f4d1"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.001890747286199352,
+          "max_abs": 0.048752587463560815,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.0003373385572148881,
+          "max_abs": 0.0012251975479872878,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.000806183549693735,
+          "max_abs": 0.003009616305098217,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/ic_validation.json",
+      "record_source_sha256": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317"
+    },
+    {
+      "key": "job_107",
+      "path": "runs/final_ic_v1/E3_fisher_cos/vanilla_s0.json",
+      "eq": "E3_fisher_cos",
+      "method": "vanilla",
+      "seed": 0,
+      "tag": "final_ic_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_ic_v1/E3_fisher_cos/vanilla_s0.json": "66ccddc021f2899a4ce71ab4708d5753b0dacb829d87e76e8e16472c0c051a59",
+        "runs/final_ic_v1/E3_fisher_cos/vanilla_s0.pt": "7039287e481b0676c6d6893cceab3ea38f4bfd40eba33f00e72e80d3e9a73c17",
+        "runs/final_ic_v1/E3_fisher_cos/vanilla_s0.model.pt": "e7d350f8d52d7c8ff6537df5adced52ab92cf1df63a77a402a3f32e9c4b72643"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0018871513058524515,
+          "max_abs": 0.02528199078649502,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.0004980927270229778,
+          "max_abs": 0.002663549026233225,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0005498855133273421,
+          "max_abs": 0.004831506231111171,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0024086168540032537,
+          "max_abs": 0.015111522967136573,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/ic_validation.json",
+      "record_source_sha256": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317"
+    },
+    {
+      "key": "job_104",
+      "path": "runs/final_ic_v1/E3_fisher_cos/hardic_s0.json",
+      "eq": "E3_fisher_cos",
+      "method": "hardic",
+      "seed": 0,
+      "tag": "final_ic_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_ic_v1/E3_fisher_cos/hardic_s0.json": "24a7d40cb0266b59997b01f632f11388dfbc7f94cff754bd5f50c749b51d0f90",
+        "runs/final_ic_v1/E3_fisher_cos/hardic_s0.pt": "d3d11c5989e23a427521b8cf88346782047c1bca8fd265ae8d69e72542b61fc7",
+        "runs/final_ic_v1/E3_fisher_cos/hardic_s0.model.pt": "15afdf51c572a8b16230fd1c9f5fe43d509da836d38713c32962e223aeff16d4"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.003286569081270895,
+          "max_abs": 0.23032498349494476,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00017806690926103604,
+          "max_abs": 0.000500132661475694,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0003720778981983401,
+          "max_abs": 0.00421003597077485,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/ic_validation.json",
+      "record_source_sha256": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317"
+    },
+    {
+      "key": "job_101",
+      "path": "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s0.json",
+      "eq": "E3_fisher_cos",
+      "method": "hardic+layer",
+      "seed": 0,
+      "tag": "final_ic_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s0.json": "2043256e154fdeea1a9471a6b6dbff5cacbaf958899b377289fb785665222d4d",
+        "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s0.pt": "dcabcc9ba3a32209dc9156b689013c6d85fa7d16d548cf03b9ab2c128ebfa973",
+        "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s0.model.pt": "0d3ef02dd0a464aec3dce44694647b828954b2743c93b894a46266717749e7bd"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0012630290828817671,
+          "max_abs": 0.04322866436795823,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00013784302647179035,
+          "max_abs": 0.0006176150588822232,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0002488522856470692,
+          "max_abs": 0.001573494756843763,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/ic_validation.json",
+      "record_source_sha256": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317"
+    },
+    {
+      "key": "job_099",
+      "path": "runs/final_ic_v1/E1_heat_cos/vanilla_s1.json",
+      "eq": "E1_heat_cos",
+      "method": "vanilla",
+      "seed": 1,
+      "tag": "final_ic_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_ic_v1/E1_heat_cos/vanilla_s1.json": "7988199c05b1bd2f39c253b67d2e18afd1d48ebe5f1a588ef1cf8f00fef580e4",
+        "runs/final_ic_v1/E1_heat_cos/vanilla_s1.pt": "c67b54f79c491f7030f75c1194a86a6dc72d95a00288cdf1c3a75aedbf590241",
+        "runs/final_ic_v1/E1_heat_cos/vanilla_s1.model.pt": "d5fdf8db33599383beafba3bfdd67607dd5b15f9c33f169b0e4410e75e18f9c5"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0009275359588349436,
+          "max_abs": 0.02008929762077538,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00031920865171148347,
+          "max_abs": 0.002397927301223339,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0026159707904921756,
+          "max_abs": 0.059859894460512736,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0011843233985189875,
+          "max_abs": 0.0069119597180258285,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/ic_validation.json",
+      "record_source_sha256": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317"
+    },
+    {
+      "key": "job_096",
+      "path": "runs/final_ic_v1/E1_heat_cos/hardic_s1.json",
+      "eq": "E1_heat_cos",
+      "method": "hardic",
+      "seed": 1,
+      "tag": "final_ic_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_ic_v1/E1_heat_cos/hardic_s1.json": "5d389a168c305990759bd3abef48411c981b9db10f78a378629fdd7e562756c2",
+        "runs/final_ic_v1/E1_heat_cos/hardic_s1.pt": "4da2786626c66599f0b121737b1b8f4b3df1996a393448f85cf724a5ac49282d",
+        "runs/final_ic_v1/E1_heat_cos/hardic_s1.model.pt": "b9ee92dc1d54205b06f58fbbb5e29c80712abdb8d9d99fb5c6bec5a2dfe33cb4"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.008607042323342447,
+          "max_abs": 0.6203818130057366,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00016200055558729726,
+          "max_abs": 0.0007226782416646128,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.002583954592388759,
+          "max_abs": 0.07644526042696115,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/ic_validation.json",
+      "record_source_sha256": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317"
+    },
+    {
+      "key": "job_093",
+      "path": "runs/final_ic_v1/E1_heat_cos/hardic_layer_s1.json",
+      "eq": "E1_heat_cos",
+      "method": "hardic+layer",
+      "seed": 1,
+      "tag": "final_ic_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_ic_v1/E1_heat_cos/hardic_layer_s1.json": "99085dc4a15ba9fb170800466234adaabfd1aadb1e471ce088229b7ee55fe4ee",
+        "runs/final_ic_v1/E1_heat_cos/hardic_layer_s1.pt": "ed2fe6020da1df706579d5cf8d747a6cb4ec7ddb98a212b364f4a80154bf564d",
+        "runs/final_ic_v1/E1_heat_cos/hardic_layer_s1.model.pt": "8753bb5bc41e5f398f8197a7d07c1443132a0b3a88e754d24555d6de15dec547"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0014891253103509977,
+          "max_abs": 0.0320487387749,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.0001838818347391155,
+          "max_abs": 0.0008707561452548375,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0007161794356786324,
+          "max_abs": 0.0066788562373052696,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/ic_validation.json",
+      "record_source_sha256": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317"
+    },
+    {
+      "key": "job_108",
+      "path": "runs/final_ic_v1/E3_fisher_cos/vanilla_s1.json",
+      "eq": "E3_fisher_cos",
+      "method": "vanilla",
+      "seed": 1,
+      "tag": "final_ic_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_ic_v1/E3_fisher_cos/vanilla_s1.json": "bae257be5f38ecc3ade25f4acb7070b85074311599fa4d917d21613171f5c956",
+        "runs/final_ic_v1/E3_fisher_cos/vanilla_s1.pt": "1b376dba05a196f20b7ee8d2f7e0c67f0d34cdf733cf2ad80db674071c994886",
+        "runs/final_ic_v1/E3_fisher_cos/vanilla_s1.model.pt": "2c976d6c0ca5a7edaea26c1191ca2cb1203efd81538cedba9fb81399a126fb82"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0011993512848667146,
+          "max_abs": 0.046565452564873336,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00028471925788281917,
+          "max_abs": 0.0011616277943125655,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0012710332168121262,
+          "max_abs": 0.025034784786800435,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0010350510696305534,
+          "max_abs": 0.010197599535140189,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/ic_validation.json",
+      "record_source_sha256": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317"
+    },
+    {
+      "key": "job_105",
+      "path": "runs/final_ic_v1/E3_fisher_cos/hardic_s1.json",
+      "eq": "E3_fisher_cos",
+      "method": "hardic",
+      "seed": 1,
+      "tag": "final_ic_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_ic_v1/E3_fisher_cos/hardic_s1.json": "b698c52dfdcb5d22fe8fec1324244b10d50a7725c132c205b53e521be29a3998",
+        "runs/final_ic_v1/E3_fisher_cos/hardic_s1.pt": "90bf92ff1b4339cf30e8c15b7242c33dc6a3a35470de2735811f1847f604a34d",
+        "runs/final_ic_v1/E3_fisher_cos/hardic_s1.model.pt": "553e7a1ae50b199bd9fe9a0544a6c5d7bca55dd9efcd9c10a86f35ddb80700d4"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0021018711262153506,
+          "max_abs": 0.14635829201266481,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.000141826330976236,
+          "max_abs": 0.000513717464070236,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.005196261687132464,
+          "max_abs": 0.13178728834122433,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/ic_validation.json",
+      "record_source_sha256": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317"
+    },
+    {
+      "key": "job_102",
+      "path": "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s1.json",
+      "eq": "E3_fisher_cos",
+      "method": "hardic+layer",
+      "seed": 1,
+      "tag": "final_ic_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s1.json": "ad90cdcc213f3c02c7ae633c653d63920fe7ff545189d338d555c69b949d494d",
+        "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s1.pt": "871a2bdb367c3b67d740e7ed3683508fd7a51e98f47914ff95a3d3d01085a82a",
+        "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s1.model.pt": "ffea67801f12744fa468afc509934a1fe2515ba0d7b3a6954d6e3b448ce89b3c"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0008967175491300469,
+          "max_abs": 0.029138337434306338,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00014030849806682887,
+          "max_abs": 0.00025580638758078075,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0006500152459297273,
+          "max_abs": 0.013387718337159238,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/ic_validation.json",
+      "record_source_sha256": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317"
+    },
+    {
+      "key": "job_100",
+      "path": "runs/final_ic_v1/E1_heat_cos/vanilla_s2.json",
+      "eq": "E1_heat_cos",
+      "method": "vanilla",
+      "seed": 2,
+      "tag": "final_ic_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_ic_v1/E1_heat_cos/vanilla_s2.json": "44d4a8c69a8ce74999b4bc53118fee4ad443d8419e99ca7d7019ef67c899852b",
+        "runs/final_ic_v1/E1_heat_cos/vanilla_s2.pt": "d693e1461d169bc237c645ab64152a0f584a55246185d17906080599f22d973b",
+        "runs/final_ic_v1/E1_heat_cos/vanilla_s2.model.pt": "814bf9e16db494eed48f83e41294c01685497a579dcbcd2ebcbed2748b220789"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0011999863064203553,
+          "max_abs": 0.027181099701953038,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00016510251114368337,
+          "max_abs": 0.0013093388224706126,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0007050616901917583,
+          "max_abs": 0.013653261575591269,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0014058834896302028,
+          "max_abs": 0.007889346490535076,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/ic_validation.json",
+      "record_source_sha256": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317"
+    },
+    {
+      "key": "job_097",
+      "path": "runs/final_ic_v1/E1_heat_cos/hardic_s2.json",
+      "eq": "E1_heat_cos",
+      "method": "hardic",
+      "seed": 2,
+      "tag": "final_ic_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_ic_v1/E1_heat_cos/hardic_s2.json": "5f449053f2c7dfdd651a7bdd209028ea058d340cbdb308717d1b8a548dd623c5",
+        "runs/final_ic_v1/E1_heat_cos/hardic_s2.pt": "8ef50331a9d847e76107ee35761c69d4f3f5c8125b614bf2e3a096291ba0d132",
+        "runs/final_ic_v1/E1_heat_cos/hardic_s2.model.pt": "592b06905032cc03acacdf1dc045711b136cd286e16582f3f1d73be47477133a"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.015513246846102592,
+          "max_abs": 1.344281682697783,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.0005696443729880077,
+          "max_abs": 0.002058406698883228,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0017971296702658857,
+          "max_abs": 0.054587639061399684,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/ic_validation.json",
+      "record_source_sha256": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317"
+    },
+    {
+      "key": "job_094",
+      "path": "runs/final_ic_v1/E1_heat_cos/hardic_layer_s2.json",
+      "eq": "E1_heat_cos",
+      "method": "hardic+layer",
+      "seed": 2,
+      "tag": "final_ic_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_ic_v1/E1_heat_cos/hardic_layer_s2.json": "c80335fcd7ab5ca214c87a85d212650fa735dfc6f1d0c806cbabe16837409ddd",
+        "runs/final_ic_v1/E1_heat_cos/hardic_layer_s2.pt": "686c79661f69bbe982059b9ac23831430cd231a9997d36736839af42640978f1",
+        "runs/final_ic_v1/E1_heat_cos/hardic_layer_s2.model.pt": "1df8a5e95203791e0a4ae67586dd81de26f4f26688db9e97255eeaf9e812bcd6"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0020731509258439676,
+          "max_abs": 0.04562388366013703,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.0005433119615380892,
+          "max_abs": 0.0031558580370879617,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0010665537714657873,
+          "max_abs": 0.0054365685464211055,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/ic_validation.json",
+      "record_source_sha256": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317"
+    },
+    {
+      "key": "job_109",
+      "path": "runs/final_ic_v1/E3_fisher_cos/vanilla_s2.json",
+      "eq": "E3_fisher_cos",
+      "method": "vanilla",
+      "seed": 2,
+      "tag": "final_ic_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_ic_v1/E3_fisher_cos/vanilla_s2.json": "89d44af907f4fe5dbc8b3df0885e43fc07dad063568dbddd8eae121ce4b0fea6",
+        "runs/final_ic_v1/E3_fisher_cos/vanilla_s2.pt": "5d37d4d897ad3cfc05219a3af7265b66db795f2a22ce8c7afed84214457a728c",
+        "runs/final_ic_v1/E3_fisher_cos/vanilla_s2.model.pt": "da0912603d35af9341b115260c6a15d7803ff588389085708499b029dc65650f"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0017452217529993145,
+          "max_abs": 0.018593518286015617,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.0006888622952897093,
+          "max_abs": 0.00193913764095055,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0012013587114157594,
+          "max_abs": 0.018639977133398933,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0028361844641532435,
+          "max_abs": 0.022104808299812737,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/ic_validation.json",
+      "record_source_sha256": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317"
+    },
+    {
+      "key": "job_106",
+      "path": "runs/final_ic_v1/E3_fisher_cos/hardic_s2.json",
+      "eq": "E3_fisher_cos",
+      "method": "hardic",
+      "seed": 2,
+      "tag": "final_ic_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_ic_v1/E3_fisher_cos/hardic_s2.json": "689ecbc63e4506446633460f9d5f1d752591d12085df2f60bb26209f49ecbd09",
+        "runs/final_ic_v1/E3_fisher_cos/hardic_s2.pt": "a92ed73e0e26824f71cea373594534ee8a12c207f66352ef9a4705ba4393b2d5",
+        "runs/final_ic_v1/E3_fisher_cos/hardic_s2.model.pt": "c757962acfa00f10968f127dd4f69817b0c01433ffe06486d28eb6c3f0259b17"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.002327973981352554,
+          "max_abs": 0.18804338797960268,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 9.214844635729753e-05,
+          "max_abs": 0.00021508569785532892,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0016237642371245342,
+          "max_abs": 0.05085131393294229,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/ic_validation.json",
+      "record_source_sha256": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317"
+    },
+    {
+      "key": "job_103",
+      "path": "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s2.json",
+      "eq": "E3_fisher_cos",
+      "method": "hardic+layer",
+      "seed": 2,
+      "tag": "final_ic_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s2.json": "97e1269dbddf9fed52b29f8e7f9d7bd58ddffb2d09f6f572708f26af84e84279",
+        "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s2.pt": "d4c9075a822b86ba4b9fb3d5b632a7ecf7ac5da7c950fd8d87f3ee56525b7d9e",
+        "runs/final_ic_v1/E3_fisher_cos/hardic_layer_s2.model.pt": "c8d6cbd2347d930b12ad9bbe837749ef1ca5dee9d57166e533ee9cb16964a72f"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0010496347917237604,
+          "max_abs": 0.03858921727429536,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00010090183499029953,
+          "max_abs": 0.00022994318108044684,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0003066323609390273,
+          "max_abs": 0.003182602673056034,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage5_20261022/ic_validation.json",
+      "record_source_sha256": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317"
+    },
+    {
+      "key": "job_194",
+      "path": "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s0.json",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "seed": 0,
+      "tag": "sensitivity_tau003_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.03,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s0.json": "ebef540110c3af5dcd8dad13cc356a1cb3d9a6b6f09dc3d76c5e38d787e935ba",
+        "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s0.pt": "8e4960c2c22dccfccff383f2e8395bda92f6b2928099e00b6fcec945e08942a8",
+        "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s0.model.pt": "17fe345945d152928f79a2c90ccdefb88dd2c0391a333338ebca79a22b26b8d5"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0016644287640641521,
+          "max_abs": 0.11010906229627004,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00023135761588121605,
+          "max_abs": 0.0007418743473320909,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00017279281208245834,
+          "max_abs": 0.0006645434255837107,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_197",
+      "path": "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s0.json",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "seed": 0,
+      "tag": "sensitivity_tau003_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.03,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s0.json": "0d317478d362d5f972b85d354f1d58b827ba2ccba0975ff2b0cfb334b880bae9",
+        "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s0.pt": "aaeee1d219cd5cd918cb36015a4dee270e565b939d6aee1d4d169111cd8a2eca",
+        "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s0.model.pt": "339de776a7daf15d6f5638ae7c9de3755fc87772fe1bfff6360ed025ecee0251"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0015000990947680475,
+          "max_abs": 0.07235386472567559,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00016874981711740384,
+          "max_abs": 0.0009421155588564549,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00023261484093497087,
+          "max_abs": 0.0017156760688428196,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_195",
+      "path": "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s1.json",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "seed": 1,
+      "tag": "sensitivity_tau003_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.03,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s1.json": "48a4a19a8d869ec0092b9649c69c7a7add1ad1ef6a04e81676c6f88084a5a1c8",
+        "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s1.pt": "94f36ee6dd03b306fdfa2932f1ef2e5ba55fd7a14c168c7aee9384d9d6d59dc0",
+        "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s1.model.pt": "2fcf5b1ba29cf1515f91ce83787e501852aaa1fcca7ea28614dea18ce7f73e86"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0013439477833880997,
+          "max_abs": 0.03740727617349404,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.0003890680664412832,
+          "max_abs": 0.0013208449181308134,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0005782240560540871,
+          "max_abs": 0.016104154558040595,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_198",
+      "path": "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s1.json",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "seed": 1,
+      "tag": "sensitivity_tau003_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.03,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s1.json": "4d7cd6a83ff1603b408a8cf4d19943c2ecc3c11a6833f4fdba5e20dc68cb35d8",
+        "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s1.pt": "a2d194c05a677c0d1f50e28fac1b6d9069555dede15678165a785fe47d8b8499",
+        "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s1.model.pt": "c3d1e230b5f7a286031e752d4fb92bf887cc67c6726f0fa4ff4c8c24dff9d674"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0008724324844306966,
+          "max_abs": 0.025098089632502235,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 6.58595508693058e-05,
+          "max_abs": 0.00019453438720586652,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0006362972763482665,
+          "max_abs": 0.016126544016125788,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_196",
+      "path": "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s2.json",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "seed": 2,
+      "tag": "sensitivity_tau003_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.03,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s2.json": "c477f005b287a623369820591d09194067fa19c587351dff93096c0ad664cd43",
+        "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s2.pt": "bdcae9e8c5a509882e886af78a95f7f69ba7f4e58e34359e817b61eb981e4e18",
+        "runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s2.model.pt": "53e4f8f46a6b49b53679497019dc6c92e2d0934e302747cd5e4a56b3687ced77"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0008635654452307312,
+          "max_abs": 0.030227849997876532,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00024525617252225935,
+          "max_abs": 0.0008463103818672991,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00032420219907681455,
+          "max_abs": 0.004650041172287761,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_199",
+      "path": "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s2.json",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "seed": 2,
+      "tag": "sensitivity_tau003_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.03,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s2.json": "b97cb4edb94381f9ef1411d93d918240ca8ce66c5a4bddadacd73affd9e07540",
+        "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s2.pt": "6e45fd4b18946e23fa5d8f7cd44ad7a5b4eb7392597f4808260252fd2a3fd22a",
+        "runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s2.model.pt": "53d373c28b543c5ffbf47c48233a1b9af74974392c3a6236f9bbd14c132d3fd5"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0009812705877933247,
+          "max_abs": 0.055368785819463306,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00013410081951289044,
+          "max_abs": 0.0002672421436630524,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00043148761712749704,
+          "max_abs": 0.00873998628069006,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_200",
+      "path": "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s0.json",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "seed": 0,
+      "tag": "sensitivity_tau03_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.3,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s0.json": "3f9a1898ef84c8d60bd4309c44b9934d252d348badf93e88bc8c30e170110b5f",
+        "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s0.pt": "a73d992a384986ce59e14602316a5ec504bdce8ded9d1db487f655876b3a87bc",
+        "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s0.model.pt": "75aae3bf66c1b5add8bc352ab8d64784e94f4438dd669f37340d76d4e6cc9f4a"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0006559419468831219,
+          "max_abs": 0.0217472683777844,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00012823805288546272,
+          "max_abs": 0.0005858232744871234,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00025304819436827963,
+          "max_abs": 0.0020134535300090906,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_203",
+      "path": "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s0.json",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "seed": 0,
+      "tag": "sensitivity_tau03_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.3,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s0.json": "6621347001cd06bf3fd3434d48cd72f28875fd0d2c63146468dd3b547b4c2fb9",
+        "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s0.pt": "fdcd29a521aa92fd8b71f40a2efa5e70a5a886aef05bdbd055728f4095a7152d",
+        "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s0.model.pt": "71b2d92e6b4820e1a12ea8afb257962599b4a7ca36d09618904db018a5960f8a"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0010997158264524473,
+          "max_abs": 0.03268403676068736,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.0001876084859332512,
+          "max_abs": 0.0008503015184377232,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0002169093678538886,
+          "max_abs": 0.001101096873564078,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_201",
+      "path": "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s1.json",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "seed": 1,
+      "tag": "sensitivity_tau03_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.3,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s1.json": "f83b25dc08eed28649ed4bc15dadbff1bcc227343b0b0fe2adcbda5e9e69ad14",
+        "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s1.pt": "092b931520e755b3cf6972f776d0a07d766e3c2438ca86c1c2210e863707d217",
+        "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s1.model.pt": "215cee5e3a0e99b54f7a19336d361d4e8430dd03fe5163c59abf38c955bbc553"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0008568182197944748,
+          "max_abs": 0.0185246748086767,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00014843700036214569,
+          "max_abs": 0.0006111725561415348,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00066973865592274,
+          "max_abs": 0.013241890122590777,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_204",
+      "path": "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s1.json",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "seed": 1,
+      "tag": "sensitivity_tau03_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.3,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s1.json": "cf5b44b24ff27e854022580ca38d0d657ac18d2697b337edd4cd9c7a5ab78de8",
+        "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s1.pt": "fe5ff9fd22dd55f289543dca6afe3d9f875489d190d3841c48baccdc3a379f00",
+        "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s1.model.pt": "1428fd146e2fbc2e6e3defdbb84c05db5b6c621c89075e3bd373fa5463990154"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0007337063409169965,
+          "max_abs": 0.022020408977577476,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 9.523777808933123e-05,
+          "max_abs": 0.00018434705097954097,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00031998446694060537,
+          "max_abs": 0.003471035345594342,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_202",
+      "path": "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s2.json",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "seed": 2,
+      "tag": "sensitivity_tau03_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.3,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s2.json": "acf203912f2de93d506e07e04c2a06e7cf49b3eb5e3523f5ef215fb6eca58157",
+        "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s2.pt": "3744a50b1df1b59c1867af35fc17b3a15d0b8d9bae78a094285f27488d633795",
+        "runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s2.model.pt": "63f54a65e91156c71b358015d8aa841e36c4bf8252e20bce4c3cf6fd3d481998"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0009186367428458263,
+          "max_abs": 0.023331254482268138,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00022426916061134774,
+          "max_abs": 0.0007934966494143101,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00045121130431876103,
+          "max_abs": 0.0046327285797802265,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_205",
+      "path": "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s2.json",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "seed": 2,
+      "tag": "sensitivity_tau03_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.3,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s2.json": "42d02f299efe2e75370e986f2a8594b0f597d5e1fe31120a8f40c56386130ae0",
+        "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s2.pt": "6fbe73127ff38a325e3362be6d2f86eecaa748cbe2f8bf9b91daf9a6af10a4a7",
+        "runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s2.model.pt": "ad064826045cf247e2632721eb333731388719a0389adc85e711d9a388ac48c6"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0012743383020977575,
+          "max_abs": 0.020774822705517115,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00031054567329480995,
+          "max_abs": 0.0009185317394399616,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00031596147523332537,
+          "max_abs": 0.0014059947587392596,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_116",
+      "path": "runs/final_soap64_v1/E1_heat/vanilla_s0.json",
+      "eq": "E1_heat",
+      "method": "vanilla",
+      "seed": 0,
+      "tag": "final_soap64_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "soap_official64",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_soap64_v1/E1_heat/vanilla_s0.json": "82f16eabe78c0a0aedb2c705df9dc521e6ddd3c0565c8153b62d27085b4d6b71",
+        "runs/final_soap64_v1/E1_heat/vanilla_s0.pt": "727f570f58334cf956809ed88b9df29408404def86dcfaaa331d5972a3c66e75",
+        "runs/final_soap64_v1/E1_heat/vanilla_s0.model.pt": "17335e310d9d2eaddb9ecb152b931fbe0005170c4563be9a330be06772849086"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0020508379689799247,
+          "max_abs": 0.1568385198636867,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.0002640486930191814,
+          "max_abs": 0.0005496160593911805,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00020939526413065945,
+          "max_abs": 0.00167072789133485,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0007217204588791139,
+          "max_abs": 0.004702436528089771,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_113",
+      "path": "runs/final_soap64_v1/E1_heat/hardic_s0.json",
+      "eq": "E1_heat",
+      "method": "hardic",
+      "seed": 0,
+      "tag": "final_soap64_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "soap_official64",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_soap64_v1/E1_heat/hardic_s0.json": "725214efbfa6fab4ee55c1ec9a161d1d81142cb594c8462e5c06f98196b69421",
+        "runs/final_soap64_v1/E1_heat/hardic_s0.pt": "603fb3a88a7bcf740d814636ca53e950daab5c48c813c9462f1be5ddf6b33c65",
+        "runs/final_soap64_v1/E1_heat/hardic_s0.model.pt": "5b5aba7e1db7a26a373bf6fc20c9fb10b0b73e5a5c858e63de5c83eef12ca799"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.007457092861084747,
+          "max_abs": 0.5536093263108617,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00011684827541711442,
+          "max_abs": 0.00050363540178445,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0002766027390486202,
+          "max_abs": 0.0031400508102541747,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_110",
+      "path": "runs/final_soap64_v1/E1_heat/hardic_layer_s0.json",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "seed": 0,
+      "tag": "final_soap64_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "soap_official64",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_soap64_v1/E1_heat/hardic_layer_s0.json": "92a371db9fcdd4257963d095dd3da5bd9ad3fcaebcab362535c434b1f49bbd49",
+        "runs/final_soap64_v1/E1_heat/hardic_layer_s0.pt": "118fdff2a301facc50954a42ae53383141ec723a27663a9dcd7c78caeeb1b40a",
+        "runs/final_soap64_v1/E1_heat/hardic_layer_s0.model.pt": "6163e1a2cb4f61ad6c3fba943bcb4af452b7938b64b1677888f57caf39d29f6b"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0007194498292664359,
+          "max_abs": 0.04187840149270272,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 3.845250448888177e-05,
+          "max_abs": 0.00016889914014321008,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00026788503267516605,
+          "max_abs": 0.0027067396520853992,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_125",
+      "path": "runs/final_soap64_v1/E3_fisher/vanilla_s0.json",
+      "eq": "E3_fisher",
+      "method": "vanilla",
+      "seed": 0,
+      "tag": "final_soap64_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "soap_official64",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_soap64_v1/E3_fisher/vanilla_s0.json": "24f9b71f6669453a58b42eb550daf436da9740d53a6c58851ace680e45d89ed9",
+        "runs/final_soap64_v1/E3_fisher/vanilla_s0.pt": "cb49f6678e192abdc5a8d70c791ecb19c5c6bb989156491663706719a9b5814a",
+        "runs/final_soap64_v1/E3_fisher/vanilla_s0.model.pt": "ce94eafbc87d3a8fc8d2c007fbddb297088fe14fde1112cc76d8ca162bff5263"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0007548561642978132,
+          "max_abs": 0.027276038038187407,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 4.011044109895227e-05,
+          "max_abs": 0.00019634248473651694,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00018671029943099045,
+          "max_abs": 0.0013342120239068223,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0009704114532802836,
+          "max_abs": 0.008884554312076572,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_122",
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_s0.json",
+      "eq": "E3_fisher",
+      "method": "hardic",
+      "seed": 0,
+      "tag": "final_soap64_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "soap_official64",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_soap64_v1/E3_fisher/hardic_s0.json": "d69cedc42e821520d8e900f64769812354e2d2ad668ef50ec0607ab7d1a65851",
+        "runs/final_soap64_v1/E3_fisher/hardic_s0.pt": "508462d5901c5b6403a52c39bb991135e2d22b33a8286542810899ce6b3b045d",
+        "runs/final_soap64_v1/E3_fisher/hardic_s0.model.pt": "a817bba1a6654ffacefdc0d939f4a89657cb344faa956edaa112f1adb5078ade"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.004239276440304573,
+          "max_abs": 0.214275112882628,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 3.09843201748973e-05,
+          "max_abs": 0.00015081043751687118,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00020263966846116856,
+          "max_abs": 0.0012928384672586946,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_119",
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_layer_s0.json",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "seed": 0,
+      "tag": "final_soap64_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "soap_official64",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_soap64_v1/E3_fisher/hardic_layer_s0.json": "f903c8a1bab9f697304bbc2d4f0436b047a4b0ab3e0babf1213063c4851bb6e4",
+        "runs/final_soap64_v1/E3_fisher/hardic_layer_s0.pt": "5986023eb78fce3be367efeceab95185d498b44b4e5e1f44f6ce1566b7267ae1",
+        "runs/final_soap64_v1/E3_fisher/hardic_layer_s0.model.pt": "e6ce214dafa09dfe0a4365c096818cf67a276d9920413347bcbf6cb9f63efce0"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0003369138758511334,
+          "max_abs": 0.014471612689573242,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 8.554396613056602e-06,
+          "max_abs": 2.9801569737893455e-05,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00012410238928904695,
+          "max_abs": 0.0008956127201563691,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_117",
+      "path": "runs/final_soap64_v1/E1_heat/vanilla_s1.json",
+      "eq": "E1_heat",
+      "method": "vanilla",
+      "seed": 1,
+      "tag": "final_soap64_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "soap_official64",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_soap64_v1/E1_heat/vanilla_s1.json": "d66322be0938d344911894fbe90d1c19109a0167dd38dde0637ae3dec9a00dcc",
+        "runs/final_soap64_v1/E1_heat/vanilla_s1.pt": "c12065f13d45b0d50ce49b0acebff4f690fb43319fb235dc888293e048a8c359",
+        "runs/final_soap64_v1/E1_heat/vanilla_s1.model.pt": "06d247a2fcaa02d2330426087c96a673d1ac01076b01bcff7f3f9434b982195f"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0011365706084319614,
+          "max_abs": 0.04678861831261383,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00020091865458100294,
+          "max_abs": 0.0011665136317628444,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.007287247728081043,
+          "max_abs": 0.19655372861173853,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0006375411777888535,
+          "max_abs": 0.005053247960308815,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_114",
+      "path": "runs/final_soap64_v1/E1_heat/hardic_s1.json",
+      "eq": "E1_heat",
+      "method": "hardic",
+      "seed": 1,
+      "tag": "final_soap64_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "soap_official64",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_soap64_v1/E1_heat/hardic_s1.json": "8cbe169e0f7ae95b84dd68b808f1ca360ffd5e9204e676d01545e661eab1e5a3",
+        "runs/final_soap64_v1/E1_heat/hardic_s1.pt": "2fd699439a2a300787498b213a24c289e385a829f33d0d93f93e9a6456c88b3f",
+        "runs/final_soap64_v1/E1_heat/hardic_s1.model.pt": "2194c7af985f06bb0b297296ab62eff643e05c008b2e61bd2d2938a14cb1026a"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.002552278229732675,
+          "max_abs": 0.18420460833904784,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00018177395218740996,
+          "max_abs": 0.0013116973456214244,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.019137468153724795,
+          "max_abs": 0.5313100621571676,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_111",
+      "path": "runs/final_soap64_v1/E1_heat/hardic_layer_s1.json",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "seed": 1,
+      "tag": "final_soap64_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "soap_official64",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_soap64_v1/E1_heat/hardic_layer_s1.json": "4e730e8b2d73baa2ee3f098335c9e34107a7e74b707723eee950b666990926a1",
+        "runs/final_soap64_v1/E1_heat/hardic_layer_s1.pt": "d15c8e623829b1f3e2a6d1948e37a3720c95c08742e087dd94f635b1497c71f4",
+        "runs/final_soap64_v1/E1_heat/hardic_layer_s1.model.pt": "85a9a721f12f1e87c745cb8b19a78e0a87d711649d6f782fbd15b498d02cd153"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0007505604349585284,
+          "max_abs": 0.025188631958563024,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 8.674686632283885e-05,
+          "max_abs": 0.00042725621705274003,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0005645616475085514,
+          "max_abs": 0.014012978346289534,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_126",
+      "path": "runs/final_soap64_v1/E3_fisher/vanilla_s1.json",
+      "eq": "E3_fisher",
+      "method": "vanilla",
+      "seed": 1,
+      "tag": "final_soap64_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "soap_official64",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_soap64_v1/E3_fisher/vanilla_s1.json": "1c2d58513c0061de25e1092a6d94583d91800059c8cf06b0a16f71dbabf53b8f",
+        "runs/final_soap64_v1/E3_fisher/vanilla_s1.pt": "1ba40ab23b689af5eb68b7e3eba0887bf11b16334ddfb1bacccca93ee26ae9ce",
+        "runs/final_soap64_v1/E3_fisher/vanilla_s1.model.pt": "093a1185cac9df400d39e1c0392b71786e09df5cd193bb6f52bbd4dd474e5c73"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0005678395738194805,
+          "max_abs": 0.0198671694402981,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 5.772157206891818e-05,
+          "max_abs": 0.00024634483055424594,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00044129296621459626,
+          "max_abs": 0.00907935521131531,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0009970232489798826,
+          "max_abs": 0.009853469670946805,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_123",
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_s1.json",
+      "eq": "E3_fisher",
+      "method": "hardic",
+      "seed": 1,
+      "tag": "final_soap64_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "soap_official64",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_soap64_v1/E3_fisher/hardic_s1.json": "e3b9e51ca304e6bc01addf79287f69dd10dbfb88751b2fa5dfdb06069c9bb291",
+        "runs/final_soap64_v1/E3_fisher/hardic_s1.pt": "eae2507d196c10601adb5a72c23cee7a8d63e6f581a46ff768b7cb3ae692a13f",
+        "runs/final_soap64_v1/E3_fisher/hardic_s1.model.pt": "b386b05d7a11add6f2a873e562e0d8aea2f40cf743dc9346c15c29c529efad8f"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.003382180843339205,
+          "max_abs": 0.231675101839222,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00013119255839186706,
+          "max_abs": 0.000395243001680967,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0014751952179298093,
+          "max_abs": 0.03983424915944955,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_120",
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_layer_s1.json",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "seed": 1,
+      "tag": "final_soap64_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "soap_official64",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_soap64_v1/E3_fisher/hardic_layer_s1.json": "edc20e50a83823b640067fb9543471b1ef9eb1a695bc715af7a60631c7421315",
+        "runs/final_soap64_v1/E3_fisher/hardic_layer_s1.pt": "95f0b8f5d230028dfe8ecc1a7202492aa49936b07ef4b41946eebfbc54ae550d",
+        "runs/final_soap64_v1/E3_fisher/hardic_layer_s1.model.pt": "af31ee52316c51323831a65c3b10108c577f2e3d9fd0d88d34ed061772b4ec64"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0002722875701375819,
+          "max_abs": 0.010133143280693287,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 7.2098398183712175e-06,
+          "max_abs": 1.8461577909896802e-05,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 7.57819756931447e-05,
+          "max_abs": 0.00127247464877156,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_118",
+      "path": "runs/final_soap64_v1/E1_heat/vanilla_s2.json",
+      "eq": "E1_heat",
+      "method": "vanilla",
+      "seed": 2,
+      "tag": "final_soap64_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "soap_official64",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_soap64_v1/E1_heat/vanilla_s2.json": "1fc7d160593625af552da4382ab975d6ac8ee2270841442d19b3c4aff99729d2",
+        "runs/final_soap64_v1/E1_heat/vanilla_s2.pt": "1f467aab469bcf3e0af47769057d66c810bc330f414156be71857e9fca6be76e",
+        "runs/final_soap64_v1/E1_heat/vanilla_s2.model.pt": "40ebafa898ca6cacf16c3620f0e00a0af4207934978c1555fcf9a72790bf692f"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0011412486993200193,
+          "max_abs": 0.04297166545935216,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00020785881827817894,
+          "max_abs": 0.0007637018672041742,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0007860032209719731,
+          "max_abs": 0.023281202328311074,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0010338584031173493,
+          "max_abs": 0.0077722623516467415,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_115",
+      "path": "runs/final_soap64_v1/E1_heat/hardic_s2.json",
+      "eq": "E1_heat",
+      "method": "hardic",
+      "seed": 2,
+      "tag": "final_soap64_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "soap_official64",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_soap64_v1/E1_heat/hardic_s2.json": "767850b79096e1ea3c152f308d533da9bc3f0d37cc0bc8bc8d8b913eeecb0189",
+        "runs/final_soap64_v1/E1_heat/hardic_s2.pt": "d6c43cff268d7d00c1ce041d299f95b183d5e963c8c83fc61c9dfbca962cd544",
+        "runs/final_soap64_v1/E1_heat/hardic_s2.model.pt": "18b0fbf63e158de21a35cc7133e5d9967228b49708642fadf7922c79ecbc9206"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.005516602066856601,
+          "max_abs": 0.41376718842131677,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.0001372470559970545,
+          "max_abs": 0.0005871417558209763,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00270598097887504,
+          "max_abs": 0.0833781531597505,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_112",
+      "path": "runs/final_soap64_v1/E1_heat/hardic_layer_s2.json",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "seed": 2,
+      "tag": "final_soap64_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "soap_official64",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_soap64_v1/E1_heat/hardic_layer_s2.json": "882b30c8aee85a99ebaa69bb687c3ab3038125cf338a9581efeafe04cf804675",
+        "runs/final_soap64_v1/E1_heat/hardic_layer_s2.pt": "0c3c461adbd4ca9e56e5697959506a97d741088a10de1003db7cfb817f758486",
+        "runs/final_soap64_v1/E1_heat/hardic_layer_s2.model.pt": "cae7e714432a6888d3187a4840252b5b33b6859ba09e54d9d92608fe5e859152"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0006870670527828553,
+          "max_abs": 0.03126468359345336,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 7.013482673151283e-05,
+          "max_abs": 0.000420503768870941,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00022061110104200268,
+          "max_abs": 0.0024658623500604104,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_127",
+      "path": "runs/final_soap64_v1/E3_fisher/vanilla_s2.json",
+      "eq": "E3_fisher",
+      "method": "vanilla",
+      "seed": 2,
+      "tag": "final_soap64_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "soap_official64",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_soap64_v1/E3_fisher/vanilla_s2.json": "6e32ac6d0aee2ff284bee5e38e3e3490c3e63cecdaeb02a8678554905173d8f5",
+        "runs/final_soap64_v1/E3_fisher/vanilla_s2.pt": "72f3431e9e5502f552c5239d51086ad77e0ffbc4859ad9c7ceba5059e46bf3c6",
+        "runs/final_soap64_v1/E3_fisher/vanilla_s2.model.pt": "28e024fddbb94464b780ef219f6919fc1a8fdc9aed63b9ea59ab44826bad43ab"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.0007665654092264927,
+          "max_abs": 0.032919968530171234,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 3.372624093915955e-05,
+          "max_abs": 0.00010011482390773208,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.00031186454008106897,
+          "max_abs": 0.005489420803055256,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0011738246367285854,
+          "max_abs": 0.011686390064214815,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_124",
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_s2.json",
+      "eq": "E3_fisher",
+      "method": "hardic",
+      "seed": 2,
+      "tag": "final_soap64_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "soap_official64",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_soap64_v1/E3_fisher/hardic_s2.json": "ce002143971d04f3805e2e3a88e9cc89e17a025c34ac2ef577dd12e335a791f3",
+        "runs/final_soap64_v1/E3_fisher/hardic_s2.pt": "96648752698793c300f17a6c4326e19bd77f14acc9221966ee722b8b0111d613",
+        "runs/final_soap64_v1/E3_fisher/hardic_s2.model.pt": "de83b7d9a3943f1144fb6df644b70c1404eded026a079c8460bbd2844050f44b"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.00803531835149529,
+          "max_abs": 0.6410747737345683,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 0.00010761003325362824,
+          "max_abs": 0.0005032234718497369,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0005830827486070222,
+          "max_abs": 0.006841532026110375,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    },
+    {
+      "key": "job_121",
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_layer_s2.json",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "seed": 2,
+      "tag": "final_soap64_v1",
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "soap_official64",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "input_hashes": {
+        "runs/final_soap64_v1/E3_fisher/hardic_layer_s2.json": "d19fa0a8602da7c2e127f2bc46f60ee276177dfe13f0c94813461d5dd1950d0f",
+        "runs/final_soap64_v1/E3_fisher/hardic_layer_s2.pt": "daa88f3980b57a968225b76aa96afcb84bc07b6a2a06d4eed29a103b3ec630f3",
+        "runs/final_soap64_v1/E3_fisher/hardic_layer_s2.model.pt": "da050a285a00925142747803d3fb7063513eab0500af4a9cd6b28a121b5356f3"
+      },
+      "format": "complete",
+      "recorded_heldout": {
+        "pde": {
+          "rms": 0.000386531373794959,
+          "max_abs": 0.01535982118133365,
+          "n": 8192
+        },
+        "left_neumann": {
+          "rms": 2.1972683428889584e-05,
+          "max_abs": 8.740464036339169e-05,
+          "n": 1024
+        },
+        "right_dynamic": {
+          "rms": 0.0001323605871435761,
+          "max_abs": 0.001906631882435783,
+          "n": 1024
+        },
+        "initial": {
+          "rms": 0.0,
+          "max_abs": 0.0,
+          "n": 1024
+        }
+      },
+      "record_source": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "record_source_sha256": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf"
+    }
+  ],
+  "training_calls": 0,
+  "excluded": [
+    "training losses/trajectory",
+    "legacy E4 surface weights/predictions/residuals"
+  ]
+}

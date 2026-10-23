@@ -1,0 +1,13 @@
+{
+  "eq": "E1_heat_cos",
+  "selfcheck_max_abs": 8.663070261150096e-13,
+  "reference_pass": true,
+  "arrays_sha256": "ec17409e6e8410135242593d8afd585517c4667214fbebc99b45b9f69a762845",
+  "n": [
+    48,
+    64,
+    96
+  ],
+  "selfcheck_grid_points": 401,
+  "surface_reference_evaluated": false
+}

@@ -1,0 +1,194 @@
+{
+  "key": "job_181",
+  "path": "runs/screen/E2_allen_cahn/rba_s1.json",
+  "eq": "E2_allen_cahn",
+  "method": "rba",
+  "tag": "screen",
+  "seed": 1,
+  "config": {
+    "width": 64,
+    "depth": 4,
+    "adam_steps": 4000,
+    "lr0": 0.001,
+    "lr1": 1e-05,
+    "nf": 2048,
+    "nb": 128,
+    "n0": 256,
+    "lbfgs_iters": 500,
+    "lbfgs_chunk": 50,
+    "nf_fixed": 4096,
+    "nb_fixed": 256,
+    "n0_fixed": 512,
+    "tau": 0.1,
+    "rba_gamma": 0.999,
+    "rba_eta": 0.01,
+    "seed": 1
+  },
+  "restore_status": "legacy_complete",
+  "architecture": "mlp",
+  "input_sha256": {
+    "runs/screen/E2_allen_cahn/rba_s1.json": "8ec6ca254869383940d18b87df82e59965aff694e9afe6424babfe5d7510177b",
+    "runs/screen/E2_allen_cahn/rba_s1.pt": "25dce7ac9effc18f60838f02cd45e64161ddf84fa91a677eaed75c16c6b083b7"
+  },
+  "reference_arrays_sha256": "976d0a9f46c6762983c28b5583a5f0fa715962ae03b1e2c40e846dcf9629cc9d",
+  "reference_result_sha256": "7c4c41e84fc823b9168decaec69904c84720a254322e81fcc5c70c048401bb9e",
+  "arrays_sha256": "40dd3ba7c9d175e34eba557b7ffc0a013f5ed3771d19489a95b9de2e39938142",
+  "comparisons": {
+    "n64_gl200": {
+      "vol": {
+        "passed": true,
+        "actual": [
+          0.005808721633463153,
+          0.005414789286997179,
+          0.0052712642068817655,
+          0.004193849787778815,
+          0.003735155342284879
+        ],
+        "recorded": [
+          0.005808721633465431,
+          0.005414789286992108,
+          0.005271264206902133,
+          0.004193849787784571,
+          0.003735155342284331
+        ],
+        "absolute_difference": [
+          2.278559285695536e-15,
+          5.0714640820181955e-15,
+          2.0367388331443692e-14,
+          5.755812493291046e-15,
+          5.477389375396768e-16
+        ],
+        "tolerance_per_value": [
+          5.908721633465432e-08,
+          5.5147892869921085e-08,
+          5.371264206902134e-08,
+          4.293849787784571e-08,
+          3.835155342284332e-08
+        ],
+        "max_abs_difference": 2.0367388331443692e-14,
+        "max_fraction_of_tolerance": 3.791917050974959e-07
+      },
+      "trace": {
+        "passed": true,
+        "actual": [
+          0.01695299602664221,
+          0.01700115926499587,
+          0.011563028777715992,
+          0.005557658685819587,
+          0.0073053027107803726
+        ],
+        "recorded": [
+          0.016952996026636847,
+          0.017001159265019914,
+          0.011563028777420119,
+          0.005557658685590726,
+          0.007305302710780689
+        ],
+        "absolute_difference": [
+          5.3637649877202875e-15,
+          2.4043267377038546e-14,
+          2.9587270133912824e-13,
+          2.2886120082388217e-13,
+          3.165870343657673e-16
+        ],
+        "tolerance_per_value": [
+          1.7052996026636848e-07,
+          1.7101159265019914e-07,
+          1.1663028777420119e-07,
+          5.657658685590726e-08,
+          7.40530271078069e-08
+        ],
+        "max_abs_difference": 2.9587270133912824e-13,
+        "max_fraction_of_tolerance": 4.045157432468664e-06
+      }
+    },
+    "n96_gl400": {
+      "vol": {
+        "passed": true,
+        "actual": [
+          0.005808721633452056,
+          0.005414789286979731,
+          0.005271264206870446,
+          0.004193849787793832,
+          0.0037351553423128144
+        ],
+        "recorded": [
+          0.005808721633465431,
+          0.005414789286992108,
+          0.005271264206902133,
+          0.004193849787784571,
+          0.003735155342284331
+        ],
+        "absolute_difference": [
+          1.3375585361519171e-14,
+          1.237638463935653e-14,
+          3.1687326373930347e-14,
+          9.261688638240173e-15,
+          2.8483292113801184e-14
+        ],
+        "tolerance_per_value": [
+          5.908721633465432e-08,
+          5.5147892869921085e-08,
+          5.371264206902134e-08,
+          4.293849787784571e-08,
+          3.835155342284332e-08
+        ],
+        "max_abs_difference": 3.1687326373930347e-14,
+        "max_fraction_of_tolerance": 7.426893977346871e-07
+      },
+      "trace": {
+        "passed": true,
+        "actual": [
+          0.016952996026647946,
+          0.017001159265057245,
+          0.011563028777667447,
+          0.005557658685723779,
+          0.007305302710754731
+        ],
+        "recorded": [
+          0.016952996026636847,
+          0.017001159265019914,
+          0.011563028777420119,
+          0.005557658685590726,
+          0.007305302710780689
+        ],
+        "absolute_difference": [
+          1.1098760799299612e-14,
+          3.733124920302089e-14,
+          2.4732819958739327e-13,
+          1.330532906074211e-13,
+          2.595840209451694e-14
+        ],
+        "tolerance_per_value": [
+          1.7052996026636848e-07,
+          1.7101159265019914e-07,
+          1.1663028777420119e-07,
+          5.657658685590726e-08,
+          7.40530271078069e-08
+        ],
+        "max_abs_difference": 2.4732819958739327e-13,
+        "max_fraction_of_tolerance": 2.3517376710314713e-06
+      }
+    }
+  },
+  "all_comparisons_pass": true,
+  "input_unchanged": true,
+  "model_state_unchanged": true,
+  "evaluated_state_sha256": {
+    "base.layers.0.weight": "66a28c5cbfea65b84d2ded15178aa631087532ad93056efb9f2dd875da845bd3",
+    "base.layers.0.bias": "8db1341834e12cd55d74a660d2822576de70855ca92f40d32888354b641fd6c3",
+    "base.layers.1.weight": "1b098caacd693ecae1d7dfdfc8c5522886302229dd88a6a73f63ee937109621b",
+    "base.layers.1.bias": "7db9c5ecd551739bc39de8d60a84b62cf141ac52473e4de1178143133033c58e",
+    "base.layers.2.weight": "19d2bad1a975caeb10152d6ec71fbaf7846a79b3ea89914ef71c1ff63ce9c2e1",
+    "base.layers.2.bias": "ecf2f063fc162a40f26b45bc92969acf4ebfbaf5f4d85b54ef2ff319a4ac7712",
+    "base.layers.3.weight": "4cdcf032bbd351cef706980dce04264d410ede35f46f4bc0a89bf635c30a8c4a",
+    "base.layers.3.bias": "d3422c1c0c17c9d6367d3e8b9bfad45c0d3af1eeb40ee0f53bc8b17a3a02ee3b",
+    "base.layers.4.weight": "e55fd668a6e81fd28c0422573e97cbd4606940cdf51e0fdcd864450e7f3340b9",
+    "base.layers.4.bias": "6a7beff452aec342fe4f8e8813c12ca6cf5c4c5c58fe607f3d9472459572d109"
+  },
+  "surface_evaluated": false,
+  "missing_surface_branch": false,
+  "excluded": [],
+  "training_calls": 0,
+  "historical_training_exit_or_warnings_recovered": false
+}

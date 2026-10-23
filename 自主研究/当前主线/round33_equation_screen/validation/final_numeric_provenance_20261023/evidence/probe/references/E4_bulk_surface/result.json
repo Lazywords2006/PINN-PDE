@@ -1,0 +1,13 @@
+{
+  "eq": "E4_bulk_surface",
+  "selfcheck_max_abs": 2.409239474587821e-12,
+  "reference_pass": true,
+  "arrays_sha256": "3103967aad4683d8911b65a2d8b3af66865c2f29a00baa12d7166d660d2e2c25",
+  "n": [
+    48,
+    64,
+    96
+  ],
+  "selfcheck_grid_points": 401,
+  "surface_reference_evaluated": false
+}

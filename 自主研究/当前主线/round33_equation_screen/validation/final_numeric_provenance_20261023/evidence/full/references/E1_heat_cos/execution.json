@@ -1,0 +1,33 @@
+{
+  "command_argv": [
+    "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+    "-B",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py",
+    "worker",
+    "--kind",
+    "reference",
+    "--key",
+    "E1_heat_cos",
+    "--batch-dir",
+    "D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\full"
+  ],
+  "command_windows": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -B E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py worker --kind reference --key E1_heat_cos --batch-dir D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\full",
+  "cwd": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023",
+  "started_utc": "2026-10-23T00:54:30.469663+00:00",
+  "kind": "reference",
+  "key": "E1_heat_cos",
+  "finished_utc": "2026-10-23T00:54:40.120075+00:00",
+  "actual_returncode": 0,
+  "elapsed_seconds": 9.650535399996443,
+  "stdout_sha256": "526b4c1bb65cdf50f02c1c5a69dd7f4c606286c09f9eb57b2749492a090bbf38",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "outputs_sha256": {
+    "arrays.npz": "ec17409e6e8410135242593d8afd585517c4667214fbebc99b45b9f69a762845",
+    "imported_files.json": "ae54424cbb7fd19d7ced02e7bee40975f708eebb7f885e3221b7a4af988186be",
+    "invocation.json": "3189a3e3fcd23f63897fdf3d82d05b854ce40f13eb074a6ad5df0cd781d341d6",
+    "result.json": "998741b11ebd6ef49cfb5f1a27116750e9544738bc192d3e204a3e441be1d1b5",
+    "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.log": "526b4c1bb65cdf50f02c1c5a69dd7f4c606286c09f9eb57b2749492a090bbf38",
+    "worker_status.json": "7d62e8397a0fab141eed62e7248e78f49a30cb8714addcf3ca0d9d6165c23207"
+  }
+}

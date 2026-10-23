@@ -1,0 +1,13 @@
+{
+  "eq": "E3_fisher_cos",
+  "selfcheck_max_abs": 5.88112891719561e-13,
+  "reference_pass": true,
+  "arrays_sha256": "0922dda6e8e218c974951275fce38c1af07283ad0ea0100392fe95f1b098bc58",
+  "n": [
+    48,
+    64,
+    96
+  ],
+  "selfcheck_grid_points": 401,
+  "surface_reference_evaluated": false
+}

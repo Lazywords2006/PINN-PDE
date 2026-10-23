@@ -1,0 +1,2051 @@
+{
+  "scope": "2026-10-23 current saved-weight body/trace numerical recomputation only",
+  "batch": "probe",
+  "started_utc": "2026-10-23T00:48:58.872532+00:00",
+  "finished_utc": "2026-10-23T00:49:24.891256+00:00",
+  "elapsed_seconds": 26.017910399998073,
+  "expected_results": 8,
+  "attempted_models": 8,
+  "reference_count": 4,
+  "reference_executions": [
+    {
+      "command_argv": [
+        "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+        "-B",
+        "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py",
+        "worker",
+        "--kind",
+        "reference",
+        "--key",
+        "E1_heat",
+        "--batch-dir",
+        "D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe"
+      ],
+      "command_windows": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -B E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py worker --kind reference --key E1_heat --batch-dir D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe",
+      "cwd": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023",
+      "started_utc": "2026-10-23T00:48:59.408008+00:00",
+      "kind": "reference",
+      "key": "E1_heat",
+      "finished_utc": "2026-10-23T00:49:10.673123+00:00",
+      "actual_returncode": 0,
+      "elapsed_seconds": 11.26483809997444,
+      "stdout_sha256": "e117fad72985836eb30e5d8ea27da9cdf96db7fccd85247951607b13a7df19a1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs_sha256": {
+        "arrays.npz": "4cd14812c804c8e9fa17e71f7be1eb2598b96009fc35937ad5b5ea0eb37279a6",
+        "imported_files.json": "ae54424cbb7fd19d7ced02e7bee40975f708eebb7f885e3221b7a4af988186be",
+        "invocation.json": "7160aa2b457d8379388c4141b3f50dca0842eabc2ed6252f84f5b26961407f44",
+        "result.json": "9eff8a0d269a9f5f01289b5a80dcf81246c3f1cade2033eee06cdd469b9954f1",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.log": "e117fad72985836eb30e5d8ea27da9cdf96db7fccd85247951607b13a7df19a1",
+        "worker_status.json": "9f3a41a6b133a86099321e16e833de513488cf1c4c44822d8bdb85cc4c42430c"
+      }
+    },
+    {
+      "command_argv": [
+        "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+        "-B",
+        "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py",
+        "worker",
+        "--kind",
+        "reference",
+        "--key",
+        "E2_allen_cahn",
+        "--batch-dir",
+        "D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe"
+      ],
+      "command_windows": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -B E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py worker --kind reference --key E2_allen_cahn --batch-dir D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe",
+      "cwd": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023",
+      "started_utc": "2026-10-23T00:48:59.408008+00:00",
+      "kind": "reference",
+      "key": "E2_allen_cahn",
+      "finished_utc": "2026-10-23T00:49:10.674122+00:00",
+      "actual_returncode": 0,
+      "elapsed_seconds": 11.265115100017283,
+      "stdout_sha256": "a73f807e6c3a825dbdf16da1cf98d38db267a8f76507db1425af7f1137113db8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs_sha256": {
+        "arrays.npz": "976d0a9f46c6762983c28b5583a5f0fa715962ae03b1e2c40e846dcf9629cc9d",
+        "imported_files.json": "ae54424cbb7fd19d7ced02e7bee40975f708eebb7f885e3221b7a4af988186be",
+        "invocation.json": "96aa51a0759cd75e101d8e4f44e14a3609e4e55888021c9657192da9b1170f57",
+        "result.json": "7c4c41e84fc823b9168decaec69904c84720a254322e81fcc5c70c048401bb9e",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.log": "a73f807e6c3a825dbdf16da1cf98d38db267a8f76507db1425af7f1137113db8",
+        "worker_status.json": "eb201fa49beddee24e6565d100c8c63963974ada04acf95b2377e74f3ee975e3"
+      }
+    },
+    {
+      "command_argv": [
+        "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+        "-B",
+        "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py",
+        "worker",
+        "--kind",
+        "reference",
+        "--key",
+        "E3_fisher",
+        "--batch-dir",
+        "D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe"
+      ],
+      "command_windows": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -B E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py worker --kind reference --key E3_fisher --batch-dir D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe",
+      "cwd": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023",
+      "started_utc": "2026-10-23T00:48:59.408008+00:00",
+      "kind": "reference",
+      "key": "E3_fisher",
+      "finished_utc": "2026-10-23T00:49:10.678637+00:00",
+      "actual_returncode": 0,
+      "elapsed_seconds": 11.270250000001397,
+      "stdout_sha256": "0c86090022817c72d4860d824055ea316961825d6982eb9168f70c5cdcb87a80",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs_sha256": {
+        "arrays.npz": "8758a341ddcd20249b31ffef030fea8f29f8b71944cca83aa9dfc1252cf288e4",
+        "imported_files.json": "ae54424cbb7fd19d7ced02e7bee40975f708eebb7f885e3221b7a4af988186be",
+        "invocation.json": "3a80af5e8552a848a7dd77f28da6c019b74126c1be55daca384ac52bf52037b6",
+        "result.json": "afd61b40c54d348c9cb3af799dfb1c66e25c54e947f6df159b74ef54eb1fab11",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.log": "0c86090022817c72d4860d824055ea316961825d6982eb9168f70c5cdcb87a80",
+        "worker_status.json": "61eadec3e05513a23c7e208246d084f4660e7770531475aaa1e8978fc9cb6ab3"
+      }
+    },
+    {
+      "command_argv": [
+        "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+        "-B",
+        "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py",
+        "worker",
+        "--kind",
+        "reference",
+        "--key",
+        "E4_bulk_surface",
+        "--batch-dir",
+        "D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe"
+      ],
+      "command_windows": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -B E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py worker --kind reference --key E4_bulk_surface --batch-dir D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe",
+      "cwd": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023",
+      "started_utc": "2026-10-23T00:48:59.408008+00:00",
+      "kind": "reference",
+      "key": "E4_bulk_surface",
+      "finished_utc": "2026-10-23T00:49:10.673123+00:00",
+      "actual_returncode": 0,
+      "elapsed_seconds": 11.264328100020066,
+      "stdout_sha256": "25c247d0fa1df80fbd8250589e8a20864dac5f469e4a4da9124b79221805b736",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs_sha256": {
+        "arrays.npz": "3103967aad4683d8911b65a2d8b3af66865c2f29a00baa12d7166d660d2e2c25",
+        "imported_files.json": "ae54424cbb7fd19d7ced02e7bee40975f708eebb7f885e3221b7a4af988186be",
+        "invocation.json": "8c95dc35e62abd03eb40a392ab30fe0d2ecc7014ea150c4e02b902d35a10d101",
+        "result.json": "00fcde01109055611e4d0d81ddea51b39b9c249fc737ae6add327071b6081fe2",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.log": "25c247d0fa1df80fbd8250589e8a20864dac5f469e4a4da9124b79221805b736",
+        "worker_status.json": "290dafd61defb1e6da90b99f2958c4a60de930eceb3c2c18775cbbe61093c1b4"
+      }
+    }
+  ],
+  "model_executions": [
+    {
+      "command_argv": [
+        "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+        "-B",
+        "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py",
+        "worker",
+        "--kind",
+        "model",
+        "--key",
+        "job_084",
+        "--batch-dir",
+        "D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe"
+      ],
+      "command_windows": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -B E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py worker --kind model --key job_084 --batch-dir D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe",
+      "cwd": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023",
+      "started_utc": "2026-10-23T00:49:10.690530+00:00",
+      "kind": "model",
+      "key": "job_084",
+      "finished_utc": "2026-10-23T00:49:24.304823+00:00",
+      "actual_returncode": 0,
+      "elapsed_seconds": 13.615218499995535,
+      "stdout_sha256": "3b28f543fdd057d6d2c4722b485cdff303001f77efa981e0182459df16c99b69",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs_sha256": {
+        "arrays.npz": "833dd7ad8b05474c4eb9d0b4ab691554269aaedd8fd287db26206be928644daa",
+        "imported_files.json": "fcb33258ebb89bc76bd0429c5446f2040ee9c8a41c80926177cde04ce409ce9a",
+        "invocation.json": "1c87e8be85b26755e684dda50011aa4965b80621ef5f7e9e1531d99278534c3c",
+        "result.json": "0aa16af551db4dcb82566bcd4e62026374af34e76b10cf70ab90dad2c6317b74",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.log": "3b28f543fdd057d6d2c4722b485cdff303001f77efa981e0182459df16c99b69",
+        "worker_status.json": "36587e4b103adaf77a9b806a4ba71ad504b7fde4ee5e6fd1596de4c0c89c98fc"
+      }
+    },
+    {
+      "command_argv": [
+        "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+        "-B",
+        "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py",
+        "worker",
+        "--kind",
+        "model",
+        "--key",
+        "job_119",
+        "--batch-dir",
+        "D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe"
+      ],
+      "command_windows": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -B E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py worker --kind model --key job_119 --batch-dir D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe",
+      "cwd": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023",
+      "started_utc": "2026-10-23T00:49:10.692037+00:00",
+      "kind": "model",
+      "key": "job_119",
+      "finished_utc": "2026-10-23T00:49:24.041180+00:00",
+      "actual_returncode": 0,
+      "elapsed_seconds": 13.348650100000668,
+      "stdout_sha256": "38ea53ded9eabbf8bbe84f1690b215c4eee7202ecbc1da1bfe62448a5d415285",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs_sha256": {
+        "arrays.npz": "337e15b2ae81c938926f6e6c4808556da473c8dc88c491a984b241cf87e728b9",
+        "imported_files.json": "fcb33258ebb89bc76bd0429c5446f2040ee9c8a41c80926177cde04ce409ce9a",
+        "invocation.json": "86e8d75f9d0e775073d6940c6a0abf3df02917ae743554de9eb06136dfb63c59",
+        "result.json": "865036bf0412d74696c9d26bf8d5a655dcec6866240172925217efdf772a04fb",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.log": "38ea53ded9eabbf8bbe84f1690b215c4eee7202ecbc1da1bfe62448a5d415285",
+        "worker_status.json": "d8bf0e7ee1b0a9cf12ae3d15e1b0b2db569d446c157eca8e97f2ce4ae6174c3d"
+      }
+    },
+    {
+      "command_argv": [
+        "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+        "-B",
+        "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py",
+        "worker",
+        "--kind",
+        "model",
+        "--key",
+        "job_128",
+        "--batch-dir",
+        "D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe"
+      ],
+      "command_windows": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -B E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py worker --kind model --key job_128 --batch-dir D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe",
+      "cwd": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023",
+      "started_utc": "2026-10-23T00:49:10.690530+00:00",
+      "kind": "model",
+      "key": "job_128",
+      "finished_utc": "2026-10-23T00:49:24.505547+00:00",
+      "actual_returncode": 0,
+      "elapsed_seconds": 13.81529299999238,
+      "stdout_sha256": "732b827b7ba6472651a48ab61ed88ea7d7ae43cb7acb065c01f2b297500df066",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs_sha256": {
+        "arrays.npz": "c556a4baa0c39209437204c8bc04f86aaa76c23293579c07c61e28b5f6240aaf",
+        "imported_files.json": "fcb33258ebb89bc76bd0429c5446f2040ee9c8a41c80926177cde04ce409ce9a",
+        "invocation.json": "c1eb3bc4b8031066a82e456daf332c0ea56f1b98f61f053332072704d66a85c8",
+        "result.json": "04d372c782a1ad8bc7c448ed5ec4694fd42f6526d8aa15d034491c5c6af11daa",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.log": "732b827b7ba6472651a48ab61ed88ea7d7ae43cb7acb065c01f2b297500df066",
+        "worker_status.json": "f86207617f796f127ac6a7289da919dbf97876f5ae705a188b94316e3ea60d81"
+      }
+    },
+    {
+      "command_argv": [
+        "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+        "-B",
+        "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py",
+        "worker",
+        "--kind",
+        "model",
+        "--key",
+        "job_133",
+        "--batch-dir",
+        "D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe"
+      ],
+      "command_windows": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -B E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py worker --kind model --key job_133 --batch-dir D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe",
+      "cwd": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023",
+      "started_utc": "2026-10-23T00:49:10.691033+00:00",
+      "kind": "model",
+      "key": "job_133",
+      "finished_utc": "2026-10-23T00:49:24.150146+00:00",
+      "actual_returncode": 0,
+      "elapsed_seconds": 13.458755100000417,
+      "stdout_sha256": "d169f7d310f351425a77bdd5f39140e36eb2855be6fb2101d134c3807bf3f747",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs_sha256": {
+        "arrays.npz": "b1a551848d9cc757a79931938304ab263ede5898715b2aa99480e0a6a3867d38",
+        "imported_files.json": "fcb33258ebb89bc76bd0429c5446f2040ee9c8a41c80926177cde04ce409ce9a",
+        "invocation.json": "1dbd18213770d04bbd0a6b4c97d3c2daa30e7e84272927d27377aa4c733d7580",
+        "result.json": "f0f301a35745f2e1ed28e46289af896d04369f25a5fb4650eb9453517ebff808",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.log": "d169f7d310f351425a77bdd5f39140e36eb2855be6fb2101d134c3807bf3f747",
+        "worker_status.json": "214a1ad0804f30fef3574912fbbd531df67d46b5d726dabb5ab1693359230270"
+      }
+    },
+    {
+      "command_argv": [
+        "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+        "-B",
+        "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py",
+        "worker",
+        "--kind",
+        "model",
+        "--key",
+        "job_166",
+        "--batch-dir",
+        "D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe"
+      ],
+      "command_windows": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -B E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py worker --kind model --key job_166 --batch-dir D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe",
+      "cwd": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023",
+      "started_utc": "2026-10-23T00:49:10.692037+00:00",
+      "kind": "model",
+      "key": "job_166",
+      "finished_utc": "2026-10-23T00:49:24.084706+00:00",
+      "actual_returncode": 0,
+      "elapsed_seconds": 13.392770600010408,
+      "stdout_sha256": "95269b204c66fb31212f967ba2e0e769134ebbd025b8f42ab623f18b660ed07d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs_sha256": {
+        "arrays.npz": "3ea6415e6e4d09665b77199e728c26ae66c7ea8bff87d24cf4fdea12133ed1b2",
+        "imported_files.json": "fcb33258ebb89bc76bd0429c5446f2040ee9c8a41c80926177cde04ce409ce9a",
+        "invocation.json": "1bc32c4b421a94026b877bfeb39af5f3332bd55394a2aebbe374a3f72a60caa1",
+        "result.json": "c26d24834d99dd045859f7d05f6e270a6cb7a8d01846c82cb80fe8d4f8420c2a",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.log": "95269b204c66fb31212f967ba2e0e769134ebbd025b8f42ab623f18b660ed07d",
+        "worker_status.json": "10b36419d0951b6702452bfdebffdb550985726c0db245b2fe26769bd7463ff4"
+      }
+    },
+    {
+      "command_argv": [
+        "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+        "-B",
+        "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py",
+        "worker",
+        "--kind",
+        "model",
+        "--key",
+        "job_172",
+        "--batch-dir",
+        "D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe"
+      ],
+      "command_windows": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -B E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py worker --kind model --key job_172 --batch-dir D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe",
+      "cwd": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023",
+      "started_utc": "2026-10-23T00:49:10.692037+00:00",
+      "kind": "model",
+      "key": "job_172",
+      "finished_utc": "2026-10-23T00:49:24.090222+00:00",
+      "actual_returncode": 0,
+      "elapsed_seconds": 13.397707900003297,
+      "stdout_sha256": "cfa0dbf7cded298304ae7aa43d43e68069e7e38afc3874f44a33446b89a3047a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs_sha256": {
+        "arrays.npz": "88579fe068de58f1231f8a509ccca2d708bcb4f71316b942041874def3e104e3",
+        "imported_files.json": "fcb33258ebb89bc76bd0429c5446f2040ee9c8a41c80926177cde04ce409ce9a",
+        "invocation.json": "7c76eec70d61751720faccec27371755fcbb3eae1bd7d845877106247a39abe0",
+        "result.json": "8b3d14b9b7b8ffa3b4757bcc1d89a09089486b7fea57938a8e7eb79f5a0e5797",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.log": "cfa0dbf7cded298304ae7aa43d43e68069e7e38afc3874f44a33446b89a3047a",
+        "worker_status.json": "2bcbe6efced0df9c42457d5fb510da5107940a684672907084b6eb65680eae1c"
+      }
+    },
+    {
+      "command_argv": [
+        "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+        "-B",
+        "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py",
+        "worker",
+        "--kind",
+        "model",
+        "--key",
+        "job_180",
+        "--batch-dir",
+        "D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe"
+      ],
+      "command_windows": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -B E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py worker --kind model --key job_180 --batch-dir D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe",
+      "cwd": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023",
+      "started_utc": "2026-10-23T00:49:10.692037+00:00",
+      "kind": "model",
+      "key": "job_180",
+      "finished_utc": "2026-10-23T00:49:24.531125+00:00",
+      "actual_returncode": 0,
+      "elapsed_seconds": 13.838277899980312,
+      "stdout_sha256": "dc21fdf9497123d24ba89496101124d16cc61b8f87ead4f7f529d4e3582171d3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs_sha256": {
+        "arrays.npz": "25a12ceee245733faa81b5794b3ec0edcc0af4bf68edba6e25ae74053f160c43",
+        "imported_files.json": "fcb33258ebb89bc76bd0429c5446f2040ee9c8a41c80926177cde04ce409ce9a",
+        "invocation.json": "db928d0cc7da692e891c1206c8489b34f77e80b65b7144f2adbd076e71c4e0cc",
+        "result.json": "38d75eeb0b1268e21985d68621975b2e6dba7b00689a92b60994b36ba86327a1",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.log": "dc21fdf9497123d24ba89496101124d16cc61b8f87ead4f7f529d4e3582171d3",
+        "worker_status.json": "cf9d8a80d5de19f9bbb7e24c47108461dce3ee5a5590aa02c6bf6bf5d5c925ac"
+      }
+    },
+    {
+      "command_argv": [
+        "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+        "-B",
+        "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py",
+        "worker",
+        "--kind",
+        "model",
+        "--key",
+        "job_188",
+        "--batch-dir",
+        "D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe"
+      ],
+      "command_windows": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -B E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py worker --kind model --key job_188 --batch-dir D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\probe",
+      "cwd": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023",
+      "started_utc": "2026-10-23T00:49:10.692037+00:00",
+      "kind": "model",
+      "key": "job_188",
+      "finished_utc": "2026-10-23T00:49:24.366405+00:00",
+      "actual_returncode": 0,
+      "elapsed_seconds": 13.674062900012359,
+      "stdout_sha256": "a5d449a49e8c1e2b4432d1315accb1464350dab5b455ec4bdf9c482cdcf20f39",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs_sha256": {
+        "arrays.npz": "14f9031c23ae6aa93516ba1ac18cf4cf0752a7717ce1fc0532a794b6f1653485",
+        "imported_files.json": "fcb33258ebb89bc76bd0429c5446f2040ee9c8a41c80926177cde04ce409ce9a",
+        "invocation.json": "d96ef693b4744ad7853c68e5dd35a405284d3d60085150eb9868afe71341fab7",
+        "result.json": "72d5a702abedf296f9911d471758763a7b045c2a362e9a2bc9a1bd1688fe7864",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.log": "a5d449a49e8c1e2b4432d1315accb1464350dab5b455ec4bdf9c482cdcf20f39",
+        "worker_status.json": "6c4ffea7a6dc75d024b8ee3e397288d2084dd4a66bc3108d540c6c00955e36db"
+      }
+    }
+  ],
+  "input_file_count": 488,
+  "inputs_unchanged": true,
+  "all_actual_returncodes_zero": true,
+  "warning_count": 0,
+  "warnings": [],
+  "all_model_comparisons_pass": true,
+  "legacy_e4_surface_excluded": 1,
+  "max_abs_differences": {
+    "n64_gl200": {
+      "vol": 1.7316981182347035e-12,
+      "trace": 2.8278490660227362e-12
+    },
+    "n96_gl400": {
+      "vol": 1.707534114103737e-11,
+      "trace": 4.690980937027689e-11
+    }
+  },
+  "rows": [
+    {
+      "key": "job_084",
+      "path": "runs/e4screen/E4_bulk_surface/hardic_layer_s0.json",
+      "eq": "E4_bulk_surface",
+      "method": "hardic+layer",
+      "tag": "e4screen",
+      "seed": 0,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 4000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 2048,
+        "nb": 128,
+        "n0": 256,
+        "lbfgs_iters": 500,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 4096,
+        "nb_fixed": 256,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "restore_status": "legacy_bulk_only",
+      "architecture": "mlp",
+      "input_sha256": {
+        "runs/e4screen/E4_bulk_surface/hardic_layer_s0.json": "9b574c5caca1675fbc41451ddd0cef96bbe4be053169f914b7cfa115f5c5d058",
+        "runs/e4screen/E4_bulk_surface/hardic_layer_s0.pt": "60bc079a54f9709b8ef441acf611e834fdb0494d3ee5f6bbcb93cc697daa1d8c"
+      },
+      "reference_arrays_sha256": "3103967aad4683d8911b65a2d8b3af66865c2f29a00baa12d7166d660d2e2c25",
+      "reference_result_sha256": "00fcde01109055611e4d0d81ddea51b39b9c249fc737ae6add327071b6081fe2",
+      "arrays_sha256": "833dd7ad8b05474c4eb9d0b4ab691554269aaedd8fd287db26206be928644daa",
+      "comparisons": {
+        "n64_gl200": {
+          "vol": {
+            "passed": true,
+            "actual": [
+              0.06795410446030789,
+              0.028333916431825583,
+              0.0067077516986794195,
+              0.009532004562047234,
+              0.005341107765245314
+            ],
+            "recorded": [
+              0.06795410446029794,
+              0.028333916431813357,
+              0.006707751698666182,
+              0.009532004562022448,
+              0.005341107765231815
+            ],
+            "absolute_difference": [
+              9.950373858202965e-15,
+              1.2226331058684536e-14,
+              1.3237674845179015e-14,
+              2.478572902475662e-14,
+              1.3498750728313524e-14
+            ],
+            "tolerance_per_value": [
+              6.805410446029795e-07,
+              2.843391643181336e-07,
+              6.807751698666182e-08,
+              9.632004562022448e-08,
+              5.4411077652318156e-08
+            ],
+            "max_abs_difference": 2.478572902475662e-14,
+            "max_fraction_of_tolerance": 2.5732679905990743e-07
+          },
+          "trace": {
+            "passed": true,
+            "actual": [
+              0.07028467824146392,
+              0.004103022061675783,
+              0.003263267532356548,
+              0.006368735253953214,
+              0.010256994786189305
+            ],
+            "recorded": [
+              0.07028467824145289,
+              0.0041030220616602555,
+              0.0032632675323341115,
+              0.006368735253913013,
+              0.010256994786137976
+            ],
+            "absolute_difference": [
+              1.1032841307212493e-14,
+              1.55275098334684e-14,
+              2.243647975741503e-14,
+              4.020048183228653e-14,
+              5.1328732930677745e-14
+            ],
+            "tolerance_per_value": [
+              7.038467824145289e-07,
+              4.203022061660256e-08,
+              3.363267532334112e-08,
+              6.468735253913014e-08,
+              1.0356994786137977e-07
+            ],
+            "max_abs_difference": 5.1328732930677745e-14,
+            "max_fraction_of_tolerance": 6.671036288880677e-07
+          }
+        },
+        "n96_gl400": {
+          "vol": {
+            "passed": true,
+            "actual": [
+              0.06795410446069723,
+              0.02833391643208949,
+              0.006707751698772492,
+              0.00953200456215955,
+              0.005341107765519187
+            ],
+            "recorded": [
+              0.06795410446029794,
+              0.028333916431813357,
+              0.006707751698666182,
+              0.009532004562022448,
+              0.005341107765231815
+            ],
+            "absolute_difference": [
+              3.9929171080643755e-13,
+              2.7613328290598815e-13,
+              1.0630992614002466e-13,
+              1.3710213520035097e-13,
+              2.873725563068419e-13
+            ],
+            "tolerance_per_value": [
+              6.805410446029795e-07,
+              2.843391643181336e-07,
+              6.807751698666182e-08,
+              9.632004562022448e-08,
+              5.4411077652318156e-08
+            ],
+            "max_abs_difference": 3.9929171080643755e-13,
+            "max_fraction_of_tolerance": 5.2815082646060865e-06
+          },
+          "trace": {
+            "passed": true,
+            "actual": [
+              0.0702846782417206,
+              0.004103022061880986,
+              0.003263267532490003,
+              0.0063687352540653,
+              0.010256994786292448
+            ],
+            "recorded": [
+              0.07028467824145289,
+              0.0041030220616602555,
+              0.0032632675323341115,
+              0.006368735253913013,
+              0.010256994786137976
+            ],
+            "absolute_difference": [
+              2.677164046005487e-13,
+              2.2073055189197888e-13,
+              1.5589135884952476e-13,
+              1.5228703714731395e-13,
+              1.5447192136530674e-13
+            ],
+            "tolerance_per_value": [
+              7.038467824145289e-07,
+              4.203022061660256e-08,
+              3.363267532334112e-08,
+              6.468735253913014e-08,
+              1.0356994786137977e-07
+            ],
+            "max_abs_difference": 2.677164046005487e-13,
+            "max_fraction_of_tolerance": 5.251710522899017e-06
+          }
+        }
+      },
+      "all_comparisons_pass": true,
+      "input_unchanged": true,
+      "model_state_unchanged": true,
+      "evaluated_state_sha256": {
+        "base.layers.0.weight": "c57fbdaecc63566de0df084e3b438a76527679a67d14a74d41a9ba193bd128c3",
+        "base.layers.0.bias": "17e31c0e0f727d7beb2eb7cc6196c3c9b9b45f35f6b8cb4a6082da530930c3a4",
+        "base.layers.1.weight": "b4b24ca1eed705c9334944b9a0c7d721892b3f6fd89852be518469460f01e176",
+        "base.layers.1.bias": "c2b8d88ce5b7a9d38deb8c0a43a7bcf0c3d87fd4da992e6d9e93b0c73c064c38",
+        "base.layers.2.weight": "1b54d2f4da87ed5d703775640f363db852db7289f1dd586305728e32321e2aaa",
+        "base.layers.2.bias": "199e9c424c13237b4229098e0ab1fafa6ba8b349cf9658c2d4222c0b21aa4434",
+        "base.layers.3.weight": "e8b990a0fc75072b35dbac353418fe6a79eda84ebd03b39ccb820f82e2a61400",
+        "base.layers.3.bias": "94daa572c30912deb012bc7a818d6705e3e7dbf56b302acbd00d2357bd6efa5b",
+        "base.layers.4.weight": "4d703ec78d0fc9a34508fa7c1e6340f26b0e71817004f8b778d881f325a9569c",
+        "base.layers.4.bias": "c1601bd5a7381d30b59d2c5d2bc4c42f20750df8857adc971b4c7c0fab86661d"
+      },
+      "surface_evaluated": false,
+      "missing_surface_branch": true,
+      "excluded": [
+        "v(t)",
+        "surface/exchange residuals"
+      ],
+      "training_calls": 0,
+      "historical_training_exit_or_warnings_recovered": false
+    },
+    {
+      "key": "job_119",
+      "path": "runs/final_soap64_v1/E3_fisher/hardic_layer_s0.json",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "tag": "final_soap64_v1",
+      "seed": 0,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "soap_official64",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "restore_status": "complete",
+      "architecture": "mlp",
+      "input_sha256": {
+        "runs/final_soap64_v1/E3_fisher/hardic_layer_s0.json": "f903c8a1bab9f697304bbc2d4f0436b047a4b0ab3e0babf1213063c4851bb6e4",
+        "runs/final_soap64_v1/E3_fisher/hardic_layer_s0.pt": "5986023eb78fce3be367efeceab95185d498b44b4e5e1f44f6ce1566b7267ae1",
+        "runs/final_soap64_v1/E3_fisher/hardic_layer_s0.model.pt": "e6ce214dafa09dfe0a4365c096818cf67a276d9920413347bcbf6cb9f63efce0"
+      },
+      "reference_arrays_sha256": "8758a341ddcd20249b31ffef030fea8f29f8b71944cca83aa9dfc1252cf288e4",
+      "reference_result_sha256": "afd61b40c54d348c9cb3af799dfb1c66e25c54e947f6df159b74ef54eb1fab11",
+      "arrays_sha256": "337e15b2ae81c938926f6e6c4808556da473c8dc88c491a984b241cf87e728b9",
+      "comparisons": {
+        "n64_gl200": {
+          "vol": {
+            "passed": true,
+            "actual": [
+              7.322456758930215e-05,
+              7.711494165251126e-05,
+              1.588237562391428e-05,
+              1.1319956135561368e-05,
+              3.944927927980969e-06
+            ],
+            "recorded": [
+              7.322456758930215e-05,
+              7.711494165251126e-05,
+              1.588237562391428e-05,
+              1.1319956135561368e-05,
+              3.944927927980969e-06
+            ],
+            "absolute_difference": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "tolerance_per_value": [
+              1.7322456758930217e-09,
+              1.7711494165251126e-09,
+              1.1588237562391428e-09,
+              1.1131995613556137e-09,
+              1.0394492792798097e-09
+            ],
+            "max_abs_difference": 0.0,
+            "max_fraction_of_tolerance": 0.0
+          },
+          "trace": {
+            "passed": true,
+            "actual": [
+              7.910844495645282e-06,
+              2.993882951402034e-05,
+              1.4486710981482321e-05,
+              9.383279141103185e-06,
+              2.670985564196211e-07
+            ],
+            "recorded": [
+              7.910844495645282e-06,
+              2.993882951402034e-05,
+              1.4486710981482321e-05,
+              9.383279141103185e-06,
+              2.670985564196211e-07
+            ],
+            "absolute_difference": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "tolerance_per_value": [
+              1.0791084449564529e-09,
+              1.2993882951402035e-09,
+              1.1448671098148234e-09,
+              1.093832791411032e-09,
+              1.0026709855641963e-09
+            ],
+            "max_abs_difference": 0.0,
+            "max_fraction_of_tolerance": 0.0
+          }
+        },
+        "n96_gl400": {
+          "vol": {
+            "passed": true,
+            "actual": [
+              7.322456763405143e-05,
+              7.711494171478247e-05,
+              1.5882375599863723e-05,
+              1.1319956218154247e-05,
+              3.944928171772228e-06
+            ],
+            "recorded": [
+              7.322456758930215e-05,
+              7.711494165251126e-05,
+              1.588237562391428e-05,
+              1.1319956135561368e-05,
+              3.944927927980969e-06
+            ],
+            "absolute_difference": [
+              4.4749279152003774e-14,
+              6.227120598681357e-14,
+              2.405055863664851e-14,
+              8.259287825602805e-14,
+              2.4379125935613654e-13
+            ],
+            "tolerance_per_value": [
+              1.7322456758930217e-09,
+              1.7711494165251126e-09,
+              1.1588237562391428e-09,
+              1.1131995613556137e-09,
+              1.0394492792798097e-09
+            ],
+            "max_abs_difference": 2.4379125935613654e-13,
+            "max_fraction_of_tolerance": 0.00023453886997261585
+          },
+          "trace": {
+            "passed": true,
+            "actual": [
+              7.910844586698644e-06,
+              2.993882947211298e-05,
+              1.4486711001898502e-05,
+              9.383279301643301e-06,
+              2.6709857926043974e-07
+            ],
+            "recorded": [
+              7.910844495645282e-06,
+              2.993882951402034e-05,
+              1.4486710981482321e-05,
+              9.383279141103185e-06,
+              2.670985564196211e-07
+            ],
+            "absolute_difference": [
+              9.105336181759217e-14,
+              4.19073582530894e-14,
+              2.041618081733733e-14,
+              1.6054011622141338e-13,
+              2.2840818663962513e-14
+            ],
+            "tolerance_per_value": [
+              1.0791084449564529e-09,
+              1.2993882951402035e-09,
+              1.1448671098148234e-09,
+              1.093832791411032e-09,
+              1.0026709855641963e-09
+            ],
+            "max_abs_difference": 1.6054011622141338e-13,
+            "max_fraction_of_tolerance": 0.00014676842519441974
+          }
+        }
+      },
+      "all_comparisons_pass": true,
+      "input_unchanged": true,
+      "model_state_unchanged": true,
+      "evaluated_state_sha256": {
+        "base.layers.0.weight": "86c5f153e5224a3666273f87bf822c0b041d936a979dd670cd1cf776b069f290",
+        "base.layers.0.bias": "71b90735f45ca60905bbd27e781bd17f85bfd6f1212749894e0cbd813dabf73f",
+        "base.layers.1.weight": "98431124bfbf86ac3d54ebbd723d855de16826a55cefb2125aa0567cfe9c9eeb",
+        "base.layers.1.bias": "d97579a69e6a7feaa36c32e1441925e0d5abffa2c79533258544ed560e8cc29f",
+        "base.layers.2.weight": "51ed5e69e166480ba17db98d09b9fc1eeef478c08aa34b7b23c30a5dcc41cd8f",
+        "base.layers.2.bias": "3e5a2c9114b16b013d7316b736bee645906cb32b70dcb087b5f375cae6558a05",
+        "base.layers.3.weight": "06917fc8bb4390ea388b8391c356c15316b2ba6ee9b81fef5666cb5e7449d1c2",
+        "base.layers.3.bias": "94214709632a3f03c7e640d0130983854af7678ce5520dfbcaafacf821dfa422",
+        "base.layers.4.weight": "6a57c9bbcdc04361ca06a99fbd0e308fd35c964fbd8773cc970783e66d7f03c2",
+        "base.layers.4.bias": "8510152a3d4ba1f86f04e3db21d1b677173ee1e82b44029b0bf45c8afa5f58a0"
+      },
+      "surface_evaluated": false,
+      "missing_surface_branch": false,
+      "excluded": [],
+      "training_calls": 0,
+      "historical_training_exit_or_warnings_recovered": false
+    },
+    {
+      "key": "job_128",
+      "path": "runs/pirate/E1_heat/hardic_layer_s0.json",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "tag": "pirate",
+      "seed": 0,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "pirate",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "restore_status": "complete",
+      "architecture": "pirate",
+      "input_sha256": {
+        "runs/pirate/E1_heat/hardic_layer_s0.json": "4cf2b4e9a5a78d7a36773bb5ff25593fbdba5af3a0e0cd8229836f74e8cda3fc",
+        "runs/pirate/E1_heat/hardic_layer_s0.pt": "755630a924fc91a9473494beb17633bd9d5ff6dba7f7484910bb5031875ebf97",
+        "runs/pirate/E1_heat/hardic_layer_s0.model.pt": "889200e864e9b3c6cc83c0972835ae034b65fa089800ae084c0e26cdd3428aeb"
+      },
+      "reference_arrays_sha256": "4cd14812c804c8e9fa17e71f7be1eb2598b96009fc35937ad5b5ea0eb37279a6",
+      "reference_result_sha256": "9eff8a0d269a9f5f01289b5a80dcf81246c3f1cade2033eee06cdd469b9954f1",
+      "arrays_sha256": "c556a4baa0c39209437204c8bc04f86aaa76c23293579c07c61e28b5f6240aaf",
+      "comparisons": {
+        "n64_gl200": {
+          "vol": {
+            "passed": true,
+            "actual": [
+              8.485935142588542e-05,
+              0.00011240739262222046,
+              0.00024130326452465476,
+              0.0006845339387797042,
+              0.0007694418243958871
+            ],
+            "recorded": [
+              8.485935142588542e-05,
+              0.00011240739262222046,
+              0.00024130326452465476,
+              0.0006845339387797042,
+              0.0007694418243958871
+            ],
+            "absolute_difference": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "tolerance_per_value": [
+              1.8485935142588542e-09,
+              2.1240739262222045e-09,
+              3.413032645246548e-09,
+              7.845339387797044e-09,
+              8.694418243958872e-09
+            ],
+            "max_abs_difference": 0.0,
+            "max_fraction_of_tolerance": 0.0
+          },
+          "trace": {
+            "passed": true,
+            "actual": [
+              0.00012703239217467437,
+              0.00017119482475033617,
+              0.0003630806905014288,
+              0.0015565799537632249,
+              0.0008871100470480696
+            ],
+            "recorded": [
+              0.00012703239217467437,
+              0.00017119482475033617,
+              0.0003630806905014288,
+              0.0015565799537632249,
+              0.0008871100470480696
+            ],
+            "absolute_difference": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "tolerance_per_value": [
+              2.270323921746744e-09,
+              2.711948247503362e-09,
+              4.6308069050142885e-09,
+              1.656579953763225e-08,
+              9.871100470480698e-09
+            ],
+            "max_abs_difference": 0.0,
+            "max_fraction_of_tolerance": 0.0
+          }
+        },
+        "n96_gl400": {
+          "vol": {
+            "passed": true,
+            "actual": [
+              8.48593511235965e-05,
+              0.0001124073928946491,
+              0.00024130326775674297,
+              0.0006845339499399659,
+              0.0007694418389328956
+            ],
+            "recorded": [
+              8.485935142588542e-05,
+              0.00011240739262222046,
+              0.00024130326452465476,
+              0.0006845339387797042,
+              0.0007694418243958871
+            ],
+            "absolute_difference": [
+              3.0228891492820736e-13,
+              2.724286453977681e-13,
+              3.2320882081826596e-12,
+              1.1160261625432766e-11,
+              1.4537008532697349e-11
+            ],
+            "tolerance_per_value": [
+              1.8485935142588542e-09,
+              2.1240739262222045e-09,
+              3.413032645246548e-09,
+              7.845339387797044e-09,
+              8.694418243958872e-09
+            ],
+            "max_abs_difference": 1.4537008532697349e-11,
+            "max_fraction_of_tolerance": 0.001671993240352576
+          },
+          "trace": {
+            "passed": true,
+            "actual": [
+              0.00012703239209997853,
+              0.00017119482463644453,
+              0.0003630806916985167,
+              0.0015565799806455556,
+              0.0008871100612478201
+            ],
+            "recorded": [
+              0.00012703239217467437,
+              0.00017119482475033617,
+              0.0003630806905014288,
+              0.0015565799537632249,
+              0.0008871100470480696
+            ],
+            "absolute_difference": [
+              7.469583762284571e-14,
+              1.1389164351199854e-13,
+              1.197087893221871e-12,
+              2.688233077981217e-11,
+              1.4199750424971624e-11
+            ],
+            "tolerance_per_value": [
+              2.270323921746744e-09,
+              2.711948247503362e-09,
+              4.6308069050142885e-09,
+              1.656579953763225e-08,
+              9.871100470480698e-09
+            ],
+            "max_abs_difference": 2.688233077981217e-11,
+            "max_fraction_of_tolerance": 0.0016227608404136503
+          }
+        }
+      },
+      "all_comparisons_pass": true,
+      "input_unchanged": true,
+      "model_state_unchanged": true,
+      "evaluated_state_sha256": {
+        "base.alpha": "649eaf9de546b1cf142dcc687be3a6245f22a31b5f5808879c441e6f64eac4e4",
+        "base.B": "9920cc33700872f8eaee9fc906bc6e4e94df72ca8f5c17ba80951ebcfb4ad873",
+        "base.u.weight": "3005caff776ee1d9ba6090ee7778c9cfd50b91d78cb51cdb3d5c8f74935b9d71",
+        "base.u.bias": "b1d36ef1c7fef5a59d34d48e4814160fa744b51749b5a7479340200eb0a1a4f2",
+        "base.v.weight": "9f44d2afafb39c8c645c97a0bd86d8a385ff3411d5ad60a414e1f5b9e2a5f75b",
+        "base.v.bias": "49571fdea45f859b6ec31302628bcf793e4d4c2149c8b2da65f1209cd0410c67",
+        "base.blocks.0.0.weight": "86feda3837964b78597406de72a35abe17bf3086c688d52d0cebbd0743f99867",
+        "base.blocks.0.0.bias": "a07821e2ee82a7b037c879f62ef9c7896cb40f78c081046b60cfb20b629548b7",
+        "base.blocks.0.1.weight": "452eec8cf442e6a71fb45c212632f265e8ff3ee530d97017cff19762ef8afd42",
+        "base.blocks.0.1.bias": "ce6baa8e783b8e4272b44e0333dd26273ae501068574c0f69b2fdfb4e8bd0245",
+        "base.blocks.0.2.weight": "81fb7942226a7c580f55b3abfdae4db9a959d6d3de15d39a82626e2cfb44d14a",
+        "base.blocks.0.2.bias": "46e34ff23467c43408957243a7b095ed7355f72446da0a96c753e046293833b4",
+        "base.blocks.1.0.weight": "324026fa46feb8b88aa711a2171f2ed948d96f24dd7f0a9e42b7e7525bf041b1",
+        "base.blocks.1.0.bias": "3c64ecd4c4dca27a8558d801af45026e03060e5a34aecdc64f6ae8c83af2a1d0",
+        "base.blocks.1.1.weight": "cee38e6c56d52f67feb97b98e3a1912051d488068cadd645d83e5f47d4232d97",
+        "base.blocks.1.1.bias": "13e98e5d102645b6a76ff9cc00879c067c3bc697f1b7818b2cbbc6aea42305bf",
+        "base.blocks.1.2.weight": "bc6d1346c1415011500248c4f84df9f771541fd30be5092de1a1a93c59955284",
+        "base.blocks.1.2.bias": "87d7f9ace630827ecce9b0d91d340d8b08f598e60954fa9b6dd6feb092b0d95b",
+        "base.blocks.2.0.weight": "51a38c26ceba1e3de9f3b71d0029b7c8683808cae303a537d74275168a7faec8",
+        "base.blocks.2.0.bias": "373f56ba0d6560e6c7e99ed2e77815bbfc852b381a32e1ca50a9093bfefc9c50",
+        "base.blocks.2.1.weight": "4afb1a1dce59f1b684d50a959b0d102530331abadf2b2ee8e064358f4b6c61ce",
+        "base.blocks.2.1.bias": "25944ccb092f8c7918a6b7c02e08c4d5f6ce555d7171a14c0ae50ce6ee2f4c1a",
+        "base.blocks.2.2.weight": "9d1dd5719995bc29504fd27de2349d996928e64274d54edfdf5b0ce429fa38d1",
+        "base.blocks.2.2.bias": "e9167afb6d78dd79e0b1f99069ea0bb5e04616982df3735036e892515ffa1266",
+        "base.out.weight": "65ed40eae8c0d2324e1436c32bdbcd62bd57bf8808fbfa45d5a7fea38026400f",
+        "base.out.bias": "35c33e50f3e714e0f75b85bcf9c92b2937c236b82ffb6c92f0483c7dda3d12b6"
+      },
+      "surface_evaluated": false,
+      "missing_surface_branch": false,
+      "excluded": [],
+      "training_calls": 0,
+      "historical_training_exit_or_warnings_recovered": false
+    },
+    {
+      "key": "job_133",
+      "path": "runs/pirate/E1_heat/hardic_s2.json",
+      "eq": "E1_heat",
+      "method": "hardic",
+      "tag": "pirate",
+      "seed": 2,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "pirate",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "restore_status": "legacy_complete",
+      "architecture": "pirate",
+      "input_sha256": {
+        "runs/pirate/E1_heat/hardic_s2.json": "7348c0200916ab650c60ab068c755615109810830dbec952de029da43fefca15",
+        "runs/pirate/E1_heat/hardic_s2.pt": "825ef84e50665f460198a0e8c6cb3c17756298c746a617936bddf33445fb02b9"
+      },
+      "reference_arrays_sha256": "4cd14812c804c8e9fa17e71f7be1eb2598b96009fc35937ad5b5ea0eb37279a6",
+      "reference_result_sha256": "9eff8a0d269a9f5f01289b5a80dcf81246c3f1cade2033eee06cdd469b9954f1",
+      "arrays_sha256": "b1a551848d9cc757a79931938304ab263ede5898715b2aa99480e0a6a3867d38",
+      "comparisons": {
+        "n64_gl200": {
+          "vol": {
+            "passed": true,
+            "actual": [
+              0.001917140375432632,
+              0.002541945740544584,
+              0.005977995375209697,
+              0.014307981605201664,
+              0.017395397801951352
+            ],
+            "recorded": [
+              0.0019171403754041673,
+              0.0025419457404446144,
+              0.005977995374814141,
+              0.014307981603928108,
+              0.017395397800583575
+            ],
+            "absolute_difference": [
+              2.8464643836434433e-14,
+              9.996951183532943e-14,
+              3.955559838009215e-13,
+              1.2735559135057528e-12,
+              1.367777419103433e-12
+            ],
+            "tolerance_per_value": [
+              2.0171403754041672e-08,
+              2.6419457404446146e-08,
+              6.077995374814141e-08,
+              1.440798160392811e-07,
+              1.7495397800583576e-07
+            ],
+            "max_abs_difference": 1.367777419103433e-12,
+            "max_fraction_of_tolerance": 8.8392388921328e-06
+          },
+          "trace": {
+            "passed": true,
+            "actual": [
+              0.0037293435574437678,
+              0.004294602383276845,
+              0.010077775100723465,
+              0.061327355649203365,
+              0.01848175790029471
+            ],
+            "recorded": [
+              0.003729343557396727,
+              0.004294602383260614,
+              0.01007777510025046,
+              0.06132735564778508,
+              0.018481757898975118
+            ],
+            "absolute_difference": [
+              4.704093017893207e-14,
+              1.6230940202976996e-14,
+              4.7300531547112e-13,
+              1.4182821583830219e-12,
+              1.3195902703877493e-12
+            ],
+            "tolerance_per_value": [
+              3.8293435573967274e-08,
+              4.394602383260615e-08,
+              1.017777510025046e-07,
+              6.142735564778509e-07,
+              1.858175789897512e-07
+            ],
+            "max_abs_difference": 1.4182821583830219e-12,
+            "max_fraction_of_tolerance": 7.101536235495413e-06
+          }
+        },
+        "n96_gl400": {
+          "vol": {
+            "passed": true,
+            "actual": [
+              0.0019171403753224948,
+              0.002541945740184373,
+              0.005977995371721145,
+              0.014307981594451418,
+              0.017395397787154182
+            ],
+            "recorded": [
+              0.0019171403754041673,
+              0.0025419457404446144,
+              0.005977995374814141,
+              0.014307981603928108,
+              0.017395397800583575
+            ],
+            "absolute_difference": [
+              8.167251597246405e-14,
+              2.602414811425646e-13,
+              3.0929963451553633e-12,
+              9.476690265852739e-12,
+              1.342939301429702e-11
+            ],
+            "tolerance_per_value": [
+              2.0171403754041672e-08,
+              2.6419457404446146e-08,
+              6.077995374814141e-08,
+              1.440798160392811e-07,
+              1.7495397800583576e-07
+            ],
+            "max_abs_difference": 1.342939301429702e-11,
+            "max_fraction_of_tolerance": 7.675957510293976e-05
+          },
+          "trace": {
+            "passed": true,
+            "actual": [
+              0.0037293435575187516,
+              0.004294602383391246,
+              0.010077775099513873,
+              0.06132735562400887,
+              0.018481757886369746
+            ],
+            "recorded": [
+              0.003729343557396727,
+              0.004294602383260614,
+              0.01007777510025046,
+              0.06132735564778508,
+              0.018481757898975118
+            ],
+            "absolute_difference": [
+              1.2202478610889855e-13,
+              1.3063161663495748e-13,
+              7.3658613930494e-13,
+              2.377621016735887e-11,
+              1.260537160763242e-11
+            ],
+            "tolerance_per_value": [
+              3.8293435573967274e-08,
+              4.394602383260615e-08,
+              1.017777510025046e-07,
+              6.142735564778509e-07,
+              1.858175789897512e-07
+            ],
+            "max_abs_difference": 2.377621016735887e-11,
+            "max_fraction_of_tolerance": 6.783734712380292e-05
+          }
+        }
+      },
+      "all_comparisons_pass": true,
+      "input_unchanged": true,
+      "model_state_unchanged": true,
+      "evaluated_state_sha256": {
+        "base.alpha": "5934bffe7a8aefd0b21b814deebedcbab83630a93784067e423ce3d4c4193761",
+        "base.B": "18b467f9b83f281ab19563afc07f9ea9fbabe3066caf755847ef4534d5fdebf7",
+        "base.u.weight": "f6265040a31b0fded35e0b2b625ef0fabdfc0745ce44f31ed5c7614f7b271a2f",
+        "base.u.bias": "6ce1f2419f371c044cc33564974e48047f00e098bd57ea22f0e85c3cce8ed19b",
+        "base.v.weight": "88923f6e833173533fe40b1c7c1bbf80fdcfeaa14ba52dbb86b0b6d41771de74",
+        "base.v.bias": "e404a18aa409ddb5f3ea7233a5ff6af983305e92fcaa2181f80345866f423661",
+        "base.blocks.0.0.weight": "a4cda8602317e2f32f08c3dd58c9aceab30ce6703d78adf636d6d5a0e9304336",
+        "base.blocks.0.0.bias": "aee923c2df304042ff53dc153dcd98f8848d779105f4591e920f9279c114ec2f",
+        "base.blocks.0.1.weight": "297e0671785465e5a03f5c3c681a28d04ad13dcf940ee86fd94604b8cc561c7f",
+        "base.blocks.0.1.bias": "469fb6321906b14f5604973f67e3f8b1444cf894145895621ccc5b6c93d5a51a",
+        "base.blocks.0.2.weight": "98b61742d4d6a99985e6549ef220e328f4e2fe27292e17096737e1b47d1c5199",
+        "base.blocks.0.2.bias": "ad599a668107d0d2ee68a28e83644cb68daf033d546213935e4e9bc2ba6cce36",
+        "base.blocks.1.0.weight": "6c3be6f70d4a5dfe32b2d7c55411753a943f9ef0c3793e03667d31b1ce0187f2",
+        "base.blocks.1.0.bias": "983bbaae3f39ab19c5d6d40a422bb96b1311e6b402de9f9ca170a7e77a075ffd",
+        "base.blocks.1.1.weight": "a34cadbda79415efd7708dd113bc7da826b52a0b0d80cd254665611ab0323db5",
+        "base.blocks.1.1.bias": "116e00e812cd138c6001e3be8330582fc28df7719d399394ed632cc7ffbdc186",
+        "base.blocks.1.2.weight": "d3c85bf8b97a6f324135098b0c03770b398cf266d8f116e1160faefcef2317d9",
+        "base.blocks.1.2.bias": "1a22a3d3968f30eab1575ef494946cec05a3f164b7b558a4a55be69ca15831d2",
+        "base.blocks.2.0.weight": "f3033bfd2452443dc7bc6cfaf4f9c14dc4057bd7f39b91888c989d4ace003610",
+        "base.blocks.2.0.bias": "90d8f4d71e284862441aa9d457f6c3529142630074be11ede09995df70cc9635",
+        "base.blocks.2.1.weight": "05e23cc015cc582715602113ea59443057ccc608c798cba93baf6c97ea7225ad",
+        "base.blocks.2.1.bias": "859078b14234034ce24d7d91373e034c1f0cd241f45a5de4cd9adf1c16458074",
+        "base.blocks.2.2.weight": "f5ade85bc9af6d69162422d59c305fe6f708c4eebe0e964c0c10a7e5e268f0d5",
+        "base.blocks.2.2.bias": "6ab33eca916938725d9a942f8e2ce17fd5854fc02cff49c3d28679f206e431ee",
+        "base.out.weight": "0a4daea33259a91f1270b0d56dcde3604ceb893bf10c861cfbd6d9c2632aeca3",
+        "base.out.bias": "5f68c3b2a3ad946cec8c7d28006dbe3d86c0f70bb817e9b667974fac62114f47"
+      },
+      "surface_evaluated": false,
+      "missing_surface_branch": false,
+      "excluded": [],
+      "training_calls": 0,
+      "historical_training_exit_or_warnings_recovered": false
+    },
+    {
+      "key": "job_166",
+      "path": "runs/screen/E1_heat/hardic_s0.json",
+      "eq": "E1_heat",
+      "method": "hardic",
+      "tag": "screen",
+      "seed": 0,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 4000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 2048,
+        "nb": 128,
+        "n0": 256,
+        "lbfgs_iters": 500,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 4096,
+        "nb_fixed": 256,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0
+      },
+      "restore_status": "legacy_complete",
+      "architecture": "mlp",
+      "input_sha256": {
+        "runs/screen/E1_heat/hardic_s0.json": "c5571ada9d49b3f9c3d757753c1e723674c317236838e2b4ded1d146b204fa8f",
+        "runs/screen/E1_heat/hardic_s0.pt": "dd6fbc445899aae241b668a91da5ff681fa8c54c2a163a0b66c7fe3adca3cac5"
+      },
+      "reference_arrays_sha256": "4cd14812c804c8e9fa17e71f7be1eb2598b96009fc35937ad5b5ea0eb37279a6",
+      "reference_result_sha256": "9eff8a0d269a9f5f01289b5a80dcf81246c3f1cade2033eee06cdd469b9954f1",
+      "arrays_sha256": "3ea6415e6e4d09665b77199e728c26ae66c7ea8bff87d24cf4fdea12133ed1b2",
+      "comparisons": {
+        "n64_gl200": {
+          "vol": {
+            "passed": true,
+            "actual": [
+              0.00469876549333369,
+              0.00601813530747923,
+              0.010483891128123124,
+              0.037803254514384634,
+              0.026881992593923442
+            ],
+            "recorded": [
+              0.004698765493291006,
+              0.006018135307368732,
+              0.01048389112774018,
+              0.0378032545130698,
+              0.026881992592663047
+            ],
+            "absolute_difference": [
+              4.268373848814733e-14,
+              1.1049841597277066e-13,
+              3.829436767688321e-13,
+              1.314830189169669e-12,
+              1.2603945664935168e-12
+            ],
+            "tolerance_per_value": [
+              4.7987654932910066e-08,
+              6.118135307368732e-08,
+              1.058389112774018e-07,
+              3.790325451306981e-07,
+              2.698199259266305e-07
+            ],
+            "max_abs_difference": 1.314830189169669e-12,
+            "max_fraction_of_tolerance": 4.671243467898081e-06
+          },
+          "trace": {
+            "passed": true,
+            "actual": [
+              0.007123776909346828,
+              0.007864258084165576,
+              0.02051261960487927,
+              0.10710425540378976,
+              0.058316344579237574
+            ],
+            "recorded": [
+              0.007123776909299805,
+              0.007864258084148765,
+              0.02051261960440405,
+              0.10710425540242767,
+              0.058316344577873935
+            ],
+            "absolute_difference": [
+              4.702314926330331e-14,
+              1.6811205205691238e-14,
+              4.752205573499424e-13,
+              1.3620909955491811e-12,
+              1.3636383688897524e-12
+            ],
+            "tolerance_per_value": [
+              7.223776909299805e-08,
+              7.964258084148765e-08,
+              2.0612619604404052e-07,
+              1.0720425540242769e-06,
+              5.841634457787393e-07
+            ],
+            "max_abs_difference": 1.3636383688897524e-12,
+            "max_fraction_of_tolerance": 2.334343887389097e-06
+          }
+        },
+        "n96_gl400": {
+          "vol": {
+            "passed": true,
+            "actual": [
+              0.004698765492944762,
+              0.0060181353069228725,
+              0.010483891124866807,
+              0.03780325450354409,
+              0.026881992580330367
+            ],
+            "recorded": [
+              0.004698765493291006,
+              0.006018135307368732,
+              0.01048389112774018,
+              0.0378032545130698,
+              0.026881992592663047
+            ],
+            "absolute_difference": [
+              3.462438669110668e-13,
+              4.4585949515729695e-13,
+              2.8733734142027956e-12,
+              9.525713551283843e-12,
+              1.233268001610277e-11
+            ],
+            "tolerance_per_value": [
+              4.7987654932910066e-08,
+              6.118135307368732e-08,
+              1.058389112774018e-07,
+              3.790325451306981e-07,
+              2.698199259266305e-07
+            ],
+            "max_abs_difference": 1.233268001610277e-11,
+            "max_fraction_of_tolerance": 4.570707657616167e-05
+          },
+          "trace": {
+            "passed": true,
+            "actual": [
+              0.0071237769094220655,
+              0.007864258084280382,
+              0.020512619603657183,
+              0.10710425537982395,
+              0.05831634456587775
+            ],
+            "recorded": [
+              0.007123776909299805,
+              0.007864258084148765,
+              0.02051261960440405,
+              0.10710425540242767,
+              0.058316344577873935
+            ],
+            "absolute_difference": [
+              1.222607085016314e-13,
+              1.316169395693123e-13,
+              7.468678453470545e-13,
+              2.2603724447733953e-11,
+              1.1996188764573645e-11
+            ],
+            "tolerance_per_value": [
+              7.223776909299805e-08,
+              7.964258084148765e-08,
+              2.0612619604404052e-07,
+              1.0720425540242769e-06,
+              5.841634457787393e-07
+            ],
+            "max_abs_difference": 2.2603724447733953e-11,
+            "max_fraction_of_tolerance": 2.1084726872905534e-05
+          }
+        }
+      },
+      "all_comparisons_pass": true,
+      "input_unchanged": true,
+      "model_state_unchanged": true,
+      "evaluated_state_sha256": {
+        "base.layers.0.weight": "46db68095c1c85ea8daa82d4a832e7aa7a29f9bbbbf249f0107f58f97780bffc",
+        "base.layers.0.bias": "0933cbe1911166403faeb663e6b8e68706ac72ac564391db14d38d077125bd30",
+        "base.layers.1.weight": "e1c9acf06c0a84996966fc9c01eff7078f2f5615189f9576b41ff45a070820f5",
+        "base.layers.1.bias": "37862e54252416945e43b9eac8ba60677a2be3be2a1aaaa356674ce9df945f6e",
+        "base.layers.2.weight": "73e0eef41d7944e7d0b518bedc217ec20ac406c07d3a4c871c6dc7cd78f79fc4",
+        "base.layers.2.bias": "624a0960864663babee45125bc5fade31893ebb8ae47566d89e2cc699d43a941",
+        "base.layers.3.weight": "be17ed0acd58d4716e082ec6f0b510adae0c87a049e0de6722e85e549cd8ff88",
+        "base.layers.3.bias": "30759ea5be9b0e7daf585ad4ae600e7cf89ad697e4e93a4dc6dabd2edab30385",
+        "base.layers.4.weight": "cc8730ae008f53904494d6638811caf710030180300e023f4d19762ec5f4f8db",
+        "base.layers.4.bias": "0ce417099bdb9de6e916334285fe8baebe2116fc1163e95302732c65719ac14c"
+      },
+      "surface_evaluated": false,
+      "missing_surface_branch": false,
+      "excluded": [],
+      "training_calls": 0,
+      "historical_training_exit_or_warnings_recovered": false
+    },
+    {
+      "key": "job_172",
+      "path": "runs/screen/E1_heat/vanilla_s0.json",
+      "eq": "E1_heat",
+      "method": "vanilla",
+      "tag": "screen",
+      "seed": 0,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 4000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 2048,
+        "nb": 128,
+        "n0": 256,
+        "lbfgs_iters": 500,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 4096,
+        "nb_fixed": 256,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0
+      },
+      "restore_status": "legacy_complete",
+      "architecture": "mlp",
+      "input_sha256": {
+        "runs/screen/E1_heat/vanilla_s0.json": "d79ba741adc082a2b567bb14a07abb9c951f72f4961e9e172a8b7ea58fb67752",
+        "runs/screen/E1_heat/vanilla_s0.pt": "9bf2e4b853fe54a63b53ddcb26fe842e76fe146cbf07753892683d5fb4a652b0"
+      },
+      "reference_arrays_sha256": "4cd14812c804c8e9fa17e71f7be1eb2598b96009fc35937ad5b5ea0eb37279a6",
+      "reference_result_sha256": "9eff8a0d269a9f5f01289b5a80dcf81246c3f1cade2033eee06cdd469b9954f1",
+      "arrays_sha256": "88579fe068de58f1231f8a509ccca2d708bcb4f71316b942041874def3e104e3",
+      "comparisons": {
+        "n64_gl200": {
+          "vol": {
+            "passed": true,
+            "actual": [
+              0.02691751902327422,
+              0.034749470426144125,
+              0.08096273126845667,
+              0.19030618000815108,
+              0.24334956814616712
+            ],
+            "recorded": [
+              0.02691751902329682,
+              0.034749470426243725,
+              0.08096273126887957,
+              0.19030618000969063,
+              0.24334956814789882
+            ],
+            "absolute_difference": [
+              2.2599977445025843e-14,
+              9.960088309668436e-14,
+              4.2289782786752994e-13,
+              1.5395462682477046e-12,
+              1.7316981182347035e-12
+            ],
+            "tolerance_per_value": [
+              2.7017519023296823e-07,
+              3.484947042624373e-07,
+              8.106273126887957e-07,
+              1.9040618000969065e-06,
+              2.4344956814789883e-06
+            ],
+            "max_abs_difference": 1.7316981182347035e-12,
+            "max_fraction_of_tolerance": 8.085589806850545e-07
+          },
+          "trace": {
+            "passed": true,
+            "actual": [
+              0.05109204981577175,
+              0.05848202674918423,
+              0.13609965507824234,
+              0.8530769619547275,
+              0.23659568463206473
+            ],
+            "recorded": [
+              0.05109204981581641,
+              0.05848202674920179,
+              0.13609965507864677,
+              0.8530769619575553,
+              0.23659568463374459
+            ],
+            "absolute_difference": [
+              4.465872116554692e-14,
+              1.7562340470789195e-14,
+              4.044264922953289e-13,
+              2.8278490660227362e-12,
+              1.6798507029847087e-12
+            ],
+            "tolerance_per_value": [
+              5.119204981581641e-07,
+              5.858202674920179e-07,
+              1.3619965507864678e-06,
+              8.531769619575555e-06,
+              2.366956846337446e-06
+            ],
+            "max_abs_difference": 2.8278490660227362e-12,
+            "max_fraction_of_tolerance": 7.097090534557301e-07
+          }
+        },
+        "n96_gl400": {
+          "vol": {
+            "passed": true,
+            "actual": [
+              0.026917519023293614,
+              0.03474947042646169,
+              0.08096273127232852,
+              0.19030618002106564,
+              0.24334956816497416
+            ],
+            "recorded": [
+              0.02691751902329682,
+              0.034749470426243725,
+              0.08096273126887957,
+              0.19030618000969063,
+              0.24334956814789882
+            ],
+            "absolute_difference": [
+              3.2057689836051395e-15,
+              2.1796453530953386e-13,
+              3.4489494593614722e-12,
+              1.1375012043401966e-11,
+              1.707534114103737e-11
+            ],
+            "tolerance_per_value": [
+              2.7017519023296823e-07,
+              3.484947042624373e-07,
+              8.106273126887957e-07,
+              1.9040618000969065e-06,
+              2.4344956814789883e-06
+            ],
+            "max_abs_difference": 1.707534114103737e-11,
+            "max_fraction_of_tolerance": 7.013913095407043e-06
+          },
+          "trace": {
+            "passed": true,
+            "actual": [
+              0.05109204981570086,
+              0.05848202674907698,
+              0.13609965507927688,
+              0.8530769620044651,
+              0.2365956846496085
+            ],
+            "recorded": [
+              0.05109204981581641,
+              0.05848202674920179,
+              0.13609965507864677,
+              0.8530769619575553,
+              0.23659568463374459
+            ],
+            "absolute_difference": [
+              1.1554646128786317e-13,
+              1.2480988464957932e-13,
+              6.301070776260076e-13,
+              4.690980937027689e-11,
+              1.586392128771763e-11
+            ],
+            "tolerance_per_value": [
+              5.119204981581641e-07,
+              5.858202674920179e-07,
+              1.3619965507864678e-06,
+              8.531769619575555e-06,
+              2.366956846337446e-06
+            ],
+            "max_abs_difference": 4.690980937027689e-11,
+            "max_fraction_of_tolerance": 6.702243563191682e-06
+          }
+        }
+      },
+      "all_comparisons_pass": true,
+      "input_unchanged": true,
+      "model_state_unchanged": true,
+      "evaluated_state_sha256": {
+        "base.layers.0.weight": "234aecd3ee30a8a08498e35ad6a828e2f34388e49499500710df23b4c1621cdb",
+        "base.layers.0.bias": "38840f7c8ead2f79b808a1ee84230d6d900ec3678c850dfb2e6166923c225952",
+        "base.layers.1.weight": "0538c2f518c84af32f8dd45ea4ff9e67582a1ebcfb7f16873a30e68ac75a9fbc",
+        "base.layers.1.bias": "d70165c551a6985b14bc03aabfa3e3b37b93b2dce012fd14ffcc421c63b29bcf",
+        "base.layers.2.weight": "fc1b3c05a0d8a5112c6cf63329d09310733c8d9fd207de64952266bc073fb513",
+        "base.layers.2.bias": "5850409eb9ce86281f7ac458a505613ed8779fae07e61fef04cd07aa0c560856",
+        "base.layers.3.weight": "ed2fb0f5e0d93ace69d84173c4c60385fe9bd8c063f34c4721fb3d429fd6af06",
+        "base.layers.3.bias": "041ffc127388a452ad9f491c0989b94f500b680fa90d17cb2604afa4e4f8b8ac",
+        "base.layers.4.weight": "59b32fbf7e8596a36bb2ec32cf4d86f898c33f483a4b43a5c0d95ad86ab860c7",
+        "base.layers.4.bias": "c164a8116600ac4a5fede003e6b0f603ef567458b96fb62283d1c1369e801025"
+      },
+      "surface_evaluated": false,
+      "missing_surface_branch": false,
+      "excluded": [],
+      "training_calls": 0,
+      "historical_training_exit_or_warnings_recovered": false
+    },
+    {
+      "key": "job_180",
+      "path": "runs/screen/E2_allen_cahn/rba_s0.json",
+      "eq": "E2_allen_cahn",
+      "method": "rba",
+      "tag": "screen",
+      "seed": 0,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 4000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 2048,
+        "nb": 128,
+        "n0": 256,
+        "lbfgs_iters": 500,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 4096,
+        "nb_fixed": 256,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0
+      },
+      "restore_status": "legacy_complete",
+      "architecture": "mlp",
+      "input_sha256": {
+        "runs/screen/E2_allen_cahn/rba_s0.json": "9782bc2c374dcc634356b24d463473655e3deb1773b10fe031c8e7d0b7df51f9",
+        "runs/screen/E2_allen_cahn/rba_s0.pt": "7227c5fb820c983e44a28f5e33dee53e7026b251c784544935f97052751c127d"
+      },
+      "reference_arrays_sha256": "976d0a9f46c6762983c28b5583a5f0fa715962ae03b1e2c40e846dcf9629cc9d",
+      "reference_result_sha256": "7c4c41e84fc823b9168decaec69904c84720a254322e81fcc5c70c048401bb9e",
+      "arrays_sha256": "25a12ceee245733faa81b5794b3ec0edcc0af4bf68edba6e25ae74053f160c43",
+      "comparisons": {
+        "n64_gl200": {
+          "vol": {
+            "passed": true,
+            "actual": [
+              0.008253864294413674,
+              0.008058657670093063,
+              0.007133812411898094,
+              0.0048464773479619415,
+              0.0029123121249363753
+            ],
+            "recorded": [
+              0.008253864294426563,
+              0.008058657670077456,
+              0.007133812411949153,
+              0.004846477347969184,
+              0.00291231212493725
+            ],
+            "absolute_difference": [
+              1.2888995426507677e-14,
+              1.5607307113363333e-14,
+              5.105898343016335e-14,
+              7.24247051220317e-15,
+              8.74734312761305e-16
+            ],
+            "tolerance_per_value": [
+              8.353864294426562e-08,
+              8.158657670077456e-08,
+              7.233812411949154e-08,
+              4.946477347969185e-08,
+              3.01231212493725e-08
+            ],
+            "max_abs_difference": 5.105898343016335e-14,
+            "max_fraction_of_tolerance": 7.058378144534368e-07
+          },
+          "trace": {
+            "passed": true,
+            "actual": [
+              0.042913054097052414,
+              0.04080286194709314,
+              0.037318766735670195,
+              0.024452357009939345,
+              0.012264069379277343
+            ],
+            "recorded": [
+              0.042913054097046405,
+              0.0408028619471169,
+              0.037318766735379295,
+              0.024452357009715067,
+              0.012264069379281577
+            ],
+            "absolute_difference": [
+              6.00908212078366e-15,
+              2.375877272697835e-14,
+              2.9089924913350274e-13,
+              2.2427892876208944e-13,
+              4.234460004859386e-15
+            ],
+            "tolerance_per_value": [
+              4.301305409704641e-07,
+              4.090286194711691e-07,
+              3.74187667353793e-07,
+              2.4552357009715073e-07,
+              1.2364069379281578e-07
+            ],
+            "max_abs_difference": 2.9089924913350274e-13,
+            "max_fraction_of_tolerance": 9.13472090167738e-07
+          }
+        },
+        "n96_gl400": {
+          "vol": {
+            "passed": true,
+            "actual": [
+              0.008253864294386131,
+              0.008058657670048779,
+              0.007133812411902828,
+              0.004846477347978355,
+              0.002912312124984701
+            ],
+            "recorded": [
+              0.008253864294426563,
+              0.008058657670077456,
+              0.007133812411949153,
+              0.004846477347969184,
+              0.00291231212493725
+            ],
+            "absolute_difference": [
+              4.043120005459144e-14,
+              2.86767137813726e-14,
+              4.6325790425960633e-14,
+              9.171483017489379e-15,
+              4.745119228100059e-14
+            ],
+            "tolerance_per_value": [
+              8.353864294426562e-08,
+              8.158657670077456e-08,
+              7.233812411949154e-08,
+              4.946477347969185e-08,
+              3.01231212493725e-08
+            ],
+            "max_abs_difference": 4.745119228100059e-14,
+            "max_fraction_of_tolerance": 1.5752415524333837e-06
+          },
+          "trace": {
+            "passed": true,
+            "actual": [
+              0.042913054097058,
+              0.04080286194715303,
+              0.03731876673562292,
+              0.024452357009845355,
+              0.012264069379251829
+            ],
+            "recorded": [
+              0.042913054097046405,
+              0.0408028619471169,
+              0.037318766735379295,
+              0.024452357009715067,
+              0.012264069379281577
+            ],
+            "absolute_difference": [
+              1.1594891713428979e-14,
+              3.613082055764494e-14,
+              2.436245649661828e-13,
+              1.3028814138671407e-13,
+              2.9748772889526265e-14
+            ],
+            "tolerance_per_value": [
+              4.301305409704641e-07,
+              4.090286194711691e-07,
+              3.74187667353793e-07,
+              2.4552357009715073e-07,
+              1.2364069379281578e-07
+            ],
+            "max_abs_difference": 2.436245649661828e-13,
+            "max_fraction_of_tolerance": 6.510758804240244e-07
+          }
+        }
+      },
+      "all_comparisons_pass": true,
+      "input_unchanged": true,
+      "model_state_unchanged": true,
+      "evaluated_state_sha256": {
+        "base.layers.0.weight": "b4df68fa956b1fe5fcc9241b91ab6c6e83968a6434035044dbf16efd99c12cf3",
+        "base.layers.0.bias": "d361eaba2c72692514984b6f2cb93bd13ea04fc5084718f7191b6e7649796c3a",
+        "base.layers.1.weight": "dc93ab31e1274e65da528eee1dc53377bc7e18c0e6773fb743fe6bcbf900e356",
+        "base.layers.1.bias": "c71cd0b9175f795b71bd253deb85ac97508fe713a8330554a33291469e8ba47c",
+        "base.layers.2.weight": "eaceba09bbc7e6bfd933cbfb9f899cd4609257362559ff132cdc23d6e6e91ae8",
+        "base.layers.2.bias": "ee4ac12df8522a69b132541c36646ae9730297c60321a89de18b95e653bb4ac9",
+        "base.layers.3.weight": "ba74e878b50aace886e2e40c502f31b979de47bed0a36853f199413b89e2725a",
+        "base.layers.3.bias": "4981e8c4494c98f9dacd62a69beb81130deeb6db5fe122a8e33b82c3e84b6a4b",
+        "base.layers.4.weight": "622581f2da964cff40231680e418f241d0c621d8b42826c349d2edb69d745f51",
+        "base.layers.4.bias": "1b27542a45f06513fd0e613f8c96820615a5e2a1cfba746a6e6e20cb5e8032ba"
+      },
+      "surface_evaluated": false,
+      "missing_surface_branch": false,
+      "excluded": [],
+      "training_calls": 0,
+      "historical_training_exit_or_warnings_recovered": false
+    },
+    {
+      "key": "job_188",
+      "path": "runs/screen/E3_fisher/layer_s0.json",
+      "eq": "E3_fisher",
+      "method": "layer",
+      "tag": "screen",
+      "seed": 0,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 4000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 2048,
+        "nb": 128,
+        "n0": 256,
+        "lbfgs_iters": 500,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 4096,
+        "nb_fixed": 256,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0
+      },
+      "restore_status": "legacy_complete",
+      "architecture": "mlp",
+      "input_sha256": {
+        "runs/screen/E3_fisher/layer_s0.json": "3bbcb997a029801b800803f60b0fa85f7b046296cbd39f8becf1a5e1de61bddd",
+        "runs/screen/E3_fisher/layer_s0.pt": "ae43d94b032c2f45c89435ffaa75735c2000f359b83a7858c042f5297fd14a40"
+      },
+      "reference_arrays_sha256": "8758a341ddcd20249b31ffef030fea8f29f8b71944cca83aa9dfc1252cf288e4",
+      "reference_result_sha256": "afd61b40c54d348c9cb3af799dfb1c66e25c54e947f6df159b74ef54eb1fab11",
+      "arrays_sha256": "14f9031c23ae6aa93516ba1ac18cf4cf0752a7717ce1fc0532a794b6f1653485",
+      "comparisons": {
+        "n64_gl200": {
+          "vol": {
+            "passed": true,
+            "actual": [
+              0.06224367409630623,
+              0.03786449684382702,
+              0.010735499421903943,
+              0.004541511366170683,
+              0.0033205606319272806
+            ],
+            "recorded": [
+              0.062243674096285506,
+              0.037864496843838975,
+              0.010735499421910676,
+              0.004541511366179949,
+              0.003320560631935408
+            ],
+            "absolute_difference": [
+              2.072647609097089e-14,
+              1.1955714196432154e-14,
+              6.732461810265988e-15,
+              9.266025446930115e-15,
+              8.127179484951341e-15
+            ],
+            "tolerance_per_value": [
+              6.234367409628551e-07,
+              3.796449684383898e-07,
+              1.0835499421910676e-07,
+              4.6415113661799496e-08,
+              3.420560631935408e-08
+            ],
+            "max_abs_difference": 2.072647609097089e-14,
+            "max_fraction_of_tolerance": 2.3759787822713884e-07
+          },
+          "trace": {
+            "passed": true,
+            "actual": [
+              0.06662210157996588,
+              0.03151203451303587,
+              0.00545817204610968,
+              0.003007974689461921,
+              0.0002915348428593956
+            ],
+            "recorded": [
+              0.0666221015800187,
+              0.03151203451302235,
+              0.005458172046138028,
+              0.0030079746894096674,
+              0.0002915348428878356
+            ],
+            "absolute_difference": [
+              5.281886039654182e-14,
+              1.3523904218715188e-14,
+              2.8347983682674993e-14,
+              5.225377422424238e-14,
+              2.844003244711901e-14
+            ],
+            "tolerance_per_value": [
+              6.672210158001871e-07,
+              3.161203451302235e-07,
+              5.558172046138029e-08,
+              3.107974689409668e-08,
+              3.915348428878357e-09
+            ],
+            "max_abs_difference": 5.281886039654182e-14,
+            "max_fraction_of_tolerance": 7.2637296434091115e-06
+          }
+        },
+        "n96_gl400": {
+          "vol": {
+            "passed": true,
+            "actual": [
+              0.06224367409640034,
+              0.037864496843919425,
+              0.010735499421992402,
+              0.004541511366021213,
+              0.003320560631885129
+            ],
+            "recorded": [
+              0.062243674096285506,
+              0.037864496843838975,
+              0.010735499421910676,
+              0.004541511366179949,
+              0.003320560631935408
+            ],
+            "absolute_difference": [
+              1.1483175521576072e-13,
+              8.04495359219004e-14,
+              8.172629240021934e-14,
+              1.5873587166925773e-13,
+              5.027879154684278e-14
+            ],
+            "tolerance_per_value": [
+              6.234367409628551e-07,
+              3.796449684383898e-07,
+              1.0835499421910676e-07,
+              4.6415113661799496e-08,
+              3.420560631935408e-08
+            ],
+            "max_abs_difference": 1.5873587166925773e-13,
+            "max_fraction_of_tolerance": 3.419917762689878e-06
+          },
+          "trace": {
+            "passed": true,
+            "actual": [
+              0.0666221015798809,
+              0.031512034512995286,
+              0.005458172046089375,
+              0.0030079746893018657,
+              0.0002915348428365614
+            ],
+            "recorded": [
+              0.0666221015800187,
+              0.03151203451302235,
+              0.005458172046138028,
+              0.0030079746894096674,
+              0.0002915348428878356
+            ],
+            "absolute_difference": [
+              1.3780643293159756e-13,
+              2.706168622523819e-14,
+              4.865292196898352e-14,
+              1.0780178832936471e-13,
+              5.1274197561401724e-14
+            ],
+            "tolerance_per_value": [
+              6.672210158001871e-07,
+              3.161203451302235e-07,
+              5.558172046138029e-08,
+              3.107974689409668e-08,
+              3.915348428878357e-09
+            ],
+            "max_abs_difference": 1.3780643293159756e-13,
+            "max_fraction_of_tolerance": 1.3095692118540373e-05
+          }
+        }
+      },
+      "all_comparisons_pass": true,
+      "input_unchanged": true,
+      "model_state_unchanged": true,
+      "evaluated_state_sha256": {
+        "base.layers.0.weight": "af5782ed0bf9c1f0ceba6150260ab0c3792b31f671bfc339349881a8f74addc9",
+        "base.layers.0.bias": "8961d723765cdc65f3671d813927c2d1e727e462adfde70ba624032cb7ed9f18",
+        "base.layers.1.weight": "a51a24ac6e495973844f079fa4764f4ec76d909643c307e5b340ce0894445815",
+        "base.layers.1.bias": "19c493b8144e47d2b70907b64252eea7eb0df3135495f3b593a11c694dc98b7f",
+        "base.layers.2.weight": "70e08177b21165ff659f956cba1da8796355504464d4adc77426e53920a67334",
+        "base.layers.2.bias": "366b8bafc912be6be82a752015ec851a27be5836e88472d4d246686d4c552337",
+        "base.layers.3.weight": "ad1454c0c1aeeeaa9722e01721d18b9e015242c6328ed294c60be72dd2440b2d",
+        "base.layers.3.bias": "9933e7df63de6ee37fa1eee9e3a69aca589915bbe696de9b91b22d1b14f5b225",
+        "base.layers.4.weight": "39c8f5e1a993404f8e88ac660263dd00d8003986063f6d823eb87f540c69ba5d",
+        "base.layers.4.bias": "c7c7762cd1fd567120ac012e3bcd14718b296ab9b5f51058b10b33e3955b096b"
+      },
+      "surface_evaluated": false,
+      "missing_surface_branch": false,
+      "excluded": [],
+      "training_calls": 0,
+      "historical_training_exit_or_warnings_recovered": false
+    }
+  ],
+  "training_calls": 0,
+  "historical_training_history_reconstructed": false,
+  "current_numerical_recomputation_pass": true
+}

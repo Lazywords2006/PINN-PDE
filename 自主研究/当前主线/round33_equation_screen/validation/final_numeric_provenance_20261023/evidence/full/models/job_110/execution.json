@@ -1,0 +1,33 @@
+{
+  "command_argv": [
+    "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe",
+    "-B",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py",
+    "worker",
+    "--kind",
+    "model",
+    "--key",
+    "job_110",
+    "--batch-dir",
+    "D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\full"
+  ],
+  "command_windows": "D:\\CodexRuntime\\venvs\\r33-torch214\\Scripts\\python.exe -B E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\recompute_saved_models.py worker --kind model --key job_110 --batch-dir D:\\CodexRuntime\\runs\\r33_final_numeric_provenance_20261023\\full",
+  "cwd": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023",
+  "started_utc": "2026-10-23T00:57:37.237803+00:00",
+  "kind": "model",
+  "key": "job_110",
+  "finished_utc": "2026-10-23T00:57:50.170792+00:00",
+  "actual_returncode": 0,
+  "elapsed_seconds": 12.93287250000867,
+  "stdout_sha256": "fc6c0562a5492a60967be1eaf2f9fad220a6e9fa0bdf6962e3c0506530f6e4d8",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "outputs_sha256": {
+    "arrays.npz": "07fb1ae4aa76f84d8a95f6bda6ee8f68895415fb3cd4f1758d34a2f27664d760",
+    "imported_files.json": "fcb33258ebb89bc76bd0429c5446f2040ee9c8a41c80926177cde04ce409ce9a",
+    "invocation.json": "cfba2ebc878e38a218a3328637e04d20726cedbb839262c93b3cee62c2ad91ae",
+    "result.json": "5fd7477da3363eaebf76235fa4226ef0caf73281a986c9d0712a719d5a886220",
+    "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.log": "fc6c0562a5492a60967be1eaf2f9fad220a6e9fa0bdf6962e3c0506530f6e4d8",
+    "worker_status.json": "9aaebe399bdfc8db31fc4f80099155ab1d44185361bd67d4d17295e6f668aad1"
+  }
+}
