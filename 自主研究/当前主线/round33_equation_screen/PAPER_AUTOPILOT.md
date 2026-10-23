@@ -4,6 +4,7 @@
 
 ## 当前阶段
 
+- **普通修订核验及独立编辑综合完成。** `reviews/revision1/independent_verification/`确认14/14必修完整解决、11/11建议回应；`editorial_synthesis/`独立核对追溯后给出限定Accept，可进入Stage4.5。原五视角合同ABORT仍保留。最终候选`delivery_candidate.md` SHA256=`aef0c10a1bf19e8703a8066e1f0aaef75600b886777424b9f6545677ccc77eb0`仅替换首页历史pending状态句，科学内容与1a逐字节一致。全新最终完整性已核426表格单元、206JSON及488原始文件哈希，引用/原创性审计尚在进行，不能提前称最终通过。1a的27页预检已修复缺字/溢出/表题孤行；另派生v4改善科学记数法范围列的断行，源数据不变。
 - **08:16排版修复源1a冻结，独立核验进行中。** `complete_revised1a.md` SHA256=`398c2a44f2f9fd959b62564ddc599b123a3dd5de168ad0257a8572e188bf92e8`，仅改父稿三行路径与数学下标；25项响应重新绑定，科学正文、14表、13题录及4图保留。独立EIC逐项re-review与全新final-check已派发，均无预设通过。PDF预检另发现表2标题孤立在页末，排版器仅派生v3修复标题/表头分离，旧v2与失败证据保留。最终核验及排版尚未完成，没有新增训练。
 - **08:10第一轮作者修订冻结，排版预检检出实际问题。** `complete_revised1.md` 为11487汉字、14项必修与11项建议均有答复，SHA256=`5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a`。作者自报解决不代表独立关闭；25项独立核验尚待完成。实际PDF编译因附录E的6个Unicode下标缺字退出1，另有长路径溢出；原失败日志及稿件保留，作者仅另存`complete_revised1a.md`修复排版，不重写旧冻结物或科学内容。常规re-review已经准备，须等1a冻结后逐项核验；最终全稿完整性和交付仍待完成。
 - **07:54五份完整审稿均结束，合约裁决如实中止。** EIC/DA的局部F0为true；method/domain/perspective仅D1 warn，所有本地F为false，模板未覆盖该向量。`phase2_lint.json`实际exit1，合约可用2/5，依规则记录`PANEL-SHRUNK`，没有调用合约综合器、改分、补fallback或缩面板。五份实质意见均保存，未发现CRITICAL/MAJOR科学问题；继续用户已授权的作者修订，随后做常规re-review逐项核验，不能把此步骤写成原面板接受。独立revision_tracker整理完整意见清单与协议异常，writer正在整合最后一份，尚未冻结。
