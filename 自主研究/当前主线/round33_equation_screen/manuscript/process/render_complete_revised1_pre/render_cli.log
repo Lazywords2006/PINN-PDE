@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "E:\PINN-PDE\�����о�\��ǰ����\round33_equation_screen\manuscript\render_manuscript_v2.py", line 190, in <module>
+    render(args.source, args.output, args.label, args.pdf)
+  File "E:\PINN-PDE\�����о�\��ǰ����\round33_equation_screen\manuscript\render_manuscript_v2.py", line 154, in render
+    raise RuntimeError(f"PDF ����ȱʧ���Σ����ܽ�����{work}")
+RuntimeError: PDF ����ȱʧ���Σ����ܽ�����D:\CodexRuntime\runs\r33_paper_render\complete_revised1_5eb4cf00f663_renderer_v2_fee7a28695fa

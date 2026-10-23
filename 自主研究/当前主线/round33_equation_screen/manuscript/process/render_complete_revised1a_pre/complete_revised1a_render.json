@@ -1,0 +1,143 @@
+{
+  "source": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+  "source_sha256": "398c2a44f2f9fd959b62564ddc599b123a3dd5de168ad0257a8572e188bf92e8",
+  "label": "修订初稿排版预检；修订核验及最终完整性检查尚未完成，未投稿",
+  "renderer": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\render_manuscript_v3.py",
+  "renderer_sha256": "f510d09de47d64795256fa749f3ed37420fd4eff00b1462545f8c8f0307014a4",
+  "markdown_reader_format": "markdown+tex_math_single_backslash+tex_math_dollars+pipe_tables+fenced_code_blocks-implicit_figures",
+  "caption_policy": "Original handwritten Chinese captions; implicit_figures disabled",
+  "pdf_typography": "Original 11pt body, 22mm margins, 1.25 line spread; widow/club penalties 10000",
+  "html": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v3_f510d09de47d\\complete_revised1a.html",
+  "html_sha256": "faeb7bbd066c9f299f8972ab2aade515863a75577ae2b01f0cd160e7450c09c8",
+  "html_math": "native MathML; no remote script",
+  "pdf_requested": true,
+  "visual_review": "pending; automated geometry checks do not replace inspection",
+  "tex_only_glyph_normalization": {
+    "unicode_minus_to_math_minus": 13,
+    "superscript_sequences_to_math": 35,
+    "subscript_sequences_to_math": 8
+  },
+  "handwritten_caption_blocks_kept_together": 4,
+  "table_caption_blocks_with_reserved_headroom": 11,
+  "table_caption_policy": "Explicit numbered caption immediately before Pandoc longtable only; measured caption height plus 7 body baselines reserved, or 11 with an immediately preceding section heading; table can span pages",
+  "runtime_temp_directory": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v3_f510d09de47d\\temp",
+  "missing_glyph_warnings": 0,
+  "overfull_box_warnings": 0,
+  "pdf": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v3_f510d09de47d\\complete_revised1a.pdf",
+  "pdf_sha256": "bb57f015d44c12d15d55b3a6893b2aee29f31aa9fd124d2c57a0a9bbe0a1aad7",
+  "pages": 27,
+  "extracted_text_characters": 40402,
+  "tex": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v3_f510d09de47d\\paper.tex",
+  "compilation_logs": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v3_f510d09de47d",
+  "page_geometry": [
+    {
+      "page": 1,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 2,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 3,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 4,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 5,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 6,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 7,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 8,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 9,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 10,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 11,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 12,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 13,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 14,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 15,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 16,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 17,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 18,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 19,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 20,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 21,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 22,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 23,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 24,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 25,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 26,
+      "outside_page_blocks": []
+    },
+    {
+      "page": 27,
+      "outside_page_blocks": []
+    }
+  ],
+  "preview_directory": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v3_f510d09de47d\\previews"
+}

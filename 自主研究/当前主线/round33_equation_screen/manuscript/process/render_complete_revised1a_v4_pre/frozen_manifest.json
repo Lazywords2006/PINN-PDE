@@ -1,0 +1,655 @@
+{
+  "schema": "r33-layout-precheck-freeze-1",
+  "created_utc": "2026-10-23T00:45:52.087286+00:00",
+  "name": "complete_revised1a_v4_completed_precheck",
+  "status": "precheck_completed_with_nonblocking_layout_note",
+  "scope": "Layout precheck only; no final scientific acceptance or submission approval",
+  "source": {
+    "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+    "bytes": 85467,
+    "sha256": "398c2a44f2f9fd959b62564ddc599b123a3dd5de168ad0257a8572e188bf92e8"
+  },
+  "renderer": {
+    "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\render_manuscript_v4.py",
+    "bytes": 13604,
+    "sha256": "2507932eeb47752c7e245d7c9d7a293dcc5fd4889ce82b0ebcb997ce386bc504"
+  },
+  "renderer_frozen": true,
+  "prior_freezes": [
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\render_complete_revised1_pre\\frozen_manifest.json",
+      "bytes": 21232,
+      "sha256": "f483439e51605699c5aa0eb6b2df2d4215ee8a2544b56bfdf98e26de7f786ccb",
+      "all_listed_files_reverified": 83
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\render_complete_revised1a_pre\\frozen_manifest.json",
+      "bytes": 31323,
+      "sha256": "407a0076390eb4272122c1b5d10c324cdceb5dbe6c6476dfb0efd578593942e6",
+      "all_listed_files_reverified": 117
+    }
+  ],
+  "runtime_roots": [
+    "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47",
+    "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47"
+  ],
+  "evidence_root": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\render_complete_revised1a_v4_pre",
+  "compiler_cli_exit_code": 0,
+  "pdf_pages": 27,
+  "missing_glyph_warnings": 0,
+  "overfull_box_warnings": 0,
+  "underfull_box_warnings": 2,
+  "ignored_infinite_glue_messages": 4,
+  "findings": [
+    "11 table captions stay with header and first row",
+    "6 scientific range endpoints kept intact",
+    "all other TeX unchanged after removing 6 range wrappers",
+    "only PDF page 13 pixels changed versus v3",
+    "page 13 actually inspected; other 26 pages match previously inspected v3 pixel for pixel",
+    "table 3 last row continues with repeated header"
+  ],
+  "html_scope": "Static parser and embedded-resource checks only; no browser or server preview",
+  "excluded": "temp/cache directories and the manifest itself; check manifest via frozen_manifest.sha256",
+  "files": [
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\complete_revised1a.html",
+      "bytes": 1681096,
+      "sha256": "faeb7bbd066c9f299f8972ab2aade515863a75577ae2b01f0cd160e7450c09c8"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\complete_revised1a.pdf",
+      "bytes": 1554463,
+      "sha256": "7e0bebd895e1515e35bb93e4e53814e025819017015c9d562fdb069cea6b000c"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\complete_revised1a.source-snapshot.md",
+      "bytes": 85467,
+      "sha256": "398c2a44f2f9fd959b62564ddc599b123a3dd5de168ad0257a8572e188bf92e8"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\complete_revised1a_render.json",
+      "bytes": 4640,
+      "sha256": "25ee0b92fb5ad0e16af91794116fc0894859d0298c8d79c16ebf2b224da3b547"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\contact-01-06.png",
+      "bytes": 783386,
+      "sha256": "a296c70383477931ba73d6ff45777b0173f235953959c19ebab64b2f6e2cff86"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\contact-07-12.png",
+      "bytes": 812549,
+      "sha256": "bd8b073ab4eef725eb906926b6fdeaba45c76609d18c6d14acf3b4b7ed2e33d4"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\contact-13-18.png",
+      "bytes": 760042,
+      "sha256": "ecea72e06ea8e57ac213acb3141b74636635ab6e34b3cd0add7afeab5c4d5af2"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\contact-19-24.png",
+      "bytes": 685225,
+      "sha256": "261bf1ee9d5dc9ccd12f634df78166e6bad85cdd8d785614a7012d478a48cde4"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\contact-25-27.png",
+      "bytes": 380002,
+      "sha256": "932a69c7104baeb9175b3d9576649792ced6813921182625f3c06f48535a1494"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\inspect_snapshot.py",
+      "bytes": 9697,
+      "sha256": "6d61043917f872481e349a6c1403b413ce3744b1fc21e47a58a1bfa93b4974f0"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\inspection_stdout.txt",
+      "bytes": 25754,
+      "sha256": "63f6f33c1b0d7ed9442c6d33d2ccb77664e032249509a2679ab31378a923b10e"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\layout_regression.json",
+      "bytes": 3748,
+      "sha256": "5716dcc6fb81558b240c104e3e0d0e46d6694300cc6f0fca148d846f550f1492"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\layout_regression.py",
+      "bytes": 2500,
+      "sha256": "513d46ee6c1b622def7e738bc47bba8891b941da506da11fe3a129956d68d971"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\layout_regression_stdout.txt",
+      "bytes": 3750,
+      "sha256": "beac173ba4939b22a519505858165c968b1246bea9df06d455502aac1dbe8b78"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-01.png",
+      "bytes": 378844,
+      "sha256": "5d757f7810ccdea538e45fd4948330b8ee0088c073e398d5666ea1e1448b00c9"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-01.txt",
+      "bytes": 3314,
+      "sha256": "bb7623c83f803e55c2fa9b2ebf1e321f6f428c1e05d3c21c471850ff78148302"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-02.png",
+      "bytes": 477490,
+      "sha256": "cb15eda76c1ee12a425a3cb21d2e716b3ddf413dc41a58463bbad6623ffdba37"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-02.txt",
+      "bytes": 3984,
+      "sha256": "f76e88b0d99ab4559147e362ebbd3608cb262199f260b5ac98d63e4ba0c4ff5c"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-03.png",
+      "bytes": 456169,
+      "sha256": "c61bf338a8c40e9a23c7f4f897231aa945c73c03e2fc073433432e64a090c832"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-03.txt",
+      "bytes": 3617,
+      "sha256": "7f41b670a81534f3377c5dcfb36da71e348cb4da965d2a17c19ee9d11d39f84d"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-04.png",
+      "bytes": 320578,
+      "sha256": "f3a121e2fa92bcd961a5e8cf1488d77a9cbfc819275edeb3393dc7736d4a1726"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-04.txt",
+      "bytes": 2622,
+      "sha256": "5a4c3604e23be5e9ac4cf88b51a4560b5207553f387d0f480b4cc47bf05ee538"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-05.png",
+      "bytes": 212561,
+      "sha256": "6a9ad85e313a871d39d0565d8c6135a84ca47df50d7e5a4b8e6c8e3b4d8933fb"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-05.txt",
+      "bytes": 1706,
+      "sha256": "5b3f973694c6a8e1f55518d3691aa77bc6608854c4f50efabb5f6e5d00c55e49"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-06.png",
+      "bytes": 356177,
+      "sha256": "632abe545a6f5cb8777c390772043b7fe3108f2785be27f78fb2653a6129bac9"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-06.txt",
+      "bytes": 2383,
+      "sha256": "a19451cd99fe897d1428821fb4c1b331de35abffb9a0a9309d0838826ff5c23b"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-07.png",
+      "bytes": 376987,
+      "sha256": "25bafbfa3ca14fbbfb17a0dcf2c90dd32987d667293abc967cc41d6f53d0ebee"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-07.txt",
+      "bytes": 3028,
+      "sha256": "6c03f4a169dd106f175f4f42db4a29af385f4ffdc00cd7893039d0c0e95e124b"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-08.png",
+      "bytes": 564921,
+      "sha256": "3a1ee4068e3f45e80f6238687dc523f0f35e785d77d0b54feb56edaa303c2d3b"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-08.txt",
+      "bytes": 4388,
+      "sha256": "1f91a957ca8a912f3c1db80a45f9551e1a0f91a568904b06af9f78864f3d02be"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-09.png",
+      "bytes": 389635,
+      "sha256": "428ca3ca5c87fc41272d043abb2749514d875f1a8206f3806f65702d1a2273c6"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-09.txt",
+      "bytes": 3151,
+      "sha256": "4497efc1d3433ba2b33d91ce0954770e60d7c5084177234d7aa100daaae53f6b"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-10.png",
+      "bytes": 315828,
+      "sha256": "e27a5e8850d23e06a5f38493e03fa2600fb64c886929114b0121a6060117c644"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-10.txt",
+      "bytes": 3090,
+      "sha256": "9fc1633b24b52bb63b3a32af89fd0f6c5f454b6fe2716580ba820b7bd49a9d62"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-11.png",
+      "bytes": 322804,
+      "sha256": "b0862b5442398819e09cfbe2b1fe71b0f5f769034a4c4c30d941817ba612292c"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-11.txt",
+      "bytes": 1924,
+      "sha256": "b92b0d2ae0b14cac12c9fa0703bf229744cfb9bd50d8e136ed8f4094ae7195fc"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-12.png",
+      "bytes": 359932,
+      "sha256": "343a580d40b6895fc083b4ab5964cccad2d775cdc1cca934e34141ac26387f25"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-12.txt",
+      "bytes": 3285,
+      "sha256": "d95cbd54e939962b991cd8c5b5754d30892e9a0db74d03d7e40b0667435dedc8"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-13.png",
+      "bytes": 250451,
+      "sha256": "c3358aec0a278185bf9291689fec314177ba57855f2e25d709ce8ce2eede3570"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-13.txt",
+      "bytes": 2383,
+      "sha256": "9a004a4141590aa42adb2c0b618bdc38751d1ce282de33c1cf898ce32184b2d7"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-14.png",
+      "bytes": 308968,
+      "sha256": "f68f1499f6c8946cbb150c516eed56c83255ab6fbb19c37cba8bcf011b14774a"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-14.txt",
+      "bytes": 2366,
+      "sha256": "421b6707120f6dab3a7a9c9178c60c22730f8116221ae6adb39a03611d0bf210"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-15.png",
+      "bytes": 258603,
+      "sha256": "e4fa142ed4f7e9ee525ca2d9338d2002f98d2848ce9274889ab90fdc8d06ab53"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-15.txt",
+      "bytes": 1827,
+      "sha256": "e228a64a4b68011496822a844c78f09e1b35152d164258ce9bf8641a41fa0bc6"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-16.png",
+      "bytes": 388265,
+      "sha256": "acc13983cf519538aa092e737037253c177fe4b62f752b36daa748ce7dfd88aa"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-16.txt",
+      "bytes": 3221,
+      "sha256": "1d6001d4f156555151c0d8c488a284705b0cd49942d8f2abe7aa98d98781811b"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-17.png",
+      "bytes": 510863,
+      "sha256": "339cffa484ce3528a104a40f2e0f4cfcef93bed76ddaa9df748cc115e6cdbcb1"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-17.txt",
+      "bytes": 3988,
+      "sha256": "8226619aeb4f6fcb161268ff02e99c7c0346bf8a292ef486ddf289baed569589"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-18.png",
+      "bytes": 519917,
+      "sha256": "ba82f3dd8e67dc4603be5e63841265b3d5e3a0b6a4d5e426b9e3bf545b14160b"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-18.txt",
+      "bytes": 3991,
+      "sha256": "bcfcdaa9c74444ec5735aafd60d0d94afe051f5989db3ab8fedf3c338ebea1e3"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-19.png",
+      "bytes": 279086,
+      "sha256": "a147b2de9bfe80bd4a7bb7900aac9d80021b804f8fd2fb37beb087635b3fbe51"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-19.txt",
+      "bytes": 2793,
+      "sha256": "a5ea8dd369df6a4e9ac8e27121035c6442a5388bf9078b7986f5cd1379ff37a8"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-20.png",
+      "bytes": 280611,
+      "sha256": "865a7ba34f58b866adbdcd794ec43ddfb3d6bb27bc29f98df580a974c122fd16"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-20.txt",
+      "bytes": 2799,
+      "sha256": "1b42c64c8953683cc525cac2a0f89382c01835ccf5c80258a4360d9567421d93"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-21.png",
+      "bytes": 299609,
+      "sha256": "d98d7789b99dd6d1833abbe56e70efcbf26c2e07d02509fbbacc190c209a34a9"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-21.txt",
+      "bytes": 2934,
+      "sha256": "44a62d4f2bceba857f4f6ecd753371603e6743e83917def7f5f875a026e38f16"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-22.png",
+      "bytes": 377180,
+      "sha256": "670117a45d18df224c7f0cc57e162119719b027b522ad3447da357ff4dce4646"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-22.txt",
+      "bytes": 3903,
+      "sha256": "67370a4f95f0a59d97af3db234e51fbcb9ab6de5f833b2c5feea44391344c7c5"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-23.png",
+      "bytes": 282216,
+      "sha256": "0b7548dcf910aad12aee9237be6d7fe3171524cedd311930ed06ef75699007fa"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-23.txt",
+      "bytes": 3208,
+      "sha256": "3f8e2128503a67167d0d0961a9615a41ae16a1c1c99e5f90c234235a99a81668"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-24.png",
+      "bytes": 382945,
+      "sha256": "d25fb2eeec6ef792d254454e2bbb8a327324096ed201f009417d271fb383c489"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-24.txt",
+      "bytes": 3365,
+      "sha256": "208553cd8a4c10cf24ff57bfa4e1cb937e65b38ba74a8eafb22103ffb14f9dfd"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-25.png",
+      "bytes": 419929,
+      "sha256": "25c24175faf684d4f93d975e714ba8966461c332d9f9841eb6800e5759f825ca"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-25.txt",
+      "bytes": 3399,
+      "sha256": "42a6b1e4be742552fd701e418424b7c70825a6d33b0e62e1982ac3ef0eaf4e51"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-26.png",
+      "bytes": 422775,
+      "sha256": "14e1ba6e95853207a338930f5946d9b4ff18824d32ca7b34656118137ba8db46"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-26.txt",
+      "bytes": 3511,
+      "sha256": "ea582de373899acd4ce642e41e32ef7c9d11389cafcf8dd30364f039d75b1627"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-27.png",
+      "bytes": 222901,
+      "sha256": "e96e23aed2e3433be83b149960747dfbaeb06b34fbfc689642deec692cea912c"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\pages\\page-27.txt",
+      "bytes": 1763,
+      "sha256": "808b9424560f7e2b91857df951659e60d78f50a24d210928fd1ef4bb12a07c2a"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\precheck_report.md",
+      "bytes": 5407,
+      "sha256": "34c4b6dc52569970de096059688f820a8c2080e1baffaca8f0218267c2ed8ea9"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\range_regression.json",
+      "bytes": 7963,
+      "sha256": "12931559f4932d398a9af6477a88f966f60cff8ed81c3a685d4d4e83644a6f6f"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\range_regression.py",
+      "bytes": 1653,
+      "sha256": "7de8675f652ae8509a96ddf20a827d990f0f933e508a1cb020c2c60bf8ec17bd"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\render_cli.log",
+      "bytes": 4640,
+      "sha256": "25ee0b92fb5ad0e16af91794116fc0894859d0298c8d79c16ebf2b224da3b547"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\render_manuscript_v4.2507932eeb47.py",
+      "bytes": 13604,
+      "sha256": "2507932eeb47752c7e245d7c9d7a293dcc5fd4889ce82b0ebcb997ce386bc504"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\source_ast.json",
+      "bytes": 801205,
+      "sha256": "50e583add81021bea83f99d51431e4845dfb985ba004854ab48f644b40bc954e"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\static_and_pdf_checks.json",
+      "bytes": 380430,
+      "sha256": "521f1f2463c0f85bff24f74454bf47528acc547d6bda03f79e70f7f0ef948533"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\v2_html_baseline\\complete_revised1a.html",
+      "bytes": 1681096,
+      "sha256": "faeb7bbd066c9f299f8972ab2aade515863a75577ae2b01f0cd160e7450c09c8"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\revised1a_pre_20261023_398c2a44f2f9_v4_2507932eeb47\\v2_html_baseline\\complete_revised1a_render.json",
+      "bytes": 1255,
+      "sha256": "b2bab44b89406d0aec499a161666130982338739289cf425163a4d1a6b33c998"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\banner.html",
+      "bytes": 109,
+      "sha256": "96986784a8de851d93f6541203ff9e346f9fab1608bb1b79437e4d0c4dfb8bde"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\paper.aux",
+      "bytes": 13036,
+      "sha256": "73e4e3d99c269e529ff5833bc92e52bdb9a10a269bcb961d2f6fe67f45b3560e"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\paper.css",
+      "bytes": 1035,
+      "sha256": "94987c7371b033f1390dab9185a74567b451d8768b69952f7c7642aecca2d091"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\paper.log",
+      "bytes": 27927,
+      "sha256": "f112f435867fd2d5b227e02480623d9aa9b11adc0760af8cb2a38d6ad4a34b9f"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\paper.out",
+      "bytes": 6208,
+      "sha256": "bf2c3e7232657767f5184109fe63091d0004d2c916e8f8947215cb8113c9fc40"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\paper.pdf",
+      "bytes": 1554463,
+      "sha256": "7e0bebd895e1515e35bb93e4e53814e025819017015c9d562fdb069cea6b000c"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\paper.tex",
+      "bytes": 111281,
+      "sha256": "51baed22ef055d6b4e272b1595f199f903b23078efa3de3f7336e2619030422a"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\paper.tex.template",
+      "bytes": 1533,
+      "sha256": "32ed4823766d4de26bb90781d2d2304e476fed8bd57f81a67cde142b411d950f"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_001.png",
+      "bytes": 202508,
+      "sha256": "deee4ea48afab514553f9439683c0e55094412056bccc5a1636adfaf6f3f2e5b"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_002.png",
+      "bytes": 242945,
+      "sha256": "bfd1aed4f2869a46c614ba263e171bfbf526d453debbc93300cc7f9262ad746b"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_003.png",
+      "bytes": 233096,
+      "sha256": "f5a9facd3037fec53e8dd7240c3e2f599d4f4a126d831657c50a9d445be23e48"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_004.png",
+      "bytes": 169291,
+      "sha256": "b8f4a949ccb85e07a2ade7ca43af5de0ab60c24a1660e19b05d9b809946189ec"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_005.png",
+      "bytes": 113037,
+      "sha256": "478e3c4df128b10de6354e313124498ad860cd4e596a8f8fedeb6701c760fea6"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_006.png",
+      "bytes": 192776,
+      "sha256": "771be8bd424a6181e29b0cf4b54717b3d90035359ef70173cd38abc09f8d4ce8"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_007.png",
+      "bytes": 196273,
+      "sha256": "8b945801d214c40950c1c3a4b27adc3ecb0cfc809f6687ab5aa3eab39e293697"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_008.png",
+      "bytes": 280511,
+      "sha256": "0ec082941b049948cd7d445e201f7552d0028a2489e662e15d39fc96aa6ff2b5"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_009.png",
+      "bytes": 202833,
+      "sha256": "37ee456ffe4787305c83fa8f18b4a0a17a178360a88b383e74dfb1b77c5a2755"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_010.png",
+      "bytes": 161387,
+      "sha256": "d13d89020271a534ca6a6ccdc32b1e2a4e86bd8f12847cdf71765cdf370e592a"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_011.png",
+      "bytes": 168817,
+      "sha256": "718078b8868e00dca99dcf45029c0d9ff85b6e6d2139d7b36b67d9be1d8708dd"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_012.png",
+      "bytes": 185179,
+      "sha256": "72e5962a263ad0d731cf18f753cdf8254a575bb282bb9f0748dc91a352805df0"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_013.png",
+      "bytes": 132858,
+      "sha256": "0ce3eb3677289ce77bfb16b3046c3414d556621e7be5700b3ce5e16d341a20e6"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_014.png",
+      "bytes": 162029,
+      "sha256": "197fd7e278c5739518beb1dff160f0aae3ea8fb6e2acbaaa82d60ef3450b4dab"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_015.png",
+      "bytes": 138638,
+      "sha256": "7545c8893876da34b9c9a1bbed5a730dec93f32437a4d95bccb94d53290d1079"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_016.png",
+      "bytes": 200119,
+      "sha256": "53e9064d5581d7df1599eee0400a9aaaf2b49be2965742df5173195f92f0f3a6"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_017.png",
+      "bytes": 260100,
+      "sha256": "a709be4a0c92fc4f2f90ee9a7c452237ca503360f83b5ee5df42d704fec4bf38"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_018.png",
+      "bytes": 260262,
+      "sha256": "13b759510cb9b3d72319f25f9f79e95fb84667564bd38f01c228f7f6b5efe421"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_019.png",
+      "bytes": 164738,
+      "sha256": "9d34dbca7327b2cc5f0815e0b62395b5e66ab26ea854a110ffa2a09ebd02415b"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_020.png",
+      "bytes": 150976,
+      "sha256": "52593a6d987114211d79c9afd0e07d3220c31ea01d656d47f10f25a8fadd6d82"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_021.png",
+      "bytes": 155628,
+      "sha256": "0235d648c6cee0de3657d00d4f9fbe8b29954fa2457b9ab6c1e3878c286d59ca"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_022.png",
+      "bytes": 192104,
+      "sha256": "3f6f78402be4abcfd08e935d001db89b275010b75f431ade7b097fdc4108a3e0"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_023.png",
+      "bytes": 151651,
+      "sha256": "8ec82f57f320597431a654535e92697411aad71d714899a254b2f9b007ca5035"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_024.png",
+      "bytes": 195920,
+      "sha256": "c8d7cb5567d2f13a5f4d9d5c7851d7ef855efcbd90cba0cab53c8604af6d2a86"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_025.png",
+      "bytes": 220306,
+      "sha256": "6bc816ec67d28a07f4151f7f68f99ea220c35d76bbbc7e09b45abc425ddf90f4"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_026.png",
+      "bytes": 217216,
+      "sha256": "213c400f86dc8571dec9cbbd33506046078c4ae7ce06efe562e4c29c3079afcd"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\previews\\page_027.png",
+      "bytes": 113409,
+      "sha256": "685815531be7463deb562aab9d40711a0b1d86f986e386f5000873c3a00886d2"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\xelatex_1.stdout.log",
+      "bytes": 7304,
+      "sha256": "c77c9d471e37b501666f9a079fe762d25128482273ab7efeffad151af763aa27"
+    },
+    {
+      "path": "D:\\CodexRuntime\\runs\\r33_paper_render\\complete_revised1a_398c2a44f2f9_renderer_v4_2507932eeb47\\xelatex_2.stdout.log",
+      "bytes": 7088,
+      "sha256": "571b3eceecbd81f73edcde593198c554074ec8ca969f3548843243f0f56a5115"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\render_complete_revised1a_v4_pre\\complete_revised1a_render.json",
+      "bytes": 4640,
+      "sha256": "25ee0b92fb5ad0e16af91794116fc0894859d0298c8d79c16ebf2b224da3b547"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\render_complete_revised1a_v4_pre\\layout_regression.json",
+      "bytes": 3748,
+      "sha256": "5716dcc6fb81558b240c104e3e0d0e46d6694300cc6f0fca148d846f550f1492"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\render_complete_revised1a_v4_pre\\paper.log",
+      "bytes": 27927,
+      "sha256": "f112f435867fd2d5b227e02480623d9aa9b11adc0760af8cb2a38d6ad4a34b9f"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\render_complete_revised1a_v4_pre\\precheck_report.md",
+      "bytes": 5407,
+      "sha256": "34c4b6dc52569970de096059688f820a8c2080e1baffaca8f0218267c2ed8ea9"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\render_complete_revised1a_v4_pre\\range_regression.json",
+      "bytes": 7963,
+      "sha256": "12931559f4932d398a9af6477a88f966f60cff8ed81c3a685d4d4e83644a6f6f"
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\render_complete_revised1a_v4_pre\\static_and_pdf_checks.json",
+      "bytes": 380430,
+      "sha256": "521f1f2463c0f85bff24f74454bf47528acc547d6bda03f79e70f7f0ef948533"
+    }
+  ]
+}

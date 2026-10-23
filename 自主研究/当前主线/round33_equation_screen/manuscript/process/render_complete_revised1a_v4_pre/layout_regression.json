@@ -1,0 +1,98 @@
+{
+  "source_snapshot_sha256": "398c2a44f2f9fd959b62564ddc599b123a3dd5de168ad0257a8572e188bf92e8",
+  "pdf_sha256": "7e0bebd895e1515e35bb93e4e53814e025819017015c9d562fdb069cea6b000c",
+  "comparison_normalization": "Whitespace, minus glyphs, and Unicode superscript digits normalized for PDF text extraction; visual layout checked separately",
+  "caption_count": 11,
+  "table_caption_checks": [
+    {
+      "caption": "表1　主实验的问题定义。两类方程均取左端零通量与右端动态边界，终止时间为1。[E01]",
+      "caption_pages": [
+        7
+      ],
+      "header_and_first_data_row_same_page": true,
+      "missing_cells": []
+    },
+    {
+      "caption": "表2　原初值完整预算比较。每个种子的数值为五个评价时刻上的最大体相对误差，迹列采用同样的种子汇总次序。[E05]",
+      "caption_pages": [
+        10
+      ],
+      "header_and_first_data_row_same_page": true,
+      "missing_cells": []
+    },
+    {
+      "caption": "表3　新初值完整预算比较。各网络针对相应初值分别训练。[E05]",
+      "caption_pages": [
+        10
+      ],
+      "header_and_first_data_row_same_page": true,
+      "missing_cells": []
+    },
+    {
+      "caption": "表4　PirateNet 变体内的完整三种子比较。所用变体省略物理信息最小二乘初始化。[E05]",
+      "caption_pages": [
+        12
+      ],
+      "header_and_first_data_row_same_page": true,
+      "missing_cells": []
+    },
+    {
+      "caption": "表5　参数轴及默认点的中位数比较。此处的“满足”只指原参数点规则。[E05]",
+      "caption_pages": [
+        12
+      ],
+      "header_and_first_data_row_same_page": true,
+      "missing_cells": []
+    },
+    {
+      "caption": "表6　衰减参数灵敏度的全部种子。数值按式（16）计算，主τ=0.1保持不变。[E13]",
+      "caption_pages": [
+        13
+      ],
+      "header_and_first_data_row_same_page": true,
+      "missing_cells": []
+    },
+    {
+      "caption": "表7　默认六臂对照的全部种子。各路线第二阶段均为L-BFGS；Adam与SOAP64之间存在执行环境差异，跨路线精度并列不构成优化器因果排名。[E13]",
+      "caption_pages": [
+        14
+      ],
+      "header_and_first_data_row_same_page": true,
+      "missing_cells": []
+    },
+    {
+      "caption": "表8　新初值独立检验点的分量残差均方根，列出三个种子的中位数。点集没有参与训练或配置选择。[E03,E05]",
+      "caption_pages": [
+        16
+      ],
+      "header_and_first_data_row_same_page": true,
+      "missing_cells": []
+    },
+    {
+      "caption": "表B1　全部原筛选的逐种子最大误差。原文件方法标记 rba 在此写为RBA本地变体。",
+      "caption_pages": [
+        23
+      ],
+      "header_and_first_data_row_same_page": true,
+      "missing_cells": []
+    },
+    {
+      "caption": "表B2　逐方程原筛选门槛。参考列复用2026-10-21已有的自检记录，本次未重新积分参考解；训练指标由原30份JSON重新聚合。",
+      "caption_pages": [
+        24
+      ],
+      "header_and_first_data_row_same_page": true,
+      "missing_cells": []
+    },
+    {
+      "caption": "表E1　E4完整预算探索性结果，tag为e4confirm，seed 0、1、2。每个种子先对五个规定时刻取最大体相对误差，再取三种子中位数；迹列对应u(1,t)，不对应v(t)。",
+      "caption_pages": [
+        26
+      ],
+      "header_and_first_data_row_same_page": true,
+      "missing_cells": []
+    }
+  ],
+  "headings_at_page_end": [],
+  "all_caption_first_rows_same_page": true
+}

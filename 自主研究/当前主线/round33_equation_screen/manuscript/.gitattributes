@@ -16,3 +16,8 @@ reviews/full_v1/eic_phase2.md -text whitespace=-blank-at-eol,-blank-at-eof,space
 process/complete_revised1/*.diff -text whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 process/complete_revised1a/*.diff -text whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 process/delivery_source/*.diff -text whitespace=-blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+
+# Immutable revision layout attempts retain their original compiler diagnostics.
+process/render_complete_revised1_pre/** -text -whitespace
+process/render_complete_revised1a_pre/** -text -whitespace
+process/render_complete_revised1a_v4_pre/** -text -whitespace
