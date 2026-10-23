@@ -1,0 +1,12 @@
+{
+  "date_local": "2026-10-23",
+  "manifest": "complete_revised1/FROZEN_REVISION_MANIFEST.json",
+  "file_count": 26,
+  "working_tree_hashes_verified": 26,
+  "initial_commit": "d3b61d7",
+  "initial_git_blob_mismatch": "complete_revised1/complete_v1_to_revised1.diff",
+  "reason": "The diff was staged before its exact-byte -text attribute was added; the initial index normalized line endings.",
+  "repair": "Restaged only the frozen diff with git add --renormalize after the -text rule; working-tree source and manifest remained unchanged.",
+  "repaired_index_hashes_verified": 26,
+  "scientific_content_changed": false
+}
