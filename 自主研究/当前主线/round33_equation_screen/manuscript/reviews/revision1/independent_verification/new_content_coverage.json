@@ -1,0 +1,342 @@
+{
+  "base_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "draft_sha256": "398c2a44f2f9fd959b62564ddc599b123a3dd5de168ad0257a8572e188bf92e8",
+  "changed_hunks": 22,
+  "reviewed_hunks": 22,
+  "coverage_percent": 100,
+  "new_or_replaced_lines": 84,
+  "coverage": [
+    {
+      "id": "H1",
+      "kind": "replace",
+      "old_lines": [
+        5,
+        5
+      ],
+      "new_lines": [
+        5,
+        5
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "状态改为五份自动审阅意见后的修订初稿，不表示原full_v1合议成功；待核验、未投稿及人类确认均保留。",
+      "new_blocking_issue": false
+    },
+    {
+      "id": "H3",
+      "kind": "replace",
+      "old_lines": [
+        173,
+        173
+      ],
+      "new_lines": [
+        173,
+        173
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "截断常数、理想解析式与浮点区别；逐行对照pinn1d.py。",
+      "new_blocking_issue": false
+    },
+    {
+      "id": "H5",
+      "kind": "replace",
+      "old_lines": [
+        185,
+        185
+      ],
+      "new_lines": [
+        185,
+        185
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "命题范围改为未截断解析表达式；没有新增数学保证。",
+      "new_blocking_issue": false
+    },
+    {
+      "id": "H7",
+      "kind": "replace",
+      "old_lines": [
+        223,
+        223
+      ],
+      "new_lines": [
+        223,
+        223
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "参数轴进入边界函数的位置及新初值范围；对照problems.py。",
+      "new_blocking_issue": false
+    },
+    {
+      "id": "H9",
+      "kind": "replace",
+      "old_lines": [
+        270,
+        272
+      ],
+      "new_lines": [
+        270,
+        272
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "抽样顺序和分量数对照stage5_support；删除的恢复细节仍在附录D。",
+      "new_blocking_issue": false
+    },
+    {
+      "id": "H11",
+      "kind": "replace",
+      "old_lines": [
+        322,
+        322
+      ],
+      "new_lines": [
+        322,
+        322
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "PirateNet收益叙述压缩，22.61/5.52与六配对结论保留。",
+      "new_blocking_issue": false
+    },
+    {
+      "id": "H13",
+      "kind": "replace",
+      "old_lines": [
+        333,
+        333
+      ],
+      "new_lines": [
+        333,
+        335
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "逐种子来源直接核12份JSON；A-1名称和附录入口对照原协议。",
+      "new_blocking_issue": false
+    },
+    {
+      "id": "H15",
+      "kind": "insert",
+      "old_lines": [
+        352,
+        351
+      ],
+      "new_lines": [
+        354,
+        355
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "E1/E3固定量与κ公式对照源码并独立算δ。",
+      "new_blocking_issue": false
+    },
+    {
+      "id": "H17",
+      "kind": "replace",
+      "old_lines": [
+        375,
+        375
+      ],
+      "new_lines": [
+        379,
+        379
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "τ说明压缩，跨环境混杂、三种子局限和未搜索均保留。",
+      "new_blocking_issue": false
+    },
+    {
+      "id": "H19",
+      "kind": "replace",
+      "old_lines": [
+        404,
+        404
+      ],
+      "new_lines": [
+        408,
+        408
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "G2比较对象、种子及附录入口对照协议，旧失败未改。",
+      "new_blocking_issue": false
+    },
+    {
+      "id": "H21",
+      "kind": "replace",
+      "old_lines": [
+        423,
+        423
+      ],
+      "new_lines": [
+        427,
+        427
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "四层成本数字未变；移出的轮询/恢复定义仍在附录D。",
+      "new_blocking_issue": false
+    },
+    {
+      "id": "H23",
+      "kind": "replace",
+      "old_lines": [
+        437,
+        437
+      ],
+      "new_lines": [
+        441,
+        441
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "E4正文入口、比较方向与0.838由原JSON核验，负面范围保留。",
+      "new_blocking_issue": false
+    },
+    {
+      "id": "H25",
+      "kind": "insert",
+      "old_lines": [
+        453,
+        452
+      ],
+      "new_lines": [
+        457,
+        458
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "f导数及目标量条件与实际δ/指标依赖一致，噪声及其他物理量不作已验证主张。",
+      "new_blocking_issue": false
+    },
+    {
+      "id": "H27",
+      "kind": "replace",
+      "old_lines": [
+        497,
+        497
+      ],
+      "new_lines": [
+        503,
+        503
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "只改引用上下文入口；13条参考文献逐字一致，路径实际存在。",
+      "new_blocking_issue": false
+    },
+    {
+      "id": "H29",
+      "kind": "replace",
+      "old_lines": [
+        508,
+        508
+      ],
+      "new_lines": [
+        514,
+        514
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "E09精确指表E1、E4协议节及原JSON；体/迹与表面缺口区分。",
+      "new_blocking_issue": false
+    },
+    {
+      "id": "H31",
+      "kind": "replace",
+      "old_lines": [
+        513,
+        513
+      ],
+      "new_lines": [
+        519,
+        519
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "E14保留v1数据核查及修订自核入口，并明示不能代替独立审查。",
+      "new_blocking_issue": false
+    },
+    {
+      "id": "H33",
+      "kind": "insert",
+      "old_lines": [
+        516,
+        515
+      ],
+      "new_lines": [
+        522,
+        522
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "E17绑定32份原JSON及源码，独立按文件夹枚举和重聚合核验全部32条。",
+      "new_blocking_issue": false
+    },
+    {
+      "id": "H35",
+      "kind": "insert",
+      "old_lines": [
+        536,
+        535
+      ],
+      "new_lines": [
+        543,
+        543
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "实现表精确截断行对照两类层函数。",
+      "new_blocking_issue": false
+    },
+    {
+      "id": "H37",
+      "kind": "replace",
+      "old_lines": [
+        542,
+        542
+      ],
+      "new_lines": [
+        550,
+        552
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "N04删除；新增截断AD解释与实际计算图一致，原字段解释未改。",
+      "new_blocking_issue": false
+    },
+    {
+      "id": "H39",
+      "kind": "replace",
+      "old_lines": [
+        558,
+        558
+      ],
+      "new_lines": [
+        568,
+        568
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "旧历史执行长段改为附录D入口。",
+      "new_blocking_issue": false
+    },
+    {
+      "id": "H41",
+      "kind": "insert",
+      "old_lines": [
+        611,
+        610
+      ],
+      "new_lines": [
+        621,
+        622
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "附录D新增段与旧稿附录A对应段逐字相同，未重写原日志或表面权重边界。",
+      "new_blocking_issue": false
+    },
+    {
+      "id": "H43",
+      "kind": "insert",
+      "old_lines": [
+        617,
+        616
+      ],
+      "new_lines": [
+        629,
+        682
+      ],
+      "all_new_and_removed_text_read": true,
+      "assessment": "完整阅读新增54行附录E/F：逐方程/公式对照源码和协议、独立微分U、复算表E1全部数据，逐门槛对照A-1/A-2/G2，探索与历史缺口完整保留。",
+      "new_blocking_issue": false
+    }
+  ],
+  "new_references": 0,
+  "new_blocking_issues": []
+}

@@ -1,0 +1,1333 @@
+{
+  "checked_at_utc": "2026-10-23T00:21:12.005073+00:00",
+  "draft": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+  "draft_sha256": "398c2a44f2f9fd959b62564ddc599b123a3dd5de168ad0257a8572e188bf92e8",
+  "original_sha256": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+  "tracker_sha256": "3ff9d4159f28a547dd16bc065403f649defa36570ed4f1a7bdc7842bdf58bd78",
+  "response_sha256": "75cffdac028f1e97ff89e87ea12d8d32a6c64d6464e7ea9734b23afc441f1325",
+  "freeze_manifest_sha256": "efe26cea3d7f7352af7b74066dd3f43a751e60a4a889b24bc15c73d99daed635",
+  "bindings": [
+    {
+      "group": "revision1a_frozen",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "expected": "398c2a44f2f9fd959b62564ddc599b123a3dd5de168ad0257a8572e188bf92e8",
+      "actual": "398c2a44f2f9fd959b62564ddc599b123a3dd5de168ad0257a8572e188bf92e8",
+      "matches": true
+    },
+    {
+      "group": "revision1a_frozen",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\citation_contexts.json",
+      "expected": "c2884f9c6807a775023b73f695056dbe1615a31b472524d16c2e76a51b8ac93f",
+      "actual": "c2884f9c6807a775023b73f695056dbe1615a31b472524d16c2e76a51b8ac93f",
+      "matches": true
+    },
+    {
+      "group": "revision1a_frozen",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\citation_contexts.md",
+      "expected": "f21ee7e75d30eb6d07069bc7939598784f289f75d96105e26622db226bf4eb7d",
+      "actual": "f21ee7e75d30eb6d07069bc7939598784f289f75d96105e26622db226bf4eb7d",
+      "matches": true
+    },
+    {
+      "group": "revision1a_frozen",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\complete_revised1_to_revised1a.diff",
+      "expected": "fff819e37b32473414bfe38c94dfda50392041b8da56d0f061d03f17629b65e9",
+      "actual": "fff819e37b32473414bfe38c94dfda50392041b8da56d0f061d03f17629b65e9",
+      "matches": true
+    },
+    {
+      "group": "revision1a_frozen",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\count_definition_comparison.json",
+      "expected": "2ec53e359838fcc2ca09775c5e2a586c8dad1dea8ae92a10547bf272159d234f",
+      "actual": "2ec53e359838fcc2ca09775c5e2a586c8dad1dea8ae92a10547bf272159d234f",
+      "matches": true
+    },
+    {
+      "group": "revision1a_frozen",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\COUNT_DEFINITION_COMPARISON_CN.md",
+      "expected": "7f0941a09e67b67fc41461b42b5101547c7e3665352358cb125c56a2aa0f820c",
+      "actual": "7f0941a09e67b67fc41461b42b5101547c7e3665352358cb125c56a2aa0f820c",
+      "matches": true
+    },
+    {
+      "group": "revision1a_frozen",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\figure_retention_checks.json",
+      "expected": "32a923f4b9e895d23b55fca5b5266bcc3ff21fa920290d453495a640ca841461",
+      "actual": "32a923f4b9e895d23b55fca5b5266bcc3ff21fa920290d453495a640ca841461",
+      "matches": true
+    },
+    {
+      "group": "revision1a_frozen",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\fix_layout.py",
+      "expected": "88cf45ad9121cbe6be45eb849cd92e4f20c08362f0c7f1cb7db0bb8431ca19ef",
+      "actual": "88cf45ad9121cbe6be45eb849cd92e4f20c08362f0c7f1cb7db0bb8431ca19ef",
+      "matches": true
+    },
+    {
+      "group": "revision1a_frozen",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\freeze_layout.py",
+      "expected": "7de39fbe52e62affb3d11e857f3ce4e8cd38250ba77550a8cc05bccbe00dade3",
+      "actual": "7de39fbe52e62affb3d11e857f3ce4e8cd38250ba77550a8cc05bccbe00dade3",
+      "matches": true
+    },
+    {
+      "group": "revision1a_frozen",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\LAYOUT_FIXES.json",
+      "expected": "faeaaf1655ed5a8effc07ea618575148afa5764a13156f63707e81286daf26f1",
+      "actual": "faeaaf1655ed5a8effc07ea618575148afa5764a13156f63707e81286daf26f1",
+      "matches": true
+    },
+    {
+      "group": "revision1a_frozen",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\LAYOUT_FIXES_CN.md",
+      "expected": "208f6db75696aaa3e25a5a6263ed4ef011988a59c050f343b5ed9b5fb4af1419",
+      "actual": "208f6db75696aaa3e25a5a6263ed4ef011988a59c050f343b5ed9b5fb4af1419",
+      "matches": true
+    },
+    {
+      "group": "revision1a_frozen",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\layout_revision_checks.json",
+      "expected": "7f30a5e51d7a1de6f226d29bd86f09fb8413b2fe27e4e5b85b5750d31802cf8e",
+      "actual": "7f30a5e51d7a1de6f226d29bd86f09fb8413b2fe27e4e5b85b5750d31802cf8e",
+      "matches": true
+    },
+    {
+      "group": "revision1a_frozen",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\protected_after.json",
+      "expected": "d8727d7013cf8a034e19acdb1a59d196970c7d4bd8ff88f1dbe431ba17d2d67f",
+      "actual": "d8727d7013cf8a034e19acdb1a59d196970c7d4bd8ff88f1dbe431ba17d2d67f",
+      "matches": true
+    },
+    {
+      "group": "revision1a_frozen",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\protected_before.json",
+      "expected": "d8727d7013cf8a034e19acdb1a59d196970c7d4bd8ff88f1dbe431ba17d2d67f",
+      "actual": "d8727d7013cf8a034e19acdb1a59d196970c7d4bd8ff88f1dbe431ba17d2d67f",
+      "matches": true
+    },
+    {
+      "group": "revision1a_frozen",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\RESPONSE_TO_REVIEWS.json",
+      "expected": "75cffdac028f1e97ff89e87ea12d8d32a6c64d6464e7ea9734b23afc441f1325",
+      "actual": "75cffdac028f1e97ff89e87ea12d8d32a6c64d6464e7ea9734b23afc441f1325",
+      "matches": true
+    },
+    {
+      "group": "revision1a_frozen",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\RESPONSE_TO_REVIEWS_CN.md",
+      "expected": "02c9736b144c4c943acdbcd58982a8ece146eef1301406de50d9b97db05c0b3f",
+      "actual": "02c9736b144c4c943acdbcd58982a8ece146eef1301406de50d9b97db05c0b3f",
+      "matches": true
+    },
+    {
+      "group": "revision1a_frozen",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\source_checks.json",
+      "expected": "e520a7efa6c9ded6a8a329e84c0ebb161d19b87d22317b1c9667a06b03a8d31d",
+      "actual": "e520a7efa6c9ded6a8a329e84c0ebb161d19b87d22317b1c9667a06b03a8d31d",
+      "matches": true
+    },
+    {
+      "group": "revision1a_frozen",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\word_counts.json",
+      "expected": "1d2b7434eac357e7f46f1ddc8f08ba9bf4496949cfba09a2926cec4a4a673b0e",
+      "actual": "1d2b7434eac357e7f46f1ddc8f08ba9bf4496949cfba09a2926cec4a4a673b0e",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1.md",
+      "expected": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a",
+      "actual": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\audit_editing.py",
+      "expected": "b8c38c0af05108bb9bc85beba0087632d6385c92fa89e4b6748b79672b196dea",
+      "actual": "b8c38c0af05108bb9bc85beba0087632d6385c92fa89e4b6748b79672b196dea",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\change_map.json",
+      "expected": "8cb8f0b460f78ceebfb383c2a07a74e8ccb9b9219f59e666e2dc4695d8974350",
+      "actual": "8cb8f0b460f78ceebfb383c2a07a74e8ccb9b9219f59e666e2dc4695d8974350",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\citation_contexts.json",
+      "expected": "3d1cd8a7823e9fadbdcada44708c881e0cb3aa4a201ea9f2b47def93dfc973a2",
+      "actual": "3d1cd8a7823e9fadbdcada44708c881e0cb3aa4a201ea9f2b47def93dfc973a2",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\citation_contexts.md",
+      "expected": "04864640bc2091b3ad7d405a4bb316af292bcbd58138ce86abdf13bf1f9eb313",
+      "actual": "04864640bc2091b3ad7d405a4bb316af292bcbd58138ce86abdf13bf1f9eb313",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\collect_revision_sources.py",
+      "expected": "0305f92fdeb9cc2ef71b5a8448d4b11a46d33fd5e036123e15716c6c3dd33b1d",
+      "actual": "0305f92fdeb9cc2ef71b5a8448d4b11a46d33fd5e036123e15716c6c3dd33b1d",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\complete_v1_to_revised1.diff",
+      "expected": "a90391d852025f6934bad71ce3b6cc50a35a7b5cb9dcd4f9cbfb6f9afbfa4bbf",
+      "actual": "a90391d852025f6934bad71ce3b6cc50a35a7b5cb9dcd4f9cbfb6f9afbfa4bbf",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\count_definition_comparison.json",
+      "expected": "7d3d8df34c8afb0580f1244e5ff2ba6f01bcc3750d335aca79e500a6f2e6bc4c",
+      "actual": "7d3d8df34c8afb0580f1244e5ff2ba6f01bcc3750d335aca79e500a6f2e6bc4c",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\COUNT_DEFINITION_COMPARISON_CN.md",
+      "expected": "64b5696a0e2415b8703ccfe2fe3d181661f80121f2817b0e09aed99c5af3d96f",
+      "actual": "64b5696a0e2415b8703ccfe2fe3d181661f80121f2817b0e09aed99c5af3d96f",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\editing_audit.json",
+      "expected": "16403565c7a7e985a0d25281a33d7ee8ec36a7fafe30b36eeaf4eab21c792311",
+      "actual": "16403565c7a7e985a0d25281a33d7ee8ec36a7fafe30b36eeaf4eab21c792311",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\figure_retention_checks.json",
+      "expected": "da6fe9091a879c1b236768586cba5d036ff1cf8245a91c5a215b5fcc6362fbb6",
+      "actual": "da6fe9091a879c1b236768586cba5d036ff1cf8245a91c5a215b5fcc6362fbb6",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\final_binding_checks.json",
+      "expected": "fa02f8f0c6ed5022bd81c8214a564192d66d96a7072d0342b1057f4ed13720f9",
+      "actual": "fa02f8f0c6ed5022bd81c8214a564192d66d96a7072d0342b1057f4ed13720f9",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\finalize_revision.py",
+      "expected": "534efb1c201d190cf8c27b72de037d55c4955362d3887515d91cf5ea8940ccc5",
+      "actual": "534efb1c201d190cf8c27b72de037d55c4955362d3887515d91cf5ea8940ccc5",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\freeze_revision.py",
+      "expected": "2088b466b0625c30643545e45211496e4dbb57942a69656945e5a3547c1ffa90",
+      "actual": "2088b466b0625c30643545e45211496e4dbb57942a69656945e5a3547c1ffa90",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\numeric_revision_checks.json",
+      "expected": "18bd128b8cc5db13b9067b67a26bc2f09339420d957503f0804e17ef7ea69ae2",
+      "actual": "18bd128b8cc5db13b9067b67a26bc2f09339420d957503f0804e17ef7ea69ae2",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\protected_after.json",
+      "expected": "742f43e1f490fb702f63ec1280549d5a4aabccc24b09bfe8f11c73046392525b",
+      "actual": "742f43e1f490fb702f63ec1280549d5a4aabccc24b09bfe8f11c73046392525b",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\protected_before.json",
+      "expected": "742f43e1f490fb702f63ec1280549d5a4aabccc24b09bfe8f11c73046392525b",
+      "actual": "742f43e1f490fb702f63ec1280549d5a4aabccc24b09bfe8f11c73046392525b",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\RESPONSE_TO_REVIEWS.json",
+      "expected": "408cebb66704b4b52fe4a19acf9d9a24013e307307409ef5a7cd13dcd170299c",
+      "actual": "408cebb66704b4b52fe4a19acf9d9a24013e307307409ef5a7cd13dcd170299c",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\RESPONSE_TO_REVIEWS_CN.md",
+      "expected": "6e5b4734e95e020dfe7cf9ae8c235559010ef521494efcaaa4e94c9f620b4d12",
+      "actual": "6e5b4734e95e020dfe7cf9ae8c235559010ef521494efcaaa4e94c9f620b4d12",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\revise_complete.py",
+      "expected": "01732902f487f5f512cdad9d623289ef5ed4e66f0955569ee61ae24ff0d61bbd",
+      "actual": "01732902f487f5f512cdad9d623289ef5ed4e66f0955569ee61ae24ff0d61bbd",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\revision_checks.json",
+      "expected": "54369d6c36a6854145a6fd47c2fd708a4ad5054981c09f58086bebdb3d853659",
+      "actual": "54369d6c36a6854145a6fd47c2fd708a4ad5054981c09f58086bebdb3d853659",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\REVISION_SELF_CHECK_CN.md",
+      "expected": "c90da934080cc42f315df179378e36753c5c9b28ee3c1aa0203bceb71cf25690",
+      "actual": "c90da934080cc42f315df179378e36753c5c9b28ee3c1aa0203bceb71cf25690",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\revision_state.json",
+      "expected": "fc51e7c9d13950521f3be0a7b5326e70e70eb3cf2f60c204bce742d3ae439f7f",
+      "actual": "fc51e7c9d13950521f3be0a7b5326e70e70eb3cf2f60c204bce742d3ae439f7f",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\source_checks.json",
+      "expected": "98368bf4e64711b8b7860e87c46b5a300db92e9c8cf518ecdc690adba59c5d7e",
+      "actual": "98368bf4e64711b8b7860e87c46b5a300db92e9c8cf518ecdc690adba59c5d7e",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\source_evidence.json",
+      "expected": "a10b75a2071a00558c665b6ffab943475307c5c800e4dd73602858d5c0b975fd",
+      "actual": "a10b75a2071a00558c665b6ffab943475307c5c800e4dd73602858d5c0b975fd",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\word_counts.json",
+      "expected": "8186c4c51d6e8bd20c7c147c29f1258ad033389bb9b3e5ae33f18c0d104eee59",
+      "actual": "8186c4c51d6e8bd20c7c147c29f1258ad033389bb9b3e5ae33f18c0d104eee59",
+      "matches": true
+    },
+    {
+      "group": "revision1a_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1\\FROZEN_REVISION_MANIFEST.json",
+      "expected": "687273429dd3532bb7a3a79cca84c6975443ba7dedbc4e029acdeb25e2b6467c",
+      "actual": "687273429dd3532bb7a3a79cca84c6975443ba7dedbc4e029acdeb25e2b6467c",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_v1.md",
+      "expected": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+      "actual": "8c5a83cff08732ce8e548cd873faa4e55cede075c3340fe9799e9deae37d4fd3",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\bind_v2_figures.py",
+      "expected": "35449bc2a107dd499598382ac4e97bd1159f2c479295ac296e8a02d635d86cf7",
+      "actual": "35449bc2a107dd499598382ac4e97bd1159f2c479295ac296e8a02d635d86cf7",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\citation_contexts.json",
+      "expected": "e06a6a0e70f0acbe7ab5b890f51be14bb7576cf9a1754bc8c1089c7a1530479a",
+      "actual": "e06a6a0e70f0acbe7ab5b890f51be14bb7576cf9a1754bc8c1089c7a1530479a",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\citation_contexts.md",
+      "expected": "22384a4c18558cb9d1939ffbede9100e7ee9b318f3d79038f4f2990b81cad034",
+      "actual": "22384a4c18558cb9d1939ffbede9100e7ee9b318f3d79038f4f2990b81cad034",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\compose_complete.py",
+      "expected": "8585feaf84610ac242efde6282a7252279f785733cb18311aee257bad7d92795",
+      "actual": "8585feaf84610ac242efde6282a7252279f785733cb18311aee257bad7d92795",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\delivery_readback.json",
+      "expected": "730d84bf8a267bb4f3073050025be2b8c92af9a840451acb538c94f05ea456c6",
+      "actual": "730d84bf8a267bb4f3073050025be2b8c92af9a840451acb538c94f05ea456c6",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\draft_state.json",
+      "expected": "f664d571d0360a184d8dd339656dc9aded7a85529da8a1677aaa5d6d386c29ee",
+      "actual": "f664d571d0360a184d8dd339656dc9aded7a85529da8a1677aaa5d6d386c29ee",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\final_structure_checks.json",
+      "expected": "32ebcd6f1be95423de432d42b4064c9260b9ab0789ad00533844ee1bb74d2431",
+      "actual": "32ebcd6f1be95423de432d42b4064c9260b9ab0789ad00533844ee1bb74d2431",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\finalize_writer_evidence.py",
+      "expected": "12fa5345a48f7d1cbd89ca238eed67fd3c23cc86f7bb9166886281c60fbbdb61",
+      "actual": "12fa5345a48f7d1cbd89ca238eed67fd3c23cc86f7bb9166886281c60fbbdb61",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\freeze_writer_delivery.py",
+      "expected": "06628b4a8370e5d29c450d3cb7ba59a78f78919a870aae87f8028d0fda1c3b24",
+      "actual": "06628b4a8370e5d29c450d3cb7ba59a78f78919a870aae87f8028d0fda1c3b24",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\numeric_checks.json",
+      "expected": "05c5f47e61c30e31826d763301a7c43d7b10717d6d8559a1cd3faa9f975e7a91",
+      "actual": "05c5f47e61c30e31826d763301a7c43d7b10717d6d8559a1cd3faa9f975e7a91",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\paragraph_audit.json",
+      "expected": "372c90ac52f2ecc88c98ec2bda6a5ab8f5ab6f2434fccc62b6cba549c011411a",
+      "actual": "372c90ac52f2ecc88c98ec2bda6a5ab8f5ab6f2434fccc62b6cba549c011411a",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\phase4b_checks.json",
+      "expected": "4f7d17fb554751aa4e14eb42b9486baf45a1d0a83a267cbcf0068170707cac3d",
+      "actual": "4f7d17fb554751aa4e14eb42b9486baf45a1d0a83a267cbcf0068170707cac3d",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\protected_after.json",
+      "expected": "3d282225058470d8c68a8f5444cb81bbc1ed73fe1cc140a965fc6e39d9c4089b",
+      "actual": "3d282225058470d8c68a8f5444cb81bbc1ed73fe1cc140a965fc6e39d9c4089b",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\protected_before.json",
+      "expected": "3d282225058470d8c68a8f5444cb81bbc1ed73fe1cc140a965fc6e39d9c4089b",
+      "actual": "3d282225058470d8c68a8f5444cb81bbc1ed73fe1cc140a965fc6e39d9c4089b",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\RESPONSES_AND_UNRESOLVED_CN.md",
+      "expected": "6718cb14869c214d57e07fcf099fb219d7f7f81386a532a3d19ce8f1eda78b57",
+      "actual": "6718cb14869c214d57e07fcf099fb219d7f7f81386a532a3d19ce8f1eda78b57",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\source_checks.json",
+      "expected": "a0015b8b0aed898a66908905999df975dd42581afa04a475a7014f6722957cd2",
+      "actual": "a0015b8b0aed898a66908905999df975dd42581afa04a475a7014f6722957cd2",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\v2_binding_checks.json",
+      "expected": "a615c0b6ce3af15863120ab1c65bcab9299a4c8834f91f68176cb2ab04043304",
+      "actual": "a615c0b6ce3af15863120ab1c65bcab9299a4c8834f91f68176cb2ab04043304",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\word_counts.json",
+      "expected": "88da3d2ef17a2f69c143b6c40d66873ac98ef4786847dfe50d66b4d3df973df3",
+      "actual": "88da3d2ef17a2f69c143b6c40d66873ac98ef4786847dfe50d66b4d3df973df3",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\writer_phase4b.md",
+      "expected": "cd80d19c774eab1945cde39cd78bf81d866010056e3c873bfe359ae1728b25fe",
+      "actual": "cd80d19c774eab1945cde39cd78bf81d866010056e3c873bfe359ae1728b25fe",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\writing_quality_checks.json",
+      "expected": "c132263bd079dc5d08cad090b853821a0fe2141360b8d28045466f8a7fd710fb",
+      "actual": "c132263bd079dc5d08cad090b853821a0fe2141360b8d28045466f8a7fd710fb",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_v1\\FROZEN_DELIVERY_MANIFEST.json",
+      "expected": "32abdf4d0728293835ad9f962df0732c2fdef24ddf3cde6d654518a6efa1b673",
+      "actual": "32abdf4d0728293835ad9f962df0732c2fdef24ddf3cde6d654518a6efa1b673",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\PAPER_CONFIGURATION.json",
+      "expected": "fc04c1df49f7eebda29ab5cb1d993587a2cb2c68283367b68380ce3d532b62aa",
+      "actual": "fc04c1df49f7eebda29ab5cb1d993587a2cb2c68283367b68380ce3d532b62aa",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\OUTLINE_AND_EVIDENCE.md",
+      "expected": "8f7ed440aa0e8b66b723bbe3a65e1f6237d94fb839016ccecfbd1a90cc3333d5",
+      "actual": "8f7ed440aa0e8b66b723bbe3a65e1f6237d94fb839016ccecfbd1a90cc3333d5",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\writer_phase4a.md",
+      "expected": "fe3431ff641f0594f7eed3ffbc63d62c09532c8d38913d412d5efc7f5be93c8b",
+      "actual": "fe3431ff641f0594f7eed3ffbc63d62c09532c8d38913d412d5efc7f5be93c8b",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\writer_contract.json",
+      "expected": "bbfa682e31c8c7ca82326546d9a0c9c8c786c65f5a98c85f534709eeedadc4f5",
+      "actual": "bbfa682e31c8c7ca82326546d9a0c9c8c786c65f5a98c85f534709eeedadc4f5",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\working_revised1.md",
+      "expected": "7ca430d7911dda4507469099e493dc2563ef48dff0157b4df862e4ab8f3b3635",
+      "actual": "7ca430d7911dda4507469099e493dc2563ef48dff0157b4df862e4ab8f3b3635",
+      "matches": true
+    },
+    {
+      "group": "revision1_protected",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\initial_working.md",
+      "expected": "9783dd11b2756134b5f365e234e1e7ba4590ab6dd11435fc1910c2e85b84e8d9",
+      "actual": "9783dd11b2756134b5f365e234e1e7ba4590ab6dd11435fc1910c2e85b84e8d9",
+      "matches": true
+    },
+    {
+      "group": "original_review_inputs",
+      "path": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/method_phase2.md",
+      "expected": "7456fa16569c64b41705607889f7a2aed2bde05a6c022f1f668428486fc1c000",
+      "actual": "7456fa16569c64b41705607889f7a2aed2bde05a6c022f1f668428486fc1c000",
+      "matches": true
+    },
+    {
+      "group": "original_review_inputs",
+      "path": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/domain_phase2.md",
+      "expected": "93dd5ed660068b6ab54d7c1e2a2043d2617052a04cc88fdd2a37829f79faa5ec",
+      "actual": "93dd5ed660068b6ab54d7c1e2a2043d2617052a04cc88fdd2a37829f79faa5ec",
+      "matches": true
+    },
+    {
+      "group": "original_review_inputs",
+      "path": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/da_phase2.md",
+      "expected": "7f2c13c9df54cc117b6afa5f3307f3e30bee1dc621bf78d5729b15fe120fa5a7",
+      "actual": "7f2c13c9df54cc117b6afa5f3307f3e30bee1dc621bf78d5729b15fe120fa5a7",
+      "matches": true
+    },
+    {
+      "group": "original_review_inputs",
+      "path": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/eic_phase2.md",
+      "expected": "fdf6d8bd2f9e27f3f22118ab2050eccbe60b1f15133c6b1300a758955fee6e0e",
+      "actual": "fdf6d8bd2f9e27f3f22118ab2050eccbe60b1f15133c6b1300a758955fee6e0e",
+      "matches": true
+    },
+    {
+      "group": "original_review_inputs",
+      "path": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/perspective_phase2.md",
+      "expected": "656afd5be44f0d80df53b3d70cd77a3bae7f5cd7be94a65016b56c1727980abf",
+      "actual": "656afd5be44f0d80df53b3d70cd77a3bae7f5cd7be94a65016b56c1727980abf",
+      "matches": true
+    },
+    {
+      "group": "original_review_inputs",
+      "path": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/contract.json",
+      "expected": "5c57f4b63df625c2b5ec47f9bb1b7bdff651fef89f3144b4d0ef37094971e406",
+      "actual": "5c57f4b63df625c2b5ec47f9bb1b7bdff651fef89f3144b4d0ef37094971e406",
+      "matches": true
+    },
+    {
+      "group": "original_review_inputs",
+      "path": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/phase2_lint.json",
+      "expected": "5b08f5eb8b890eea4cf0d19f2cfb7cd7735879e6745fc580fc03c0c6661c94cd",
+      "actual": "5b08f5eb8b890eea4cf0d19f2cfb7cd7735879e6745fc580fc03c0c6661c94cd",
+      "matches": true
+    },
+    {
+      "group": "original_review_inputs",
+      "path": "E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/manuscript/reviews/full_v1/metadata.json",
+      "expected": "8b469d4c7642c4af585a5792bf54fd00d35dafeec4a428fee1e2687ef23d81ff",
+      "actual": "8b469d4c7642c4af585a5792bf54fd00d35dafeec4a428fee1e2687ef23d81ff",
+      "matches": true
+    },
+    {
+      "group": "original_review_inputs",
+      "path": "C:/Users/LazyM/.codex/skills/academic-paper-reviewer/references/sprint_contract_protocol.md",
+      "expected": "99784c42692ff6bb809b8c34c64038c493fe244c82bb9dd3f5699792e4e65d0d",
+      "actual": "99784c42692ff6bb809b8c34c64038c493fe244c82bb9dd3f5699792e4e65d0d",
+      "matches": true
+    },
+    {
+      "group": "original_review_inputs",
+      "path": "C:/Users/LazyM/.codex/skills/academic-paper-reviewer/references/re_review_mode_protocol.md",
+      "expected": "48e49d0d60ce3f1eeca81a642599d2b7960775188d3c0782592302532b09a4d3",
+      "actual": "48e49d0d60ce3f1eeca81a642599d2b7960775188d3c0782592302532b09a4d3",
+      "matches": true
+    },
+    {
+      "group": "original_review_inputs",
+      "path": "C:/Users/LazyM/.codex/skills/academic-paper/agents/revision_coach_agent.md",
+      "expected": "26ef672747cd0fb8e8de3565ec4dbb24c205cb76cbe833eb77dcdc37a6e3d5a2",
+      "actual": "26ef672747cd0fb8e8de3565ec4dbb24c205cb76cbe833eb77dcdc37a6e3d5a2",
+      "matches": true
+    },
+    {
+      "group": "author_source_bindings",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\pinn1d.py",
+      "expected": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+      "actual": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+      "matches": true
+    },
+    {
+      "group": "author_source_bindings",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\problems.py",
+      "expected": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+      "actual": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+      "matches": true
+    },
+    {
+      "group": "author_source_bindings",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage5_support.py",
+      "expected": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf",
+      "actual": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf",
+      "matches": true
+    },
+    {
+      "group": "author_source_bindings",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\SCREEN_PROTOCOL.md",
+      "expected": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+      "actual": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+      "matches": true
+    },
+    {
+      "group": "author_source_bindings",
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\E4_PROTOCOL.md",
+      "expected": "16de99e3f2c03068af6e647e1a8b06c07169b7acee0103705130837a0cc22b2c",
+      "actual": "16de99e3f2c03068af6e647e1a8b06c07169b7acee0103705130837a0cc22b2c",
+      "matches": true
+    }
+  ],
+  "author_locations": [
+    {
+      "id": "M1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 173,
+      "anchor": "该改写避免显式形成较大的正指数，与式（8）等价",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "M1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 270,
+      "anchor": "独立残差点由NumPy `default_rng(330500)`",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "M1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 543,
+      "anchor": "| 层函数的时间截断 |",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "M2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 223,
+      "anchor": "主实验采用表1的两类方程",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "M2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 354,
+      "anchor": "表5注：E1仅改变c∈",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "M3",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 550,
+      "anchor": "调用与损失字段口径如下：",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DR1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 223,
+      "anchor": "主实验采用表1的两类方程",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DR1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 354,
+      "anchor": "表5注：E1仅改变c∈",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DR2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 441,
+      "anchor": "体表耦合扩展具有不同的边界交换结构",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DR2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 629,
+      "anchor": "## 附录E 体表耦合扩展的模型与完整预算数据",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DR2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 645,
+      "anchor": "实际参数为D=0.1、κ=γ=V₀=1。",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DR2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 664,
+      "anchor": "表E1　E4完整预算探索性结果",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DR2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 673,
+      "anchor": "表E1第一行vanilla的体误差中位数",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DR2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 675,
+      "anchor": "小预算筛选未满足原三倍条件；完整预算是在已见筛选失败后",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DR3",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 550,
+      "anchor": "调用与损失字段口径如下：",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DR3",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 335,
+      "anchor": "跨架构强基线比较仍存在不同结论。",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DR3",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 408,
+      "anchor": "小预算效果判据G2对E1/E3分别检查",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DR3",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 679,
+      "anchor": "跨架构强基线判据A-1见SCREEN_PROTOCOL",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DR3",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 681,
+      "anchor": "小预算效果判据G2见SCREEN_PROTOCOL",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DR3",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 514,
+      "anchor": "| E09 | 体表耦合扩展及权重限制 |",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DR3",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 673,
+      "anchor": "表E1第一行vanilla的体误差中位数",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DA-m1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 354,
+      "anchor": "表5注：E1仅改变c∈",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DA-m1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 441,
+      "anchor": "体表耦合扩展具有不同的边界交换结构",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DA-m1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 629,
+      "anchor": "## 附录E 体表耦合扩展的模型与完整预算数据",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DA-m1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 645,
+      "anchor": "实际参数为D=0.1、κ=γ=V₀=1。",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DA-m1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 664,
+      "anchor": "表E1　E4完整预算探索性结果",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DA-m2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 333,
+      "anchor": "表4注：E1两方法的seed 0、1",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DA-m2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 322,
+      "anchor": "表4在相同 PirateNet 变体内比较",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DA-m3",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 185,
+      "anchor": "**命题1（初值与初始导数迭代极限）。**",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DA-m3",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 173,
+      "anchor": "该改写避免显式形成较大的正指数，与式（8）等价",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DA-m3",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 543,
+      "anchor": "| 层函数的时间截断 |",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DA-m3",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 552,
+      "anchor": "时间截断须与解析延拓区分：",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "EIC-M1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 550,
+      "anchor": "调用与损失字段口径如下：",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "EIC-M1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 335,
+      "anchor": "跨架构强基线比较仍存在不同结论。",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "EIC-M1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 408,
+      "anchor": "小预算效果判据G2对E1/E3分别检查",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "EIC-M1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 679,
+      "anchor": "跨架构强基线判据A-1见SCREEN_PROTOCOL",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "EIC-M1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 681,
+      "anchor": "小预算效果判据G2见SCREEN_PROTOCOL",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "EIC-M2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 223,
+      "anchor": "主实验采用表1的两类方程",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "EIC-M2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 354,
+      "anchor": "表5注：E1仅改变c∈",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 354,
+      "anchor": "表5注：E1仅改变c∈",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 173,
+      "anchor": "该改写避免显式形成较大的正指数，与式（8）等价",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 185,
+      "anchor": "**命题1（初值与初始导数迭代极限）。**",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 543,
+      "anchor": "| 层函数的时间截断 |",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 552,
+      "anchor": "时间截断须与解析延拓区分：",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 441,
+      "anchor": "体表耦合扩展具有不同的边界交换结构",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 629,
+      "anchor": "## 附录E 体表耦合扩展的模型与完整预算数据",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 645,
+      "anchor": "实际参数为D=0.1、κ=γ=V₀=1。",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 664,
+      "anchor": "表E1　E4完整预算探索性结果",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 673,
+      "anchor": "表E1第一行vanilla的体误差中位数",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 675,
+      "anchor": "小预算筛选未满足原三倍条件；完整预算是在已见筛选失败后",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-3",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 272,
+      "anchor": "产物核验保留结果、权重与配置的对应关系。",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-3",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 410,
+      "anchor": "### 4.7 独立残差与计算成本",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-3",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 619,
+      "anchor": "## 附录D 完整新增数据、恢复与成本口径",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-3",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 627,
+      "anchor": "成本分为整批历时、runner会话累计、attempt墙钟和记录内训练轨迹四层。",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "M-建议1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 441,
+      "anchor": "体表耦合扩展具有不同的边界交换结构",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "M-建议1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 629,
+      "anchor": "## 附录E 体表耦合扩展的模型与完整预算数据",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "M-建议1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 664,
+      "anchor": "表E1　E4完整预算探索性结果",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "M-建议1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 514,
+      "anchor": "| E09 | 体表耦合扩展及权重限制 |",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "M-建议2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 272,
+      "anchor": "产物核验保留结果、权重与配置的对应关系。",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "M-建议2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 410,
+      "anchor": "### 4.7 独立残差与计算成本",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "M-建议2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 619,
+      "anchor": "## 附录D 完整新增数据、恢复与成本口径",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "M-建议2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 453,
+      "anchor": "历史Adam确认与本机SOAP64的环境及软件版本不同",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "DR-建议1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 354,
+      "anchor": "表5注：E1仅改变c∈",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "EIC-建议1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 272,
+      "anchor": "产物核验保留结果、权重与配置的对应关系。",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "EIC-建议1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 410,
+      "anchor": "### 4.7 独立残差与计算成本",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "EIC-建议1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 619,
+      "anchor": "## 附录D 完整新增数据、恢复与成本口径",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "EIC-建议1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 453,
+      "anchor": "历史Adam确认与本机SOAP64的环境及软件版本不同",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "EIC-建议2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 543,
+      "anchor": "| 层函数的时间截断 |",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "EIC-建议2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 552,
+      "anchor": "时间截断须与解析延拓区分：",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-建议1",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 457,
+      "anchor": "构造需要可靠的f′(1)、f″(1)及算子参数。",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-建议2",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 457,
+      "anchor": "构造需要可靠的f′(1)、f″(1)及算子参数。",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-建议3",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 534,
+      "anchor": "| 完整预算 Adam |",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-建议3",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 333,
+      "anchor": "表4注：E1两方法的seed 0、1",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-建议3",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 623,
+      "anchor": "第二阶段三个tag分别为",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-建议3",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 627,
+      "anchor": "成本分为整批历时、runner会话累计、attempt墙钟和记录内训练轨迹四层。",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-建议3",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 453,
+      "anchor": "历史Adam确认与本机SOAP64的环境及软件版本不同",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-建议4",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 37,
+      "anchor": "本文的贡献范围是一个自包含的相容性分析",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-建议4",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 185,
+      "anchor": "**命题1（初值与初始导数迭代极限）。**",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-建议5",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 272,
+      "anchor": "产物核验保留结果、权重与配置的对应关系。",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-建议5",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 431,
+      "anchor": "### 5.1 局部分析能够解释的范围",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-建议5",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 619,
+      "anchor": "## 附录D 完整新增数据、恢复与成本口径",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-建议6",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 453,
+      "anchor": "历史Adam确认与本机SOAP64的环境及软件版本不同",
+      "matches": true,
+      "sha_matches": true
+    },
+    {
+      "id": "R3-建议6",
+      "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md",
+      "line": 459,
+      "anchor": "已完成的灵敏度和固定SOAP64对照补足了两个预先安排的经验问题",
+      "matches": true,
+      "sha_matches": true
+    }
+  ],
+  "figures": [
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\analytic_layer.png",
+      "sha256": "32c820a18d9bfbd59024a495426c33fd648b19a080b19478e4fe17875caeee1f",
+      "matches": true
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\history_v2\\historical_comparison.png",
+      "sha256": "433b14dfb1f00bec71752f1ce47e2a643e3ce5867cb101171e0a9fcd08fc41bf",
+      "matches": true
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2\\tau_sensitivity.png",
+      "sha256": "ec4f697e34b44bb2edfb4bf793280446a6354358e57582e4a77f0d5cf0d0b70a",
+      "matches": true
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2\\default_six_arms.png",
+      "sha256": "2bef60d297d954b53730b9a3523d353ce489ab01b3b470c4b3a2ae182da5d874",
+      "matches": true
+    }
+  ],
+  "original_table_rows_preserved": 127,
+  "references_unchanged": true,
+  "change_hunks": 22,
+  "new_or_replaced_lines": 84,
+  "operations": {
+    "training": 0,
+    "model_load": 0,
+    "reference_integration": 0,
+    "torch_import": 0,
+    "git_mutation": 0
+  }
+}

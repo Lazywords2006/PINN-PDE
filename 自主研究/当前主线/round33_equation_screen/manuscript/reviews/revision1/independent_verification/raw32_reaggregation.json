@@ -1,0 +1,2597 @@
+{
+  "records": [
+    {
+      "source": "runs/e4screen/E4_bulk_surface/hardic_layer_s0.json",
+      "sha256": "9b574c5caca1675fbc41451ddd0cef96bbe4be053169f914b7cfa115f5c5d058",
+      "tag": "e4screen",
+      "eq": "E4_bulk_surface",
+      "method": "hardic+layer",
+      "seed": 0,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.06795410446029794,
+          0.028333916431813357,
+          0.006707751698666182,
+          0.009532004562022448,
+          0.005341107765231815
+        ],
+        "trace": [
+          0.07028467824145289,
+          0.0041030220616602555,
+          0.0032632675323341115,
+          0.006368735253913013,
+          0.010256994786137976
+        ]
+      },
+      "max_vol": 0.06795410446029794,
+      "max_trace": 0.07028467824145289,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 4000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 2048,
+        "nb": 128,
+        "n0": 256,
+        "lbfgs_iters": 500,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 4096,
+        "nb_fixed": 256,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [],
+      "delta": -1.02
+    },
+    {
+      "source": "runs/e4screen/E4_bulk_surface/hardic_layer_s1.json",
+      "sha256": "3dffba08afcd6d725b70437be85503a044a40213f7e7cb410fcff0e9e9d5c4ab",
+      "tag": "e4screen",
+      "eq": "E4_bulk_surface",
+      "method": "hardic+layer",
+      "seed": 1,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.07073228164498664,
+          0.040560691967397575,
+          0.015633629231685486,
+          0.009296626393736275,
+          0.005629691094911605
+        ],
+        "trace": [
+          0.07754497231440896,
+          0.028491894568291844,
+          0.00608389355784452,
+          0.007177461298964967,
+          0.007581283031618712
+        ]
+      },
+      "max_vol": 0.07073228164498664,
+      "max_trace": 0.07754497231440896,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 4000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 2048,
+        "nb": 128,
+        "n0": 256,
+        "lbfgs_iters": 500,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 4096,
+        "nb_fixed": 256,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [],
+      "delta": -1.02
+    },
+    {
+      "source": "runs/e4screen/E4_bulk_surface/hardic_s0.json",
+      "sha256": "cb2236b1edfa65d0b8a348dd7b21f253c04a9bf8a3bd0b6c942d665e29c1f399",
+      "tag": "e4screen",
+      "eq": "E4_bulk_surface",
+      "method": "hardic",
+      "seed": 0,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.04655339699318546,
+          0.02640270590962191,
+          0.010105380980039763,
+          0.006178933859638236,
+          0.0026158853507385746
+        ],
+        "trace": [
+          0.02504663721310408,
+          0.01620501967346953,
+          0.004592174422271317,
+          0.0036761026664247406,
+          0.0005236868447314385
+        ]
+      },
+      "max_vol": 0.04655339699318546,
+      "max_trace": 0.02504663721310408,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 4000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 2048,
+        "nb": 128,
+        "n0": 256,
+        "lbfgs_iters": 500,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 4096,
+        "nb_fixed": 256,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [],
+      "delta": -1.02
+    },
+    {
+      "source": "runs/e4screen/E4_bulk_surface/hardic_s1.json",
+      "sha256": "2b74e48e6e4d283f42113a8d1901d7851b4a8ec59ed80d4af6f0c6fc55f3baee",
+      "tag": "e4screen",
+      "eq": "E4_bulk_surface",
+      "method": "hardic",
+      "seed": 1,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.14565967738397373,
+          0.07493847794691413,
+          0.03483642233547524,
+          0.019979482053000347,
+          0.01182747290339664
+        ],
+        "trace": [
+          0.11253251860551762,
+          0.04238928594313569,
+          0.02058195205166695,
+          0.010370830029581267,
+          0.00818077795517054
+        ]
+      },
+      "max_vol": 0.14565967738397373,
+      "max_trace": 0.11253251860551762,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 4000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 2048,
+        "nb": 128,
+        "n0": 256,
+        "lbfgs_iters": 500,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 4096,
+        "nb_fixed": 256,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [],
+      "delta": -1.02
+    },
+    {
+      "source": "runs/e4screen/E4_bulk_surface/rba_s0.json",
+      "sha256": "424e0438585ac32774a120b0e7e6c10d2611dc165a971f13cab889ece98e6342",
+      "tag": "e4screen",
+      "eq": "E4_bulk_surface",
+      "method": "rba",
+      "seed": 0,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.19110154874023008,
+          0.09925832491332716,
+          0.048319189416433934,
+          0.0290188424214372,
+          0.015580602601288015
+        ],
+        "trace": [
+          0.15892472220526202,
+          0.05351603366425183,
+          0.023408923827225266,
+          0.013846968686001741,
+          0.010483603041848024
+        ]
+      },
+      "max_vol": 0.19110154874023008,
+      "max_trace": 0.15892472220526202,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 4000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 2048,
+        "nb": 128,
+        "n0": 256,
+        "lbfgs_iters": 500,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 4096,
+        "nb_fixed": 256,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [],
+      "delta": -1.02
+    },
+    {
+      "source": "runs/e4screen/E4_bulk_surface/rba_s1.json",
+      "sha256": "d76e27e4eea8e7d1450099fce1d3c6a18a94908d0f2644a720223bd04ddfd3ec",
+      "tag": "e4screen",
+      "eq": "E4_bulk_surface",
+      "method": "rba",
+      "seed": 1,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.1502978791287199,
+          0.07599522055596487,
+          0.04765147464004487,
+          0.025865769108395362,
+          0.01479466414927094
+        ],
+        "trace": [
+          0.10639949760069324,
+          0.032583729773876365,
+          0.035319686800387044,
+          0.013997695395652673,
+          0.011760823416591066
+        ]
+      },
+      "max_vol": 0.1502978791287199,
+      "max_trace": 0.10639949760069324,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 4000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 2048,
+        "nb": 128,
+        "n0": 256,
+        "lbfgs_iters": 500,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 4096,
+        "nb_fixed": 256,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [],
+      "delta": -1.02
+    },
+    {
+      "source": "runs/e4screen/E4_bulk_surface/vanilla_s0.json",
+      "sha256": "a49bd7b4ec3329bcc247e61164434c1d64fa69cd8ab14510193d60422795091d",
+      "tag": "e4screen",
+      "eq": "E4_bulk_surface",
+      "method": "vanilla",
+      "seed": 0,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.019161149617298145,
+          0.011290689805148734,
+          0.0015971728624373887,
+          0.0012989322787111456,
+          0.0034623158993771766
+        ],
+        "trace": [
+          0.010934602281078457,
+          0.007008983384199525,
+          0.001160781691529783,
+          0.003102104947274491,
+          0.003393770021650819
+        ]
+      },
+      "max_vol": 0.019161149617298145,
+      "max_trace": 0.010934602281078457,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 4000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 2048,
+        "nb": 128,
+        "n0": 256,
+        "lbfgs_iters": 500,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 4096,
+        "nb_fixed": 256,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [],
+      "delta": -1.02
+    },
+    {
+      "source": "runs/e4screen/E4_bulk_surface/vanilla_s1.json",
+      "sha256": "01d25c1f6d8ff2c377c33f56a0999626ad67dd591d2c0edbd8087439f87095f7",
+      "tag": "e4screen",
+      "eq": "E4_bulk_surface",
+      "method": "vanilla",
+      "seed": 1,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.02610180007607249,
+          0.015170842948667862,
+          0.009678869131976516,
+          0.005169687199974972,
+          0.00352763842048916
+        ],
+        "trace": [
+          0.012984161717780355,
+          0.009301626283659119,
+          0.0007596072371371834,
+          0.0052943986131845965,
+          0.0054125416646114664
+        ]
+      },
+      "max_vol": 0.02610180007607249,
+      "max_trace": 0.012984161717780355,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 4000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 2048,
+        "nb": 128,
+        "n0": 256,
+        "lbfgs_iters": 500,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 4096,
+        "nb_fixed": 256,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [],
+      "delta": -1.02
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/hardic_layer_s0.json",
+      "sha256": "e3a949e44724aff5ba291bc13fdd681794b9ed230d50978fa48dae8d1e5cf198",
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "hardic+layer",
+      "seed": 0,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.007712856651521004,
+          0.004111232876536667,
+          0.0018046789610857838,
+          0.0011498329995783955,
+          0.0007445347193690176
+        ],
+        "trace": [
+          0.005021045197112868,
+          0.00267110421152645,
+          0.0007286500343255555,
+          0.0007444203659794797,
+          0.00023190280410207315
+        ]
+      },
+      "max_vol": 0.007712856651521004,
+      "max_trace": 0.005021045197112868,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [],
+      "delta": -1.02
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/hardic_layer_s1.json",
+      "sha256": "46320b08f13df432c485c46bb88f6bea985a527c01b486c589ecdbafa4432da9",
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "hardic+layer",
+      "seed": 1,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.0005055689353847629,
+          0.00027780504321460334,
+          0.0003749433719503893,
+          0.00028286226344932685,
+          0.0001465141674362002
+        ],
+        "trace": [
+          0.0004547280440039892,
+          9.95685329856488e-05,
+          0.0004566362591974933,
+          5.853266018611666e-05,
+          3.969999143997049e-05
+        ]
+      },
+      "max_vol": 0.0005055689353847629,
+      "max_trace": 0.0004566362591974933,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [],
+      "delta": -1.02
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/hardic_layer_s2.json",
+      "sha256": "040915ef873c09e84e8c5025c5aecbb1be585682354988fbbc9dba292d000bc1",
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "hardic+layer",
+      "seed": 2,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.005576309573543175,
+          0.003288840359443727,
+          0.001621433032331943,
+          0.0010484117919615247,
+          0.0006173267442907288
+        ],
+        "trace": [
+          0.0034955131273425154,
+          0.002065930588744401,
+          0.0010915198214633654,
+          0.0007526654191013882,
+          0.0008079079262046379
+        ]
+      },
+      "max_vol": 0.005576309573543175,
+      "max_trace": 0.0034955131273425154,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [],
+      "delta": -1.02
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/hardic_s0.json",
+      "sha256": "c19b4e1a3cb83d6cd4b2988f56a71028f0dc1e6352abc58c7294afdb16d4a127",
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "hardic",
+      "seed": 0,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.12988729247850572,
+          0.06732259286126112,
+          0.03077567700926289,
+          0.0184872668918085,
+          0.011548759772746513
+        ],
+        "trace": [
+          0.09960987845479047,
+          0.039380488347957175,
+          0.016859437816228014,
+          0.010581388244744028,
+          0.007687237619797109
+        ]
+      },
+      "max_vol": 0.12988729247850572,
+      "max_trace": 0.09960987845479047,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [],
+      "delta": -1.02
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/hardic_s1.json",
+      "sha256": "97b0c76806af01a3765d240a9c4aa355b15fa7783aa53571647cd5d5eb525b6a",
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "hardic",
+      "seed": 1,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.04982738948407484,
+          0.02706471521229408,
+          0.012657519091802011,
+          0.007766071152238423,
+          0.004773829876622564
+        ],
+        "trace": [
+          0.03234634807698166,
+          0.015447688673171799,
+          0.006525530065971011,
+          0.00438754777334777,
+          0.003204319970526361
+        ]
+      },
+      "max_vol": 0.04982738948407484,
+      "max_trace": 0.03234634807698166,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [],
+      "delta": -1.02
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/hardic_s2.json",
+      "sha256": "6be7b90fdabb82604e3622934dbf09a8e8851115b003e51e49b7db038e56dffa",
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "hardic",
+      "seed": 2,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.07214318791028707,
+          0.03945924950910573,
+          0.0182332470053855,
+          0.010949163313708406,
+          0.006880106180887778
+        ],
+        "trace": [
+          0.04778252123104968,
+          0.02239765282938938,
+          0.009404413863427526,
+          0.006514263232172701,
+          0.005001000924370663
+        ]
+      },
+      "max_vol": 0.07214318791028707,
+      "max_trace": 0.04778252123104968,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [],
+      "delta": -1.02
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/rba_s0.json",
+      "sha256": "180094d179ba7ddfdeab693de6f665018481bf84e69dcce0c3f54def0e6f1845",
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "rba",
+      "seed": 0,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.10346820949163024,
+          0.05478960336265913,
+          0.024748184464496725,
+          0.017146388937649866,
+          0.014595227353188552
+        ],
+        "trace": [
+          0.0762124922790269,
+          0.032637850360479406,
+          0.011493249264228381,
+          0.010921032758249481,
+          0.009899102821295584
+        ]
+      },
+      "max_vol": 0.10346820949163024,
+      "max_trace": 0.0762124922790269,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [],
+      "delta": -1.02
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/rba_s1.json",
+      "sha256": "e296e1d28bba2f610c0c03e9a3dff947d867aadc869c2f1370ce9b1ae16e20b7",
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "rba",
+      "seed": 1,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.04906269061998768,
+          0.028810094399648486,
+          0.015277988266740053,
+          0.009425930761941984,
+          0.006414667209417726
+        ],
+        "trace": [
+          0.03248083081066815,
+          0.01493841906664521,
+          0.007385761819851557,
+          0.0045398502106535074,
+          0.003167411578176396
+        ]
+      },
+      "max_vol": 0.04906269061998768,
+      "max_trace": 0.03248083081066815,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [],
+      "delta": -1.02
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/rba_s2.json",
+      "sha256": "1fd25b854696bd08815253308c969517edb00531a743f24eda65c20049895c86",
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "rba",
+      "seed": 2,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.014750768793041047,
+          0.007918358432453235,
+          0.0030472642563797113,
+          0.0015334688766811223,
+          0.0006390617438862816
+        ],
+        "trace": [
+          0.011543891471858915,
+          0.005076433531845544,
+          0.0032211097093134146,
+          0.00037918070400222545,
+          0.0001597937776752114
+        ]
+      },
+      "max_vol": 0.014750768793041047,
+      "max_trace": 0.011543891471858915,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [],
+      "delta": -1.02
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/vanilla_s0.json",
+      "sha256": "6da3f205bcc9df65ea64d9bc294dcd12a55417e121e6c2a4de7bcb4d1fd61ce0",
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "vanilla",
+      "seed": 0,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.0025329985641337183,
+          0.001808725404512197,
+          0.001113539816533887,
+          0.0009715032389359505,
+          0.00034953701692268143
+        ],
+        "trace": [
+          0.0004701623221037206,
+          0.0016769913622605187,
+          0.0006537749354004189,
+          0.00018540623233699846,
+          0.0013065182465675665
+        ]
+      },
+      "max_vol": 0.0025329985641337183,
+      "max_trace": 0.0016769913622605187,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [],
+      "delta": -1.02
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/vanilla_s1.json",
+      "sha256": "4c90beb3d867481703d63e1759f0901bcae1e7e2fba9c195ca7da76bbc02815d",
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "vanilla",
+      "seed": 1,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.014647206427275116,
+          0.007178940732061907,
+          0.003411278781016904,
+          0.0018464372263523514,
+          0.0011051037225572546
+        ],
+        "trace": [
+          0.008384704984759891,
+          0.003698176668956532,
+          0.0018152948916175392,
+          0.0007770717512742217,
+          0.0007472260130124265
+        ]
+      },
+      "max_vol": 0.014647206427275116,
+      "max_trace": 0.008384704984759891,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [],
+      "delta": -1.02
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/vanilla_s2.json",
+      "sha256": "9207579a92240136f494102c8fb49791b65c1d80907d23bdfc271e7343d03500",
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "vanilla",
+      "seed": 2,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.004675169889310211,
+          0.003439199133337428,
+          0.001173218143990256,
+          0.0014029688885892416,
+          0.00042750351911550793
+        ],
+        "trace": [
+          0.0009321072380958172,
+          0.0028042761874149487,
+          8.842996748818541e-05,
+          0.0011627725531921955,
+          0.001084792043488388
+        ]
+      },
+      "max_vol": 0.004675169889310211,
+      "max_trace": 0.0028042761874149487,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "mlp",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [],
+      "delta": -1.02
+    },
+    {
+      "source": "runs/pirate/E1_heat/hardic_layer_s0.json",
+      "sha256": "4cf2b4e9a5a78d7a36773bb5ff25593fbdba5af3a0e0cd8229836f74e8cda3fc",
+      "tag": "pirate",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "seed": 0,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          8.485935142588542e-05,
+          0.00011240739262222046,
+          0.00024130326452465476,
+          0.0006845339387797042,
+          0.0007694418243958871
+        ],
+        "trace": [
+          0.00012703239217467437,
+          0.00017119482475033617,
+          0.0003630806905014288,
+          0.0015565799537632249,
+          0.0008871100470480696
+        ]
+      },
+      "max_vol": 0.0007694418243958871,
+      "max_trace": 0.0015565799537632249,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "pirate",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "env": {
+        "python": "3.12.6",
+        "torch": "2.14.1+cpu",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [
+        "adam:1000",
+        "adam:13500",
+        "adam:16000"
+      ],
+      "delta": -9.166666666666668
+    },
+    {
+      "source": "runs/pirate/E1_heat/hardic_layer_s1.json",
+      "sha256": "ac112091862174386215c81f84daa730fa5e5cdcdf23413c6bcd76f18a810d02",
+      "tag": "pirate",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "seed": 1,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.00035142626478274164,
+          0.00021961027136314755,
+          0.00038933927409824605,
+          0.0007529113005295206,
+          0.0010537165685440704
+        ],
+        "trace": [
+          0.0004252603744648306,
+          0.0004157260054998487,
+          0.000925741108055551,
+          0.0038719785669103965,
+          0.0010853821780235004
+        ]
+      },
+      "max_vol": 0.0010537165685440704,
+      "max_trace": 0.0038719785669103965,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "pirate",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "env": {
+        "python": "3.12.6",
+        "torch": "2.14.1+cpu",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [
+        "adam:1000",
+        "adam:13500",
+        "adam:16000"
+      ],
+      "delta": -9.166666666666668
+    },
+    {
+      "source": "runs/pirate/E1_heat/hardic_layer_s2.json",
+      "sha256": "777f93075dc001a7a94eb91aabc52352926cc500b9eac5abf69e4fa1b65f8eea",
+      "tag": "pirate",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "seed": 2,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.00011617096376355602,
+          0.000136937494611199,
+          0.0002532019190130727,
+          0.0003737646553856462,
+          0.0007604359713053431
+        ],
+        "trace": [
+          3.197773508776579e-05,
+          1.5424357288577888e-05,
+          0.0002194579944797029,
+          0.001852585453711426,
+          0.0007355321393729761
+        ]
+      },
+      "max_vol": 0.0007604359713053431,
+      "max_trace": 0.001852585453711426,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "pirate",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [
+        "adam:12500",
+        "adam:14500",
+        "lbfgs:1050"
+      ],
+      "delta": -9.166666666666668
+    },
+    {
+      "source": "runs/pirate/E1_heat/hardic_s0.json",
+      "sha256": "cb238b721deb7c251c483b3f906de18fdca4da5d9b0e7b5746798eec004486fd",
+      "tag": "pirate",
+      "eq": "E1_heat",
+      "method": "hardic",
+      "seed": 0,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.001026519634186539,
+          0.0013293834117182393,
+          0.002980859732936267,
+          0.00724837128566526,
+          0.009123681987203104
+        ],
+        "trace": [
+          0.0017403780358307924,
+          0.002090829338351182,
+          0.0050793035792373875,
+          0.03141988139144087,
+          0.009291511741651739
+        ]
+      },
+      "max_vol": 0.009123681987203104,
+      "max_trace": 0.03141988139144087,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "pirate",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "env": {
+        "python": "3.12.6",
+        "torch": "2.14.1+cpu",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [
+        "adam:1000",
+        "adam:14000",
+        "adam:16500"
+      ],
+      "delta": -9.166666666666668
+    },
+    {
+      "source": "runs/pirate/E1_heat/hardic_s1.json",
+      "sha256": "bf393806180c3d0f236aa6d5d2519c3d9e5da9b5096783f7296710f4a22aa219",
+      "tag": "pirate",
+      "eq": "E1_heat",
+      "method": "hardic",
+      "seed": 1,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.009880544443250278,
+          0.01291451681751412,
+          0.029065256202403925,
+          0.07050396043134254,
+          0.08944963437482313
+        ],
+        "trace": [
+          0.01948436921155469,
+          0.022321001803888452,
+          0.05090338182187121,
+          0.3100542757698913,
+          0.09360272809496736
+        ]
+      },
+      "max_vol": 0.08944963437482313,
+      "max_trace": 0.3100542757698913,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "pirate",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32,
+        "w_ic": 1,
+        "t_refine": 0,
+        "optimizer": "adam",
+        "soap_freq": 10,
+        "soap_beta": 0.95
+      },
+      "env": {
+        "python": "3.12.6",
+        "torch": "2.14.1+cpu",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [
+        "adam:1000",
+        "adam:14000",
+        "adam:16500"
+      ],
+      "delta": -9.166666666666668
+    },
+    {
+      "source": "runs/pirate/E1_heat/hardic_s2.json",
+      "sha256": "7348c0200916ab650c60ab068c755615109810830dbec952de029da43fefca15",
+      "tag": "pirate",
+      "eq": "E1_heat",
+      "method": "hardic",
+      "seed": 2,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.0019171403754041673,
+          0.0025419457404446144,
+          0.005977995374814141,
+          0.014307981603928108,
+          0.017395397800583575
+        ],
+        "trace": [
+          0.003729343557396727,
+          0.004294602383260614,
+          0.01007777510025046,
+          0.06132735564778508,
+          0.018481757898975118
+        ]
+      },
+      "max_vol": 0.017395397800583575,
+      "max_trace": 0.06132735564778508,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "pirate",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [
+        "adam:12500",
+        "adam:14500",
+        "lbfgs:1150"
+      ],
+      "delta": -9.166666666666668
+    },
+    {
+      "source": "runs/pirate/E3_fisher/hardic_layer_s0.json",
+      "sha256": "c58b016f55cbcc52c2819199b8223cdcd62db4d2c42830236d75e0c0c8ad4da7",
+      "tag": "pirate",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "seed": 0,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.00010402096214178666,
+          6.876365224214698e-05,
+          1.0144834589725139e-05,
+          5.1206743500188095e-06,
+          6.532777504986856e-06
+        ],
+        "trace": [
+          6.476072067611211e-05,
+          3.217895980281747e-05,
+          3.3421288856937007e-06,
+          3.007446389422284e-06,
+          1.6767178303935015e-06
+        ]
+      },
+      "max_vol": 0.00010402096214178666,
+      "max_trace": 6.476072067611211e-05,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "pirate",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [
+        "adam:12500",
+        "adam:14500",
+        "lbfgs:1000"
+      ],
+      "delta": 3.4200000000000004
+    },
+    {
+      "source": "runs/pirate/E3_fisher/hardic_layer_s1.json",
+      "sha256": "06afa6049b97588da267216f626e0b70500bd1a785584fa00d5a25b024e5b3be",
+      "tag": "pirate",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "seed": 1,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.00015816310717244131,
+          0.00017867511946876048,
+          8.435917110543174e-05,
+          2.169664202248854e-05,
+          1.1101591238570424e-05
+        ],
+        "trace": [
+          0.00033236459047804296,
+          0.000234199946042278,
+          6.103680766307152e-05,
+          2.023141191400929e-05,
+          4.768530083106795e-06
+        ]
+      },
+      "max_vol": 0.00017867511946876048,
+      "max_trace": 0.00033236459047804296,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "pirate",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [
+        "lbfgs:0",
+        "lbfgs:150"
+      ],
+      "delta": 3.4200000000000004
+    },
+    {
+      "source": "runs/pirate/E3_fisher/hardic_layer_s2.json",
+      "sha256": "42621c24126155ea2e306642025c3fcd2d8c7191239689d4b335008b8a8850de",
+      "tag": "pirate",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "seed": 2,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          9.561133672352554e-05,
+          5.815436550928752e-05,
+          2.32811329835632e-05,
+          1.5035250889849017e-05,
+          9.052122141646783e-06
+        ],
+        "trace": [
+          0.00024610664753341155,
+          9.463381207857424e-05,
+          5.709076276720782e-06,
+          3.7107714950471896e-06,
+          8.027393392313535e-07
+        ]
+      },
+      "max_vol": 9.561133672352554e-05,
+      "max_trace": 0.00024610664753341155,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "pirate",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [
+        "lbfgs:0",
+        "lbfgs:150"
+      ],
+      "delta": 3.4200000000000004
+    },
+    {
+      "source": "runs/pirate/E3_fisher/hardic_s0.json",
+      "sha256": "e479d5bac17515a939c4102a12788cc88f04279a97ee245d08ad69fc3fa420ae",
+      "tag": "pirate",
+      "eq": "E3_fisher",
+      "method": "hardic",
+      "seed": 0,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.0005739396678736734,
+          0.00047440037320682545,
+          0.0002520737490426057,
+          0.0001315711289606026,
+          5.212050314763009e-05
+        ],
+        "trace": [
+          0.0012444181375203635,
+          0.0006077690514639845,
+          0.00019851748447103094,
+          8.238334882488306e-05,
+          1.9902990795352894e-05
+        ]
+      },
+      "max_vol": 0.0005739396678736734,
+      "max_trace": 0.0012444181375203635,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 0,
+        "arch": "pirate",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [
+        "adam:12500",
+        "adam:14500",
+        "lbfgs:1050"
+      ],
+      "delta": 3.4200000000000004
+    },
+    {
+      "source": "runs/pirate/E3_fisher/hardic_s1.json",
+      "sha256": "a68a4f9dc455a9d27bfa13c3df720ee37881ce00d2f0ae4be0f149c6dc20d4c4",
+      "tag": "pirate",
+      "eq": "E3_fisher",
+      "method": "hardic",
+      "seed": 1,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.0003414864031597988,
+          0.0001805918176955903,
+          4.634773649827957e-05,
+          6.489919150937847e-05,
+          1.4725151851293228e-05
+        ],
+        "trace": [
+          0.0003448772708035378,
+          0.00010679077581424572,
+          1.2886056975589177e-05,
+          2.6075735106426448e-05,
+          2.5352479586107086e-07
+        ]
+      },
+      "max_vol": 0.0003414864031597988,
+      "max_trace": 0.0003448772708035378,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 1,
+        "arch": "pirate",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [
+        "lbfgs:100",
+        "lbfgs:250"
+      ],
+      "delta": 3.4200000000000004
+    },
+    {
+      "source": "runs/pirate/E3_fisher/hardic_s2.json",
+      "sha256": "ce5140425651e1d316241bb2ede43319e62c21be5021785f0bd89e57ec245c9f",
+      "tag": "pirate",
+      "eq": "E3_fisher",
+      "method": "hardic",
+      "seed": 2,
+      "metrics": {
+        "times": [
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "vol": [
+          0.0006403097696715258,
+          0.00029365460764628763,
+          0.00011141433213001315,
+          4.9561760465630824e-05,
+          2.800869077023539e-05
+        ],
+        "trace": [
+          0.00016394402618357656,
+          0.00011494265769498311,
+          1.7033630834734247e-05,
+          1.2376299062828595e-05,
+          3.7661087108385604e-06
+        ]
+      },
+      "max_vol": 0.0006403097696715258,
+      "max_trace": 0.00016394402618357656,
+      "config": {
+        "width": 64,
+        "depth": 4,
+        "adam_steps": 20000,
+        "lr0": 0.001,
+        "lr1": 1e-05,
+        "nf": 4096,
+        "nb": 256,
+        "n0": 256,
+        "lbfgs_iters": 3000,
+        "lbfgs_chunk": 50,
+        "nf_fixed": 8192,
+        "nb_fixed": 512,
+        "n0_fixed": 512,
+        "tau": 0.1,
+        "rba_gamma": 0.999,
+        "rba_eta": 0.01,
+        "seed": 2,
+        "arch": "pirate",
+        "pirate_blocks": 3,
+        "fourier_scale": 1.0,
+        "causal_eps": 0.0,
+        "causal_chunks": 32
+      },
+      "env": {
+        "python": "3.13.16",
+        "torch": "2.14.1+cu130",
+        "numpy": "2.5.3"
+      },
+      "resumed_at": [
+        "lbfgs:100",
+        "lbfgs:250"
+      ],
+      "delta": 3.4200000000000004
+    }
+  ],
+  "groups": [
+    {
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "hardic",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "body": [
+        0.12988729247850572,
+        0.04982738948407484,
+        0.07214318791028707
+      ],
+      "trace": [
+        0.09960987845479047,
+        0.03234634807698166,
+        0.04778252123104968
+      ],
+      "median_body": 0.07214318791028707,
+      "median_trace": 0.04778252123104968,
+      "under_1e2": 0,
+      "sources": [
+        "runs/e4confirm/E4_bulk_surface/hardic_s0.json",
+        "runs/e4confirm/E4_bulk_surface/hardic_s1.json",
+        "runs/e4confirm/E4_bulk_surface/hardic_s2.json"
+      ]
+    },
+    {
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "hardic+layer",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "body": [
+        0.007712856651521004,
+        0.0005055689353847629,
+        0.005576309573543175
+      ],
+      "trace": [
+        0.005021045197112868,
+        0.0004566362591974933,
+        0.0034955131273425154
+      ],
+      "median_body": 0.005576309573543175,
+      "median_trace": 0.0034955131273425154,
+      "under_1e2": 3,
+      "sources": [
+        "runs/e4confirm/E4_bulk_surface/hardic_layer_s0.json",
+        "runs/e4confirm/E4_bulk_surface/hardic_layer_s1.json",
+        "runs/e4confirm/E4_bulk_surface/hardic_layer_s2.json"
+      ]
+    },
+    {
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "rba",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "body": [
+        0.10346820949163024,
+        0.04906269061998768,
+        0.014750768793041047
+      ],
+      "trace": [
+        0.0762124922790269,
+        0.03248083081066815,
+        0.011543891471858915
+      ],
+      "median_body": 0.04906269061998768,
+      "median_trace": 0.03248083081066815,
+      "under_1e2": 0,
+      "sources": [
+        "runs/e4confirm/E4_bulk_surface/rba_s0.json",
+        "runs/e4confirm/E4_bulk_surface/rba_s1.json",
+        "runs/e4confirm/E4_bulk_surface/rba_s2.json"
+      ]
+    },
+    {
+      "tag": "e4confirm",
+      "eq": "E4_bulk_surface",
+      "method": "vanilla",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "body": [
+        0.0025329985641337183,
+        0.014647206427275116,
+        0.004675169889310211
+      ],
+      "trace": [
+        0.0016769913622605187,
+        0.008384704984759891,
+        0.0028042761874149487
+      ],
+      "median_body": 0.004675169889310211,
+      "median_trace": 0.0028042761874149487,
+      "under_1e2": 2,
+      "sources": [
+        "runs/e4confirm/E4_bulk_surface/vanilla_s0.json",
+        "runs/e4confirm/E4_bulk_surface/vanilla_s1.json",
+        "runs/e4confirm/E4_bulk_surface/vanilla_s2.json"
+      ]
+    },
+    {
+      "tag": "e4screen",
+      "eq": "E4_bulk_surface",
+      "method": "hardic",
+      "seeds": [
+        0,
+        1
+      ],
+      "body": [
+        0.04655339699318546,
+        0.14565967738397373
+      ],
+      "trace": [
+        0.02504663721310408,
+        0.11253251860551762
+      ],
+      "median_body": 0.09610653718857959,
+      "median_trace": 0.06878957790931085,
+      "under_1e2": 0,
+      "sources": [
+        "runs/e4screen/E4_bulk_surface/hardic_s0.json",
+        "runs/e4screen/E4_bulk_surface/hardic_s1.json"
+      ]
+    },
+    {
+      "tag": "e4screen",
+      "eq": "E4_bulk_surface",
+      "method": "hardic+layer",
+      "seeds": [
+        0,
+        1
+      ],
+      "body": [
+        0.06795410446029794,
+        0.07073228164498664
+      ],
+      "trace": [
+        0.07028467824145289,
+        0.07754497231440896
+      ],
+      "median_body": 0.06934319305264229,
+      "median_trace": 0.07391482527793092,
+      "under_1e2": 0,
+      "sources": [
+        "runs/e4screen/E4_bulk_surface/hardic_layer_s0.json",
+        "runs/e4screen/E4_bulk_surface/hardic_layer_s1.json"
+      ]
+    },
+    {
+      "tag": "e4screen",
+      "eq": "E4_bulk_surface",
+      "method": "rba",
+      "seeds": [
+        0,
+        1
+      ],
+      "body": [
+        0.19110154874023008,
+        0.1502978791287199
+      ],
+      "trace": [
+        0.15892472220526202,
+        0.10639949760069324
+      ],
+      "median_body": 0.17069971393447497,
+      "median_trace": 0.13266210990297764,
+      "under_1e2": 0,
+      "sources": [
+        "runs/e4screen/E4_bulk_surface/rba_s0.json",
+        "runs/e4screen/E4_bulk_surface/rba_s1.json"
+      ]
+    },
+    {
+      "tag": "e4screen",
+      "eq": "E4_bulk_surface",
+      "method": "vanilla",
+      "seeds": [
+        0,
+        1
+      ],
+      "body": [
+        0.019161149617298145,
+        0.02610180007607249
+      ],
+      "trace": [
+        0.010934602281078457,
+        0.012984161717780355
+      ],
+      "median_body": 0.022631474846685318,
+      "median_trace": 0.011959381999429405,
+      "under_1e2": 0,
+      "sources": [
+        "runs/e4screen/E4_bulk_surface/vanilla_s0.json",
+        "runs/e4screen/E4_bulk_surface/vanilla_s1.json"
+      ]
+    },
+    {
+      "tag": "pirate",
+      "eq": "E1_heat",
+      "method": "hardic",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "body": [
+        0.009123681987203104,
+        0.08944963437482313,
+        0.017395397800583575
+      ],
+      "trace": [
+        0.03141988139144087,
+        0.3100542757698913,
+        0.06132735564778508
+      ],
+      "median_body": 0.017395397800583575,
+      "median_trace": 0.06132735564778508,
+      "under_1e2": 1,
+      "sources": [
+        "runs/pirate/E1_heat/hardic_s0.json",
+        "runs/pirate/E1_heat/hardic_s1.json",
+        "runs/pirate/E1_heat/hardic_s2.json"
+      ]
+    },
+    {
+      "tag": "pirate",
+      "eq": "E1_heat",
+      "method": "hardic+layer",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "body": [
+        0.0007694418243958871,
+        0.0010537165685440704,
+        0.0007604359713053431
+      ],
+      "trace": [
+        0.0015565799537632249,
+        0.0038719785669103965,
+        0.001852585453711426
+      ],
+      "median_body": 0.0007694418243958871,
+      "median_trace": 0.001852585453711426,
+      "under_1e2": 3,
+      "sources": [
+        "runs/pirate/E1_heat/hardic_layer_s0.json",
+        "runs/pirate/E1_heat/hardic_layer_s1.json",
+        "runs/pirate/E1_heat/hardic_layer_s2.json"
+      ]
+    },
+    {
+      "tag": "pirate",
+      "eq": "E3_fisher",
+      "method": "hardic",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "body": [
+        0.0005739396678736734,
+        0.0003414864031597988,
+        0.0006403097696715258
+      ],
+      "trace": [
+        0.0012444181375203635,
+        0.0003448772708035378,
+        0.00016394402618357656
+      ],
+      "median_body": 0.0005739396678736734,
+      "median_trace": 0.0003448772708035378,
+      "under_1e2": 3,
+      "sources": [
+        "runs/pirate/E3_fisher/hardic_s0.json",
+        "runs/pirate/E3_fisher/hardic_s1.json",
+        "runs/pirate/E3_fisher/hardic_s2.json"
+      ]
+    },
+    {
+      "tag": "pirate",
+      "eq": "E3_fisher",
+      "method": "hardic+layer",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "body": [
+        0.00010402096214178666,
+        0.00017867511946876048,
+        9.561133672352554e-05
+      ],
+      "trace": [
+        6.476072067611211e-05,
+        0.00033236459047804296,
+        0.00024610664753341155
+      ],
+      "median_body": 0.00010402096214178666,
+      "median_trace": 0.00024610664753341155,
+      "under_1e2": 3,
+      "sources": [
+        "runs/pirate/E3_fisher/hardic_layer_s0.json",
+        "runs/pirate/E3_fisher/hardic_layer_s1.json",
+        "runs/pirate/E3_fisher/hardic_layer_s2.json"
+      ]
+    }
+  ],
+  "author_record_matches": [
+    {
+      "source": "runs/e4screen/E4_bulk_surface/hardic_layer_s0.json",
+      "matches": true
+    },
+    {
+      "source": "runs/e4screen/E4_bulk_surface/hardic_layer_s1.json",
+      "matches": true
+    },
+    {
+      "source": "runs/e4screen/E4_bulk_surface/hardic_s0.json",
+      "matches": true
+    },
+    {
+      "source": "runs/e4screen/E4_bulk_surface/hardic_s1.json",
+      "matches": true
+    },
+    {
+      "source": "runs/e4screen/E4_bulk_surface/rba_s0.json",
+      "matches": true
+    },
+    {
+      "source": "runs/e4screen/E4_bulk_surface/rba_s1.json",
+      "matches": true
+    },
+    {
+      "source": "runs/e4screen/E4_bulk_surface/vanilla_s0.json",
+      "matches": true
+    },
+    {
+      "source": "runs/e4screen/E4_bulk_surface/vanilla_s1.json",
+      "matches": true
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/hardic_layer_s0.json",
+      "matches": true
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/hardic_layer_s1.json",
+      "matches": true
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/hardic_layer_s2.json",
+      "matches": true
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/hardic_s0.json",
+      "matches": true
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/hardic_s1.json",
+      "matches": true
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/hardic_s2.json",
+      "matches": true
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/rba_s0.json",
+      "matches": true
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/rba_s1.json",
+      "matches": true
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/rba_s2.json",
+      "matches": true
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/vanilla_s0.json",
+      "matches": true
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/vanilla_s1.json",
+      "matches": true
+    },
+    {
+      "source": "runs/e4confirm/E4_bulk_surface/vanilla_s2.json",
+      "matches": true
+    },
+    {
+      "source": "runs/pirate/E1_heat/hardic_layer_s0.json",
+      "matches": true
+    },
+    {
+      "source": "runs/pirate/E1_heat/hardic_layer_s1.json",
+      "matches": true
+    },
+    {
+      "source": "runs/pirate/E1_heat/hardic_layer_s2.json",
+      "matches": true
+    },
+    {
+      "source": "runs/pirate/E1_heat/hardic_s0.json",
+      "matches": true
+    },
+    {
+      "source": "runs/pirate/E1_heat/hardic_s1.json",
+      "matches": true
+    },
+    {
+      "source": "runs/pirate/E1_heat/hardic_s2.json",
+      "matches": true
+    },
+    {
+      "source": "runs/pirate/E3_fisher/hardic_layer_s0.json",
+      "matches": true
+    },
+    {
+      "source": "runs/pirate/E3_fisher/hardic_layer_s1.json",
+      "matches": true
+    },
+    {
+      "source": "runs/pirate/E3_fisher/hardic_layer_s2.json",
+      "matches": true
+    },
+    {
+      "source": "runs/pirate/E3_fisher/hardic_s0.json",
+      "matches": true
+    },
+    {
+      "source": "runs/pirate/E3_fisher/hardic_s1.json",
+      "matches": true
+    },
+    {
+      "source": "runs/pirate/E3_fisher/hardic_s2.json",
+      "matches": true
+    }
+  ],
+  "e4_vanilla_over_corrected": 0.8383985551109958,
+  "e4_screen_hardic_rba_over_corrected": 1.385954885515868,
+  "e4_confirm_hardic_rba_over_corrected": 8.798415864995341,
+  "pirate_hardic_over_corrected": {
+    "E1_heat": 22.607814196013127,
+    "E3_fisher": 5.517538542773331
+  },
+  "e4_table_checks": [
+    {
+      "method": "hardic",
+      "expected_line": "| hardic | 1.29887e-01 | 4.98274e-02 | 7.21432e-02 | 7.21432e-02 | 4.77825e-02 | 0/3 |",
+      "present": true
+    },
+    {
+      "method": "hardic+layer",
+      "expected_line": "| hardic+layer | 7.71286e-03 | 5.05569e-04 | 5.57631e-03 | 5.57631e-03 | 3.49551e-03 | 3/3 |",
+      "present": true
+    },
+    {
+      "method": "rba",
+      "expected_line": "| RBA本地变体 | 1.03468e-01 | 4.90627e-02 | 1.47508e-02 | 4.90627e-02 | 3.24808e-02 | 0/3 |",
+      "present": true
+    },
+    {
+      "method": "vanilla",
+      "expected_line": "| vanilla | 2.53300e-03 | 1.46472e-02 | 4.67517e-03 | 4.67517e-03 | 2.80428e-03 | 2/3 |",
+      "present": true
+    }
+  ]
+}

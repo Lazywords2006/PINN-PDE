@@ -1,0 +1,5668 @@
+{
+  "config_sha256": "fc04c1df49f7eebda29ab5cb1d993587a2cb2c68283367b68380ce3d532b62aa",
+  "prior_git_commit": "46855c4b80ab4e7e9620c916b327cde9af9b5191",
+  "prior_git_config_semantically_identical": true,
+  "counts": {
+    "complete_v1": {
+      "published": {
+        "total": 11434,
+        "sections": {
+          "1 引言与相关工作": 1695,
+          "2 方程、相容性与修正构造": 2180,
+          "3 实验设计与复现方法": 2245,
+          "4 数值结果": 2762,
+          "5 讨论与局限": 1789,
+          "6 结论": 763
+        },
+        "exclusions": [
+          {
+            "line": 45,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 46,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 47,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 48,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 49,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 50,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 51,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 52,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 53,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 59,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 60,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 61,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 62,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 63,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 73,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 74,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 75,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 76,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 80,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 81,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 82,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 83,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 84,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 90,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 91,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 92,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 93,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 94,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 95,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 96,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 102,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 103,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 104,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 105,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 106,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 107,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 111,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 112,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 113,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 114,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 115,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 119,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 120,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 121,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 122,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 123,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 129,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 130,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 131,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 132,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 136,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 137,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 138,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 139,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 145,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 146,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 147,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 151,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 152,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 153,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 154,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 155,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 159,
+            "reason": "image",
+            "cjk": 8
+          },
+          {
+            "line": 161,
+            "reason": "figure_caption",
+            "cjk": 155
+          },
+          {
+            "line": 167,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 168,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 169,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 170,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 171,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 177,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 178,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 179,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 180,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 181,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 187,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 188,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 189,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 190,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 191,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 201,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 202,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 203,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 204,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 205,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 209,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 210,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 211,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 212,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 213,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 227,
+            "reason": "table_data",
+            "cjk": 8
+          },
+          {
+            "line": 228,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 229,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 230,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 252,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 253,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 254,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 255,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 256,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 257,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 258,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 259,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 260,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 261,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 262,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 282,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 283,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 284,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 285,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 286,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 287,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 288,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 289,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 290,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 291,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 303,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 304,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 305,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 306,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 307,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 308,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 309,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 310,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 316,
+            "reason": "image",
+            "cjk": 24
+          },
+          {
+            "line": 318,
+            "reason": "figure_caption",
+            "cjk": 240
+          },
+          {
+            "line": 326,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 327,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 328,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 329,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 330,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 331,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 341,
+            "reason": "table_data",
+            "cjk": 21
+          },
+          {
+            "line": 342,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 343,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 344,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 345,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 346,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 347,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 348,
+            "reason": "table_data",
+            "cjk": 3
+          },
+          {
+            "line": 349,
+            "reason": "table_data",
+            "cjk": 3
+          },
+          {
+            "line": 350,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 360,
+            "reason": "table_data",
+            "cjk": 19
+          },
+          {
+            "line": 361,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 362,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 363,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 364,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 365,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 366,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 367,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 371,
+            "reason": "image",
+            "cjk": 21
+          },
+          {
+            "line": 373,
+            "reason": "figure_caption",
+            "cjk": 97
+          },
+          {
+            "line": 383,
+            "reason": "table_data",
+            "cjk": 26
+          },
+          {
+            "line": 384,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 385,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 386,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 387,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 388,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 389,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 390,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 391,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 392,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 393,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 394,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 395,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 396,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 398,
+            "reason": "image",
+            "cjk": 18
+          },
+          {
+            "line": 400,
+            "reason": "figure_caption",
+            "cjk": 73
+          },
+          {
+            "line": 410,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 411,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 412,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 413,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 414,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 415,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 416,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 417,
+            "reason": "table_data",
+            "cjk": 0
+          }
+        ]
+      },
+      "without_table_captions_notes": {
+        "total": 11056,
+        "sections": {
+          "1 引言与相关工作": 1695,
+          "2 方程、相容性与修正构造": 2180,
+          "3 实验设计与复现方法": 2213,
+          "4 数值结果": 2416,
+          "5 讨论与局限": 1789,
+          "6 结论": 763
+        },
+        "exclusions": [
+          {
+            "line": 45,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 46,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 47,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 48,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 49,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 50,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 51,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 52,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 53,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 59,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 60,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 61,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 62,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 63,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 73,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 74,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 75,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 76,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 80,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 81,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 82,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 83,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 84,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 90,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 91,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 92,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 93,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 94,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 95,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 96,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 102,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 103,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 104,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 105,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 106,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 107,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 111,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 112,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 113,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 114,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 115,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 119,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 120,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 121,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 122,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 123,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 129,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 130,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 131,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 132,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 136,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 137,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 138,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 139,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 145,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 146,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 147,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 151,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 152,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 153,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 154,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 155,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 159,
+            "reason": "image",
+            "cjk": 8
+          },
+          {
+            "line": 161,
+            "reason": "figure_caption",
+            "cjk": 155
+          },
+          {
+            "line": 167,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 168,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 169,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 170,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 171,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 177,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 178,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 179,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 180,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 181,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 187,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 188,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 189,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 190,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 191,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 201,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 202,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 203,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 204,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 205,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 209,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 210,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 211,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 212,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 213,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 225,
+            "reason": "table_caption_or_note",
+            "cjk": 32
+          },
+          {
+            "line": 227,
+            "reason": "table_data",
+            "cjk": 8
+          },
+          {
+            "line": 228,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 229,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 230,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 252,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 253,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 254,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 255,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 256,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 257,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 258,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 259,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 260,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 261,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 262,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 280,
+            "reason": "table_caption_or_note",
+            "cjk": 46
+          },
+          {
+            "line": 282,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 283,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 284,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 285,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 286,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 287,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 288,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 289,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 290,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 291,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 293,
+            "reason": "table_caption_or_note",
+            "cjk": 108
+          },
+          {
+            "line": 301,
+            "reason": "table_caption_or_note",
+            "cjk": 23
+          },
+          {
+            "line": 303,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 304,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 305,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 306,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 307,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 308,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 309,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 310,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 316,
+            "reason": "image",
+            "cjk": 24
+          },
+          {
+            "line": 318,
+            "reason": "figure_caption",
+            "cjk": 240
+          },
+          {
+            "line": 324,
+            "reason": "table_caption_or_note",
+            "cjk": 29
+          },
+          {
+            "line": 326,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 327,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 328,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 329,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 330,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 331,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 339,
+            "reason": "table_caption_or_note",
+            "cjk": 27
+          },
+          {
+            "line": 341,
+            "reason": "table_data",
+            "cjk": 21
+          },
+          {
+            "line": 342,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 343,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 344,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 345,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 346,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 347,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 348,
+            "reason": "table_data",
+            "cjk": 3
+          },
+          {
+            "line": 349,
+            "reason": "table_data",
+            "cjk": 3
+          },
+          {
+            "line": 350,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 358,
+            "reason": "table_caption_or_note",
+            "cjk": 24
+          },
+          {
+            "line": 360,
+            "reason": "table_data",
+            "cjk": 19
+          },
+          {
+            "line": 361,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 362,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 363,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 364,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 365,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 366,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 367,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 371,
+            "reason": "image",
+            "cjk": 21
+          },
+          {
+            "line": 373,
+            "reason": "figure_caption",
+            "cjk": 97
+          },
+          {
+            "line": 381,
+            "reason": "table_caption_or_note",
+            "cjk": 49
+          },
+          {
+            "line": 383,
+            "reason": "table_data",
+            "cjk": 26
+          },
+          {
+            "line": 384,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 385,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 386,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 387,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 388,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 389,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 390,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 391,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 392,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 393,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 394,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 395,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 396,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 398,
+            "reason": "image",
+            "cjk": 18
+          },
+          {
+            "line": 400,
+            "reason": "figure_caption",
+            "cjk": 73
+          },
+          {
+            "line": 408,
+            "reason": "table_caption_or_note",
+            "cjk": 40
+          },
+          {
+            "line": 410,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 411,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 412,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 413,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 414,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 415,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 416,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 417,
+            "reason": "table_data",
+            "cjk": 0
+          }
+        ]
+      },
+      "all_table_prefix_and_chapter_titles": {
+        "total": 10213,
+        "sections": {
+          "1 引言与相关工作": 1688,
+          "2 方程、相容性与修正构造": 2170,
+          "3 实验设计与复现方法": 2204,
+          "4 数值结果": 1606,
+          "5 讨论与局限": 1784,
+          "6 结论": 761
+        },
+        "exclusions": [
+          {
+            "line": 19,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 7
+          },
+          {
+            "line": 39,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 10
+          },
+          {
+            "line": 45,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 46,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 47,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 48,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 49,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 50,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 51,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 52,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 53,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 59,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 60,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 61,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 62,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 63,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 73,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 74,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 75,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 76,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 80,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 81,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 82,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 83,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 84,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 90,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 91,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 92,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 93,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 94,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 95,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 96,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 102,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 103,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 104,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 105,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 106,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 107,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 111,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 112,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 113,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 114,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 115,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 119,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 120,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 121,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 122,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 123,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 129,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 130,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 131,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 132,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 136,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 137,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 138,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 139,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 145,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 146,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 147,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 151,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 152,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 153,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 154,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 155,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 159,
+            "reason": "image",
+            "cjk": 8
+          },
+          {
+            "line": 161,
+            "reason": "figure_caption",
+            "cjk": 155
+          },
+          {
+            "line": 167,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 168,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 169,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 170,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 171,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 177,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 178,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 179,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 180,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 181,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 187,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 188,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 189,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 190,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 191,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 201,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 202,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 203,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 204,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 205,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 209,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 210,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 211,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 212,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 213,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 219,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 9
+          },
+          {
+            "line": 225,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 32
+          },
+          {
+            "line": 227,
+            "reason": "table_data",
+            "cjk": 8
+          },
+          {
+            "line": 228,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 229,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 230,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 252,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 253,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 254,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 255,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 256,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 257,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 258,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 259,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 260,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 261,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 262,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 274,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 4
+          },
+          {
+            "line": 278,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 142
+          },
+          {
+            "line": 280,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 46
+          },
+          {
+            "line": 282,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 283,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 284,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 285,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 286,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 287,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 288,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 289,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 290,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 291,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 293,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 108
+          },
+          {
+            "line": 299,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 130
+          },
+          {
+            "line": 301,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 23
+          },
+          {
+            "line": 303,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 304,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 305,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 306,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 307,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 308,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 309,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 310,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 316,
+            "reason": "image",
+            "cjk": 24
+          },
+          {
+            "line": 318,
+            "reason": "figure_caption",
+            "cjk": 240
+          },
+          {
+            "line": 322,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 123
+          },
+          {
+            "line": 324,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 29
+          },
+          {
+            "line": 326,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 327,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 328,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 329,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 330,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 331,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 337,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 137
+          },
+          {
+            "line": 339,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 27
+          },
+          {
+            "line": 341,
+            "reason": "table_data",
+            "cjk": 21
+          },
+          {
+            "line": 342,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 343,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 344,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 345,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 346,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 347,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 348,
+            "reason": "table_data",
+            "cjk": 3
+          },
+          {
+            "line": 349,
+            "reason": "table_data",
+            "cjk": 3
+          },
+          {
+            "line": 350,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 356,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 123
+          },
+          {
+            "line": 358,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 24
+          },
+          {
+            "line": 360,
+            "reason": "table_data",
+            "cjk": 19
+          },
+          {
+            "line": 361,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 362,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 363,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 364,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 365,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 366,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 367,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 371,
+            "reason": "image",
+            "cjk": 21
+          },
+          {
+            "line": 373,
+            "reason": "figure_caption",
+            "cjk": 97
+          },
+          {
+            "line": 379,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 151
+          },
+          {
+            "line": 381,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 49
+          },
+          {
+            "line": 383,
+            "reason": "table_data",
+            "cjk": 26
+          },
+          {
+            "line": 384,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 385,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 386,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 387,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 388,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 389,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 390,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 391,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 392,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 393,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 394,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 395,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 396,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 398,
+            "reason": "image",
+            "cjk": 18
+          },
+          {
+            "line": 400,
+            "reason": "figure_caption",
+            "cjk": 73
+          },
+          {
+            "line": 408,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 40
+          },
+          {
+            "line": 410,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 411,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 412,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 413,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 414,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 415,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 416,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 417,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 425,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 5
+          },
+          {
+            "line": 457,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 2
+          }
+        ]
+      }
+    },
+    "complete_revised1a": {
+      "published": {
+        "total": 11487,
+        "sections": {
+          "1 引言与相关工作": 1695,
+          "2 方程、相容性与修正构造": 2190,
+          "3 实验设计与复现方法": 2187,
+          "4 数值结果": 2755,
+          "5 讨论与局限": 1897,
+          "6 结论": 763
+        },
+        "exclusions": [
+          {
+            "line": 45,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 46,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 47,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 48,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 49,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 50,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 51,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 52,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 53,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 59,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 60,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 61,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 62,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 63,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 73,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 74,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 75,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 76,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 80,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 81,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 82,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 83,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 84,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 90,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 91,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 92,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 93,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 94,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 95,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 96,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 102,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 103,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 104,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 105,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 106,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 107,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 111,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 112,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 113,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 114,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 115,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 119,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 120,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 121,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 122,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 123,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 129,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 130,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 131,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 132,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 136,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 137,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 138,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 139,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 145,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 146,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 147,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 151,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 152,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 153,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 154,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 155,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 159,
+            "reason": "image",
+            "cjk": 8
+          },
+          {
+            "line": 161,
+            "reason": "figure_caption",
+            "cjk": 155
+          },
+          {
+            "line": 167,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 168,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 169,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 170,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 171,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 177,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 178,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 179,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 180,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 181,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 187,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 188,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 189,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 190,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 191,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 201,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 202,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 203,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 204,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 205,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 209,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 210,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 211,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 212,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 213,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 227,
+            "reason": "table_data",
+            "cjk": 8
+          },
+          {
+            "line": 228,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 229,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 230,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 252,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 253,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 254,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 255,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 256,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 257,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 258,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 259,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 260,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 261,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 262,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 282,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 283,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 284,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 285,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 286,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 287,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 288,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 289,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 290,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 291,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 303,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 304,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 305,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 306,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 307,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 308,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 309,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 310,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 316,
+            "reason": "image",
+            "cjk": 24
+          },
+          {
+            "line": 318,
+            "reason": "figure_caption",
+            "cjk": 240
+          },
+          {
+            "line": 326,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 327,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 328,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 329,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 330,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 331,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 343,
+            "reason": "table_data",
+            "cjk": 21
+          },
+          {
+            "line": 344,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 345,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 346,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 347,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 348,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 349,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 350,
+            "reason": "table_data",
+            "cjk": 3
+          },
+          {
+            "line": 351,
+            "reason": "table_data",
+            "cjk": 3
+          },
+          {
+            "line": 352,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 364,
+            "reason": "table_data",
+            "cjk": 19
+          },
+          {
+            "line": 365,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 366,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 367,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 368,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 369,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 370,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 371,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 375,
+            "reason": "image",
+            "cjk": 21
+          },
+          {
+            "line": 377,
+            "reason": "figure_caption",
+            "cjk": 97
+          },
+          {
+            "line": 387,
+            "reason": "table_data",
+            "cjk": 26
+          },
+          {
+            "line": 388,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 389,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 390,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 391,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 392,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 393,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 394,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 395,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 396,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 397,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 398,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 399,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 400,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 402,
+            "reason": "image",
+            "cjk": 18
+          },
+          {
+            "line": 404,
+            "reason": "figure_caption",
+            "cjk": 73
+          },
+          {
+            "line": 414,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 415,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 416,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 417,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 418,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 419,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 420,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 421,
+            "reason": "table_data",
+            "cjk": 0
+          }
+        ]
+      },
+      "without_table_captions_notes": {
+        "total": 11000,
+        "sections": {
+          "1 引言与相关工作": 1695,
+          "2 方程、相容性与修正构造": 2190,
+          "3 实验设计与复现方法": 2155,
+          "4 数值结果": 2300,
+          "5 讨论与局限": 1897,
+          "6 结论": 763
+        },
+        "exclusions": [
+          {
+            "line": 45,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 46,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 47,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 48,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 49,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 50,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 51,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 52,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 53,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 59,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 60,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 61,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 62,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 63,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 73,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 74,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 75,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 76,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 80,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 81,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 82,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 83,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 84,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 90,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 91,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 92,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 93,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 94,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 95,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 96,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 102,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 103,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 104,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 105,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 106,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 107,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 111,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 112,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 113,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 114,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 115,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 119,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 120,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 121,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 122,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 123,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 129,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 130,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 131,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 132,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 136,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 137,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 138,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 139,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 145,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 146,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 147,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 151,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 152,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 153,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 154,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 155,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 159,
+            "reason": "image",
+            "cjk": 8
+          },
+          {
+            "line": 161,
+            "reason": "figure_caption",
+            "cjk": 155
+          },
+          {
+            "line": 167,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 168,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 169,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 170,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 171,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 177,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 178,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 179,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 180,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 181,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 187,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 188,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 189,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 190,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 191,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 201,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 202,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 203,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 204,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 205,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 209,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 210,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 211,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 212,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 213,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 225,
+            "reason": "table_caption_or_note",
+            "cjk": 32
+          },
+          {
+            "line": 227,
+            "reason": "table_data",
+            "cjk": 8
+          },
+          {
+            "line": 228,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 229,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 230,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 252,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 253,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 254,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 255,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 256,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 257,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 258,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 259,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 260,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 261,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 262,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 280,
+            "reason": "table_caption_or_note",
+            "cjk": 46
+          },
+          {
+            "line": 282,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 283,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 284,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 285,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 286,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 287,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 288,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 289,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 290,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 291,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 293,
+            "reason": "table_caption_or_note",
+            "cjk": 108
+          },
+          {
+            "line": 301,
+            "reason": "table_caption_or_note",
+            "cjk": 23
+          },
+          {
+            "line": 303,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 304,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 305,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 306,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 307,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 308,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 309,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 310,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 316,
+            "reason": "image",
+            "cjk": 24
+          },
+          {
+            "line": 318,
+            "reason": "figure_caption",
+            "cjk": 240
+          },
+          {
+            "line": 324,
+            "reason": "table_caption_or_note",
+            "cjk": 29
+          },
+          {
+            "line": 326,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 327,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 328,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 329,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 330,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 331,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 333,
+            "reason": "table_caption_or_note",
+            "cjk": 71
+          },
+          {
+            "line": 341,
+            "reason": "table_caption_or_note",
+            "cjk": 27
+          },
+          {
+            "line": 343,
+            "reason": "table_data",
+            "cjk": 21
+          },
+          {
+            "line": 344,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 345,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 346,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 347,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 348,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 349,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 350,
+            "reason": "table_data",
+            "cjk": 3
+          },
+          {
+            "line": 351,
+            "reason": "table_data",
+            "cjk": 3
+          },
+          {
+            "line": 352,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 354,
+            "reason": "table_caption_or_note",
+            "cjk": 38
+          },
+          {
+            "line": 362,
+            "reason": "table_caption_or_note",
+            "cjk": 24
+          },
+          {
+            "line": 364,
+            "reason": "table_data",
+            "cjk": 19
+          },
+          {
+            "line": 365,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 366,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 367,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 368,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 369,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 370,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 371,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 375,
+            "reason": "image",
+            "cjk": 21
+          },
+          {
+            "line": 377,
+            "reason": "figure_caption",
+            "cjk": 97
+          },
+          {
+            "line": 385,
+            "reason": "table_caption_or_note",
+            "cjk": 49
+          },
+          {
+            "line": 387,
+            "reason": "table_data",
+            "cjk": 26
+          },
+          {
+            "line": 388,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 389,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 390,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 391,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 392,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 393,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 394,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 395,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 396,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 397,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 398,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 399,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 400,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 402,
+            "reason": "image",
+            "cjk": 18
+          },
+          {
+            "line": 404,
+            "reason": "figure_caption",
+            "cjk": 73
+          },
+          {
+            "line": 412,
+            "reason": "table_caption_or_note",
+            "cjk": 40
+          },
+          {
+            "line": 414,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 415,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 416,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 417,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 418,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 419,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 420,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 421,
+            "reason": "table_data",
+            "cjk": 0
+          }
+        ]
+      },
+      "all_table_prefix_and_chapter_titles": {
+        "total": 10183,
+        "sections": {
+          "1 引言与相关工作": 1688,
+          "2 方程、相容性与修正构造": 2180,
+          "3 实验设计与复现方法": 2146,
+          "4 数值结果": 1516,
+          "5 讨论与局限": 1892,
+          "6 结论": 761
+        },
+        "exclusions": [
+          {
+            "line": 19,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 7
+          },
+          {
+            "line": 39,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 10
+          },
+          {
+            "line": 45,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 46,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 47,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 48,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 49,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 50,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 51,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 52,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 53,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 59,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 60,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 61,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 62,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 63,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 73,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 74,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 75,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 76,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 80,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 81,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 82,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 83,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 84,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 90,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 91,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 92,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 93,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 94,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 95,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 96,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 102,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 103,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 104,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 105,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 106,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 107,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 111,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 112,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 113,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 114,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 115,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 119,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 120,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 121,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 122,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 123,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 129,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 130,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 131,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 132,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 136,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 137,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 138,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 139,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 145,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 146,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 147,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 151,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 152,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 153,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 154,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 155,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 159,
+            "reason": "image",
+            "cjk": 8
+          },
+          {
+            "line": 161,
+            "reason": "figure_caption",
+            "cjk": 155
+          },
+          {
+            "line": 167,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 168,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 169,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 170,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 171,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 177,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 178,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 179,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 180,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 181,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 187,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 188,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 189,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 190,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 191,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 201,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 202,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 203,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 204,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 205,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 209,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 210,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 211,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 212,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 213,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 219,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 9
+          },
+          {
+            "line": 225,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 32
+          },
+          {
+            "line": 227,
+            "reason": "table_data",
+            "cjk": 8
+          },
+          {
+            "line": 228,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 229,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 230,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 252,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 253,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 254,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 255,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 256,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 257,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 258,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 259,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 260,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 261,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 262,
+            "reason": "display_math",
+            "cjk": 0
+          },
+          {
+            "line": 274,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 4
+          },
+          {
+            "line": 278,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 142
+          },
+          {
+            "line": 280,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 46
+          },
+          {
+            "line": 282,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 283,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 284,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 285,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 286,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 287,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 288,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 289,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 290,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 291,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 293,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 108
+          },
+          {
+            "line": 299,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 130
+          },
+          {
+            "line": 301,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 23
+          },
+          {
+            "line": 303,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 304,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 305,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 306,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 307,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 308,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 309,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 310,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 316,
+            "reason": "image",
+            "cjk": 24
+          },
+          {
+            "line": 318,
+            "reason": "figure_caption",
+            "cjk": 240
+          },
+          {
+            "line": 322,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 97
+          },
+          {
+            "line": 324,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 29
+          },
+          {
+            "line": 326,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 327,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 328,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 329,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 330,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 331,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 333,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 71
+          },
+          {
+            "line": 339,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 137
+          },
+          {
+            "line": 341,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 27
+          },
+          {
+            "line": 343,
+            "reason": "table_data",
+            "cjk": 21
+          },
+          {
+            "line": 344,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 345,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 346,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 347,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 348,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 349,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 350,
+            "reason": "table_data",
+            "cjk": 3
+          },
+          {
+            "line": 351,
+            "reason": "table_data",
+            "cjk": 3
+          },
+          {
+            "line": 352,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 354,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 38
+          },
+          {
+            "line": 360,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 123
+          },
+          {
+            "line": 362,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 24
+          },
+          {
+            "line": 364,
+            "reason": "table_data",
+            "cjk": 19
+          },
+          {
+            "line": 365,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 366,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 367,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 368,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 369,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 370,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 371,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 375,
+            "reason": "image",
+            "cjk": 21
+          },
+          {
+            "line": 377,
+            "reason": "figure_caption",
+            "cjk": 97
+          },
+          {
+            "line": 383,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 151
+          },
+          {
+            "line": 385,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 49
+          },
+          {
+            "line": 387,
+            "reason": "table_data",
+            "cjk": 26
+          },
+          {
+            "line": 388,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 389,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 390,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 391,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 392,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 393,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 394,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 395,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 396,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 397,
+            "reason": "table_data",
+            "cjk": 4
+          },
+          {
+            "line": 398,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 399,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 400,
+            "reason": "table_data",
+            "cjk": 2
+          },
+          {
+            "line": 402,
+            "reason": "image",
+            "cjk": 18
+          },
+          {
+            "line": 404,
+            "reason": "figure_caption",
+            "cjk": 73
+          },
+          {
+            "line": 412,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 40
+          },
+          {
+            "line": 414,
+            "reason": "table_data",
+            "cjk": 17
+          },
+          {
+            "line": 415,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 416,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 417,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 418,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 419,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 420,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 421,
+            "reason": "table_data",
+            "cjk": 0
+          },
+          {
+            "line": 429,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 5
+          },
+          {
+            "line": 463,
+            "reason": "all_table_prefix_or_chapter_title",
+            "cjk": 2
+          }
+        ]
+      }
+    }
+  },
+  "quotas": {
+    "1 引言与相关工作": {
+      "actual": 1695,
+      "target": 1800,
+      "relative_deviation": -0.05833333333333335,
+      "within_tolerance": true
+    },
+    "2 方程、相容性与修正构造": {
+      "actual": 2190,
+      "target": 2200,
+      "relative_deviation": -0.004545454545454519,
+      "within_tolerance": true
+    },
+    "3 实验设计与复现方法": {
+      "actual": 2187,
+      "target": 2000,
+      "relative_deviation": 0.09349999999999992,
+      "within_tolerance": true
+    },
+    "4 数值结果": {
+      "actual": 2755,
+      "target": 2500,
+      "relative_deviation": 0.10200000000000009,
+      "within_tolerance": true
+    },
+    "5 讨论与局限": {
+      "actual": 1897,
+      "target": 1700,
+      "relative_deviation": 0.11588235294117655,
+      "within_tolerance": true
+    },
+    "6 结论": {
+      "actual": 763,
+      "target": 800,
+      "relative_deviation": -0.04625000000000001,
+      "within_tolerance": true
+    }
+  },
+  "total_deviation": 0.04427272727272724
+}
