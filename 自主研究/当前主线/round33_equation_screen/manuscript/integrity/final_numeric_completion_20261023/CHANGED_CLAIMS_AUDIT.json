@@ -1,0 +1,132 @@
+{
+  "created": "2026-10-23T09:17:03.931308+08:00",
+  "draft_sha256": "741b88925f6248050c9de3f5fa590f2abf8a8496f4194dd6c35990038a3343ce",
+  "records": [
+    {
+      "id": "D01",
+      "line": 272,
+      "text": "产物核验保留结果、权重与配置的对应关系。历史176项已有130＋24＋22份保存模型复算记录，绑定398文件，部分原始生产日志仍不完备。第二阶段三十项全部通过完整产物、预算、参考加密及残差复算，新增90文件，共206份独立运行记录。初稿汇总只读重聚合结果JSON；随后另行重载全部206项，完成两套求积及已有52项独立点残差的实际复算。工程恢复、历史执行范围及本次记录见附录D。E4缺少历史表面网络权重，表面变量不作为可重建定量证据。当前数值一致性与全历史生产链完整性据此分别判断。[E03,E05,E09,E12,E13,E15,E18]",
+      "verdict": "VERIFIED",
+      "detail": "Current 206/52 scope and chronology: full fresh reload followed prior JSON-only aggregation; historical 176=130+24+22 and 398+90=488 remain verified. Current scripts do not rerun training or supply E4 surface weights.",
+      "verification_sources": [
+        "ACTUAL_RUN_INDEPENDENT_AUDIT.json",
+        "../final_revised1/SUPPLEMENT_AUDIT.json"
+      ]
+    },
+    {
+      "id": "D02",
+      "line": 503,
+      "text": "题录与阅读版本的对应关系见 [本稿引用上下文表](../process/delivery_candidate2a/citation_contexts.md)。Favini等仅用于其出版社摘要可支持的经典研究背景，不引述未读证明；部分期刊条目的核心方法核验采用可访问作者稿。RBA期刊题录的发表年为2024，本次所读缓存为arXiv:2307.00379v2，修订日期2026-08-22，并另核对2023年的v1核心公式与Algorithm 1；两版范围差异及本地实现见附录C。SOAP明确引用八作者的arXiv第2版，不将其题名和作者与ICLR终稿混合。",
+      "verdict": "VERIFIED",
+      "detail": "Only the local citation-context link changes; 13 external references and 18 citation occurrences remain byte-identical and retain their fresh source/context audit. New linked file must match the frozen package.",
+      "verification_sources": [
+        "../final_revised1/REFERENCE_AND_CONTEXT_AUDIT.json",
+        "PROCESS_AND_LINK_CHECK.json"
+      ]
+    },
+    {
+      "id": "D03",
+      "line": 517,
+      "text": "| E12 | 历史保存模型复算与日志边界 | `../integrity/working_20261023/HISTORICAL_EXECUTION_SCOPE.md`及`historical_execution_scope.json` | 130＋24＋22项保存复算及398产物当前哈希绑定；该次补查未重放176模型，不证明全历史零警告 |",
+      "verdict": "VERIFIED",
+      "detail": "Temporal wording correctly attributes the 398-file hash-only historical check to its earlier review, not the new reloading run.",
+      "verification_sources": [
+        "../working_20261023/historical_execution_scope.json",
+        "../final_revised1/SUPPLEMENT_AUDIT.json"
+      ]
+    },
+    {
+      "id": "D04",
+      "line": 523,
+      "text": "| E18 | 2026-10-23保存权重的实际数值复算 | [正式报告](../../validation/final_numeric_provenance_20261023/FINAL_NUMERIC_REPORT.md)、[逐值汇总](../../validation/final_numeric_provenance_20261023/FINAL_NUMERIC_REPORT.json)及[完整清单](../../validation/final_numeric_provenance_20261023/FINAL_DELIVERY_SHA256.json) | 206项体/迹、52项已有残差及本次真实命令、环境、源/输入哈希、输出、退出与警告；不恢复旧训练日志，不补缺失表面权重 |",
+      "verdict": "VERIFIED",
+      "detail": "E18 links the actual 206 body/trace plus 52 heldout execution archive and its verified 2300-file manifest; no old training logs reconstructed.",
+      "verification_sources": [
+        "FINAL_NUMERIC_MANIFEST_CHECK.json",
+        "ACTUAL_RUN_INDEPENDENT_AUDIT.json"
+      ]
+    },
+    {
+      "id": "D05",
+      "line": 525,
+      "text": "原始训练结果仍位于研究根目录的`runs`，本稿只读使用。新旧表格单元可以回指到相应原始JSON，数字映射保存在E14。全部206份JSON的当前哈希与正式清单匹配；初稿的只读重聚合与随后E18所列保存权重复算分别留档，二者均不重做训练。既有数学和文献核验、历史工作稿及两版复现时点材料保留原件，完成稿另存。",
+      "verdict": "VERIFIED",
+      "detail": "206 raw JSON hashes match; first aggregation and subsequent numerical reloading are separately archived and neither is training. Original reports, evidence and tables preserved.",
+      "verification_sources": [
+        "FIRST_AUDIT_PRESERVATION.json",
+        "ACTUAL_RUN_INDEPENDENT_AUDIT.json",
+        "FINAL_CANDIDATE_BINDING.json"
+      ]
+    },
+    {
+      "id": "D06",
+      "line": 622,
+      "text": "历史复算来源分别为130项既有模型审查、24项小预算模型复核及22项第一阶段新增模型复核，包含原设置和加密设置的体、迹误差记录。先前独立补查对398个结果与权重文件核对当时哈希，而未重新运行176个模型。部分历史生产进程的逐次退出码和完整警告信息未留存，两个已保存测试日志分别记录63项与71项测试通过、各有1条张量转标量的测试断言警告，不能改称全历史零警告。旧130项的训练源码哈希与当前源码不同，也不能倒称全部历史运行均由当前代码完成。E4中20项历史模型缺少表面权重，仍只支持体与迹。上述范围和逐结果映射见E12所指补充审查。[E12]",
+      "verdict": "VERIFIED",
+      "detail": "Earlier 130+24+22/398 records, missing historical exits, two 63/71 test logs with one warning each, old source hash differences and 20 missing E4 surface branches remain factual and explicitly limited.",
+      "verification_sources": [
+        "../final_revised1/SUPPLEMENT_AUDIT.json",
+        "../final_revised1/SOURCE_VERSION_AUDIT.json",
+        "ACTUAL_RUN_INDEPENDENT_AUDIT.json"
+      ]
+    },
+    {
+      "id": "D07",
+      "line": 624,
+      "text": "第二阶段三个tag分别为`sensitivity_tau003_v1`、`sensitivity_tau03_v1`与`final_soap64_v1`，对应6、6与18项。全部三十项完成并通过完整模型重载、预算与身份、N64/GL200和N96/GL400、四类独立残差的既定验收。初稿阶段的正式分析仅聚合保存的复算报告，作者进一步重聚合原始JSON，彼时没有再次重载模型、训练或积分参考解。完整输出为[全部新增30项](E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/validation/stage6_analysis_20261022/complete_v2/all_new_runs.csv)、[默认六臂36行](E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/validation/stage6_analysis_20261022/complete_v2/default_six_arms.csv)及[τ三档18行](E:/PINN-PDE/自主研究/当前主线/round33_equation_screen/validation/stage6_analysis_20261022/complete_v2/tau_sensitivity.csv)。CSV保留五时刻体/迹序列、四分量残差的RMS与max_abs、损失、实际L-BFGS计数、环境、逐次尝试时间及来源哈希。两张比较表共享六个历史默认记录，合计48个独立分析记录，不能按54行推算训练次数。[E13]",
+      "verdict": "VERIFIED",
+      "detail": "Only chronology changes: previous stage6 analysis aggregated saved reports; new reloading is E18. Three CSVs, 30 new/36 default/18 tau rows with six shared defaults and 48 unique analysis records remain hash-bound and independently checked.",
+      "verification_sources": [
+        "../final_revised1/SUPPLEMENT_AUDIT.json",
+        "FIRST_AUDIT_PRESERVATION.json"
+      ]
+    },
+    {
+      "id": "D08",
+      "line": 630,
+      "text": "2026-10-23另行完成保存权重的实际数值复算：全部206项在N64/GL200与N96/GL400、五个既定时刻共比较4120个体/迹误差值，保持rtol=10⁻⁵、atol=10⁻⁹，全部在容差内。两套设置对原记录的最大绝对差分别为体1.732×10⁻¹²、迹2.828×10⁻¹²及体1.846×10⁻¹¹、迹4.749×10⁻¹¹。12个方程、参数或初值配置的参考解均新计算N48、N64与N96；N48/N96在401点及五时刻的自检最大绝对差为3.292×10⁻¹⁰，低于原10⁻⁸阈值。[E18]",
+      "verdict": "VERIFIED",
+      "detail": "Independent recalculation from all model/reference NPZ arrays verifies 206*2*5*2=4120 comparisons at unchanged rtol1e-5/atol1e-9. Maxima round correctly. Twelve keys are problem/parameter/initial-condition configurations, not twelve distinct PDE classes; 12*401*5 reference self-checks meet1e-8.",
+      "verification_sources": [
+        "ACTUAL_RUN_INDEPENDENT_AUDIT.json",
+        "RESOLVED_SCOPE_WORDING.json"
+      ]
+    },
+    {
+      "id": "D09",
+      "line": 632,
+      "text": "同次补核覆盖全部已有52项独立检验点残差记录，即第一阶段4项PirateNet、18项新初值及第二阶段30项。按第3.4节原抽样顺序与点数，重新计算体、左端、右动态边界和初值的RMS与max_abs，共416项，与原记录逐值差均为零。12个参考解、206个体/迹及52个残差子进程，以及两批父进程的真实退出码均为0；本次警告数为0，stderr为空。488个原始JSON/PT及已审源文件哈希保持一致，训练更新数为0。两批核验分别耗时351.939秒与89.846秒，仅表示验证成本。[E18]",
+      "verdict": "VERIFIED",
+      "detail": "Original reports define 4+18+30=52 unique heldout models and 52*4*2=416 scalar aggregates; independently reconstructed RNG arrays exactly match saved evaluation points; all RMS/max_abs differences are zero. 270 child and two supervisor actual exits0, warnings0, empty stderr; all488 original files and reviewed code unchanged. Times351.9388094/89.8463016 round as shown and refer to validation batch computation.",
+      "verification_sources": [
+        "ACTUAL_RUN_INDEPENDENT_AUDIT.json",
+        "../../../validation/final_numeric_provenance_20261023/heldout_plan.json"
+      ]
+    },
+    {
+      "id": "D10",
+      "line": 634,
+      "text": "本次严格重载覆盖110项旧完整模型、20项旧E4体分支及76项完整产物；缺失的旧E4表面分支明确移除，仍不支持v(t)和表面/交换残差，52项残差复核也不含这些模型。模型前向与参考解调用冻结的项目实现，另写检查器执行严格重载、求积、残差自动微分聚合及逐值比较；因此不是另一套独立PDE求解算法的交叉验证。新进程的命令、环境、源/输入身份、数组、实际退出及警告构成本次证据，不能倒填旧训练退出码、警告、完整源依赖与轨迹。原损失、调用、迭代和训练成本仍按保存字段解释，科学判据及原数值表不变。[E18]",
+      "verdict": "VERIFIED",
+      "detail": "Actual strict reload statuses count110 legacy complete,20 legacy bulk-only,76 complete; E4 missing surf is deleted and excluded,52 heldout models contain no E4. Frozen model/reference code is reused with independently reviewed new checking/aggregation, not a separate solver. No historical training process evidence is reconstructed.",
+      "verification_sources": [
+        "ACTUAL_RUN_INDEPENDENT_AUDIT.json",
+        "RELOAD_STATUS_COUNTS.json",
+        "../final_numeric_source_review_20261023/SOURCE_REVIEW_CN.md",
+        "../final_numeric_source_review_20261023/HELDOUT_SOURCE_REVIEW_CN.md"
+      ]
+    },
+    {
+      "id": "D11",
+      "line": 682,
+      "text": "小预算筛选未满足原三倍条件；完整预算是在已见筛选失败后按E4_PROTOCOL修订1追加的探索，不追改原判定。完整预算修正组对hardic/RBA较好者满足探索条件，但表E1的vanilla比值低于一，限制其额外收益主张。20份历史E4权重均缺表面分支；表E1仅列体与迹证据，首轮修订仅重聚合JSON；随后E18已重载其保存体分支，仍未将旧v(t)数字补成可复现表面结果。早时间的实际解渐近结构及余项正则性仍未由这些五时刻误差证明。[E09,E12,E17,E18]",
+      "verdict": "VERIFIED",
+      "detail": "Original E4 failure criterion and adverse vanilla ratio remain unchanged; fresh E18 loads the20 saved bulk branches only and does not validate absent v(t) or early-time full-solution asymptotics.",
+      "verification_sources": [
+        "ACTUAL_RUN_INDEPENDENT_AUDIT.json",
+        "../final_revised1/NUMERICAL_AUDIT.json",
+        "FINAL_CANDIDATE_BINDING.json"
+      ]
+    }
+  ]
+}

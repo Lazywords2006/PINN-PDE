@@ -1,0 +1,1538 @@
+{
+  "created": "2026-10-23T09:18:26.823474+08:00",
+  "draft_sha256": "741b88925f6248050c9de3f5fa590f2abf8a8496f4194dd6c35990038a3343ce",
+  "checks": [
+    {
+      "label": "2a_exact_draft",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "retained_prior_source_or_figure:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\delivery_candidate.md",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "retained_prior_source_or_figure:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\SCREEN_PROTOCOL.md",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "retained_prior_source_or_figure:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\E4_PROTOCOL.md",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "retained_prior_source_or_figure:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\pinn1d.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "retained_prior_source_or_figure:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\problems.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "retained_prior_source_or_figure:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage5_support.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "retained_prior_source_or_figure:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\soap_baseline.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "retained_prior_source_or_figure:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\third_party\\soap_official.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "retained_prior_source_or_figure:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\plot_analytic_layer.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "retained_prior_source_or_figure:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\plot_historical_comparison.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "retained_prior_source_or_figure:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\plot_stage6.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "retained_prior_source_or_figure:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\analyze_stage6.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "current_figure:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\analytic_layer.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "current_figure:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\history_v2\\historical_comparison.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "current_figure:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2\\tau_sensitivity.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "current_figure:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2\\default_six_arms.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "manifest_identity:DELIVERY_BINDING_INDEX.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\delivery_candidate2a.md",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\bind_and_freeze_candidate2a.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\build_candidate2a.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\candidate2a_checks.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\change_map.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\citation_contexts.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\citation_contexts.md",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\delivery_candidate2_to_candidate2a.diff",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\figure_retention_checks.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\final_binding_checks.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\numeric_evidence_checks.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\prior_25_items_location_bridge.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\protected_after.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\protected_before.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\RESPONSES_TO_FINAL_PROVENANCE.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\RESPONSES_TO_FINAL_PROVENANCE_CN.md",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\source_checks.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\word_counts.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\WORD_COUNTS_CN.md",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\FROZEN_CANDIDATE2A_MANIFEST.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\CURRENT_RESPONSE_CN.md",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "manifest_identity:FROZEN_CANDIDATE2A_MANIFEST.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\delivery_candidate2a.md",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\bind_and_freeze_candidate2a.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\build_candidate2a.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\candidate2a_checks.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\change_map.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\citation_contexts.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\citation_contexts.md",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\delivery_candidate2_to_candidate2a.diff",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\figure_retention_checks.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\final_binding_checks.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\numeric_evidence_checks.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\prior_25_items_location_bridge.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\protected_after.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\protected_before.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\RESPONSES_TO_FINAL_PROVENANCE.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\RESPONSES_TO_FINAL_PROVENANCE_CN.md",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\source_checks.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\word_counts.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bound:E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\WORD_COUNTS_CN.md",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "citation_draft_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "bibliography_13_unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "18_external_occurrences",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "citation_context:21:[1]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "citation_context:23:[2]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "citation_context:23:[3]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "citation_context:25:[4]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "citation_context:29:[5]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "citation_context:29:[6]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "citation_context:31:[7]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "citation_context:31:[8]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "citation_context:33:[9]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "citation_context:33:[10]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "citation_context:33:[11]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "citation_context:33:[12]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "citation_context:98:[13]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "citation_context:242:[9]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "citation_context:242:[10]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "citation_context:244:[11]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "citation_context:246:[12]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "citation_context:609:[9]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "all_18_contexts_mapped",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:21",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:25",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:27",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:33",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:35",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:37",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:55",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:65",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:67",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:86",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:98",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:125",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:141",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:157",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:161",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:173",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:183",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:193",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:195",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:215",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:217",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:223",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:225",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:232",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:234",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:238",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:240",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:242",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:244",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:246",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:264",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:268",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:270",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:272",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:278",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:280",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:293",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:295",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:299",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:301",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:312",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:314",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:318",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:322",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:324",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:335",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:339",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:341",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:354",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:356",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:360",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:362",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:373",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:377",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:379",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:383",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:385",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:404",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:406",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:408",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:412",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:423",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:425",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:427",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:433",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:435",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:439",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:441",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:443",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:447",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:449",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:451",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:453",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:457",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:459",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:461",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:465",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:467",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:469",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:471",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:473",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:529",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:551",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:553",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:567",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:569",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:573",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:595",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:605",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:609",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:618",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:622",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:624",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:626",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:628",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:630",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:632",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:634",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:669",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:680",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:682",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:686",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "data_context:688",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "local_link:159:Q(y,t)",
+      "passed": true,
+      "detail": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\analytic_layer.png"
+    },
+    {
+      "label": "local_link:316:原初值与固定新初值的全部报告种子",
+      "passed": true,
+      "detail": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\history_v2\\historical_comparison.png"
+    },
+    {
+      "label": "local_link:375:三个预定衰减档位的全部种子",
+      "passed": true,
+      "detail": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2\\tau_sensitivity.png"
+    },
+    {
+      "label": "local_link:402:默认六臂完整种子比较",
+      "passed": true,
+      "detail": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2\\default_six_arms.png"
+    },
+    {
+      "label": "local_link:503:本稿引用上下文表",
+      "passed": true,
+      "detail": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\citation_contexts.md"
+    },
+    {
+      "label": "local_link:523:正式报告",
+      "passed": true,
+      "detail": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\FINAL_NUMERIC_REPORT.md"
+    },
+    {
+      "label": "local_link:523:逐值汇总",
+      "passed": true,
+      "detail": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\FINAL_NUMERIC_REPORT.json"
+    },
+    {
+      "label": "local_link:523:完整清单",
+      "passed": true,
+      "detail": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\FINAL_DELIVERY_SHA256.json"
+    },
+    {
+      "label": "local_link:624:全部新增30项",
+      "passed": true,
+      "detail": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2\\all_new_runs.csv"
+    },
+    {
+      "label": "local_link:624:默认六臂36行",
+      "passed": true,
+      "detail": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2\\default_six_arms.csv"
+    },
+    {
+      "label": "local_link:624:τ三档18行",
+      "passed": true,
+      "detail": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2\\tau_sensitivity.csv"
+    },
+    {
+      "label": "25_prior_items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_independent_report_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:M1:173",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:M1:270",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:M1:544",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:M2:223",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:M2:354",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:M3:551",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DR1:223",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DR1:354",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DR2:441",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DR2:636",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DR2:652",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DR2:671",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DR2:680",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DR2:682",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DR3:551",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DR3:335",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DR3:408",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DR3:686",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DR3:688",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DR3:514",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DR3:680",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DA-m1:354",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DA-m1:441",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DA-m1:636",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DA-m1:652",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DA-m1:671",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DA-m2:333",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DA-m2:322",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DA-m3:185",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DA-m3:173",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DA-m3:544",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DA-m3:553",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:EIC-M1:551",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:EIC-M1:335",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:EIC-M1:408",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:EIC-M1:686",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:EIC-M1:688",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:EIC-M2:223",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:EIC-M2:354",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-1:354",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-1:173",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-1:185",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-1:544",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-1:553",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-2:441",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-2:636",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-2:652",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-2:671",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-2:680",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-2:682",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-3:272",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-3:410",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-3:620",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-3:628",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-3:file_hash",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:M-建议1:441",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:M-建议1:636",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:M-建议1:671",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:M-建议1:514",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:M-建议2:272",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:M-建议2:410",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:M-建议2:620",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:M-建议2:453",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:DR-建议1:354",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:EIC-建议1:272",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:EIC-建议1:410",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:EIC-建议1:620",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:EIC-建议1:453",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:EIC-建议2:544",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:EIC-建议2:553",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-建议1:457",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-建议2:457",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-建议3:535",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-建议3:333",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-建议3:624",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-建议3:628",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-建议3:453",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-建议4:37",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-建议4:185",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-建议5:272",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-建议5:431",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-建议5:620",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-建议6:453",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "prior_location:R3-建议6:459",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "84_prior_anchors",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "body_count",
+      "passed": true,
+      "detail": {
+        "1 引言与相关工作": 1695,
+        "2 方程、相容性与修正构造": 2190,
+        "3 实验设计与复现方法": 2210,
+        "4 数值结果": 2755,
+        "5 讨论与局限": 1897,
+        "6 结论": 763
+      }
+    },
+    {
+      "label": "section_count:1 引言与相关工作",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "section_count:2 方程、相容性与修正构造",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "section_count:3 实验设计与复现方法",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "section_count:4 数值结果",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "section_count:5 讨论与局限",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "section_count:6 结论",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "check_count": 289,
+  "failures": [],
+  "local_links": [
+    {
+      "line": 159,
+      "label": "Q(y,t)",
+      "target": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\analytic_layer.png",
+      "exists": true
+    },
+    {
+      "line": 316,
+      "label": "原初值与固定新初值的全部报告种子",
+      "target": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\history_v2\\historical_comparison.png",
+      "exists": true
+    },
+    {
+      "line": 375,
+      "label": "三个预定衰减档位的全部种子",
+      "target": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2\\tau_sensitivity.png",
+      "exists": true
+    },
+    {
+      "line": 402,
+      "label": "默认六臂完整种子比较",
+      "target": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2\\default_six_arms.png",
+      "exists": true
+    },
+    {
+      "line": 503,
+      "label": "本稿引用上下文表",
+      "target": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\citation_contexts.md",
+      "exists": true
+    },
+    {
+      "line": 523,
+      "label": "正式报告",
+      "target": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\FINAL_NUMERIC_REPORT.md",
+      "exists": true
+    },
+    {
+      "line": 523,
+      "label": "逐值汇总",
+      "target": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\FINAL_NUMERIC_REPORT.json",
+      "exists": true
+    },
+    {
+      "line": 523,
+      "label": "完整清单",
+      "target": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\FINAL_DELIVERY_SHA256.json",
+      "exists": true
+    },
+    {
+      "line": 624,
+      "label": "全部新增30项",
+      "target": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2\\all_new_runs.csv",
+      "exists": true
+    },
+    {
+      "line": 624,
+      "label": "默认六臂36行",
+      "target": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2\\default_six_arms.csv",
+      "exists": true
+    },
+    {
+      "line": 624,
+      "label": "τ三档18行",
+      "target": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\complete_v2\\tau_sensitivity.csv",
+      "exists": true
+    }
+  ],
+  "prior_anchor_count": 84,
+  "body_counts": {
+    "1 引言与相关工作": 1695,
+    "2 方程、相容性与修正构造": 2190,
+    "3 实验设计与复现方法": 2210,
+    "4 数值结果": 2755,
+    "5 讨论与局限": 1897,
+    "6 结论": 763
+  },
+  "scope": "Hashes, local links, exact retained citation contexts and response-anchor placement; historical re-review is not presented as current final approval."
+}

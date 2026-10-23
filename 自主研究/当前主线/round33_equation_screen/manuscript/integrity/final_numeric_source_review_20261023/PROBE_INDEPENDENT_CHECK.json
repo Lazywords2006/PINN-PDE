@@ -1,0 +1,3500 @@
+{
+  "created": "2026-10-23T08:52:09.495470+08:00",
+  "checker_sha256": "7cbe64b660606ca66bf63af28f6fc71c4072106a687c8a85a56b3fb7c37b9611",
+  "plan_sha256": "c3ab15b47313c62f5b50aafff2df1e698e4aff5c8a905bc7654485dabbaf8d5b",
+  "probe_summary_sha256": "feef1c7e7a5601c5707d4c65bfff985f85c2f76e2fd447d31e69f526e94c0835",
+  "checks": [
+    {
+      "label": "reviewed_checker_hash",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "frozen_source:recompute_saved_models.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "frozen_source:frozen_source/pinn1d.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "frozen_source:frozen_source/problems.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "frozen_source:frozen_source/run_artifacts.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "frozen_source:frozen_source/screen.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "frozen_source:frozen_source/stage5_support.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "frozen_source:frozen_source/SCREEN_PROTOCOL.md",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.03/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.03/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.03/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.03/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.03/hardic_layer_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.03/hardic_layer_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.03/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.03/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.03/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.03/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.03/hardic_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.03/hardic_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.1/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.1/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.1/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.1/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.1/hardic_layer_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.1/hardic_layer_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.1/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.1/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.1/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.1/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.1/hardic_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c0.1/hardic_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c1/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c1/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c1/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c1/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c1/hardic_layer_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c1/hardic_layer_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c1/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c1/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c1/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c1/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c1/hardic_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c1/hardic_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c3/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c3/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c3/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c3/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c3/hardic_layer_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c3/hardic_layer_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c3/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c3/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c3/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c3/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c3/hardic_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E1_c3/hardic_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k0.1/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k0.1/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k0.1/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k0.1/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k0.1/hardic_layer_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k0.1/hardic_layer_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k0.1/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k0.1/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k0.1/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k0.1/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k0.1/hardic_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k0.1/hardic_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k3/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k3/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k3/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k3/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k3/hardic_layer_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k3/hardic_layer_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k3/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k3/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k3/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k3/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k3/hardic_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/axis/E3_k3/hardic_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal1/E1_heat/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal1/E1_heat/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal1/E1_heat/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal1/E1_heat/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal1/E1_heat/hardic_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal1/E1_heat/hardic_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal1/E3_fisher/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal1/E3_fisher/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal1/E3_fisher/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal1/E3_fisher/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal1/E3_fisher/hardic_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal1/E3_fisher/hardic_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal10/E1_heat/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal10/E1_heat/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal10/E1_heat/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal10/E1_heat/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal10/E1_heat/hardic_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal10/E1_heat/hardic_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal10/E3_fisher/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal10/E3_fisher/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal10/E3_fisher/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal10/E3_fisher/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal10/E3_fisher/hardic_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/causal10/E3_fisher/hardic_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/hardic_layer_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/hardic_layer_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/hardic_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/hardic_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/rba_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/rba_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/rba_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/rba_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/rba_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/rba_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/vanilla_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/vanilla_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/vanilla_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/vanilla_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/vanilla_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E1_heat/vanilla_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/hardic_layer_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/hardic_layer_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/hardic_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/hardic_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/rba_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/rba_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/rba_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/rba_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/rba_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/rba_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/vanilla_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/vanilla_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/vanilla_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/vanilla_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/vanilla_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/confirm/E3_fisher/vanilla_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/hardic_layer_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/hardic_layer_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/hardic_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/hardic_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/rba_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/rba_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/rba_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/rba_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/rba_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/rba_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/vanilla_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/vanilla_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/vanilla_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/vanilla_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/vanilla_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4confirm/E4_bulk_surface/vanilla_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4screen/E4_bulk_surface/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4screen/E4_bulk_surface/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4screen/E4_bulk_surface/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4screen/E4_bulk_surface/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4screen/E4_bulk_surface/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4screen/E4_bulk_surface/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4screen/E4_bulk_surface/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4screen/E4_bulk_surface/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4screen/E4_bulk_surface/rba_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4screen/E4_bulk_surface/rba_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4screen/E4_bulk_surface/rba_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4screen/E4_bulk_surface/rba_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4screen/E4_bulk_surface/vanilla_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4screen/E4_bulk_surface/vanilla_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4screen/E4_bulk_surface/vanilla_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/e4screen/E4_bulk_surface/vanilla_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/hardic_layer_s0.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/hardic_layer_s1.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/hardic_layer_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/hardic_layer_s2.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/hardic_layer_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/hardic_s0.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/hardic_s1.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/hardic_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/hardic_s2.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/hardic_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/vanilla_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/vanilla_s0.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/vanilla_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/vanilla_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/vanilla_s1.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/vanilla_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/vanilla_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/vanilla_s2.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E1_heat_cos/vanilla_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/hardic_layer_s0.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/hardic_layer_s1.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/hardic_layer_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/hardic_layer_s2.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/hardic_layer_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/hardic_s0.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/hardic_s1.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/hardic_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/hardic_s2.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/hardic_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/vanilla_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/vanilla_s0.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/vanilla_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/vanilla_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/vanilla_s1.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/vanilla_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/vanilla_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/vanilla_s2.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_ic_v1/E3_fisher_cos/vanilla_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/hardic_layer_s0.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/hardic_layer_s1.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/hardic_layer_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/hardic_layer_s2.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/hardic_layer_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/hardic_s0.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/hardic_s1.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/hardic_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/hardic_s2.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/hardic_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/vanilla_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/vanilla_s0.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/vanilla_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/vanilla_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/vanilla_s1.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/vanilla_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/vanilla_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/vanilla_s2.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E1_heat/vanilla_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/hardic_layer_s0.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/hardic_layer_s1.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/hardic_layer_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/hardic_layer_s2.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/hardic_layer_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/hardic_s0.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/hardic_s1.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/hardic_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/hardic_s2.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/hardic_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/vanilla_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/vanilla_s0.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/vanilla_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/vanilla_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/vanilla_s1.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/vanilla_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/vanilla_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/vanilla_s2.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/final_soap64_v1/E3_fisher/vanilla_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E1_heat/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E1_heat/hardic_layer_s0.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E1_heat/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E1_heat/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E1_heat/hardic_layer_s1.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E1_heat/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E1_heat/hardic_layer_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E1_heat/hardic_layer_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E1_heat/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E1_heat/hardic_s0.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E1_heat/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E1_heat/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E1_heat/hardic_s1.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E1_heat/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E1_heat/hardic_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E1_heat/hardic_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E3_fisher/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E3_fisher/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E3_fisher/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E3_fisher/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E3_fisher/hardic_layer_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E3_fisher/hardic_layer_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E3_fisher/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E3_fisher/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E3_fisher/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E3_fisher/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E3_fisher/hardic_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/pirate/E3_fisher/hardic_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E1_heat/hardic_layer_s100.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E1_heat/hardic_layer_s100.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E1_heat/hardic_layer_s100.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E1_heat/hardic_layer_s101.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E1_heat/hardic_layer_s101.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E1_heat/hardic_layer_s101.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E1_heat/hardic_s100.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E1_heat/hardic_s100.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E1_heat/hardic_s100.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E1_heat/hardic_s101.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E1_heat/hardic_s101.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E1_heat/hardic_s101.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E1_heat/vanilla_s100.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E1_heat/vanilla_s100.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E1_heat/vanilla_s100.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E1_heat/vanilla_s101.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E1_heat/vanilla_s101.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E1_heat/vanilla_s101.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E3_fisher/hardic_layer_s100.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E3_fisher/hardic_layer_s100.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E3_fisher/hardic_layer_s100.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E3_fisher/hardic_layer_s101.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E3_fisher/hardic_layer_s101.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E3_fisher/hardic_layer_s101.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E3_fisher/hardic_s100.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E3_fisher/hardic_s100.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E3_fisher/hardic_s100.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E3_fisher/hardic_s101.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E3_fisher/hardic_s101.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E3_fisher/hardic_s101.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E3_fisher/vanilla_s100.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E3_fisher/vanilla_s100.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E3_fisher/vanilla_s100.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E3_fisher/vanilla_s101.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E3_fisher/vanilla_s101.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_adam/E3_fisher/vanilla_s101.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E1_heat/hardic_layer_s100.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E1_heat/hardic_layer_s100.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E1_heat/hardic_layer_s100.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E1_heat/hardic_layer_s101.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E1_heat/hardic_layer_s101.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E1_heat/hardic_layer_s101.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E1_heat/hardic_s100.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E1_heat/hardic_s100.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E1_heat/hardic_s100.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E1_heat/hardic_s101.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E1_heat/hardic_s101.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E1_heat/hardic_s101.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E1_heat/vanilla_s100.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E1_heat/vanilla_s100.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E1_heat/vanilla_s100.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E1_heat/vanilla_s101.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E1_heat/vanilla_s101.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E1_heat/vanilla_s101.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E3_fisher/hardic_layer_s100.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E3_fisher/hardic_layer_s100.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E3_fisher/hardic_layer_s100.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E3_fisher/hardic_layer_s101.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E3_fisher/hardic_layer_s101.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E3_fisher/hardic_layer_s101.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E3_fisher/hardic_s100.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E3_fisher/hardic_s100.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E3_fisher/hardic_s100.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E3_fisher/hardic_s101.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E3_fisher/hardic_s101.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E3_fisher/hardic_s101.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E3_fisher/vanilla_s100.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E3_fisher/vanilla_s100.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E3_fisher/vanilla_s100.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E3_fisher/vanilla_s101.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E3_fisher/vanilla_s101.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/preflight4_soap64/E3_fisher/vanilla_s101.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E1_heat/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E1_heat/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E1_heat/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E1_heat/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E1_heat/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E1_heat/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E1_heat/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E1_heat/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E1_heat/layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E1_heat/layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E1_heat/layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E1_heat/layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E1_heat/rba_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E1_heat/rba_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E1_heat/rba_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E1_heat/rba_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E1_heat/vanilla_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E1_heat/vanilla_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E1_heat/vanilla_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E1_heat/vanilla_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E2_allen_cahn/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E2_allen_cahn/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E2_allen_cahn/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E2_allen_cahn/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E2_allen_cahn/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E2_allen_cahn/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E2_allen_cahn/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E2_allen_cahn/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E2_allen_cahn/layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E2_allen_cahn/layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E2_allen_cahn/layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E2_allen_cahn/layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E2_allen_cahn/rba_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E2_allen_cahn/rba_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E2_allen_cahn/rba_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E2_allen_cahn/rba_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E2_allen_cahn/vanilla_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E2_allen_cahn/vanilla_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E2_allen_cahn/vanilla_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E2_allen_cahn/vanilla_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E3_fisher/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E3_fisher/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E3_fisher/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E3_fisher/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E3_fisher/hardic_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E3_fisher/hardic_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E3_fisher/hardic_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E3_fisher/hardic_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E3_fisher/layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E3_fisher/layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E3_fisher/layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E3_fisher/layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E3_fisher/rba_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E3_fisher/rba_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E3_fisher/rba_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E3_fisher/rba_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E3_fisher/vanilla_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E3_fisher/vanilla_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E3_fisher/vanilla_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/screen/E3_fisher/vanilla_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s0.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s1.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s2.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau003_v1/E1_heat/hardic_layer_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s0.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s1.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s2.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau003_v1/E3_fisher/hardic_layer_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s0.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s1.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s2.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau03_v1/E1_heat/hardic_layer_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s0.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s0.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s0.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s1.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s1.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s2.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s2.model.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "raw_input:runs/sensitivity_tau03_v1/E3_fisher/hardic_layer_s2.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:batch_invocation.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:input_manifest_after.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:input_manifest_before.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_084/arrays.npz",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_084/execution.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_084/imported_files.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_084/invocation.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_084/result.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_084/stderr.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_084/stdout.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_084/worker_status.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_119/arrays.npz",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_119/execution.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_119/imported_files.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_119/invocation.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_119/result.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_119/stderr.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_119/stdout.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_119/worker_status.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_128/arrays.npz",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_128/execution.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_128/imported_files.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_128/invocation.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_128/result.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_128/stderr.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_128/stdout.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_128/worker_status.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_133/arrays.npz",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_133/execution.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_133/imported_files.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_133/invocation.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_133/result.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_133/stderr.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_133/stdout.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_133/worker_status.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_166/arrays.npz",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_166/execution.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_166/imported_files.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_166/invocation.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_166/result.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_166/stderr.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_166/stdout.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_166/worker_status.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_172/arrays.npz",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_172/execution.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_172/imported_files.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_172/invocation.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_172/result.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_172/stderr.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_172/stdout.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_172/worker_status.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_180/arrays.npz",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_180/execution.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_180/imported_files.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_180/invocation.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_180/result.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_180/stderr.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_180/stdout.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_180/worker_status.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_188/arrays.npz",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_188/execution.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_188/imported_files.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_188/invocation.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_188/result.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_188/stderr.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_188/stdout.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:models/job_188/worker_status.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E1_heat/arrays.npz",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E1_heat/execution.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E1_heat/imported_files.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E1_heat/invocation.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E1_heat/result.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E1_heat/stderr.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E1_heat/stdout.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E1_heat/worker_status.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E2_allen_cahn/arrays.npz",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E2_allen_cahn/execution.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E2_allen_cahn/imported_files.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E2_allen_cahn/invocation.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E2_allen_cahn/result.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E2_allen_cahn/stderr.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E2_allen_cahn/stdout.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E2_allen_cahn/worker_status.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E3_fisher/arrays.npz",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E3_fisher/execution.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E3_fisher/imported_files.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E3_fisher/invocation.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E3_fisher/result.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E3_fisher/stderr.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E3_fisher/stdout.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E3_fisher/worker_status.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E4_bulk_surface/arrays.npz",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E4_bulk_surface/execution.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E4_bulk_surface/imported_files.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E4_bulk_surface/invocation.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E4_bulk_surface/result.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E4_bulk_surface/stderr.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E4_bulk_surface/stdout.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:references/E4_bulk_surface/worker_status.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "probe_file:summary.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "manifest_unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "real_returncode:E1_heat",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "warnings:E1_heat",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "worker_completed_stdout:E1_heat",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "module_import_hash:E1_heat",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "real_returncode:E2_allen_cahn",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "warnings:E2_allen_cahn",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "worker_completed_stdout:E2_allen_cahn",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "module_import_hash:E2_allen_cahn",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "real_returncode:E3_fisher",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "warnings:E3_fisher",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "worker_completed_stdout:E3_fisher",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "module_import_hash:E3_fisher",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "real_returncode:E4_bulk_surface",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "warnings:E4_bulk_surface",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "worker_completed_stdout:E4_bulk_surface",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "module_import_hash:E4_bulk_surface",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "real_returncode:job_084",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "warnings:job_084",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "worker_completed_stdout:job_084",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "module_import_hash:job_084",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "real_returncode:job_119",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "warnings:job_119",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "worker_completed_stdout:job_119",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "module_import_hash:job_119",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "real_returncode:job_128",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "warnings:job_128",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "worker_completed_stdout:job_128",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "module_import_hash:job_128",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "real_returncode:job_133",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "warnings:job_133",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "worker_completed_stdout:job_133",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "module_import_hash:job_133",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "real_returncode:job_166",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "warnings:job_166",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "worker_completed_stdout:job_166",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "module_import_hash:job_166",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "real_returncode:job_172",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "warnings:job_172",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "worker_completed_stdout:job_172",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "module_import_hash:job_172",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "real_returncode:job_180",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "warnings:job_180",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "worker_completed_stdout:job_180",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "module_import_hash:job_180",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "real_returncode:job_188",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "warnings:job_188",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "worker_completed_stdout:job_188",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "module_import_hash:job_188",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "npz_metric:job_084:n64:vol",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 2.478572902475662e-14
+      }
+    },
+    {
+      "label": "npz_metric:job_084:n64:trace",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 5.1328732930677745e-14
+      }
+    },
+    {
+      "label": "npz_metric:job_084:n96:vol",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 3.9929171080643755e-13
+      }
+    },
+    {
+      "label": "npz_metric:job_084:n96:trace",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 2.677164046005487e-13
+      }
+    },
+    {
+      "label": "unchanged_model:job_084",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "npz_metric:job_119:n64:vol",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 0.0
+      }
+    },
+    {
+      "label": "npz_metric:job_119:n64:trace",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 0.0
+      }
+    },
+    {
+      "label": "npz_metric:job_119:n96:vol",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 2.4379125935613654e-13
+      }
+    },
+    {
+      "label": "npz_metric:job_119:n96:trace",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 1.6054011622141338e-13
+      }
+    },
+    {
+      "label": "unchanged_model:job_119",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "npz_metric:job_128:n64:vol",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 0.0
+      }
+    },
+    {
+      "label": "npz_metric:job_128:n64:trace",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 0.0
+      }
+    },
+    {
+      "label": "npz_metric:job_128:n96:vol",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 1.4537008532697349e-11
+      }
+    },
+    {
+      "label": "npz_metric:job_128:n96:trace",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 2.688233077981217e-11
+      }
+    },
+    {
+      "label": "unchanged_model:job_128",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "npz_metric:job_133:n64:vol",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 1.367777419103433e-12
+      }
+    },
+    {
+      "label": "npz_metric:job_133:n64:trace",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 1.4182821583830219e-12
+      }
+    },
+    {
+      "label": "npz_metric:job_133:n96:vol",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 1.342939301429702e-11
+      }
+    },
+    {
+      "label": "npz_metric:job_133:n96:trace",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 2.377621016735887e-11
+      }
+    },
+    {
+      "label": "unchanged_model:job_133",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "npz_metric:job_166:n64:vol",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 1.314830189169669e-12
+      }
+    },
+    {
+      "label": "npz_metric:job_166:n64:trace",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 1.3636383688897524e-12
+      }
+    },
+    {
+      "label": "npz_metric:job_166:n96:vol",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 1.233268001610277e-11
+      }
+    },
+    {
+      "label": "npz_metric:job_166:n96:trace",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 2.2603724447733953e-11
+      }
+    },
+    {
+      "label": "unchanged_model:job_166",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "npz_metric:job_172:n64:vol",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 1.7316981182347035e-12
+      }
+    },
+    {
+      "label": "npz_metric:job_172:n64:trace",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 2.8278490660227362e-12
+      }
+    },
+    {
+      "label": "npz_metric:job_172:n96:vol",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 1.707534114103737e-11
+      }
+    },
+    {
+      "label": "npz_metric:job_172:n96:trace",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 4.690980937027689e-11
+      }
+    },
+    {
+      "label": "unchanged_model:job_172",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "npz_metric:job_180:n64:vol",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 5.105898343016335e-14
+      }
+    },
+    {
+      "label": "npz_metric:job_180:n64:trace",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 2.9089924913350274e-13
+      }
+    },
+    {
+      "label": "npz_metric:job_180:n96:vol",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 4.745119228100059e-14
+      }
+    },
+    {
+      "label": "npz_metric:job_180:n96:trace",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 2.436245649661828e-13
+      }
+    },
+    {
+      "label": "unchanged_model:job_180",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "npz_metric:job_188:n64:vol",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 2.072647609097089e-14
+      }
+    },
+    {
+      "label": "npz_metric:job_188:n64:trace",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 5.281886039654182e-14
+      }
+    },
+    {
+      "label": "npz_metric:job_188:n96:vol",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 1.5873587166925773e-13
+      }
+    },
+    {
+      "label": "npz_metric:job_188:n96:trace",
+      "passed": true,
+      "detail": {
+        "max_abs_difference": 1.3780643293159756e-13
+      }
+    },
+    {
+      "label": "unchanged_model:job_188",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "failures": [],
+  "method_review": "read full checker and frozen forward/reference implementations; independent recomputation of saved NPZ weighted relative errors; no training or model run by this reviewer",
+  "scope": "release to run body/trace audit only, not final integrity PASS"
+}

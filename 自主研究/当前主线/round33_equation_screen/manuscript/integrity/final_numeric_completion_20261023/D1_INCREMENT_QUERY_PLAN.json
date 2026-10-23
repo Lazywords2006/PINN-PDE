@@ -1,0 +1,68 @@
+[
+  {
+    "id": "D01",
+    "line": 272,
+    "fragment": "随后另行重载全部206项，完成两套求积及已有52项独立点残差的实际复算",
+    "semantic": "PINN saved model weights numerical error recomputation independent residual validation provenance logs"
+  },
+  {
+    "id": "D02",
+    "line": 503,
+    "fragment": "Favini等仅用于其出版社摘要可支持的经典研究背景，不引述未读证明",
+    "semantic": "Favini Wentzell boundary semigroup publisher abstract RBA SOAP citation version arxiv 2307.00379"
+  },
+  {
+    "id": "D03",
+    "line": 517,
+    "fragment": "130＋24＋22项保存复算及398产物当前哈希绑定",
+    "semantic": "PINN saved weights audit historical execution logs numerical recomputation hash binding"
+  },
+  {
+    "id": "D04",
+    "line": 523,
+    "fragment": "206项体/迹、52项已有残差及本次真实命令、环境、源/输入哈希、输出、退出与警告",
+    "semantic": "saved weights recomputation body trace error residuals 206 52 numerical provenance"
+  },
+  {
+    "id": "D05",
+    "line": 525,
+    "fragment": "初稿的只读重聚合与随后E18所列保存权重复算分别留档，二者均不重做训练",
+    "semantic": "neural network paper saved weights validation read only reaggregation no retraining provenance"
+  },
+  {
+    "id": "D06",
+    "line": 622,
+    "fragment": "先前独立补查对398个结果与权重文件核对当时哈希，而未重新运行176个模型",
+    "semantic": "PINN numerical audit historical checkpoint weights missing surface branch reproducibility"
+  },
+  {
+    "id": "D07",
+    "line": 624,
+    "fragment": "初稿阶段的正式分析仅聚合保存的复算报告，作者进一步重聚合原始JSON，彼时没有再次重载模型",
+    "semantic": "PINN three budget sensitivity tau SOAP model validation data aggregation chronology"
+  },
+  {
+    "id": "D08",
+    "line": 630,
+    "fragment": "全部206项在N64/GL200与N96/GL400、五个既定时刻共比较4120个体/迹误差值",
+    "semantic": "Wentzell PINN N64 GL200 N96 GL400 saved model errors reference solutions 4120"
+  },
+  {
+    "id": "D09",
+    "line": 632,
+    "fragment": "同次补核覆盖全部已有52项独立检验点残差记录，即第一阶段4项PirateNet、18项新初值及第二阶段30项",
+    "semantic": "PirateNet PINN heldout residual points RMS max absolute validation initial conditions"
+  },
+  {
+    "id": "D10",
+    "line": 634,
+    "fragment": "本次严格重载覆盖110项旧完整模型、20项旧E4体分支及76项完整产物",
+    "semantic": "PINN bulk surface missing weights validation model reload residual audit historical training"
+  },
+  {
+    "id": "D11",
+    "line": 682,
+    "fragment": "随后E18已重载其保存体分支，仍未将旧v(t)数字补成可复现表面结果",
+    "semantic": "bulk surface PINN corner layer saved network surface weights reproducibility error"
+  }
+]

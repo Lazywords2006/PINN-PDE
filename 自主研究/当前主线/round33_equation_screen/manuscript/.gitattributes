@@ -28,3 +28,7 @@ integrity/final_revised1/** -text -whitespace
 # Frozen final evidence corrections include verbatim diffs and response records.
 process/delivery_candidate2/** -text -whitespace
 process/delivery_candidate2a/** -text -whitespace
+
+# Independent supplementary final-check and its source audits remain immutable.
+integrity/final_numeric_source_review_20261023/** -text -whitespace
+integrity/final_numeric_completion_20261023/** -text -whitespace

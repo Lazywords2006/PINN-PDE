@@ -1,0 +1,10 @@
+{
+  "created": "2026-10-23T09:15:17.960409+08:00",
+  "summary_sha256": "8bf0b539563d57413851c1d8c6510ee785d5e72e8da91d4230776f8836b7a41a",
+  "counts": {
+    "legacy_complete": 110,
+    "legacy_bulk_only": 20,
+    "complete": 76
+  },
+  "exact": true
+}

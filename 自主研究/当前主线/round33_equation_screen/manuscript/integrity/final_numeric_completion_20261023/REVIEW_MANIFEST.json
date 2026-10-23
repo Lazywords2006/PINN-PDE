@@ -1,0 +1,127 @@
+{
+  "created": "2026-10-23T09:19:45.911409+08:00",
+  "scope": "Frozen supplementary final integrity PASS for candidate2a; first strict FAIL preserved",
+  "draft_sha256": "741b88925f6248050c9de3f5fa590f2abf8a8496f4194dd6c35990038a3343ce",
+  "files": {
+    "ACTUAL_RUN_INDEPENDENT_AUDIT.json": {
+      "sha256": "eb28ccfdc2cd86487678fc7aeed0cc84806ba87535308ec5ad31ecfe27b97cd9",
+      "bytes": 1250315
+    },
+    "audit_completed_runs.py": {
+      "sha256": "b6134d2bbd3e42172e415db7743071fbdc9c9e68cf76a34ae2bffe6e5897f8ec",
+      "bytes": 12504
+    },
+    "audit_process_links.py": {
+      "sha256": "df40576d649e760c17326bf22cc7d757a87b2a18ed7a87ba82825a0cc1e7f5c9",
+      "bytes": 5232
+    },
+    "build_final_review.py": {
+      "sha256": "61b31d84e8a40b468c9cf9e2380c041b8202e21a54393953667f62a3878fc564",
+      "bytes": 14051
+    },
+    "CANDIDATE2_BINDING.json": {
+      "sha256": "6fc528f8b402419696c8e462d4a4f475021d273d7307b1614307402e8c2422e0",
+      "bytes": 13244
+    },
+    "CANDIDATE2_CHANGED_LINES.json": {
+      "sha256": "74cb0acb752a9e176b47c25e4641ddc0e25e441517afc217144fee1f97b085c4",
+      "bytes": 7396
+    },
+    "CANDIDATE2_INDEPENDENT_DIFF.patch": {
+      "sha256": "bf5bb2e49f633965de1890943f87c8b657567b2102f2431bf1a3054e57d01af7",
+      "bytes": 16093
+    },
+    "CANDIDATE2_TO_2A_BINDING.json": {
+      "sha256": "f4a9277019e0a5ecf3ab8f87533f47a0fc353ac39c4ed6eff6f010e1b3f77c1e",
+      "bytes": 2606
+    },
+    "CHANGED_CLAIMS_AUDIT.json": {
+      "sha256": "7b15a19ea7472f953ac956b41e8da3ad09fa22cc9e2554e96b5fc264f6b518cd",
+      "bytes": 12637
+    },
+    "D1_INCREMENT_QUERY_PLAN.json": {
+      "sha256": "1de23c647402e6076fb60a8040608d21420aa28db895703e349052d6e2ba380a",
+      "bytes": 2945
+    },
+    "D1_INCREMENT_REFINED_RAW.json": {
+      "sha256": "07d042b8a603a4d07b5314a047eeeffa6f45f5bfe1ac8f160bfeb1d9ec2ff86b",
+      "bytes": 32511
+    },
+    "D1_INCREMENT_SEARCH_RAW.json": {
+      "sha256": "2dae41d3d772f425d52a9f2922ca5cd9e54774670810283f43b09d5947a01a53",
+      "bytes": 213689
+    },
+    "FINAL_CANDIDATE_BINDING.json": {
+      "sha256": "749850f56f31a08427ec8015ac7f267421ecfe1d89660823cc778c32ea30cd86",
+      "bytes": 13496
+    },
+    "FINAL_CANDIDATE_INDEPENDENT_DIFF.patch": {
+      "sha256": "d6269c175f889d10281251afc9974076b76875de8cd2ac8781375fefe155b22f",
+      "bytes": 16119
+    },
+    "FINAL_CLAIM_REGISTRY.json": {
+      "sha256": "a5b3cbf5864019631f53d4e52d845b78b7e5090ba6efb8fa5a5fb2cefa830a58",
+      "bytes": 787243
+    },
+    "FINAL_CLAIM_REGISTRY.md": {
+      "sha256": "756df0738a701e4f92d65a584b29c952071def2b3ed30946ad9a25c35d72077a",
+      "bytes": 191975
+    },
+    "FINAL_INTEGRITY_REVIEW.json": {
+      "sha256": "3d5720b60c4a031d0ab48786bffe74d56309d464c2924e5b90afb86ecb1a4a68",
+      "bytes": 8954
+    },
+    "FINAL_INTEGRITY_REVIEW_CN.md": {
+      "sha256": "11c97df0a995373d96fb2f5e5979b2c0fb4541a5973f97a6415ff0cbfdc6b6af",
+      "bytes": 8065
+    },
+    "FINAL_NUMERIC_MANIFEST_CHECK.json": {
+      "sha256": "1e08dab6bed7ee9a24bf606cbc2acde96d735d8858fa46234a98a1d9129b33c5",
+      "bytes": 276570
+    },
+    "finalize_current_review.py": {
+      "sha256": "021ad925aba8a3646aa9a2ab37c3da508be1654806f35adf863b610540665532",
+      "bytes": 18154
+    },
+    "FIRST_AUDIT_PRESERVATION.json": {
+      "sha256": "05d41c538542cc5e87f389a8b87f23e8cad18f65a873f9cd1c7e6a60b4c6e685",
+      "bytes": 9064
+    },
+    "FULL206_INDEPENDENT_AUDIT.json": {
+      "sha256": "406b9280b7316eea3a653fbb4a253c05587a12def4d3bb7fcf656669d0a1052d",
+      "bytes": 1043512
+    },
+    "FULL206_PRELIM_NUMPY_MISMATCH.json": {
+      "sha256": "b372db8450595a445fb36f792d3b2655b9ece6a3e1674bff07e7c916422af553",
+      "bytes": 1044327
+    },
+    "ORIGINALITY_SUPPLEMENT.json": {
+      "sha256": "d382171c983a01cb714093e65067de445b71cf138a044a5941bebd59c1d8648a",
+      "bytes": 163218
+    },
+    "PROCESS_AND_LINK_CHECK.json": {
+      "sha256": "c88305332650077ee8d6c1373f61df523edc54e7fe163bb178036e343537fde8",
+      "bytes": 40976
+    },
+    "RELOAD_STATUS_COUNTS.json": {
+      "sha256": "70d30d180750cee46aac8532a5340f7dc4dd4eae1b92c2cb8c24a6d7a79b8bd1",
+      "bytes": 259
+    },
+    "RESOLVED_SCOPE_WORDING.json": {
+      "sha256": "394fd5f472348967426c5b083e97068688edff8906bc7533fb9d7011744847a2",
+      "bytes": 919
+    }
+  },
+  "external_bindings": {
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\delivery_candidate2a.md": "741b88925f6248050c9de3f5fa590f2abf8a8496f4194dd6c35990038a3343ce",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\integrity\\final_revised1\\REVIEW_MANIFEST.json": "aad83fa52d65076be608f8aa42ef2990d6aaf4d5154464b4a26de70ca68599ce",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\integrity\\final_revised1\\FINAL_INTEGRITY_REVIEW_CN.md": "9a292e11206f5ed790917de94d5be1bfd06bcf332afd1bbd7dae75f5cb4893f8",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\FINAL_DELIVERY_SHA256.json": "b8c29c42fc8603b5e0ed865d83b625ac158b0bbf394fd98c7c2b3427a0fe2aae",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\evidence\\full\\summary.json": "8bf0b539563d57413851c1d8c6510ee785d5e72e8da91d4230776f8836b7a41a",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\final_numeric_provenance_20261023\\evidence\\heldout\\summary.json": "5993d02a944d80f9cb5952f307649724c530e2ae405e6fb1aca42baffb0f85b5",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\delivery_candidate2a\\DELIVERY_BINDING_INDEX.json": "f304f32b5cd25ed8dff94ec2853123f582ac1aec9a8178882f8a08aa9da12df4",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\integrity\\final_numeric_source_review_20261023\\SOURCE_REVIEW_CN.md": "98c9b1c1e6df0d155bc72da149eb4c8caf72b50e09d2cb562d83a06ee285f1f1",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\integrity\\final_numeric_source_review_20261023\\HELDOUT_SOURCE_REVIEW_CN.md": "7b79a3b94dc6e4d7b01ae9b88165a4a3373bd7156d81d0a32e1df31451a0fe2d"
+  },
+  "file_count": 27
+}

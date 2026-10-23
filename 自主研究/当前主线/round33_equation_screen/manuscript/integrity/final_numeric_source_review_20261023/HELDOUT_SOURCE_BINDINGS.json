@@ -1,0 +1,75 @@
+{
+  "checker_sha256": "0f95d05c484dddb3be20d8d8de512f0759934234eee278bd0d00505eff7b0433",
+  "plan_sha256": "032c8890ad5c49a57f30c265bfe46fa649ccafb1b1afa14b5a90f744f793756c",
+  "parent_plan_bound": true,
+  "jobs": 52,
+  "counts": [
+    {
+      "path": "validation/stage5_20261022/pirate_validation.json",
+      "count": 4,
+      "with_heldout": 4
+    },
+    {
+      "path": "validation/stage5_20261022/ic_validation.json",
+      "count": 18,
+      "with_heldout": 18
+    },
+    {
+      "path": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "count": 30,
+      "with_heldout": 30
+    }
+  ],
+  "frozen_checks": [
+    {
+      "path": "recompute_heldout.py",
+      "expected": "0f95d05c484dddb3be20d8d8de512f0759934234eee278bd0d00505eff7b0433",
+      "actual": "0f95d05c484dddb3be20d8d8de512f0759934234eee278bd0d00505eff7b0433",
+      "match": true
+    },
+    {
+      "path": "recompute_saved_models.py",
+      "expected": "7cbe64b660606ca66bf63af28f6fc71c4072106a687c8a85a56b3fb7c37b9611",
+      "actual": "7cbe64b660606ca66bf63af28f6fc71c4072106a687c8a85a56b3fb7c37b9611",
+      "match": true
+    },
+    {
+      "path": "heldout_source_records/pirate_validation.json",
+      "expected": "2b5d8775b499bcc1bf2c97e6a648c0ee48da16fe8f39b7a9f08831013589a4e3",
+      "actual": "2b5d8775b499bcc1bf2c97e6a648c0ee48da16fe8f39b7a9f08831013589a4e3",
+      "match": true
+    },
+    {
+      "path": "heldout_source_records/ic_validation.json",
+      "expected": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317",
+      "actual": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317",
+      "match": true
+    },
+    {
+      "path": "heldout_source_records/results_validation.json",
+      "expected": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf",
+      "actual": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf",
+      "match": true
+    },
+    {
+      "path": "validation/stage5_20261022/pirate_validation.json",
+      "expected": "2b5d8775b499bcc1bf2c97e6a648c0ee48da16fe8f39b7a9f08831013589a4e3",
+      "actual": "2b5d8775b499bcc1bf2c97e6a648c0ee48da16fe8f39b7a9f08831013589a4e3",
+      "match": true
+    },
+    {
+      "path": "validation/stage5_20261022/ic_validation.json",
+      "expected": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317",
+      "actual": "66b25899cb8314ddba743241c2ea1377d920d3675e46639abf4adcd2834b9317",
+      "match": true
+    },
+    {
+      "path": "validation/stage6_20261022/completion_archive_20261023/results_validation.json",
+      "expected": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf",
+      "actual": "7317504039cfb0978baf1ef79e158217724310d7a4c78a1222829525776d4faf",
+      "match": true
+    }
+  ],
+  "failures": [],
+  "review": "full source and mathematical formula review only; no result acceptance yet"
+}

@@ -1,0 +1,151 @@
+{
+  "created": "2026-10-23T09:19:45.911409+08:00",
+  "review_type": "supplementary final-check after actual numerical provenance completion",
+  "draft": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\delivery_candidate2a.md",
+  "draft_sha256": "741b88925f6248050c9de3f5fa590f2abf8a8496f4194dd6c35990038a3343ce",
+  "overall_verdict": "PASS",
+  "stage5_finalization_allowed": true,
+  "scope": "Frozen complete initial draft only; current saved-weight numerical chain and explicitly scoped statements,with historical and stronger-mechanism limitations retained.",
+  "unresolved_blocking_issues": [],
+  "resolved_issues": [
+    {
+      "id": "FIRST_FINAL_MODE1",
+      "resolution": "Actual new numerical production records,not historical fabrication",
+      "prior_report": "../final_revised1/FINAL_INTEGRITY_REVIEW_CN.md",
+      "prior_verdict_preserved": "FAIL"
+    },
+    {
+      "id": "SUPPLEMENT_SCOPE_12",
+      "resolution": "12 kinds of equations corrected to12 equation/parameter/initial-condition configurations",
+      "evidence": "RESOLVED_SCOPE_WORDING.json"
+    }
+  ],
+  "coverage": {
+    "references": 13,
+    "citation_occurrences": 18,
+    "original_numeric_table_cells": 426,
+    "all_raw_json": 206,
+    "raw_artifacts": 488,
+    "current_body_trace_scalar_comparisons": 4120,
+    "current_heldout_scalar_comparisons": 416,
+    "actual_child_processes": 270,
+    "actual_supervisor_processes": 2,
+    "independent_actual_run_checks": 8368,
+    "independent_process_link_checks": 289,
+    "numerical_archive_files_hashed": 2300,
+    "imported_dependency_files_hashed": 2256,
+    "final_draft_lines": 696,
+    "claim_registry_units": 693,
+    "verified_claims": 666,
+    "nonassertive_units": 19,
+    "explicit_pending_author_declarations": 8,
+    "originality_paragraphs_checked": 81,
+    "originality_paragraphs_total": 126,
+    "originality_percent": 64.28571428571429,
+    "all_changed_since_complete_v1_checked": 31,
+    "increment_changed_units_checked": 11,
+    "actual_originality_queries_session": 180
+  },
+  "failure_modes": [
+    {
+      "mode": 1,
+      "name": "Implementation bug passing self-review",
+      "status": "CLEAR_FOR_CURRENT_CLAIMS",
+      "evidence": [
+        "ACTUAL_RUN_INDEPENDENT_AUDIT.json",
+        "FINAL_NUMERIC_MANIFEST_CHECK.json",
+        "../final_numeric_source_review_20261023/SOURCE_REVIEW_CN.md",
+        "../final_numeric_source_review_20261023/HELDOUT_SOURCE_REVIEW_CN.md"
+      ],
+      "finding": "The actual saved-weight numerical production chain now covers all206 body/trace results and all52 existing heldout residual records at original definitions/tolerances,270 child+2 supervisor actual exits0,zero warnings,empty stderr. New checker source and all arrays independently checked.",
+      "outside_scope": "Historical training exits, warnings, missing dependency provenance and full trajectories were not recovered; record-field statements are not promoted to independent history reconstruction. Twenty legacy E4 surface branches remain absent."
+    },
+    {
+      "mode": 2,
+      "name": "Hallucinated citation",
+      "status": "CLEAR_FOR_CURRENT_CLAIMS",
+      "evidence": [
+        "../final_revised1/REFERENCE_AND_CONTEXT_AUDIT.json",
+        "PROCESS_AND_LINK_CHECK.json"
+      ],
+      "finding": "13 freshly verified references and18 contexts retained unchanged; versions and accessible source boundaries remain explicit. No new external references in the numerical supplement."
+    },
+    {
+      "mode": 3,
+      "name": "Hallucinated experimental result",
+      "status": "CLEAR_FOR_CURRENT_CLAIMS",
+      "evidence": [
+        "../final_revised1/NUMERICAL_AUDIT.json",
+        "ACTUAL_RUN_INDEPENDENT_AUDIT.json",
+        "CHANGED_CLAIMS_AUDIT.json"
+      ],
+      "finding": "426 original numeric table cells,206 JSONs and488 original artifacts checked;4120 current body/trace values and416 heldout aggregate values reproduce within unchanged tolerance; no seeds/results removed or invented."
+    },
+    {
+      "mode": 4,
+      "name": "Shortcut or confounding mistaken for mechanism",
+      "status": "CLEAR_FOR_CURRENT_DESCRIPTIVE_SCOPE",
+      "evidence": [
+        "../final_revised1/MATHEMATICAL_METHOD_AUDIT.md",
+        "FINAL_CLAIM_REGISTRY.json"
+      ],
+      "finding": "Current paper states fixed-configuration numerical comparisons and auxiliary half-line mathematics, while disclosing variants, failure cases and unmatched compute/optimization limits. It does not assert that a unique mechanism, full-PDE compatibility, optimizer superiority or unseen-IC generalization has been established.",
+      "stronger_mechanism_status": "INSUFFICIENT_EVIDENCE; not claimed or newly authorized by this PASS"
+    },
+    {
+      "mode": 5,
+      "name": "Implementation defect reframed as discovery",
+      "status": "CLEAR_FOR_CURRENT_CLAIMS",
+      "evidence": [
+        "../final_revised1/NUMERICAL_AUDIT.json",
+        "ACTUAL_RUN_INDEPENDENT_AUDIT.json",
+        "FINAL_CANDIDATE_BINDING.json"
+      ],
+      "finding": "Adverse seeds,weak-kappa failure,E4 vanilla ratio,original screening failures and missing surf weights remain explicit. Fresh reproduction does not turn them into successful mechanisms."
+    },
+    {
+      "mode": 6,
+      "name": "Methodology fabrication",
+      "status": "CLEAR_FOR_CURRENT_CLAIMS",
+      "evidence": [
+        "../final_revised1/SOURCE_VERSION_AUDIT.json",
+        "CHANGED_CLAIMS_AUDIT.json",
+        "ACTUAL_RUN_INDEPENDENT_AUDIT.json"
+      ],
+      "finding": "Configurations,source semantics,residual sampling and saved fields match. Newly executed reloading is distinguished from prior aggregation and from unrecovered training history. Frozen project forward/reference implementations are reused,not represented as a second independent PDE solver."
+    },
+    {
+      "mode": 7,
+      "name": "Premature framing lock-in",
+      "status": "CLEAR_FOR_CURRENT_CLAIMS",
+      "evidence": [
+        "../final_revised1/NUMERICAL_AUDIT.json",
+        "RESOLVED_SCOPE_WORDING.json",
+        "FINAL_CANDIDATE_BINDING.json"
+      ],
+      "finding": "Original scientific thresholds,failed historical criteria,negative cases and main parameter are preserved. One newly detected taxonomy wording issue was corrected in a separately saved candidate2a;candidate2 and first FAIL remain intact."
+    }
+  ],
+  "limitations": [
+    "PASS applies to the frozen current complete initial draft and its actually claimed mathematics,methods,recorded-field facts and current saved-weight numerical output chain; it is not full historical training provenance certification.",
+    "Historical missing training exits,warnings,dependency chains and full trajectories remain unverified. Historical tests63/71 each retain their one tensor-to-scalar assertion warning; only new numerical runs have zero warnings.",
+    "The20 legacy E4 surface networks are missing. v(t),surface/exchange residuals and their reproducibility remain excluded;no random weights were substituted.",
+    "Stronger unique-causal-mechanism claims,unseen-initial-condition generalization,cross-hardware speed ratios and full-PDE early-time regularity are not established by these fixed-configuration experiments.",
+    "Author identity,affiliations,contributions,funding,COI,public repository/license/identifier and human final verification remain explicitly pending declarations. D2 self-overlap search was not run because no author name was provided.",
+    "Originality checking is a heuristic public-web screen,not proof of absence or a Turnitin/iThenticate report;Chinese,cross-language,unindexed and paywall blind spots remain.",
+    "This is an internal independent AI integrity review,not external peer review,acceptance or publication approval. Whole-manuscript PDF/HTML rendering acceptance belongs to subsequent layout verification."
+  ],
+  "first_failure_preservation": {
+    "all35_files_unchanged": true,
+    "review_manifest_sha256": "aad83fa52d65076be608f8aa42ef2990d6aaf4d5154464b4a26de70ca68599ce",
+    "first_report_sha256": "9a292e11206f5ed790917de94d5be1bfd06bcf332afd1bbd7dae75f5cb4893f8"
+  },
+  "current_bindings": {
+    "numerical_manifest_sha256": "b8c29c42fc8603b5e0ed865d83b625ac158b0bbf394fd98c7c2b3427a0fe2aae",
+    "candidate2a_process_index_sha256": "f304f32b5cd25ed8dff94ec2853123f582ac1aec9a8178882f8a08aa9da12df4"
+  },
+  "auditor_environment_diagnostic": {
+    "preserved_file": "FULL206_PRELIM_NUMPY_MISMATCH.json",
+    "finding": "Initial independent audit used NumPy2.2.6;itsGL400 weights differed from production NumPy2.5.3 by1.7897264074397123e-15. Re-running only the read-only audit under the recorded production interpreter made allchecks pass. No scientific tolerance,source,weights,training or numerical production output changed."
+  }
+}

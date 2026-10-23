@@ -1,0 +1,219 @@
+{
+  "created": "2026-10-23T09:06:35.301711+08:00",
+  "scope": "Reuse only unchanged independent evidence, preserving first strict FAIL",
+  "prior_manifest_sha256": "aad83fa52d65076be608f8aa42ef2990d6aaf4d5154464b4a26de70ca68599ce",
+  "count": 35,
+  "all_unchanged": true,
+  "checks": [
+    {
+      "path": "A0_FIRST_ATTEMPT_429.json",
+      "expected": "c09345234cf6159c5d69567da54b2ac7b5e94785549a35c65dc7c7aa2ef93345",
+      "actual": "c09345234cf6159c5d69567da54b2ac7b5e94785549a35c65dc7c7aa2ef93345",
+      "passed": true
+    },
+    {
+      "path": "A0_SEMANTIC_SCHOLAR.json",
+      "expected": "4235e067aadf0d3876216f258aa1088c40d9ad68f619c110b708af33ea63f8b9",
+      "actual": "4235e067aadf0d3876216f258aa1088c40d9ad68f619c110b708af33ea63f8b9",
+      "passed": true
+    },
+    {
+      "path": "audit_extract.py",
+      "expected": "7041db166c6aab8f1048e91b56d7d6394dbf72a25e1edb7037f5cea4e9f30347",
+      "actual": "7041db166c6aab8f1048e91b56d7d6394dbf72a25e1edb7037f5cea4e9f30347",
+      "passed": true
+    },
+    {
+      "path": "audit_numbers.py",
+      "expected": "e848093ab89ab76306be23168d388b26ba70e70176d86de82f2647d89d31ffaa",
+      "actual": "e848093ab89ab76306be23168d388b26ba70e70176d86de82f2647d89d31ffaa",
+      "passed": true
+    },
+    {
+      "path": "audit_supplement.py",
+      "expected": "3858f63149a750840a7e913402225885b58ce46f82cdeb02eec5136d0a294ef0",
+      "actual": "3858f63149a750840a7e913402225885b58ce46f82cdeb02eec5136d0a294ef0",
+      "passed": true
+    },
+    {
+      "path": "build_audit_reports.py",
+      "expected": "9bfa29c5ab448d1e7d1c2d267a0648207a338f77d8f9d0c4b19d72b1467b1120",
+      "actual": "9bfa29c5ab448d1e7d1c2d267a0648207a338f77d8f9d0c4b19d72b1467b1120",
+      "passed": true
+    },
+    {
+      "path": "CLAIM_REGISTRY.json",
+      "expected": "2bb880155b9c3a804db7568e563193eb26923e16b6b81e061f650152b599bb82",
+      "actual": "2bb880155b9c3a804db7568e563193eb26923e16b6b81e061f650152b599bb82",
+      "passed": true
+    },
+    {
+      "path": "CLAIM_REGISTRY.md",
+      "expected": "e75b9ccce34db33e8599484ad4eb56458b0dba76e7f0c936d927933417e0f2ba",
+      "actual": "e75b9ccce34db33e8599484ad4eb56458b0dba76e7f0c936d927933417e0f2ba",
+      "passed": true
+    },
+    {
+      "path": "CROSSREF_REF6_FRESH.json",
+      "expected": "44e9570bcb8b2f59b4f0a26d2834f8e690fb0e8de8e23e8f5ce3d0010c8ce3e4",
+      "actual": "44e9570bcb8b2f59b4f0a26d2834f8e690fb0e8de8e23e8f5ce3d0010c8ce3e4",
+      "passed": true
+    },
+    {
+      "path": "CURRENT_GATE_STATUS.json",
+      "expected": "4cd5e31a26f9ce1374a3f501b7b0498ab0fe105853ff3411acb8c6e1af4f5eda",
+      "actual": "4cd5e31a26f9ce1374a3f501b7b0498ab0fe105853ff3411acb8c6e1af4f5eda",
+      "passed": true
+    },
+    {
+      "path": "D1_SEARCH_RAW.json",
+      "expected": "4a901caea9282d0abc62fde6247b090234ea7980e4899fe0c7c428d7f6977332",
+      "actual": "4a901caea9282d0abc62fde6247b090234ea7980e4899fe0c7c428d7f6977332",
+      "passed": true
+    },
+    {
+      "path": "DELIVERY_BINDING.json",
+      "expected": "b6b340ceca96e715167437ee8dc5584cb06460c138e46d77a3cea235a2d948c3",
+      "actual": "b6b340ceca96e715167437ee8dc5584cb06460c138e46d77a3cea235a2d948c3",
+      "passed": true
+    },
+    {
+      "path": "fetch_primary_pdfs.py",
+      "expected": "00cd6905e7d3c64edd3deef8135f428d9ce3c46fc8822609b7fd8e0d35900523",
+      "actual": "00cd6905e7d3c64edd3deef8135f428d9ce3c46fc8822609b7fd8e0d35900523",
+      "passed": true
+    },
+    {
+      "path": "FILE_BINDINGS.json",
+      "expected": "1abbd326fa1488e9e790bdc69add00e3a4815494861dfac468c1a92a7a7fbc63",
+      "actual": "1abbd326fa1488e9e790bdc69add00e3a4815494861dfac468c1a92a7a7fbc63",
+      "passed": true
+    },
+    {
+      "path": "FINAL_INTEGRITY_REVIEW.json",
+      "expected": "1b76bbd17c3e7806f1950c750db5ae54a692058a0827ade7b97b53cb3076c543",
+      "actual": "1b76bbd17c3e7806f1950c750db5ae54a692058a0827ade7b97b53cb3076c543",
+      "passed": true
+    },
+    {
+      "path": "FINAL_INTEGRITY_REVIEW_CN.md",
+      "expected": "9a292e11206f5ed790917de94d5be1bfd06bcf332afd1bbd7dae75f5cb4893f8",
+      "actual": "9a292e11206f5ed790917de94d5be1bfd06bcf332afd1bbd7dae75f5cb4893f8",
+      "passed": true
+    },
+    {
+      "path": "finalize_first_audit.py",
+      "expected": "9f0296d31847492654fa1190d2aedc4bafdfce3bb942bbcb9eb41dc2af622b10",
+      "actual": "9f0296d31847492654fa1190d2aedc4bafdfce3bb942bbcb9eb41dc2af622b10",
+      "passed": true
+    },
+    {
+      "path": "INPUT_MANIFEST.json",
+      "expected": "32f1b69cc112b774071117d1a8e1027368d08c2ca82510cc90edb2b2796e7cd2",
+      "actual": "32f1b69cc112b774071117d1a8e1027368d08c2ca82510cc90edb2b2796e7cd2",
+      "passed": true
+    },
+    {
+      "path": "INVENTORY.json",
+      "expected": "d22b857b18f913128f2dc1e568a98d88570faea916d5fb92292f1e50307d8209",
+      "actual": "d22b857b18f913128f2dc1e568a98d88570faea916d5fb92292f1e50307d8209",
+      "passed": true
+    },
+    {
+      "path": "MATHEMATICAL_METHOD_AUDIT.md",
+      "expected": "b6a077375aebe116e1dfddb1bef0743eb92ece39bf26cde1c1fc772d9e693457",
+      "actual": "b6a077375aebe116e1dfddb1bef0743eb92ece39bf26cde1c1fc772d9e693457",
+      "passed": true
+    },
+    {
+      "path": "NUMERICAL_AUDIT.json",
+      "expected": "adc1f3e0f0d6e13a848d225717c309244dd6759faa460c3d54de4e9cd534994e",
+      "actual": "adc1f3e0f0d6e13a848d225717c309244dd6759faa460c3d54de4e9cd534994e",
+      "passed": true
+    },
+    {
+      "path": "ORIGINALITY_AUDIT.json",
+      "expected": "15c18f732d522707ffacbe278276466b9d7abf98e16a3b7ab610af80a305ede4",
+      "actual": "15c18f732d522707ffacbe278276466b9d7abf98e16a3b7ab610af80a305ede4",
+      "passed": true
+    },
+    {
+      "path": "PRECHECK_COMPARISON.json",
+      "expected": "13808470817c9a99e136870023a7b65564687c2db9cbb5f7803f4f7a53f9cede",
+      "actual": "13808470817c9a99e136870023a7b65564687c2db9cbb5f7803f4f7a53f9cede",
+      "passed": true
+    },
+    {
+      "path": "PRIMARY_PDF_FRESH.json",
+      "expected": "3d776b4e531576d34315e48782d7a60611e19ff3d5ee8f66d0cabd6fc6b61fc6",
+      "actual": "3d776b4e531576d34315e48782d7a60611e19ff3d5ee8f66d0cabd6fc6b61fc6",
+      "passed": true
+    },
+    {
+      "path": "RAW_JSON_INDEPENDENT.json",
+      "expected": "bf460149868d894b4e7916a202a3b14fba233163a8f293120701d34abec52963",
+      "actual": "bf460149868d894b4e7916a202a3b14fba233163a8f293120701d34abec52963",
+      "passed": true
+    },
+    {
+      "path": "REFERENCE_AND_CONTEXT_AUDIT.json",
+      "expected": "19974519cffe3579ecffe5901489d6e90e4549a3dcb67d8617e6157006a25e26",
+      "actual": "19974519cffe3579ecffe5901489d6e90e4549a3dcb67d8617e6157006a25e26",
+      "passed": true
+    },
+    {
+      "path": "SOURCE_VERSION_AUDIT.json",
+      "expected": "ff858fce511d980fd6f63907a01194b00cd0ec16c285fc9751b9d8791053f99c",
+      "actual": "ff858fce511d980fd6f63907a01194b00cd0ec16c285fc9751b9d8791053f99c",
+      "passed": true
+    },
+    {
+      "path": "SUPPLEMENT_AUDIT.json",
+      "expected": "930396d927c7aa195f3676259cb225b4e5bef0dd8f8a5b9550ee11eb5c6fefeb",
+      "actual": "930396d927c7aa195f3676259cb225b4e5bef0dd8f8a5b9550ee11eb5c6fefeb",
+      "passed": true
+    },
+    {
+      "path": "WEB_CAUSAL_FORMULA.json",
+      "expected": "20d3fa95adcec803a2b75bb06f79dc0fd0871a890cf3754543a34b72a058d6bd",
+      "actual": "20d3fa95adcec803a2b75bb06f79dc0fd0871a890cf3754543a34b72a058d6bd",
+      "passed": true
+    },
+    {
+      "path": "WEB_CONTEXT_FRESH.json",
+      "expected": "292c16d6327b57fae036c8ce052af4a1438e73b965fc76189735c4d4a9bdb332",
+      "actual": "292c16d6327b57fae036c8ce052af4a1438e73b965fc76189735c4d4a9bdb332",
+      "passed": true
+    },
+    {
+      "path": "WEB_CONTEXT_FRESH_LATEST.json",
+      "expected": "9d507b2aebaba582ec9f3979e1495cb6db12e246d52ea7453549972127276570",
+      "actual": "9d507b2aebaba582ec9f3979e1495cb6db12e246d52ea7453549972127276570",
+      "passed": true
+    },
+    {
+      "path": "WEB_CONTEXT_RAW_INITIAL.json",
+      "expected": "bb7e824e0023535781c69d883ddb1501414eace3bcda1e44c0fdb0a5a424cd36",
+      "actual": "bb7e824e0023535781c69d883ddb1501414eace3bcda1e44c0fdb0a5a424cd36",
+      "passed": true
+    },
+    {
+      "path": "WEB_FINAL_METADATA1.json",
+      "expected": "c697a02b793ffc8f7228300a85431160493e27416975592adef56368e44f0cf4",
+      "actual": "c697a02b793ffc8f7228300a85431160493e27416975592adef56368e44f0cf4",
+      "passed": true
+    },
+    {
+      "path": "WEB_FINAL_METADATA2.json",
+      "expected": "0fe4c3f0285e090ceea1f9a9c46d802516cd6c60fa5622147b23493ccaa4453d",
+      "actual": "0fe4c3f0285e090ceea1f9a9c46d802516cd6c60fa5622147b23493ccaa4453d",
+      "passed": true
+    },
+    {
+      "path": "WEB_REFERENCE_RAW.json",
+      "expected": "f0b56a08b2bb9c3acffdca71bf8ff78825f2450c5c280c4224af5fbf18c0ae2c",
+      "actual": "f0b56a08b2bb9c3acffdca71bf8ff78825f2450c5c280c4224af5fbf18c0ae2c",
+      "passed": true
+    }
+  ]
+}
