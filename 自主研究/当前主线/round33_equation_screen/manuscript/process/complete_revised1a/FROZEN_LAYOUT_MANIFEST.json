@@ -1,0 +1,39 @@
+{
+  "status": "FROZEN_LAYOUT_FIX_OF_FIRST_REVISION",
+  "draft_sha256": "398c2a44f2f9fd959b62564ddc599b123a3dd5de168ad0257a8572e188bf92e8",
+  "parent_sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a",
+  "frozen_local": "2026-10-23T08:16:01.034436+08:00",
+  "file_count": 18,
+  "files": {
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\complete_revised1a.md": "398c2a44f2f9fd959b62564ddc599b123a3dd5de168ad0257a8572e188bf92e8",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\citation_contexts.json": "c2884f9c6807a775023b73f695056dbe1615a31b472524d16c2e76a51b8ac93f",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\citation_contexts.md": "f21ee7e75d30eb6d07069bc7939598784f289f75d96105e26622db226bf4eb7d",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\complete_revised1_to_revised1a.diff": "fff819e37b32473414bfe38c94dfda50392041b8da56d0f061d03f17629b65e9",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\count_definition_comparison.json": "2ec53e359838fcc2ca09775c5e2a586c8dad1dea8ae92a10547bf272159d234f",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\COUNT_DEFINITION_COMPARISON_CN.md": "7f0941a09e67b67fc41461b42b5101547c7e3665352358cb125c56a2aa0f820c",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\figure_retention_checks.json": "32a923f4b9e895d23b55fca5b5266bcc3ff21fa920290d453495a640ca841461",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\fix_layout.py": "88cf45ad9121cbe6be45eb849cd92e4f20c08362f0c7f1cb7db0bb8431ca19ef",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\freeze_layout.py": "7de39fbe52e62affb3d11e857f3ce4e8cd38250ba77550a8cc05bccbe00dade3",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\LAYOUT_FIXES.json": "faeaaf1655ed5a8effc07ea618575148afa5764a13156f63707e81286daf26f1",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\LAYOUT_FIXES_CN.md": "208f6db75696aaa3e25a5a6263ed4ef011988a59c050f343b5ed9b5fb4af1419",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\layout_revision_checks.json": "7f30a5e51d7a1de6f226d29bd86f09fb8413b2fe27e4e5b85b5750d31802cf8e",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\protected_after.json": "d8727d7013cf8a034e19acdb1a59d196970c7d4bd8ff88f1dbe431ba17d2d67f",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\protected_before.json": "d8727d7013cf8a034e19acdb1a59d196970c7d4bd8ff88f1dbe431ba17d2d67f",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\RESPONSE_TO_REVIEWS.json": "75cffdac028f1e97ff89e87ea12d8d32a6c64d6464e7ea9734b23afc441f1325",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\RESPONSE_TO_REVIEWS_CN.md": "02c9736b144c4c943acdbcd58982a8ece146eef1301406de50d9b97db05c0b3f",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\source_checks.json": "e520a7efa6c9ded6a8a329e84c0ebb161d19b87d22317b1c9667a06b03a8d31d",
+    "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\process\\complete_revised1a\\word_counts.json": "1d2b7434eac357e7f46f1ddc8f08ba9bf4496949cfba09a2926cec4a4a673b0e"
+  },
+  "scientific_revision_round": 1,
+  "new_scientific_revision": false,
+  "fixed_issues": [
+    "Unicode数学下标导致的六条缺字风险",
+    "引用上下文文件长路径的行宽溢出"
+  ],
+  "remaining_checks": [
+    "独立HTML/PDF复检",
+    "25项独立修订核验",
+    "最终完整性检查及人类作者确认"
+  ],
+  "original_review_panel": "ABORT; usable=2, panel_size=5; no full-panel editorial decision"
+}

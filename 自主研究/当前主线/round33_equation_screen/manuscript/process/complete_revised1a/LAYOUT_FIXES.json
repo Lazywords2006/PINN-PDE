@@ -1,0 +1,65 @@
+{
+  "base_sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a",
+  "draft_sha256": "398c2a44f2f9fd959b62564ddc599b123a3dd5de168ad0257a8572e188bf92e8",
+  "generated_local": "2026-10-23T08:14:17.341217+08:00",
+  "revision_kind": "第一轮科学修订后的排版修复，不是第二轮科学修订",
+  "reported_precheck_findings": {
+    "source": "父代理转达的独立排版预检",
+    "missing_glyph_warnings": {
+      "ᵧ": 5,
+      "ₜ": 1
+    },
+    "overfull_hbox_pt": 1.53183,
+    "location": "附录E约p25与生成TeX763–764行；这是原预检定位，不是本代理复渲染结果。"
+  },
+  "replacements": [
+    {
+      "issue": "LAYOUT-02",
+      "description": "长代码路径改为简短可读链接，完整目标保留在链接中",
+      "old": "`../process/complete_revised1/citation_contexts.md`",
+      "new": "[本稿引用上下文表](../process/complete_revised1a/citation_contexts.md)",
+      "base_line": 503,
+      "derived_line": 503
+    },
+    {
+      "issue": "LAYOUT-01",
+      "description": "通量错配的y下标使用TeX数学模式",
+      "old": "Δᵧ=κ[f(1)−V₀]+Df′(1)=−1.02",
+      "new": "\\(\\Delta_y=\\kappa[f(1)-V_0]+Df'(1)=-1.02\\)",
+      "base_line": 645,
+      "derived_line": 645
+    },
+    {
+      "issue": "LAYOUT-01",
+      "description": "热方程时间及二阶空间下标使用TeX数学模式",
+      "old": "Uₜ=DUᵧᵧ",
+      "new": "\\(U_t=DU_{yy}\\)",
+      "base_line": 654,
+      "derived_line": 654
+    },
+    {
+      "issue": "LAYOUT-01",
+      "description": "常通量条件的一阶空间下标使用TeX数学模式",
+      "old": "DUᵧ(0,t)=Δᵧ",
+      "new": "\\(D U_y(0,t)=\\Delta_y\\)",
+      "base_line": 654,
+      "derived_line": 654
+    }
+  ],
+  "only_authorized_replacements": true,
+  "same_line_count": true,
+  "six_body_sections_byte_identical": true,
+  "missing_codepoints_after": {
+    "ᵧ": 0,
+    "ₜ": 0
+  },
+  "rerender_verification": "PENDING_PARENT_COORDINATED_LAYOUT_CHECK",
+  "operations": {
+    "training": 0,
+    "model_load": 0,
+    "reference_integration": 0,
+    "render": 0,
+    "renderer_edit": 0,
+    "git_mutation": 0
+  }
+}

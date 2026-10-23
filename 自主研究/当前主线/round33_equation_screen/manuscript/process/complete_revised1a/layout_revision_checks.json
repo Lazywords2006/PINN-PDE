@@ -1,0 +1,23 @@
+{
+  "draft_sha256": "398c2a44f2f9fd959b62564ddc599b123a3dd5de168ad0257a8572e188bf92e8",
+  "parent_sha256": "5eb4cf00f663aa18face96dc503c7e3d35420e2d809489e0cad5f176f8bdd68a",
+  "only_two_reported_issues_changed": true,
+  "replacements": 4,
+  "changed_source_lines": [
+    503,
+    645,
+    654
+  ],
+  "six_body_sections_byte_identical": true,
+  "body_cjk": 11487,
+  "all_fourteen_table_blocks_unchanged": true,
+  "eight_main_tables_unchanged": true,
+  "thirteen_references_unchanged": true,
+  "eighteen_external_contexts_unchanged": true,
+  "four_figure_paths_and_hashes_unchanged": true,
+  "twenty_five_scientific_responses_unchanged": true,
+  "draft_locations_rebound": 83,
+  "old_frozen_files_unchanged_including_manifest": 27,
+  "render_check": "PENDING_PARENT_COORDINATION",
+  "final_frozen": true
+}
