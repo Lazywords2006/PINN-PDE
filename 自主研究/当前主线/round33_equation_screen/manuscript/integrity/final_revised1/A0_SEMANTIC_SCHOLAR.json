@@ -1,0 +1,413 @@
+{
+  "time": "2026-10-23T08:23:49.778738+08:00",
+  "ids": [
+    "DOI:10.1007/s00028-002-8077-y",
+    "DOI:10.1016/j.jcp.2018.10.045",
+    "DOI:10.30538/oms2026.0303",
+    "DOI:10.4208/ijnam2026-1025",
+    "DOI:10.4208/cicp.110909.160310s",
+    "DOI:10.1016/j.cma.2021.114333",
+    "DOI:10.1016/j.cam.2024.115989",
+    "DOI:10.1016/j.cam.2025.116918",
+    "DOI:10.1016/j.cma.2024.116805",
+    "DOI:10.1016/j.cma.2024.116813",
+    "URL:https://jmlr.org/papers/v25/24-0313.html",
+    "ARXIV:2409.11321",
+    "URL:https://dlmf.nist.gov/7.14.E4"
+  ],
+  "result": {
+    "status": 200,
+    "body": [
+      {
+        "paperId": "0d7ac97b009684a8be4d9c7289b9cdb1a7352475",
+        "externalIds": {
+          "MAG": "1972488800",
+          "DOI": "10.1007/S00028-002-8077-Y",
+          "CorpusId": 120147245
+        },
+        "publicationVenue": null,
+        "url": "https://www.semanticscholar.org/paper/0d7ac97b009684a8be4d9c7289b9cdb1a7352475",
+        "title": "The heat equation with generalized Wentzell boundary condition",
+        "venue": "",
+        "year": 2002,
+        "journal": {
+          "name": "Journal of Evolution Equations",
+          "pages": "1-19",
+          "volume": "2"
+        },
+        "authors": [
+          {
+            "authorId": "2050208",
+            "name": "A. Favini"
+          },
+          {
+            "authorId": "31595013",
+            "name": "G. Goldstein"
+          },
+          {
+            "authorId": "2461594354",
+            "name": "J. Goldstein"
+          },
+          {
+            "authorId": "39066645",
+            "name": "Silvia Romanelli"
+          }
+        ]
+      },
+      {
+        "paperId": "d86084808994ac54ef4840ae65295f3c0ec4decd",
+        "externalIds": {
+          "MAG": "2899283552",
+          "DBLP": "journals/jcphy/RaissiPK19",
+          "DOI": "10.1016/J.JCP.2018.10.045",
+          "CorpusId": 57379996
+        },
+        "publicationVenue": {
+          "id": "58606051-2e63-4034-8496-9d4ed773bb49",
+          "name": "Journal of Computational Physics",
+          "type": "journal",
+          "alternate_names": [
+            "J Comput Phys"
+          ],
+          "issn": "0021-9991",
+          "url": "http://www.elsevier.com/locate/jcp",
+          "alternate_urls": [
+            "http://www.sciencedirect.com/science/journal/00219991",
+            "http://www.elsevier.com/wps/find/journaldescription.cws_home/622866/description#description",
+            "http://www.idealibrary.com/"
+          ]
+        },
+        "url": "https://www.semanticscholar.org/paper/d86084808994ac54ef4840ae65295f3c0ec4decd",
+        "title": "Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations",
+        "venue": "Journal of Computational Physics",
+        "year": 2019,
+        "journal": {
+          "name": "J. Comput. Phys.",
+          "pages": "686-707",
+          "volume": "378"
+        },
+        "authors": [
+          {
+            "authorId": "145401977",
+            "name": "M. Raissi"
+          },
+          {
+            "authorId": "3410970",
+            "name": "P. Perdikaris"
+          },
+          {
+            "authorId": "1720124",
+            "name": "G. Karniadakis"
+          }
+        ]
+      },
+      {
+        "paperId": "2f6cdd7470c92de5e472d984cae513afee0c3c03",
+        "externalIds": {
+          "DOI": "10.30538/oms2026.0303",
+          "CorpusId": 288162452
+        },
+        "publicationVenue": {
+          "id": "cffede65-5295-467f-ab82-619123df120b",
+          "name": "Open Journal of Mathematical Sciences",
+          "type": "journal",
+          "alternate_names": [
+            "Open J Math Sci"
+          ],
+          "issn": "2523-0212",
+          "url": "https://openmathscience.com/",
+          "alternate_urls": [
+            "https://pisrt.org/psr-press/journals/oms/"
+          ]
+        },
+        "url": "https://www.semanticscholar.org/paper/2f6cdd7470c92de5e472d984cae513afee0c3c03",
+        "title": "Physics-informed neural networks for the heat equation with dynamic (Wentzell) boundary conditions",
+        "venue": "Open Journal of Mathematical Sciences",
+        "year": 2026,
+        "journal": {
+          "name": "Open Journal of Mathematical Sciences"
+        },
+        "authors": [
+          {
+            "authorId": "144987296",
+            "name": "M. Awais"
+          }
+        ]
+      },
+      null,
+      {
+        "paperId": "7b222a85e6d9583b099fd93525c53c453e80fd1a",
+        "externalIds": {
+          "ArXiv": "1011.4549",
+          "MAG": "2152651440",
+          "DOI": "10.4208/cicp.110909.160310s",
+          "CorpusId": 17355340
+        },
+        "publicationVenue": null,
+        "url": "https://www.semanticscholar.org/paper/7b222a85e6d9583b099fd93525c53c453e80fd1a",
+        "title": "Numerical Resolution Near t=0 of Nonlinear Evolution Equations in the Presence of Corner Singularities in Space Dimension 1",
+        "venue": "",
+        "year": 2010,
+        "journal": {
+          "name": "Communications in Computational Physics",
+          "pages": "568-586",
+          "volume": "9"
+        },
+        "authors": [
+          {
+            "authorId": "50282948",
+            "name": "Qingshan Chen"
+          },
+          {
+            "authorId": "2256483708",
+            "name": "Zhen Qin"
+          },
+          {
+            "authorId": "32451198",
+            "name": "R. Temam"
+          }
+        ]
+      },
+      {
+        "paperId": "575dc29082b4020378841aea740b7c875706f66c",
+        "externalIds": {
+          "DBLP": "journals/corr/abs-2104-08426",
+          "ArXiv": "2104.08426",
+          "DOI": "10.1016/j.cma.2021.114333",
+          "CorpusId": 233296413
+        },
+        "publicationVenue": {
+          "id": "3bfaa538-a67d-47d7-bfda-6f82748e9a29",
+          "name": "Computer Methods in Applied Mechanics and Engineering",
+          "type": "journal",
+          "alternate_names": [
+            "Comput Method Appl Mech Eng"
+          ],
+          "issn": "0045-7825",
+          "url": "https://www.journals.elsevier.com/computer-methods-in-applied-mechanics-and-engineering",
+          "alternate_urls": [
+            "http://www.sciencedirect.com/science/journal/00457825"
+          ]
+        },
+        "url": "https://www.semanticscholar.org/paper/575dc29082b4020378841aea740b7c875706f66c",
+        "title": "Exact imposition of boundary conditions with distance functions in physics-informed deep neural networks",
+        "venue": "Computer Methods in Applied Mechanics and Engineering",
+        "year": 2021,
+        "journal": {
+          "name": "ArXiv",
+          "volume": "abs/2104.08426"
+        },
+        "authors": [
+          {
+            "authorId": "143935099",
+            "name": "N. Sukumar"
+          },
+          {
+            "authorId": "48294059",
+            "name": "Ankit Srivastava"
+          }
+        ]
+      },
+      null,
+      {
+        "paperId": "4fbece69b1e2a0df73dd42c15cef472522778a17",
+        "externalIds": {
+          "DBLP": "journals/jcam/GieHJL26",
+          "ArXiv": "2312.03295",
+          "DOI": "10.1016/j.cam.2025.116918",
+          "CorpusId": 265664359
+        },
+        "publicationVenue": {
+          "id": "0dd1e980-f66a-40ab-9f04-626424b1a7d8",
+          "name": "Journal of Computational and Applied Mathematics",
+          "type": "journal",
+          "alternate_names": [
+            "J Comput Appl Math"
+          ],
+          "issn": "0377-0427",
+          "alternate_issns": [
+            "0771-050X"
+          ],
+          "url": "http://www.elsevier.com/wps/find/journaldescription.cws_home/505613/description#description",
+          "alternate_urls": [
+            "http://www.sciencedirect.com/science/journal/03770427",
+            "https://www.journals.elsevier.com/journal-of-computational-and-applied-mathematics/"
+          ]
+        },
+        "url": "https://www.semanticscholar.org/paper/4fbece69b1e2a0df73dd42c15cef472522778a17",
+        "title": "Singular layer physics-informed neural network method for convection-dominated boundary layer problems in two dimensions",
+        "venue": "Journal of Computational and Applied Mathematics",
+        "year": 2023,
+        "journal": {
+          "name": "J. Comput. Appl. Math.",
+          "pages": "116918",
+          "volume": "474"
+        },
+        "authors": [
+          {
+            "authorId": "34871618",
+            "name": "G. Gie"
+          },
+          {
+            "authorId": "2268435430",
+            "name": "Youngjoon Hong"
+          },
+          {
+            "authorId": "2268460807",
+            "name": "Chang-Yeol Jung"
+          },
+          {
+            "authorId": "2271398621",
+            "name": "Dongseok Lee"
+          }
+        ]
+      },
+      {
+        "paperId": "82a4569f2a0be5e66cfdc409258cc74287f858de",
+        "externalIds": {
+          "ArXiv": "2307.00379",
+          "DOI": "10.1016/j.cma.2024.116805",
+          "CorpusId": 267377546
+        },
+        "publicationVenue": {
+          "id": "3bfaa538-a67d-47d7-bfda-6f82748e9a29",
+          "name": "Computer Methods in Applied Mechanics and Engineering",
+          "type": "journal",
+          "alternate_names": [
+            "Comput Method Appl Mech Eng"
+          ],
+          "issn": "0045-7825",
+          "url": "https://www.journals.elsevier.com/computer-methods-in-applied-mechanics-and-engineering",
+          "alternate_urls": [
+            "http://www.sciencedirect.com/science/journal/00457825"
+          ]
+        },
+        "url": "https://www.semanticscholar.org/paper/82a4569f2a0be5e66cfdc409258cc74287f858de",
+        "title": "Residual-based attention in physics-informed neural networks",
+        "venue": "Computer Methods in Applied Mechanics and Engineering",
+        "year": 2023,
+        "journal": {
+          "name": "Computer Methods in Applied Mechanics and Engineering"
+        },
+        "authors": [
+          {
+            "authorId": "151199632",
+            "name": "Sokratis J. Anagnostopoulos"
+          },
+          {
+            "authorId": "2267437356",
+            "name": "Juan Diego Toscano"
+          },
+          {
+            "authorId": "2282219843",
+            "name": "Nikolaos Stergiopulos"
+          },
+          {
+            "authorId": "1720124",
+            "name": "G. Karniadakis"
+          }
+        ]
+      },
+      {
+        "paperId": "05f5d8953e574e6c545c6d35d6f0a38e7575d0e7",
+        "externalIds": {
+          "DOI": "10.1016/j.cma.2024.116813",
+          "CorpusId": 267569703
+        },
+        "publicationVenue": {
+          "id": "3bfaa538-a67d-47d7-bfda-6f82748e9a29",
+          "name": "Computer Methods in Applied Mechanics and Engineering",
+          "type": "journal",
+          "alternate_names": [
+            "Comput Method Appl Mech Eng"
+          ],
+          "issn": "0045-7825",
+          "url": "https://www.journals.elsevier.com/computer-methods-in-applied-mechanics-and-engineering",
+          "alternate_urls": [
+            "http://www.sciencedirect.com/science/journal/00457825"
+          ]
+        },
+        "url": "https://www.semanticscholar.org/paper/05f5d8953e574e6c545c6d35d6f0a38e7575d0e7",
+        "title": "Respecting causality for training physics-informed neural networks",
+        "venue": "Computer Methods in Applied Mechanics and Engineering",
+        "year": 2024,
+        "journal": {
+          "name": "Computer Methods in Applied Mechanics and Engineering"
+        },
+        "authors": [
+          {
+            "authorId": "118188801",
+            "name": "Sifan Wang"
+          },
+          {
+            "authorId": "2053268477",
+            "name": "Shyam Sankaran"
+          },
+          {
+            "authorId": "3410970",
+            "name": "P. Perdikaris"
+          }
+        ]
+      },
+      null,
+      {
+        "paperId": "8c21832fb5a2294281d4190ec53e8bbc3bb74702",
+        "externalIds": {
+          "DBLP": "journals/corr/abs-2409-11321",
+          "ArXiv": "2409.11321",
+          "DOI": "10.48550/arXiv.2409.11321",
+          "CorpusId": 272694107
+        },
+        "publicationVenue": {
+          "id": "1901e811-ee72-4b20-8f7e-de08cd395a10",
+          "name": "arXiv.org",
+          "alternate_names": [
+            "ArXiv"
+          ],
+          "issn": "2331-8422",
+          "url": "https://arxiv.org"
+        },
+        "url": "https://www.semanticscholar.org/paper/8c21832fb5a2294281d4190ec53e8bbc3bb74702",
+        "title": "SOAP: Improving and Stabilizing Shampoo using Adam",
+        "venue": "arXiv.org",
+        "year": 2024,
+        "journal": {
+          "name": "ArXiv",
+          "volume": "abs/2409.11321"
+        },
+        "authors": [
+          {
+            "authorId": "2308097559",
+            "name": "Nikhil Vyas"
+          },
+          {
+            "authorId": "2003598814",
+            "name": "Depen Morwani"
+          },
+          {
+            "authorId": "2266419706",
+            "name": "Rosie Zhao"
+          },
+          {
+            "authorId": "2308097536",
+            "name": "Itai Shapira"
+          },
+          {
+            "authorId": "35402876",
+            "name": "David Brandfonbrener"
+          },
+          {
+            "authorId": "2308097064",
+            "name": "Lucas Janson"
+          },
+          {
+            "authorId": "144695232",
+            "name": "S. Kakade"
+          }
+        ]
+      },
+      null
+    ]
+  },
+  "protocol_missing": "C:/Users/LazyM/.codex/skills/deep-research/references/semantic_scholar_api_protocol.md"
+}

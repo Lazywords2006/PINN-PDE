@@ -1,0 +1,195 @@
+{
+  "created": "2026-10-23T08:55:47.851131+08:00",
+  "scope": "academic-pipeline Stage4.5 Mode2 first independent final audit before any new numerical production evidence",
+  "draft": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\delivery_candidate.md",
+  "draft_sha256": "aef0c10a1bf19e8703a8066e1f0aaef75600b886777424b9f6545677ccc77eb0",
+  "original_revised1a_binding": {
+    "original_sha256": "398c2a44f2f9fd959b62564ddc599b123a3dd5de168ad0257a8572e188bf92e8",
+    "candidate_sha256": "aef0c10a1bf19e8703a8066e1f0aaef75600b886777424b9f6545677ccc77eb0",
+    "line_counts": [
+      689,
+      689
+    ],
+    "changed_lines": [
+      5
+    ],
+    "science_bytes_equal": true,
+    "new_status": "> 稿件状态：完整中文论文初稿，未投稿。内部自动审查、逐项修订和完整性核验的实际范围见交付说明；不等同于外部同行评审或录用。已完成并复算验收的第二阶段30项结果保持原样。文中的E编号指向文末数据证据映射，不属于外部文献编号。署名、单位、基金、利益冲突及人类作者最终核验待作者确认。"
+  },
+  "overall_verdict": "FAIL",
+  "blocking_issue_ids": [
+    "FM1-HISTORICAL-NUMERIC-EXECUTION-EVIDENCE"
+  ],
+  "stage5_finalization_allowed": false,
+  "body_content": {
+    "substantive_false_or_distorted_claims_found": 0,
+    "major_distortion": 0,
+    "unverifiable_asserted_facts": 0,
+    "important_distinction": "Content scoped verification is not a blanket pipeline PASS. Mode1 remaining evidence gap blocks strict finalization independently."
+  },
+  "coverage": {
+    "A_references": "13/13 fresh primary verification",
+    "B_citation_occurrences": "18/18",
+    "C_table_numeric_cells": 426,
+    "C_table_numeric_failed": 0,
+    "C_raw_json": 206,
+    "C_raw_artifact_hashes": 488,
+    "C_supplement_checks": 6721,
+    "C_supplement_failed": 0,
+    "D_body_paragraphs": 123,
+    "D_checked": 77,
+    "D_percent": 62.601626016260155,
+    "D_changed": 26,
+    "D_changed_checked": 26,
+    "D_actual_queries": 154,
+    "D2_self_plagiarism": "NOT_EXECUTED: author names unavailable",
+    "E_registered_units": 680,
+    "E_verdict_counts": {
+      "PENDING_AUTHOR_DECLARATION": 8,
+      "VERIFIED": 653,
+      "NON_ASSERTIVE_CONNECTOR": 19
+    },
+    "E_all_draft_lines_accounted": 689
+  },
+  "failure_modes": [
+    {
+      "mode": 1,
+      "name": "实现错误通过自审",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "gate": "BLOCK",
+      "evidence": [
+        "NUMERICAL_AUDIT.json",
+        "SUPPLEMENT_AUDIT.json",
+        "SOURCE_VERSION_AUDIT.json"
+      ],
+      "finding": "当前数学、控制流与数值一致性没有发现新硬错误；较早保存模型复算的逐进程实际exit和完整warning/执行时依赖链尚不能完整独立证明。较早生产训练日志亦不完整。",
+      "current_passage": "附录D621及627、3.4第272行已明确披露；这不是当前正文虚称全历史零警告，而是严格核验门本身证据未足。",
+      "minimum_resolution": "为当前论文模型输出数字提供真正重新加载权重、原定义参考/误差/残差计算、输入/源码/依赖冻结、实际进程退出、stdout/stderr与警告的完整生产证据。新证据必须标当前复算，不得声称恢复旧训练史。"
+    },
+    {
+      "mode": 2,
+      "name": "引用幻觉",
+      "status": "CLEAR",
+      "gate": "none",
+      "evidence": [
+        "REFERENCE_AND_CONTEXT_AUDIT.json",
+        "PRIMARY_PDF_FRESH.json",
+        "A0_SEMANTIC_SCHOLAR.json",
+        "WEB_CONTEXT_FRESH_LATEST.json"
+      ],
+      "finding": "13题录、18引用出现语境全量新核；期刊与作者稿版本正确区分，0幽灵引用、0未引参考文献。"
+    },
+    {
+      "mode": 3,
+      "name": "实验结果幻觉",
+      "status": "CLEAR",
+      "gate": "none",
+      "evidence": [
+        "NUMERICAL_AUDIT.json",
+        "SUPPLEMENT_AUDIT.json"
+      ],
+      "finding": "206原JSON、488原始产物哈希一致；426数表单元通过独立聚合及舍入检查；全部种子/负面结果保留。此CLEAR限保存数据对应性，Mode1执行证据另列。"
+    },
+    {
+      "mode": 4,
+      "name": "捷径依赖或混杂被写成机制",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "gate": "warning_for_unclaimed_stronger_mechanism",
+      "evidence": [
+        "MATHEMATICAL_METHOD_AUDIT.md",
+        "CLAIM_REGISTRY.json"
+      ],
+      "finding": "现有数据不能排除优化路径改变、环境混杂等机制解释；未做任意t趋零因果识别。稿件反复明确不提出唯一机制、跨优化器纯因果、未见初值泛化等强主张。有限配置内描述性改善可核，不把这些强主张改成CLEAR。"
+    },
+    {
+      "mode": 5,
+      "name": "缺陷包装成新洞见",
+      "status": "CLEAR",
+      "gate": "none",
+      "evidence": [
+        "NUMERICAL_AUDIT.json",
+        "CLAIM_REGISTRY.json"
+      ],
+      "finding": "E4、弱错配、个别种子、A1/G2失败及surf缺失按不利/证据限制陈述，未改写为新机制发现；解析精确性和训练收益分开。"
+    },
+    {
+      "mode": 6,
+      "name": "方法流程编造",
+      "status": "CLEAR",
+      "gate": "none",
+      "evidence": [
+        "SOURCE_VERSION_AUDIT.json",
+        "MATHEMATICAL_METHOD_AUDIT.md",
+        "SUPPLEMENT_AUDIT.json"
+      ],
+      "finding": "已读当前及旧哈希对应源码，固定预算/点数/RBA例外/因果32箱/Pirate差异/SOAP计数与配置相符；当前措辞限定源代码语义、保存记录和本机恢复，不假称全历史当前源码执行或人类全面核验。"
+    },
+    {
+      "mode": 7,
+      "name": "早期框架固化",
+      "status": "CLEAR",
+      "gate": "none",
+      "evidence": [
+        "SCREEN_PROTOCOL.md",
+        "NUMERICAL_AUDIT.json",
+        "CLAIM_REGISTRY.json"
+      ],
+      "finding": "保留原筛选E1未入选、E2未确认、A1/G2失败；新增协议不改旧门槛；主τ和主优化路线未倒选，结论主动收窄。"
+    }
+  ],
+  "prior_comparison": {
+    "read_order": "Read only after fresh A/B/C/D/E evidence work; did not use old PASS as support for current checks.",
+    "file": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\integrity\\complete_v1_pre\\INDEPENDENT_PRE_REVIEW.md",
+    "sha256": "527646e31a1934ae6af15c572812cb66f291945729cd05c9de7a3f97ef8604ac",
+    "old_status": "PASS_WITH_NOTES for pre-review only; Mode1 and stronger-mechanism Mode4 insufficient",
+    "current_status": "FAIL strict final gate, Mode1 still insufficient; all current factual content remains source-scoped",
+    "resolved_textual_scope": [
+      "AppendixE specifies E4 PDE/ODE/flux layer and full12run body/trace data.",
+      "AppendixF explicitly defines A1/A2/G2; RBA versions and execution semantics remain disclosed.",
+      "Time clamp vs analytic limit, independent residual point order and environment confounding clarified."
+    ],
+    "unresolved": [
+      "Historical run exits/warnings not reconstructed.",
+      "Author identity/self-publication search and human final accountability pending.",
+      "Stronger unique-mechanism or universal-generalization claims unsupported and not made."
+    ],
+    "review_contract_note": "Original five-report panel remains ABORT because only2/5 usable under its contract. Later independent re-review must stand as a separate process, not retroactively convert the old panel."
+  },
+  "originality": {
+    "grade_counts": {
+      "ORIGINAL": 58,
+      "PARAPHRASE": 7,
+      "COMMON_KNOWLEDGE": 12
+    },
+    "close_match": 0,
+    "verbatim": 0,
+    "limitations": [
+      "Heuristic public-web search, not Turnitin/iThenticate; no exact overlap percentage asserted.",
+      "Chinese-to-English translation overlap and inaccessible/unindexed texts may be missed.",
+      "Only sampled prose reviewed, though all identified revised paragraphs were covered.",
+      "Pooled multi-query search ranking is preserved as returned, not represented as separate per-query results."
+    ]
+  },
+  "ethics_transparency": {
+    "research_type": "primary computational research",
+    "human_subjects": "no collected human-subject data described",
+    "authorship": "pending author confirmation",
+    "funding": "pending, not presumed none",
+    "conflicts": "pending, not presumed none",
+    "AI_disclosure": "substantive execution/analysis/writing/review assistance disclosed; no false human-final-check assertion",
+    "public_release": "repository/license/DOI pending",
+    "publication_acceptance": "not asserted"
+  },
+  "follow_up": {
+    "new_audit_must_be_append_only": true,
+    "proposed_target": "manuscript/integrity/final_numeric_completion_20261023/",
+    "future_evidence_not_used_in_this_verdict": true,
+    "repair_scope": "read-only recomputation and minimal manuscript provenance wording; no new training/tuning; preserve historical limitations and negative results"
+  },
+  "limitations": [
+    "No training, saved-model reload, or new reference integration performed within this first audit. Arithmetic, source reading, hash checks, external searches and source-data/PNG verification only.",
+    "Four local PNG figures visually inspected; no full rendered HTML/PDF acceptance claimed by this integrity review.",
+    "Originality uses public-web heuristic screening, not professional full-corpus plagiarism certification.",
+    "The final gate is not a publication/peer-review acceptance decision."
+  ]
+}

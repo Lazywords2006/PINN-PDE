@@ -1,0 +1,524 @@
+{
+  "created": "2026-10-23T08:53:17.385484+08:00",
+  "draft_sha256": "aef0c10a1bf19e8703a8066e1f0aaef75600b886777424b9f6545677ccc77eb0",
+  "A0": {
+    "first_attempt": "A0_FIRST_ATTEMPT_429.json",
+    "retry": "A0_SEMANTIC_SCHOLAR.json",
+    "missing_skill_reference": "deep-research/references/semantic_scholar_api_protocol.md not present; direct API result and primary-source fallback retained",
+    "status": "S2 retry200; null or merged records resolved with fresh primary metadata, not declared nonexistent"
+  },
+  "references": [
+    {
+      "id": 1,
+      "line": 477,
+      "text": "[1] Favini, Angelo; Goldstein, Gisèle Ruiz; Goldstein, Jerome A.; Romanelli, Silvia. [The heat equation with generalized Wentzell boundary condition](https://doi.org/10.1007/s00028-002-8077-y). Journal of Evolution Equations, 2002, 2(1): 1-19.",
+      "url": "https://doi.org/10.1007/s00028-002-8077-y",
+      "primary": [
+        "https://link.springer.com/article/10.1007/s00028-002-8077-y"
+      ],
+      "passage": "Publisher title/author/journal metadata and abstract on generalized Wentzell heat equations and semigroups; no unseen proof attributed.",
+      "notes": "2002, Journal of Evolution Equations 2(1), 1–19; four author identities verified.",
+      "verdict": "VERIFIED",
+      "fresh_verification": true,
+      "bibliographic_fields_checked": [
+        "title",
+        "all listed authors",
+        "year or version",
+        "venue",
+        "volume/issue/pages/article where applicable",
+        "DOI or exact version URL"
+      ]
+    },
+    {
+      "id": 2,
+      "line": 479,
+      "text": "[2] Raissi, Maziar; Perdikaris, Paris; Karniadakis, George Em. [Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations](https://doi.org/10.1016/j.jcp.2018.10.045). Journal of Computational Physics, 2019, 378: 686-707.",
+      "url": "https://doi.org/10.1016/j.jcp.2018.10.045",
+      "primary": [
+        "https://www.sciencedirect.com/science/article/pii/S0021999118307125"
+      ],
+      "passage": "Original PINN formulation: neural approximation, PDE residual through differentiation, initial/boundary constraints.",
+      "notes": "2019 JCP 378, 686–707; Raissi, Perdikaris, Karniadakis; DOI publication year distinct from 2018 DOI string.",
+      "verdict": "VERIFIED",
+      "fresh_verification": true,
+      "bibliographic_fields_checked": [
+        "title",
+        "all listed authors",
+        "year or version",
+        "venue",
+        "volume/issue/pages/article where applicable",
+        "DOI or exact version URL"
+      ]
+    },
+    {
+      "id": 3,
+      "line": 481,
+      "text": "[3] Awais, Muhammad. [Physics-informed neural networks for the heat equation with dynamic (Wentzell) boundary conditions](https://doi.org/10.30538/oms2026.0303). Open Journal of Mathematical Sciences, 2026, 10: 526-536.",
+      "url": "https://doi.org/10.30538/oms2026.0303",
+      "primary": [
+        "https://pisrt.org/psr-press/journals/oms/01-vol-10-2026-issue-1/physics-informed-neural-networks-for-the-heat-equation-with-dynamic-wentzell-boundary-conditions/",
+        "https://pisrt.org/psrpress/j/oms/2026/physics-informed-neural-networks-for-the-heat-equation-with-dynamic-wentzell-boundary-conditions.pdf"
+      ],
+      "passage": "Abstract/method: hard initial constraint, random features, linear least squares, smooth manufactured solutions; both-end boundary formulas checked against current single-right model.",
+      "notes": "Muhammad Awais; 2026 OMS 10, 526–536. Webpage revised-date typo is not copied into manuscript.",
+      "verdict": "VERIFIED",
+      "fresh_verification": true,
+      "bibliographic_fields_checked": [
+        "title",
+        "all listed authors",
+        "year or version",
+        "venue",
+        "volume/issue/pages/article where applicable",
+        "DOI or exact version URL"
+      ]
+    },
+    {
+      "id": 4,
+      "line": 483,
+      "text": "[4] Li, Chunyan; Yu, Wenkai; Wang, Qi. [Energy Dissipation Rate Guided Adaptive Sampling for Physics-Informed Neural Networks: Resolving Surface-Bulk Dynamics in Allen-Cahn Systems](https://doi.org/10.4208/ijnam2026-1025). International Journal of Numerical Analysis and Modeling, 2026, 23(4): 576-604.",
+      "url": "https://doi.org/10.4208/ijnam2026-1025",
+      "primary": [
+        "https://www.global-sci.com/ijnam/article/view/24278",
+        "https://arxiv.org/html/2507.09757v1"
+      ],
+      "passage": "Abstract and §3.1: 2D surface/bulk dynamic-boundary Allen–Cahn; the 1D example uses periodic boundaries. No error ratio transferred.",
+      "notes": "Chunyan Li, Wenkai Yu, Qi Wang; 2026 IJNAM 23(4), 576–604.",
+      "verdict": "VERIFIED",
+      "fresh_verification": true,
+      "bibliographic_fields_checked": [
+        "title",
+        "all listed authors",
+        "year or version",
+        "venue",
+        "volume/issue/pages/article where applicable",
+        "DOI or exact version URL"
+      ]
+    },
+    {
+      "id": 5,
+      "line": 485,
+      "text": "[5] Chen, Qingshan; Qin, Zhen; Temam, Roger. [Numerical Resolution Near t=0 of Nonlinear Evolution Equations in the Presence of Corner Singularities in Space Dimension 1](https://doi.org/10.4208/cicp.110909.160310s). Communications in Computational Physics, 2011, 9(3): 568-586.",
+      "url": "https://doi.org/10.4208/cicp.110909.160310s",
+      "primary": [
+        "https://global-sci.com/index.php/cicp/article/download/5794/11524/12754",
+        "https://arxiv.org/pdf/1011.4549"
+      ],
+      "passage": "Author manuscript §2: Dirichlet problem; S1 is the time integral of S0, equation (2.11), PDF page 6. Supports prior corner correction, not this dynamic-boundary formula.",
+      "notes": "Qingshan Chen, Zhen Qin, Roger Temam; 2011 CICP 9(3),568–586. Publisher download later redirected; accessible author PDF used for method.",
+      "verdict": "VERIFIED",
+      "fresh_verification": true,
+      "bibliographic_fields_checked": [
+        "title",
+        "all listed authors",
+        "year or version",
+        "venue",
+        "volume/issue/pages/article where applicable",
+        "DOI or exact version URL"
+      ]
+    },
+    {
+      "id": 6,
+      "line": 487,
+      "text": "[6] Sukumar, N.; Srivastava, Ankit. [Exact imposition of boundary conditions with distance functions in physics-informed deep neural networks](https://doi.org/10.1016/j.cma.2021.114333). Computer Methods in Applied Mechanics and Engineering, 2022, 389: 114333.",
+      "url": "https://doi.org/10.1016/j.cma.2021.114333",
+      "primary": [
+        "https://www.sciencedirect.com/science/article/pii/S0045782521006186",
+        "https://api.crossref.org/works/10.1016%2Fj.cma.2021.114333"
+      ],
+      "passage": "Publisher abstract/method passage: distance functions construct trial functions satisfying boundary conditions exactly.",
+      "notes": "Fresh publisher plus Crossref metadata: N. Sukumar and Ankit Srivastava, 2022 CMA 389,114333. Some direct publisher opens return403; searchable publisher text and metadata independently available.",
+      "verdict": "VERIFIED",
+      "fresh_verification": true,
+      "bibliographic_fields_checked": [
+        "title",
+        "all listed authors",
+        "year or version",
+        "venue",
+        "volume/issue/pages/article where applicable",
+        "DOI or exact version URL"
+      ]
+    },
+    {
+      "id": 7,
+      "line": 489,
+      "text": "[7] Gie, Gung-Min; Hong, Youngjoon; Jung, Chang-Yeol; Munkhjin, Tselmuun. [Semi-analytic PINN methods for boundary layer problems in a rectangular domain](https://doi.org/10.1016/j.cam.2024.115989). Journal of Computational and Applied Mathematics, 2024, 450: 115989.",
+      "url": "https://doi.org/10.1016/j.cam.2024.115989",
+      "primary": [
+        "https://www.sciencedirect.com/science/article/abs/pii/S0377042724002395",
+        "https://arxiv.org/abs/2312.06278",
+        "https://arxiv.org/html/2312.06278v1"
+      ],
+      "passage": "Rectangular-domain stationary singular perturbation: spatial boundary/parabolic/corner layer enrichment; not an initial-time dynamic-boundary result.",
+      "notes": "Gie, Hong, Jung, Munkhjin; 2024 JCAM 450,115989.",
+      "verdict": "VERIFIED",
+      "fresh_verification": true,
+      "bibliographic_fields_checked": [
+        "title",
+        "all listed authors",
+        "year or version",
+        "venue",
+        "volume/issue/pages/article where applicable",
+        "DOI or exact version URL"
+      ]
+    },
+    {
+      "id": 8,
+      "line": 491,
+      "text": "[8] Gie, Gung-Min; Hong, Youngjoon; Jung, Chang-Yeol; Lee, Dongseok. [Singular layer physics-informed neural network method for convection-dominated boundary layer problems in two dimensions](https://doi.org/10.1016/j.cam.2025.116918). Journal of Computational and Applied Mathematics, 2026, 474: 116918.",
+      "url": "https://doi.org/10.1016/j.cam.2025.116918",
+      "primary": [
+        "https://www.sciencedirect.com/science/article/pii/S0377042725004327",
+        "https://arxiv.org/html/2312.03295v2"
+      ],
+      "passage": "Author v2 §3.3, equations (3.26),(3.37): time-dependent example includes initial factor, assumes no temporal layer and compatible data. Claim deliberately limited to this example.",
+      "notes": "Gie, Hong, Jung, Lee; 2026 JCAM 474,116918; 2025 DOI string is not publication year.",
+      "verdict": "VERIFIED",
+      "fresh_verification": true,
+      "bibliographic_fields_checked": [
+        "title",
+        "all listed authors",
+        "year or version",
+        "venue",
+        "volume/issue/pages/article where applicable",
+        "DOI or exact version URL"
+      ]
+    },
+    {
+      "id": 9,
+      "line": 493,
+      "text": "[9] Anagnostopoulos, Sokratis J.; Toscano, Juan Diego; Stergiopulos, Nikolaos; Karniadakis, George Em. [Residual-based attention in physics-informed neural networks](https://doi.org/10.1016/j.cma.2024.116805). Computer Methods in Applied Mechanics and Engineering, 2024, 421: 116805.",
+      "url": "https://doi.org/10.1016/j.cma.2024.116805",
+      "primary": [
+        "https://www.sciencedirect.com/science/article/pii/S0045782524000616",
+        "https://arxiv.org/pdf/2307.00379v1",
+        "https://arxiv.org/pdf/2307.00379v2",
+        "https://arxiv.org/abs/2307.00379v2"
+      ],
+      "passage": "v1 equation(9)/Algorithm1 and v2 equation(12)/Algorithm1: normalized residual history, initial lambda0=0, attention then network; v1 PDE weighting vs v2 multiple components. v2 optional k=1 eta*=1 is attention rate. Local lambda0=1, network-then-attention, all four residuals separately.",
+      "notes": "Journal bibliographic metadata2024 CMA421116805; read v2 revised2026-08-22, not claimed publisher-PDF verbatim check. S2 merged preprint metadata does not override journal year.",
+      "verdict": "VERIFIED",
+      "fresh_verification": true,
+      "bibliographic_fields_checked": [
+        "title",
+        "all listed authors",
+        "year or version",
+        "venue",
+        "volume/issue/pages/article where applicable",
+        "DOI or exact version URL"
+      ]
+    },
+    {
+      "id": 10,
+      "line": 495,
+      "text": "[10] Wang, Sifan; Sankaran, Shyam; Perdikaris, Paris. [Respecting causality for training physics-informed neural networks](https://doi.org/10.1016/j.cma.2024.116813). Computer Methods in Applied Mechanics and Engineering, 2024, 421: 116813.",
+      "url": "https://doi.org/10.1016/j.cma.2024.116813",
+      "primary": [
+        "https://www.sciencedirect.com/science/article/pii/S0045782524000690",
+        "https://arxiv.org/pdf/2203.07404"
+      ],
+      "passage": "Author PDF §3 page6 equations(3.1)–(3.3): weights decrease exponentially with prior temporal residual sum. Local32-bin separate-component implementation is disclosed as local configuration.",
+      "notes": "Wang, Sankaran, Perdikaris; 2024 CMA421116813. Author preprint title has extra is-all-you-need phrase; journal title correctly used.",
+      "verdict": "VERIFIED",
+      "fresh_verification": true,
+      "bibliographic_fields_checked": [
+        "title",
+        "all listed authors",
+        "year or version",
+        "venue",
+        "volume/issue/pages/article where applicable",
+        "DOI or exact version URL"
+      ]
+    },
+    {
+      "id": 11,
+      "line": 497,
+      "text": "[11] Wang, Sifan; Li, Bowen; Chen, Yuhan; Perdikaris, Paris. [PirateNets: Physics-informed Deep Learning with Residual Adaptive Networks](https://jmlr.org/papers/v25/24-0313.html). Journal of Machine Learning Research, 2024, 25(402): 1-51.",
+      "url": "https://jmlr.org/papers/v25/24-0313.html",
+      "primary": [
+        "https://jmlr.org/papers/v25/24-0313.html",
+        "https://jmlr.org/papers/volume25/24-0313/24-0313.pdf"
+      ],
+      "passage": "Official paper architecture/initialization sections PDFpp13–15: adaptive residual connections initialized0; physics/data-guided least-squares output initialization. Local omission explicitly disclosed.",
+      "notes": "Wang, Li, Chen, Perdikaris;2024 JMLR25(402),1–51.",
+      "verdict": "VERIFIED",
+      "fresh_verification": true,
+      "bibliographic_fields_checked": [
+        "title",
+        "all listed authors",
+        "year or version",
+        "venue",
+        "volume/issue/pages/article where applicable",
+        "DOI or exact version URL"
+      ]
+    },
+    {
+      "id": 12,
+      "line": 499,
+      "text": "[12] Vyas, Nikhil; Morwani, Depen; Zhao, Rosie; Kwun, Mujin; Shapira, Itai; Brandfonbrener, David; Janson, Lucas; Kakade, Sham. [SOAP: Improving and Stabilizing Shampoo using Adam](https://arxiv.org/abs/2409.11321v2). arXiv:2409.11321v2，初次提交2024，v2修订于2025-01-31.",
+      "url": "https://arxiv.org/abs/2409.11321v2",
+      "primary": [
+        "https://arxiv.org/abs/2409.11321v2"
+      ],
+      "passage": "v2 abstract: Shampoo eigenbasis and Adam update. Eight-author list includes Mujin Kwun; title/version not mixed with conference final.",
+      "notes": "First submitted2024-09-17;v2 revised2025-01-31; eight authors verified directly despite S2 merged seven-author record.",
+      "verdict": "VERIFIED",
+      "fresh_verification": true,
+      "bibliographic_fields_checked": [
+        "title",
+        "all listed authors",
+        "year or version",
+        "venue",
+        "volume/issue/pages/article where applicable",
+        "DOI or exact version URL"
+      ]
+    },
+    {
+      "id": 13,
+      "line": 501,
+      "text": "[13] National Institute of Standards and Technology. [NIST Digital Library of Mathematical Functions](https://dlmf.nist.gov/7.14.E4). 在线参考，§7.2.2、§7.6.1、§7.14.4，访问日期2026-10-22.",
+      "url": "https://dlmf.nist.gov/7.14.E4",
+      "primary": [
+        "https://dlmf.nist.gov/7.2.E2",
+        "https://dlmf.nist.gov/7.6.E1",
+        "https://dlmf.nist.gov/7.14.E4"
+      ],
+      "passage": "NIST erfc definition, erf series and Laplace integral §7.14.4; substitution supports inversion kernel. Manuscript presents its own derivation separately.",
+      "notes": "Online source correctly has institutional author and section locators; historical access date2026-10-22 not misrepresented as current audit date.",
+      "verdict": "VERIFIED",
+      "fresh_verification": true,
+      "bibliographic_fields_checked": [
+        "title",
+        "all listed authors",
+        "year or version",
+        "venue",
+        "volume/issue/pages/article where applicable",
+        "DOI or exact version URL"
+      ]
+    }
+  ],
+  "citation_occurrences": [
+    {
+      "id": "B001",
+      "line": 21,
+      "reference": 1,
+      "claim_context": "动态边界条件将边界上的时间演化纳入抛物初边值问题，广义 Wentzell 热方程的算子和半群分析已有经典研究[1]。本文考虑其中一类一维模型：体方程与边界方程共同决定解的演化，而给定初始函数不一定同时满足二者在初始角点对时间导数的要求。本文的具体问题是，在严格保留初始函数值的神经网络表达式中，显式加入由这一导数错配确定的局部解析项，是否能改善所测固定配置下的解误差。研究对象、比较方法和评价时刻均由实验协议限定，结论不延伸到未测试的方程或训练设置。[E01]",
+      "sources": [
+        "https://link.springer.com/article/10.1007/s00028-002-8077-y"
+      ],
+      "source_passage": "Publisher title/author/journal metadata and abstract on generalized Wentzell heat equations and semigroups; no unseen proof attributed.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": "B002",
+      "line": 23,
+      "reference": 2,
+      "claim_context": "物理信息神经网络通过自动微分构造方程残差，并将其与初边值数据共同纳入训练目标[2]。这一框架可以用于动态边界问题，但边界含时间导数并不自动消除初始相容性的要求。Awais 已在动态边界热方程上研究硬初值随机特征与线性最小二乘求解，并以光滑制造解验证其表现[3]。其两端边界设置及法向通量符号与本文不同，误差数值不适合作为直接排名依据。该先例说明本研究需要把问题限定为所测非相容初值及具体修正，而非宣称首次进行动态边界神经求解。",
+      "sources": [
+        "https://www.sciencedirect.com/science/article/pii/S0021999118307125"
+      ],
+      "source_passage": "Original PINN formulation: neural approximation, PDE residual through differentiation, initial/boundary constraints.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": "B003",
+      "line": 23,
+      "reference": 3,
+      "claim_context": "物理信息神经网络通过自动微分构造方程残差，并将其与初边值数据共同纳入训练目标[2]。这一框架可以用于动态边界问题，但边界含时间导数并不自动消除初始相容性的要求。Awais 已在动态边界热方程上研究硬初值随机特征与线性最小二乘求解，并以光滑制造解验证其表现[3]。其两端边界设置及法向通量符号与本文不同，误差数值不适合作为直接排名依据。该先例说明本研究需要把问题限定为所测非相容初值及具体修正，而非宣称首次进行动态边界神经求解。",
+      "sources": [
+        "https://pisrt.org/psr-press/journals/oms/01-vol-10-2026-issue-1/physics-informed-neural-networks-for-the-heat-equation-with-dynamic-wentzell-boundary-conditions/",
+        "https://pisrt.org/psrpress/j/oms/2026/physics-informed-neural-networks-for-the-heat-equation-with-dynamic-wentzell-boundary-conditions.pdf"
+      ],
+      "source_passage": "Abstract/method: hard initial constraint, random features, linear least squares, smooth manufactured solutions; both-end boundary formulas checked against current single-right model.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": "B004",
+      "line": 25,
+      "reference": 4,
+      "claim_context": "动态边界下的采样与时间训练也已有专门研究。Li等提出能量耗散率引导的自适应采样，在二维动态边界 Allen–Cahn 模型上考察体与表面的演化[4]。该工作的一维表格对应周期边界，不能将其中误差比直接移用为动态边界提升幅度。本文历史计划中的初值加权与早期时间采样只受其部分设置启发，尚未形成结果，更不是该多网络与自适应采样流程的完整复现。明确这种关系有助于把相关研究的启发与本项目实际运行的比较区分开来。[E01]",
+      "sources": [
+        "https://www.global-sci.com/ijnam/article/view/24278",
+        "https://arxiv.org/html/2507.09757v1"
+      ],
+      "source_passage": "Abstract and §3.1: 2D surface/bulk dynamic-boundary Allen–Cahn; the 1D example uses periodic boundaries. No error ratio transferred.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": "B005",
+      "line": 29,
+      "reference": 5,
+      "claim_context": "从解析角度看，用显式奇异函数分离初边值不相容项具有既有数值研究基础。Chen等在一维非线性演化问题中构造低阶角点修正，并用热方程角点函数的时间积分处理一阶不相容[5]。该研究采用 Dirichlet 数据，其函数不等于本文动态边界层，因而本文仍须重新给出边界缩放、变换公式和初始极限。将已知约束预先写入神经试函数也有成熟先例，例如距离函数构造能够精确施加几何边界约束[6]。这些工作支持结构化表达式的设计方向，不直接保证本文组合的训练误差更低。",
+      "sources": [
+        "https://global-sci.com/index.php/cicp/article/download/5794/11524/12754",
+        "https://arxiv.org/pdf/1011.4549"
+      ],
+      "source_passage": "Author manuscript §2: Dirichlet problem; S1 is the time integral of S0, equation (2.11), PDF page 6. Supports prior corner correction, not this dynamic-boundary formula.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": "B006",
+      "line": 29,
+      "reference": 6,
+      "claim_context": "从解析角度看，用显式奇异函数分离初边值不相容项具有既有数值研究基础。Chen等在一维非线性演化问题中构造低阶角点修正，并用热方程角点函数的时间积分处理一阶不相容[5]。该研究采用 Dirichlet 数据，其函数不等于本文动态边界层，因而本文仍须重新给出边界缩放、变换公式和初始极限。将已知约束预先写入神经试函数也有成熟先例，例如距离函数构造能够精确施加几何边界约束[6]。这些工作支持结构化表达式的设计方向，不直接保证本文组合的训练误差更低。",
+      "sources": [
+        "https://www.sciencedirect.com/science/article/pii/S0045782521006186",
+        "https://api.crossref.org/works/10.1016%2Fj.cma.2021.114333"
+      ],
+      "source_passage": "Publisher abstract/method passage: distance functions construct trial functions satisfying boundary conditions exactly.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": "B007",
+      "line": 31,
+      "reference": 7,
+      "claim_context": "解析层与神经网络的结合也不能作为本研究的首创主张。Gie等的 SL-PINN 已将解析边界层和空间角点校正嵌入神经近似，矩形域研究中的抛物型层属于空间奇异摄动结构[7]。后续工作在一个时变例中同时使用初值因子和空间层修正，但该例明确假设时间方向无层并要求数据相容[8]。这些局部事实提示本文应区分空间边界层与初始时间角点结构，同时也不能据少量选读概括所有 SL-PINN 工作的研究范围。本文关注的是下述动态边界导数错配组合及其实际适用性。",
+      "sources": [
+        "https://www.sciencedirect.com/science/article/abs/pii/S0377042724002395",
+        "https://arxiv.org/abs/2312.06278",
+        "https://arxiv.org/html/2312.06278v1"
+      ],
+      "source_passage": "Rectangular-domain stationary singular perturbation: spatial boundary/parabolic/corner layer enrichment; not an initial-time dynamic-boundary result.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": "B008",
+      "line": 31,
+      "reference": 8,
+      "claim_context": "解析层与神经网络的结合也不能作为本研究的首创主张。Gie等的 SL-PINN 已将解析边界层和空间角点校正嵌入神经近似，矩形域研究中的抛物型层属于空间奇异摄动结构[7]。后续工作在一个时变例中同时使用初值因子和空间层修正，但该例明确假设时间方向无层并要求数据相容[8]。这些局部事实提示本文应区分空间边界层与初始时间角点结构，同时也不能据少量选读概括所有 SL-PINN 工作的研究范围。本文关注的是下述动态边界导数错配组合及其实际适用性。",
+      "sources": [
+        "https://www.sciencedirect.com/science/article/pii/S0377042725004327",
+        "https://arxiv.org/html/2312.03295v2"
+      ],
+      "source_passage": "Author v2 §3.3, equations (3.26),(3.37): time-dependent example includes initial factor, assumes no temporal layer and compatible data. Claim deliberately limited to this example.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": "B009",
+      "line": 33,
+      "reference": 9,
+      "claim_context": "训练改进构成另一组必要比较。残差注意力利用归一化残差历史调整逐点权重[9]，因果训练通过先前时段残差控制后续时段的权重[10]。PirateNets 引入可学习残差连接及物理或数据引导的输出层初始化[11]，SOAP 则在 Shampoo 预条件器的特征向量坐标中使用 Adam 式更新[12]。这些方法改变的环节不同，因此本文先在相同架构内比较加与不加修正，再讨论固定架构和优化器的叠加。有限默认配置的比较用于确定本文构造的效果范围，不代表充分调参后的方法族整体排名。[E01,E03]",
+      "sources": [
+        "https://www.sciencedirect.com/science/article/pii/S0045782524000616",
+        "https://arxiv.org/pdf/2307.00379v1",
+        "https://arxiv.org/pdf/2307.00379v2",
+        "https://arxiv.org/abs/2307.00379v2"
+      ],
+      "source_passage": "v1 equation(9)/Algorithm1 and v2 equation(12)/Algorithm1: normalized residual history, initial lambda0=0, attention then network; v1 PDE weighting vs v2 multiple components. v2 optional k=1 eta*=1 is attention rate. Local lambda0=1, network-then-attention, all four residuals separately.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": "B010",
+      "line": 33,
+      "reference": 10,
+      "claim_context": "训练改进构成另一组必要比较。残差注意力利用归一化残差历史调整逐点权重[9]，因果训练通过先前时段残差控制后续时段的权重[10]。PirateNets 引入可学习残差连接及物理或数据引导的输出层初始化[11]，SOAP 则在 Shampoo 预条件器的特征向量坐标中使用 Adam 式更新[12]。这些方法改变的环节不同，因此本文先在相同架构内比较加与不加修正，再讨论固定架构和优化器的叠加。有限默认配置的比较用于确定本文构造的效果范围，不代表充分调参后的方法族整体排名。[E01,E03]",
+      "sources": [
+        "https://www.sciencedirect.com/science/article/pii/S0045782524000690",
+        "https://arxiv.org/pdf/2203.07404"
+      ],
+      "source_passage": "Author PDF §3 page6 equations(3.1)–(3.3): weights decrease exponentially with prior temporal residual sum. Local32-bin separate-component implementation is disclosed as local configuration.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": "B011",
+      "line": 33,
+      "reference": 11,
+      "claim_context": "训练改进构成另一组必要比较。残差注意力利用归一化残差历史调整逐点权重[9]，因果训练通过先前时段残差控制后续时段的权重[10]。PirateNets 引入可学习残差连接及物理或数据引导的输出层初始化[11]，SOAP 则在 Shampoo 预条件器的特征向量坐标中使用 Adam 式更新[12]。这些方法改变的环节不同，因此本文先在相同架构内比较加与不加修正，再讨论固定架构和优化器的叠加。有限默认配置的比较用于确定本文构造的效果范围，不代表充分调参后的方法族整体排名。[E01,E03]",
+      "sources": [
+        "https://jmlr.org/papers/v25/24-0313.html",
+        "https://jmlr.org/papers/volume25/24-0313/24-0313.pdf"
+      ],
+      "source_passage": "Official paper architecture/initialization sections PDFpp13–15: adaptive residual connections initialized0; physics/data-guided least-squares output initialization. Local omission explicitly disclosed.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": "B012",
+      "line": 33,
+      "reference": 12,
+      "claim_context": "训练改进构成另一组必要比较。残差注意力利用归一化残差历史调整逐点权重[9]，因果训练通过先前时段残差控制后续时段的权重[10]。PirateNets 引入可学习残差连接及物理或数据引导的输出层初始化[11]，SOAP 则在 Shampoo 预条件器的特征向量坐标中使用 Adam 式更新[12]。这些方法改变的环节不同，因此本文先在相同架构内比较加与不加修正，再讨论固定架构和优化器的叠加。有限默认配置的比较用于确定本文构造的效果范围，不代表充分调参后的方法族整体排名。[E01,E03]",
+      "sources": [
+        "https://arxiv.org/abs/2409.11321v2"
+      ],
+      "source_passage": "v2 abstract: Shampoo eigenbasis and Adam update. Eight-author list includes Mujin Kwun; title/version not mixed with conference final.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": "B013",
+      "line": 98,
+      "reference": 13,
+      "claim_context": "其中平方根选取实部为正的分支。式（6）展示了边界容量如何进入时间响应，也给出了闭式反变换需要满足的目标。NIST 数学函数数字图书馆的式7.14.4提供所需余误差函数 Laplace 积分[13]。取其中参数为容量倒数的平方、变换变量及距离平方的四分之一，再乘相应空间指数，得到下面时间导数的变换。经典积分公式支持的是这一步反演，边界模型、错配系数及其与网络的组合仍由本文推导。[E02]",
+      "sources": [
+        "https://dlmf.nist.gov/7.2.E2",
+        "https://dlmf.nist.gov/7.6.E1",
+        "https://dlmf.nist.gov/7.14.E4"
+      ],
+      "source_passage": "NIST erfc definition, erf series and Laplace integral §7.14.4; substitution supports inversion kernel. Manuscript presents its own derivation separately.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": "B014",
+      "line": 242,
+      "reference": 9,
+      "claim_context": "残差注意力按归一化残差历史更新逐点权重[9]。本文明确使用RBA本地变体：完整预算下，整个 Adam 点集固定为体4096个、每端256个及初值256个，并在 L-BFGS 继续复用。体、左边界、右边界及初值四类残差分别使用逐点权重，L-BFGS 冻结这些权重。权重初始化为一，在每次 Adam 网络参数更新后，使用本次更新前已计算的残差更新权重。此实现不等同于原文全部训练配置，其与所读版本的差异见附录C。因果权重由先前时段的残差确定[10]，本文将其叠加于硬初值，分32个时间箱，固定使用ε为1或10，两档分别训练，体与两端边界三个分量各自计算因果权重，并在原强基线判定中取对基线有利的一档。本文不将有限配置比较推广为充分公平调参后的最优排名。[E01,E10]",
+      "sources": [
+        "https://www.sciencedirect.com/science/article/pii/S0045782524000616",
+        "https://arxiv.org/pdf/2307.00379v1",
+        "https://arxiv.org/pdf/2307.00379v2",
+        "https://arxiv.org/abs/2307.00379v2"
+      ],
+      "source_passage": "v1 equation(9)/Algorithm1 and v2 equation(12)/Algorithm1: normalized residual history, initial lambda0=0, attention then network; v1 PDE weighting vs v2 multiple components. v2 optional k=1 eta*=1 is attention rate. Local lambda0=1, network-then-attention, all four residuals separately.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": "B015",
+      "line": 242,
+      "reference": 10,
+      "claim_context": "残差注意力按归一化残差历史更新逐点权重[9]。本文明确使用RBA本地变体：完整预算下，整个 Adam 点集固定为体4096个、每端256个及初值256个，并在 L-BFGS 继续复用。体、左边界、右边界及初值四类残差分别使用逐点权重，L-BFGS 冻结这些权重。权重初始化为一，在每次 Adam 网络参数更新后，使用本次更新前已计算的残差更新权重。此实现不等同于原文全部训练配置，其与所读版本的差异见附录C。因果权重由先前时段的残差确定[10]，本文将其叠加于硬初值，分32个时间箱，固定使用ε为1或10，两档分别训练，体与两端边界三个分量各自计算因果权重，并在原强基线判定中取对基线有利的一档。本文不将有限配置比较推广为充分公平调参后的最优排名。[E01,E10]",
+      "sources": [
+        "https://www.sciencedirect.com/science/article/pii/S0045782524000690",
+        "https://arxiv.org/pdf/2203.07404"
+      ],
+      "source_passage": "Author PDF §3 page6 equations(3.1)–(3.3): weights decrease exponentially with prior temporal residual sum. Local32-bin separate-component implementation is disclosed as local configuration.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": "B016",
+      "line": 244,
+      "reference": 11,
+      "claim_context": "架构叠加采用 PirateNets 的自适应残差连接思路[11]，使用本文实际实现的变体：随机 Fourier 嵌入、3个宽度为64的门控残差块及初始为零的自适应跳连权重。实现省略了原方法的物理信息最小二乘初始化，因此全文明确标注这一差异。四个历史未完成的热方程任务从原检查点继续至原定总预算，其余既有结果只读复用。续跑只补充剩余调用，没有为这些种子附加新的训练额度。复现声明只涵盖已核实的任务身份和本机恢复，不承诺跨硬件训练轨迹逐位相同。[E01,E03]",
+      "sources": [
+        "https://jmlr.org/papers/v25/24-0313.html",
+        "https://jmlr.org/papers/volume25/24-0313/24-0313.pdf"
+      ],
+      "source_passage": "Official paper architecture/initialization sections PDFpp13–15: adaptive residual connections initialized0; physics/data-guided least-squares output initialization. Local omission explicitly disclosed.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": "B017",
+      "line": 246,
+      "reference": 12,
+      "claim_context": "修订6另外固定两类实验。其一在原问题上使用三个衰减参数档位，主配置的数据只读复用，另两个档位各进行完整三种子训练。结果不用于更换主参数。其二依据 SOAP 的特征向量坐标更新思想[12]，将 Adam 阶段替换为官方更新语义的双精度适配实现，固定一个学习率档位，其余共享预算与三种构造一致。SOAP 首次调用仅初始化，20000次调用对应的19999次更新由冻结实现推得，不额外补偿。调用字段由完成循环后的配置值写入，并非独立逐步观测；损失和L-BFGS计数口径见附录A。两类实验均已完成，不进行超参数搜索或结果倒选。[E04,E13]",
+      "sources": [
+        "https://arxiv.org/abs/2409.11321v2"
+      ],
+      "source_passage": "v2 abstract: Shampoo eigenbasis and Adam update. Eight-author list includes Mujin Kwun; title/version not mixed with conference final.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": "B018",
+      "line": 608,
+      "reference": 9,
+      "claim_context": "文献[9]的期刊题录保留2024年。实际阅读缓存为arXiv:2307.00379v2（2026-08-22），其公式（12）和Algorithm 1用于核查按归一化残差历史累积逐点权重的核心表述。另对arXiv v1（2023）的公式（9）与Algorithm 1作版本交叉核对。阅读较新的作者稿不能写成已逐字核对2024年出版PDF。[E10]",
+      "sources": [
+        "https://www.sciencedirect.com/science/article/pii/S0045782524000616",
+        "https://arxiv.org/pdf/2307.00379v1",
+        "https://arxiv.org/pdf/2307.00379v2",
+        "https://arxiv.org/abs/2307.00379v2"
+      ],
+      "source_passage": "v1 equation(9)/Algorithm1 and v2 equation(12)/Algorithm1: normalized residual history, initial lambda0=0, attention then network; v1 PDE weighting vs v2 multiple components. v2 optional k=1 eta*=1 is attention rate. Local lambda0=1, network-then-attention, all four residuals separately.",
+      "verdict": "VERIFIED"
+    }
+  ],
+  "ghost_citations": [],
+  "uncited_references": [],
+  "all_primary_passages_fresh": true
+}

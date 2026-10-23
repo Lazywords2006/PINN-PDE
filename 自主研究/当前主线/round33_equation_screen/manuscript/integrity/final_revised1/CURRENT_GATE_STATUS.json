@@ -1,0 +1,13 @@
+{
+  "stage": "4.5 final integrity",
+  "draft": "manuscript/drafts/delivery_candidate.md",
+  "draft_sha256": "aef0c10a1bf19e8703a8066e1f0aaef75600b886777424b9f6545677ccc77eb0",
+  "overall": "NOT_PASS",
+  "current_content_status": "Independent audit ongoing; 426 numerical table cells, 488 raw artifact hashes, and 206 raw result metric definitions pass. No substantive current-manuscript numerical error identified to date.",
+  "mode1": "INSUFFICIENT_EVIDENCE",
+  "issue": "Saved historical production runs lack complete per-run numeric exit and warning evidence. Saved recomputation reports bind current output numbers to preserved model weights but complete execution evidence of those recomputations is not yet independently established. This does not assert that current text falsely claims all historical processes were warning-free.",
+  "paper_scope": "Appendix D line 621 and line 627 explicitly retain historical log/source limitations; E4 missing surf weights limit old models to bulk/trace and exclude reproducible surface-v claims.",
+  "dependent_finalization": "blocked pending completed independent audit and evidence resolution",
+  "proposed_resolution_assessment": "An actual, independently audited recomputation of every claimed historical numerical result, with input/code/dependency hashes, full output sequences, stdout/stderr, warning assessment and true exit code, can supply a saved script run that produced current paper numbers within original tolerances. It does not restore historical training execution evidence. No prospective PASS is granted.",
+  "not_a_final_completed_report": true
+}

@@ -1,0 +1,1462 @@
+{
+  "retrieved": "2026-10-23T08:43:17.335875+08:00",
+  "url": "https://api.crossref.org/works/10.1016%2Fj.cma.2021.114333",
+  "data": {
+    "status": "ok",
+    "message-type": "work",
+    "message-version": "1.0.0",
+    "message": {
+      "indexed": {
+        "date-parts": [
+          [
+            2026,
+            10,
+            21
+          ]
+        ],
+        "date-time": "2026-10-21T23:03:40Z",
+        "timestamp": 1792623820176,
+        "version": "4.5.0"
+      },
+      "reference-count": 112,
+      "publisher": "Elsevier BV",
+      "license": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2022,
+                2,
+                1
+              ]
+            ],
+            "date-time": "2022-02-01T00:00:00Z",
+            "timestamp": 1643673600000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2022,
+                2,
+                1
+              ]
+            ],
+            "date-time": "2022-02-01T00:00:00Z",
+            "timestamp": 1643673600000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/legal/tdmrep-license"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2023,
+                1,
+                17
+              ]
+            ],
+            "date-time": "2023-01-17T00:00:00Z",
+            "timestamp": 1673913600000
+          },
+          "content-version": "am",
+          "delay-in-days": 350,
+          "URL": "http://www.elsevier.com/open-access/userlicense/1.0/"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2022,
+                2,
+                1
+              ]
+            ],
+            "date-time": "2022-02-01T00:00:00Z",
+            "timestamp": 1643673600000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-017"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2022,
+                2,
+                1
+              ]
+            ],
+            "date-time": "2022-02-01T00:00:00Z",
+            "timestamp": 1643673600000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-037"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2022,
+                2,
+                1
+              ]
+            ],
+            "date-time": "2022-02-01T00:00:00Z",
+            "timestamp": 1643673600000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-012"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2022,
+                2,
+                1
+              ]
+            ],
+            "date-time": "2022-02-01T00:00:00Z",
+            "timestamp": 1643673600000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-029"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2022,
+                2,
+                1
+              ]
+            ],
+            "date-time": "2022-02-01T00:00:00Z",
+            "timestamp": 1643673600000
+          },
+          "content-version": "stm-asf",
+          "delay-in-days": 0,
+          "URL": "https://doi.org/10.15223/policy-004"
+        }
+      ],
+      "funder": [
+        {
+          "DOI": "10.13039/100012792",
+          "name": "Illinois Institute of Technology",
+          "doi-asserted-by": "publisher",
+          "id": [
+            {
+              "id": "10.13039/100012792",
+              "id-type": "DOI",
+              "asserted-by": "publisher"
+            }
+          ]
+        },
+        {
+          "DOI": "10.13039/100000001",
+          "name": "National Science Foundation",
+          "doi-asserted-by": "publisher",
+          "award": [
+            "1554033"
+          ],
+          "award-info": [
+            {
+              "award-number": [
+                "1554033"
+              ]
+            }
+          ],
+          "id": [
+            {
+              "id": "10.13039/100000001",
+              "id-type": "DOI",
+              "asserted-by": "publisher"
+            }
+          ]
+        }
+      ],
+      "content-domain": {
+        "domain": [
+          "elsevier.com",
+          "sciencedirect.com"
+        ],
+        "crossmark-restriction": true
+      },
+      "short-container-title": [
+        "Computer Methods in Applied Mechanics and Engineering"
+      ],
+      "published-print": {
+        "date-parts": [
+          [
+            2022,
+            2
+          ]
+        ]
+      },
+      "DOI": "10.1016/j.cma.2021.114333",
+      "type": "journal-article",
+      "created": {
+        "date-parts": [
+          [
+            2021,
+            12,
+            2
+          ]
+        ],
+        "date-time": "2021-12-02T08:28:30Z",
+        "timestamp": 1638433710000
+      },
+      "page": "114333",
+      "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
+      "source": "Crossref",
+      "is-referenced-by-count": 453,
+      "special_numbering": "C",
+      "title": [
+        "Exact imposition of boundary conditions with distance functions in physics-informed deep neural networks"
+      ],
+      "prefix": "10.1016",
+      "volume": "389",
+      "author": [
+        {
+          "ORCID": "https://orcid.org/0000-0001-6744-7673",
+          "authenticated-orcid": false,
+          "given": "N.",
+          "family": "Sukumar",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Ankit",
+          "family": "Srivastava",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "member": "78",
+      "reference": [
+        {
+          "issue": "5",
+          "key": "10.1016/j.cma.2021.114333_b1",
+          "doi-asserted-by": "crossref",
+          "first-page": "987",
+          "DOI": "10.1109/72.712178",
+          "article-title": "Artifical neural networks for solving ordinary and partial differential equations",
+          "volume": "9",
+          "author": "Lagaris",
+          "year": "1998",
+          "journal-title": "IEEE Trans. Neural Netw."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b2",
+          "doi-asserted-by": "crossref",
+          "first-page": "1",
+          "DOI": "10.1016/S0010-4655(97)00054-4",
+          "article-title": "Artifical neural network methods in quantum mechanics",
+          "volume": "104",
+          "author": "Lagaris",
+          "year": "1997",
+          "journal-title": "Comput. Phys. Comm."
+        },
+        {
+          "issue": "5",
+          "key": "10.1016/j.cma.2021.114333_b3",
+          "doi-asserted-by": "crossref",
+          "first-page": "1041",
+          "DOI": "10.1109/72.870037",
+          "article-title": "Neural-network methods for boundary value problems with irregular boundaries",
+          "volume": "11",
+          "author": "Lagaris",
+          "year": "2000",
+          "journal-title": "IEEE Trans. Neural Netw."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b4",
+          "series-title": "An artificial neural network method for solving boundary value problems with arbitrary irregular boundaries",
+          "author": "McFall",
+          "year": "2006"
+        },
+        {
+          "issue": "8",
+          "key": "10.1016/j.cma.2021.114333_b5",
+          "doi-asserted-by": "crossref",
+          "first-page": "1221",
+          "DOI": "10.1109/TNN.2009.2020735",
+          "article-title": "Artificial neural network method for solution of boundary value problems with exact satisfaction of arbitrary boundary conditions",
+          "volume": "20",
+          "author": "McFall",
+          "year": "2009",
+          "journal-title": "IEEE Trans. Neural Netw."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b6",
+          "doi-asserted-by": "crossref",
+          "first-page": "686",
+          "DOI": "10.1016/j.jcp.2018.10.045",
+          "article-title": "Physics-informed neural networks: A deep learning framework for forward and inverse problems involving nonlinear partial differential equations",
+          "volume": "378",
+          "author": "Raissi",
+          "year": "2019",
+          "journal-title": "J. Comput. Phys."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b7",
+          "doi-asserted-by": "crossref",
+          "first-page": "28",
+          "DOI": "10.1016/j.neucom.2018.06.056",
+          "article-title": "A unified deep artificial neural network approach to partial differential equations in complex geometries",
+          "volume": "317",
+          "author": "Berg",
+          "year": "2018",
+          "journal-title": "Neuralcomputing"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b8",
+          "doi-asserted-by": "crossref",
+          "first-page": "1339",
+          "DOI": "10.1016/j.jcp.2018.08.029",
+          "article-title": "DGM: A deep learning algorithm for solving partial differential equations",
+          "volume": "375",
+          "author": "Sirignano",
+          "year": "2018",
+          "journal-title": "J. Comput. Phys."
+        },
+        {
+          "issue": "1",
+          "key": "10.1016/j.cma.2021.114333_b9",
+          "doi-asserted-by": "crossref",
+          "first-page": "1",
+          "DOI": "10.1007/s40304-018-0127-z",
+          "article-title": "The deep Ritz method: a deep learning-based numerical algorithm for solving variational problems",
+          "volume": "6",
+          "author": "E",
+          "year": "2018",
+          "journal-title": "Commun. Math. Stat."
+        },
+        {
+          "issue": "34",
+          "key": "10.1016/j.cma.2021.114333_b10",
+          "doi-asserted-by": "crossref",
+          "first-page": "8505",
+          "DOI": "10.1073/pnas.1718942115",
+          "article-title": "Solving high-dimensional partial differential equations using deep learning",
+          "volume": "115",
+          "author": "Han",
+          "year": "2018",
+          "journal-title": "Proc. Natl. Acad. Sci."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b11",
+          "series-title": "Variational physics-informed neural networks for solving partial differential equations",
+          "author": "Kharazmi",
+          "year": "2019"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b12",
+          "article-title": "hp-VPINNs: Variational physics-informed neural networks with domain decomposition",
+          "volume": "374",
+          "author": "Kharazmi",
+          "year": "2020",
+          "journal-title": "Comput. Methods Appl. Mech. Engrg."
+        },
+        {
+          "issue": "1",
+          "key": "10.1016/j.cma.2021.114333_b13",
+          "doi-asserted-by": "crossref",
+          "first-page": "208",
+          "DOI": "10.1137/19M1274067",
+          "article-title": "DeepXDE: A deep learning library for solving differential equations",
+          "volume": "63",
+          "author": "Lu",
+          "year": "2021",
+          "journal-title": "SIAM Rev."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b14",
+          "series-title": "12th {USENIX} Symposium on Operating Systems Design and Implementation ({OSDI} 16)",
+          "first-page": "265",
+          "article-title": "Tensorflow: A system for large-scale machine learning",
+          "author": "Abadi",
+          "year": "2016"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b15",
+          "series-title": "Advances in Neural Information Processing Systems",
+          "article-title": "Pytorch: An imperative style, high-performance deep learning library",
+          "volume": "32",
+          "author": "Paszke",
+          "year": "2019"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b16",
+          "series-title": "Understanding and mitigating gradient pathologies in physics-informed neural networks",
+          "author": "Wang",
+          "year": "2020"
+        },
+        {
+          "issue": "3",
+          "key": "10.1016/j.cma.2021.114333_b17",
+          "doi-asserted-by": "crossref",
+          "first-page": "354",
+          "DOI": "10.4208/cmr.2020-0051",
+          "article-title": "A comparison study of deep Galerkin method and deep Ritz method for elliptic problems with different boundary conditions",
+          "volume": "36",
+          "author": "Chen",
+          "year": "2020",
+          "journal-title": "Commun. Math. Res."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b18",
+          "series-title": "Enforcing exact boundary and initial conditions in the deep mixed residual method",
+          "author": "Lyu",
+          "year": "2020"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b19",
+          "doi-asserted-by": "crossref",
+          "first-page": "1",
+          "DOI": "10.1017/S0962492902000090",
+          "article-title": "Survey of meshless and generalized finite element methods: a unified approach",
+          "volume": "12",
+          "author": "Babuška",
+          "year": "2003",
+          "journal-title": "Acta Numer."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b20",
+          "first-page": "1",
+          "article-title": "Meshfree methods",
+          "volume": "vol. 2",
+          "author": "Huerta",
+          "year": "2017"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b21",
+          "series-title": "Approximate Methods of Higher Analysis",
+          "author": "Kantorovich",
+          "year": "1958"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b22",
+          "series-title": "Theory of R-Functions and Some Applications",
+          "author": "Rvachev",
+          "year": "1982"
+        },
+        {
+          "issue": "4",
+          "key": "10.1016/j.cma.2021.114333_b23",
+          "doi-asserted-by": "crossref",
+          "first-page": "151",
+          "DOI": "10.1115/1.3005099",
+          "article-title": "R-functions in boundary value problems in mechanics",
+          "volume": "48",
+          "author": "Rvachev",
+          "year": "1995",
+          "journal-title": "Appl. Mech. Rev."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b24",
+          "doi-asserted-by": "crossref",
+          "first-page": "305",
+          "DOI": "10.1007/s004660050479",
+          "article-title": "On completeness of RFM solution structures",
+          "volume": "25",
+          "author": "Rvachev",
+          "year": "2000",
+          "journal-title": "Comput. Mech."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b25",
+          "doi-asserted-by": "crossref",
+          "first-page": "195",
+          "DOI": "10.1016/S0167-8396(01)00015-2",
+          "article-title": "Transfinite interpolation over implicitly defined sets",
+          "volume": "18",
+          "author": "Rvachev",
+          "year": "2001",
+          "journal-title": "Comput. Aided Geom. Design"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b26",
+          "series-title": "Theory of R-functions and applications: A primer",
+          "author": "Shapiro",
+          "year": "1991"
+        },
+        {
+          "issue": "7",
+          "key": "10.1016/j.cma.2021.114333_b27",
+          "doi-asserted-by": "crossref",
+          "first-page": "459",
+          "DOI": "10.1016/S0010-4485(99)00043-3",
+          "article-title": "Meshfree simulation of deforming domains",
+          "volume": "31",
+          "author": "Shapiro",
+          "year": "1999",
+          "journal-title": "Comput. Aided Des."
+        },
+        {
+          "issue": "4",
+          "key": "10.1016/j.cma.2021.114333_b28",
+          "doi-asserted-by": "crossref",
+          "first-page": "295",
+          "DOI": "10.1007/s003660200027",
+          "article-title": "The architecture of SAGE–a meshfree system based on RFM",
+          "volume": "18",
+          "author": "Shapiro",
+          "year": "2002",
+          "journal-title": "Eng. Comput."
+        },
+        {
+          "issue": "3",
+          "key": "10.1016/j.cma.2021.114333_b29",
+          "doi-asserted-by": "crossref",
+          "first-page": "133",
+          "DOI": "10.1016/j.gmod.2004.01.003",
+          "article-title": "Approximate distance fields with non-vanishing gradients",
+          "volume": "66",
+          "author": "Biswas",
+          "year": "2004",
+          "journal-title": "Graph. Models"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b30",
+          "doi-asserted-by": "crossref",
+          "first-page": "239",
+          "DOI": "10.1017/S096249290631001X",
+          "article-title": "Semi-analytic geometry with R-functions",
+          "volume": "16",
+          "author": "Shapiro",
+          "year": "2007",
+          "journal-title": "Acta Numer."
+        },
+        {
+          "issue": "9",
+          "key": "10.1016/j.cma.2021.114333_b31",
+          "doi-asserted-by": "crossref",
+          "first-page": "957",
+          "DOI": "10.1016/j.finel.2011.03.001",
+          "article-title": "Finite element analysis in situ",
+          "volume": "47",
+          "author": "Freytag",
+          "year": "2011",
+          "journal-title": "Finite Elem. Anal. Des."
+        },
+        {
+          "issue": "2",
+          "key": "10.1016/j.cma.2021.114333_b32",
+          "doi-asserted-by": "crossref",
+          "first-page": "442",
+          "DOI": "10.1137/S0036142900373208",
+          "article-title": "Weighted extended B-spline approximation of Dirichlet problems",
+          "volume": "39",
+          "author": "Höllig",
+          "year": "2001",
+          "journal-title": "SIAM J. Numer. Anal."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b33",
+          "doi-asserted-by": "crossref",
+          "first-page": "712",
+          "DOI": "10.1016/j.cma.2014.10.012",
+          "article-title": "Cell-based maximum-entropy approximants",
+          "volume": "284",
+          "author": "Millán",
+          "year": "2015",
+          "journal-title": "Comput. Methods Appl. Mech. Engrg."
+        },
+        {
+          "issue": "1",
+          "key": "10.1016/j.cma.2021.114333_b34",
+          "doi-asserted-by": "crossref",
+          "first-page": "19",
+          "DOI": "10.1016/S0167-8396(03)00002-5",
+          "article-title": "Mean value coordinates",
+          "volume": "20",
+          "author": "Floater",
+          "year": "2003",
+          "journal-title": "Comput. Aided Geom. Design"
+        },
+        {
+          "issue": "1",
+          "key": "10.1016/j.cma.2021.114333_b35",
+          "doi-asserted-by": "crossref",
+          "first-page": "117",
+          "DOI": "10.1016/j.cagd.2007.12.003",
+          "article-title": "Transfinite mean value interpolation",
+          "volume": "26",
+          "author": "Dyken",
+          "year": "2009",
+          "journal-title": "Comput. Aided Geom. Design"
+        },
+        {
+          "issue": "2",
+          "key": "10.1016/j.cma.2021.114333_b36",
+          "doi-asserted-by": "crossref",
+          "first-page": "523",
+          "DOI": "10.1016/j.cad.2012.10.035",
+          "article-title": "Signed Lp-distance fields",
+          "volume": "45",
+          "author": "Belyaev",
+          "year": "2013",
+          "journal-title": "Comput. Aided Des."
+        },
+        {
+          "issue": "39–41",
+          "key": "10.1016/j.cma.2021.114333_b37",
+          "doi-asserted-by": "crossref",
+          "first-page": "4135",
+          "DOI": "10.1016/j.cma.2004.10.008",
+          "article-title": "Isogeometric analysis: CAD, finite elements, NURBS, exact geometry and mesh refinement",
+          "volume": "194",
+          "author": "Hughes",
+          "year": "2005",
+          "journal-title": "Comput. Methods Appl. Mech. Engrg."
+        },
+        {
+          "issue": "1",
+          "key": "10.1016/j.cma.2021.114333_b38",
+          "doi-asserted-by": "crossref",
+          "first-page": "1",
+          "DOI": "10.1002/nme.1052",
+          "article-title": "A variational r-adaption and shape-optimization method for finite-deformation elasticity",
+          "volume": "61",
+          "author": "Thoutireddy",
+          "year": "2004",
+          "journal-title": "Internat. J. Numer. Methods Engrg."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b39",
+          "series-title": "ReLU deep neural networks and linear finite elements",
+          "author": "He",
+          "year": "2018"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b40",
+          "series-title": "The basis refinement method",
+          "author": "Grinspun",
+          "year": "2003"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b41",
+          "series-title": "Mathematical and Scientific Machine Learning",
+          "first-page": "512",
+          "article-title": "Robust training and initialization of deep neural networks: An adaptive basis viewpoint",
+          "author": "Cyr",
+          "year": "2020"
+        },
+        {
+          "issue": "05",
+          "key": "10.1016/j.cma.2021.114333_b42",
+          "doi-asserted-by": "crossref",
+          "first-page": "715",
+          "DOI": "10.1142/S0219530519410136",
+          "article-title": "Deep ReLU networks and high-order finite element methods",
+          "volume": "18",
+          "author": "Opschoor",
+          "year": "2020",
+          "journal-title": "Anal. Appl."
+        },
+        {
+          "issue": "8/9",
+          "key": "10.1016/j.cma.2021.114333_b43",
+          "doi-asserted-by": "crossref",
+          "first-page": "127",
+          "DOI": "10.1016/0898-1221(90)90270-T",
+          "article-title": "Multiquadrics—A scattered data approximation scheme for applications to computational fluid-dynamics. 1. Surface approximations and partial derivative estimates",
+          "volume": "19",
+          "author": "Kansa",
+          "year": "1990",
+          "journal-title": "Comput. Math. Appl."
+        },
+        {
+          "issue": "8/9",
+          "key": "10.1016/j.cma.2021.114333_b44",
+          "doi-asserted-by": "crossref",
+          "first-page": "147",
+          "DOI": "10.1016/0898-1221(90)90271-K",
+          "article-title": "Multiquadrics—A scattered data approximation scheme for applications to computational fluid-dynamics. 2. Solutions to parabolic, hyperboloc and elliptic partial-differential equations",
+          "volume": "19",
+          "author": "Kansa",
+          "year": "1990",
+          "journal-title": "Comput. Math. Appl."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b45",
+          "series-title": "Radial Basis Functions: Theory and Implementations",
+          "author": "Buhmann",
+          "year": "2003"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b46",
+          "series-title": "Meshfree Approximation Methods in MATLAB",
+          "author": "Fasshauer",
+          "year": "2007"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b47",
+          "doi-asserted-by": "crossref",
+          "first-page": "543",
+          "DOI": "10.1017/S0962492906270016",
+          "article-title": "Kernel techniques: from machine learning to meshless methods",
+          "volume": "15",
+          "author": "Schaback",
+          "year": "2006",
+          "journal-title": "Acta Numer."
+        },
+        {
+          "issue": "13",
+          "key": "10.1016/j.cma.2021.114333_b48",
+          "doi-asserted-by": "crossref",
+          "first-page": "2167",
+          "DOI": "10.1002/nme.1534",
+          "article-title": "Local maximum-entropy approximation schemes: a seamless bridge between finite elements and meshfree methods",
+          "volume": "65",
+          "author": "Arroyo",
+          "year": "2006",
+          "journal-title": "Internat. J. Numer. Methods Engrg."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b49",
+          "doi-asserted-by": "crossref",
+          "first-page": "727",
+          "DOI": "10.1002/(SICI)1097-0207(19970228)40:4<727::AID-NME86>3.0.CO;2-N",
+          "article-title": "The partition of unity method",
+          "volume": "40",
+          "author": "Babuška",
+          "year": "1997",
+          "journal-title": "Internat. J. Numer. Methods Engrg."
+        },
+        {
+          "issue": "1",
+          "key": "10.1016/j.cma.2021.114333_b50",
+          "doi-asserted-by": "crossref",
+          "first-page": "189",
+          "DOI": "10.1007/BF02574375",
+          "article-title": "Optimality of the Delaunay triangulation in Rd",
+          "volume": "12",
+          "author": "Rajan",
+          "year": "1994",
+          "journal-title": "Discrete Comput. Geom."
+        },
+        {
+          "issue": "12",
+          "key": "10.1016/j.cma.2021.114333_b51",
+          "doi-asserted-by": "crossref",
+          "first-page": "2159",
+          "DOI": "10.1002/nme.1193",
+          "article-title": "Construction of polygonal interpolants: a maximum entropy approach",
+          "volume": "61",
+          "author": "Sukumar",
+          "year": "2004",
+          "journal-title": "Internat. J. Numer. Methods Engrg."
+        },
+        {
+          "issue": "1",
+          "key": "10.1016/j.cma.2021.114333_b52",
+          "doi-asserted-by": "crossref",
+          "first-page": "337",
+          "DOI": "10.1063/1.2149812",
+          "article-title": "Maximum entropy approximation",
+          "volume": "803",
+          "author": "Sukumar",
+          "year": "2005",
+          "journal-title": "AIP Conf. Proc."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b53",
+          "series-title": "Meshfree Methods for Partial Differential Equations III",
+          "first-page": "1",
+          "article-title": "Local maximum-entropy approximation schemes",
+          "volume": "vol. 57",
+          "author": "Arroyo",
+          "year": "2007"
+        },
+        {
+          "issue": "2",
+          "key": "10.1016/j.cma.2021.114333_b54",
+          "doi-asserted-by": "crossref",
+          "first-page": "181",
+          "DOI": "10.1002/nme.1885",
+          "article-title": "Overview and construction of meshfree basis functions: From moving least squares to entropy approximants",
+          "volume": "70",
+          "author": "Sukumar",
+          "year": "2007",
+          "journal-title": "Internat. J. Numer. Methods Engrg."
+        },
+        {
+          "issue": "7",
+          "key": "10.1016/j.cma.2021.114333_b55",
+          "doi-asserted-by": "crossref",
+          "first-page": "868",
+          "DOI": "10.1002/nme.2793",
+          "article-title": "On the optimum support size in meshfree methods: a variational adaptivity approach with maximum entropy approximants",
+          "volume": "82",
+          "author": "Rosolen",
+          "year": "2010",
+          "journal-title": "Internat. J. Numer. Methods Engrg."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b56",
+          "doi-asserted-by": "crossref",
+          "first-page": "246",
+          "DOI": "10.1162/neco.1991.3.2.246",
+          "article-title": "Universal approximation using radial-basis-function networks",
+          "volume": "3",
+          "author": "Park",
+          "year": "1991",
+          "journal-title": "Neural Comput."
+        },
+        {
+          "issue": "1",
+          "key": "10.1016/j.cma.2021.114333_b57",
+          "doi-asserted-by": "crossref",
+          "first-page": "164",
+          "DOI": "10.1162/neco.1996.8.1.164",
+          "article-title": "Neural networks for optimal approximation of smooth and analytic functions",
+          "volume": "8",
+          "author": "Mhaskar",
+          "year": "1996",
+          "journal-title": "Neural Comput."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b58",
+          "series-title": "Partition of unity networks: deep hp-approximation",
+          "author": "Lee",
+          "year": "2021"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b59",
+          "doi-asserted-by": "crossref",
+          "DOI": "10.1016/j.jcp.2021.110600",
+          "article-title": "SPINN: Sparse, physics-based, and partially interpretable neural networks for PDEs",
+          "volume": "445",
+          "author": "Ramabathiran",
+          "year": "2021",
+          "journal-title": "J. Comput. Phys."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b60",
+          "doi-asserted-by": "crossref",
+          "DOI": "10.1016/j.cma.2020.113115",
+          "article-title": "High-order maximum-entropy collocation methods",
+          "volume": "367",
+          "author": "Greco",
+          "year": "2020",
+          "journal-title": "Comput. Methods Appl. Mech. Engrg."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b61",
+          "doi-asserted-by": "crossref",
+          "DOI": "10.1016/j.jcp.2020.110085",
+          "article-title": "PFNN: A penalty-free neural network method for solving a class of second-order boundary-value problems on complex geometries",
+          "volume": "428",
+          "author": "Sheng",
+          "year": "2021",
+          "journal-title": "J. Comput. Phys."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b62",
+          "doi-asserted-by": "crossref",
+          "first-page": "96",
+          "DOI": "10.1016/j.neucom.2019.12.099",
+          "article-title": "Physics informed extreme learning machine (PIELM)–a rapid method for the numerical solution of partial differential equations",
+          "volume": "391",
+          "author": "Dwivedi",
+          "year": "2020",
+          "journal-title": "Neuralcomputing"
+        },
+        {
+          "issue": "6",
+          "key": "10.1016/j.cma.2021.114333_b63",
+          "doi-asserted-by": "crossref",
+          "DOI": "10.1115/1.4046892",
+          "article-title": "Solution of biharmonic equation in complicated geometries with physics informed extreme learning machine",
+          "volume": "20",
+          "author": "Dwivedi",
+          "year": "2020",
+          "journal-title": "J. Comput. Inf. Sci. Eng."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b64",
+          "series-title": "Deep Nitsche method: Deep Ritz method with essential boundary conditions",
+          "author": "Liao",
+          "year": "2019"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b65",
+          "series-title": "Meshfree Particle Methods",
+          "author": "Li",
+          "year": "2004"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b66",
+          "doi-asserted-by": "crossref",
+          "first-page": "359",
+          "DOI": "10.1016/0893-6080(89)90020-8",
+          "article-title": "Multilayer feedforward networks are universal approximators",
+          "volume": "2",
+          "author": "Hornik",
+          "year": "1989",
+          "journal-title": "Neural Netw."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b67",
+          "doi-asserted-by": "crossref",
+          "first-page": "251",
+          "DOI": "10.1016/0893-6080(91)90009-T",
+          "article-title": "Approximation capabilities of multilayer perceptrons",
+          "volume": "4",
+          "author": "Hornik",
+          "year": "1991",
+          "journal-title": "Neural Netw."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b68",
+          "series-title": "An Analysis of the Finite Element Method",
+          "author": "Strang",
+          "year": "1973"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b69",
+          "series-title": "On the Pareto front of physics-informed neural networks",
+          "author": "Rohrhofer",
+          "year": "2021"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b70",
+          "series-title": "International Conference on Computational Science",
+          "first-page": "447",
+          "article-title": "NVIDIA SimNet™: An AI-accelerated multi-physics simulation framework",
+          "author": "Hennigh",
+          "year": "2021"
+        },
+        {
+          "issue": "3",
+          "key": "10.1016/j.cma.2021.114333_b71",
+          "doi-asserted-by": "crossref",
+          "DOI": "10.1115/1.3572035",
+          "article-title": "Hybrid method of engineering analysis: Combining meshfree method with distance fields and collocation technique",
+          "volume": "11",
+          "author": "Tsukanov",
+          "year": "2011",
+          "journal-title": "J. Comput. Inf. Sci. Eng."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b72",
+          "series-title": "Level Set Methods and Fast Marching Methods: Evolving Interfaces in Computational Geometry, Fluid Mechanics, Computer Vision, and Materials Science",
+          "author": "Sethian",
+          "year": "1999"
+        },
+        {
+          "issue": "1",
+          "key": "10.1016/j.cma.2021.114333_b73",
+          "doi-asserted-by": "crossref",
+          "first-page": "31",
+          "DOI": "10.1111/1467-8659.114",
+          "article-title": "Bulge elimination in convolution surfaces",
+          "volume": "16",
+          "author": "Bloomenthal",
+          "year": "1997",
+          "journal-title": "Comput. Graph. Forum"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b74",
+          "doi-asserted-by": "crossref",
+          "unstructured": "V. Shapiro, I. Tsukanov, Implicit functions with guaranteed differential properties, in: Proceedings of the Fifth ACM Symposium on Solid Modeling and Applications, 1999, pp. 258–269.",
+          "DOI": "10.1145/304012.304038"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b75",
+          "doi-asserted-by": "crossref",
+          "first-page": "28",
+          "DOI": "10.1016/j.cma.2014.07.012",
+          "article-title": "Algebraic distance estimations for enriched isogeometric analysis",
+          "volume": "280",
+          "author": "Upreti",
+          "year": "2014",
+          "journal-title": "Comput. Methods Appl. Mech. Engrg."
+        },
+        {
+          "issue": "5",
+          "key": "10.1016/j.cma.2021.114333_b76",
+          "doi-asserted-by": "crossref",
+          "first-page": "607",
+          "DOI": "10.1002/nme.6150",
+          "article-title": "Modeling curved interfaces without element-partitioning in the extended finite element method",
+          "volume": "120",
+          "author": "Chin",
+          "year": "2019",
+          "journal-title": "Internat. J. Numer. Methods Engrg."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b77",
+          "series-title": "Transfinite barycentric coordinates",
+          "first-page": "43",
+          "author": "Belyaev",
+          "year": "2017"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b78",
+          "doi-asserted-by": "crossref",
+          "first-page": "161",
+          "DOI": "10.1017/S0962492914000129",
+          "article-title": "Generalized barycentric coordinates and applications",
+          "volume": "24",
+          "author": "Floater",
+          "year": "2015",
+          "journal-title": "Acta Numer."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b79",
+          "series-title": "Barycentric coordinates and their properties",
+          "first-page": "3",
+          "author": "Anisimov",
+          "year": "2017"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b80",
+          "series-title": "Generalized barycentric coordinates in computer graphics and computational mechanics",
+          "year": "2017"
+        },
+        {
+          "issue": "4",
+          "key": "10.1016/j.cma.2021.114333_b81",
+          "doi-asserted-by": "crossref",
+          "first-page": "1424",
+          "DOI": "10.1145/1183287.1183295",
+          "article-title": "Mean value coordinates for arbitrary planar polygons",
+          "volume": "25",
+          "author": "Hormann",
+          "year": "2006",
+          "journal-title": "ACM Trans. Graph."
+        },
+        {
+          "issue": "7",
+          "key": "10.1016/j.cma.2021.114333_b82",
+          "doi-asserted-by": "crossref",
+          "first-page": "1631",
+          "DOI": "10.1016/j.cam.2009.02.103",
+          "article-title": "Transfinite mean value interpolation in general dimension",
+          "volume": "233",
+          "author": "Bruvoll",
+          "year": "2010",
+          "journal-title": "J. Comput. Appl. Math."
+        },
+        {
+          "issue": "3",
+          "key": "10.1016/j.cma.2021.114333_b83",
+          "doi-asserted-by": "crossref",
+          "first-page": "561",
+          "DOI": "10.1145/1073204.1073229",
+          "article-title": "Mean value coordinates for closed triangular meshes",
+          "volume": "24",
+          "author": "Ju",
+          "year": "2005",
+          "journal-title": "ACM Trans. Graph."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b84",
+          "doi-asserted-by": "crossref",
+          "DOI": "10.1016/j.cma.2021.113796",
+          "article-title": "Scaled boundary cubature scheme for numerical integration over planar regions with affine and curved boundaries",
+          "volume": "380",
+          "author": "Chin",
+          "year": "2021",
+          "journal-title": "Comput. Methods Appl. Mech. Engrg."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b85",
+          "series-title": "Proceedings of the 23rd ACM National Conference",
+          "first-page": "517",
+          "article-title": "A two-dimensional interpolation function for irregularly-spaced data",
+          "author": "Shepard",
+          "year": "1968"
+        },
+        {
+          "issue": "6",
+          "key": "10.1016/j.cma.2021.114333_b86",
+          "doi-asserted-by": "crossref",
+          "first-page": "386",
+          "DOI": "10.1037/h0042519",
+          "article-title": "The perceptron: A probabilistic model for information storage and organization in the brain.",
+          "volume": "65",
+          "author": "Rosenblatt",
+          "year": "1958",
+          "journal-title": "Psychol. Rev."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b87",
+          "series-title": "The MNIST database of handwritten digits",
+          "author": "LeCun",
+          "year": "1998"
+        },
+        {
+          "issue": "5",
+          "key": "10.1016/j.cma.2021.114333_b88",
+          "doi-asserted-by": "crossref",
+          "first-page": "258",
+          "DOI": "10.1002/nme.6012",
+          "article-title": "Deep convolutional neural networks for eigenvalue problems in mechanics",
+          "volume": "118",
+          "author": "Finol",
+          "year": "2019",
+          "journal-title": "Internat. J. Numer. Methods Engrg."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b89",
+          "doi-asserted-by": "crossref",
+          "first-page": "1069",
+          "DOI": "10.1016/S0893-6080(09)80018-X",
+          "article-title": "Some new results on neural network approximation",
+          "volume": "6",
+          "author": "Hornik",
+          "year": "1993",
+          "journal-title": "Neural Netw."
+        },
+        {
+          "issue": "33",
+          "key": "10.1016/j.cma.2021.114333_b90",
+          "doi-asserted-by": "crossref",
+          "first-page": "747",
+          "DOI": "10.21105/joss.00747",
+          "article-title": "Nn-svg: Publication-ready neural network architecture schematics",
+          "volume": "4",
+          "author": "LeNail",
+          "year": "2019",
+          "journal-title": "J. Open Sour. Softw."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b91",
+          "series-title": "Adam: A method for stochastic optimization",
+          "author": "Kingma",
+          "year": "2014"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b92",
+          "doi-asserted-by": "crossref",
+          "DOI": "10.1016/j.cma.2019.112790",
+          "article-title": "An energy approach to the solution of partial differential equations in computational mechanics via machine learning: Concepts, implementation and applications",
+          "volume": "362",
+          "author": "Samaniego",
+          "year": "2020",
+          "journal-title": "Comput. Methods Appl. Mech. Engrg."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b93",
+          "series-title": "JAX: composable transformations of Python+NumPy programs",
+          "author": "Bradbury",
+          "year": "2018"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b94",
+          "series-title": "Building Machine Learning and Deep Learning Models on Google Cloud Platform",
+          "first-page": "59",
+          "article-title": "Google colaboratory",
+          "author": "Bisong",
+          "year": "2019"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b95",
+          "series-title": "Dmsh",
+          "author": "Schlömer",
+          "year": "2020"
+        },
+        {
+          "issue": "2",
+          "key": "10.1016/j.cma.2021.114333_b96",
+          "doi-asserted-by": "crossref",
+          "first-page": "329",
+          "DOI": "10.1137/S0036144503429121",
+          "article-title": "A simple mesh generator in MATLAB",
+          "volume": "46",
+          "author": "Persson",
+          "year": "2004",
+          "journal-title": "SIAM Rev."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b97",
+          "series-title": "International Conference on Machine Learning",
+          "first-page": "5301",
+          "article-title": "On the spectral bias of neural networks",
+          "author": "Rahaman",
+          "year": "2019"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b98",
+          "doi-asserted-by": "crossref",
+          "DOI": "10.1016/j.cma.2021.113938",
+          "article-title": "On the eigenvector bias of Fourier feature networks: From regression to solving multi-scale PDEs with physics-informed neural networks",
+          "volume": "384",
+          "author": "Wang",
+          "year": "2021",
+          "journal-title": "Comput. Methods Appl. Mech. Engrg."
+        },
+        {
+          "issue": "3",
+          "key": "10.1016/j.cma.2021.114333_b99",
+          "article-title": "Harmonic coordinates for character articulation",
+          "volume": "26",
+          "author": "Pushkar",
+          "year": "2007",
+          "journal-title": "ACM Trans. Graph."
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b100",
+          "series-title": "Applied Computational Geometry: Towards Geometric Engineering",
+          "first-page": "203",
+          "article-title": "Triangle: Engineering a 2D quality mesh generator and delaunay triangulator",
+          "volume": "vol. 1148",
+          "author": "Shewchuk",
+          "year": "1996"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b101",
+          "series-title": "Theory of Plates and Shells",
+          "author": "Timoshenko",
+          "year": "1959"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b102",
+          "series-title": "A deep collocation method for the bending analysis of Kirchhoff plate",
+          "author": "Guo",
+          "year": "2021"
+        },
+        {
+          "issue": "250",
+          "key": "10.1016/j.cma.2021.114333_b103",
+          "doi-asserted-by": "crossref",
+          "first-page": "603",
+          "DOI": "10.1090/S0025-5718-04-01678-3",
+          "article-title": "A fast sweeping method for Eikonal equations",
+          "volume": "74",
+          "author": "Zhao",
+          "year": "2005",
+          "journal-title": "Math. Comp."
+        },
+        {
+          "issue": "1",
+          "key": "10.1016/j.cma.2021.114333_b104",
+          "doi-asserted-by": "crossref",
+          "first-page": "327",
+          "DOI": "10.1016/j.jcp.2003.11.010",
+          "article-title": "Numerical methods for high dimensional Hamilton–Jacobi equations using radial basis functions",
+          "volume": "196",
+          "author": "Cecil",
+          "year": "2004",
+          "journal-title": "J. Comput. Phys."
+        },
+        {
+          "issue": "2",
+          "key": "10.1016/j.cma.2021.114333_b105",
+          "doi-asserted-by": "crossref",
+          "first-page": "157",
+          "DOI": "10.1093/comjnl/16.2.157",
+          "article-title": "A constructive geometry for computer graphics",
+          "volume": "16",
+          "author": "Ricci",
+          "year": "1973",
+          "journal-title": "Comput. J."
+        },
+        {
+          "issue": "4",
+          "key": "10.1016/j.cma.2021.114333_b106",
+          "doi-asserted-by": "crossref",
+          "first-page": "171",
+          "DOI": "10.1007/s003710050170",
+          "article-title": "Kernel functions in convolution surfaces: a comparative analysis",
+          "volume": "15",
+          "author": "Sherstyuk",
+          "year": "1999",
+          "journal-title": "Vis. Comput."
+        },
+        {
+          "issue": "02",
+          "key": "10.1016/j.cma.2021.114333_b107",
+          "doi-asserted-by": "crossref",
+          "first-page": "135",
+          "DOI": "10.1142/S021865430400064X",
+          "article-title": "Controllable binary CSG operators for “soft objects”",
+          "volume": "10",
+          "author": "Barthe",
+          "year": "2004",
+          "journal-title": "Int. J. Shape Model."
+        },
+        {
+          "issue": "2",
+          "key": "10.1016/j.cma.2021.114333_b108",
+          "doi-asserted-by": "crossref",
+          "first-page": "12:1",
+          "DOI": "10.1145/2451236.2451238",
+          "article-title": "A gradient-based implicit blend",
+          "volume": "32",
+          "author": "Gourmel",
+          "year": "2013",
+          "journal-title": "ACM Trans. Graph."
+        },
+        {
+          "issue": "8",
+          "key": "10.1016/j.cma.2021.114333_b109",
+          "doi-asserted-by": "crossref",
+          "first-page": "104",
+          "DOI": "10.1111/cgf.12611",
+          "article-title": "On variational and PDE-based distance function approximations",
+          "volume": "34",
+          "author": "Belyaev",
+          "year": "2015",
+          "journal-title": "Comput. Graph. Forum"
+        },
+        {
+          "issue": "11",
+          "key": "10.1016/j.cma.2021.114333_b110",
+          "doi-asserted-by": "crossref",
+          "first-page": "90",
+          "DOI": "10.1145/3131280",
+          "article-title": "The heat method for distance computation",
+          "volume": "60",
+          "author": "Crane",
+          "year": "2017",
+          "journal-title": "Commun. ACM"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b111",
+          "series-title": "Numerical Geometry, Grid Generation and Scientific Computing",
+          "first-page": "175",
+          "article-title": "A variational method for accurate distance function estimation",
+          "author": "Belyaev",
+          "year": "2019"
+        },
+        {
+          "key": "10.1016/j.cma.2021.114333_b112",
+          "doi-asserted-by": "crossref",
+          "unstructured": "J.J. Park, P. Florence, J. Straub, R. Newcombe, S. Lovegrove, Deepsdf: Learning continuous signed distance functions for shape representation, in: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2019, pp. 165–174.",
+          "DOI": "10.1109/CVPR.2019.00025"
+        }
+      ],
+      "container-title": [
+        "Computer Methods in Applied Mechanics and Engineering"
+      ],
+      "original-title": [],
+      "language": "en",
+      "link": [
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0045782521006186?httpAccept=text/xml",
+          "content-type": "text/xml",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0045782521006186?httpAccept=text/plain",
+          "content-type": "text/plain",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        }
+      ],
+      "deposited": {
+        "date-parts": [
+          [
+            2025,
+            9,
+            23
+          ]
+        ],
+        "date-time": "2025-09-23T14:59:51Z",
+        "timestamp": 1758639591000
+      },
+      "score": 1,
+      "resource": {
+        "primary": {
+          "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0045782521006186"
+        }
+      },
+      "subtitle": [],
+      "short-title": [],
+      "issued": {
+        "date-parts": [
+          [
+            2022,
+            2
+          ]
+        ]
+      },
+      "references-count": 112,
+      "alternative-id": [
+        "S0045782521006186"
+      ],
+      "URL": "https://doi.org/10.1016/j.cma.2021.114333",
+      "relation": {},
+      "ISSN": [
+        "0045-7825"
+      ],
+      "issn-type": [
+        {
+          "value": "0045-7825",
+          "type": "print"
+        }
+      ],
+      "subject": [],
+      "published": {
+        "date-parts": [
+          [
+            2022,
+            2
+          ]
+        ]
+      },
+      "assertion": [
+        {
+          "value": "Elsevier",
+          "name": "publisher",
+          "label": "This article is maintained by"
+        },
+        {
+          "value": "Exact imposition of boundary conditions with distance functions in physics-informed deep neural networks",
+          "name": "articletitle",
+          "label": "Article Title"
+        },
+        {
+          "value": "Computer Methods in Applied Mechanics and Engineering",
+          "name": "journaltitle",
+          "label": "Journal Title"
+        },
+        {
+          "value": "https://doi.org/10.1016/j.cma.2021.114333",
+          "name": "articlelink",
+          "label": "CrossRef DOI link to publisher maintained version"
+        },
+        {
+          "value": "article",
+          "name": "content_type",
+          "label": "Content Type"
+        },
+        {
+          "value": "© 2021 Elsevier B.V. All rights reserved.",
+          "name": "copyright",
+          "label": "Copyright"
+        }
+      ],
+      "article-number": "114333"
+    }
+  }
+}

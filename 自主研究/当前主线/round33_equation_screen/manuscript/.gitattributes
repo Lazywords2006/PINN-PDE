@@ -21,3 +21,6 @@ process/delivery_source/*.diff -text whitespace=-blank-at-eol,-blank-at-eof,spac
 process/render_complete_revised1_pre/** -text -whitespace
 process/render_complete_revised1a_pre/** -text -whitespace
 process/render_complete_revised1a_v4_pre/** -text -whitespace
+
+# Preserve the complete independent first final-check, including its FAIL verdict.
+integrity/final_revised1/** -text -whitespace

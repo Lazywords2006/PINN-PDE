@@ -1,0 +1,65 @@
+{
+  "created": "2026-10-23T08:53:17.385484+08:00",
+  "files": [
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\drafts\\delivery_candidate.md",
+      "sha256": "aef0c10a1bf19e8703a8066e1f0aaef75600b886777424b9f6545677ccc77eb0",
+      "bytes": 85527
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\SCREEN_PROTOCOL.md",
+      "sha256": "d4042f067e605705570459a7ce9705d8dfe9da26244a620c9d1ec34f3bd990d9",
+      "bytes": 26934
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\E4_PROTOCOL.md",
+      "sha256": "16de99e3f2c03068af6e647e1a8b06c07169b7acee0103705130837a0cc22b2c",
+      "bytes": 13415
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\pinn1d.py",
+      "sha256": "2eb6c8c6b319b96b7345b7af598e23d086175f43f9918cd3ac20514b3553be6d",
+      "bytes": 19390
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\problems.py",
+      "sha256": "9a1bb1fe59ec30fccc7a52ba81fc8820e0db3098beada3cfd511042c6e71b48e",
+      "bytes": 8940
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\stage5_support.py",
+      "sha256": "00bfc228b07ef549526f9268a0130fa8f9a09a73e650ef7d48112b2c2ee78fdf",
+      "bytes": 3322
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\soap_baseline.py",
+      "sha256": "76ce746f81fe006b3782ee413383de6852a033299504ffd5cde0dd8292557ac2",
+      "bytes": 2326
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\third_party\\soap_official.py",
+      "sha256": "6b2328e53fb3cb58cf18b21e706f6f17e7f7dcac83c8abb1053fa74d6e0ca592",
+      "bytes": 19181
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\plot_analytic_layer.py",
+      "sha256": "939dd983a0e825dc09264ff6cc2f8d7d08987c6586a18388b0cad5c26d98006b",
+      "bytes": 5876
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\manuscript\\figures\\plot_historical_comparison.py",
+      "sha256": "b364d0542afe6fafb73e196d4d8a9291fc723560b114281ecf88ce82b52cb303",
+      "bytes": 10835
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\plot_stage6.py",
+      "sha256": "50201b187b6b4357d02fe1e608179e91b4baf4a9e01b6c00f2a81bc1f3269f1f",
+      "bytes": 9967
+    },
+    {
+      "path": "E:\\PINN-PDE\\自主研究\\当前主线\\round33_equation_screen\\validation\\stage6_analysis_20261022\\analyze_stage6.py",
+      "sha256": "a7b0086b6e27517fadcd042e3ee4b5b903f2b60b3d33f286c64eaf70627512eb",
+      "bytes": 31620
+    }
+  ]
+}

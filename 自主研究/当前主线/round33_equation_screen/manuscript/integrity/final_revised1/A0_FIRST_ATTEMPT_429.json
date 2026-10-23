@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-23",
+  "sequence": "第一次audit_extract.py执行；第二次成功请求之前",
+  "endpoint": "https://api.semanticscholar.org/graph/v1/paper/batch?fields=title,authors,year,venue,publicationVenue,journal,externalIds,url",
+  "all_reference_count": 13,
+  "result": {
+    "status": "API_UNAVAILABLE",
+    "error": "<HTTPError 429: ''>",
+    "body": "{\"message\": \"Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form\", \"code\": \"429\"}"
+  },
+  "record_provenance": "本文件准确抄录本轮工具首次执行返回的实际异常；初始文件因提取脚本重跑被第二次结果覆盖，现保留首轮失败。未编造秒级时间。第二次200原始响应见A0_SEMANTIC_SCHOLAR.json。"
+}
